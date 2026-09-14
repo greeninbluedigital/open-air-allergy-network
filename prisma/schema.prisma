@@ -66,7 +66,7 @@ model Provider {
   // see an index on an Unsupported column as schema-declared. Always inspect a
   // freshly generated migration with --create-only first and delete any
   // `DROP INDEX "Provider_geog_idx"` line before applying.
-  geog Unsupported("geography(Point, 4326)")?
+  geog      Unsupported("geography(Point, 4326)")?
 
   phone   String?
   website String?
@@ -131,12 +131,13 @@ model Provider {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  treatments       ProviderTreatment[]
-  badges           ProviderBadge[]
-  faqItems         ProviderFaqItem[]
-  semLandingPages  SemLandingPage[]
-  creditedArticles Article[]           @relation("ArticlesCredited")
-  authors          AuthorProvider[]
+  treatments         ProviderTreatment[]
+  badges             ProviderBadge[]
+  faqItems           ProviderFaqItem[]
+  semLandingPages    SemLandingPage[]
+  creditedArticles   Article[]           @relation("ArticlesCredited")
+  authors            AuthorProvider[]
+  contactSubmissions ContactSubmission[]
 
   @@index([groupId])
   @@index([tier])
@@ -318,4 +319,29 @@ model SiteSetting {
   // PAF config flag (Section 4): house articles (no location) stay included when
   // a PAF radius filter is active, unless this is flipped on later.
   excludeHouseArticlesWhenPafActive Boolean @default(false)
+}
+
+/// PDP "tracked contact form" submissions (Full Profile+ only). Logs Provider
+/// ID + UTM data, per Section 2's analytics requirement — this is the minimal
+/// real persistence for that specific paid feature; the broader GA4 + internal
+/// page-view/phone-click events log is separate, larger, and not built yet.
+model ContactSubmission {
+  id         String @id @default(cuid())
+  providerId String
+
+  firstName String
+  lastName  String
+  email     String
+  phone     String?
+  message   String
+
+  utmSource   String?
+  utmMedium   String?
+  utmCampaign String?
+
+  createdAt DateTime @default(now())
+
+  provider Provider @relation(fields: [providerId], references: [id], onDelete: Cascade)
+
+  @@index([providerId])
 }

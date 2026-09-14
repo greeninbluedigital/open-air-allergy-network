@@ -35,6 +35,9 @@ export default async function FindAProviderPage({
 
   const location = zip ? lookupZip(zip) : null;
   const result = location ? await searchProviders(location.lat, location.lng, radius) : null;
+  const backHref = zip
+    ? `/find-a-provider${buildQuery({ zip, radius: String(radius), view })}`
+    : "/find-a-provider";
 
   return (
     <>
@@ -127,7 +130,7 @@ export default async function FindAProviderPage({
                       </div>
                       <div className="space-y-3">
                         {result.buckets[bucket].map((p) => (
-                          <ProviderCard key={p.id} provider={p} />
+                          <ProviderCard key={p.id} provider={p} backHref={backHref} />
                         ))}
                       </div>
                     </div>

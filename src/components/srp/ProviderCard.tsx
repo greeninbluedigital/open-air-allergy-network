@@ -9,13 +9,20 @@ const TIER_LABEL: Record<SrpProvider["tier"], string | null> = {
   FREE_CLAIMED: null,
 };
 
-export function ProviderCard({ provider }: { provider: SrpProvider }) {
+export function ProviderCard({
+  provider,
+  backHref,
+}: {
+  provider: SrpProvider;
+  /** Preserves zip/radius/view so the PDP's back button can reconstruct this exact search. */
+  backHref: string;
+}) {
   const isFree = provider.tier === "FREE_CLAIMED";
   const tierTag = TIER_LABEL[provider.tier];
 
   return (
     <Link
-      href={`/find-a-provider/${provider.slug}`}
+      href={`/find-a-provider/${provider.slug}?back=${encodeURIComponent(backHref)}`}
       className={`flex gap-3 rounded border p-3.5 ${
         isFree ? "border-dashed border-line bg-bg-alt" : "border-line bg-white"
       }`}
