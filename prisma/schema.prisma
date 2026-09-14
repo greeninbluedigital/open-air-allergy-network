@@ -57,6 +57,16 @@ model Provider {
   // Auto-geocoded (Mapbox) by the sync job; only re-run when the address changes.
   latitude  Float?
   longitude Float?
+  // Derived by a DB trigger from latitude/longitude — see the init migration.
+  // Never written directly; Unsupported so Prisma knows the column exists
+  // without trying to manage its type.
+  //
+  // CAUTION: `prisma migrate dev` on a *new* schema change will propose dropping
+  // "Provider_geog_idx" (the GiST index from the init migration) because it can't
+  // see an index on an Unsupported column as schema-declared. Always inspect a
+  // freshly generated migration with --create-only first and delete any
+  // `DROP INDEX "Provider_geog_idx"` line before applying.
+  geog Unsupported("geography(Point, 4326)")?
 
   phone   String?
   website String?
