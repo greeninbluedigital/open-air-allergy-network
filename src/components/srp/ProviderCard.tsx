@@ -1,0 +1,47 @@
+import Link from "next/link";
+import { Badge } from "@/components/Badge";
+import type { SrpProvider } from "@/lib/srp";
+
+const TIER_LABEL: Record<SrpProvider["tier"], string | null> = {
+  FEATURED: "Featured",
+  FULL_PROFILE: "Full Profile",
+  VERIFIED: null,
+  FREE_CLAIMED: null,
+};
+
+export function ProviderCard({ provider }: { provider: SrpProvider }) {
+  const isFree = provider.tier === "FREE_CLAIMED";
+  const tierTag = TIER_LABEL[provider.tier];
+
+  return (
+    <Link
+      href={`/find-a-provider/${provider.slug}`}
+      className={`flex gap-3 rounded border p-3.5 ${
+        isFree ? "border-dashed border-line bg-bg-alt" : "border-line bg-white"
+      }`}
+    >
+      {!isFree && <div className="h-16 w-16 shrink-0 rounded bg-bg-alt" />}
+      <div className="min-w-0 flex-1">
+        <div className="mb-1.5 flex flex-wrap gap-1.5">
+          {provider.foundingMember && <Badge variant="founder">Founding Member</Badge>}
+          {provider.tier !== "FREE_CLAIMED" && <Badge variant="verified">Verified</Badge>}
+          {provider.geoExtension && <Badge variant="geo">Sees Out-of-Area Patients</Badge>}
+        </div>
+        <div className="truncate text-sm font-bold">
+          {provider.practiceName}
+          {tierTag && (
+            <span className="ml-1.5 text-[10px] font-normal text-muted uppercase">
+              {tierTag}
+            </span>
+          )}
+        </div>
+        <div className="truncate text-xs text-muted">
+          {provider.city}, {provider.state}
+        </div>
+      </div>
+      <div className="shrink-0 text-xs whitespace-nowrap text-muted">
+        {provider.distanceMiles.toFixed(1)} mi
+      </div>
+    </Link>
+  );
+}
