@@ -1,0 +1,311 @@
+// Open Air Allergy Network — database schema
+// See PROJECT_SPEC.md (Section 3, Data Model) for the source of truth this maps to.
+// Lat/Long stay as plain Float columns here; a PostGIS `geography` column and GiST
+// index are added in a follow-up raw-SQL migration and kept in sync by a trigger,
+// since Prisma's schema language doesn't model PostGIS types directly (see
+// prisma/migrations/*_add_postgis/migration.sql once generated).
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum Tier {
+  FREE_CLAIMED
+  VERIFIED
+  FULL_PROFILE
+  FEATURED
+}
+
+enum SubscriptionStatus {
+  ACTIVE
+  PAST_DUE
+  CANCELED
+  INACTIVE
+}
+
+enum ArticleStatus {
+  DRAFT
+  IN_REVIEW
+  APPROVED
+  PUBLISHED
+  // Phase 2: a provider-login actor moves Draft -> Submitted; admin still does
+  // final Approve/Publish. Modeled now so the enum doesn't need a migration later.
+  SUBMITTED
+}
+
+/// One record per physical practice location. Sibling locations under the same
+/// practice/doctor group share `groupId` (a plain string, not a separate table —
+/// nothing besides the shared id is modeled at the group level today).
+model Provider {
+  id     String  @id @default(cuid())
+  slug   String  @unique
+  active Boolean @default(true)
+
+  groupId String?
+
+  practiceName String
+
+  address   String
+  city      String
+  state     String
+  zip       String
+  // Auto-geocoded (Mapbox) by the sync job; only re-run when the address changes.
+  latitude  Float?
+  longitude Float?
+
+  phone   String?
+  website String?
+
+  tier Tier @default(FREE_CLAIMED)
+
+  // Add-ons layered on top of whatever tier the provider already has — not
+  // separate tiers themselves.
+  foundingMember Boolean @default(false)
+  geoExtension   Boolean @default(false)
+
+  // One-time phone confirmation for Free-tier onboarding.
+  verificationDate  DateTime?
+  verificationNotes String?
+
+  // Distinct from verificationDate: auto-updated by the daily sync — bumps to
+  // today whenever subscriptionStatus = ACTIVE, freezes (stops updating) when
+  // inactive. Verified-tier-and-up display only.
+  verifiedAsOf DateTime?
+
+  subscriptionStatus SubscriptionStatus @default(INACTIVE)
+  // Stripe Customer/Subscription ID.
+  billingReference   String?
+  nextBillingDate    DateTime?
+
+  // Default 200; Geo-Extension providers are fixed at 600 (enforced in app logic,
+  // not a DB constraint, since it's a business rule that can have exceptions).
+  searchRadiusMiles Int @default(200)
+
+  offersVideoConsult Boolean @default(false)
+  offersPhoneConsult Boolean @default(false)
+
+  shortBio    String?
+  extendedBio String?
+
+  // Portrait ~4:5 container, object-fit: cover on the frontend.
+  photoUrl           String?
+  secondaryPhotoUrls String[] @default([])
+
+  // Semicolon-segmented free text, e.g. "Tue-Fri: 8am-5pm; Sat: 9am-1pm" — parsed
+  // for display, not normalized into rows (no fixed Mon-Sun grid).
+  businessHours     String?
+  ilitScheduleNotes String?
+
+  // Single value today ("ILIT/Allergy"); a plain string (not an enum) so a future
+  // second vertical doesn't require a migration.
+  vertical String @default("ILIT/Allergy")
+
+  // Only Google is functionally wired up near-term; Yelp/Facebook fields are
+  // reserved so turning them on later is additive, not a rebuild.
+  showGoogleReviews   Boolean @default(false)
+  googlePlaceId       String?
+  showYelpReviews     Boolean @default(false)
+  yelpPlaceId         String?
+  showFacebookReviews Boolean @default(false)
+  facebookPageId      String?
+
+  customField1  String?
+  customField2  String?
+  internalNotes String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  treatments       ProviderTreatment[]
+  badges           ProviderBadge[]
+  faqItems         ProviderFaqItem[]
+  semLandingPages  SemLandingPage[]
+  creditedArticles Article[]           @relation("ArticlesCredited")
+  authors          AuthorProvider[]
+
+  @@index([groupId])
+  @@index([tier])
+  @@index([active])
+  @@index([city, state])
+}
+
+/// Canonical treatments list, scoped per Vertical, normalized from the Sheet's
+/// semicolon-entry field on sync. Powers the future SRP treatment filter.
+model Treatment {
+  id       String @id @default(cuid())
+  vertical String @default("ILIT/Allergy")
+  name     String
+  slug     String
+
+  providers ProviderTreatment[]
+
+  @@unique([vertical, slug])
+}
+
+model ProviderTreatment {
+  providerId  String
+  treatmentId String
+
+  provider  Provider  @relation(fields: [providerId], references: [id], onDelete: Cascade)
+  treatment Treatment @relation(fields: [treatmentId], references: [id], onDelete: Cascade)
+
+  @@id([providerId, treatmentId])
+  @@index([treatmentId])
+}
+
+/// Independent booleans, not tier-derived — a flexible badge slot rather than a
+/// hardcoded fixed set. `type` is a free string (not an enum) so a new badge type
+/// (e.g. a future promo variant) doesn't require a migration. Founding Member has
+/// its own canonical boolean on Provider (it drives the exclusivity radius check);
+/// it is not duplicated here.
+model ProviderBadge {
+  id         String    @id @default(cuid())
+  providerId String
+  // Known values today: "featured", "new", "verified_trust", "promo".
+  type       String
+  label      String?
+  expiresAt  DateTime?
+  createdAt  DateTime  @default(now())
+
+  provider Provider @relation(fields: [providerId], references: [id], onDelete: Cascade)
+
+  @@index([providerId])
+}
+
+/// PDP FAQ — distinct from the Article FAQ. Provider-scoped, Full Profile-and-up
+/// only (enforced in app logic, not here), ~8-10 questions as a soft practical cap.
+model ProviderFaqItem {
+  id         String @id @default(cuid())
+  providerId String
+  question   String
+  answer     String
+  sortOrder  Int    @default(0)
+
+  provider Provider @relation(fields: [providerId], references: [id], onDelete: Cascade)
+
+  @@index([providerId])
+}
+
+/// A real entity, not article-level duplicate fields — stored once, referenced by
+/// every article that person writes. Can link to more than one Provider (a doctor
+/// practicing at multiple locations).
+model Author {
+  id       String  @id @default(cuid())
+  name     String
+  photoUrl String?
+  bio      String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  providers AuthorProvider[]
+  articles  Article[]
+}
+
+model AuthorProvider {
+  authorId   String
+  providerId String
+
+  author   Author   @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  provider Provider @relation(fields: [providerId], references: [id], onDelete: Cascade)
+
+  @@id([authorId, providerId])
+  @@index([providerId])
+}
+
+model Article {
+  id     String        @id @default(cuid())
+  status ArticleStatus @default(DRAFT)
+  slug   String        @unique
+
+  // Nullable — house content may have no specific named author.
+  authorId String?
+  author   Author? @relation(fields: [authorId], references: [id])
+
+  // Explicit field, not derived from the Author's location list — determines the
+  // PDP cross-link and which PDP's "Articles by This Practice" module shows it.
+  providerCreditedId String?
+  providerCredited   Provider? @relation("ArticlesCredited", fields: [providerCreditedId], references: [id])
+
+  // Freeform, counted/sorted by frequency for the Blog's tag filter — a plain
+  // array rather than a normalized Tag table, since tags are intentionally
+  // uncontrolled free text.
+  tags String[] @default([])
+
+  title String
+  body  String
+
+  // Contribution articles: optional, article-specific — never auto-inherited from
+  // the Provider's PDP photo (multi-doctor practices need per-author accuracy).
+  featureImageUrl String?
+  // Falls back to a generic silhouette in the UI if unset — never to the
+  // practice's general PDP photo, for the same multi-doctor-accuracy reason.
+  authorPhotoUrl  String?
+
+  // Admin-settable — locks the article into a specific Article Feed slot
+  // regardless of recency. A free string identifying the feed instance (e.g.
+  // "homepage_recent", "learn_about_ilit_clinical", "blog_featured") rather than
+  // an enum, since new Article Feed instances are expected to keep appearing.
+  pinnedTo String?
+
+  publishedDate DateTime?
+  lastUpdated   DateTime  @updatedAt
+  createdAt     DateTime  @default(now())
+
+  faqItems ArticleFaqItem[]
+
+  @@index([status])
+  @@index([providerCreditedId])
+  @@index([authorId])
+  @@index([publishedDate])
+}
+
+/// Same Q&A structure as the PDP FAQ, Article-scoped, entirely optional.
+model ArticleFaqItem {
+  id        String @id @default(cuid())
+  articleId String
+  question  String
+  answer    String
+  sortOrder Int    @default(0)
+
+  article Article @relation(fields: [articleId], references: [id], onDelete: Cascade)
+
+  @@index([articleId])
+}
+
+/// A Provider can have zero, one, or many SEM landing pages (Geo-Extension: one
+/// per target metro). noindex + excluded from the sitemap — enforced by the page
+/// itself, not the schema.
+model SemLandingPage {
+  id              String  @id @default(cuid())
+  providerId      String
+  targetMetroName String
+  travelNarrative String?
+  urlSlug         String  @unique
+  active          Boolean @default(true)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  provider Provider @relation(fields: [providerId], references: [id], onDelete: Cascade)
+
+  @@index([providerId])
+}
+
+/// Singleton row (id fixed at 1) for the handful of global, site-wide values that
+/// don't belong to any one entity.
+model SiteSetting {
+  id Int @id @default(1)
+
+  // Global shared field, reused across every SEM landing page for every practice.
+  semHeroBlurb String @default("")
+
+  // PAF config flag (Section 4): house articles (no location) stay included when
+  // a PAF radius filter is active, unless this is flipped on later.
+  excludeHouseArticlesWhenPafActive Boolean @default(false)
+}
