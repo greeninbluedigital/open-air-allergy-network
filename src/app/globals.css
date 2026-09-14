@@ -2,7 +2,28 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #222222;
+
+  --color-sand: #f5f1e8;
+  --color-sand-line: #e3dcc9;
+  --color-sage: #4a6350;
+  --color-sage-dark: #3a4f3f;
+
+  --color-line: #dcdcdc;
+  --color-bg-alt: #f4f4f4;
+  --color-muted: #777777;
+  --color-dark-panel: #2e2e2e;
+
+  --color-badge-verified-bg: #dceee0;
+  --color-badge-verified-text: #276b3d;
+  --color-badge-founder-bg: #fdecd2;
+  --color-badge-founder-text: #b45309;
+  --color-badge-geo-bg: #dceef0;
+  --color-badge-geo-text: #1c6b78;
+  --color-badge-contrib-bg: #e6ddf7;
+  --color-badge-contrib-text: #5b34a8;
+  --color-badge-house-bg: #eeeeee;
+  --color-badge-house-text: #666666;
 }
 
 @theme inline {
@@ -10,17 +31,30 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-sand: var(--color-sand);
+  --color-sand-line: var(--color-sand-line);
+  --color-sage: var(--color-sage);
+  --color-sage-dark: var(--color-sage-dark);
+
+  --color-line: var(--color-line);
+  --color-bg-alt: var(--color-bg-alt);
+  --color-muted: var(--color-muted);
+  --color-dark-panel: var(--color-dark-panel);
+
+  --color-badge-verified-bg: var(--color-badge-verified-bg);
+  --color-badge-verified-text: var(--color-badge-verified-text);
+  --color-badge-founder-bg: var(--color-badge-founder-bg);
+  --color-badge-founder-text: var(--color-badge-founder-text);
+  --color-badge-geo-bg: var(--color-badge-geo-bg);
+  --color-badge-geo-text: var(--color-badge-geo-text);
+  --color-badge-contrib-bg: var(--color-badge-contrib-bg);
+  --color-badge-contrib-text: var(--color-badge-contrib-text);
+  --color-badge-house-bg: var(--color-badge-house-bg);
+  --color-badge-house-text: var(--color-badge-house-text);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
 }
