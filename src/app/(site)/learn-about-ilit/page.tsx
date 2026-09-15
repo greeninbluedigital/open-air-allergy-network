@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { ZipSearchForm } from "@/components/ZipSearchForm";
 import { ArticleFeed } from "@/components/ArticleFeed";
-import { SYMPTOMS, TREATMENT_COMPARISON } from "@/lib/content";
+import { SYMPTOMS, TREATMENT_COMPARISON, WHAT_IS_ILIT_COPY } from "@/lib/content";
 
 const LAST_UPDATED = "September 2026";
 
@@ -82,18 +82,7 @@ export default function LearnAboutIlitPage() {
       <div className="grid grid-cols-1 gap-7 border-b border-line px-6 py-8 sm:px-10 md:grid-cols-[2fr_1fr]">
         <div>
           <h2 className="mb-3 text-xl font-bold">What is ILIT?</h2>
-          <p className="text-sm text-foreground/80">
-            Intralymphatic immunotherapy (ILIT) delivers allergen extract
-            directly into a lymph node, where the immune system processes
-            it efficiently. Because of this targeted delivery, a typical
-            ILIT course involves far fewer visits than conventional
-            subcutaneous immunotherapy (SCIT, commonly known as allergy
-            shots). ILIT is administered by trained allergists and
-            immunologists, and — like any allergy treatment — isn&apos;t
-            the right fit for every patient. Providers typically also offer
-            other treatment options, and the best choice is the one you and
-            your doctor decide on together.
-          </p>
+          <p className="text-sm text-foreground/80">{WHAT_IS_ILIT_COPY}</p>
         </div>
         <div className="rounded border border-sand-line bg-sand p-4.5">
           <h3 className="mb-3 text-sm font-bold">

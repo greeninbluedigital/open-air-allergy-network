@@ -128,6 +128,28 @@ async function main() {
     create: { slug: "ilit-vs-scit-vs-slit-a-full-comparison", ...article3Data },
   });
 
+  await db.siteSetting.upsert({
+    where: { id: 1 },
+    update: {},
+    create: {
+      id: 1,
+      semHeroBlurb:
+        "ILIT treats allergies in a handful of visits, not years — worth a conversation with your doctor.",
+    },
+  });
+
+  const lpData = {
+    targetMetroName: "SF Bay Area",
+    travelNarrative:
+      "SFO → Burbank, ~1hr 15min flight. Many patients fly in for same-day appointments.",
+    active: true,
+  };
+  await db.semLandingPage.upsert({
+    where: { providerId_urlSlug: { providerId: featured.id, urlSlug: "sf-bay-area" } },
+    update: lpData,
+    create: { providerId: featured.id, urlSlug: "sf-bay-area", ...lpData },
+  });
+
   console.log("Seed complete:", {
     providers: [featured.slug, verified.slug],
     author: author.name,

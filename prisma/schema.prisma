@@ -301,7 +301,10 @@ model SemLandingPage {
   providerId      String
   targetMetroName String
   travelNarrative String?
-  urlSlug         String  @unique
+  // e.g. "sf-bay-area" — unique per provider (route is
+  // /lp/[provider.slug]/[urlSlug]), not globally. A global @unique here would
+  // mean only one provider site-wide could ever use a given metro slug.
+  urlSlug         String
   active          Boolean @default(true)
 
   createdAt DateTime @default(now())
@@ -309,6 +312,7 @@ model SemLandingPage {
 
   provider Provider @relation(fields: [providerId], references: [id], onDelete: Cascade)
 
+  @@unique([providerId, urlSlug])
   @@index([providerId])
 }
 
