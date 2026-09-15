@@ -5,8 +5,8 @@
       "schedule": "0 9 * * *"
     },
     {
-      "path": "/api/leads/process-pending",
-      "schedule": "*/10 * * * *"
+      "path": "/api/reviews/refresh",
+      "schedule": "0 6 * * *"
     }
   ]
 }

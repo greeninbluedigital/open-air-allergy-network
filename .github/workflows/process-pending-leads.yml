@@ -1,0 +1,22 @@
+name: Process pending leads
+
+# Auto-forwards contact-form leads that haven't confirmed their email within
+# ~60 minutes (Section 4's Stage 2 fallback). Vercel Hobby cron can't run
+# more often than once a day, so this polls the same endpoint externally
+# instead of relying on vercel.json for it. A 15-minute interval leaves
+# plenty of margin against GitHub's own scheduling lag under load, since the
+# ~60-minute target is explicitly approximate, not exact.
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch: {}
+
+jobs:
+  process-pending:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hit /api/leads/process-pending
+        run: |
+          curl -sf -X POST \
+            -H "Authorization: Bearer ${{ secrets.CRON_SECRET }}" \
+            "${{ vars.SITE_URL }}/api/leads/process-pending"

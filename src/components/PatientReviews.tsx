@@ -1,9 +1,13 @@
-import { getGoogleReviews } from "@/lib/googleReviews";
+import type { GoogleReview } from "@/lib/googleReviews";
+import type { Prisma } from "@/generated/prisma/client";
 
 type ReviewsProvider = {
   tier: "FREE_CLAIMED" | "VERIFIED" | "FULL_PROFILE" | "FEATURED";
   showReviews: boolean;
   googlePlaceId: string | null;
+  googleRating: number | null;
+  googleReviewCount: number | null;
+  googleReviewsJson: Prisma.JsonValue | null;
   yelpEmbedCode1: string | null;
   yelpEmbedCode2: string | null;
   yelpEmbedCode3: string | null;
@@ -32,24 +36,20 @@ export function reviewsWouldShow(provider: ReviewsProvider): boolean {
 }
 
 /**
- * aggregateRating schema (Section 6) — prefers Google's live aggregate when
- * available, falls back to the manually-entered Yelp figures. Called
- * separately from the page (not inside <PatientReviews>) so it can feed
- * JSON-LD in the page's <head>; Next.js dedupes the underlying
- * getGoogleReviews() fetch across both call sites within one render.
+ * aggregateRating schema (Section 6) — prefers Google's cached aggregate
+ * when available, falls back to the manually-entered Yelp figures. Reads
+ * straight off the provider row (populated by the daily /api/reviews/refresh
+ * cron), no live API call at request time.
  */
-export async function getAggregateRatingSchema(provider: ReviewsProvider) {
+export function getAggregateRatingSchema(provider: ReviewsProvider) {
   if (provider.tier !== "FEATURED" || !provider.showReviews) return null;
 
-  if (provider.googlePlaceId) {
-    const { aggregateRating, aggregateCount } = await getGoogleReviews(provider.googlePlaceId);
-    if (aggregateRating != null) {
-      return {
-        "@type": "AggregateRating",
-        ratingValue: aggregateRating,
-        reviewCount: aggregateCount ?? undefined,
-      };
-    }
+  if (provider.googleRating != null) {
+    return {
+      "@type": "AggregateRating",
+      ratingValue: provider.googleRating,
+      reviewCount: provider.googleReviewCount ?? undefined,
+    };
   }
 
   if (provider.yelpRating != null) {
@@ -66,14 +66,15 @@ export async function getAggregateRatingSchema(provider: ReviewsProvider) {
 /**
  * Patient Reviews module — Featured tier only, shared verbatim between the
  * PDP and the SEM landing page (Section 3). Capped at 3 reviews per
- * platform, independently (up to 6 total). Google excerpts are live
- * (algorithmically selected, no manual curation); Yelp excerpts are
- * pre-formatted embed HTML a practice/admin pastes in via the Sheet — that
- * embed code is trusted admin-entered content (same trust boundary as
- * photoUrl/extendedBio), not end-user input, which is why rendering it
- * as-is is safe here.
+ * platform, independently (up to 6 total). Google excerpts come from
+ * googleReviewsJson, refreshed daily by /api/reviews/refresh rather than
+ * fetched live per-request (Place Details is billed per call). Yelp
+ * excerpts are pre-formatted embed HTML a practice/admin pastes in via the
+ * Sheet — that embed code is trusted admin-entered content (same trust
+ * boundary as photoUrl/extendedBio), not end-user input, which is why
+ * rendering it as-is is safe here.
  */
-export async function PatientReviews({ provider }: { provider: ReviewsProvider }) {
+export function PatientReviews({ provider }: { provider: ReviewsProvider }) {
   if (provider.tier !== "FEATURED" || !provider.showReviews) return null;
 
   const yelpEmbeds = [provider.yelpEmbedCode1, provider.yelpEmbedCode2, provider.yelpEmbedCode3].filter(
@@ -84,9 +85,7 @@ export async function PatientReviews({ provider }: { provider: ReviewsProvider }
 
   if (!hasYelp && !hasGoogle) return null;
 
-  const { reviews: googleReviews } = hasGoogle
-    ? await getGoogleReviews(provider.googlePlaceId!)
-    : { reviews: [] };
+  const googleReviews = (provider.googleReviewsJson as GoogleReview[] | null) ?? [];
 
   return (
     <div>

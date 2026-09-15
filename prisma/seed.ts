@@ -18,6 +18,16 @@ async function main() {
     notificationEmail: "leads@example.com",
     showReviews: true,
     googlePlaceId: "ChIJN1t_tDeuEmsRUsoyG83frY4",
+    // Stands in for what /api/reviews/refresh would populate — lets the
+    // Reviews module render fully in local dev without a live API key.
+    googleRating: 4.8,
+    googleReviewCount: 63,
+    googleReviewsJson: [
+      { authorName: "Priya S.", rating: 5, text: "The ILIT protocol here got my seasonal allergies under control in a handful of visits. Wish I'd found them years ago." },
+      { authorName: "Marcus T.", rating: 5, text: "Friendly staff, clear explanations, and the treatment actually worked. Highly recommend for anyone tired of daily allergy meds." },
+      { authorName: "Dana K.", rating: 4, text: "Good experience overall. Scheduling ILIT appointments around their Tue/Thu slots took some planning, but worth it." },
+    ],
+    googleReviewsFetchedAt: new Date(),
     yelpRating: 4.5,
     yelpReviewCount: 128,
     tier: "FEATURED" as const,

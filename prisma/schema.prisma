@@ -141,10 +141,17 @@ model Provider {
   // rating is set) rather than a separate per-platform flag.
   showReviews Boolean @default(false)
 
-  // Google: live via the Place Details API (up to 3 of the up to 5 review
-  // objects it returns, algorithmically selected — no manual curation
-  // available). Nothing to store beyond the Place ID.
-  googlePlaceId String?
+  // Google: Place Details API (up to 3 of the up to 5 review objects it
+  // returns, algorithmically selected — no manual curation available).
+  // Fetched by a daily cron (/api/reviews/refresh), not live per-request —
+  // Place Details is billed per call, so caching is a cost control, not just
+  // a performance one. googleRating/googleReviewCount are the place's
+  // aggregate, distinct from any individual review's rating.
+  googlePlaceId          String?
+  googleRating           Float?
+  googleReviewCount      Int?
+  googleReviewsJson      Json?
+  googleReviewsFetchedAt DateTime?
 
   // Yelp: no API/data license — Yelp's own free, first-party "Embed Review"
   // feature generates these per review, manually picked and pasted in.
