@@ -8,6 +8,10 @@ import { PhoneLink } from "@/components/PhoneLink";
 import { ArticleFeed } from "@/components/ArticleFeed";
 import { ContactForm } from "@/components/pdp/ContactForm";
 
+function formatAddress(provider: { address: string; addressLine2: string | null }): string {
+  return provider.addressLine2 ? `${provider.address}, ${provider.addressLine2}` : provider.address;
+}
+
 async function getProvider(slug: string) {
   return db.provider.findUnique({
     where: { slug, active: true },
@@ -82,7 +86,9 @@ export default async function ProviderDetailPage({
         name: provider.practiceName,
         address: {
           "@type": "PostalAddress",
-          streetAddress: provider.address,
+          streetAddress: provider.addressLine2
+            ? `${provider.address}, ${provider.addressLine2}`
+            : provider.address,
           addressLocality: provider.city,
           addressRegion: provider.state,
           postalCode: provider.zip,
@@ -118,7 +124,7 @@ export default async function ProviderDetailPage({
         </Link>
         <h1 className="mb-2 text-2xl font-extrabold">{provider.practiceName}</h1>
         <p className="mb-6 text-sm text-muted">
-          {provider.address}, {provider.city}, {provider.state} {provider.zip}
+          {formatAddress(provider)}, {provider.city}, {provider.state} {provider.zip}
         </p>
         <div className="mb-6 h-40 rounded border border-dashed border-line bg-bg-alt" />
         <Link
@@ -325,7 +331,7 @@ export default async function ProviderDetailPage({
               </>
             )}
             <div className="mt-3.5 border-t border-line pt-3.5 text-xs text-muted">
-              {provider.address}, {provider.city}, {provider.state} {provider.zip}
+              {formatAddress(provider)}, {provider.city}, {provider.state} {provider.zip}
             </div>
             <div className="mt-2.5 h-32 rounded border border-dashed border-line bg-bg-alt" />
           </div>

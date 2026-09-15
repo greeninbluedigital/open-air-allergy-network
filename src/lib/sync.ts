@@ -12,6 +12,7 @@ const COLUMNS = [
   "groupId",
   "practiceName",
   "address",
+  "addressLine2",
   "city",
   "state",
   "zip",
@@ -39,7 +40,7 @@ const COLUMNS = [
   "notes",
 ] as const;
 
-const SHEET_RANGE = "Providers!A2:AC";
+const SHEET_RANGE = "Providers!A2:AD";
 
 const TIER_MAP: Record<string, "FREE_CLAIMED" | "VERIFIED" | "FULL_PROFILE" | "FEATURED"> = {
   "free/claimed": "FREE_CLAIMED",
@@ -158,6 +159,7 @@ export async function runSync(): Promise<SyncSummary> {
         groupId: r.groupId || null,
         practiceName: r.practiceName,
         address: r.address,
+        addressLine2: r.addressLine2 || null,
         city: r.city,
         state: r.state,
         zip: r.zip,

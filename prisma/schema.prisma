@@ -50,13 +50,17 @@ model Provider {
 
   practiceName String
 
-  address   String
-  city      String
-  state     String
-  zip       String
+  address      String
+  // Suite/floor/unit number, e.g. "Suite 200" — kept separate from `address`
+  // so the geocoder only ever sees the street line (suite text can confuse
+  // Mapbox's matching) while display code can still show both.
+  addressLine2 String?
+  city         String
+  state        String
+  zip          String
   // Auto-geocoded (Mapbox) by the sync job; only re-run when the address changes.
-  latitude  Float?
-  longitude Float?
+  latitude     Float?
+  longitude    Float?
   // Derived by a DB trigger from latitude/longitude — see the init migration.
   // Never written directly; Unsupported so Prisma knows the column exists
   // without trying to manage its type.
@@ -66,7 +70,7 @@ model Provider {
   // see an index on an Unsupported column as schema-declared. Always inspect a
   // freshly generated migration with --create-only first and delete any
   // `DROP INDEX "Provider_geog_idx"` line before applying.
-  geog      Unsupported("geography(Point, 4326)")?
+  geog         Unsupported("geography(Point, 4326)")?
 
   phone   String?
   website String?
