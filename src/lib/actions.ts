@@ -41,3 +41,57 @@ export async function submitContactMessage(formData: FormData) {
 
   redirect(`/find-a-provider/${providerSlug}?sent=1`);
 }
+
+/**
+ * For Practices lead capture — the actual top-of-funnel sales conversation
+ * starter (Section 1: high-touch, not self-service). Same plain-form-action
+ * pattern as the PDP contact form.
+ */
+export async function submitPracticeLead(formData: FormData) {
+  const firstName = String(formData.get("firstName") || "").trim();
+  const lastName = String(formData.get("lastName") || "").trim();
+  const practiceName = String(formData.get("practiceName") || "").trim();
+  const email = String(formData.get("email") || "").trim();
+  // Normalize first, then check digit count — more forgiving than matching a
+  // rigid format string against however someone naturally types a phone
+  // number ("(555) 123-4567", "555-123-4567", "5551234567").
+  const phoneDigits = String(formData.get("phone") || "").replace(/\D/g, "");
+  const phoneExt = String(formData.get("phoneExt") || "").trim() || null;
+  const city = String(formData.get("city") || "").trim();
+  const state = String(formData.get("state") || "").trim();
+  const comments = String(formData.get("comments") || "").trim() || null;
+  const utmSource = String(formData.get("utmSource") || "") || null;
+  const utmMedium = String(formData.get("utmMedium") || "") || null;
+  const utmCampaign = String(formData.get("utmCampaign") || "") || null;
+
+  if (
+    !firstName ||
+    !lastName ||
+    !practiceName ||
+    !email ||
+    phoneDigits.length !== 10 ||
+    !city ||
+    !state
+  ) {
+    redirect("/for-practices?error=missing_fields");
+  }
+
+  await db.practiceLead.create({
+    data: {
+      firstName,
+      lastName,
+      practiceName,
+      email,
+      phone: phoneDigits,
+      phoneExt,
+      city,
+      state,
+      comments,
+      utmSource,
+      utmMedium,
+      utmCampaign,
+    },
+  });
+
+  redirect("/for-practices?sent=1");
+}

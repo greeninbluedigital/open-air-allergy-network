@@ -349,3 +349,26 @@ model ContactSubmission {
 
   @@index([providerId])
 }
+
+/// For Practices page lead capture — not tied to an existing Provider (the
+/// practice usually doesn't have a listing yet). High-touch sales
+/// conversation starter per Section 1, not self-service signup.
+model PracticeLead {
+  id String @id @default(cuid())
+
+  firstName    String
+  lastName     String
+  practiceName String
+  email        String
+  phone        String
+  phoneExt     String?
+  city         String
+  state        String
+  comments     String?
+
+  utmSource   String?
+  utmMedium   String?
+  utmCampaign String?
+
+  createdAt DateTime @default(now())
+}
