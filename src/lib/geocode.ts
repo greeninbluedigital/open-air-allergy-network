@@ -21,9 +21,24 @@ export async function geocodeAddress(
     throw new Error(`Mapbox geocoding failed (${res.status}) for "${query}"`);
   }
 
-  const data = (await res.json()) as { features?: { center: [number, number] }[] };
+  const data = (await res.json()) as {
+    features?: { center: [number, number]; relevance: number; place_name: string }[];
+  };
   const feature = data.features?.[0];
   if (!feature) return null;
+
+  // A real, well-formed address scores close to 1.0. A low score means Mapbox
+  // couldn't actually find this address and is guessing from the closest
+  // text match (seen in testing: a fake placeholder address matched a
+  // same-named street on the other side of the country) — better to fail
+  // loudly (caught and logged per-row by sync.ts) than silently write a
+  // wrong lat/long that would place a practice hundreds of miles off.
+  const RELEVANCE_THRESHOLD = 0.5;
+  if (feature.relevance < RELEVANCE_THRESHOLD) {
+    throw new Error(
+      `Low-confidence geocode (${feature.relevance.toFixed(2)}) for "${query}" — closest match was "${feature.place_name}". Check the address.`,
+    );
+  }
 
   const [lng, lat] = feature.center;
   return { lat, lng };
