@@ -173,29 +173,39 @@ export default async function ProviderDetailPage({
         </Link>
       </div>
 
-      {isFullProfilePlus && (
-        <div className="flex flex-col gap-4 px-6 pt-5 sm:px-10 md:flex-row">
-          <div className="relative aspect-4/5 w-full overflow-hidden rounded bg-bg-alt md:w-52 md:shrink-0">
-            {provider.photoUrl && (
-              <Image src={provider.photoUrl} alt={provider.practiceName} fill className="object-cover" />
-            )}
-          </div>
-          <div className="flex-1">
-            <div className="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">
-              Short intro
+      {isFullProfilePlus ? (
+        provider.shortBio && (
+          <div className="flex flex-col gap-4 px-6 pt-5 sm:px-10 md:flex-row">
+            <div className="relative aspect-4/5 w-full overflow-hidden rounded bg-bg-alt md:w-52 md:shrink-0">
+              {provider.photoUrl && (
+                <Image src={provider.photoUrl} alt={provider.practiceName} fill className="object-cover" />
+              )}
             </div>
-            <p className="text-sm text-foreground/80">{provider.shortBio}</p>
-            {provider.secondaryPhotoUrls.length > 0 && (
-              <div className="mt-3.5 flex gap-2.5">
-                {provider.secondaryPhotoUrls.map((url) => (
-                  <div key={url} className="relative h-17 flex-1 overflow-hidden rounded bg-bg-alt">
-                    <Image src={url} alt="" fill className="object-cover" />
-                  </div>
-                ))}
+            <div className="flex-1">
+              <div className="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">
+                Short intro
               </div>
-            )}
+              <p className="text-sm whitespace-pre-line text-foreground/80">{provider.shortBio}</p>
+              {provider.secondaryPhotoUrls.length > 0 && (
+                <div className="mt-3.5 flex gap-2.5">
+                  {provider.secondaryPhotoUrls.map((url) => (
+                    <div key={url} className="relative h-17 flex-1 overflow-hidden rounded bg-bg-alt">
+                      <Image src={url} alt="" fill className="object-cover" />
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
-        </div>
+        )
+      ) : (
+        // Verified (not Full Profile+): short bio only, no photo gallery
+        // (Section 3 — photos are a Full Profile+ inclusion).
+        provider.shortBio && (
+          <p className="px-6 pt-5 text-sm whitespace-pre-line text-foreground/80 sm:px-10">
+            {provider.shortBio}
+          </p>
+        )
       )}
 
       <div className="flex flex-col gap-7 px-6 py-6 md:flex-row sm:px-10">
@@ -203,7 +213,7 @@ export default async function ProviderDetailPage({
           {isFullProfilePlus && (
             <div>
               <h3 className="mb-2 text-base font-bold">About this practice</h3>
-              <p className="text-sm text-foreground/80">{provider.extendedBio}</p>
+              <p className="text-sm whitespace-pre-line text-foreground/80">{provider.extendedBio}</p>
             </div>
           )}
 
@@ -236,7 +246,7 @@ export default async function ProviderDetailPage({
                   </div>
                 ))}
               {provider.ilitScheduleNotes && (
-                <p className="mt-2.5 text-sm text-muted">{provider.ilitScheduleNotes}</p>
+                <p className="mt-2.5 text-sm whitespace-pre-line text-muted">{provider.ilitScheduleNotes}</p>
               )}
             </div>
           )}
@@ -266,7 +276,7 @@ export default async function ProviderDetailPage({
               {provider.faqItems.map((item) => (
                 <div key={item.id} className="border-b border-line py-2.5">
                   <div className="text-sm font-semibold">{item.question}</div>
-                  <div className="mt-1 text-sm text-muted">{item.answer}</div>
+                  <div className="mt-1 text-sm whitespace-pre-line text-muted">{item.answer}</div>
                 </div>
               ))}
               <Link
