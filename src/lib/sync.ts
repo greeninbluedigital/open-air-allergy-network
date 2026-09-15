@@ -42,7 +42,13 @@ const COLUMNS = [
 
 const SHEET_RANGE = "Providers!A2:AD";
 
+// "Freemium" is the business's own term for this tier (bare listing, no
+// other info, unverified) — accepted as a synonym alongside the original
+// "Free/Claimed" spec wording. Patient-facing copy never shows either term
+// (see the SRP page's BUCKET_LABELS) — it's jargon internal to how listings
+// get managed, not something a patient needs to parse.
 const TIER_MAP: Record<string, "FREE_CLAIMED" | "VERIFIED" | "FULL_PROFILE" | "FEATURED"> = {
+  freemium: "FREE_CLAIMED",
   "free/claimed": "FREE_CLAIMED",
   free: "FREE_CLAIMED",
   claimed: "FREE_CLAIMED",

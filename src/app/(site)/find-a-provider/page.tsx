@@ -15,7 +15,10 @@ const RADIUS_VALUES = new Set<number>([20, 30, 40, 50, 75, 100, 150, 200]);
 const BUCKET_LABELS: Record<SrpBucket, string> = {
   premium: "Premium (Full Profile · Featured · Founders — distance only)",
   verified: "Verified — distance only",
-  free: "Free / Claimed (distance only, always last)",
+  // Patient-facing — deliberately not "Free/Claimed" or "Freemium" (internal
+  // tier jargon a patient has no reason to parse); this bucket is the same
+  // distance-sorted-last group either way.
+  free: "Unverified Listings",
 };
 
 function buildQuery(params: Record<string, string | undefined>) {

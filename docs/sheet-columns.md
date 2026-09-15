@@ -16,7 +16,7 @@ text). Column order:
 | H | Zip | |
 | I | Phone | |
 | J | Website | |
-| K | Tier | One of: `Free/Claimed`, `Verified`, `Full Profile`, `Featured` |
+| K | Tier | One of: `Freemium`, `Verified`, `Full Profile`, `Featured` |
 | L | Founding Member | `Y` / `N` |
 | M | Geo-Extension | `Y` / `N` |
 | N | Active | `Y` / `N` |
