@@ -376,3 +376,24 @@ model PracticeLead {
 
   createdAt DateTime @default(now())
 }
+
+/// About page's general contact form — distinct from PracticeLead (practice
+/// signup) and ContactSubmission (patient-to-provider): the catch-all for
+/// press, partnerships, and what the Accessibility Statement footer page
+/// points to. Section 5.
+model GeneralInquiry {
+  id String @id @default(cuid())
+
+  firstName String
+  lastName  String
+  email     String
+  // "General Inquiry" | "Press / Media" | "Partnership" | "Accessibility" | "Other"
+  reason    String
+  message   String
+
+  utmSource   String?
+  utmMedium   String?
+  utmCampaign String?
+
+  createdAt DateTime @default(now())
+}

@@ -95,3 +95,29 @@ export async function submitPracticeLead(formData: FormData) {
 
   redirect("/for-practices?sent=1");
 }
+
+/**
+ * About page's general contact form — the catch-all for press,
+ * partnerships, and accessibility requests, distinct from PracticeLead and
+ * the PDP's ContactSubmission (Section 5).
+ */
+export async function submitGeneralInquiry(formData: FormData) {
+  const firstName = String(formData.get("firstName") || "").trim();
+  const lastName = String(formData.get("lastName") || "").trim();
+  const email = String(formData.get("email") || "").trim();
+  const reason = String(formData.get("reason") || "General Inquiry").trim();
+  const message = String(formData.get("message") || "").trim();
+  const utmSource = String(formData.get("utmSource") || "") || null;
+  const utmMedium = String(formData.get("utmMedium") || "") || null;
+  const utmCampaign = String(formData.get("utmCampaign") || "") || null;
+
+  if (!firstName || !lastName || !email || !message) {
+    redirect("/about?error=missing_fields#contact");
+  }
+
+  await db.generalInquiry.create({
+    data: { firstName, lastName, email, reason, message, utmSource, utmMedium, utmCampaign },
+  });
+
+  redirect("/about?sent=1#contact");
+}
