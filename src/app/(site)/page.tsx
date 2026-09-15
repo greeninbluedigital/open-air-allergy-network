@@ -1,13 +1,12 @@
 import Link from "next/link";
 import { ZipSearchForm } from "@/components/ZipSearchForm";
 import { ArticleFeed } from "@/components/ArticleFeed";
+import { SYMPTOMS as ALL_SYMPTOMS } from "@/lib/content";
 
-const SYMPTOMS = [
-  { icon: "🤧", label: "Sneezing & congestion" },
-  { icon: "👁️", label: "Itchy, watery eyes" },
-  { icon: "🌳", label: "Seasonal pollen reactions" },
-  { icon: "🐾", label: "Pet dander sensitivity" },
-];
+// Homepage gets a compact 4-item subset — Learn About ILIT shows the fuller
+// list (Section design note: "a single row, not the fuller two-column card
+// treatment those pages use").
+const SYMPTOMS = ALL_SYMPTOMS.slice(0, 4);
 
 export default function HomePage() {
   return (
