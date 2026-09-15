@@ -7,6 +7,8 @@ import { Badge } from "@/components/Badge";
 import { PhoneLink } from "@/components/PhoneLink";
 import { ArticleFeed } from "@/components/ArticleFeed";
 import { ContactForm } from "@/components/pdp/ContactForm";
+import { LeadStatusMessage, LeadErrorMessage } from "@/components/pdp/LeadStatusMessage";
+import { PatientReviews, getAggregateRatingSchema } from "@/components/PatientReviews";
 
 function formatAddress(provider: { address: string; addressLine2: string | null }): string {
   return provider.addressLine2 ? `${provider.address}, ${provider.addressLine2}` : provider.address;
@@ -59,6 +61,8 @@ export default async function ProviderDetailPage({
 
   const backHref = typeof sp.back === "string" ? sp.back : "/find-a-provider";
   const sent = sp.sent === "1";
+  const confirmed = sp.confirmed === "1";
+  const error = sp.error === "invalid_email" || sp.error === "missing_fields" ? sp.error : null;
   const utm = {
     source: typeof sp.utm_source === "string" ? sp.utm_source : undefined,
     medium: typeof sp.utm_medium === "string" ? sp.utm_medium : undefined,
@@ -67,7 +71,6 @@ export default async function ProviderDetailPage({
 
   const isVerifiedPlus = provider.tier !== "FREE_CLAIMED";
   const isFullProfilePlus = provider.tier === "FULL_PROFILE" || provider.tier === "FEATURED";
-  const isFeatured = provider.tier === "FEATURED";
 
   const [siblings, faqCount] = await Promise.all([
     isVerifiedPlus && provider.groupId
@@ -78,6 +81,8 @@ export default async function ProviderDetailPage({
       : Promise.resolve([]),
     db.article.count({ where: { providerCreditedId: provider.id, status: "PUBLISHED" } }),
   ]);
+
+  const aggregateRating = isVerifiedPlus ? await getAggregateRatingSchema(provider) : null;
 
   const jsonLd = isVerifiedPlus
     ? {
@@ -99,6 +104,7 @@ export default async function ProviderDetailPage({
         ...(provider.geoExtension
           ? { areaServed: { "@type": "GeoCircle", geoMidpoint: { "@type": "GeoCoordinates", latitude: provider.latitude, longitude: provider.longitude }, geoRadius: "600 mi" } }
           : {}),
+        ...(aggregateRating ? { aggregateRating } : {}),
       }
     : null;
 
@@ -261,14 +267,7 @@ export default async function ProviderDetailPage({
             </div>
           )}
 
-          {isFeatured && provider.showGoogleReviews && (
-            <div>
-              <h3 className="mb-2 text-base font-bold">Patient Reviews</h3>
-              <span className="rounded border border-badge-verified-bg bg-badge-verified-bg/40 px-2.5 py-1 text-xs font-semibold text-badge-verified-text">
-                Google Reviews
-              </span>
-            </div>
-          )}
+          <PatientReviews provider={provider} />
 
           {isFullProfilePlus && provider.faqItems.length > 0 && (
             <div>
@@ -316,10 +315,8 @@ export default async function ProviderDetailPage({
 
         <div className="flex-1">
           <div className="rounded border border-line p-4.5">
-            {sent ? (
-              <p className="text-sm font-semibold text-sage">
-                Thanks — your message has been sent. The practice will be in touch soon.
-              </p>
+            {sent || confirmed ? (
+              <LeadStatusMessage status={sent ? "sent" : "confirmed"} practiceName={provider.practiceName} />
             ) : (
               <>
                 {provider.phone && (
@@ -336,7 +333,17 @@ export default async function ProviderDetailPage({
                   </div>
                 )}
                 {isFullProfilePlus && (
-                  <ContactForm providerId={provider.id} providerSlug={provider.slug} utm={utm} />
+                  <>
+                    {error && (
+                      <LeadErrorMessage error={error} practiceName={provider.practiceName} phone={provider.phone} />
+                    )}
+                    <ContactForm
+                      providerId={provider.id}
+                      providerSlug={provider.slug}
+                      utm={utm}
+                      returnPath={`/find-a-provider/${provider.slug}`}
+                    />
+                  </>
                 )}
               </>
             )}

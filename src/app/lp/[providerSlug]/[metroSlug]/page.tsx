@@ -6,6 +6,8 @@ import { db } from "@/lib/db";
 import { Badge } from "@/components/Badge";
 import { PhoneLink } from "@/components/PhoneLink";
 import { ContactForm } from "@/components/pdp/ContactForm";
+import { LeadStatusMessage, LeadErrorMessage } from "@/components/pdp/LeadStatusMessage";
+import { PatientReviews, reviewsWouldShow } from "@/components/PatientReviews";
 import { SYMPTOMS as ALL_SYMPTOMS, TREATMENT_COMPARISON, WHAT_IS_ILIT_COPY } from "@/lib/content";
 
 const SYMPTOMS = ALL_SYMPTOMS.slice(0, 4);
@@ -39,11 +41,18 @@ export async function generateMetadata({
 
 export default async function SemLandingPage({
   params,
+  searchParams,
 }: PageProps<"/lp/[providerSlug]/[metroSlug]">) {
   const { providerSlug, metroSlug } = await params;
+  const sp = await searchParams;
   const result = await getLandingPage(providerSlug, metroSlug);
   if (!result) notFound();
   const { provider, lp } = result;
+
+  const sent = sp.sent === "1";
+  const confirmed = sp.confirmed === "1";
+  const error = sp.error === "invalid_email" || sp.error === "missing_fields" ? sp.error : null;
+  const returnPath = `/lp/${provider.slug}/${lp.urlSlug}`;
 
   const settings = await db.siteSetting.findUnique({ where: { id: 1 } });
   const whyIlitBlurb = settings?.semHeroBlurb || "";
@@ -165,6 +174,12 @@ export default async function SemLandingPage({
         </Link>
       </div>
 
+      {reviewsWouldShow(provider) && (
+        <div className="border-b border-line px-6 py-8 sm:px-10">
+          <PatientReviews provider={provider} />
+        </div>
+      )}
+
       {lp.travelNarrative && (
         <div className="border-b border-line px-6 py-8 sm:px-10">
           <div className="rounded border border-badge-verified-bg bg-badge-verified-bg/20 p-4.5">
@@ -178,20 +193,34 @@ export default async function SemLandingPage({
 
       <div id="contact-form" className="px-6 py-8 sm:px-10">
         <div className="max-w-md rounded border border-line p-5">
-          {provider.phone && (
-            <div className="mb-2 text-sm">
-              📞 <PhoneLink phone={provider.phone} className="text-[#1c5ea8]" />
-            </div>
+          {sent || confirmed ? (
+            <LeadStatusMessage status={sent ? "sent" : "confirmed"} practiceName={provider.practiceName} />
+          ) : (
+            <>
+              {provider.phone && (
+                <div className="mb-2 text-sm">
+                  📞 <PhoneLink phone={provider.phone} className="text-[#1c5ea8]" />
+                </div>
+              )}
+              {provider.website && (
+                <div className="mb-3 text-sm">
+                  🌐{" "}
+                  <a href={provider.website} target="_blank" rel="noopener noreferrer" className="text-[#1c5ea8]">
+                    {provider.website.replace(/^https?:\/\//, "")}
+                  </a>
+                </div>
+              )}
+              {error && (
+                <LeadErrorMessage error={error} practiceName={provider.practiceName} phone={provider.phone} />
+              )}
+              <ContactForm
+                providerId={provider.id}
+                providerSlug={provider.slug}
+                utm={{}}
+                returnPath={returnPath}
+              />
+            </>
           )}
-          {provider.website && (
-            <div className="mb-3 text-sm">
-              🌐{" "}
-              <a href={provider.website} target="_blank" rel="noopener noreferrer" className="text-[#1c5ea8]">
-                {provider.website.replace(/^https?:\/\//, "")}
-              </a>
-            </div>
-          )}
-          <ContactForm providerId={provider.id} providerSlug={provider.slug} utm={{}} />
         </div>
       </div>
     </>

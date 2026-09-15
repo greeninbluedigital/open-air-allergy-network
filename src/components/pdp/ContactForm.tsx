@@ -5,15 +5,21 @@ export function ContactForm({
   providerId,
   providerSlug,
   utm,
+  returnPath,
 }: {
   providerId: string;
   providerSlug: string;
   utm: { source?: string; medium?: string; campaign?: string };
+  /** Where to redirect back to after submit — the PDP by default, but a SEM
+   * landing page passes its own path so a paid-ad visitor isn't sent
+   * somewhere else (Section 4's post-submission UX standard). */
+  returnPath?: string;
 }) {
   return (
     <form action={submitContactMessage} className="mt-1">
       <input type="hidden" name="providerId" value={providerId} />
       <input type="hidden" name="providerSlug" value={providerSlug} />
+      <input type="hidden" name="returnPath" value={returnPath ?? `/find-a-provider/${providerSlug}`} />
       <input type="hidden" name="utmSource" value={utm.source ?? ""} />
       <input type="hidden" name="utmMedium" value={utm.medium ?? ""} />
       <input type="hidden" name="utmCampaign" value={utm.campaign ?? ""} />

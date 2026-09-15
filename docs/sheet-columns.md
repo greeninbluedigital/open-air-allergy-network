@@ -14,28 +14,34 @@ text). Column order:
 | F | City | |
 | G | State | Two-letter code |
 | H | Zip | |
-| I | Phone | |
+| I | Phone | Patient-facing |
 | J | Website | |
-| K | Tier | One of: `Freemium`, `Verified`, `Full Profile`, `Featured` |
-| L | Founding Member | `Y` / `N` |
-| M | Geo-Extension | `Y` / `N` |
-| N | Active | `Y` / `N` |
-| O | Verification Date | Any parseable date, e.g. `2026-09-01` |
-| P | Verification Notes | |
-| Q | Offers Video Consult | `Y` / `N` |
-| R | Offers Phone Consult | `Y` / `N` |
-| S | Short Bio | |
-| T | Extended Bio | |
-| U | Provider Photo URL | Must already be hosted somewhere (no upload yet) |
-| V | Secondary Photo URLs | Semicolon-separated, up to 4 |
-| W | Business Hours | Semicolon-separated, e.g. `Tue-Fri: 8am-5pm; Sat: 9am-1pm` |
-| X | ILIT Schedule Notes | |
-| Y | Treatments Offered | Semicolon-separated, e.g. `ILIT; SCIT; Food Allergy Testing` |
-| Z | Show Google Reviews | `Y` / `N` |
-| AA | Google Place ID | |
-| AB | Custom Field 1 | |
-| AC | Custom Field 2 | |
-| AD | Notes | Internal only |
+| K | Notification Email | **New** — where lead notifications get sent (not shown publicly). Required for the practice to actually receive PDP/SEM contact-form leads |
+| L | Tier | One of: `Freemium`, `Verified`, `Full Profile`, `Featured` |
+| M | Founding Member | `Y` / `N` |
+| N | Geo-Extension | `Y` / `N` |
+| O | Active | `Y` / `N` |
+| P | Verification Date | Any parseable date, e.g. `2026-09-01` |
+| Q | Verification Notes | |
+| R | Offers Video Consult | `Y` / `N` |
+| S | Offers Phone Consult | `Y` / `N` |
+| T | Short Bio | |
+| U | Extended Bio | |
+| V | Provider Photo URL | Must already be hosted somewhere (no upload yet) |
+| W | Secondary Photo URLs | Semicolon-separated, up to 4 |
+| X | Business Hours | Semicolon-separated, e.g. `Tue-Fri: 8am-5pm; Sat: 9am-1pm` |
+| Y | ILIT Schedule Notes | |
+| Z | Treatments Offered | Semicolon-separated, e.g. `ILIT; SCIT; Food Allergy Testing` |
+| AA | Show Reviews | **Renamed** from "Show Google Reviews" — `Y` / `N`, one master toggle for the whole Patient Reviews module (Featured tier only regardless of this flag). Which platform(s) actually render depends on whether Google Place ID / any Yelp field below is filled in |
+| AB | Google Place ID | |
+| AC | Yelp Embed Code 1 | **New** — paste from Yelp's own free "Embed Review" feature (the "···" menu on any review on Yelp's site). Not the Fusion API |
+| AD | Yelp Embed Code 2 | **New** — same as above |
+| AE | Yelp Embed Code 3 | **New** — same as above. Exactly 3 slots, no more |
+| AF | Yelp Rating | **New** — manually updated, e.g. `4.5`. Yelp has no free first-party rating badge |
+| AG | Yelp Review Count | **New** — manually updated, e.g. `128` |
+| AH | Custom Field 1 | |
+| AI | Custom Field 2 | |
+| AJ | Notes | Internal only |
 
 **Deliberately excluded** (not sheet-managed):
 - Subscription Status, Billing Reference, Next Billing Date — set by Stripe
@@ -44,6 +50,8 @@ text). Column order:
   `Y`), never a manual input.
 - Lat/Long — computed by the sync job via Mapbox geocoding; never enter these
   yourself.
+- Yelp/Google review *content* beyond what's listed above — Google review
+  excerpts are pulled live via an API, not sheet-entered at all.
 
 Share the sheet with the service account's email (**Viewer** access is
 enough — the sync never writes back to the sheet).

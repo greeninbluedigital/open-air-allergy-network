@@ -38,6 +38,15 @@ enum ArticleStatus {
   SUBMITTED
 }
 
+/// PDP/SEM lead email verification (Section 4).
+enum LeadConfirmationStatus {
+  PENDING
+  CONFIRMED
+  // Auto-forwarded by the ~60-minute background job without a confirmation
+  // click — still forwarded, just tagged differently, never silently dropped.
+  UNVERIFIED_FORWARDED
+}
+
 /// One record per physical practice location. Sibling locations under the same
 /// practice/doctor group share `groupId` (a plain string, not a separate table —
 /// nothing besides the shared id is modeled at the group level today).
@@ -72,8 +81,14 @@ model Provider {
   // `DROP INDEX "Provider_geog_idx"` line before applying.
   geog         Unsupported("geography(Point, 4326)")?
 
-  phone   String?
-  website String?
+  phone             String?
+  website           String?
+  // Where lead notifications get forwarded (Section 4's PDP/SEM email
+  // verification flow) — distinct from the patient-facing phone/website;
+  // never displayed publicly. Not called out explicitly in the spec's field
+  // list for this feature, but forwarding a lead by email requires knowing
+  // where to send it, so this is structurally necessary.
+  notificationEmail String?
 
   tier Tier @default(FREE_CLAIMED)
 
@@ -119,12 +134,33 @@ model Provider {
   // second vertical doesn't require a migration.
   vertical String @default("ILIT/Allergy")
 
-  // Only Google is functionally wired up near-term; Yelp/Facebook fields are
-  // reserved so turning them on later is additive, not a rebuild.
-  showGoogleReviews   Boolean @default(false)
-  googlePlaceId       String?
-  showYelpReviews     Boolean @default(false)
-  yelpPlaceId         String?
+  // Patient Reviews module — Featured tier only (enforced in app logic, not
+  // here), a deliberate top-tier differentiator. One master toggle for the
+  // whole module; which platform(s) actually render is presence-based below
+  // (Google shows if googlePlaceId is set, Yelp if any embed code or the
+  // rating is set) rather than a separate per-platform flag.
+  showReviews Boolean @default(false)
+
+  // Google: live via the Place Details API (up to 3 of the up to 5 review
+  // objects it returns, algorithmically selected — no manual curation
+  // available). Nothing to store beyond the Place ID.
+  googlePlaceId String?
+
+  // Yelp: no API/data license — Yelp's own free, first-party "Embed Review"
+  // feature generates these per review, manually picked and pasted in.
+  // Exactly 3 slots (a real field limit, not just a guideline) rather than an
+  // open-ended list. Rating/count are a separate manually-updated concern
+  // from the excerpts, refreshed on the same occasional cadence, since Yelp
+  // has no free first-party rating badge (every third-party option relies on
+  // scraping, a dependency risk worth avoiding).
+  yelpEmbedCode1  String?
+  yelpEmbedCode2  String?
+  yelpEmbedCode3  String?
+  yelpRating      Float?
+  yelpReviewCount Int?
+
+  // Facebook remains excluded — still gated behind Meta App Review and
+  // per-practice OAuth. Reserved so turning it on later is additive.
   showFacebookReviews Boolean @default(false)
   facebookPageId      String?
 
@@ -347,11 +383,25 @@ model ContactSubmission {
   utmMedium   String?
   utmCampaign String?
 
+  // Two-stage lead email verification (Section 4), PDP + SEM landing page
+  // forms specifically. Stage 1 (MX/domain check) happens before a row is
+  // ever created — a structurally-undeliverable address is rejected inline
+  // at submission, never persisted. Everything below is Stage 2.
+  confirmationToken  String                 @unique @default(cuid())
+  confirmationStatus LeadConfirmationStatus @default(PENDING)
+  // Set when the patient clicks the confirmation link.
+  confirmedAt        DateTime?
+  // Set once the lead is actually forwarded to the practice — either at
+  // confirmation click (tagged [Verified]) or by the ~60-minute background
+  // job (tagged [Unverified]), whichever comes first. Null until forwarded.
+  forwardedAt        DateTime?
+
   createdAt DateTime @default(now())
 
   provider Provider @relation(fields: [providerId], references: [id], onDelete: Cascade)
 
   @@index([providerId])
+  @@index([confirmationStatus, createdAt])
 }
 
 /// For Practices page lead capture — not tied to an existing Provider (the

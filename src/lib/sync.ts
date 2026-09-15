@@ -18,6 +18,7 @@ const COLUMNS = [
   "zip",
   "phone",
   "website",
+  "notificationEmail",
   "tier",
   "foundingMember",
   "geoExtension",
@@ -33,14 +34,19 @@ const COLUMNS = [
   "businessHours",
   "ilitScheduleNotes",
   "treatmentsOffered",
-  "showGoogleReviews",
+  "showReviews",
   "googlePlaceId",
+  "yelpEmbedCode1",
+  "yelpEmbedCode2",
+  "yelpEmbedCode3",
+  "yelpRating",
+  "yelpReviewCount",
   "customField1",
   "customField2",
   "notes",
 ] as const;
 
-const SHEET_RANGE = "Providers!A2:AD";
+const SHEET_RANGE = "Providers!A2:AJ";
 
 // "Freemium" is the business's own term for this tier (bare listing, no
 // other info, unverified) — accepted as a synonym alongside the original
@@ -71,6 +77,20 @@ function parseDate(cell: string | undefined): Date | null {
   if (!v) return null;
   const d = new Date(v);
   return Number.isNaN(d.getTime()) ? null : d;
+}
+
+function parseFloat_(cell: string | undefined): number | null {
+  const v = (cell ?? "").trim();
+  if (!v) return null;
+  const n = Number(v);
+  return Number.isFinite(n) ? n : null;
+}
+
+function parseInt_(cell: string | undefined): number | null {
+  const v = (cell ?? "").trim();
+  if (!v) return null;
+  const n = Number.parseInt(v, 10);
+  return Number.isFinite(n) ? n : null;
 }
 
 function parseList(cell: string | undefined): string[] {
@@ -173,6 +193,7 @@ export async function runSync(): Promise<SyncSummary> {
         longitude,
         phone: r.phone || null,
         website: r.website || null,
+        notificationEmail: r.notificationEmail || null,
         tier: parseTier(r.tier),
         foundingMember: parseBool(r.foundingMember),
         geoExtension,
@@ -189,8 +210,13 @@ export async function runSync(): Promise<SyncSummary> {
         secondaryPhotoUrls: parseList(r.secondaryPhotoUrls).slice(0, 4),
         businessHours: r.businessHours || null,
         ilitScheduleNotes: r.ilitScheduleNotes || null,
-        showGoogleReviews: parseBool(r.showGoogleReviews),
+        showReviews: parseBool(r.showReviews),
         googlePlaceId: r.googlePlaceId || null,
+        yelpEmbedCode1: r.yelpEmbedCode1 || null,
+        yelpEmbedCode2: r.yelpEmbedCode2 || null,
+        yelpEmbedCode3: r.yelpEmbedCode3 || null,
+        yelpRating: parseFloat_(r.yelpRating),
+        yelpReviewCount: parseInt_(r.yelpReviewCount),
         customField1: r.customField1 || null,
         customField2: r.customField2 || null,
         internalNotes: r.notes || null,

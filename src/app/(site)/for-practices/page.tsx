@@ -12,6 +12,7 @@ export default async function ForPracticesPage({
 }: PageProps<"/for-practices">) {
   const sp = await searchParams;
   const sent = sp.sent === "1";
+  const error = sp.error === "missing_fields";
   const utm = {
     source: typeof sp.utm_source === "string" ? sp.utm_source : "",
     medium: typeof sp.utm_medium === "string" ? sp.utm_medium : "",
@@ -45,6 +46,11 @@ export default async function ForPracticesPage({
             </p>
           ) : (
             <form action={submitPracticeLead}>
+              {error && (
+                <p className="mb-3.5 rounded border border-badge-founder-bg bg-badge-founder-bg/40 px-3 py-2 text-xs text-badge-founder-text">
+                  Please fill in all required fields and try again.
+                </p>
+              )}
               <input type="hidden" name="utmSource" value={utm.source} />
               <input type="hidden" name="utmMedium" value={utm.medium} />
               <input type="hidden" name="utmCampaign" value={utm.campaign} />

@@ -2,16 +2,27 @@
 
 import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
+import { domainCanReceiveMail } from "@/lib/emailDomainCheck";
+import { sendConfirmationEmail } from "@/lib/leadNotify";
 
 /**
- * PDP "tracked contact form" (Full Profile+ only). Logs Provider ID + UTM
- * data per PROJECT_SPEC.md Section 2. Works as a plain form action so
+ * PDP/SEM "tracked contact form" (Full Profile+ on the PDP; always shown on
+ * SEM landing pages, which are only ever generated for paying tiers). Logs
+ * Provider ID + UTM data per Section 2. Works as a plain form action so
  * submission doesn't require client JS — the character counter is a
  * separate, optional client enhancement (see MessageField.tsx).
+ *
+ * Two-stage lead email verification (Section 4): Stage 1 is a synchronous
+ * MX/domain check here, before anything is persisted — a structurally
+ * undeliverable address is rejected inline, never stored. Stage 2 (double
+ * opt-in, 60-minute auto-forward) starts once the row is created; see
+ * src/app/api/leads/confirm/[token]/route.ts for the confirm side and
+ * src/app/api/leads/process-pending/route.ts for the auto-forward side.
  */
 export async function submitContactMessage(formData: FormData) {
   const providerId = String(formData.get("providerId") || "");
   const providerSlug = String(formData.get("providerSlug") || "");
+  const returnPath = String(formData.get("returnPath") || `/find-a-provider/${providerSlug}`);
   const firstName = String(formData.get("firstName") || "").trim();
   const lastName = String(formData.get("lastName") || "").trim();
   const email = String(formData.get("email") || "").trim();
@@ -22,10 +33,19 @@ export async function submitContactMessage(formData: FormData) {
   const utmCampaign = String(formData.get("utmCampaign") || "") || null;
 
   if (!providerId || !firstName || !lastName || !email || !message) {
-    redirect(`/find-a-provider/${providerSlug}?error=missing_fields`);
+    redirect(`${returnPath}?error=missing_fields`);
   }
 
-  await db.contactSubmission.create({
+  // Stage 1 — reject structurally-undeliverable addresses before persisting
+  // anything. The inline error's phone-number fallback is rendered by the
+  // page itself (it already has the provider's phone in scope), not passed
+  // through the redirect.
+  const canReceiveMail = await domainCanReceiveMail(email);
+  if (!canReceiveMail) {
+    redirect(`${returnPath}?error=invalid_email`);
+  }
+
+  const submission = await db.contactSubmission.create({
     data: {
       providerId,
       firstName,
@@ -37,9 +57,19 @@ export async function submitContactMessage(formData: FormData) {
       utmMedium,
       utmCampaign,
     },
+    include: { provider: { select: { practiceName: true, phone: true, notificationEmail: true } } },
   });
 
-  redirect(`/find-a-provider/${providerSlug}?sent=1`);
+  // Stage 2, step 1 — confirmation email goes out immediately. A failure
+  // here shouldn't lose the lead (it's already persisted) or block the
+  // visitor from seeing the confirmation state, so it's logged, not thrown.
+  try {
+    await sendConfirmationEmail(submission, submission.provider);
+  } catch (err) {
+    console.error("Failed to send lead confirmation email:", err);
+  }
+
+  redirect(`${returnPath}?sent=1`);
 }
 
 /**
