@@ -153,18 +153,31 @@ model Provider {
   googleReviewsJson      Json?
   googleReviewsFetchedAt DateTime?
 
-  // Yelp: no API/data license — Yelp's own free, first-party "Embed Review"
-  // feature generates these per review, manually picked and pasted in.
-  // Exactly 3 slots (a real field limit, not just a guideline) rather than an
-  // open-ended list. Rating/count are a separate manually-updated concern
-  // from the excerpts, refreshed on the same occasional cadence, since Yelp
-  // has no free first-party rating badge (every third-party option relies on
-  // scraping, a dependency risk worth avoiding).
-  yelpEmbedCode1  String?
-  yelpEmbedCode2  String?
-  yelpEmbedCode3  String?
-  yelpRating      Float?
-  yelpReviewCount Int?
+  // Yelp review excerpts: no API/data license — Yelp's own free, first-party
+  // "Embed Review" feature generates these per review, manually picked and
+  // pasted in. Exactly 3 slots (a real field limit, not just a guideline)
+  // rather than an open-ended list.
+  yelpEmbedCode1 String?
+  yelpEmbedCode2 String?
+  yelpEmbedCode3 String?
+
+  // Yelp rating: the Fusion API's Business Info endpoint would give us this
+  // as structured, auto-refreshed data the same way Google's does above, but
+  // Yelp's API is a paid product ($230+/mo minimum) — not worth it yet at
+  // this scale. yelpRatingBadgeEmbed is the free interim path: Yelp's own
+  // free rating-badge widget (or a third-party one), pasted in the same way
+  // as the review embeds above, self-updating on Yelp's end at zero cost.
+  // yelpBusinessId/yelpRating/yelpReviewCount/yelpReviewsFetchedAt exist now
+  // so switching on the paid API later is just setting YELP_API_KEY —
+  // /api/reviews/refresh already has the Yelp branch wired (see
+  // src/lib/yelpReviews.ts), it just no-ops without a key, same as Google
+  // does without GOOGLE_PLACES_API_KEY. yelpRatingBadgeEmbed naturally stops
+  // being read once yelpRating starts being populated by the cron.
+  yelpRatingBadgeEmbed   String?
+  yelpBusinessId         String?
+  yelpRating             Float?
+  yelpReviewCount        Int?
+  yelpReviewsFetchedAt   DateTime?
 
   // Facebook remains excluded — still gated behind Meta App Review and
   // per-practice OAuth. Reserved so turning it on later is additive.

@@ -39,8 +39,8 @@ const COLUMNS = [
   "yelpEmbedCode1",
   "yelpEmbedCode2",
   "yelpEmbedCode3",
-  "yelpRating",
-  "yelpReviewCount",
+  "yelpBusinessId",
+  "yelpRatingBadgeEmbed",
   "customField1",
   "customField2",
   "notes",
@@ -77,20 +77,6 @@ function parseDate(cell: string | undefined): Date | null {
   if (!v) return null;
   const d = new Date(v);
   return Number.isNaN(d.getTime()) ? null : d;
-}
-
-function parseFloat_(cell: string | undefined): number | null {
-  const v = (cell ?? "").trim();
-  if (!v) return null;
-  const n = Number(v);
-  return Number.isFinite(n) ? n : null;
-}
-
-function parseInt_(cell: string | undefined): number | null {
-  const v = (cell ?? "").trim();
-  if (!v) return null;
-  const n = Number.parseInt(v, 10);
-  return Number.isFinite(n) ? n : null;
 }
 
 function parseList(cell: string | undefined): string[] {
@@ -215,8 +201,12 @@ export async function runSync(): Promise<SyncSummary> {
         yelpEmbedCode1: r.yelpEmbedCode1 || null,
         yelpEmbedCode2: r.yelpEmbedCode2 || null,
         yelpEmbedCode3: r.yelpEmbedCode3 || null,
-        yelpRating: parseFloat_(r.yelpRating),
-        yelpReviewCount: parseInt_(r.yelpReviewCount),
+        // Set now so /api/reviews/refresh can start populating a real Yelp
+        // rating the moment YELP_API_KEY is added later — no sync change
+        // needed at that point. yelpRating/yelpReviewCount are cron-managed,
+        // not sheet inputs (see PROJECT_SPEC.md Section 4).
+        yelpBusinessId: r.yelpBusinessId || null,
+        yelpRatingBadgeEmbed: r.yelpRatingBadgeEmbed || null,
         customField1: r.customField1 || null,
         customField2: r.customField2 || null,
         internalNotes: r.notes || null,

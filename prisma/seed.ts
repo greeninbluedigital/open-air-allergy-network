@@ -28,8 +28,17 @@ async function main() {
       { authorName: "Dana K.", rating: 4, text: "Good experience overall. Scheduling ILIT appointments around their Tue/Thu slots took some planning, but worth it." },
     ],
     googleReviewsFetchedAt: new Date(),
-    yelpRating: 4.5,
-    yelpReviewCount: 128,
+    // Today's state: free badge widget, manually pasted (no YELP_API_KEY
+    // yet). yelpBusinessId is filled in now so switching to the paid API
+    // later needs no sheet/data changes, just the env var.
+    yelpRatingBadgeEmbed:
+      '<div style="font:12px sans-serif;border:1px solid #ccc;padding:8px;border-radius:4px;display:inline-block;">★★★★☆ 4.5 (128 reviews) on Yelp</div>',
+    yelpBusinessId: "example-ilit-allergy-center-beverly-hills",
+    // Explicit nulls: upsert's `update` only touches listed fields, and an
+    // earlier seed run set these directly — without this they'd never clear
+    // back to the real "API not active yet" state this demo data represents.
+    yelpRating: null,
+    yelpReviewCount: null,
     tier: "FEATURED" as const,
     foundingMember: true,
     active: true,

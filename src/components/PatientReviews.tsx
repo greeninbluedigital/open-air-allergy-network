@@ -11,6 +11,7 @@ type ReviewsProvider = {
   yelpEmbedCode1: string | null;
   yelpEmbedCode2: string | null;
   yelpEmbedCode3: string | null;
+  yelpRatingBadgeEmbed: string | null;
   yelpRating: number | null;
   yelpReviewCount: number | null;
 };
@@ -29,9 +30,13 @@ function stars(rating: number) {
  */
 export function reviewsWouldShow(provider: ReviewsProvider): boolean {
   if (provider.tier !== "FEATURED" || !provider.showReviews) return false;
-  const hasYelp =
-    Boolean(provider.yelpEmbedCode1 || provider.yelpEmbedCode2 || provider.yelpEmbedCode3) ||
-    provider.yelpRating != null;
+  const hasYelp = Boolean(
+    provider.yelpEmbedCode1 ||
+      provider.yelpEmbedCode2 ||
+      provider.yelpEmbedCode3 ||
+      provider.yelpRatingBadgeEmbed ||
+      provider.yelpRating != null,
+  );
   return hasYelp || Boolean(provider.googlePlaceId);
 }
 
@@ -80,7 +85,7 @@ export function PatientReviews({ provider }: { provider: ReviewsProvider }) {
   const yelpEmbeds = [provider.yelpEmbedCode1, provider.yelpEmbedCode2, provider.yelpEmbedCode3].filter(
     (c): c is string => Boolean(c),
   );
-  const hasYelp = yelpEmbeds.length > 0 || provider.yelpRating != null;
+  const hasYelp = yelpEmbeds.length > 0 || Boolean(provider.yelpRatingBadgeEmbed) || provider.yelpRating != null;
   const hasGoogle = Boolean(provider.googlePlaceId);
 
   if (!hasYelp && !hasGoogle) return null;
@@ -110,11 +115,20 @@ export function PatientReviews({ provider }: { provider: ReviewsProvider }) {
         </span>
       </div>
 
-      {provider.yelpRating != null && (
+      {provider.yelpRating != null ? (
+        // API-sourced (Section 4 future state) — takes priority over the
+        // badge embed below once yelpBusinessId + YELP_API_KEY are active.
         <div className="mb-3 text-xs text-muted">
           Yelp: <span className="font-semibold text-foreground">{provider.yelpRating.toFixed(1)}</span> (
           {provider.yelpReviewCount ?? 0} reviews)
         </div>
+      ) : (
+        provider.yelpRatingBadgeEmbed && (
+          // Free Yelp (or third-party) rating-badge widget, trusted
+          // admin-entered content — same trust boundary as the review
+          // embeds below.
+          <div className="mb-3" dangerouslySetInnerHTML={{ __html: provider.yelpRatingBadgeEmbed }} />
+        )
       )}
 
       {googleReviews.map((r, i) => (

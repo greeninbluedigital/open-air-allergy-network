@@ -37,8 +37,8 @@ text). Column order:
 | AC | Yelp Embed Code 1 | **New** — paste from Yelp's own free "Embed Review" feature (the "···" menu on any review on Yelp's site). Not the Fusion API |
 | AD | Yelp Embed Code 2 | **New** — same as above |
 | AE | Yelp Embed Code 3 | **New** — same as above. Exactly 3 slots, no more |
-| AF | Yelp Rating | **New** — manually updated, e.g. `4.5`. Yelp has no free first-party rating badge |
-| AG | Yelp Review Count | **New** — manually updated, e.g. `128` |
+| AF | Yelp Business ID | **New** — the practice's Yelp business ID or alias (from its Yelp page URL, e.g. `example-ilit-allergy-center-beverly-hills`). Not used yet (see below) — filling it in now means switching on live Yelp ratings later needs no sheet changes |
+| AG | Yelp Rating Badge Embed | **New** — paste a free rating-badge widget snippet (from Yelp for Business, or a free-tier third-party like Elfsight/TagEmbed). Self-updates on the widget's own end at zero cost. Shown only until a real Yelp API rating is active (see below) |
 | AH | Custom Field 1 | |
 | AI | Custom Field 2 | |
 | AJ | Notes | Internal only |
@@ -50,8 +50,11 @@ text). Column order:
   `Y`), never a manual input.
 - Lat/Long — computed by the sync job via Mapbox geocoding; never enter these
   yourself.
-- Yelp/Google review *content* beyond what's listed above — Google review
-  excerpts are pulled live via an API, not sheet-entered at all.
+- Google review *content* and rating — pulled by the daily `/api/reviews/refresh`
+  cron via the Places API, not sheet-entered at all.
+- Yelp rating/review count — cron-managed once `YELP_API_KEY` is set (Yelp's
+  Fusion API is a paid product, not turned on yet). Until then, AG's badge
+  widget is what displays. No sheet change needed when this switches on.
 
 Share the sheet with the service account's email (**Viewer** access is
 enough — the sync never writes back to the sheet).
