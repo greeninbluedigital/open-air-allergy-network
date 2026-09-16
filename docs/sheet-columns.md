@@ -7,7 +7,7 @@ text). Column order:
 | # | Column | Notes |
 |---|--------|-------|
 | A | Slug | Required, unique, url-safe (e.g. `example-ilit-center`) — this is the matching key |
-| B | Group ID | Optional — same value across sibling locations |
+| B | Group ID | Optional — same value across sibling locations. No required format; suggested convention: `<brand-slug>-group` (e.g. `example-ilit-group`) |
 | C | Practice Name | |
 | D | Address | Street address only |
 | E | Address Line 2 | Optional — suite/floor/unit, e.g. `Suite 200`. Kept separate so the geocoder only ever sees the street line |
@@ -27,7 +27,7 @@ text). Column order:
 | S | Offers Phone Consult | `Y` / `N` |
 | T | Short Bio | |
 | U | Extended Bio | |
-| V | Provider Photo URL | Must already be hosted somewhere (no upload yet) |
+| V | Provider Photo URL | Upload to Cloudinary's Media Library (res.cloudinary.com — the only host the site's `next/image` config currently allows) and paste the resulting URL here |
 | W | Secondary Photo URLs | Semicolon-separated, up to 4 |
 | X | Business Hours | Semicolon-separated, e.g. `Tue-Fri: 8am-5pm; Sat: 9am-1pm` |
 | Y | ILIT Schedule Notes | |

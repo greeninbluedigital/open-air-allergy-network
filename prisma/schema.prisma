@@ -499,3 +499,19 @@ model GeneralInquiry {
 
   createdAt DateTime @default(now())
 }
+
+/// The six footer legal pages (Section 9's SEM MinimalFooter carries two of
+/// these — Privacy Notice, Terms — as the minimum a data-collecting form
+/// legally needs). Content lives here, not in code, specifically so the
+/// site owner can edit it directly (Prisma Studio, or straight SQL) as
+/// counsel reviews it, without a git commit + redeploy per wording change.
+model LegalPage {
+  /// Matches the /legal/[slug] route segment and the footer's LEGAL_LINKS.
+  slug     String @id
+  title    String
+  /// Trusted, owner/counsel-authored HTML — same trust boundary as
+  /// extendedBio/Yelp embeds elsewhere in this schema, not end-user input.
+  bodyHtml String
+
+  updatedAt DateTime @updatedAt
+}

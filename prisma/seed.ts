@@ -162,6 +162,49 @@ async function main() {
     },
   });
 
+  // Legal page shells (footer's LEGAL_LINKS) — deliberately placeholder text,
+  // clearly marked as such. Not legal advice, not a substitute for counsel
+  // review; the site owner plans to publish with this draft copy and revise
+  // it as their lawyer reviews the live site. Edit directly via Prisma
+  // Studio (or SQL) — no code change or redeploy needed.
+  const draftNotice =
+    '<p><em>Draft — pending legal review. This page is a placeholder and has not been reviewed by an attorney.</em></p>';
+  const legalPages: { slug: string; title: string; bodyHtml: string }[] = [
+    {
+      slug: "privacy-notice",
+      title: "Privacy Notice",
+      bodyHtml: `${draftNotice}<h2>Information We Collect</h2><p>Placeholder — describe what's collected (contact form fields, UTM/analytics data, etc.).</p><h2>How We Use It</h2><p>Placeholder — describe use (forwarding inquiries to providers, site analytics).</p><h2>Contact Us</h2><p>Placeholder — contact email for privacy questions.</p>`,
+    },
+    {
+      slug: "terms-and-conditions",
+      title: "Terms & Conditions",
+      bodyHtml: `${draftNotice}<h2>Use of This Site</h2><p>Placeholder — general terms of use.</p><h2>No Medical Advice</h2><p>Placeholder — this site is a directory, not a medical provider.</p><h2>Limitation of Liability</h2><p>Placeholder.</p>`,
+    },
+    {
+      slug: "cookie-policy",
+      title: "Cookie Policy",
+      bodyHtml: `${draftNotice}<h2>Cookies We Use</h2><p>Placeholder — describe analytics/tracking cookies (GA4/GTM).</p><h2>Managing Cookies</h2><p>Placeholder.</p>`,
+    },
+    {
+      slug: "privacy-choices",
+      title: "My Privacy Choices",
+      bodyHtml: `${draftNotice}<h2>Your Choices</h2><p>Placeholder — opt-out mechanisms, state-privacy-law disclosures (e.g. CCPA) if applicable.</p>`,
+    },
+    {
+      slug: "medical-disclaimer",
+      title: "Medical Disclaimer",
+      bodyHtml: `${draftNotice}<h2>Not Medical Advice</h2><p>Placeholder — this site does not provide medical advice; consult a licensed provider for treatment decisions.</p>`,
+    },
+    {
+      slug: "accessibility-statement",
+      title: "Accessibility Statement",
+      bodyHtml: `${draftNotice}<h2>Our Commitment</h2><p>Placeholder — accessibility standards targeted (e.g. WCAG 2.1 AA) and contact info for accessibility requests.</p>`,
+    },
+  ];
+  for (const page of legalPages) {
+    await db.legalPage.upsert({ where: { slug: page.slug }, update: page, create: page });
+  }
+
   const lpData = {
     targetMetroName: "SF Bay Area",
     travelNarrative:
