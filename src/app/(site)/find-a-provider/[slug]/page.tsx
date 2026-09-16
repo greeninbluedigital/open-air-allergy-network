@@ -9,6 +9,7 @@ import { ArticleFeed } from "@/components/ArticleFeed";
 import { ContactForm } from "@/components/pdp/ContactForm";
 import { LeadStatusMessage, LeadErrorMessage } from "@/components/pdp/LeadStatusMessage";
 import { PatientReviews, getAggregateRatingSchema } from "@/components/PatientReviews";
+import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 
 function formatAddress(provider: { address: string; addressLine2: string | null }): string {
   return provider.addressLine2 ? `${provider.address}, ${provider.addressLine2}` : provider.address;
@@ -145,6 +146,11 @@ export default async function ProviderDetailPage({
 
   return (
     <>
+      <PageViewTracker
+        providerId={provider.id}
+        path={`/find-a-provider/${provider.slug}`}
+        utm={{ source: utm.source, medium: utm.medium, campaign: utm.campaign }}
+      />
       {jsonLd && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       )}
@@ -321,7 +327,8 @@ export default async function ProviderDetailPage({
               <>
                 {provider.phone && (
                   <div className="mb-2 text-sm">
-                    📞 <PhoneLink phone={provider.phone} className="text-[#1c5ea8]" />
+                    📞{" "}
+                    <PhoneLink phone={provider.phone} className="text-[#1c5ea8]" providerId={provider.id} />
                   </div>
                 )}
                 {provider.website && (
@@ -335,7 +342,12 @@ export default async function ProviderDetailPage({
                 {isFullProfilePlus && (
                   <>
                     {error && (
-                      <LeadErrorMessage error={error} practiceName={provider.practiceName} phone={provider.phone} />
+                      <LeadErrorMessage
+                        error={error}
+                        practiceName={provider.practiceName}
+                        phone={provider.phone}
+                        providerId={provider.id}
+                      />
                     )}
                     <ContactForm
                       providerId={provider.id}

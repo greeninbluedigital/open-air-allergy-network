@@ -198,6 +198,7 @@ model Provider {
   creditedArticles   Article[]           @relation("ArticlesCredited")
   authors            AuthorProvider[]
   contactSubmissions ContactSubmission[]
+  analyticsEvents    AnalyticsEvent[]
 
   @@index([groupId])
   @@index([tier])
@@ -422,6 +423,37 @@ model ContactSubmission {
 
   @@index([providerId])
   @@index([confirmationStatus, createdAt])
+}
+
+enum AnalyticsEventType {
+  PAGE_VIEW
+  PHONE_CLICK
+}
+
+/// Internal events log (PROJECT_SPEC.md's Analytics section) — provider-scoped
+/// page views and phone clicks, UTM-tagged, feeding a future per-practice
+/// reporting view (Featured tier's "analytics reporting" perk) and SEM
+/// campaign performance. Deliberately narrower than a general web-analytics
+/// tool: GA4 (via GTM, see NEXT_PUBLIC_GTM_ID) already covers sitewide
+/// traffic, so this only tracks what needs to survive independently of GA4
+/// for our own product — form submissions are already fully covered by
+/// ContactSubmission (createdAt/confirmedAt/forwardedAt + UTM), not
+/// duplicated here.
+model AnalyticsEvent {
+  id         String             @id @default(cuid())
+  type       AnalyticsEventType
+  providerId String
+  path       String
+
+  utmSource   String?
+  utmMedium   String?
+  utmCampaign String?
+
+  createdAt DateTime @default(now())
+
+  provider Provider @relation(fields: [providerId], references: [id], onDelete: Cascade)
+
+  @@index([providerId, type, createdAt])
 }
 
 /// For Practices page lead capture — not tied to an existing Provider (the

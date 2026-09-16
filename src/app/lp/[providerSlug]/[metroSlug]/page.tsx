@@ -8,6 +8,7 @@ import { PhoneLink } from "@/components/PhoneLink";
 import { ContactForm } from "@/components/pdp/ContactForm";
 import { LeadStatusMessage, LeadErrorMessage } from "@/components/pdp/LeadStatusMessage";
 import { PatientReviews, reviewsWouldShow } from "@/components/PatientReviews";
+import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { SYMPTOMS as ALL_SYMPTOMS, TREATMENT_COMPARISON, WHAT_IS_ILIT_COPY } from "@/lib/content";
 
 const SYMPTOMS = ALL_SYMPTOMS.slice(0, 4);
@@ -53,6 +54,14 @@ export default async function SemLandingPage({
   const confirmed = sp.confirmed === "1";
   const error = sp.error === "invalid_email" || sp.error === "missing_fields" ? sp.error : null;
   const returnPath = `/lp/${provider.slug}/${lp.urlSlug}`;
+  // SEM pages are exclusively paid-traffic entry points (Section 3) — UTM
+  // capture matters more here than anywhere else on the site, so this was a
+  // real gap: ContactForm was passed an empty utm object below until now.
+  const utm = {
+    source: typeof sp.utm_source === "string" ? sp.utm_source : undefined,
+    medium: typeof sp.utm_medium === "string" ? sp.utm_medium : undefined,
+    campaign: typeof sp.utm_campaign === "string" ? sp.utm_campaign : undefined,
+  };
 
   const settings = await db.siteSetting.findUnique({ where: { id: 1 } });
   const whyIlitBlurb = settings?.semHeroBlurb || "";
@@ -69,6 +78,7 @@ export default async function SemLandingPage({
 
   return (
     <>
+      <PageViewTracker providerId={provider.id} path={returnPath} utm={utm} />
       <div className="bg-bg-alt px-6 py-9 text-center sm:px-10">
         <h1 className="mb-2 text-2xl font-extrabold sm:text-[26px]">
           ILIT Available in {provider.city} — a Short Flight from {lp.targetMetroName}
@@ -101,7 +111,7 @@ export default async function SemLandingPage({
           </a>
           {provider.phone && (
             <span className="rounded border border-foreground px-5 py-2.5 text-sm font-semibold">
-              📞 <PhoneLink phone={provider.phone} />
+              📞 <PhoneLink phone={provider.phone} providerId={provider.id} />
             </span>
           )}
         </div>
@@ -199,7 +209,8 @@ export default async function SemLandingPage({
             <>
               {provider.phone && (
                 <div className="mb-2 text-sm">
-                  📞 <PhoneLink phone={provider.phone} className="text-[#1c5ea8]" />
+                  📞{" "}
+                  <PhoneLink phone={provider.phone} className="text-[#1c5ea8]" providerId={provider.id} />
                 </div>
               )}
               {provider.website && (
@@ -211,12 +222,17 @@ export default async function SemLandingPage({
                 </div>
               )}
               {error && (
-                <LeadErrorMessage error={error} practiceName={provider.practiceName} phone={provider.phone} />
+                <LeadErrorMessage
+                  error={error}
+                  practiceName={provider.practiceName}
+                  phone={provider.phone}
+                  providerId={provider.id}
+                />
               )}
               <ContactForm
                 providerId={provider.id}
                 providerSlug={provider.slug}
-                utm={{}}
+                utm={utm}
                 returnPath={returnPath}
               />
             </>

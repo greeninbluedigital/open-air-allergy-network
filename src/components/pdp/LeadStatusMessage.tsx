@@ -31,10 +31,12 @@ export function LeadErrorMessage({
   error,
   practiceName,
   phone,
+  providerId,
 }: {
   error: "missing_fields" | "invalid_email";
   practiceName: string;
   phone: string | null;
+  providerId?: string;
 }) {
   return (
     <p className="mb-3 rounded border border-badge-founder-bg bg-badge-founder-bg/40 px-3 py-2 text-xs text-badge-founder-text">
@@ -44,7 +46,7 @@ export function LeadErrorMessage({
           {phone && (
             <>
               {" "}
-              You can also call {practiceName} at <PhoneLink phone={phone} />.
+              You can also call {practiceName} at <PhoneLink phone={phone} providerId={providerId} />.
             </>
           )}
         </>
