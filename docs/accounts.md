@@ -17,7 +17,7 @@ Google/email account you used for each signup unless you've told me.
 | **Google Analytics (GA4)** | Site analytics | ? | [analytics.google.com](https://analytics.google.com) |
 | **Google Tag Manager** | Manages the GA4/Ads tags on the site | ? | [tagmanager.google.com](https://tagmanager.google.com) |
 | **Mapbox** | Geocoding (sync job) + SRP map tiles | `greeninbluedigital` account | [account.mapbox.com](https://account.mapbox.com) |
-| **Resend** | Transactional email (lead confirmation/forwarding) | ? | [resend.com](https://resend.com) |
+| **Resend** | Transactional email (lead confirmation/forwarding) | Possibly `leads@openairallergynetwork.com` — **check this**: that address forwards to the now-frozen `openairallergynetwork@gmail.com`, so any Resend account-recovery email is currently unreachable. Recommend switching Resend's account email to one you can access. | [resend.com](https://resend.com) |
 | **Cloudflare** | DNS + email routing for openairallergynetwork.com | ? | [dash.cloudflare.com](https://dash.cloudflare.com) |
 | **Cloudinary** | Provider/article photo hosting | `greeninbluedigital@gmail.com` (switched from `openairallergynetwork@gmail.com` after Google froze that account, 2026-09-16) | [console.cloudinary.com](https://console.cloudinary.com) |
 
