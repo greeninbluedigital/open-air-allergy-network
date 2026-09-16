@@ -44,6 +44,9 @@ export async function forwardLeadToPractice(lead: Lead, provider: LeadProvider, 
 
   await sendEmail({
     to: provider.notificationEmail,
+    // So the practice can just hit Reply and land in the patient's own
+    // inbox, instead of replying to the shared sending address.
+    replyTo: lead.email,
     subject: `[${tag}] New inquiry from ${lead.firstName} ${lead.lastName}`,
     html: `
       <p><strong>${tag === "Verified" ? "✓ Verified" : "Unverified"} lead</strong></p>
