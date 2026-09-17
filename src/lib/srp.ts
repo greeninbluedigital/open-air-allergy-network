@@ -79,6 +79,7 @@ async function queryWithinRadius(
         ST_Distance("geog", ST_SetSRID(ST_MakePoint(${lng}, ${lat}), 4326)::geography) AS "distanceMeters"
       FROM "Provider"
       WHERE "active" = true
+        AND "isDemo" = false
         AND "geog" IS NOT NULL
         AND ST_DWithin("geog", ST_SetSRID(ST_MakePoint(${lng}, ${lat}), 4326)::geography, ${radiusMeters})
         ${geoExtensionOnly ? Prisma.sql`AND "geoExtension" = true` : Prisma.empty}

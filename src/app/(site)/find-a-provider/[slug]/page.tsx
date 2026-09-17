@@ -48,6 +48,10 @@ export async function generateMetadata({
       title: provider.practiceName,
       description,
     },
+    // Sales-demo listings (Provider.isDemo) are reachable only by direct
+    // link — this holds even once robots.ts's sitewide block is lifted for
+    // real launch, independent of that.
+    ...(provider.isDemo ? { robots: { index: false, follow: false } } : {}),
   };
 }
 

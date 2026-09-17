@@ -55,6 +55,13 @@ model Provider {
   slug   String  @unique
   active Boolean @default(true)
 
+  // Sales-demo listings (e.g. a "here's what a Featured PDP looks like"
+  // example shown to a prospective client) — reachable only by knowing the
+  // slug directly. Excluded from SRP search results and the sitemap, and
+  // noindex/nofollow on its own PDP metadata (independent of robots.ts's
+  // sitewide block, so this still holds once that's lifted for real launch).
+  isDemo Boolean @default(false)
+
   groupId String?
 
   practiceName String

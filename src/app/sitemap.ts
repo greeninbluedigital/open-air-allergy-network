@@ -28,7 +28,10 @@ const LEGAL_SLUGS = [
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [providers, articles] = await Promise.all([
-    db.provider.findMany({ where: { active: true }, select: { slug: true, updatedAt: true } }),
+    db.provider.findMany({
+      where: { active: true, isDemo: false },
+      select: { slug: true, updatedAt: true },
+    }),
     db.article.findMany({ where: { status: "PUBLISHED" }, select: { slug: true, publishedDate: true } }),
   ]);
 

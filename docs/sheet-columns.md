@@ -42,6 +42,7 @@ text). Column order:
 | AH | Custom Field 1 | |
 | AI | Custom Field 2 | |
 | AJ | Notes | Internal only |
+| AK | Demo/Example Listing | **New** — `Y` / `N`. For sales-demo practices only (showing a prospective client what a PDP/SEM page looks like without using a competitor or a page real traffic could land on). `Y` excludes the listing from SRP search results and the sitemap, and adds `noindex`/`nofollow` to its PDP — reachable only by whoever has the direct link. Use a dedicated Group ID like `example-practice-group` if you want several demo practices grouped for your own reference, but note Group ID's real purpose is cross-linking sibling locations on the PDP ("Other Locations") — don't group unrelated demo practices together or they'll cross-link each other on the page you're showing a client |
 
 **Deliberately excluded** (not sheet-managed):
 - Subscription Status, Billing Reference, Next Billing Date — set by Stripe

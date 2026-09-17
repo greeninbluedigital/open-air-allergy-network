@@ -44,9 +44,10 @@ const COLUMNS = [
   "customField1",
   "customField2",
   "notes",
+  "isDemo",
 ] as const;
 
-const SHEET_RANGE = "Providers!A2:AJ";
+const SHEET_RANGE = "Providers!A2:AK";
 
 // "Freemium" is the business's own term for this tier (bare listing, no
 // other info, unverified) — accepted as a synonym alongside the original
@@ -210,6 +211,12 @@ export async function runSync(): Promise<SyncSummary> {
         customField1: r.customField1 || null,
         customField2: r.customField2 || null,
         internalNotes: r.notes || null,
+        // Sales-demo listing (Section on the SRP/PDP/SEM demo-content
+        // request) — excluded from SRP search + the sitemap, noindexed on
+        // its own PDP. Appended as the sheet's last column rather than
+        // inserted mid-layout, so every already-populated row's existing
+        // columns keep their positions.
+        isDemo: parseBool(r.isDemo),
       };
 
       const provider = await db.provider.upsert({
