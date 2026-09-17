@@ -87,8 +87,8 @@ export default async function FindAProviderPage({
               <p className="mb-1 font-bold">
                 ILIT is still a growing treatment, and not every area has a
                 provider yet. Many ILIT specialists see patients traveling
-                from out of state — here&apos;s what we found within 600
-                miles.
+                from farther away, and some offer remote consultations —
+                here&apos;s what we found within 600 miles.
               </p>
               <p className="text-sm text-muted">
                 No ILIT providers found within 200 miles of {zip}.

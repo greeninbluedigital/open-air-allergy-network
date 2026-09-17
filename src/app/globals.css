@@ -24,6 +24,8 @@
   --color-badge-contrib-text: #5b34a8;
   --color-badge-house-bg: #eeeeee;
   --color-badge-house-text: #666666;
+  --color-badge-consult-bg: #dde8f5;
+  --color-badge-consult-text: #1c5ea8;
 }
 
 @theme inline {
@@ -52,6 +54,8 @@
   --color-badge-contrib-text: var(--color-badge-contrib-text);
   --color-badge-house-bg: var(--color-badge-house-bg);
   --color-badge-house-text: var(--color-badge-house-text);
+  --color-badge-consult-bg: var(--color-badge-consult-bg);
+  --color-badge-consult-text: var(--color-badge-consult-text);
 }
 
 body {

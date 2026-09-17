@@ -168,6 +168,8 @@ export default async function ProviderDetailPage({
             {provider.foundingMember && <Badge variant="founder">Founding Member</Badge>}
             <Badge variant="verified">Verified</Badge>
             {provider.geoExtension && <Badge variant="geo">Sees Out-of-Area Patients</Badge>}
+            {provider.offersVideoConsult && <Badge variant="consult">Video Consults</Badge>}
+            {provider.offersPhoneConsult && <Badge variant="consult">Phone Consults</Badge>}
           </div>
           {isVerifiedPlus && provider.verifiedAsOf && (
             <div className="mb-1 text-xs text-muted">

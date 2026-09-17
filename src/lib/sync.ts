@@ -45,9 +45,10 @@ const COLUMNS = [
   "customField2",
   "notes",
   "isDemo",
+  "srpPhotoUrl",
 ] as const;
 
-const SHEET_RANGE = "Providers!A2:AK";
+const SHEET_RANGE = "Providers!A2:AL";
 
 // "Freemium" is the business's own term for this tier (bare listing, no
 // other info, unverified) — accepted as a synonym alongside the original
@@ -397,6 +398,10 @@ export async function runSync(): Promise<SyncSummary> {
         // inserted mid-layout, so every already-populated row's existing
         // columns keep their positions.
         isDemo: parseBool(r.isDemo),
+        // Deliberately separate from photoUrl — see the schema comment on
+        // Provider.srpPhotoUrl for why a shared image doesn't work well
+        // across the PDP's portrait layout and the SRP card's square one.
+        srpPhotoUrl: r.srpPhotoUrl || null,
       };
 
       const provider = await db.provider.upsert({

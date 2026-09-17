@@ -98,8 +98,8 @@ export default async function SemLandingPage({
         <div className="mb-4 flex flex-wrap justify-center gap-1.5">
           {provider.foundingMember && <Badge variant="founder">Founding Member</Badge>}
           {provider.tier !== "FREE_CLAIMED" && <Badge variant="verified">Verified</Badge>}
-          {offersVideoConsult && <Badge variant="geo">Video Consultations</Badge>}
-          {offersPhoneConsult && <Badge variant="geo">Phone Consultations</Badge>}
+          {offersVideoConsult && <Badge variant="consult">Video Consults</Badge>}
+          {offersPhoneConsult && <Badge variant="consult">Phone Consults</Badge>}
         </div>
         {ctaLine && <p className="mb-3 text-sm font-semibold">{ctaLine}</p>}
         <div className="flex flex-wrap justify-center gap-2.5">

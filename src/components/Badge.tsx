@@ -4,6 +4,7 @@ const VARIANTS = {
   geo: "bg-badge-geo-bg text-badge-geo-text",
   contrib: "bg-badge-contrib-bg text-badge-contrib-text",
   house: "bg-badge-house-bg text-badge-house-text",
+  consult: "bg-badge-consult-bg text-badge-consult-text",
 } as const;
 
 export type BadgeVariant = keyof typeof VARIANTS;

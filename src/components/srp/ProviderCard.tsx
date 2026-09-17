@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Badge } from "@/components/Badge";
 import type { SrpProvider } from "@/lib/srp";
 
@@ -27,12 +28,19 @@ export function ProviderCard({
         isFree ? "border-dashed border-line bg-bg-alt" : "border-line bg-white"
       }`}
     >
-      {!isFree && <div className="h-16 w-16 shrink-0 rounded bg-bg-alt" />}
+      {!isFree && provider.srpPhotoUrl && (
+        <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded bg-bg-alt">
+          <Image src={provider.srpPhotoUrl} alt="" fill className="object-cover" />
+        </div>
+      )}
       <div className="min-w-0 flex-1">
         <div className="mb-1.5 flex flex-wrap gap-1.5">
           {provider.foundingMember && <Badge variant="founder">Founding Member</Badge>}
           {provider.tier !== "FREE_CLAIMED" && <Badge variant="verified">Verified</Badge>}
           {provider.geoExtension && <Badge variant="geo">Sees Out-of-Area Patients</Badge>}
+          {(provider.offersVideoConsult || provider.offersPhoneConsult) && (
+            <Badge variant="consult">Remote Consults</Badge>
+          )}
         </div>
         <div className="truncate text-sm font-bold">
           {provider.practiceName}

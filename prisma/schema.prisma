@@ -131,6 +131,11 @@ model Provider {
   // Portrait ~4:5 container, object-fit: cover on the frontend.
   photoUrl           String?
   secondaryPhotoUrls String[] @default([])
+  // Separate from photoUrl on purpose — the SRP card's thumbnail is a small
+  // square crop, and reusing the ~4:5 PDP photo there scaled/cropped badly.
+  // Null renders nothing on the SRP card (no placeholder box) rather than
+  // an empty box — a real design choice, not an oversight.
+  srpPhotoUrl String?
 
   // Semicolon-segmented free text, e.g. "Tue-Fri: 8am-5pm; Sat: 9am-1pm" — parsed
   // for display, not normalized into rows (no fixed Mon-Sun grid).
