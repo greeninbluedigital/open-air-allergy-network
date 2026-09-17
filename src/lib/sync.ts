@@ -208,6 +208,90 @@ async function syncSemLandingPages(): Promise<LandingPageSyncSummary> {
   return summary;
 }
 
+// Third sheet tab — one row per FAQ. Unlike Providers/SEM Landing Pages,
+// this is deliberately wipe-and-recreate per provider (same pattern as
+// syncTreatments above), not upsert-by-key: a question has no natural
+// stable identity the way a URL slug does, so editing a question's wording
+// would look like a brand-new FAQ under an upsert-by-key scheme, and
+// deleting a sheet row would never delete anything. Wiping and recreating
+// each mentioned provider's full FAQ set every sync means editing or
+// deleting a row in the sheet behaves exactly as expected.
+const FAQ_COLUMNS = ["providerSlug", "question", "answer", "sortOrder"] as const;
+const FAQ_SHEET_RANGE = "FAQs!A2:D";
+
+function parseFaqRow(row: string[]): Record<(typeof FAQ_COLUMNS)[number], string> {
+  const record = {} as Record<(typeof FAQ_COLUMNS)[number], string>;
+  FAQ_COLUMNS.forEach((key, i) => {
+    record[key] = row[i] ?? "";
+  });
+  return record;
+}
+
+export type FaqSyncSummary = {
+  providersUpdated: number;
+  itemsSynced: number;
+  skipped: number;
+  errors: string[];
+};
+
+async function syncFaqs(): Promise<FaqSyncSummary> {
+  const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
+  if (!spreadsheetId) throw new Error("GOOGLE_SHEETS_SPREADSHEET_ID is not set");
+
+  const rawRows = await fetchSheetRows(spreadsheetId, FAQ_SHEET_RANGE);
+  const summary: FaqSyncSummary = { providersUpdated: 0, itemsSynced: 0, skipped: 0, errors: [] };
+
+  // Group by provider slug first — sheet row order is the fallback sort
+  // order when the Sort Order column is left blank.
+  const byProvider = new Map<string, { question: string; answer: string; sortOrder: number }[]>();
+  rawRows.forEach((row, i) => {
+    const r = parseFaqRow(row);
+    const providerSlug = r.providerSlug.trim();
+    const question = r.question.trim();
+    const answer = r.answer.trim();
+    if (!providerSlug || !question || !answer) {
+      summary.skipped++;
+      return;
+    }
+    const parsedSortOrder = Number.parseInt(r.sortOrder.trim(), 10);
+    const sortOrder = Number.isFinite(parsedSortOrder) ? parsedSortOrder : i;
+    const list = byProvider.get(providerSlug) ?? [];
+    list.push({ question, answer, sortOrder });
+    byProvider.set(providerSlug, list);
+  });
+
+  for (const [providerSlug, items] of byProvider) {
+    try {
+      const provider = await db.provider.findUnique({ where: { slug: providerSlug } });
+      if (!provider) {
+        summary.errors.push(`${providerSlug}: no provider with slug "${providerSlug}"`);
+        continue;
+      }
+
+      await db.$transaction([
+        db.providerFaqItem.deleteMany({ where: { providerId: provider.id } }),
+        ...items.map((item) =>
+          db.providerFaqItem.create({
+            data: {
+              providerId: provider.id,
+              question: item.question,
+              answer: item.answer,
+              sortOrder: item.sortOrder,
+            },
+          }),
+        ),
+      ]);
+
+      summary.providersUpdated++;
+      summary.itemsSynced += items.length;
+    } catch (err) {
+      summary.errors.push(`${providerSlug}: ${(err as Error).message}`);
+    }
+  }
+
+  return summary;
+}
+
 export type SyncSummary = {
   created: number;
   updated: number;
@@ -215,6 +299,7 @@ export type SyncSummary = {
   skipped: number;
   errors: string[];
   landingPages: LandingPageSyncSummary;
+  faqs: FaqSyncSummary;
 };
 
 export async function runSync(): Promise<SyncSummary> {
@@ -229,6 +314,7 @@ export async function runSync(): Promise<SyncSummary> {
     skipped: 0,
     errors: [],
     landingPages: { created: 0, updated: 0, skipped: 0, errors: [] },
+    faqs: { providersUpdated: 0, itemsSynced: 0, skipped: 0, errors: [] },
   };
 
   for (const row of rawRows) {
@@ -331,12 +417,18 @@ export async function runSync(): Promise<SyncSummary> {
     }
   }
 
-  // A missing "SEM Landing Pages" tab (or any other failure here) must never
-  // take down the provider sync above, which already succeeded.
+  // A missing sheet tab (or any other failure in either of these) must
+  // never take down the provider sync above, which already succeeded.
   try {
     summary.landingPages = await syncSemLandingPages();
   } catch (err) {
     summary.landingPages.errors.push((err as Error).message);
+  }
+
+  try {
+    summary.faqs = await syncFaqs();
+  } catch (err) {
+    summary.faqs.errors.push((err as Error).message);
   }
 
   return summary;

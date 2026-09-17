@@ -12,12 +12,13 @@ export const metadata: Metadata = {
 
 const RADIUS_VALUES = new Set<number>([20, 30, 40, 50, 75, 100, 150, 200]);
 
+// Patient-facing — deliberately no internal tier names (Full Profile,
+// Featured, Founders), pricing implications, or sort-order mechanics (all
+// three buckets are actually distance-sorted only, but that's an
+// implementation detail, not something a patient needs to know).
 const BUCKET_LABELS: Record<SrpBucket, string> = {
-  premium: "Premium (Full Profile · Featured · Founders — distance only)",
-  verified: "Verified — distance only",
-  // Patient-facing — deliberately not "Free/Claimed" or "Freemium" (internal
-  // tier jargon a patient has no reason to parse); this bucket is the same
-  // distance-sorted-last group either way.
+  premium: "Featured Providers",
+  verified: "Verified Providers",
   free: "Unverified Listings",
 };
 
@@ -84,13 +85,13 @@ export default async function FindAProviderPage({
           {result.mode !== "normal" && result.mode !== "none" && (
             <div className="border-b border-line px-6 py-5 sm:px-10">
               <p className="mb-1 font-bold">
-                No ILIT providers found within 200 miles of {zip}.
-              </p>
-              <p className="text-sm text-muted">
                 ILIT is still a growing treatment, and not every area has a
                 provider yet. Many ILIT specialists see patients traveling
                 from out of state — here&apos;s what we found within 600
                 miles.
+              </p>
+              <p className="text-sm text-muted">
+                No ILIT providers found within 200 miles of {zip}.
               </p>
             </div>
           )}

@@ -1,5 +1,6 @@
 import type { GoogleReview } from "@/lib/googleReviews";
 import type { Prisma } from "@/generated/prisma/client";
+import { YelpEmbed } from "@/components/pdp/YelpEmbed";
 
 type ReviewsProvider = {
   tier: "FREE_CLAIMED" | "VERIFIED" | "FULL_PROFILE" | "FEATURED";
@@ -97,8 +98,8 @@ export function PatientReviews({ provider }: { provider: ReviewsProvider }) {
       <h3 className="mb-2 text-base font-bold">Patient Reviews</h3>
 
       {hasGoogle && provider.googleRating != null && (
-        <div className="mb-2 text-xs text-muted">
-          Google: <span className="font-semibold text-foreground">{stars(provider.googleRating)}</span>{" "}
+        <div className="mb-2 text-sm text-muted">
+          Google: <span className="text-[#e0a11c]">{stars(provider.googleRating)}</span>{" "}
           <span className="font-semibold text-foreground">{provider.googleRating.toFixed(1)}</span> (
           {provider.googleReviewCount ?? 0} reviews)
         </div>
@@ -135,7 +136,7 @@ export function PatientReviews({ provider }: { provider: ReviewsProvider }) {
         // Trusted admin-entered embed HTML from Yelp's own "Embed Review"
         // feature (same trust boundary as photoUrl/extendedBio), not
         // end-user input — safe to render as-is.
-        <div key={`y-${i}`} className="mb-2.5" dangerouslySetInnerHTML={{ __html: embed }} />
+        <YelpEmbed key={`y-${i}`} html={embed} className="mb-2.5" />
       ))}
     </div>
   );

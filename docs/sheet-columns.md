@@ -77,3 +77,27 @@ onward is data, same position-based rule as the Providers tab.
 
 Like the Providers tab, sync only ever creates/updates rows here, never
 deletes — `(Provider Slug, URL Slug)` is the matching key.
+
+## Third tab: "FAQs"
+
+Tab name must be exactly **"FAQs"**. One row per question. **Unlike the two
+tabs above, this one behaves as a full replace, not an upsert**: on every
+sync, each practice's entire set of FAQs in Prisma is wiped and recreated
+from whatever's currently in the sheet for that practice. That's
+deliberate — a question has no natural stable identity the way a URL slug
+does, so this is the only way editing or deleting a row here actually
+takes effect. Row 1 is headers, row 2 onward is data.
+
+| # | Column | Notes |
+|---|--------|-------|
+| A | Provider Slug | Must match an existing row's Slug on the Providers tab |
+| B | Question | |
+| C | Answer | |
+| D | Sort Order | Optional — a number controlling display order. Leave blank and the sheet's own row order is used instead |
+
+Practical implication of the full-replace behavior: don't leave a practice's
+FAQ rows half-edited mid-session if you can help it — a sync running while
+you're only partway through editing will recreate that practice's FAQs from
+whatever's currently saved in the sheet at that moment, blank rows and all
+(a row missing a Question or Answer is just skipped, not treated as
+"delete everything").
