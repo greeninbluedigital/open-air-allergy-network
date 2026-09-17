@@ -122,12 +122,99 @@ async function syncTreatments(providerId: string, names: string[]) {
   ]);
 }
 
+// Second sheet tab — one row per SEM landing page. A practice can have any
+// number of these (one per target metro), keyed by (Provider Slug, URL
+// Slug). Never deleted on sync, only upserted — same convention as the
+// Providers tab: use the Active column to take one down rather than
+// removing its row.
+const SEM_LP_COLUMNS = [
+  "providerSlug",
+  "urlSlug",
+  "targetMetroName",
+  "travelNarrative",
+  "active",
+] as const;
+
+const SEM_LP_SHEET_RANGE = "SEM Landing Pages!A2:E";
+
+function parseSemLpRow(row: string[]): Record<(typeof SEM_LP_COLUMNS)[number], string> {
+  const record = {} as Record<(typeof SEM_LP_COLUMNS)[number], string>;
+  SEM_LP_COLUMNS.forEach((key, i) => {
+    record[key] = row[i] ?? "";
+  });
+  return record;
+}
+
+export type LandingPageSyncSummary = {
+  created: number;
+  updated: number;
+  skipped: number;
+  errors: string[];
+};
+
+async function syncSemLandingPages(): Promise<LandingPageSyncSummary> {
+  const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
+  if (!spreadsheetId) throw new Error("GOOGLE_SHEETS_SPREADSHEET_ID is not set");
+
+  const rawRows = await fetchSheetRows(spreadsheetId, SEM_LP_SHEET_RANGE);
+  const summary: LandingPageSyncSummary = { created: 0, updated: 0, skipped: 0, errors: [] };
+
+  for (const row of rawRows) {
+    const r = parseSemLpRow(row);
+    const providerSlug = r.providerSlug.trim();
+    const urlSlug = r.urlSlug.trim();
+    if (!providerSlug || !urlSlug) {
+      summary.skipped++;
+      continue;
+    }
+
+    try {
+      const provider = await db.provider.findUnique({ where: { slug: providerSlug } });
+      if (!provider) {
+        summary.errors.push(`${providerSlug}/${urlSlug}: no provider with slug "${providerSlug}"`);
+        continue;
+      }
+
+      const existing = await db.semLandingPage.findUnique({
+        where: { providerId_urlSlug: { providerId: provider.id, urlSlug } },
+      });
+
+      await db.semLandingPage.upsert({
+        where: { providerId_urlSlug: { providerId: provider.id, urlSlug } },
+        create: {
+          providerId: provider.id,
+          urlSlug,
+          targetMetroName: r.targetMetroName,
+          travelNarrative: r.travelNarrative || null,
+          active: parseBool(r.active),
+        },
+        update: {
+          targetMetroName: r.targetMetroName,
+          travelNarrative: r.travelNarrative || null,
+          active: parseBool(r.active),
+        },
+      });
+
+      if (existing) {
+        summary.updated++;
+      } else {
+        summary.created++;
+      }
+    } catch (err) {
+      summary.errors.push(`${providerSlug}/${urlSlug}: ${(err as Error).message}`);
+    }
+  }
+
+  return summary;
+}
+
 export type SyncSummary = {
   created: number;
   updated: number;
   geocoded: number;
   skipped: number;
   errors: string[];
+  landingPages: LandingPageSyncSummary;
 };
 
 export async function runSync(): Promise<SyncSummary> {
@@ -135,7 +222,14 @@ export async function runSync(): Promise<SyncSummary> {
   if (!spreadsheetId) throw new Error("GOOGLE_SHEETS_SPREADSHEET_ID is not set");
 
   const rawRows = await fetchSheetRows(spreadsheetId, SHEET_RANGE);
-  const summary: SyncSummary = { created: 0, updated: 0, geocoded: 0, skipped: 0, errors: [] };
+  const summary: SyncSummary = {
+    created: 0,
+    updated: 0,
+    geocoded: 0,
+    skipped: 0,
+    errors: [],
+    landingPages: { created: 0, updated: 0, skipped: 0, errors: [] },
+  };
 
   for (const row of rawRows) {
     const r = parseRow(row);
@@ -235,6 +329,14 @@ export async function runSync(): Promise<SyncSummary> {
     } catch (err) {
       summary.errors.push(`${slug}: ${(err as Error).message}`);
     }
+  }
+
+  // A missing "SEM Landing Pages" tab (or any other failure here) must never
+  // take down the provider sync above, which already succeeded.
+  try {
+    summary.landingPages = await syncSemLandingPages();
+  } catch (err) {
+    summary.landingPages.errors.push((err as Error).message);
   }
 
   return summary;

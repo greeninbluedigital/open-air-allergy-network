@@ -59,3 +59,21 @@ text). Column order:
 
 Share the sheet with the service account's email (**Viewer** access is
 enough — the sync never writes back to the sheet).
+
+## Second tab: "SEM Landing Pages"
+
+Tab name must be exactly **"SEM Landing Pages"**. One row per landing page —
+a practice can have as many as you want (one per target metro), each
+reachable at `/lp/<practice-slug>/<url-slug>`. Row 1 is headers, row 2
+onward is data, same position-based rule as the Providers tab.
+
+| # | Column | Notes |
+|---|--------|-------|
+| A | Provider Slug | Must match an existing row's Slug on the Providers tab exactly — this is how a landing page is tied to a practice |
+| B | URL Slug | Becomes the URL, e.g. `sf-bay-area` → `/lp/example-ilit-center/sf-bay-area`. Url-safe, unique per practice (a practice can reuse the same URL Slug another practice already used, since the full path also includes the practice's own slug) |
+| C | Target Metro Name | Display name shown on the page, e.g. `SF Bay Area` |
+| D | Travel Narrative | Optional flavor text about traveling in from that metro |
+| E | Active | `Y` / `N`. Sync never deletes a landing page row that's removed from the sheet — set this to `N` to take one down rather than deleting the row |
+
+Like the Providers tab, sync only ever creates/updates rows here, never
+deletes — `(Provider Slug, URL Slug)` is the matching key.
