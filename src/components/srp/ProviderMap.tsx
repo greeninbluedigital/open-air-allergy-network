@@ -11,7 +11,10 @@ function pinColor(p: SrpProvider): string {
   if (p.foundingMember) return "#b45309"; // amber
   if (p.geoExtension) return "#2c7a88"; // teal
   if (p.tier !== "FREE_CLAIMED") return "#4A6350"; // sage
-  return "#ffffff"; // free/outline
+  // TEMPORARY dev-visibility color, not a real brand choice — white was
+  // nearly invisible against most map tile backgrounds. Swap this out once
+  // a real palette exists.
+  return "#e11d48"; // free/unverified — rose
 }
 
 function makeIcon(L: typeof LType, p: SrpProvider): LType.DivIcon {

@@ -353,14 +353,15 @@ export default async function ProviderDetailPage({
               </div>
             )}
 
-            <div className="mt-3.5 border-t border-line pt-3.5 text-sm text-muted">
+            <div className="mt-3.5 border-t border-line pt-3.5 text-sm">
+              📍{" "}
               <a
                 href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
                   `${formatAddress(provider)}, ${provider.city}, ${provider.state} ${provider.zip}`,
                 )}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:underline"
+                className="text-[#1c5ea8] hover:underline"
               >
                 {formatAddress(provider)}, {provider.city}, {provider.state} {provider.zip}
               </a>
