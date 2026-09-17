@@ -46,7 +46,7 @@ export default async function FindAProviderPage({
     <>
       <div className="flex flex-wrap items-center gap-2.5 border-b border-line bg-bg-alt px-6 py-4 sm:px-10">
         <div className="flex-1">
-          <ZipSearchForm action="/find-a-provider" showRadius defaultRadius={radius} />
+          <ZipSearchForm action="/find-a-provider" showRadius defaultRadius={radius} defaultZip={zip ?? ""} />
         </div>
         {zip && (
           <div className="flex overflow-hidden rounded border border-line text-xs">

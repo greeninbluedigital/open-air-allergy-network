@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { db } from "@/lib/db";
@@ -10,6 +9,7 @@ import { ContactForm } from "@/components/pdp/ContactForm";
 import { LeadStatusMessage, LeadErrorMessage } from "@/components/pdp/LeadStatusMessage";
 import { PatientReviews, getAggregateRatingSchema } from "@/components/PatientReviews";
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
+import { PhotoGallery } from "@/components/pdp/PhotoGallery";
 
 function formatAddress(provider: { address: string; addressLine2: string | null }): string {
   return provider.addressLine2 ? `${provider.address}, ${provider.addressLine2}` : provider.address;
@@ -77,7 +77,7 @@ export default async function ProviderDetailPage({
   const isVerifiedPlus = provider.tier !== "FREE_CLAIMED";
   const isFullProfilePlus = provider.tier === "FULL_PROFILE" || provider.tier === "FEATURED";
 
-  const [siblings, faqCount] = await Promise.all([
+  const [siblings, articleCount] = await Promise.all([
     isVerifiedPlus && provider.groupId
       ? db.provider.findMany({
           where: { groupId: provider.groupId, id: { not: provider.id } },
@@ -191,28 +191,12 @@ export default async function ProviderDetailPage({
 
       {isFullProfilePlus ? (
         provider.shortBio && (
-          <div className="flex flex-col gap-4 px-6 pt-5 sm:px-10 md:flex-row">
-            <div className="relative aspect-4/5 w-full overflow-hidden rounded bg-bg-alt md:w-52 md:shrink-0">
-              {provider.photoUrl && (
-                <Image src={provider.photoUrl} alt={provider.practiceName} fill className="object-cover" />
-              )}
-            </div>
-            <div className="flex-1">
-              <div className="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">
-                Short intro
-              </div>
-              <p className="text-sm whitespace-pre-line text-foreground/80">{provider.shortBio}</p>
-              {provider.secondaryPhotoUrls.length > 0 && (
-                <div className="mt-3.5 flex gap-2.5">
-                  {provider.secondaryPhotoUrls.map((url) => (
-                    <div key={url} className="relative h-17 flex-1 overflow-hidden rounded bg-bg-alt">
-                      <Image src={url} alt="" fill className="object-cover" />
-                    </div>
-                  ))}
-                </div>
-              )}
-            </div>
-          </div>
+          <PhotoGallery
+            mainPhoto={provider.photoUrl}
+            secondaryPhotos={provider.secondaryPhotoUrls}
+            shortBio={provider.shortBio}
+            alt={provider.practiceName}
+          />
         )
       ) : (
         // Verified (not Full Profile+): short bio only, no photo gallery
@@ -228,7 +212,7 @@ export default async function ProviderDetailPage({
         <div className="flex-2 space-y-6.5">
           {isFullProfilePlus && (
             <div>
-              <h3 className="mb-2 text-base font-bold">About this practice</h3>
+              <h3 className="mb-2 text-base font-bold">About This Practice</h3>
               <p className="text-sm whitespace-pre-line text-foreground/80">{provider.extendedBio}</p>
             </div>
           )}
@@ -251,7 +235,7 @@ export default async function ProviderDetailPage({
 
           {isFullProfilePlus && (provider.businessHours || provider.ilitScheduleNotes) && (
             <div>
-              <h3 className="mb-2 text-base font-bold">Hours &amp; ILIT Scheduling</h3>
+              <h3 className="mb-2 text-base font-bold">Hours</h3>
               {provider.businessHours
                 ?.split(";")
                 .map((s) => s.trim())
@@ -298,7 +282,7 @@ export default async function ProviderDetailPage({
             </div>
           )}
 
-          {faqCount > 0 && (
+          {articleCount > 0 && (
             <div>
               <h3 className="mb-2 text-base font-bold">Articles by This Practice</h3>
               <ArticleFeed providerCreditedId={provider.id} limit={3} emptyHidden />
@@ -325,10 +309,33 @@ export default async function ProviderDetailPage({
 
         <div className="flex-1">
           <div className="rounded border border-line p-4.5">
+            <h3 className="mb-3 text-base font-bold">Contact {provider.practiceName}</h3>
+
             {sent || confirmed ? (
               <LeadStatusMessage status={sent ? "sent" : "confirmed"} practiceName={provider.practiceName} />
             ) : (
-              <>
+              isFullProfilePlus && (
+                <>
+                  {error && (
+                    <LeadErrorMessage
+                      error={error}
+                      practiceName={provider.practiceName}
+                      phone={provider.phone}
+                      providerId={provider.id}
+                    />
+                  )}
+                  <ContactForm
+                    providerId={provider.id}
+                    providerSlug={provider.slug}
+                    utm={utm}
+                    returnPath={`/find-a-provider/${provider.slug}`}
+                  />
+                </>
+              )
+            )}
+
+            {(provider.phone || provider.website) && (
+              <div className="mt-3.5 border-t border-line pt-3.5">
                 {provider.phone && (
                   <div className="mb-2 text-sm">
                     📞{" "}
@@ -336,37 +343,19 @@ export default async function ProviderDetailPage({
                   </div>
                 )}
                 {provider.website && (
-                  <div className="mb-2 text-sm">
+                  <div className="text-sm">
                     🌐{" "}
                     <a href={provider.website} target="_blank" rel="noopener noreferrer" className="text-[#1c5ea8]">
                       {provider.website.replace(/^https?:\/\//, "")}
                     </a>
                   </div>
                 )}
-                {isFullProfilePlus && (
-                  <>
-                    {error && (
-                      <LeadErrorMessage
-                        error={error}
-                        practiceName={provider.practiceName}
-                        phone={provider.phone}
-                        providerId={provider.id}
-                      />
-                    )}
-                    <ContactForm
-                      providerId={provider.id}
-                      providerSlug={provider.slug}
-                      utm={utm}
-                      returnPath={`/find-a-provider/${provider.slug}`}
-                    />
-                  </>
-                )}
-              </>
+              </div>
             )}
-            <div className="mt-3.5 border-t border-line pt-3.5 text-xs text-muted">
+
+            <div className="mt-3.5 border-t border-line pt-3.5 text-sm text-muted">
               {formatAddress(provider)}, {provider.city}, {provider.state} {provider.zip}
             </div>
-            <div className="mt-2.5 h-32 rounded border border-dashed border-line bg-bg-alt" />
           </div>
         </div>
       </div>

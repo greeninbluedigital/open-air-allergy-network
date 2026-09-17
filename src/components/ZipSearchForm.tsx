@@ -11,12 +11,14 @@ export function ZipSearchForm({
   action = "/find-a-provider",
   showRadius = false,
   defaultRadius = 50,
+  defaultZip = "",
   buttonLabel = "Find a Provider",
   variant = "light",
 }: {
   action?: string;
   showRadius?: boolean;
   defaultRadius?: number;
+  defaultZip?: string;
   buttonLabel?: string;
   variant?: "light" | "dark";
 }) {
@@ -35,6 +37,7 @@ export function ZipSearchForm({
         pattern="[0-9]{5}"
         placeholder="Enter zip code"
         autoComplete="postal-code"
+        defaultValue={defaultZip}
         required
         className={`min-w-0 flex-1 rounded border px-3 py-2.5 text-sm ${
           isDark

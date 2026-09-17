@@ -94,26 +94,15 @@ export function PatientReviews({ provider }: { provider: ReviewsProvider }) {
 
   return (
     <div>
-      <h3 className="mb-2 flex items-center gap-2 text-base font-bold">
-        Patient Reviews
-        <span className="text-[11px] font-normal text-muted normal-case">Featured tier only</span>
-      </h3>
+      <h3 className="mb-2 text-base font-bold">Patient Reviews</h3>
 
-      <div className="mb-3 flex flex-wrap gap-2">
-        <span
-          className={`rounded border px-2.5 py-1 text-xs ${hasGoogle ? "border-badge-verified-bg bg-badge-verified-bg/40 font-semibold text-badge-verified-text" : "border-line text-muted"}`}
-        >
-          Google {hasGoogle && googleReviews[0] ? stars(googleReviews[0].rating) : ""}
-        </span>
-        <span
-          className={`rounded border px-2.5 py-1 text-xs ${hasYelp ? "border-badge-verified-bg bg-badge-verified-bg/40 font-semibold text-badge-verified-text" : "border-line text-muted"}`}
-        >
-          Yelp {provider.yelpRating != null ? stars(provider.yelpRating) : ""}
-        </span>
-        <span className="rounded border border-line px-2.5 py-1 text-xs text-muted">
-          Facebook (not connected)
-        </span>
-      </div>
+      {hasGoogle && provider.googleRating != null && (
+        <div className="mb-2 text-xs text-muted">
+          Google: <span className="font-semibold text-foreground">{stars(provider.googleRating)}</span>{" "}
+          <span className="font-semibold text-foreground">{provider.googleRating.toFixed(1)}</span> (
+          {provider.googleReviewCount ?? 0} reviews)
+        </div>
+      )}
 
       {provider.yelpRating != null ? (
         // API-sourced (Section 4 future state) — takes priority over the

@@ -6,6 +6,9 @@ async function main() {
 
   const featuredData = {
     practiceName: "Example ILIT & Allergy Center",
+    // Dev/test fixture, not a real listing — hidden from SRP search and the
+    // sitemap the same way a real sales-demo listing would be.
+    isDemo: true,
     address: "123 Main St",
     addressLine2: "Suite 200",
     city: "Beverly Hills",
@@ -60,6 +63,7 @@ async function main() {
 
   const verifiedData = {
     practiceName: "Example Verified Practice",
+    isDemo: true,
     address: "45 Oak Ave",
     city: "Los Angeles",
     state: "CA",
@@ -81,6 +85,7 @@ async function main() {
 
   const freeData = {
     practiceName: "Example Free-Listed Practice",
+    isDemo: true,
     address: "210 Pine Rd",
     city: "Inglewood",
     state: "CA",
