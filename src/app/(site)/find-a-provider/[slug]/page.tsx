@@ -180,7 +180,7 @@ export default async function ProviderDetailPage({
             <div className="mb-1 text-xs text-muted">
               Verified as of{" "}
               {provider.verifiedAsOf.toLocaleDateString("en-US", {
-                month: "long",
+                month: "short",
                 day: "numeric",
                 year: "numeric",
               })}

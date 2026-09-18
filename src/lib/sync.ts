@@ -359,6 +359,7 @@ export async function runSync(): Promise<SyncSummary> {
       }
 
       const geoExtension = parseBool(r.geoExtension);
+      const active = parseBool(r.active);
 
       const data = {
         groupId: r.groupId || null,
@@ -376,9 +377,17 @@ export async function runSync(): Promise<SyncSummary> {
         tier: parseTier(r.tier),
         foundingMember: parseBool(r.foundingMember),
         geoExtension,
-        active: parseBool(r.active),
+        active,
         verificationDate: parseDate(r.verificationDate),
         verificationNotes: r.verificationNotes || null,
+        // Distinct from verificationDate (see schema comment) — bumped to
+        // today whenever Active, omitted entirely otherwise so Prisma's
+        // upsert leaves the existing stored value untouched rather than
+        // clearing or freezing it via an explicit no-op write. The kill
+        // switch this checks (`active`) is the same one that already drives
+        // SRP visibility; swap to real Stripe subscription status here too
+        // once that's wired in.
+        ...(active ? { verifiedAsOf: new Date() } : {}),
         // Derived, not sheet-entered (Section 4).
         searchRadiusMiles: geoExtension ? 600 : 200,
         offersVideoConsult: parseBool(r.offersVideoConsult),
