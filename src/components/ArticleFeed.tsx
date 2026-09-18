@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { db } from "@/lib/db";
 
 /**
@@ -93,7 +94,11 @@ export async function ArticleFeed({
           href={`/blog/${article.slug}`}
           className="flex flex-col overflow-hidden rounded border border-line bg-white"
         >
-          <div className="h-30 bg-bg-alt" />
+          <div className="relative h-30 overflow-hidden bg-bg-alt">
+            {article.featureImageUrl && (
+              <Image src={article.featureImageUrl} alt="" fill className="object-cover" />
+            )}
+          </div>
           <div className="flex flex-1 flex-col gap-1.5 p-3.5">
             <div className="text-sm font-bold">{article.title}</div>
             <div className="text-xs text-muted">
