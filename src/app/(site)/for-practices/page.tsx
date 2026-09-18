@@ -32,7 +32,7 @@ export default async function ForPracticesPage({
         </p>
         <a
           href="#contact-form"
-          className="inline-block rounded bg-foreground px-6 py-3 text-sm font-semibold text-background"
+          className="inline-block rounded bg-action px-6 py-3 text-sm font-semibold text-white hover:bg-action-hover"
         >
           Get in Touch
         </a>
@@ -187,7 +187,7 @@ export default async function ForPracticesPage({
 
               <button
                 type="submit"
-                className="block w-full rounded bg-foreground py-3 text-center text-sm font-semibold text-background"
+                className="block w-full rounded bg-action py-3 text-center text-sm font-semibold text-white hover:bg-action-hover"
               >
                 Submit
               </button>

@@ -67,7 +67,7 @@ export function ZipSearchForm({
         className={`shrink-0 rounded px-4 py-2.5 text-sm font-semibold whitespace-nowrap ${
           isDark
             ? "bg-white text-foreground"
-            : "bg-foreground text-background"
+            : "bg-action text-white hover:bg-action-hover"
         }`}
       >
         {buttonLabel}

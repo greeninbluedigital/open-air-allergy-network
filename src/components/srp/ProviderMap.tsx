@@ -129,7 +129,7 @@ export function ProviderMap({
           checked={showFree}
           onChange={(e) => setShowFree(e.target.checked)}
         />
-        Show Free/Unverified Listings on Map
+        Show Unverified Listings on Map
       </label>
     </div>
   );

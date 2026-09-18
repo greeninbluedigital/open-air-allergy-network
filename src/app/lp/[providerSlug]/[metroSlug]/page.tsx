@@ -105,7 +105,7 @@ export default async function SemLandingPage({
         <div className="flex flex-wrap justify-center gap-2.5">
           <a
             href="#contact-form"
-            className="rounded bg-foreground px-5 py-2.5 text-sm font-semibold text-background"
+            className="rounded bg-action px-5 py-2.5 text-sm font-semibold text-white hover:bg-action-hover"
           >
             Contact This Practice
           </a>

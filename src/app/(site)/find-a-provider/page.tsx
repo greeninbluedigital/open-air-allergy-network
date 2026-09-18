@@ -50,7 +50,11 @@ export default async function FindAProviderPage({
           <ZipSearchForm action="/find-a-provider" showRadius defaultRadius={radius} defaultZip={zip ?? ""} />
         </div>
         {zip && (
-          <div className="flex overflow-hidden rounded border border-line text-xs">
+          // Map and list already render side by side at md+ (both columns
+          // are md:block unconditionally below) — this toggle only changes
+          // anything below that breakpoint, where there's only room for
+          // one at a time. Hidden at md+ since it's inert there.
+          <div className="flex overflow-hidden rounded border border-line text-xs md:hidden">
             <Link
               href={buildQuery({ zip, radius: String(radius), view: "map" })}
               className={`px-3.5 py-2 ${view === "map" ? "bg-foreground text-background" : "bg-white"}`}
