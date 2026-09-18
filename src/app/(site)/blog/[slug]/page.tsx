@@ -1,10 +1,33 @@
 import Link from "next/link";
 import Image from "next/image";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { db } from "@/lib/db";
 import { Badge } from "@/components/Badge";
 import { ArticleFeed } from "@/components/ArticleFeed";
+import { stripMarkdown } from "@/lib/markdown";
+
+// Maps rendered Markdown elements to the site's existing type scale, rather
+// than pulling in a Tailwind Typography plugin whose opinionated defaults
+// would fight the hand-tuned classes used everywhere else on the site.
+const markdownComponents = {
+  h1: (props: React.ComponentProps<"h1">) => <h2 className="mt-6 mb-2 text-xl font-bold" {...props} />,
+  h2: (props: React.ComponentProps<"h2">) => <h2 className="mt-6 mb-2 text-lg font-bold" {...props} />,
+  h3: (props: React.ComponentProps<"h3">) => <h3 className="mt-5 mb-2 text-base font-bold" {...props} />,
+  p: (props: React.ComponentProps<"p">) => <p className="mb-4" {...props} />,
+  ul: (props: React.ComponentProps<"ul">) => <ul className="mb-4 list-disc space-y-1 pl-5" {...props} />,
+  ol: (props: React.ComponentProps<"ol">) => <ol className="mb-4 list-decimal space-y-1 pl-5" {...props} />,
+  strong: (props: React.ComponentProps<"strong">) => <strong className="font-semibold text-foreground" {...props} />,
+  a: (props: React.ComponentProps<"a">) => (
+    <a className="text-[#1c5ea8] hover:underline" target="_blank" rel="noopener noreferrer" {...props} />
+  ),
+  img: (props: React.ComponentProps<"img">) => (
+    // eslint-disable-next-line @next/next/no-img-element -- Markdown body images have arbitrary author-pasted URLs, not known at build time.
+    <img className="my-4 w-full rounded" {...props} alt={props.alt ?? ""} />
+  ),
+};
 
 async function getArticle(slug: string) {
   return db.article.findUnique({
@@ -24,7 +47,9 @@ export async function generateMetadata({
   const article = await getArticle(slug);
   if (!article) return {};
 
-  const description = article.body.slice(0, 160);
+  const description = (
+    article.summaryPoints.length > 0 ? article.summaryPoints.join(" ") : stripMarkdown(article.body)
+  ).slice(0, 160);
   return {
     title: article.title,
     description,
@@ -56,6 +81,10 @@ export default async function BlogArticlePage({ params }: PageProps<"/blog/[slug
       ? { "@type": "Person", name: article.author.name }
       : { "@type": "Organization", name: "Open Air Allergy Network" },
     image: article.featureImageUrl ?? undefined,
+    // Legitimate schema.org property, distinct from the FAQPage block below
+    // — no dedicated structured-data type exists for a "key takeaways"
+    // bullet list, so this is the closest real fit for it.
+    abstract: article.summaryPoints.length > 0 ? article.summaryPoints.join(" ") : undefined,
   };
 
   const faqJsonLd =
@@ -96,6 +125,17 @@ export default async function BlogArticlePage({ params }: PageProps<"/blog/[slug
         {article.publishedDate?.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
       </div>
 
+      {article.summaryPoints.length > 0 && (
+        <div className="mb-6 rounded border border-line bg-bg-alt p-4">
+          <div className="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">Key Takeaways</div>
+          <ul className="list-disc space-y-1 pl-5 text-sm">
+            {article.summaryPoints.map((point, i) => (
+              <li key={i}>{point}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+
       {article.featureImageUrl && (
         <div className="relative mb-6 h-64 overflow-hidden rounded bg-bg-alt sm:h-80">
           <Image src={article.featureImageUrl} alt={article.title} fill className="object-cover" />
@@ -122,12 +162,17 @@ export default async function BlogArticlePage({ params }: PageProps<"/blog/[slug
               {article.providerCredited.practiceName}
             </Link>{" "}
             — view their full profile, contact and location →
+            {article.author!.bio && (
+              <p className="mt-2 text-xs text-foreground/80">{article.author!.bio}</p>
+            )}
           </div>
         </div>
       )}
 
-      <div className="prose prose-sm max-w-none text-sm whitespace-pre-line text-foreground/80">
-        {article.body}
+      <div className="text-sm text-foreground/80">
+        <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
+          {article.body}
+        </ReactMarkdown>
       </div>
 
       {article.faqItems.length > 0 && (

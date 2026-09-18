@@ -322,7 +322,19 @@ model Article {
   tags String[] @default([])
 
   title String
+  // Markdown — supports headings, bold/italic, bullet/numbered lists, and
+  // inline images (standard `![alt](url)` syntax is how a second/third
+  // photo goes mid-article; no separate "secondary image" field needed).
   body  String
+
+  // Optional "Key Takeaways" bullets rendered in a callout box right after
+  // the title, before the body — the news-article-summary pattern. No
+  // dedicated schema.org type exists for this the way FAQPage does; the
+  // SEO/GEO value is mostly about giving both human skimmers and AI
+  // summarizers a concise, quotable set of facts near the top, not a
+  // structured-data signal. Still folded into the JSON-LD `abstract`
+  // property below for a legitimate (if minor) structured-data nod.
+  summaryPoints String[] @default([])
 
   // Contribution articles: optional, article-specific — never auto-inherited from
   // the Provider's PDP photo (multi-doctor practices need per-author accuracy).
