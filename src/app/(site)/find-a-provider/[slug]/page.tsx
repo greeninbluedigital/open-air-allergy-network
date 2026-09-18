@@ -309,8 +309,14 @@ export default async function ProviderDetailPage({
           )}
         </div>
 
-        <div className="flex-1">
-          <div className="rounded border border-line p-4.5">
+        {/* order-first: on mobile, the lead form appears right after the
+            intro instead of at the very bottom of a long page (About,
+            Treatments, Hours, Reviews, FAQ, Articles, Other Locations all
+            come before it in the DOM) — reset to normal order at md+, where
+            it's already visible in the sidebar. md:sticky keeps it in view
+            while scrolling through the long content column on desktop. */}
+        <div className="order-first flex-1 md:order-none">
+          <div className="rounded border border-line p-4.5 md:sticky md:top-6">
             <h3 className="mb-3 text-base font-bold">Contact {provider.practiceName}</h3>
 
             {sent || confirmed ? (

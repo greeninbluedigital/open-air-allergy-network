@@ -70,7 +70,7 @@ onward is data, same position-based rule as the Providers tab.
 
 | # | Column | Notes |
 |---|--------|-------|
-| A | Provider Slug | Must match an existing row's Slug on the Providers tab exactly — this is how a landing page is tied to a practice |
+| A | Provider Slug | Must match an existing row's Slug on the Providers tab exactly — this is how a landing page is tied to a practice. Can be left blank on rows after the first for the same practice — it fills down from the last non-blank value above it |
 | B | URL Slug | Becomes the URL, e.g. `sf-bay-area` → `/lp/example-ilit-center/sf-bay-area`. Url-safe, unique per practice (a practice can reuse the same URL Slug another practice already used, since the full path also includes the practice's own slug) |
 | C | Target Metro Name | Display name shown on the page, e.g. `SF Bay Area` |
 | D | Travel Narrative | Optional flavor text about traveling in from that metro |
@@ -91,7 +91,7 @@ takes effect. Row 1 is headers, row 2 onward is data.
 
 | # | Column | Notes |
 |---|--------|-------|
-| A | Provider Slug | Must match an existing row's Slug on the Providers tab |
+| A | Provider Slug | Must match an existing row's Slug on the Providers tab. Same fill-down rule as SEM Landing Pages — leave it blank on every row after the first for a given practice and it carries down from the last non-blank value above |
 | B | Question | |
 | C | Answer | |
 | D | Sort Order | Optional — a number controlling display order. Leave blank and the sheet's own row order is used instead |
