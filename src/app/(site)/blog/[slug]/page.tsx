@@ -8,6 +8,7 @@ import { db } from "@/lib/db";
 import { Badge } from "@/components/Badge";
 import { ArticleFeed } from "@/components/ArticleFeed";
 import { stripMarkdown } from "@/lib/markdown";
+import { cloudinaryFaceCrop } from "@/lib/cloudinary";
 
 // Maps rendered Markdown elements to the site's existing type scale, rather
 // than pulling in a Tailwind Typography plugin whose opinionated defaults
@@ -146,7 +147,12 @@ export default async function BlogArticlePage({ params }: PageProps<"/blog/[slug
         <div className="mb-6 flex items-center gap-3 rounded border border-badge-contrib-bg bg-badge-contrib-bg/30 p-3.5">
           <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full bg-bg-alt">
             {article.authorPhotoUrl && (
-              <Image src={article.authorPhotoUrl} alt={article.author!.name} fill className="object-cover" />
+              <Image
+                src={cloudinaryFaceCrop(article.authorPhotoUrl, 88)}
+                alt={article.author!.name}
+                fill
+                className="object-cover"
+              />
             )}
           </div>
           <div className="text-sm">
