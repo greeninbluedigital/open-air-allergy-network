@@ -11,6 +11,11 @@ import { PatientReviews, getAggregateRatingSchema } from "@/components/PatientRe
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { PhotoGallery } from "@/components/pdp/PhotoGallery";
 
+// 4 or fewer FAQs render fully expanded (today's behavior, unchanged); 5+
+// switches to a collapsed accordion so a practice with a lot of FAQ content
+// doesn't turn the page into a long uninterrupted scroll.
+const FAQ_ACCORDION_THRESHOLD = 4;
+
 function formatAddress(provider: { address: string; addressLine2: string | null }): string {
   return provider.addressLine2 ? `${provider.address}, ${provider.addressLine2}` : provider.address;
 }
@@ -235,24 +240,6 @@ export default async function ProviderDetailPage({
             </div>
           )}
 
-          {isFullProfilePlus && (provider.businessHours || provider.ilitScheduleNotes) && (
-            <div>
-              <h3 className="mb-2 text-base font-bold">Hours</h3>
-              {provider.businessHours
-                ?.split(";")
-                .map((s) => s.trim())
-                .filter(Boolean)
-                .map((segment) => (
-                  <div key={segment} className="border-b border-line py-1 text-sm">
-                    {segment}
-                  </div>
-                ))}
-              {provider.ilitScheduleNotes && (
-                <p className="mt-2.5 text-sm whitespace-pre-line text-muted">{provider.ilitScheduleNotes}</p>
-              )}
-            </div>
-          )}
-
           {provider.geoExtension && (
             <div>
               <h3 className="mb-2 text-base font-bold">Getting Here — Fly In</h3>
@@ -268,12 +255,25 @@ export default async function ProviderDetailPage({
           {isFullProfilePlus && provider.faqItems.length > 0 && (
             <div>
               <h3 className="mb-2 text-base font-bold">Frequently Asked Questions</h3>
-              {provider.faqItems.map((item) => (
-                <div key={item.id} className="border-b border-line py-2.5">
-                  <div className="text-sm font-semibold">{item.question}</div>
-                  <div className="mt-1 text-sm whitespace-pre-line text-muted">{item.answer}</div>
-                </div>
-              ))}
+              {provider.faqItems.length > FAQ_ACCORDION_THRESHOLD
+                ? // 5+ FAQs: collapsed by default (each independent — no
+                  // `name` attribute, so opening one doesn't close another),
+                  // native <details>/<summary> rather than a JS-driven
+                  // accordion — full question/answer text stays in the
+                  // initial HTML either way, so nothing is hidden from SEO,
+                  // and it keeps working with JS disabled.
+                  provider.faqItems.map((item) => (
+                    <details key={item.id} className="border-b border-line py-2.5">
+                      <summary className="cursor-pointer text-sm font-semibold">{item.question}</summary>
+                      <div className="mt-1 text-sm whitespace-pre-line text-muted">{item.answer}</div>
+                    </details>
+                  ))
+                : provider.faqItems.map((item) => (
+                    <div key={item.id} className="border-b border-line py-2.5">
+                      <div className="text-sm font-semibold">{item.question}</div>
+                      <div className="mt-1 text-sm whitespace-pre-line text-muted">{item.answer}</div>
+                    </div>
+                  ))}
               <Link
                 href="/learn-about-ilit#faq"
                 target="_blank"
@@ -374,6 +374,23 @@ export default async function ProviderDetailPage({
                 {formatAddress(provider)}, {provider.city}, {provider.state} {provider.zip}
               </a>
             </div>
+
+            {isFullProfilePlus && (provider.businessHours || provider.ilitScheduleNotes) && (
+              <div className="mt-3.5 border-t border-line pt-3.5">
+                {provider.businessHours
+                  ?.split(";")
+                  .map((s) => s.trim())
+                  .filter(Boolean)
+                  .map((segment) => (
+                    <div key={segment} className="border-b border-line py-1 text-sm">
+                      {segment}
+                    </div>
+                  ))}
+                {provider.ilitScheduleNotes && (
+                  <p className="mt-2.5 text-sm whitespace-pre-line text-muted">{provider.ilitScheduleNotes}</p>
+                )}
+              </div>
+            )}
           </div>
         </div>
       </div>
