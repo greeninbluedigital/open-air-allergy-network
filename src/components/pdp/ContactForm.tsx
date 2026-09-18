@@ -78,7 +78,7 @@ export function ContactForm({
 
       <button
         type="submit"
-        className="mt-1 block w-full rounded bg-foreground py-2.5 text-center text-sm font-semibold text-background"
+        className="mt-1 block w-full rounded bg-action py-2.5 text-center text-sm font-semibold text-white hover:bg-action-hover"
       >
         Send Message
       </button>

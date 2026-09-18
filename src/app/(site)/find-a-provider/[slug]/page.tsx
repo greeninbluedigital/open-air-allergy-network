@@ -316,7 +316,7 @@ export default async function ProviderDetailPage({
             it's already visible in the sidebar. md:sticky keeps it in view
             while scrolling through the long content column on desktop. */}
         <div className="order-first flex-1 md:order-none">
-          <div className="rounded border border-line bg-background p-4.5 md:sticky md:top-6">
+          <div className="rounded border border-line bg-background p-4.5 md:sticky md:top-6 border-t-4 border-t-action">
             <h3 className="mb-3 text-base font-bold">Contact {provider.practiceName}</h3>
 
             {sent || confirmed ? (

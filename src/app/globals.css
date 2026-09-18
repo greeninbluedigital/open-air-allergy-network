@@ -9,6 +9,12 @@
   --color-sage: #4a6350;
   --color-sage-dark: #3a4f3f;
 
+  /* Primary accent — a more saturated evolution of the existing sage green,
+     used deliberately in exactly one role (primary CTAs) rather than
+     spread across the page. Verified 5.3:1 contrast with white text. */
+  --color-action: #1f7a4d;
+  --color-action-hover: #195f3c;
+
   --color-line: #dcdcdc;
   --color-bg-alt: #f4f4f4;
   --color-muted: #777777;
@@ -38,6 +44,8 @@
   --color-sand-line: var(--color-sand-line);
   --color-sage: var(--color-sage);
   --color-sage-dark: var(--color-sage-dark);
+  --color-action: var(--color-action);
+  --color-action-hover: var(--color-action-hover);
 
   --color-line: var(--color-line);
   --color-bg-alt: var(--color-bg-alt);
