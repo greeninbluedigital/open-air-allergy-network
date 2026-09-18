@@ -374,24 +374,32 @@ export default async function ProviderDetailPage({
                 {formatAddress(provider)}, {provider.city}, {provider.state} {provider.zip}
               </a>
             </div>
-
-            {isFullProfilePlus && (provider.businessHours || provider.ilitScheduleNotes) && (
-              <div className="mt-3.5 border-t border-line pt-3.5">
-                {provider.businessHours
-                  ?.split(";")
-                  .map((s) => s.trim())
-                  .filter(Boolean)
-                  .map((segment) => (
-                    <div key={segment} className="border-b border-line py-1 text-sm">
-                      {segment}
-                    </div>
-                  ))}
-                {provider.ilitScheduleNotes && (
-                  <p className="mt-2.5 text-sm whitespace-pre-line text-muted">{provider.ilitScheduleNotes}</p>
-                )}
-              </div>
-            )}
           </div>
+
+          {/* Deliberately its own, non-sticky box rather than part of the
+              card above: with Hours folded into the sticky card, the whole
+              thing measured taller than a 720px viewport (a common laptop
+              screen height) with nothing scrolled — meaning it could never
+              be fully visible at once. Hours is useful, but it isn't the
+              thing this page is trying to get someone to act on, so it
+              scrolls normally instead of competing with the form for
+              permanent screen space. */}
+          {isFullProfilePlus && (provider.businessHours || provider.ilitScheduleNotes) && (
+            <div className="mt-3.5 rounded border border-line p-4.5">
+              {provider.businessHours
+                ?.split(";")
+                .map((s) => s.trim())
+                .filter(Boolean)
+                .map((segment) => (
+                  <div key={segment} className="border-b border-line py-1 text-sm">
+                    {segment}
+                  </div>
+                ))}
+              {provider.ilitScheduleNotes && (
+                <p className="mt-2.5 text-sm whitespace-pre-line text-muted">{provider.ilitScheduleNotes}</p>
+              )}
+            </div>
+          )}
         </div>
       </div>
     </>
