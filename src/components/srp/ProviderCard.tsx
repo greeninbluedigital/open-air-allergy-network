@@ -23,7 +23,7 @@ export function ProviderCard({
 
   return (
     <Link
-      href={`/find-a-provider/${provider.slug}?back=${encodeURIComponent(backHref)}`}
+      href={`/find-an-ilit-provider/${provider.slug}?back=${encodeURIComponent(backHref)}`}
       className={`flex gap-3 rounded border p-3.5 ${
         isFree ? "border-dashed border-line bg-bg-alt" : "border-line bg-white"
       }`}

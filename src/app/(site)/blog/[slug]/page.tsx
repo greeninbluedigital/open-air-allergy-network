@@ -162,7 +162,7 @@ export default async function BlogArticlePage({ params }: PageProps<"/blog/[slug
             </div>
             Contributed by <span className="font-semibold">{article.author!.name}</span> of{" "}
             <Link
-              href={`/find-a-provider/${article.providerCredited.slug}`}
+              href={`/find-an-ilit-provider/${article.providerCredited.slug}`}
               className="font-semibold text-badge-contrib-text"
             >
               {article.providerCredited.practiceName}

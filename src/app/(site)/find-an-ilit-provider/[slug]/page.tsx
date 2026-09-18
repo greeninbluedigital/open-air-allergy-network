@@ -32,25 +32,30 @@ async function getProvider(slug: string) {
 
 export async function generateMetadata({
   params,
-}: PageProps<"/find-a-provider/[slug]">): Promise<Metadata> {
+}: PageProps<"/find-an-ilit-provider/[slug]">): Promise<Metadata> {
   const { slug } = await params;
   const provider = await getProvider(slug);
   if (!provider) return {};
 
+  // Keyword-rich for search ("ILIT provider in {city}") — the visible <h1>
+  // stays just the practice name (clean, already-settled visual design);
+  // the <title> tag doesn't have to match it exactly.
+  const title = `${provider.practiceName} — ILIT Provider in ${provider.city}, ${provider.state}`;
   const description =
     provider.shortBio ?? `${provider.practiceName} in ${provider.city}, ${provider.state} — ILIT provider.`;
 
   return {
-    title: provider.practiceName,
+    title,
     description,
+    alternates: { canonical: `/find-an-ilit-provider/${slug}` },
     openGraph: {
-      title: provider.practiceName,
+      title,
       description,
       images: provider.photoUrl ? [provider.photoUrl] : undefined,
     },
     twitter: {
       card: "summary",
-      title: provider.practiceName,
+      title,
       description,
     },
     // Sales-demo listings (Provider.isDemo) are reachable only by direct
@@ -63,13 +68,13 @@ export async function generateMetadata({
 export default async function ProviderDetailPage({
   params,
   searchParams,
-}: PageProps<"/find-a-provider/[slug]">) {
+}: PageProps<"/find-an-ilit-provider/[slug]">) {
   const { slug } = await params;
   const sp = await searchParams;
   const provider = await getProvider(slug);
   if (!provider) notFound();
 
-  const backHref = typeof sp.back === "string" ? sp.back : "/find-a-provider";
+  const backHref = typeof sp.back === "string" ? sp.back : "/find-an-ilit-provider";
   const sent = sp.sent === "1";
   const confirmed = sp.confirmed === "1";
   const error = sp.error === "invalid_email" || sp.error === "missing_fields" ? sp.error : null;
@@ -157,7 +162,7 @@ export default async function ProviderDetailPage({
     <>
       <PageViewTracker
         providerId={provider.id}
-        path={`/find-a-provider/${provider.slug}`}
+        path={`/find-an-ilit-provider/${provider.slug}`}
         utm={{ source: utm.source, medium: utm.medium, campaign: utm.campaign }}
       />
       {jsonLd && (
@@ -298,7 +303,7 @@ export default async function ProviderDetailPage({
                 {siblings.map((s) => (
                   <Link
                     key={s.slug}
-                    href={`/find-a-provider/${s.slug}`}
+                    href={`/find-an-ilit-provider/${s.slug}`}
                     className="block rounded border border-line p-2.5 text-sm hover:bg-bg-alt"
                   >
                     {s.practiceName} — {s.city}, {s.state}
@@ -336,7 +341,7 @@ export default async function ProviderDetailPage({
                     providerId={provider.id}
                     providerSlug={provider.slug}
                     utm={utm}
-                    returnPath={`/find-a-provider/${provider.slug}`}
+                    returnPath={`/find-an-ilit-provider/${provider.slug}`}
                   />
                 </>
               )

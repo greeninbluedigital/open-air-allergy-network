@@ -19,7 +19,7 @@ export function ContactForm({
     <form action={submitContactMessage} className="mt-1">
       <input type="hidden" name="providerId" value={providerId} />
       <input type="hidden" name="providerSlug" value={providerSlug} />
-      <input type="hidden" name="returnPath" value={returnPath ?? `/find-a-provider/${providerSlug}`} />
+      <input type="hidden" name="returnPath" value={returnPath ?? `/find-an-ilit-provider/${providerSlug}`} />
       <input type="hidden" name="utmSource" value={utm.source ?? ""} />
       <input type="hidden" name="utmMedium" value={utm.medium ?? ""} />
       <input type="hidden" name="utmCampaign" value={utm.campaign ?? ""} />

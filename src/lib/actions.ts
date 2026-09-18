@@ -22,7 +22,7 @@ import { sendConfirmationEmail } from "@/lib/leadNotify";
 export async function submitContactMessage(formData: FormData) {
   const providerId = String(formData.get("providerId") || "");
   const providerSlug = String(formData.get("providerSlug") || "");
-  const returnPath = String(formData.get("returnPath") || `/find-a-provider/${providerSlug}`);
+  const returnPath = String(formData.get("returnPath") || `/find-an-ilit-provider/${providerSlug}`);
   const firstName = String(formData.get("firstName") || "").trim();
   const lastName = String(formData.get("lastName") || "").trim();
   const email = String(formData.get("email") || "").trim();

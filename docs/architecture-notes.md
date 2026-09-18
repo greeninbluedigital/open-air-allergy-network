@@ -32,7 +32,7 @@ splitting each provider's semicolon-separated "Treatments Offered" column
 into individual rows.
 
 **To build the actual filter:**
-1. Add a filter control to the SRP page (`src/app/(site)/find-a-provider/page.tsx`)
+1. Add a filter control to the SRP page (`src/app/(site)/find-an-ilit-provider/page.tsx`)
    — a treatment dropdown/checkboxes, sourced from `db.treatment.findMany({ where: { vertical: "ILIT/Allergy" }, orderBy: { name: "asc" } })`.
 2. Thread the selected treatment slug(s) through as a URL search param
    (same pattern as `zip`/`radius`/`view` today).

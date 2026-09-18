@@ -177,7 +177,7 @@ export default async function SemLandingPage({
           </div>
         </div>
         <Link
-          href={`/find-a-provider/${provider.slug}`}
+          href={`/find-an-ilit-provider/${provider.slug}`}
           className="mt-3.5 inline-block text-sm font-semibold"
         >
           View full provider profile, contact &amp; location →

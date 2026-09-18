@@ -8,7 +8,7 @@ const RADIUS_OPTIONS = [20, 30, 40, 50, 75, 100, 150, 200] as const;
  * Learn About ILIT, Blog PAF, SEM landing page.
  */
 export function ZipSearchForm({
-  action = "/find-a-provider",
+  action = "/find-an-ilit-provider",
   showRadius = false,
   defaultRadius = 50,
   defaultZip = "",

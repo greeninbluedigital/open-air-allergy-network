@@ -27,7 +27,7 @@ export function SiteFooter() {
           <Link href="/learn-about-ilit" className="text-foreground/80 hover:text-foreground">
             Learn About ILIT
           </Link>
-          <Link href="/find-a-provider" className="text-foreground/80 hover:text-foreground">
+          <Link href="/find-an-ilit-provider" className="text-foreground/80 hover:text-foreground">
             Find a Provider
           </Link>
           <Link href="/blog" className="text-foreground/80 hover:text-foreground">

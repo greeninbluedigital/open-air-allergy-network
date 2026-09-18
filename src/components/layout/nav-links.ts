@@ -1,6 +1,6 @@
 export const NAV_LINKS = [
   { href: "/learn-about-ilit", label: "Learn About ILIT" },
-  { href: "/find-a-provider", label: "Find a Provider" },
+  { href: "/find-an-ilit-provider", label: "Find a Provider" },
   { href: "/blog", label: "Blog" },
   { href: "/for-practices", label: "For Practices" },
   // Just "About", not "About / Contact" — patients have no legitimate reason

@@ -5,20 +5,11 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 const STATIC_PATHS = [
   "",
-  "/find-a-provider",
+  "/find-an-ilit-provider",
   "/learn-about-ilit",
   "/blog",
   "/for-practices",
   "/about",
-];
-
-const LEGAL_SLUGS = [
-  "privacy-notice",
-  "terms-and-conditions",
-  "cookie-policy",
-  "privacy-choices",
-  "medical-disclaimer",
-  "accessibility-statement",
 ];
 
 /**
@@ -37,8 +28,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     ...STATIC_PATHS.map((path) => ({ url: `${SITE_URL}${path}` })),
-    ...LEGAL_SLUGS.map((slug) => ({ url: `${SITE_URL}/legal/${slug}` })),
-    ...providers.map((p) => ({ url: `${SITE_URL}/find-a-provider/${p.slug}`, lastModified: p.updatedAt })),
+    ...providers.map((p) => ({ url: `${SITE_URL}/find-an-ilit-provider/${p.slug}`, lastModified: p.updatedAt })),
     ...articles.map((a) => ({
       url: `${SITE_URL}/blog/${a.slug}`,
       lastModified: a.publishedDate ?? undefined,

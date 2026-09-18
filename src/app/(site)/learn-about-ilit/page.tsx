@@ -99,10 +99,13 @@ export default function LearnAboutIlitPage() {
               </div>
             ))}
           </div>
-          <p className="mt-3.5 border-t border-sand-line pt-3 text-sm font-semibold text-sage">
+          <Link
+            href="/find-an-ilit-provider"
+            className="mt-3.5 block border-t border-sand-line pt-3 text-sm font-semibold text-sage"
+          >
             Connect with an Open Air Allergy Network provider to see if ILIT
             can help you.
-          </p>
+          </Link>
         </div>
       </div>
 

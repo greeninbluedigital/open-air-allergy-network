@@ -1,7 +1,14 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import { ZipSearchForm } from "@/components/ZipSearchForm";
 import { ArticleFeed } from "@/components/ArticleFeed";
 import { SYMPTOMS as ALL_SYMPTOMS } from "@/lib/content";
+
+// Title/description are intentionally left unset here — they inherit the
+// good, keyword-bearing defaults from the root layout.
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 // Homepage gets a compact 4-item subset — Learn About ILIT shows the fuller
 // list (Section design note: "a single row, not the fuller two-column card
@@ -15,9 +22,9 @@ export default function HomePage() {
       <section className="relative border-b border-line">
         <div className="h-64 bg-bg-alt sm:h-80" />
         <div className="mx-6 -mt-16 max-w-sm rounded border border-line bg-white p-5 shadow-lg sm:absolute sm:bottom-6 sm:left-10 sm:mx-0 sm:mt-0">
-          <p className="mb-1 text-lg font-bold">
+          <h1 className="mb-1 text-lg font-bold">
             Allergy season shouldn&apos;t mean missing yours.
-          </p>
+          </h1>
           <p className="mb-3.5 text-xs text-muted">
             See ILIT providers near you.
           </p>

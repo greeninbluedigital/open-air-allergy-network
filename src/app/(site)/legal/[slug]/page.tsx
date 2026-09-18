@@ -12,7 +12,10 @@ export async function generateMetadata({
   const { slug } = await params;
   const page = await getLegalPage(slug);
   if (!page) return {};
-  return { title: page.title };
+  // Boilerplate legal copy has no ranking value and is near-duplicate across
+  // most sites — keep it reachable/linked (footer, compliance) but out of
+  // search results and the sitemap.
+  return { title: page.title, robots: { index: false, follow: true } };
 }
 
 /**

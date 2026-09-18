@@ -44,7 +44,7 @@ export async function GET(
     }
   }
 
-  const url = new URL(`/find-a-provider/${submission.provider.slug}`, request.url);
+  const url = new URL(`/find-an-ilit-provider/${submission.provider.slug}`, request.url);
   url.searchParams.set("confirmed", "1");
   return NextResponse.redirect(url);
 }

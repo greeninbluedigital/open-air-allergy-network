@@ -16,6 +16,10 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  // Without this, Next can't resolve canonical/OG/Twitter image URLs to
+  // absolute URLs and warns at build time — matters now that per-page
+  // `alternates.canonical` values are relative paths.
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
   title: {
     default: "Open Air Allergy Network",
     template: "%s | Open Air Allergy Network",

@@ -102,7 +102,7 @@ export function ProviderMap({
     for (const p of visible) {
       const marker = L.marker([p.latitude, p.longitude], { icon: makeIcon(L, p) })
         .addTo(map)
-        .bindPopup(`<a href="/find-a-provider/${p.slug}">${p.practiceName}</a>`);
+        .bindPopup(`<a href="/find-an-ilit-provider/${p.slug}">${p.practiceName}</a>`);
       markersRef.current.push(marker);
     }
 

@@ -7,7 +7,10 @@ import { lookupZip } from "@/lib/zip";
 import { searchProviders, type SrpBucket } from "@/lib/srp";
 
 export const metadata: Metadata = {
-  title: "Find a Provider",
+  title: "Find an ILIT Provider",
+  description:
+    "Search ILIT (intralymphatic immunotherapy) providers near you by zip code. Every listed practice is personally verified before it appears in the directory.",
+  alternates: { canonical: "/find-an-ilit-provider" },
 };
 
 const RADIUS_VALUES = new Set<number>([20, 30, 40, 50, 75, 100, 150, 200]);
@@ -30,7 +33,7 @@ function buildQuery(params: Record<string, string | undefined>) {
 
 export default async function FindAProviderPage({
   searchParams,
-}: PageProps<"/find-a-provider">) {
+}: PageProps<"/find-an-ilit-provider">) {
   const params = await searchParams;
   const zip = typeof params.zip === "string" ? params.zip : undefined;
   const radiusParam = typeof params.radius === "string" ? parseInt(params.radius, 10) : 50;
@@ -40,14 +43,19 @@ export default async function FindAProviderPage({
   const location = zip ? lookupZip(zip) : null;
   const result = location ? await searchProviders(location.lat, location.lng, radius) : null;
   const backHref = zip
-    ? `/find-a-provider${buildQuery({ zip, radius: String(radius), view })}`
-    : "/find-a-provider";
+    ? `/find-an-ilit-provider${buildQuery({ zip, radius: String(radius), view })}`
+    : "/find-an-ilit-provider";
 
   return (
     <>
+      {/* No natural spot for a visible headline in this compact,
+          form-first header bar (and the user doesn't want its look
+          changed) — sr-only keeps a real H1 in the DOM for SEO/a11y
+          without touching the visual design. */}
+      <h1 className="sr-only">Find an ILIT Provider Near You</h1>
       <div className="flex flex-wrap items-center gap-2.5 border-b border-line bg-bg-alt px-6 py-4 sm:px-10">
         <div className="flex-1">
-          <ZipSearchForm action="/find-a-provider" showRadius defaultRadius={radius} defaultZip={zip ?? ""} />
+          <ZipSearchForm action="/find-an-ilit-provider" showRadius defaultRadius={radius} defaultZip={zip ?? ""} />
         </div>
         {zip && (
           // Map and list already render side by side at md+ (both columns

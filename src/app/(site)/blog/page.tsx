@@ -6,10 +6,21 @@ import { ArticleFeed } from "@/components/ArticleFeed";
 import { getTagCounts, queryBlogArticles } from "@/lib/blog";
 import { lookupZip } from "@/lib/zip";
 
-export const metadata: Metadata = {
-  title: "Blog",
-  description: "ILIT news, clinical research, and practice spotlights from Open Air Allergy Network.",
-};
+export async function generateMetadata({ searchParams }: PageProps<"/blog">): Promise<Metadata> {
+  const sp = await searchParams;
+  const tag = typeof sp.tag === "string" ? sp.tag : undefined;
+  // zip/radius/page are personalization/pagination, not distinct content —
+  // canonical always drops them so those combinations don't get indexed as
+  // separate near-duplicate URLs. `tag` does change the content meaningfully,
+  // so it gets its own title/description and stays in the canonical.
+  return {
+    title: tag ? `${tag} Articles` : "Blog",
+    description: tag
+      ? `ILIT articles tagged "${tag}" from Open Air Allergy Network.`
+      : "ILIT news, clinical research, and practice spotlights from Open Air Allergy Network.",
+    alternates: { canonical: tag ? `/blog?tag=${encodeURIComponent(tag)}` : "/blog" },
+  };
+}
 
 const ARCHIVE_PAGE_SIZE = 20;
 const GRID_SIZE = 6;
@@ -104,7 +115,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
               >
                 <div className="relative h-30 overflow-hidden bg-bg-alt">
                   {article.featureImageUrl && (
-                    <Image src={article.featureImageUrl} alt="" fill className="object-cover" />
+                    <Image src={article.featureImageUrl} alt={article.title} fill className="object-cover" />
                   )}
                 </div>
                 <div className="flex flex-1 flex-col gap-1.5 p-3.5">
