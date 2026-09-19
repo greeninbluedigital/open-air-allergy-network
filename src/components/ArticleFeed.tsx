@@ -96,7 +96,7 @@ export async function ArticleFeed({
         >
           <div className="relative h-30 overflow-hidden bg-bg-alt">
             {article.featureImageUrl && (
-              <Image src={article.featureImageUrl} alt="" fill className="object-cover" />
+              <Image src={article.featureImageUrl} alt={article.title} fill className="object-cover" />
             )}
           </div>
           <div className="flex flex-1 flex-col gap-1.5 p-3.5">

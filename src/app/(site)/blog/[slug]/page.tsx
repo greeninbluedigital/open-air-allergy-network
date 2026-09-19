@@ -21,9 +21,21 @@ const markdownComponents = {
   ul: (props: React.ComponentProps<"ul">) => <ul className="mb-4 list-disc space-y-1 pl-5" {...props} />,
   ol: (props: React.ComponentProps<"ol">) => <ol className="mb-4 list-decimal space-y-1 pl-5" {...props} />,
   strong: (props: React.ComponentProps<"strong">) => <strong className="font-semibold text-foreground" {...props} />,
-  a: (props: React.ComponentProps<"a">) => (
-    <a className="text-[#1c5ea8] hover:underline" target="_blank" rel="noopener noreferrer" {...props} />
-  ),
+  a: ({ href, ...rest }: React.ComponentProps<"a">) => {
+    // Internal links (e.g. a "find an ILIT provider" link to the SRP) should
+    // navigate in the same tab like any other in-site link; only genuine
+    // external citations get the new-tab treatment.
+    const isInternal = href?.startsWith("/");
+    return (
+      <a
+        href={href}
+        className="text-[#1c5ea8] hover:underline"
+        target={isInternal ? undefined : "_blank"}
+        rel={isInternal ? undefined : "noopener noreferrer"}
+        {...rest}
+      />
+    );
+  },
   img: (props: React.ComponentProps<"img">) => (
     // eslint-disable-next-line @next/next/no-img-element -- Markdown body images have arbitrary author-pasted URLs, not known at build time.
     <img className="my-4 w-full rounded" {...props} alt={props.alt ?? ""} />
@@ -126,6 +138,12 @@ export default async function BlogArticlePage({ params }: PageProps<"/blog/[slug
         {article.publishedDate?.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })}
       </div>
 
+      {article.featureImageUrl && (
+        <div className="relative mb-6 h-64 overflow-hidden rounded bg-bg-alt sm:h-80">
+          <Image src={article.featureImageUrl} alt={article.title} fill className="object-cover" />
+        </div>
+      )}
+
       {article.summaryPoints.length > 0 && (
         <div className="mb-6 rounded border border-line bg-bg-alt p-4">
           <div className="mb-2 text-xs font-semibold tracking-wide text-muted uppercase">Key Takeaways</div>
@@ -134,12 +152,6 @@ export default async function BlogArticlePage({ params }: PageProps<"/blog/[slug
               <li key={i}>{point}</li>
             ))}
           </ul>
-        </div>
-      )}
-
-      {article.featureImageUrl && (
-        <div className="relative mb-6 h-64 overflow-hidden rounded bg-bg-alt sm:h-80">
-          <Image src={article.featureImageUrl} alt={article.title} fill className="object-cover" />
         </div>
       )}
 
