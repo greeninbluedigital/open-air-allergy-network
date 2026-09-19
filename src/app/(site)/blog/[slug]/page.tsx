@@ -179,7 +179,7 @@ export default async function BlogArticlePage({ params }: PageProps<"/blog/[slug
             >
               {article.providerCredited.practiceName}
             </Link>{" "}
-            — view their full profile, contact and location →
+            in {article.providerCredited.city}
             {article.author!.bio && (
               <p className="mt-2 text-xs text-foreground/80">{article.author!.bio}</p>
             )}
