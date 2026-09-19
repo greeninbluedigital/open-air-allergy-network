@@ -10,6 +10,7 @@ import { LeadStatusMessage, LeadErrorMessage } from "@/components/pdp/LeadStatus
 import { PatientReviews, getAggregateRatingSchema } from "@/components/PatientReviews";
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { PhotoGallery } from "@/components/pdp/PhotoGallery";
+import { truncateForMeta } from "@/lib/metadata";
 
 // 4 or fewer FAQs render fully expanded (today's behavior, unchanged); 5+
 // switches to a collapsed accordion so a practice with a lot of FAQ content
@@ -37,15 +38,21 @@ export async function generateMetadata({
   const provider = await getProvider(slug);
   if (!provider) return {};
 
-  // Keyword-rich for search ("ILIT provider in {city}") — the visible <h1>
-  // stays just the practice name (clean, already-settled visual design);
-  // the <title> tag doesn't have to match it exactly.
+  // Keyword-rich for search ("ILIT provider in {city}"). Uses `absolute` to
+  // skip the root layout's " | Open Air Allergy Network" template — with a
+  // real practice name + city + state, the 28-char suffix alone pushed every
+  // PDP well past the 62-char budget (verified against all live providers).
   const title = `${provider.practiceName} — ILIT Provider in ${provider.city}, ${provider.state}`;
-  const description =
-    provider.shortBio ?? `${provider.practiceName} in ${provider.city}, ${provider.state} — ILIT provider.`;
+  // shortBio is long-form ("About This Practice"-length) copy, not written
+  // to meta-description length — truncateForMeta bounds it at a clean
+  // sentence/word boundary instead of showing 200-500+ raw characters.
+  const description = truncateForMeta(
+    provider.shortBio ??
+      `${provider.practiceName} is a verified ILIT (intralymphatic immunotherapy) provider in ${provider.city}, ${provider.state}, listed on Open Air Allergy Network.`,
+  );
 
   return {
-    title,
+    title: { absolute: title },
     description,
     alternates: { canonical: `/find-an-ilit-provider/${slug}` },
     openGraph: {
@@ -191,7 +198,15 @@ export default async function ProviderDetailPage({
               })}
             </div>
           )}
-          <h1 className="text-2xl font-extrabold">{provider.practiceName}</h1>
+          <h1 className="text-2xl font-extrabold">
+            {provider.practiceName}
+            {/* Matches the <title> tag's wording so the visible H1 and the
+                search-result title reinforce the same keywords, without
+                the practice name losing visual top billing. */}
+            <span className="mt-0.5 block text-sm font-normal text-muted">
+              ILIT Provider in {provider.city}, {provider.state}
+            </span>
+          </h1>
         </div>
         <Link
           href={backHref}

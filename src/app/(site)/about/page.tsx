@@ -6,6 +6,7 @@ import { submitGeneralInquiry } from "@/lib/actions";
 export const metadata: Metadata = {
   title: "About",
   description: "Open Air Allergy Network connects patients searching for ILIT with practices that offer it.",
+  alternates: { canonical: "/about" },
 };
 
 const REASONS = ["General Inquiry", "Press / Media", "Partnership", "Accessibility", "Other"];

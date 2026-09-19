@@ -9,7 +9,8 @@ const LAST_UPDATED = "September 2026";
 export const metadata: Metadata = {
   title: "Learn About ILIT",
   description:
-    "What is ILIT (intralymphatic immunotherapy)? Learn how it compares to SCIT and SLIT, common allergy symptoms it addresses, and answers to frequently asked questions.",
+    "What is ILIT (intralymphatic immunotherapy)? How it compares to SCIT and SLIT, allergy symptoms it addresses, and frequently asked questions.",
+  alternates: { canonical: "/learn-about-ilit" },
 };
 
 const FAQ_ITEMS = [

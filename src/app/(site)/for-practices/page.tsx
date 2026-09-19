@@ -5,6 +5,7 @@ import { US_STATES } from "@/lib/states";
 export const metadata: Metadata = {
   title: "For Practices",
   description: "Join a growing network of ILIT providers. Tell us about your practice and we'll follow up.",
+  alternates: { canonical: "/for-practices" },
 };
 
 export default async function ForPracticesPage({

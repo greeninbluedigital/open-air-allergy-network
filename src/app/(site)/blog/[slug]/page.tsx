@@ -9,6 +9,7 @@ import { Badge } from "@/components/Badge";
 import { ArticleFeed } from "@/components/ArticleFeed";
 import { stripMarkdown } from "@/lib/markdown";
 import { cloudinaryFaceCrop } from "@/lib/cloudinary";
+import { truncateForMeta } from "@/lib/metadata";
 
 // Maps rendered Markdown elements to the site's existing type scale, rather
 // than pulling in a Tailwind Typography plugin whose opinionated defaults
@@ -60,12 +61,16 @@ export async function generateMetadata({
   const article = await getArticle(slug);
   if (!article) return {};
 
-  const description = (
-    article.summaryPoints.length > 0 ? article.summaryPoints.join(" ") : stripMarkdown(article.body)
-  ).slice(0, 160);
+  // Titles use `absolute` to skip the root layout's " | Open Air Allergy
+  // Network" template — that 28-char suffix alone pushed every real article
+  // title (including this user-chosen headline) past the 62-char budget.
+  const description = truncateForMeta(
+    article.summaryPoints.length > 0 ? article.summaryPoints.join(" ") : stripMarkdown(article.body),
+  );
   return {
-    title: article.title,
+    title: { absolute: article.title },
     description,
+    alternates: { canonical: `/blog/${slug}` },
     openGraph: {
       title: article.title,
       description,

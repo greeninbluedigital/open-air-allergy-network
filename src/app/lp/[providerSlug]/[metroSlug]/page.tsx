@@ -33,7 +33,10 @@ export async function generateMetadata({
   if (!result) return {};
 
   return {
-    title: `ILIT in ${result.provider.city} — ${result.lp.targetMetroName}`,
+    // `absolute` skips the site-name template — noindexed, so there's no
+    // SERP truncation risk, but kept consistent with the other dynamic
+    // detail pages (PDP, Article) rather than a one-off exception.
+    title: { absolute: `ILIT in ${result.provider.city} — ${result.lp.targetMetroName}` },
     // Paid-traffic-only, noindex — Section 3: avoids duplicate-content risk
     // and never competes with the real PDP's ranking.
     robots: { index: false, follow: false },
