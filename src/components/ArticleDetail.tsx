@@ -37,6 +37,22 @@ const markdownComponents = {
     // eslint-disable-next-line @next/next/no-img-element -- Markdown body images have arbitrary author-pasted URLs, not known at build time.
     <img className="my-4 w-full rounded" {...props} alt={props.alt ?? ""} />
   ),
+  // GFM tables (comparison content wants these) — matches the styling
+  // already used for the hand-built table on Learn About ILIT, rather than
+  // rendering a bare, unstyled HTML table.
+  table: (props: React.ComponentProps<"table">) => (
+    <div className="mb-4 overflow-x-auto">
+      <table className="w-full min-w-[420px] border-collapse text-sm" {...props} />
+    </div>
+  ),
+  th: (props: React.ComponentProps<"th">) => (
+    <th
+      className="border-b-2 border-line py-2 text-left text-[11px] font-semibold tracking-wide text-muted uppercase"
+      {...props}
+    />
+  ),
+  td: (props: React.ComponentProps<"td">) => <td className="py-2.5 pr-4" {...props} />,
+  tr: (props: React.ComponentProps<"tr">) => <tr className="border-b border-line/60" {...props} />,
 };
 
 /**
