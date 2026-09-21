@@ -23,15 +23,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       where: { active: true, isDemo: false },
       select: { slug: true, updatedAt: true },
     }),
-    db.article.findMany({ where: { status: "PUBLISHED" }, select: { slug: true, publishedDate: true } }),
+    db.article.findMany({
+      where: { status: "PUBLISHED" },
+      select: { slug: true, section: true, publishedDate: true, lastUpdated: true },
+    }),
   ]);
 
   return [
     ...STATIC_PATHS.map((path) => ({ url: `${SITE_URL}${path}` })),
     ...providers.map((p) => ({ url: `${SITE_URL}/find-an-ilit-provider/${p.slug}`, lastModified: p.updatedAt })),
     ...articles.map((a) => ({
-      url: `${SITE_URL}/blog/${a.slug}`,
-      lastModified: a.publishedDate ?? undefined,
+      url: `${SITE_URL}/${a.section === "LEARN" ? "learn-about-ilit" : "blog"}/${a.slug}`,
+      // LEARN pages are evergreen ("Last reviewed") — lastUpdated is the
+      // meaningful date. Blog stays on publishedDate, matching its display.
+      lastModified: a.section === "LEARN" ? a.lastUpdated : (a.publishedDate ?? undefined),
     })),
   ];
 }

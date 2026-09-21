@@ -102,3 +102,32 @@ you're only partway through editing will recreate that practice's FAQs from
 whatever's currently saved in the sheet at that moment, blank rows and all
 (a row missing a Question or Answer is just skipped, not treated as
 "delete everything").
+
+## Fourth tab: "Learn Page Credits"
+
+Tab name must be exactly **"Learn Page Credits"**. Manages the
+"Medically reviewed by" credit on `/learn-about-ilit/[slug]` cluster pages
+(the keyword-targeted comparison/education content — see
+`docs/blog-content-guide.md`). This tab does **not** manage page content
+(title/body/tags) — those pages are database-authored the same way blog
+articles are; this tab only assigns and approves who gets credited. Row 1 is
+headers, row 2 onward is data.
+
+| # | Column | Notes |
+|---|--------|-------|
+| A | Page Slug | Must match an existing `/learn-about-ilit/[slug]` article's slug — the article has to already exist (create it first, same as any Blog article) |
+| B | Provider Slug | Must match an existing row's Slug on the Providers tab. That provider also needs a linked `Author` record already (Prisma Studio) — same requirement as a Blog contribution |
+| C | Approved | `Y` / `N` — the actual on/off switch. The "Medically reviewed by" box only renders when this is `Y`, regardless of whether the author/provider links are set. Set to `N` (or delete the row) to pull the credit immediately on the next sync — e.g. a Featured subscription lapses |
+| D | Notes | Internal only — your own record of how/when you got documented approval. Not used by the sync logic |
+
+Behavior notes:
+- A page's credit only updates when something in the row actually changed
+  (author, provider, or approval status) — this keeps the visible "Last
+  reviewed" date (which is the article's `lastUpdated`, bumped automatically
+  on any real change) from creeping forward on every sync run when nothing
+  was actually reviewed.
+- A page mentioned in a *previous* sync but missing from the sheet now has
+  its approval cleared automatically (`Approved` forced to `N`) — this is
+  how deleting or blanking a row turns a credit off, without destroying the
+  underlying author/provider links in case the same practice gets
+  re-approved later.

@@ -304,6 +304,112 @@ async function syncFaqs(): Promise<FaqSyncSummary> {
   return summary;
 }
 
+// Fourth sheet tab — assigns/approves the "Medically reviewed by" credit on
+// /learn-about-ilit/[slug] cluster pages (Article.section = LEARN). Deliberately
+// separate from the Blog's "Contributed by" (Article.authorId/providerCreditedId
+// set directly, ungated) — this credit only renders when Approved is TRUE,
+// so a page can be staged before there's documented sign-off, and pulled
+// instantly (next sync) if a Featured subscription lapses, without deleting
+// the underlying links. See docs/blog-content-guide.md.
+const LEARN_CREDIT_COLUMNS = ["pageSlug", "providerSlug", "approved", "notes"] as const;
+const LEARN_CREDIT_SHEET_RANGE = "Learn Page Credits!A2:D";
+
+function parseLearnCreditRow(row: string[]): Record<(typeof LEARN_CREDIT_COLUMNS)[number], string> {
+  const record = {} as Record<(typeof LEARN_CREDIT_COLUMNS)[number], string>;
+  LEARN_CREDIT_COLUMNS.forEach((key, i) => {
+    record[key] = row[i] ?? "";
+  });
+  return record;
+}
+
+export type LearnCreditSyncSummary = {
+  updated: number;
+  unchanged: number;
+  cleared: number;
+  skipped: number;
+  errors: string[];
+};
+
+async function syncLearnPageCredits(): Promise<LearnCreditSyncSummary> {
+  const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
+  if (!spreadsheetId) throw new Error("GOOGLE_SHEETS_SPREADSHEET_ID is not set");
+
+  const rawRows = await fetchSheetRows(spreadsheetId, LEARN_CREDIT_SHEET_RANGE);
+  const summary: LearnCreditSyncSummary = { updated: 0, unchanged: 0, cleared: 0, skipped: 0, errors: [] };
+  const mentionedPageSlugs = new Set<string>();
+
+  for (const row of rawRows) {
+    const r = parseLearnCreditRow(row);
+    const pageSlug = r.pageSlug.trim();
+    const providerSlug = r.providerSlug.trim();
+    if (!pageSlug || !providerSlug) {
+      summary.skipped++;
+      continue;
+    }
+    mentionedPageSlugs.add(pageSlug);
+
+    try {
+      const article = await db.article.findUnique({ where: { slug: pageSlug, section: "LEARN" } });
+      if (!article) {
+        summary.errors.push(`${pageSlug}: no LEARN-section article with this slug (create it first)`);
+        continue;
+      }
+
+      const provider = await db.provider.findUnique({ where: { slug: providerSlug } });
+      if (!provider) {
+        summary.errors.push(`${pageSlug}: no provider with slug "${providerSlug}"`);
+        continue;
+      }
+
+      const authorLink = await db.authorProvider.findFirst({ where: { providerId: provider.id } });
+      if (!authorLink) {
+        summary.errors.push(
+          `${pageSlug}: provider "${providerSlug}" has no linked Author record yet (create one first, same as a Blog contribution)`,
+        );
+        continue;
+      }
+
+      const approved = parseBool(r.approved);
+      const changed =
+        article.authorId !== authorLink.authorId ||
+        article.providerCreditedId !== provider.id ||
+        article.reviewApproved !== approved;
+
+      if (changed) {
+        // Only touch the row when something real changed — lastUpdated is
+        // @updatedAt and drives the visible "Last reviewed" date, so an
+        // unconditional write on every sync would make it creep forward
+        // even when nothing was actually reviewed.
+        await db.article.update({
+          where: { id: article.id },
+          data: { authorId: authorLink.authorId, providerCreditedId: provider.id, reviewApproved: approved },
+        });
+        summary.updated++;
+      } else {
+        summary.unchanged++;
+      }
+    } catch (err) {
+      summary.errors.push(`${pageSlug}: ${(err as Error).message}`);
+    }
+  }
+
+  // Any LEARN article not mentioned in this sync pass loses its approval —
+  // deleting/blanking a sheet row is how a credit gets turned off (e.g. a
+  // Featured subscription lapses), same intuitive edit/delete behavior as
+  // the other secondary tabs, without destroying the staged author/provider
+  // links in case the same practice gets re-approved later.
+  const toClear = await db.article.findMany({
+    where: { section: "LEARN", reviewApproved: true, slug: { notIn: [...mentionedPageSlugs] } },
+    select: { id: true },
+  });
+  for (const { id } of toClear) {
+    await db.article.update({ where: { id }, data: { reviewApproved: false } });
+    summary.cleared++;
+  }
+
+  return summary;
+}
+
 export type SyncSummary = {
   created: number;
   updated: number;
@@ -312,6 +418,7 @@ export type SyncSummary = {
   errors: string[];
   landingPages: LandingPageSyncSummary;
   faqs: FaqSyncSummary;
+  learnCredits: LearnCreditSyncSummary;
 };
 
 export async function runSync(): Promise<SyncSummary> {
@@ -327,6 +434,7 @@ export async function runSync(): Promise<SyncSummary> {
     errors: [],
     landingPages: { created: 0, updated: 0, skipped: 0, errors: [] },
     faqs: { providersUpdated: 0, itemsSynced: 0, skipped: 0, errors: [] },
+    learnCredits: { updated: 0, unchanged: 0, cleared: 0, skipped: 0, errors: [] },
   };
 
   for (const row of rawRows) {
@@ -454,6 +562,12 @@ export async function runSync(): Promise<SyncSummary> {
     summary.faqs = await syncFaqs();
   } catch (err) {
     summary.faqs.errors.push((err as Error).message);
+  }
+
+  try {
+    summary.learnCredits = await syncLearnPageCredits();
+  } catch (err) {
+    summary.learnCredits.errors.push((err as Error).message);
   }
 
   return summary;

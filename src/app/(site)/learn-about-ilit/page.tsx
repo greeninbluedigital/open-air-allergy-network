@@ -157,13 +157,18 @@ export default function LearnAboutIlitPage() {
           ILIT providers typically also offer SCIT and/or SLIT, and can help
           you weigh which fits your situation best.
         </p>
-        <p className="mt-4 text-sm text-foreground/80">
+        <p className="mt-4 mb-4 text-sm text-foreground/80">
           Beyond visit count and administration, ILIT, SCIT, and SLIT differ
-          in a few other practical ways worth discussing with your provider.
+          in a few other practical ways worth discussing with your provider
+          — explore the specific comparisons below.
         </p>
-        <Link href="/blog" className="mt-1 inline-block text-sm font-semibold">
-          Read our in-depth comparison of ILIT, SCIT, and SLIT →
-        </Link>
+        {/* Navigation into the /learn-about-ilit/[slug] cluster pages —
+            renders nothing until the first one is published (emptyHidden),
+            then grows automatically as more are added. This is the primary
+            surfacing mechanism for that content per the 2026-09 SEO
+            strategy; promoting individual pages into global nav is a later,
+            traffic-data-driven decision, not part of this module. */}
+        <ArticleFeed section="LEARN" limit={6} emptyHidden />
       </div>
 
       <div className="border-b border-line px-6 py-8 sm:px-10">

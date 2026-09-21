@@ -28,6 +28,16 @@ enum SubscriptionStatus {
   INACTIVE
 }
 
+// BLOG: /blog/[slug], timely/news-style, keeps the existing ungated
+// "Contributed by" credit. LEARN: /learn-about-ilit/[slug] — the
+// keyword-targeted comparison/education cluster pages (2026-09 SEO
+// strategy), evergreen, "Last reviewed" date framing, gated credit (see
+// Article.reviewApproved).
+enum ArticleSection {
+  BLOG
+  LEARN
+}
+
 enum ArticleStatus {
   DRAFT
   IN_REVIEW
@@ -303,9 +313,10 @@ model AuthorProvider {
 }
 
 model Article {
-  id     String        @id @default(cuid())
-  status ArticleStatus @default(DRAFT)
-  slug   String        @unique
+  id      String         @id @default(cuid())
+  status  ArticleStatus  @default(DRAFT)
+  section ArticleSection @default(BLOG)
+  slug    String         @unique
 
   // Nullable — house content may have no specific named author.
   authorId String?
@@ -315,6 +326,16 @@ model Article {
   // PDP cross-link and which PDP's "Articles by This Practice" module shows it.
   providerCreditedId String?
   providerCredited   Provider? @relation("ArticlesCredited", fields: [providerCreditedId], references: [id])
+
+  // LEARN-section only: the "Medically reviewed by" credit box only renders
+  // when this is explicitly true, independent of authorId/providerCreditedId
+  // being set — lets a credit be staged (author + provider linked) before
+  // there's documented approval to actually show it, and lets it be flipped
+  // off in one sync run if a Featured subscription lapses, without deleting
+  // the underlying links. Sheet-managed via the "Learn Page Credits" tab.
+  // Not used by BLOG-section articles (their "Contributed by" credit stays
+  // ungated, unchanged from before this field existed).
+  reviewApproved Boolean @default(false)
 
   // Freeform, counted/sorted by frequency for the Blog's tag filter — a plain
   // array rather than a normalized Tag table, since tags are intentionally
@@ -356,6 +377,7 @@ model Article {
   faqItems ArticleFaqItem[]
 
   @@index([status])
+  @@index([section])
   @@index([providerCreditedId])
   @@index([authorId])
   @@index([publishedDate])

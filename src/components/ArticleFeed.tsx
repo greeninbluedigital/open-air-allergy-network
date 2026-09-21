@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { db } from "@/lib/db";
+import type { ArticleSection } from "@/generated/prisma/client";
 
 /**
  * One reusable component backing every Article Feed instance site-wide
@@ -15,6 +16,7 @@ import { db } from "@/lib/db";
 export async function ArticleFeed({
   pinnedToSlot,
   tag,
+  section = "BLOG",
   providerCreditedId,
   sameAuthorId,
   excludeArticleId,
@@ -24,6 +26,12 @@ export async function ArticleFeed({
   /** Admin-curated pin slot key, e.g. "homepage_recent". */
   pinnedToSlot?: string;
   tag?: string;
+  /** Defaults to BLOG so every pre-existing call site keeps showing only
+   * blog posts, not the newer /learn-about-ilit/[slug] cluster pages.
+   * "ALL" opts out of the filter entirely — used by the PDP's "Articles
+   * From This Practice", which should show everything a provider is
+   * credited on regardless of section. */
+  section?: ArticleSection | "ALL";
   providerCreditedId?: string;
   /** Slot 1 priority for contribution articles' "More from the Blog". */
   sameAuthorId?: string;
@@ -35,6 +43,7 @@ export async function ArticleFeed({
 }) {
   const baseWhere = {
     status: "PUBLISHED" as const,
+    ...(section !== "ALL" ? { section } : {}),
     ...(tag ? { tags: { has: tag } } : {}),
     ...(providerCreditedId ? { providerCreditedId } : {}),
   };

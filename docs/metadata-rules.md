@@ -34,12 +34,13 @@ So the rule in practice:
 - **Static/marketing pages** (Home, SRP, Learn About ILIT, For Practices,
   About, Blog index, Legal) keep the template suffix — brand reinforcement
   matters more there, and none of them are near the character limit.
-- **Dynamic detail pages** (PDP, Blog article, SEM landing page) set
-  `title: { absolute: "..." }` in `generateMetadata`, which skips the parent
-  template entirely. Verified against every live provider and article
-  2026-09: without this, every single one of them exceeded 62 characters,
-  including a real article title the user had deliberately chosen — the fix
-  was dropping the suffix, not shortening their content.
+- **Dynamic detail pages** (PDP, Blog article, Learn About ILIT cluster page,
+  SEM landing page) set `title: { absolute: "..." }` in `generateMetadata`,
+  which skips the parent template entirely. Verified against every live
+  provider and article 2026-09: without this, every single one of them
+  exceeded 62 characters, including a real article title the user had
+  deliberately chosen — the fix was dropping the suffix, not shortening
+  their content.
 
 ## Why descriptions go through `truncateForMeta()`
 
@@ -67,6 +68,7 @@ cut mid-word and doesn't enforce the 155 ceiling if the max changes later.
 | Home, SRP, Learn About ILIT, For Practices, About, Blog index | Static string + `\| Open Air Allergy Network` suffix | Static string, 70–155 chars | Self-referencing | Indexable |
 | PDP (`/find-an-ilit-provider/[slug]`) | `{Practice Name} — ILIT Provider in {City}, {State}`, no suffix (`absolute`) | `shortBio` (or a generated fallback sentence) via `truncateForMeta()` | Self-referencing | Indexable, except `isDemo` listings (`noindex, nofollow`) |
 | Blog article (`/blog/[slug]`) | Article's own title, no suffix (`absolute`) | `summaryPoints` (or stripped Markdown body) via `truncateForMeta()` | Self-referencing | Indexable |
+| Learn About ILIT cluster page (`/learn-about-ilit/[slug]`) | Article's own title, no suffix (`absolute`) | Same as Blog article, via `truncateForMeta()` | Self-referencing | Indexable |
 | SEM landing page (`/lp/[providerSlug]/[metroSlug]`) | `ILIT in {City} — {Metro}`, no suffix (`absolute`) | Not set | None (noindexed, moot) | Always `noindex, nofollow` |
 | Legal pages (`/legal/[slug]`) | Page title + suffix | Not set | None (noindexed, moot) | `noindex, follow` |
 | `/api/*` | n/a | n/a | n/a | `X-Robots-Tag: noindex, nofollow` (HTTP header, not meta) |
@@ -82,6 +84,8 @@ These rules are what will actually take effect once that's lifted.
   {City}, {State}" subline inside the same `<h1>` — matches the `<title>`
   tag's wording so both signals reinforce the same phrase instead of
   splitting across two different ones.
+- Blog article / Learn About ILIT cluster page: the article's own title,
+  shared via `ArticleDetail.tsx`.
 - Homepage: the hero headline (`"Allergy season shouldn't mean missing
   yours."`) is the `<h1>`.
 - SRP: no visible headline fits the compact search-bar header without a

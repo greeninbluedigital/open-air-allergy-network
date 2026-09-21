@@ -307,7 +307,7 @@ export default async function ProviderDetailPage({
           {articleCount > 0 && (
             <div>
               <h3 className="mb-2 text-base font-bold">Articles From This Practice</h3>
-              <ArticleFeed providerCreditedId={provider.id} limit={3} emptyHidden />
+              <ArticleFeed providerCreditedId={provider.id} section="ALL" limit={3} emptyHidden />
             </div>
           )}
 

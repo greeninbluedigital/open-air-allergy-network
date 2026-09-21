@@ -6,7 +6,7 @@ export type TagCount = { tag: string; count: number };
 /** Auto-sorted by article count descending (Section 4 — Blog tag filter). */
 export async function getTagCounts(): Promise<TagCount[]> {
   const articles = await db.article.findMany({
-    where: { status: "PUBLISHED" },
+    where: { status: "PUBLISHED", section: "BLOG" },
     select: { tags: true },
   });
 
@@ -66,7 +66,7 @@ export async function queryBlogArticles({
     };
   }
 
-  const where: Prisma.ArticleWhereInput = { status: "PUBLISHED", ...tagWhere, ...pafWhere };
+  const where: Prisma.ArticleWhereInput = { status: "PUBLISHED", section: "BLOG", ...tagWhere, ...pafWhere };
 
   const [articles, totalCount] = await Promise.all([
     db.article.findMany({
