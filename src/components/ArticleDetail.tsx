@@ -211,7 +211,7 @@ export function ArticleDetail({ article }: { article: ArticleDetailData }) {
       )}
 
       <div className="mt-8 border-t border-line pt-6">
-        <h2 className="mb-3 text-lg font-bold">{isLearn ? "More Comparisons" : "More from the Blog"}</h2>
+        <h2 className="mb-3 text-lg font-bold">{isLearn ? "More Articles" : "More from the Blog"}</h2>
         <ArticleFeed
           section={isLearn ? "LEARN" : "BLOG"}
           sameAuthorId={!isLearn && showCredit ? (article.authorId ?? undefined) : undefined}
