@@ -160,16 +160,12 @@ async function syncSemLandingPages(): Promise<LandingPageSyncSummary> {
   const rawRows = await fetchSheetRows(spreadsheetId, SEM_LP_SHEET_RANGE);
   const summary: LandingPageSyncSummary = { created: 0, updated: 0, skipped: 0, errors: [] };
 
-  // Fill down Provider Slug from the last non-blank row above — a practice
-  // with several landing pages will naturally only get typed once, the same
-  // way you'd leave a repeated value blank under a merged-looking group in
-  // a spreadsheet.
-  let lastProviderSlug = "";
-
   for (const row of rawRows) {
     const r = parseSemLpRow(row);
-    const providerSlug = r.providerSlug.trim() || lastProviderSlug;
-    if (r.providerSlug.trim()) lastProviderSlug = r.providerSlug.trim();
+    // Provider Slug must be explicit on every row — no fill-down. Removed
+    // deliberately (2026-09): user wants a blank cell to fail obviously
+    // (row skipped) rather than silently inherit a value from above.
+    const providerSlug = r.providerSlug.trim();
     const urlSlug = r.urlSlug.trim();
     if (!providerSlug || !urlSlug) {
       summary.skipped++;
@@ -338,15 +334,14 @@ async function syncFaqs(): Promise<FaqSyncSummary> {
   const summary: FaqSyncSummary = { providersUpdated: 0, itemsSynced: 0, skipped: 0, errors: [] };
 
   // Group by provider slug first — sheet row order is the fallback sort
-  // order when the Sort Order column is left blank. Provider Slug also
-  // fills down from the last non-blank row: a dozen FAQs for one practice
-  // will naturally only have it typed on the first row.
+  // order when the Sort Order column is left blank. Provider Slug must be
+  // explicit on every row — no fill-down (removed deliberately, 2026-09:
+  // user wants a blank cell to fail obviously, i.e. the row skipped,
+  // rather than silently inherit a value from above).
   const byProvider = new Map<string, { question: string; answer: string; sortOrder: number }[]>();
-  let lastProviderSlug = "";
   rawRows.forEach((row, i) => {
     const r = parseFaqRow(row);
-    const providerSlug = r.providerSlug.trim() || lastProviderSlug;
-    if (r.providerSlug.trim()) lastProviderSlug = r.providerSlug.trim();
+    const providerSlug = r.providerSlug.trim();
     const question = r.question.trim();
     const answer = r.answer.trim();
     if (!providerSlug || !question || !answer) {
