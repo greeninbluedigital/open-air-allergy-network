@@ -71,12 +71,17 @@ spelling/casing matters since matching is a literal string compare
 
 ## Crediting a guest article to a practice (BLOG)
 
-Set two fields (direct DB write, not sheet-synced):
-- `Article.authorId` → an `Author` record's id (create one if this is a new
-  contributor: `name`, `bio`, optionally reuse the provider's own photo as
-  `Article.authorPhotoUrl` only if it's genuinely a photo of that specific
-  person — confirm with the provider, don't assume for multi-doctor
-  practices).
+Practitioners (the `Author` record — name/title as it should appear in a
+byline, bio, which provider(s) they're affiliated with) are managed on the
+**"Practitioners"** sheet tab now, not Prisma Studio — see
+`docs/sheet-columns.md`. Create the practitioner there first if they're new.
+
+Then set two fields on the Article (still a direct DB write, not
+sheet-synced):
+- `Article.authorId` → that `Author` record's id. Optionally set
+  `Article.authorPhotoUrl` too — only if it's genuinely a photo of that
+  specific person; confirm with the provider, don't assume for multi-doctor
+  practices.
 - `Article.providerCreditedId` → the credited `Provider`'s id.
 
 This drives three things automatically: the "Contributed by" byline box on
@@ -95,14 +100,15 @@ subscription lapses.
 
 Managed via the **"Learn Page Credits"** sheet tab (see
 `docs/sheet-columns.md`), not a direct DB write: Page Slug, Provider Slug,
-Approved (Y/N), Notes. Under the hood this sets the same `authorId` /
-`providerCreditedId` fields as a BLOG credit, plus `Article.reviewApproved`
-— the box only renders when that's `true`. This means a credit can be
-staged (author + provider linked) before there's documented sign-off, and
-turned off in one sync run — set `Approved` to `N` or delete the row —
-without losing the underlying links if the same practice gets re-approved
-later. See the schema comment on `Article.reviewApproved` for the full
-reasoning.
+Practitioner Slug (optional — only needed if the provider has more than one
+practitioner on the Practitioners tab), Approved (Y/N), Notes. Under the
+hood this sets the same `authorId` / `providerCreditedId` fields as a BLOG
+credit, plus `Article.reviewApproved` — the box only renders when that's
+`true`. This means a credit can be staged (author + provider linked) before
+there's documented sign-off, and turned off in one sync run — set `Approved`
+to `N` or delete the row — without losing the underlying links if the same
+practice gets re-approved later. See the schema comment on
+`Article.reviewApproved` for the full reasoning.
 
 Practical flow: get the practice's actual sign-off on the page content
 first (even a quick approve/edit pass — the point is a real doctor actually

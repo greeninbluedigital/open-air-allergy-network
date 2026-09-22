@@ -102,6 +102,7 @@ async function main() {
   });
 
   const authorData = {
+    slug: "jane-example",
     name: "Dr. Jane Example",
     bio: "Board-certified allergist practicing at Example ILIT & Allergy Center.",
   };

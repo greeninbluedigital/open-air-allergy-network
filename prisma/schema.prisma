@@ -289,8 +289,12 @@ model ProviderFaqItem {
 /// every article that person writes. Can link to more than one Provider (a doctor
 /// practicing at multiple locations).
 model Author {
-  id       String  @id @default(cuid())
-  name     String
+  id   String @id @default(cuid())
+  // Sheet-managed via the "Practitioners" tab (upsert-by-key), unlike the
+  // rest of Author, which is still a direct DB write — see
+  // docs/blog-content-guide.md.
+  slug String @unique
+  name String
   photoUrl String?
   bio      String?
 

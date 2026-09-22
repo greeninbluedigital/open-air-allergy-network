@@ -6,7 +6,7 @@ text). Column order:
 
 | # | Column | Notes |
 |---|--------|-------|
-| A | Slug | Required, unique, url-safe (e.g. `example-ilit-center`) — this is the matching key |
+| A | Provider Slug | Required, unique, url-safe (e.g. `example-ilit-center`) — this is the matching key |
 | B | Group ID | Optional — same value across sibling locations. No required format; suggested convention: `<brand-slug>-group` (e.g. `example-ilit-group`) |
 | C | Practice Name | |
 | D | Address | Street address only |
@@ -70,7 +70,7 @@ onward is data, same position-based rule as the Providers tab.
 
 | # | Column | Notes |
 |---|--------|-------|
-| A | Provider Slug | Must match an existing row's Slug on the Providers tab exactly — this is how a landing page is tied to a practice. Can be left blank on rows after the first for the same practice — it fills down from the last non-blank value above it |
+| A | Provider Slug | Must match an existing row's Provider Slug on the Providers tab exactly — this is how a landing page is tied to a practice. Can be left blank on rows after the first for the same practice — it fills down from the last non-blank value above it |
 | B | URL Slug | Becomes the URL, e.g. `sf-bay-area` → `/lp/example-ilit-center/sf-bay-area`. Url-safe, unique per practice (a practice can reuse the same URL Slug another practice already used, since the full path also includes the practice's own slug) |
 | C | Target Metro Name | Display name shown on the page, e.g. `SF Bay Area` |
 | D | Travel Narrative | Optional flavor text about traveling in from that metro |
@@ -91,7 +91,7 @@ takes effect. Row 1 is headers, row 2 onward is data.
 
 | # | Column | Notes |
 |---|--------|-------|
-| A | Provider Slug | Must match an existing row's Slug on the Providers tab. Same fill-down rule as SEM Landing Pages — leave it blank on every row after the first for a given practice and it carries down from the last non-blank value above |
+| A | Provider Slug | Must match an existing row's Provider Slug on the Providers tab. Same fill-down rule as SEM Landing Pages — leave it blank on every row after the first for a given practice and it carries down from the last non-blank value above |
 | B | Question | |
 | C | Answer | |
 | D | Sort Order | Optional — a number controlling display order. Leave blank and the sheet's own row order is used instead |
@@ -116,9 +116,10 @@ headers, row 2 onward is data.
 | # | Column | Notes |
 |---|--------|-------|
 | A | Page Slug | Must match an existing `/learn-about-ilit/[slug]` article's slug — the article has to already exist (create it first, same as any Blog article) |
-| B | Provider Slug | Must match an existing row's Slug on the Providers tab. That provider also needs a linked `Author` record already (Prisma Studio) — same requirement as a Blog contribution |
-| C | Approved | `Y` / `N` — the actual on/off switch. The "Medically reviewed by" box only renders when this is `Y`, regardless of whether the author/provider links are set. Set to `N` (or delete the row) to pull the credit immediately on the next sync — e.g. a Featured subscription lapses |
-| D | Notes | Internal only — your own record of how/when you got documented approval. Not used by the sync logic |
+| B | Provider Slug | Must match an existing row's Provider Slug on the Providers tab. That provider also needs at least one linked practitioner on the **Practitioners** tab (below) — same requirement as a Blog contribution |
+| C | Practitioner Slug | Optional. Only needed if the provider has more than one practitioner on the Practitioners tab — picks which one gets credited. Leave blank and the sync uses whichever practitioner is linked (fine for the common case of exactly one) |
+| D | Approved | `Y` / `N` — the actual on/off switch. The "Medically reviewed by" box only renders when this is `Y`, regardless of whether the author/provider links are set. Set to `N` (or delete the row) to pull the credit immediately on the next sync — e.g. a Featured subscription lapses |
+| E | Notes | Internal only — your own record of how/when you got documented approval. Not used by the sync logic |
 
 Behavior notes:
 - A page's credit only updates when something in the row actually changed
@@ -131,3 +132,26 @@ Behavior notes:
   how deleting or blanking a row turns a credit off, without destroying the
   underlying author/provider links in case the same practice gets
   re-approved later.
+
+## Fifth tab: "Practitioners"
+
+Tab name must be exactly **"Practitioners"**. One row per person, not per
+provider — separate from Providers because a practice can have more than one
+credited practitioner, and a practitioner can be affiliated with more than
+one location (e.g. a doctor at two sibling practices). This is what actually
+creates/manages `Author` records now — no more Prisma Studio for this part.
+Upsert-by-key like Providers/SEM Landing Pages: editing Display Name or Bio
+on an existing row just updates it. Row 1 is headers, row 2 onward is data.
+
+| # | Column | Notes |
+|---|--------|-------|
+| A | Practitioner Slug | Required, unique, url-safe (e.g. `sandra-ho`) — this is the matching key |
+| B | Provider Slug(s) | Required, at least one. Semicolon-separated if affiliated with multiple locations, e.g. `avant-allergy-los-angeles; avant-allergy-santa-monica`. Each must match an existing Provider Slug. This list is reconciled exactly to what's in the cell on every sync — removing a slug here removes that affiliation, it doesn't just stop adding new ones |
+| C | Display Name | Required — the exact text shown in bylines, e.g. `Dr. Sandra Ho, MD`. Include whatever title/credentials you want displayed; there's no separate title field, this is the whole string |
+| D | Bio | Optional — shown under the credit box on Blog/Learn pages when set |
+
+Used by both the Blog's "Contributed by" credit (set via direct DB write,
+see `docs/blog-content-guide.md`) and the Learn Page Credits tab above —
+create the practitioner here first, then reference their Practitioner Slug
+(or just their Provider Slug, if they're the only one) wherever they need to
+be credited.

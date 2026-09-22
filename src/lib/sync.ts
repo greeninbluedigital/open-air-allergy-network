@@ -216,6 +216,94 @@ async function syncSemLandingPages(): Promise<LandingPageSyncSummary> {
   return summary;
 }
 
+// Fifth sheet tab — one row per practitioner (person), not per provider.
+// Separate table, not a field on Providers, because a practice can have more
+// than one credited practitioner and a practitioner can be affiliated with
+// more than one location — this is the Author/AuthorProvider models'
+// existing many-to-many shape, now sheet-managed instead of Prisma Studio.
+// Upsert-by-key (Practitioner Slug), like Providers/SEM Landing Pages —
+// editing Display Name or Bio just updates the row. Provider Slugs is
+// reconciled to exactly match the sheet on every sync (add newly-listed
+// affiliations, remove ones no longer listed), same edit/delete-friendly
+// intent as the other tabs, without touching the Author record itself.
+const PRACTITIONER_COLUMNS = ["practitionerSlug", "providerSlugs", "displayName", "bio"] as const;
+const PRACTITIONER_SHEET_RANGE = "Practitioners!A2:D";
+
+function parsePractitionerRow(row: string[]): Record<(typeof PRACTITIONER_COLUMNS)[number], string> {
+  const record = {} as Record<(typeof PRACTITIONER_COLUMNS)[number], string>;
+  PRACTITIONER_COLUMNS.forEach((key, i) => {
+    record[key] = row[i] ?? "";
+  });
+  return record;
+}
+
+export type PractitionerSyncSummary = {
+  created: number;
+  updated: number;
+  skipped: number;
+  errors: string[];
+};
+
+async function syncPractitioners(): Promise<PractitionerSyncSummary> {
+  const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
+  if (!spreadsheetId) throw new Error("GOOGLE_SHEETS_SPREADSHEET_ID is not set");
+
+  const rawRows = await fetchSheetRows(spreadsheetId, PRACTITIONER_SHEET_RANGE);
+  const summary: PractitionerSyncSummary = { created: 0, updated: 0, skipped: 0, errors: [] };
+
+  for (const row of rawRows) {
+    const r = parsePractitionerRow(row);
+    const slug = r.practitionerSlug.trim();
+    const displayName = r.displayName.trim();
+    const providerSlugs = parseList(r.providerSlugs);
+    if (!slug || !displayName || providerSlugs.length === 0) {
+      summary.skipped++;
+      continue;
+    }
+
+    try {
+      const existing = await db.author.findUnique({ where: { slug } });
+
+      const author = await db.author.upsert({
+        where: { slug },
+        create: { slug, name: displayName, bio: r.bio || null },
+        update: { name: displayName, bio: r.bio || null },
+      });
+
+      const matchedProviderIds: string[] = [];
+      for (const providerSlug of providerSlugs) {
+        const provider = await db.provider.findUnique({ where: { slug: providerSlug } });
+        if (!provider) {
+          summary.errors.push(`${slug}: no provider with slug "${providerSlug}"`);
+          continue;
+        }
+        matchedProviderIds.push(provider.id);
+      }
+
+      await db.authorProvider.deleteMany({
+        where: { authorId: author.id, providerId: { notIn: matchedProviderIds } },
+      });
+      for (const providerId of matchedProviderIds) {
+        await db.authorProvider.upsert({
+          where: { authorId_providerId: { authorId: author.id, providerId } },
+          create: { authorId: author.id, providerId },
+          update: {},
+        });
+      }
+
+      if (existing) {
+        summary.updated++;
+      } else {
+        summary.created++;
+      }
+    } catch (err) {
+      summary.errors.push(`${slug}: ${(err as Error).message}`);
+    }
+  }
+
+  return summary;
+}
+
 // Third sheet tab — one row per FAQ. Unlike Providers/SEM Landing Pages,
 // this is deliberately wipe-and-recreate per provider (same pattern as
 // syncTreatments above), not upsert-by-key: a question has no natural
@@ -311,8 +399,8 @@ async function syncFaqs(): Promise<FaqSyncSummary> {
 // so a page can be staged before there's documented sign-off, and pulled
 // instantly (next sync) if a Featured subscription lapses, without deleting
 // the underlying links. See docs/blog-content-guide.md.
-const LEARN_CREDIT_COLUMNS = ["pageSlug", "providerSlug", "approved", "notes"] as const;
-const LEARN_CREDIT_SHEET_RANGE = "Learn Page Credits!A2:D";
+const LEARN_CREDIT_COLUMNS = ["pageSlug", "providerSlug", "practitionerSlug", "approved", "notes"] as const;
+const LEARN_CREDIT_SHEET_RANGE = "Learn Page Credits!A2:E";
 
 function parseLearnCreditRow(row: string[]): Record<(typeof LEARN_CREDIT_COLUMNS)[number], string> {
   const record = {} as Record<(typeof LEARN_CREDIT_COLUMNS)[number], string>;
@@ -361,10 +449,22 @@ async function syncLearnPageCredits(): Promise<LearnCreditSyncSummary> {
         continue;
       }
 
-      const authorLink = await db.authorProvider.findFirst({ where: { providerId: provider.id } });
+      // Practitioner Slug is optional — most providers have exactly one
+      // linked practitioner today, so falling back to "whichever is linked"
+      // covers that case without requiring the column. Once a provider has
+      // more than one (the Practitioners tab supports this directly), the
+      // sheet editor specifies which one by slug.
+      const practitionerSlug = r.practitionerSlug.trim();
+      const authorLink = practitionerSlug
+        ? await db.authorProvider.findFirst({
+            where: { providerId: provider.id, author: { slug: practitionerSlug } },
+          })
+        : await db.authorProvider.findFirst({ where: { providerId: provider.id } });
       if (!authorLink) {
         summary.errors.push(
-          `${pageSlug}: provider "${providerSlug}" has no linked Author record yet (create one first, same as a Blog contribution)`,
+          practitionerSlug
+            ? `${pageSlug}: practitioner "${practitionerSlug}" isn't linked to provider "${providerSlug}" (check the Practitioners tab)`
+            : `${pageSlug}: provider "${providerSlug}" has no linked practitioner yet (add one on the Practitioners tab)`,
         );
         continue;
       }
@@ -418,6 +518,7 @@ export type SyncSummary = {
   errors: string[];
   landingPages: LandingPageSyncSummary;
   faqs: FaqSyncSummary;
+  practitioners: PractitionerSyncSummary;
   learnCredits: LearnCreditSyncSummary;
 };
 
@@ -434,6 +535,7 @@ export async function runSync(): Promise<SyncSummary> {
     errors: [],
     landingPages: { created: 0, updated: 0, skipped: 0, errors: [] },
     faqs: { providersUpdated: 0, itemsSynced: 0, skipped: 0, errors: [] },
+    practitioners: { created: 0, updated: 0, skipped: 0, errors: [] },
     learnCredits: { updated: 0, unchanged: 0, cleared: 0, skipped: 0, errors: [] },
   };
 
@@ -562,6 +664,14 @@ export async function runSync(): Promise<SyncSummary> {
     summary.faqs = await syncFaqs();
   } catch (err) {
     summary.faqs.errors.push((err as Error).message);
+  }
+
+  // Must run before learnCredits — it resolves practitioner links that a
+  // newly-added row on the Learn Page Credits tab may depend on this run.
+  try {
+    summary.practitioners = await syncPractitioners();
+  } catch (err) {
+    summary.practitioners.errors.push((err as Error).message);
   }
 
   try {
