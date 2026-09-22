@@ -97,29 +97,33 @@ export async function ArticleFeed({
 
   return (
     <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
-      {articles.map((article) => (
-        <Link
-          key={article.id}
-          href={`/blog/${article.slug}`}
-          className="flex flex-col overflow-hidden rounded border border-line bg-white"
-        >
-          <div className="relative h-30 overflow-hidden bg-bg-alt">
-            {article.featureImageUrl && (
-              <Image src={article.featureImageUrl} alt={article.title} fill className="object-cover" />
-            )}
-          </div>
-          <div className="flex flex-1 flex-col gap-1.5 p-3.5">
-            <div className="text-sm font-bold">{article.title}</div>
-            <div className="text-xs text-muted">
-              {article.author ? `By ${article.author.name}` : "House"} ·{" "}
-              {article.publishedDate?.toLocaleDateString("en-US", {
-                month: "short",
-                year: "numeric",
-              })}
+      {articles.map((article) => {
+        const isLearn = article.section === "LEARN";
+        return (
+          <Link
+            key={article.id}
+            href={`/${isLearn ? "learn-about-ilit" : "blog"}/${article.slug}`}
+            className="flex flex-col overflow-hidden rounded border border-line bg-white"
+          >
+            <div className="relative h-30 overflow-hidden bg-bg-alt">
+              {article.featureImageUrl && (
+                <Image src={article.featureImageUrl} alt={article.title} fill className="object-cover" />
+              )}
             </div>
-          </div>
-        </Link>
-      ))}
+            <div className="flex flex-1 flex-col gap-1.5 p-3.5">
+              <div className="text-sm font-bold">{article.title}</div>
+              <div className="text-xs text-muted">
+                {article.author ? `By ${article.author.name}` : "House"} ·{" "}
+                {isLearn ? "Reviewed " : ""}
+                {(isLearn ? article.lastUpdated : article.publishedDate)?.toLocaleDateString("en-US", {
+                  month: "short",
+                  year: "numeric",
+                })}
+              </div>
+            </div>
+          </Link>
+        );
+      })}
     </div>
   );
 }
