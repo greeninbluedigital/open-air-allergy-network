@@ -113,7 +113,8 @@ export async function ArticleFeed({
             <div className="flex flex-1 flex-col gap-1.5 p-3.5">
               <div className="text-sm font-bold">{article.title}</div>
               <div className="text-xs text-muted">
-                {article.author ? `By ${article.author.name}` : "House"} ·{" "}
+                {/* House content (no author) shows no name at all — just the date. */}
+                {article.author && <>By {article.author.name} · </>}
                 {isLearn ? "Reviewed " : ""}
                 {(isLearn ? article.lastUpdated : article.publishedDate)?.toLocaleDateString("en-US", {
                   month: "short",

@@ -127,7 +127,9 @@ export function ArticleDetail({ article }: { article: ArticleDetailData }) {
 
       <h1 className="text-3xl font-extrabold">{article.title}</h1>
       <div className="mt-2 mb-6 text-xs text-muted">
-        {article.author ? `By ${article.author.name}` : "Open Air Allergy Network"} ·{" "}
+        {/* House content (no author) shows no name at all — not a
+            placeholder like "Open Air Allergy Network" — just the date. */}
+        {article.author && <>By {article.author.name} · </>}
         {isLearn ? (
           <>
             Last reviewed{" "}
