@@ -22,6 +22,7 @@ export async function ArticleFeed({
   excludeArticleId,
   limit,
   emptyHidden = false,
+  oldestFirst = false,
 }: {
   /** Admin-curated pin slot key, e.g. "homepage_recent". */
   pinnedToSlot?: string;
@@ -40,7 +41,13 @@ export async function ArticleFeed({
   limit: number;
   /** PDP "Articles by This Practice": hide the whole module if empty. */
   emptyHidden?: boolean;
+  /** Learn About ILIT's nav module: oldest-first instead of the default
+   * newest-first, since the user wants the first cluster pages published
+   * (the ones they consider the most foundational reading) to appear first
+   * in a small, capped-at-~6 list — not treated like a recency-driven feed. */
+  oldestFirst?: boolean;
 }) {
+  const orderBy = { publishedDate: oldestFirst ? ("asc" as const) : ("desc" as const) };
   const baseWhere = {
     status: "PUBLISHED" as const,
     ...(section !== "ALL" ? { section } : {}),
@@ -56,7 +63,7 @@ export async function ArticleFeed({
   const pinned = pinnedToSlot
     ? await db.article.findMany({
         where: { ...baseWhere, pinnedTo: pinnedToSlot, id: { notIn: alwaysExcluded } },
-        orderBy: { publishedDate: "desc" },
+        orderBy,
         take: limit,
         include: { author: true },
       })
@@ -71,7 +78,7 @@ export async function ArticleFeed({
             authorId: sameAuthorId,
             id: { notIn: [...alwaysExcluded, ...pinned.map((a) => a.id)] },
           },
-          orderBy: { publishedDate: "desc" },
+          orderBy,
           take: afterPinned,
           include: { author: true },
         })
@@ -85,7 +92,7 @@ export async function ArticleFeed({
             ...baseWhere,
             id: { notIn: [...alwaysExcluded, ...pinned.map((a) => a.id), ...sameAuthor.map((a) => a.id)] },
           },
-          orderBy: { publishedDate: "desc" },
+          orderBy,
           take: remaining,
           include: { author: true },
         })
@@ -99,6 +106,12 @@ export async function ArticleFeed({
     <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
       {articles.map((article) => {
         const isLearn = article.section === "LEARN";
+        // Same gating as the article page itself (ArticleDetail.tsx) — a
+        // staged-but-unapproved LEARN credit shouldn't show the author name
+        // here either, even though this component doesn't render the full
+        // credit box.
+        const isContribution = Boolean(article.authorId && article.providerCreditedId);
+        const showCredit = isLearn ? isContribution && article.reviewApproved : isContribution;
         return (
           <Link
             key={article.id}
@@ -113,9 +126,8 @@ export async function ArticleFeed({
             <div className="flex flex-1 flex-col gap-1.5 p-3.5">
               <div className="text-sm font-bold">{article.title}</div>
               <div className="text-xs text-muted">
-                {/* House content (no author) shows no name at all — just the date. */}
-                {article.author && <>By {article.author.name} · </>}
-                {isLearn ? "Reviewed " : ""}
+                {/* House/unapproved content shows no name at all — just the date. */}
+                {showCredit && <>By {article.author!.name} · </>}
                 {(isLearn ? article.lastUpdated : article.publishedDate)?.toLocaleDateString("en-US", {
                   month: "short",
                   year: "numeric",

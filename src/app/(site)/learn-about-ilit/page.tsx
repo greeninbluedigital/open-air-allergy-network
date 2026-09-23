@@ -178,7 +178,7 @@ export default function LearnAboutIlitPage() {
             surfacing mechanism for that content per the 2026-09 SEO
             strategy; promoting individual pages into global nav is a later,
             traffic-data-driven decision, not part of this module. */}
-        <ArticleFeed section="LEARN" limit={6} emptyHidden />
+        <ArticleFeed section="LEARN" limit={6} emptyHidden oldestFirst />
       </div>
 
       <div className="border-b border-line px-6 py-8 sm:px-10">
