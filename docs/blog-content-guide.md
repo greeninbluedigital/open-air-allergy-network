@@ -5,6 +5,15 @@ Notes for whoever is writing/publishing articles — both `/blog/[slug]` and
 authored (Prisma Studio or a one-off script), not sheet-managed like
 Providers.
 
+**Prose style is governed separately**, by `OpenAirAllergyNetwork_STYLE_GUIDE.md`
+(repo root) and the `open-air-allergy-writing` Claude Code skill
+(`.claude/skills/`) — read/apply that before drafting or editing any
+article body or FAQ text. It fixes a specific "AI-smooth" pattern (recycled
+hedge-closer phrasing, rule-of-three prose lists, FAQ answers that just
+restate the body, no em dashes/hyphens/semicolons as clause joiners) found
+in this site's own published content. This doc covers structure/data, that
+one covers sentence-level writing.
+
 ## BLOG vs. LEARN sections
 
 `Article.section` is `BLOG` or `LEARN`, and determines both the URL and how
