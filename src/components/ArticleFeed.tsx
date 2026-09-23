@@ -125,14 +125,18 @@ export async function ArticleFeed({
             </div>
             <div className="flex flex-1 flex-col gap-1.5 p-3.5">
               <div className="text-sm font-bold">{article.title}</div>
-              <div className="text-xs text-muted">
-                {/* House/unapproved content shows no name at all — just the date. */}
-                {showCredit && <>By {article.author!.name} · </>}
-                {(isLearn ? article.lastUpdated : article.publishedDate)?.toLocaleDateString("en-US", {
-                  month: "short",
-                  year: "numeric",
-                })}
-              </div>
+              {isLearn ? (
+                // No date, no "By"/"Medically reviewed by" label — just the
+                // doctor's name when there's an approved credit, nothing at
+                // all otherwise. Keeps tiles small; the name alone still
+                // signals credibility without spending space on a label.
+                showCredit && <div className="text-xs text-muted">{article.author!.name}</div>
+              ) : (
+                <div className="text-xs text-muted">
+                  {article.author && <>By {article.author.name} · </>}
+                  {article.publishedDate?.toLocaleDateString("en-US", { month: "short", year: "numeric" })}
+                </div>
+              )}
             </div>
           </Link>
         );
