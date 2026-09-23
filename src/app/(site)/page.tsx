@@ -10,6 +10,12 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
+// Same fix as learn-about-ilit/page.tsx (see comment there) — this page
+// also has no searchParams/params, so it was a candidate for the full
+// route cache, meaning DB-only content changes (e.g. a new pinned blog
+// article) wouldn't show up here without a fresh deploy.
+export const dynamic = "force-dynamic";
+
 // Homepage gets a compact 4-item subset — Learn About ILIT shows the fuller
 // list (Section design note: "a single row, not the fuller two-column card
 // treatment those pages use").

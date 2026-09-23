@@ -6,6 +6,16 @@ import { SYMPTOMS, TREATMENT_COMPARISON, WHAT_IS_ILIT_COPY } from "@/lib/content
 
 const LAST_UPDATED = "September 2026";
 
+// Real bug found 2026-09-22: this page takes no searchParams/params (no
+// Next.js "Dynamic API" usage), so it was a candidate for the full route
+// cache — Vercel served whatever it looked like at the last deploy,
+// meaning DB-only content changes (a new article, a photo) never showed
+// up here until the next code push triggered a fresh build. force-dynamic
+// makes every request re-query the database, matching how every other
+// DB-driven page on the site already behaves (they're dynamic for other
+// reasons — searchParams, params — this page just had neither).
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Learn About ILIT",
   description:
