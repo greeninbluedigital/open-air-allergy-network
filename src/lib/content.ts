@@ -23,6 +23,25 @@ export const SYMPTOMS = [
 ] as const;
 
 /**
+ * Column headers — simple consumer name alongside the acronym, for both
+ * keyword coverage and readability. No plain-English synonym exists for
+ * ILIT itself (unlike "Allergy Shots"/"Allergy Drops" for SCIT/SLIT), so
+ * that column stays acronym-only.
+ *
+ * IMPORTANT: the /learn-about-ilit/ilit-vs-scit-vs-slit-a-full-comparison
+ * article's own "Side by Side" table is hand-typed Markdown living in the
+ * database (Article.body), not code — it can't import this constant. If
+ * you change this, update that article's table to match by hand, or the
+ * two will drift out of sync again (2026-09-23: user explicitly asked for
+ * them to always match).
+ */
+export const TREATMENT_COMPARISON_HEADERS = {
+  ilit: "ILIT",
+  scit: "SCIT (Allergy Shots)",
+  slit: "SLIT (Allergy Drops/Tablets)",
+} as const;
+
+/**
  * Comparison guardrail (Section 4): duration/visit-count/administration
  * differences only — never efficacy or outcome claims. Tone stays positive
  * and objective toward SCIT/SLIT; all three are valid options.
@@ -35,5 +54,10 @@ export const TREATMENT_COMPARISON = [
     scit: "Under-skin injection",
     slit: "Under-tongue drops or tablets",
   },
-  { label: "Typical visit frequency", ilit: "A handful of visits", scit: "Regular ongoing visits", slit: "Regular ongoing dosing, often at home" },
+  {
+    label: "Typical visit frequency",
+    ilit: "A handful of visits",
+    scit: "Regular ongoing visits",
+    slit: "At-home dosing, plus periodic in-office visits",
+  },
 ] as const;

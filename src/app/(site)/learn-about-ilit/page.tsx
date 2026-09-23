@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { ZipSearchForm } from "@/components/ZipSearchForm";
 import { ArticleFeed } from "@/components/ArticleFeed";
-import { SYMPTOMS, TREATMENT_COMPARISON, WHAT_IS_ILIT_COPY } from "@/lib/content";
+import { SYMPTOMS, TREATMENT_COMPARISON, TREATMENT_COMPARISON_HEADERS, WHAT_IS_ILIT_COPY } from "@/lib/content";
 
 const LAST_UPDATED = "September 2026";
 
@@ -38,7 +38,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "How do I know if I'm a candidate for ILIT?",
-    a: "If you experience ongoing allergy symptoms like the ones described above, a consultation with an ILIT provider is the best way to find out whether it's a fit for you.",
+    a: "Good candidates typically have confirmed allergies to a defined set of common triggers, things like pollen, dust mites, or pet dander, identified through a skin or blood allergy test. A broader or more complex allergy profile may be better suited to SCIT or SLIT instead. An allergist can review your test results and history to tell you directly whether ILIT is a fit.",
+  },
+  {
+    q: "Can I get ILIT if I'm already getting allergy drops or allergy shots?",
+    a: "Yes, that's a common situation. Many allergists who offer ILIT also treat patients already on SCIT or SLIT, and switching or combining approaches is possible depending on your specific allergens and how far into your current treatment you are. It's not automatic though, so bring your current treatment history to a consultation so your allergist can advise on the best path from where you already are.",
   },
   {
     q: "Does ILIT hurt more or less than a standard allergy shot?",
@@ -95,18 +99,26 @@ export default function LearnAboutIlitPage() {
       />
 
       <div className="px-6 pt-8 sm:px-10">
-        <h1 className="text-3xl font-extrabold">Learn About ILIT</h1>
+        <h1 className="text-3xl font-extrabold">
+          Learn About ILIT (Intralymphatic Immunotherapy)
+        </h1>
         <div className="mt-1 text-xs text-muted">Last updated: {LAST_UPDATED}</div>
       </div>
 
+      {/* User-provided copy (2026-09-23), one edit made: "injected
+          painlessly" softened to "with minimal discomfort for most
+          patients" — "painlessly" is an absolute claim that directly
+          contradicts this same page's own pain FAQ below ("many patients
+          describe it as milder... your own experience may differ"), and
+          the style guide bans absolute/guarantee language for exactly
+          this reason. */}
       <div className="mx-6 mt-5 rounded border border-line bg-bg-alt p-5 sm:mx-10">
         <p className="text-sm text-foreground/80">
-          ILIT (intralymphatic immunotherapy) is a form of allergy
-          immunotherapy in which small amounts of allergen are injected
-          directly into a lymph node, typically over a small number of
-          visits rather than the years-long course associated with
-          traditional allergy shots (SCIT). It&apos;s a personal treatment
-          decision best made together with your doctor.
+          ILIT (intralymphatic immunotherapy) is an allergy treatment in
+          which small amounts of allergen are injected directly into a
+          lymph node, with minimal discomfort for most patients, over a
+          few monthly visits, rather than the years-long course associated
+          with traditional allergy shots (SCIT) or allergy drops (SLIT).
         </p>
       </div>
 
@@ -146,6 +158,77 @@ export default function LearnAboutIlitPage() {
       </div>
 
       <div className="border-b border-line px-6 py-8 sm:px-10">
+        <h2 className="mb-4 text-xl font-bold">What Can ILIT Treat?</h2>
+        <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
+          <div>
+            <h3 className="mb-1.5 text-sm font-bold">Indoor Allergies</h3>
+            <p className="text-sm text-foreground/80">
+              Dust mites, pet dander, and indoor mold are common year-round
+              triggers ILIT protocols can be built around.
+            </p>
+          </div>
+          <div>
+            <h3 className="mb-1.5 text-sm font-bold">Outdoor Allergies</h3>
+            <p className="text-sm text-foreground/80">
+              Tree, grass, and weed pollen driving seasonal symptoms are
+              among the most common allergens ILIT treats.
+            </p>
+          </div>
+          <div>
+            <h3 className="mb-1.5 text-sm font-bold">Allergy-Related Asthma</h3>
+            <p className="text-sm text-foreground/80">
+              For asthma triggered by an allergen ILIT is treating,
+              addressing that allergen may help with breathing and
+              flare-ups alongside your asthma care.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="border-b border-line bg-bg-alt px-6 py-8 sm:px-10">
+        <h2 className="mb-4 text-xl font-bold">Imagine...</h2>
+        <ul className="space-y-2 text-sm text-foreground/80">
+          <li>Feeling relief in a handful of visits instead of years.</li>
+          <li>Skipping weekly appointments for allergy shots.</li>
+          <li>Spending more time living, not managing symptoms.</li>
+        </ul>
+      </div>
+
+      <div className="grid grid-cols-1 gap-7 border-b border-line px-6 py-8 sm:px-10 md:grid-cols-2">
+        <div>
+          <h2 className="mb-3 text-xl font-bold">Why Ultrasound Guidance Matters</h2>
+          <p className="text-sm text-foreground/80">
+            ILIT injections go into a lymph node, a small, specific target
+            just under the skin. Ultrasound imaging lets your allergist see
+            exactly where that lymph node is before delivering the
+            injection, instead of relying on touch alone. That precision is
+            what makes injecting directly into a lymph node practical and
+            safe as a routine office visit.
+          </p>
+        </div>
+        <div>
+          <h2 className="mb-3 text-xl font-bold">Is ILIT Safe?</h2>
+          <p className="text-sm text-foreground/80">
+            ILIT delivers allergen into a lymph node instead of fatty
+            tissue, an area with far fewer of the cells that trigger
+            allergic reactions, and has shown a favorable safety profile in
+            the research conducted so far. Reactions are still possible
+            with any immunotherapy, which is why every injection is
+            followed by a monitoring period in the office.
+          </p>
+          <p className="mt-3 text-sm text-foreground/80">
+            Worth knowing: ILIT hasn&apos;t yet been reviewed for FDA
+            approval. That&apos;s not unique to it. Sublingual
+            immunotherapy (allergy drops) has been used for decades and
+            also isn&apos;t FDA-approved, largely because approval requires
+            years of accumulated data a newer treatment hasn&apos;t had
+            time to generate. Ask your allergist what the current research
+            shows and how they weigh that when recommending it.
+          </p>
+        </div>
+      </div>
+
+      <div className="border-b border-line px-6 py-8 sm:px-10">
         <h2 className="mb-3 text-xl font-bold">
           Comparing ILIT to Other Allergy Treatments
         </h2>
@@ -155,13 +238,13 @@ export default function LearnAboutIlitPage() {
               <tr>
                 <th className="border-b-2 border-line py-2 text-left text-[11px] font-semibold tracking-wide text-muted uppercase"></th>
                 <th className="border-b-2 border-line py-2 text-left text-[11px] font-semibold tracking-wide text-muted uppercase">
-                  ILIT
+                  {TREATMENT_COMPARISON_HEADERS.ilit}
                 </th>
                 <th className="border-b-2 border-line py-2 text-left text-[11px] font-semibold tracking-wide text-muted uppercase">
-                  SCIT
+                  {TREATMENT_COMPARISON_HEADERS.scit}
                 </th>
                 <th className="border-b-2 border-line py-2 text-left text-[11px] font-semibold tracking-wide text-muted uppercase">
-                  SLIT
+                  {TREATMENT_COMPARISON_HEADERS.slit}
                 </th>
               </tr>
             </thead>
@@ -204,6 +287,27 @@ export default function LearnAboutIlitPage() {
             strategy; promoting individual pages into global nav is a later,
             traffic-data-driven decision, not part of this module. */}
         <ArticleFeed section="LEARN" limit={6} emptyHidden oldestFirst />
+      </div>
+
+      <div className="border-b border-line px-6 py-8 sm:px-10">
+        <h2 className="mb-3 text-xl font-bold">
+          Other Ways to Manage Allergy Symptoms
+        </h2>
+        <p className="text-sm text-foreground/80">
+          Immunotherapy isn&apos;t the only path. Over-the-counter and
+          prescription options, oral antihistamines, nasal steroid sprays,
+          eye drops, decongestants, and prescription options like
+          leukotriene modifiers, can meaningfully control day-to-day
+          symptoms.
+        </p>
+        <p className="mt-3 text-sm text-foreground/80">
+          The tradeoff is that these manage symptoms rather than changing
+          your underlying allergic response. If the allergy itself
+          doesn&apos;t change, most people find they need to keep taking
+          something indefinitely. Immunotherapy, including ILIT, SCIT, and
+          SLIT, is the category of treatment aimed at the underlying
+          reaction instead.
+        </p>
       </div>
 
       <div className="border-b border-line px-6 py-8 sm:px-10">
