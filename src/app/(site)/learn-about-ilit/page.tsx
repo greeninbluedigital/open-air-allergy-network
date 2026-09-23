@@ -126,13 +126,18 @@ export default function LearnAboutIlitPage() {
               </div>
             ))}
           </div>
-          <Link
-            href="/find-an-ilit-provider"
-            className="mt-3.5 block border-t border-sand-line pt-3 text-sm font-semibold text-sage"
-          >
-            Connect with an Open Air Allergy Network provider to see if ILIT
-            can help you →
-          </Link>
+          <div className="mt-3.5 border-t border-sand-line pt-3">
+            <p className="mb-3 text-sm font-semibold text-sage">
+              Connect with an Open Air Allergy Network provider to see if
+              ILIT can help you.
+            </p>
+            <Link
+              href="/find-an-ilit-provider"
+              className="inline-block rounded bg-action px-4 py-2.5 text-sm font-semibold text-white hover:bg-action-hover"
+            >
+              Find a Provider
+            </Link>
+          </div>
         </div>
       </div>
 
@@ -198,8 +203,17 @@ export default function LearnAboutIlitPage() {
       </div>
 
       <div className="border-b border-line px-6 py-8 sm:px-10">
-        <h2 className="mb-4 text-xl font-bold">Backed by Clinical Literature</h2>
-        <ArticleFeed tag="Clinical Research" limit={3} />
+        {/* Renamed from "Backed by Clinical Literature" (2026-09-23) — that
+            section depended on a "Clinical Research" tag with no real
+            content behind it. This pulls the most recent provider-credited
+            Blog articles instead — consumer-friendly framing, and the
+            user's stated plan is for every future Blog article to be
+            ghost-written for or contributed by a provider, so this stays
+            fresh without needing a specific tag maintained. Replaces the
+            old separate "Recent from the Blog" section below, which this
+            makes redundant. */}
+        <h2 className="mb-4 text-xl font-bold">From Our Provider Network</h2>
+        <ArticleFeed limit={3} providerCreditedOnly emptyHidden />
       </div>
 
       <div id="faq" className="border-b border-line px-6 py-8 sm:px-10">
@@ -210,11 +224,6 @@ export default function LearnAboutIlitPage() {
             <div className="mt-1 text-sm text-muted">{item.a}</div>
           </div>
         ))}
-      </div>
-
-      <div className="px-6 py-8 sm:px-10">
-        <h2 className="mb-4 text-xl font-bold">Recent from the Blog</h2>
-        <ArticleFeed pinnedToSlot="learn_about_ilit_recent" limit={3} />
       </div>
 
       <div className="mx-6 mb-8 rounded bg-action p-6 text-white sm:mx-10">

@@ -23,6 +23,7 @@ export async function ArticleFeed({
   limit,
   emptyHidden = false,
   oldestFirst = false,
+  providerCreditedOnly = false,
 }: {
   /** Admin-curated pin slot key, e.g. "homepage_recent". */
   pinnedToSlot?: string;
@@ -46,6 +47,11 @@ export async function ArticleFeed({
    * (the ones they consider the most foundational reading) to appear first
    * in a small, capped-at-~6 list — not treated like a recency-driven feed. */
   oldestFirst?: boolean;
+  /** Learn About ILIT's "From Our Provider Network" module: only articles
+   * actually credited to a provider — house content (no credit) never
+   * belongs in a section making that specific claim, even if it's
+   * otherwise a recent BLOG article. */
+  providerCreditedOnly?: boolean;
 }) {
   const orderBy = { publishedDate: oldestFirst ? ("asc" as const) : ("desc" as const) };
   const baseWhere = {
@@ -53,6 +59,7 @@ export async function ArticleFeed({
     ...(section !== "ALL" ? { section } : {}),
     ...(tag ? { tags: { has: tag } } : {}),
     ...(providerCreditedId ? { providerCreditedId } : {}),
+    ...(providerCreditedOnly ? { providerCreditedId: { not: null } } : {}),
   };
 
   // Always excluded, on top of whichever slot's own already-picked IDs — kept

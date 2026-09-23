@@ -113,7 +113,12 @@ export function ArticleDetail({ article }: { article: ArticleDetailData }) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       )}
 
-      <Link href={backHref} className="mb-3 inline-block text-xs text-muted">
+      {/* Same button-styled treatment as the PDP's "Back to Search Results"
+          link, for consistency across the site's "go back" links. */}
+      <Link
+        href={backHref}
+        className="mb-3 inline-block rounded border border-line px-3 py-1.5 text-xs whitespace-nowrap text-foreground/80"
+      >
         {backLabel}
       </Link>
 
