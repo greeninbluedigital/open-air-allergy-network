@@ -205,6 +205,14 @@ export default function LearnAboutIlitPage() {
             what makes injecting directly into a lymph node practical and
             safe as a routine office visit.
           </p>
+          <p className="mt-3 text-sm text-foreground/80">
+            It&apos;s the same core technology used to monitor a pregnancy.
+            High-frequency sound waves build a live image with no radiation
+            involved, which is why ultrasound is considered safe for
+            routine, repeated use, whether that&apos;s tracking a growing
+            baby over nine months or guiding an ILIT injection every few
+            weeks.
+          </p>
         </div>
         <div>
           <h2 className="mb-3 text-xl font-bold">Is ILIT Safe?</h2>
