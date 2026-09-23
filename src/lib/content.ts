@@ -19,6 +19,7 @@ export const SYMPTOMS = [
   { icon: "🌳", label: "Seasonal pollen reactions" },
   { icon: "🐾", label: "Pet dander sensitivity" },
   { icon: "🏡", label: "Dust & mold sensitivity" },
+  { icon: "🫁", label: "Allergy-induced asthma" },
 ] as const;
 
 /**

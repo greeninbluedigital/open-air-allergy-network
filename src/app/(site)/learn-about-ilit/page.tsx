@@ -56,6 +56,10 @@ const FAQ_ITEMS = [
     q: "Is ILIT safe?",
     a: "Because ILIT targets a lymph node rather than fatty tissue, an area with far fewer of the cells that trigger allergic reactions, researchers have reported a favorable safety profile. Reactions are still possible with any immunotherapy, which is why your allergist monitors you at every visit.",
   },
+  {
+    q: "Can ILIT help with my asthma?",
+    a: "It may, if the asthma is triggered by an allergen ILIT is treating. Reducing your body's reaction to that allergen can mean easier breathing and fewer flare-ups for some patients. Asthma needs its own management plan though, so this is worth raising with your allergist alongside whatever your asthma treatment already includes.",
+  },
 ];
 
 export default function LearnAboutIlitPage() {
