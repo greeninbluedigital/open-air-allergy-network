@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 const FAQ_ITEMS = [
   {
     q: "Is ILIT painful?",
-    a: "Most patients describe the injection itself as a brief pinch, similar to other lymph-node-area injections. Ask your provider about what to expect for your specific situation.",
+    a: "Most patients describe it as a brief pinch. ILIT injections go into a superficial lymph node, usually near the groin, an area with far fewer pain-sensing nerve endings than the skin or muscle tissue used for a standard allergy shot.",
   },
   {
     q: "How much does ILIT typically cost?",
@@ -46,11 +46,11 @@ const FAQ_ITEMS = [
   },
   {
     q: "Does ILIT hurt more or less than a standard allergy shot?",
-    a: "Many patients describe it as milder. ILIT goes into a lymph node instead of the fatty tissue under the skin, an area with fewer pain-sensing nerve endings. Pain tolerance varies quite a bit from person to person, so your own experience may differ.",
+    a: "Many patients describe it as milder than a standard allergy shot or a routine blood draw. Standard allergy shots go into fatty tissue under the skin, which carries more pain-sensing nerve endings than the lymph node ILIT targets. Pain tolerance still varies from person to person.",
   },
   {
     q: "What allergens can ILIT treat?",
-    a: "ILIT protocols are built around a defined set of common allergens, things like tree and grass pollen, dust mites, and pet dander. A broader or more complex allergy profile may be better suited to SCIT or SLIT instead, so allergy testing is the starting point for figuring out which option fits.",
+    a: "Most ILIT protocols target up to about six allergens at once, which makes it a strong fit for common triggers like tree and grass pollen, dust mites, and pet dander. A broader or more complex allergy profile may be better suited to SCIT or SLIT instead, since those approaches aren't limited the same way.",
   },
   {
     q: "Do I need allergy testing before starting ILIT?",
@@ -58,7 +58,7 @@ const FAQ_ITEMS = [
   },
   {
     q: "Is ILIT safe?",
-    a: "Because ILIT targets a lymph node rather than fatty tissue, an area with far fewer of the cells that trigger allergic reactions, researchers have reported a favorable safety profile. Reactions are still possible with any immunotherapy, which is why your allergist monitors you at every visit.",
+    a: "Current research supports it. The randomized controlled trial that established ILIT found it caused significantly fewer adverse reactions than standard subcutaneous allergy shots, while producing an equivalent long-term result. As with any immunotherapy, mild reactions are still possible, which is why every appointment includes an in-office monitoring period.",
   },
   {
     q: "Can ILIT help with my asthma?",
@@ -217,8 +217,9 @@ export default function LearnAboutIlitPage() {
             followed by a monitoring period in the office.
           </p>
           <p className="mt-3 text-sm text-foreground/80">
-            Worth knowing: ILIT hasn&apos;t yet been reviewed for FDA
-            approval. That&apos;s not unique to it. Sublingual
+            Worth knowing: even though ILIT began clinical trials in the
+            2000s, it hasn&apos;t yet been reviewed for FDA approval.
+            That&apos;s not unique to it. Sublingual
             immunotherapy (allergy drops) has been used for decades and
             also isn&apos;t FDA-approved, largely because approval requires
             years of accumulated data a newer treatment hasn&apos;t had
