@@ -40,6 +40,22 @@ const FAQ_ITEMS = [
     q: "How do I know if I'm a candidate for ILIT?",
     a: "If you experience ongoing allergy symptoms like the ones described above, a consultation with an ILIT provider is the best way to find out whether it's a fit for you.",
   },
+  {
+    q: "Does ILIT hurt more or less than a standard allergy shot?",
+    a: "Many patients describe it as milder. ILIT goes into a lymph node instead of the fatty tissue under the skin, an area with fewer pain-sensing nerve endings. Pain tolerance varies quite a bit from person to person, so your own experience may differ.",
+  },
+  {
+    q: "What allergens can ILIT treat?",
+    a: "ILIT protocols are built around a defined set of common allergens, things like tree and grass pollen, dust mites, and pet dander. A broader or more complex allergy profile may be better suited to SCIT or SLIT instead, so allergy testing is the starting point for figuring out which option fits.",
+  },
+  {
+    q: "Do I need allergy testing before starting ILIT?",
+    a: "Yes. A skin or blood test identifies exactly which allergens you react to, which is what your provider uses to build your treatment plan, whether that ends up being ILIT, SCIT, or SLIT.",
+  },
+  {
+    q: "Is ILIT safe?",
+    a: "Because ILIT targets a lymph node rather than fatty tissue, an area with far fewer of the cells that trigger allergic reactions, researchers have reported a favorable safety profile. Reactions are still possible with any immunotherapy, which is why your allergist monitors you at every visit.",
+  },
 ];
 
 export default function LearnAboutIlitPage() {
@@ -115,19 +131,9 @@ export default function LearnAboutIlitPage() {
             className="mt-3.5 block border-t border-sand-line pt-3 text-sm font-semibold text-sage"
           >
             Connect with an Open Air Allergy Network provider to see if ILIT
-            can help you.
+            can help you →
           </Link>
         </div>
-      </div>
-
-      <div className="mx-6 my-7 rounded bg-dark-panel p-6 text-white sm:mx-10">
-        <div className="mb-1 text-base font-semibold">
-          Ready to find a provider?
-        </div>
-        <div className="mb-4 text-xs text-white/70">
-          See ILIT providers near you — no obligation.
-        </div>
-        <ZipSearchForm variant="dark" />
       </div>
 
       <div className="border-b border-line px-6 py-8 sm:px-10">
@@ -168,10 +174,20 @@ export default function LearnAboutIlitPage() {
           you weigh which fits your situation best.
         </p>
         <p className="mt-4 mb-4 text-sm text-foreground/80">
-          Beyond visit count and administration, ILIT, SCIT, and SLIT differ
-          in a few other practical ways worth discussing with your provider
-          — explore the specific comparisons below.
+          Cost and timeline are usually what decide it. SCIT and SLIT have
+          the longer track record and are more likely to be covered by
+          insurance, but both run for years. ILIT compresses that into a
+          handful of visits over a few months, at the tradeoff of being
+          newer and generally self-pay today. Many providers offer more
+          than one option, so a single consultation can often cover all
+          three.
         </p>
+        <Link
+          href="/learn-about-ilit/ilit-vs-scit-vs-slit-a-full-comparison"
+          className="mb-4 inline-block text-sm font-semibold text-sage"
+        >
+          Read the full comparison →
+        </Link>
         {/* Navigation into the /learn-about-ilit/[slug] cluster pages —
             renders nothing until the first one is published (emptyHidden),
             then grows automatically as more are added. This is the primary
@@ -201,7 +217,7 @@ export default function LearnAboutIlitPage() {
         <ArticleFeed pinnedToSlot="learn_about_ilit_recent" limit={3} />
       </div>
 
-      <div className="mx-6 mb-8 rounded bg-dark-panel p-6 text-white sm:mx-10">
+      <div className="mx-6 mb-8 rounded bg-action p-6 text-white sm:mx-10">
         <div className="mb-4 text-base font-semibold">
           Still have questions? Search available providers near you.
         </div>
