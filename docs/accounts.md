@@ -11,11 +11,12 @@ Google/email account you used for each signup unless you've told me.
 | **Prisma Studio** | Browsing/editing the database directly | **No account exists** — it's a local tool (`npx prisma studio`), not a hosted service. It connects using the `DATABASE_URL` already in `.env`. Nothing to sign up for. | Run `npx prisma studio` from the project folder, opens at `http://localhost:5555` |
 | **Neon** | Postgres database hosting | ? | [console.neon.tech](https://console.neon.tech) |
 | **GitHub** | Source code repo | `greeninbluedigital` account | [github.com/greeninbluedigital/open-air-allergy-network](https://github.com/greeninbluedigital/open-air-allergy-network) |
-| **Vercel** | Site hosting (not yet deployed) | ? — not created yet | [vercel.com](https://vercel.com) |
+| **Vercel** | Site hosting — live at `open-air-allergy-network.vercel.app` (custom domain not connected yet) | ? | [vercel.com](https://vercel.com) |
 | **Google Cloud Console** | Places API key + the Sheets sync service account | ? — project ID `infinite-mantis-508700-c1` | [console.cloud.google.com](https://console.cloud.google.com) |
 | **Google Sheets** ("OAAN data sync") | Source data for the provider sync job | ? — whichever Google account owns the actual spreadsheet | [The sheet itself](https://docs.google.com/spreadsheets/d/1a4GVISoL_Q-QcRpjis60yAKxBGrSGVPg0i04BrbqEHs) |
 | **Google Analytics (GA4)** | Site analytics | ? | [analytics.google.com](https://analytics.google.com) |
 | **Google Tag Manager** | Manages the GA4/Ads tags on the site | ? | [tagmanager.google.com](https://tagmanager.google.com) |
+| **Google Search Console** | Indexing status, search queries, sitemap submission | Recommended: `greeninbluedigital@gmail.com` (not the frozen account). Domain property for `openairallergynetwork.com`, verified via a `google-site-verification=` TXT record in Cloudflare DNS. **Don't delete that TXT record** — removing it un-verifies the property. | [search.google.com/search-console](https://search.google.com/search-console) |
 | **Mapbox** | Geocoding (sync job) + SRP map tiles | `greeninbluedigital` account | [account.mapbox.com](https://account.mapbox.com) |
 | **Resend** | Transactional email (lead confirmation/forwarding) | Possibly `leads@openairallergynetwork.com` — **check this**: that address forwards to the now-frozen `openairallergynetwork@gmail.com`, so any Resend account-recovery email is currently unreachable. Recommend switching Resend's account email to one you can access. | [resend.com](https://resend.com) |
 | **Cloudflare** | DNS + email routing for openairallergynetwork.com | ? | [dash.cloudflare.com](https://dash.cloudflare.com) |
