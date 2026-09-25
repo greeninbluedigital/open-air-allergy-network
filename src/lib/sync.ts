@@ -505,6 +505,46 @@ async function syncLearnPageCredits(): Promise<LearnCreditSyncSummary> {
   return summary;
 }
 
+// Fifth tab — homepage hero photos. Wipe-and-recreate like FAQs, so deleting
+// a row (or setting Active to N) removes that photo on the next sync. If the
+// tab is missing, fetchSheetRows throws before anything is deleted.
+const HERO_COLUMNS = ["imageUrl", "altText", "active"] as const;
+const HERO_SHEET_RANGE = "Homepage Hero Images!A2:C";
+
+export type HeroImageSyncSummary = { synced: number; skipped: number; errors: string[] };
+
+async function syncHomepageHeroImages(): Promise<HeroImageSyncSummary> {
+  const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
+  if (!spreadsheetId) throw new Error("GOOGLE_SHEETS_SPREADSHEET_ID is not set");
+
+  const rawRows = await fetchSheetRows(spreadsheetId, HERO_SHEET_RANGE);
+  const summary: HeroImageSyncSummary = { synced: 0, skipped: 0, errors: [] };
+
+  const images: { imageUrl: string; altText: string; sortOrder: number }[] = [];
+  rawRows.forEach((row, i) => {
+    const r = {} as Record<(typeof HERO_COLUMNS)[number], string>;
+    HERO_COLUMNS.forEach((key, c) => {
+      r[key] = (row[c] ?? "").trim();
+    });
+    if (!r.imageUrl || !parseBool(r.active)) {
+      summary.skipped++;
+      return;
+    }
+    if (!/^https:\/\/res\.cloudinary\.com\//.test(r.imageUrl)) {
+      summary.errors.push(`Row ${i + 2}: Image URL must be a res.cloudinary.com link`);
+      return;
+    }
+    images.push({ imageUrl: r.imageUrl, altText: r.altText, sortOrder: i });
+  });
+
+  await db.$transaction([
+    db.homepageHeroImage.deleteMany(),
+    ...images.map((data) => db.homepageHeroImage.create({ data })),
+  ]);
+  summary.synced = images.length;
+  return summary;
+}
+
 export type SyncSummary = {
   created: number;
   updated: number;
@@ -515,6 +555,7 @@ export type SyncSummary = {
   faqs: FaqSyncSummary;
   practitioners: PractitionerSyncSummary;
   learnCredits: LearnCreditSyncSummary;
+  heroImages: HeroImageSyncSummary;
 };
 
 export async function runSync(): Promise<SyncSummary> {
@@ -532,6 +573,7 @@ export async function runSync(): Promise<SyncSummary> {
     faqs: { providersUpdated: 0, itemsSynced: 0, skipped: 0, errors: [] },
     practitioners: { created: 0, updated: 0, skipped: 0, errors: [] },
     learnCredits: { updated: 0, unchanged: 0, cleared: 0, skipped: 0, errors: [] },
+    heroImages: { synced: 0, skipped: 0, errors: [] },
   };
 
   for (const row of rawRows) {
@@ -673,6 +715,12 @@ export async function runSync(): Promise<SyncSummary> {
     summary.learnCredits = await syncLearnPageCredits();
   } catch (err) {
     summary.learnCredits.errors.push((err as Error).message);
+  }
+
+  try {
+    summary.heroImages = await syncHomepageHeroImages();
+  } catch (err) {
+    summary.heroImages.errors.push((err as Error).message);
   }
 
   return summary;

@@ -1,5 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
+import { db } from "@/lib/db";
+import { cloudinaryLimitWidth } from "@/lib/cloudinary";
 import { ZipSearchForm } from "@/components/ZipSearchForm";
 import { ArticleFeed } from "@/components/ArticleFeed";
 import { SYMPTOMS as ALL_SYMPTOMS } from "@/lib/content";
@@ -21,12 +24,35 @@ export const dynamic = "force-dynamic";
 // treatment those pages use").
 const SYMPTOMS = ALL_SYMPTOMS.slice(0, 4);
 
-export default function HomePage() {
+// Shown until the "Homepage Hero Images" sheet tab has at least one active photo.
+const FALLBACK_HERO = {
+  imageUrl: "https://res.cloudinary.com/qruprn0t/image/upload/v1790318756/learn-about-ilit-hero.jpg",
+  altText: "Open green field under a clear blue sky",
+};
+
+// force-dynamic means this runs per request, so each visit can get a different photo.
+async function pickHeroImage() {
+  const images = await db.homepageHeroImage.findMany();
+  return images.length > 0 ? images[Math.floor(Math.random() * images.length)] : FALLBACK_HERO;
+}
+
+export default async function HomePage() {
+  const hero = await pickHeroImage();
+
   return (
     <>
       {/* Hero / FAP module */}
       <section className="relative border-b border-line">
-        <div className="h-64 bg-bg-alt sm:h-80" />
+        <div className="relative h-64 overflow-hidden bg-bg-alt sm:h-80">
+          <Image
+            src={cloudinaryLimitWidth(hero.imageUrl, 2400)}
+            alt={hero.altText}
+            fill
+            preload
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
         <div className="mx-6 -mt-16 max-w-sm rounded border border-line bg-white p-5 shadow-lg sm:absolute sm:bottom-6 sm:left-10 sm:mx-0 sm:mt-0">
           <h1 className="mb-1 text-lg font-bold">
             Allergy season shouldn&apos;t mean missing yours.

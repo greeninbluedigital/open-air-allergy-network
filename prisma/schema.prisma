@@ -423,6 +423,15 @@ model SemLandingPage {
   @@index([providerId])
 }
 
+/// Homepage hero photos, one picked at random per page load. Managed on the
+/// "Homepage Hero Images" sheet tab; wiped and recreated on every sync.
+model HomepageHeroImage {
+  id        String @id @default(cuid())
+  imageUrl  String
+  altText   String @default("")
+  sortOrder Int
+}
+
 /// Singleton row (id fixed at 1) for the handful of global, site-wide values that
 /// don't belong to any one entity.
 model SiteSetting {

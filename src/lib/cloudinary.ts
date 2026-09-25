@@ -11,3 +11,8 @@
 export function cloudinaryFaceCrop(url: string, size = 200): string {
   return url.replace("/upload/", `/upload/c_thumb,g_face,w_${size},h_${size}/`);
 }
+
+/** Caps a full-size upload's width and lets Cloudinary pick the quality. */
+export function cloudinaryLimitWidth(url: string, width: number): string {
+  return url.replace("/upload/", `/upload/c_limit,w_${width},q_auto/`);
+}

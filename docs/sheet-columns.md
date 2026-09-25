@@ -155,3 +155,23 @@ see `docs/blog-content-guide.md`) and the Learn Page Credits tab above —
 create the practitioner here first, then reference their Practitioner Slug
 (or just their Provider Slug, if they're the only one) wherever they need to
 be credited.
+
+## Sixth tab: "Homepage Hero Images"
+
+Tab name must be exactly **"Homepage Hero Images"**. Each homepage visit
+shows one active photo at random. Row 1 is headers, row 2 onward is data.
+Wipe-and-recreate like FAQs: deleting a row, or setting Active to `N`,
+removes that photo on the next sync. Until at least one row is active, the
+homepage shows the Learn About ILIT field photo as a fallback.
+
+| # | Column | Notes |
+|---|--------|-------|
+| A | Image URL | Required. Must be a `https://res.cloudinary.com/...` link (the site only loads images from Cloudinary; any other link is rejected by the sync and listed in its errors). Upload the full-size original; the site resizes it |
+| B | Alt Text | Describe the photo for screen readers and search, e.g. `Woman planting flowers in a sunny garden`. Blank is allowed but not recommended |
+| C | Active | `Y` / `N` — only `Y` rows are shown (blank counts as `N`) |
+
+**Photo framing:** the hero is very wide and short, roughly 4:1 on desktop
+and closer to 3:2 on phones, so photos are cropped to a horizontal band
+through the middle. On desktop the search card covers the lower-left third.
+Keep the subject centered or right of center, and use landscape photos at
+least 2400px wide.
