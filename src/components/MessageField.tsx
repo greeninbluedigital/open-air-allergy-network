@@ -7,13 +7,13 @@ const STYLES = {
   compact: {
     wrapper: "mb-2.5",
     label: "mb-0.5 block text-[11.5px] text-muted",
-    textarea: "h-16 w-full resize-none rounded border border-line px-2 py-1.5 text-xs",
+    textarea: "h-16 w-full resize-none rounded border border-line bg-white px-2 py-1.5 text-xs",
     footer: "text-[10.5px]",
   },
   default: {
     wrapper: "mb-4",
     label: "mb-1 block text-xs text-muted",
-    textarea: "h-24 w-full resize-none rounded border border-line px-2.5 py-2 text-sm",
+    textarea: "h-24 w-full resize-none rounded border border-line bg-white px-2.5 py-2 text-sm",
     footer: "mt-0.5 text-[11px]",
   },
 };
