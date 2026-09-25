@@ -6,6 +6,9 @@
  * Swap the body of this function for a real Resend API call once a key is
  * available; nothing else in the codebase needs to change.
  */
+/** Where For Practices and About page submissions are emailed. */
+export const LEADS_INBOX = "leads@openairallergynetwork.com";
+
 /** For putting user-submitted form text into an email's HTML body. */
 export function escapeHtml(s: string): string {
   return s

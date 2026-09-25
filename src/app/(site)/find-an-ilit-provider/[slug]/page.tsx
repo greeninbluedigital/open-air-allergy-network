@@ -11,6 +11,7 @@ import { PatientReviews, getAggregateRatingSchema } from "@/components/PatientRe
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { PhotoGallery } from "@/components/pdp/PhotoGallery";
 import { truncateForMeta } from "@/lib/metadata";
+import { parseFormError } from "@/lib/forms";
 
 // 4 or fewer FAQs render fully expanded (today's behavior, unchanged); 5+
 // switches to a collapsed accordion so a practice with a lot of FAQ content
@@ -84,7 +85,7 @@ export default async function ProviderDetailPage({
   const backHref = typeof sp.back === "string" ? sp.back : "/find-an-ilit-provider";
   const sent = sp.sent === "1";
   const confirmed = sp.confirmed === "1";
-  const error = sp.error === "invalid_email" || sp.error === "missing_fields" ? sp.error : null;
+  const error = parseFormError(sp.error);
   const utm = {
     source: typeof sp.utm_source === "string" ? sp.utm_source : undefined,
     medium: typeof sp.utm_medium === "string" ? sp.utm_medium : undefined,

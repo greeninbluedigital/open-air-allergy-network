@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { PRACTICE_LEAD_REASONS } from "@/lib/practiceLead";
 import { HoneypotField } from "@/components/HoneypotField";
 import { MessageField } from "@/components/MessageField";
+import { FORM_ERROR_MESSAGES, parseFormError } from "@/lib/forms";
 import { submitPracticeLead } from "@/lib/actions";
 import { US_STATES } from "@/lib/states";
 import { US_PHONE_PATTERN, US_PHONE_TITLE } from "@/lib/phone";
@@ -18,7 +19,7 @@ export default async function ForPracticesPage({
 }: PageProps<"/for-practices">) {
   const sp = await searchParams;
   const sent = sp.sent === "1";
-  const error = sp.error === "missing_fields" || sp.error === "invalid_email" ? sp.error : null;
+  const error = parseFormError(sp.error);
   const utm = {
     source: typeof sp.utm_source === "string" ? sp.utm_source : "",
     medium: typeof sp.utm_medium === "string" ? sp.utm_medium : "",
@@ -36,15 +37,15 @@ export default async function ForPracticesPage({
           network built around this treatment specifically. Tell us a bit
           about your practice and we&apos;ll follow up.
         </p>
-        <p className="mt-4 text-sm text-foreground/80">
-          Looking for ILIT allergy treatment?{" "}
-          <Link href="/find-an-ilit-provider" className="font-semibold text-sage hover:underline">
-            Find a provider near you →
-          </Link>
-        </p>
       </div>
 
       <div id="contact-form" className="px-6 py-10 sm:px-10">
+        <p className="mx-auto mb-5 max-w-lg text-center text-sm font-bold">
+          Looking for ILIT allergy treatment?{" "}
+          <Link href="/find-an-ilit-provider" className="text-sage hover:underline">
+            Find a provider near you →
+          </Link>
+        </p>
         <div className="mx-auto max-w-lg rounded border border-line p-6">
           {sent ? (
             <p className="text-center text-sm font-semibold text-sage">
@@ -54,9 +55,7 @@ export default async function ForPracticesPage({
             <form action={submitPracticeLead}>
               {error && (
                 <p className="mb-3.5 rounded border border-badge-founder-bg bg-badge-founder-bg/40 px-3 py-2 text-xs text-badge-founder-text">
-                  {error === "invalid_email"
-                    ? "That email address doesn't look right. Please double-check it and try again."
-                    : "Please fill in all required fields and try again."}
+                  {FORM_ERROR_MESSAGES[error]}
                 </p>
               )}
               <HoneypotField />

@@ -1,4 +1,5 @@
 import { PhoneLink } from "@/components/PhoneLink";
+import { LINKS_ERROR_MESSAGE, type FormError } from "@/lib/forms";
 
 /**
  * Post-submission / confirmation copy for the PDP + SEM landing page lead
@@ -33,14 +34,16 @@ export function LeadErrorMessage({
   phone,
   providerId,
 }: {
-  error: "missing_fields" | "invalid_email";
+  error: FormError;
   practiceName: string;
   phone: string | null;
   providerId?: string;
 }) {
   return (
     <p className="mb-3 rounded border border-badge-founder-bg bg-badge-founder-bg/40 px-3 py-2 text-xs text-badge-founder-text">
-      {error === "invalid_email" ? (
+      {error === "has_links" ? (
+        LINKS_ERROR_MESSAGE
+      ) : error === "invalid_email" ? (
         <>
           That email address doesn&apos;t look right — please double-check it.
           {phone && (

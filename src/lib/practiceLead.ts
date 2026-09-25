@@ -1,4 +1,4 @@
-import { escapeHtml, sendEmail } from "@/lib/email";
+import { LEADS_INBOX, escapeHtml, sendEmail } from "@/lib/email";
 
 export const PRACTICE_LEAD_REASONS = [
   "List my practice in the directory",
@@ -6,8 +6,6 @@ export const PRACTICE_LEAD_REASONS = [
   "Learn about Listing Options",
   "Other",
 ] as const;
-
-const PRACTICE_LEAD_INBOX = "leads@openairallergynetwork.com";
 
 type PracticeLeadForEmail = {
   reason: string;
@@ -75,5 +73,5 @@ export function buildPracticeLeadEmail(lead: PracticeLeadForEmail) {
 
 export async function notifyPracticeLead(lead: PracticeLeadForEmail) {
   const { subject, html } = buildPracticeLeadEmail(lead);
-  await sendEmail({ to: PRACTICE_LEAD_INBOX, replyTo: lead.email, subject, html });
+  await sendEmail({ to: LEADS_INBOX, replyTo: lead.email, subject, html });
 }

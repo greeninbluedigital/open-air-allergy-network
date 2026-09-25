@@ -10,6 +10,7 @@ import { LeadStatusMessage, LeadErrorMessage } from "@/components/pdp/LeadStatus
 import { PatientReviews, reviewsWouldShow } from "@/components/PatientReviews";
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { SYMPTOMS as ALL_SYMPTOMS, TREATMENT_COMPARISON, WHAT_IS_ILIT_COPY } from "@/lib/content";
+import { parseFormError } from "@/lib/forms";
 
 const SYMPTOMS = ALL_SYMPTOMS.slice(0, 4);
 
@@ -55,7 +56,7 @@ export default async function SemLandingPage({
 
   const sent = sp.sent === "1";
   const confirmed = sp.confirmed === "1";
-  const error = sp.error === "invalid_email" || sp.error === "missing_fields" ? sp.error : null;
+  const error = parseFormError(sp.error);
   const returnPath = `/lp/${provider.slug}/${lp.urlSlug}`;
   // SEM pages are exclusively paid-traffic entry points (Section 3) — UTM
   // capture matters more here than anywhere else on the site, so this was a

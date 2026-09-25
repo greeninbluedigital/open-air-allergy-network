@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 import { ZipSearchForm } from "@/components/ZipSearchForm";
 import { submitGeneralInquiry } from "@/lib/actions";
 import { HoneypotField } from "@/components/HoneypotField";
+import { MessageField } from "@/components/MessageField";
+import { FORM_ERROR_MESSAGES, parseFormError } from "@/lib/forms";
+import { GENERAL_INQUIRY_REASONS } from "@/lib/generalInquiry";
 
 export const metadata: Metadata = {
   title: "About",
@@ -10,12 +13,10 @@ export const metadata: Metadata = {
   alternates: { canonical: "/about" },
 };
 
-const REASONS = ["General Inquiry", "Press / Media", "Partnership", "Accessibility", "Other"];
-
 export default async function AboutPage({ searchParams }: PageProps<"/about">) {
   const sp = await searchParams;
   const sent = sp.sent === "1";
-  const error = sp.error === "missing_fields";
+  const error = parseFormError(sp.error);
   const utm = {
     source: typeof sp.utm_source === "string" ? sp.utm_source : "",
     medium: typeof sp.utm_medium === "string" ? sp.utm_medium : "",
@@ -47,18 +48,6 @@ export default async function AboutPage({ searchParams }: PageProps<"/about">) {
         </p>
       </div>
 
-      <div className="mx-6 my-7 flex flex-col items-start gap-4 rounded bg-dark-panel p-6 text-white sm:mx-10 sm:flex-row sm:items-center sm:justify-between">
-        <div className="text-base font-semibold">
-          Are you a provider? Join the network.
-        </div>
-        <Link
-          href="/for-practices"
-          className="rounded border border-white px-4 py-2.5 text-sm whitespace-nowrap"
-        >
-          For Practices →
-        </Link>
-      </div>
-
       <div id="contact" className="border-b border-line px-6 py-8 sm:px-10">
         <h2 className="mb-1 text-xl font-bold">Contact</h2>
         <p className="mb-5 text-sm text-muted">
@@ -76,7 +65,7 @@ export default async function AboutPage({ searchParams }: PageProps<"/about">) {
               <form action={submitGeneralInquiry}>
                 {error && (
                   <p className="mb-3.5 rounded border border-badge-founder-bg bg-badge-founder-bg/40 px-3 py-2 text-xs text-badge-founder-text">
-                    Please fill in all required fields and try again.
+                    {FORM_ERROR_MESSAGES[error]}
                   </p>
                 )}
                 <input type="hidden" name="utmSource" value={utm.source} />
@@ -136,7 +125,7 @@ export default async function AboutPage({ searchParams }: PageProps<"/about">) {
                     defaultValue="General Inquiry"
                     className="w-full rounded border border-line px-2.5 py-2 text-sm"
                   >
-                    {REASONS.map((r) => (
+                    {GENERAL_INQUIRY_REASONS.map((r) => (
                       <option key={r} value={r}>
                         {r}
                       </option>
@@ -144,17 +133,7 @@ export default async function AboutPage({ searchParams }: PageProps<"/about">) {
                   </select>
                 </div>
 
-                <div className="mb-4">
-                  <label className="mb-1 block text-xs text-muted" htmlFor="message">
-                    Message *
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    required
-                    className="h-24 w-full resize-none rounded border border-line px-2.5 py-2 text-sm"
-                  />
-                </div>
+                <MessageField label="Message *" variant="default" />
 
                 <button
                   type="submit"
@@ -181,11 +160,24 @@ export default async function AboutPage({ searchParams }: PageProps<"/about">) {
         </div>
       </div>
 
-      <div className="mx-6 my-7 rounded bg-dark-panel p-6 text-white sm:mx-10">
-        <div className="mb-4 text-base font-semibold">
-          Looking for a provider instead?
+      <div className="mx-6 my-7 grid grid-cols-1 gap-5 sm:mx-10 md:grid-cols-[2fr_1fr]">
+        <div className="rounded bg-action p-6 text-white">
+          <div className="mb-4 text-base font-semibold">
+            Looking for a provider instead?
+          </div>
+          <ZipSearchForm variant="dark" />
         </div>
-        <ZipSearchForm variant="dark" />
+        <div className="flex flex-col items-start justify-between gap-4 rounded bg-dark-panel p-6 text-white">
+          <div className="text-base font-semibold">
+            Are you a provider? Join the network.
+          </div>
+          <Link
+            href="/for-practices"
+            className="rounded border border-white px-4 py-2.5 text-sm whitespace-nowrap"
+          >
+            For Practices →
+          </Link>
+        </div>
       </div>
     </>
   );

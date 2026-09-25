@@ -5,8 +5,9 @@ import { db } from "@/lib/db";
 import { domainCanReceiveMail } from "@/lib/emailDomainCheck";
 import { sendConfirmationEmail } from "@/lib/leadNotify";
 import { normalizeUsPhone } from "@/lib/phone";
-import { MESSAGE_MAX_LENGTH, isHoneypotFilled } from "@/lib/forms";
+import { MESSAGE_MAX_LENGTH, containsLink, isHoneypotFilled } from "@/lib/forms";
 import { PRACTICE_LEAD_REASONS, normalizeWebsite, notifyPracticeLead } from "@/lib/practiceLead";
+import { GENERAL_INQUIRY_REASONS, notifyGeneralInquiry } from "@/lib/generalInquiry";
 
 /**
  * PDP/SEM "tracked contact form" (Full Profile+ on the PDP; always shown on
@@ -44,6 +45,10 @@ export async function submitContactMessage(formData: FormData) {
 
   if (!providerId || !firstName || !lastName || !email || !message) {
     redirect(`${returnPath}?error=missing_fields`);
+  }
+
+  if (containsLink(message)) {
+    redirect(`${returnPath}?error=has_links`);
   }
 
   // Stage 1 — reject structurally-undeliverable addresses before persisting
@@ -112,6 +117,10 @@ export async function submitPracticeLead(formData: FormData) {
     redirect("/for-practices?error=missing_fields");
   }
 
+  if (comments && containsLink(comments)) {
+    redirect("/for-practices?error=has_links");
+  }
+
   // Same Stage 1 check as the PDP form: reject domains that can't receive mail.
   if (!(await domainCanReceiveMail(email))) {
     redirect("/for-practices?error=invalid_email");
@@ -150,14 +159,16 @@ export async function submitPracticeLead(formData: FormData) {
 /**
  * About page's general contact form — the catch-all for press,
  * partnerships, and accessibility requests, distinct from PracticeLead and
- * the PDP's ContactSubmission (Section 5).
+ * the PDP's ContactSubmission (Section 5). Same checks as For Practices,
+ * emailed to the same inbox with an "[About Page]" subject prefix.
  */
 export async function submitGeneralInquiry(formData: FormData) {
   const firstName = String(formData.get("firstName") || "").trim();
   const lastName = String(formData.get("lastName") || "").trim();
   const email = String(formData.get("email") || "").trim();
-  const reason = String(formData.get("reason") || "General Inquiry").trim();
-  const message = String(formData.get("message") || "").trim();
+  const reasonRaw = String(formData.get("reason") || "");
+  const reason = GENERAL_INQUIRY_REASONS.find((r) => r === reasonRaw);
+  const message = String(formData.get("message") || "").trim().slice(0, MESSAGE_MAX_LENGTH);
   const utmSource = String(formData.get("utmSource") || "") || null;
   const utmMedium = String(formData.get("utmMedium") || "") || null;
   const utmCampaign = String(formData.get("utmCampaign") || "") || null;
@@ -166,13 +177,27 @@ export async function submitGeneralInquiry(formData: FormData) {
     redirect("/about?sent=1#contact");
   }
 
-  if (!firstName || !lastName || !email || !message) {
+  if (!reason || !firstName || !lastName || !email || !message) {
     redirect("/about?error=missing_fields#contact");
   }
 
-  await db.generalInquiry.create({
+  if (containsLink(message)) {
+    redirect("/about?error=has_links#contact");
+  }
+
+  if (!(await domainCanReceiveMail(email))) {
+    redirect("/about?error=invalid_email#contact");
+  }
+
+  const inquiry = await db.generalInquiry.create({
     data: { firstName, lastName, email, reason, message, utmSource, utmMedium, utmCampaign },
   });
+
+  try {
+    await notifyGeneralInquiry({ ...inquiry, reason });
+  } catch (err) {
+    console.error("Failed to send general inquiry notification:", err);
+  }
 
   redirect("/about?sent=1#contact");
 }
