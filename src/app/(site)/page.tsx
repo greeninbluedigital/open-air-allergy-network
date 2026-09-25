@@ -53,7 +53,7 @@ export default async function HomePage() {
             className="object-cover"
           />
         </div>
-        <div className="mx-6 -mt-16 max-w-sm rounded border border-line bg-white p-5 shadow-lg sm:absolute sm:bottom-6 sm:left-10 sm:mx-0 sm:mt-0">
+        <div className="relative z-10 mx-6 -mt-16 max-w-sm rounded border border-line bg-white p-5 shadow-lg sm:absolute sm:bottom-6 sm:left-10 sm:mx-0 sm:mt-0">
           <h1 className="mb-1 text-lg font-bold">
             Allergy season shouldn&apos;t mean missing yours.
           </h1>
