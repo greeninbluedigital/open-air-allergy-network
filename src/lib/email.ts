@@ -6,6 +6,16 @@
  * Swap the body of this function for a real Resend API call once a key is
  * available; nothing else in the codebase needs to change.
  */
+/** For putting user-submitted form text into an email's HTML body. */
+export function escapeHtml(s: string): string {
+  return s
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 export async function sendEmail({
   to,
   subject,

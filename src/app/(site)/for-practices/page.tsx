@@ -1,4 +1,6 @@
+import Link from "next/link";
 import type { Metadata } from "next";
+import { PRACTICE_LEAD_REASONS } from "@/lib/practiceLead";
 import { submitPracticeLead } from "@/lib/actions";
 import { US_STATES } from "@/lib/states";
 import { US_PHONE_PATTERN, US_PHONE_TITLE } from "@/lib/phone";
@@ -32,6 +34,12 @@ export default async function ForPracticesPage({
           network built around this treatment specifically. Tell us a bit
           about your practice and we&apos;ll follow up.
         </p>
+        <p className="mt-4 text-sm text-foreground/80">
+          Looking for ILIT allergy treatment?{" "}
+          <Link href="/find-an-ilit-provider" className="font-semibold text-sage hover:underline">
+            Find a provider near you →
+          </Link>
+        </p>
       </div>
 
       <div id="contact-form" className="px-6 py-10 sm:px-10">
@@ -56,6 +64,28 @@ export default async function ForPracticesPage({
               <input type="hidden" name="utmSource" value={utm.source} />
               <input type="hidden" name="utmMedium" value={utm.medium} />
               <input type="hidden" name="utmCampaign" value={utm.campaign} />
+
+              <div className="mb-3.5">
+                <label className="mb-1 block text-xs text-muted" htmlFor="reason">
+                  Reason for Contact *
+                </label>
+                <select
+                  id="reason"
+                  name="reason"
+                  required
+                  defaultValue=""
+                  className="w-full rounded border border-line px-2.5 py-2 text-sm"
+                >
+                  <option value="" disabled>
+                    Select a reason
+                  </option>
+                  {PRACTICE_LEAD_REASONS.map((r) => (
+                    <option key={r} value={r}>
+                      {r}
+                    </option>
+                  ))}
+                </select>
+              </div>
 
               <div className="mb-3.5 grid grid-cols-2 gap-3.5">
                 <div>
@@ -93,6 +123,21 @@ export default async function ForPracticesPage({
                   name="practiceName"
                   autoComplete="organization"
                   required
+                  className="w-full rounded border border-line px-2.5 py-2 text-sm"
+                />
+              </div>
+
+              <div className="mb-3.5">
+                <label className="mb-1 block text-xs text-muted" htmlFor="website">
+                  Practice Website (optional)
+                </label>
+                <input
+                  id="website"
+                  name="website"
+                  inputMode="url"
+                  autoComplete="url"
+                  placeholder="www.yourpractice.com"
+                  maxLength={300}
                   className="w-full rounded border border-line px-2.5 py-2 text-sm"
                 />
               </div>

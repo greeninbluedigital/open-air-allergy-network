@@ -5,6 +5,7 @@ import { db } from "@/lib/db";
 import { domainCanReceiveMail } from "@/lib/emailDomainCheck";
 import { sendConfirmationEmail } from "@/lib/leadNotify";
 import { normalizeUsPhone } from "@/lib/phone";
+import { PRACTICE_LEAD_REASONS, normalizeWebsite, notifyPracticeLead } from "@/lib/practiceLead";
 
 /**
  * PDP/SEM "tracked contact form" (Full Profile+ on the PDP; always shown on
@@ -79,9 +80,12 @@ export async function submitContactMessage(formData: FormData) {
  * pattern as the PDP contact form.
  */
 export async function submitPracticeLead(formData: FormData) {
+  const reasonRaw = String(formData.get("reason") || "");
+  const reason = PRACTICE_LEAD_REASONS.find((r) => r === reasonRaw);
   const firstName = String(formData.get("firstName") || "").trim();
   const lastName = String(formData.get("lastName") || "").trim();
   const practiceName = String(formData.get("practiceName") || "").trim();
+  const website = normalizeWebsite(String(formData.get("website") || ""));
   const email = String(formData.get("email") || "").trim();
   const phoneDigits = normalizeUsPhone(String(formData.get("phone") || ""));
   const phoneExt = String(formData.get("phoneExt") || "").trim() || null;
@@ -98,7 +102,7 @@ export async function submitPracticeLead(formData: FormData) {
     redirect("/for-practices?sent=1");
   }
 
-  if (!firstName || !lastName || !practiceName || !email || !phoneDigits || !city || !state) {
+  if (!reason || !firstName || !lastName || !practiceName || !email || !phoneDigits || !city || !state) {
     redirect("/for-practices?error=missing_fields");
   }
 
@@ -107,11 +111,13 @@ export async function submitPracticeLead(formData: FormData) {
     redirect("/for-practices?error=invalid_email");
   }
 
-  await db.practiceLead.create({
+  const lead = await db.practiceLead.create({
     data: {
+      reason,
       firstName,
       lastName,
       practiceName,
+      website,
       email,
       phone: phoneDigits,
       phoneExt,
@@ -123,6 +129,14 @@ export async function submitPracticeLead(formData: FormData) {
       utmCampaign,
     },
   });
+
+  // The lead is already saved, so a send failure is logged rather than
+  // shown to the visitor.
+  try {
+    await notifyPracticeLead({ ...lead, reason });
+  } catch (err) {
+    console.error("Failed to send practice lead notification:", err);
+  }
 
   redirect("/for-practices?sent=1");
 }

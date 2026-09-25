@@ -521,6 +521,9 @@ model PracticeLead {
   city         String
   state        String
   comments     String?
+  // Required by the form; nullable only for leads captured before it existed.
+  reason       String?
+  website      String?
 
   utmSource   String?
   utmMedium   String?
