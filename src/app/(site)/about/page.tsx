@@ -49,115 +49,100 @@ export default async function AboutPage({ searchParams }: PageProps<"/about">) {
       </div>
 
       <div id="contact" className="border-b border-line px-6 py-8 sm:px-10">
-        <div className="rounded border border-sand-line bg-sand p-6">
+        <div className="max-w-lg rounded border border-sand-line bg-sand p-6">
           <h2 className="mb-1 text-xl font-bold">Contact</h2>
           <p className="mb-5 text-sm text-muted">
             For press, partnerships, accessibility requests, or anything not
             covered elsewhere.
           </p>
 
-          <div className="flex flex-col gap-8 md:flex-row">
-            <div className="max-w-md flex-1">
-              {sent ? (
-                <p className="text-sm font-semibold text-sage">
-                  Thanks for reaching out — we&apos;ll be in touch soon.
-                </p>
-              ) : (
-                <form action={submitGeneralInquiry}>
-                  {error && (
-                    <p className="mb-3.5 rounded border border-badge-founder-bg bg-badge-founder-bg/40 px-3 py-2 text-xs text-badge-founder-text">
-                      {FORM_ERROR_MESSAGES[error]}
-                    </p>
-                  )}
-                  <input type="hidden" name="utmSource" value={utm.source} />
-                  <input type="hidden" name="utmMedium" value={utm.medium} />
-                  <input type="hidden" name="utmCampaign" value={utm.campaign} />
-                  <HoneypotField />
+          <div>
+            {sent ? (
+              <p className="text-sm font-semibold text-sage">
+                Thanks for reaching out — we&apos;ll be in touch soon.
+              </p>
+            ) : (
+              <form action={submitGeneralInquiry}>
+                {error && (
+                  <p className="mb-3.5 rounded border border-badge-founder-bg bg-badge-founder-bg/40 px-3 py-2 text-xs text-badge-founder-text">
+                    {FORM_ERROR_MESSAGES[error]}
+                  </p>
+                )}
+                <input type="hidden" name="utmSource" value={utm.source} />
+                <input type="hidden" name="utmMedium" value={utm.medium} />
+                <input type="hidden" name="utmCampaign" value={utm.campaign} />
+                <HoneypotField />
 
-                  <div className="mb-3.5 grid grid-cols-2 gap-3.5">
-                    <div>
-                      <label className="mb-1 block text-xs text-muted" htmlFor="firstName">
-                        First Name *
-                      </label>
-                      <input
-                        id="firstName"
-                        name="firstName"
-                        autoComplete="given-name"
-                        required
-                        className="w-full rounded border border-line bg-white px-2.5 py-2 text-sm"
-                      />
-                    </div>
-                    <div>
-                      <label className="mb-1 block text-xs text-muted" htmlFor="lastName">
-                        Last Name *
-                      </label>
-                      <input
-                        id="lastName"
-                        name="lastName"
-                        autoComplete="family-name"
-                        required
-                        className="w-full rounded border border-line bg-white px-2.5 py-2 text-sm"
-                      />
-                    </div>
-                  </div>
-
-                  <div className="mb-3.5">
-                    <label className="mb-1 block text-xs text-muted" htmlFor="email">
-                      Email *
+                <div className="mb-3.5 grid grid-cols-2 gap-3.5">
+                  <div>
+                    <label className="mb-1 block text-xs text-muted" htmlFor="firstName">
+                      First Name *
                     </label>
                     <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      autoComplete="email"
+                      id="firstName"
+                      name="firstName"
+                      autoComplete="given-name"
                       required
                       className="w-full rounded border border-line bg-white px-2.5 py-2 text-sm"
                     />
                   </div>
-
-                  <div className="mb-3.5">
-                    <label className="mb-1 block text-xs text-muted" htmlFor="reason">
-                      Reason for Contact *
+                  <div>
+                    <label className="mb-1 block text-xs text-muted" htmlFor="lastName">
+                      Last Name *
                     </label>
-                    <select
-                      id="reason"
-                      name="reason"
+                    <input
+                      id="lastName"
+                      name="lastName"
+                      autoComplete="family-name"
                       required
-                      defaultValue="General Inquiry"
                       className="w-full rounded border border-line bg-white px-2.5 py-2 text-sm"
-                    >
-                      {GENERAL_INQUIRY_REASONS.map((r) => (
-                        <option key={r} value={r}>
-                          {r}
-                        </option>
-                      ))}
-                    </select>
+                    />
                   </div>
+                </div>
 
-                  <MessageField label="Message *" variant="default" />
+                <div className="mb-3.5">
+                  <label className="mb-1 block text-xs text-muted" htmlFor="email">
+                    Email *
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    required
+                    className="w-full rounded border border-line bg-white px-2.5 py-2 text-sm"
+                  />
+                </div>
 
-                  <button
-                    type="submit"
-                    className="rounded bg-action px-5 py-2.5 text-sm font-semibold text-white hover:bg-action-hover"
+                <div className="mb-3.5">
+                  <label className="mb-1 block text-xs text-muted" htmlFor="reason">
+                    Reason for Contact *
+                  </label>
+                  <select
+                    id="reason"
+                    name="reason"
+                    required
+                    defaultValue="General Inquiry"
+                    className="w-full rounded border border-line bg-white px-2.5 py-2 text-sm"
                   >
-                    Submit
-                  </button>
-                </form>
-              )}
-            </div>
+                    {GENERAL_INQUIRY_REASONS.map((r) => (
+                      <option key={r} value={r}>
+                        {r}
+                      </option>
+                    ))}
+                  </select>
+                </div>
 
-            <div className="text-sm text-muted md:w-64 md:shrink-0">
-              <span className="font-semibold text-foreground">
-                Not what you&apos;re looking for?
-              </span>
-              <br />
-              Practices interested in joining should use the{" "}
-              <Link href="/for-practices" className="font-semibold text-foreground/80">
-                For Practices
-              </Link>{" "}
-              page instead. Patients looking to contact a specific provider can
-              do so directly from that provider&apos;s profile.
-            </div>
+                <MessageField label="Message *" variant="default" />
+
+                <button
+                  type="submit"
+                  className="rounded bg-action px-5 py-2.5 text-sm font-semibold text-white hover:bg-action-hover"
+                >
+                  Submit
+                </button>
+              </form>
+            )}
           </div>
         </div>
       </div>
