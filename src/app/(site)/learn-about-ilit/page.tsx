@@ -13,7 +13,7 @@ import {
   TREATMENT_TARGETS_ROW,
 } from "@/lib/content";
 
-const COMPARISON_SLUG = "ilit-vs-scit-vs-slit-a-full-comparison";
+const COMPARISON_SLUG = "allergy-shots-vs-allergy-drops-vs-ilit";
 const COMPARISON_COLUMNS = ["ilit", "scit", "slit", "medicine"] as const;
 const HERO_IMAGE =
   "https://res.cloudinary.com/qruprn0t/image/upload/c_limit,w_2400,q_auto/v1790318756/learn-about-ilit-hero.jpg";

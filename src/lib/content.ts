@@ -28,7 +28,7 @@ export const SYMPTOMS = [
  * ILIT itself (unlike "Allergy Shots"/"Allergy Drops" for SCIT/SLIT), so
  * that column stays acronym-only.
  *
- * IMPORTANT: the /learn-about-ilit/ilit-vs-scit-vs-slit-a-full-comparison
+ * IMPORTANT: the /learn-about-ilit/allergy-shots-vs-allergy-drops-vs-ilit
  * article's own "Side by Side" table is hand-typed Markdown living in the
  * database (Article.body), not code — it can't import this constant. If
  * you change this, update that article's table to match by hand, or the
