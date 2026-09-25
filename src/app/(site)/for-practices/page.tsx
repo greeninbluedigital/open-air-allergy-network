@@ -40,7 +40,7 @@ export default async function ForPracticesPage({
       </div>
 
       <div id="contact-form" className="px-6 py-10 sm:px-10">
-        <p className="mx-auto mb-5 max-w-lg text-center text-sm font-bold">
+        <p className="mx-auto mb-8 max-w-lg rounded border border-line bg-bg-alt px-4 py-3 text-center text-sm font-bold">
           Looking for ILIT allergy treatment?{" "}
           <Link href="/find-an-ilit-provider" className="text-sage hover:underline">
             Find a provider near you →
@@ -53,6 +53,7 @@ export default async function ForPracticesPage({
             </p>
           ) : (
             <form action={submitPracticeLead}>
+              <h2 className="mb-4 text-lg font-bold">Providers use this form to contact us</h2>
               {error && (
                 <p className="mb-3.5 rounded border border-badge-founder-bg bg-badge-founder-bg/40 px-3 py-2 text-xs text-badge-founder-text">
                   {FORM_ERROR_MESSAGES[error]}
