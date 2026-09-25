@@ -115,7 +115,7 @@ headers, row 2 onward is data.
 
 | # | Column | Notes |
 |---|--------|-------|
-| A | Page Slug | Must match an existing `/learn-about-ilit/[slug]` article's slug — the article has to already exist (create it first, same as any Blog article) |
+| A | Page Slug | Must match an existing `/learn-about-ilit/[slug]` article's slug — the article has to already exist (create it first, same as any Blog article). **If an article's slug is ever renamed, update this cell to the new slug too**, or the next sync logs an error for the old slug and clears the credit on the renamed article |
 | B | Provider Slug | Must match an existing row's Provider Slug on the Providers tab. That provider also needs at least one linked practitioner on the **Practitioners** tab (below) — same requirement as a Blog contribution |
 | C | Practitioner Slug | Optional. Only needed if the provider has more than one practitioner on the Practitioners tab — picks which one gets credited. Leave blank and the sync uses whichever practitioner is linked (fine for the common case of exactly one) |
 | D | Approved | `Y` / `N` — the actual on/off switch. The "Medically reviewed by" box only renders when this is `Y`, regardless of whether the author/provider links are set. Set to `N` (or delete the row) to pull the credit immediately on the next sync — e.g. a Featured subscription lapses |
