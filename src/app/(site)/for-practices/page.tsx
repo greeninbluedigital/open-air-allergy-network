@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { submitPracticeLead } from "@/lib/actions";
 import { US_STATES } from "@/lib/states";
+import { US_PHONE_PATTERN, US_PHONE_TITLE } from "@/lib/phone";
 
 export const metadata: Metadata = {
   title: "For Practices",
@@ -13,7 +14,7 @@ export default async function ForPracticesPage({
 }: PageProps<"/for-practices">) {
   const sp = await searchParams;
   const sent = sp.sent === "1";
-  const error = sp.error === "missing_fields";
+  const error = sp.error === "missing_fields" || sp.error === "invalid_email" ? sp.error : null;
   const utm = {
     source: typeof sp.utm_source === "string" ? sp.utm_source : "",
     medium: typeof sp.utm_medium === "string" ? sp.utm_medium : "",
@@ -26,17 +27,11 @@ export default async function ForPracticesPage({
         <h1 className="mb-2.5 text-3xl font-extrabold">
           Join a Growing Network of ILIT Providers
         </h1>
-        <p className="mx-auto mb-5 max-w-lg text-sm text-foreground/80">
+        <p className="mx-auto max-w-2xl text-sm text-foreground/80">
           Reach patients actively searching for ILIT, and connect with a
           network built around this treatment specifically. Tell us a bit
           about your practice and we&apos;ll follow up.
         </p>
-        <a
-          href="#contact-form"
-          className="inline-block rounded bg-action px-6 py-3 text-sm font-semibold text-white hover:bg-action-hover"
-        >
-          Get in Touch
-        </a>
       </div>
 
       <div id="contact-form" className="px-6 py-10 sm:px-10">
@@ -49,9 +44,15 @@ export default async function ForPracticesPage({
             <form action={submitPracticeLead}>
               {error && (
                 <p className="mb-3.5 rounded border border-badge-founder-bg bg-badge-founder-bg/40 px-3 py-2 text-xs text-badge-founder-text">
-                  Please fill in all required fields and try again.
+                  {error === "invalid_email"
+                    ? "That email address doesn't look right. Please double-check it and try again."
+                    : "Please fill in all required fields and try again."}
                 </p>
               )}
+              <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
+                <label htmlFor="leave_blank">Leave this field empty</label>
+                <input id="leave_blank" name="leave_blank" tabIndex={-1} autoComplete="off" />
+              </div>
               <input type="hidden" name="utmSource" value={utm.source} />
               <input type="hidden" name="utmMedium" value={utm.medium} />
               <input type="hidden" name="utmCampaign" value={utm.campaign} />
@@ -121,6 +122,8 @@ export default async function ForPracticesPage({
                     type="tel"
                     autoComplete="tel"
                     placeholder="(555) 123-4567"
+                    pattern={US_PHONE_PATTERN}
+                    title={US_PHONE_TITLE}
                     required
                     className="w-full rounded border border-line px-2.5 py-2 text-sm"
                   />

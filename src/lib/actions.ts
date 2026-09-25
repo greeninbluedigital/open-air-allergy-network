@@ -4,6 +4,7 @@ import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
 import { domainCanReceiveMail } from "@/lib/emailDomainCheck";
 import { sendConfirmationEmail } from "@/lib/leadNotify";
+import { normalizeUsPhone } from "@/lib/phone";
 
 /**
  * PDP/SEM "tracked contact form" (Full Profile+ on the PDP; always shown on
@@ -82,10 +83,7 @@ export async function submitPracticeLead(formData: FormData) {
   const lastName = String(formData.get("lastName") || "").trim();
   const practiceName = String(formData.get("practiceName") || "").trim();
   const email = String(formData.get("email") || "").trim();
-  // Normalize first, then check digit count — more forgiving than matching a
-  // rigid format string against however someone naturally types a phone
-  // number ("(555) 123-4567", "555-123-4567", "5551234567").
-  const phoneDigits = String(formData.get("phone") || "").replace(/\D/g, "");
+  const phoneDigits = normalizeUsPhone(String(formData.get("phone") || ""));
   const phoneExt = String(formData.get("phoneExt") || "").trim() || null;
   const city = String(formData.get("city") || "").trim();
   const state = String(formData.get("state") || "").trim();
@@ -94,16 +92,19 @@ export async function submitPracticeLead(formData: FormData) {
   const utmMedium = String(formData.get("utmMedium") || "") || null;
   const utmCampaign = String(formData.get("utmCampaign") || "") || null;
 
-  if (
-    !firstName ||
-    !lastName ||
-    !practiceName ||
-    !email ||
-    phoneDigits.length !== 10 ||
-    !city ||
-    !state
-  ) {
+  // Honeypot: an off-screen field real visitors never see. Bots that fill
+  // every input get the normal success page, but nothing is saved.
+  if (String(formData.get("leave_blank") || "")) {
+    redirect("/for-practices?sent=1");
+  }
+
+  if (!firstName || !lastName || !practiceName || !email || !phoneDigits || !city || !state) {
     redirect("/for-practices?error=missing_fields");
+  }
+
+  // Same Stage 1 check as the PDP form: reject domains that can't receive mail.
+  if (!(await domainCanReceiveMail(email))) {
+    redirect("/for-practices?error=invalid_email");
   }
 
   await db.practiceLead.create({

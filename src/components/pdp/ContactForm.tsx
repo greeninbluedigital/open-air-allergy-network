@@ -1,5 +1,6 @@
 import { submitContactMessage } from "@/lib/actions";
 import { MessageField } from "./MessageField";
+import { US_PHONE_PATTERN, US_PHONE_TITLE } from "@/lib/phone";
 
 export function ContactForm({
   providerId,
@@ -70,6 +71,8 @@ export function ContactForm({
           name="phone"
           type="tel"
           autoComplete="tel"
+          pattern={US_PHONE_PATTERN}
+          title={US_PHONE_TITLE}
           className="w-full rounded border border-line px-2 py-1.5 text-xs"
         />
       </div>
