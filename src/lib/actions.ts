@@ -5,6 +5,7 @@ import { db } from "@/lib/db";
 import { domainCanReceiveMail } from "@/lib/emailDomainCheck";
 import { sendConfirmationEmail } from "@/lib/leadNotify";
 import { normalizeUsPhone } from "@/lib/phone";
+import { MESSAGE_MAX_LENGTH, isHoneypotFilled } from "@/lib/forms";
 import { PRACTICE_LEAD_REASONS, normalizeWebsite, notifyPracticeLead } from "@/lib/practiceLead";
 
 /**
@@ -13,6 +14,9 @@ import { PRACTICE_LEAD_REASONS, normalizeWebsite, notifyPracticeLead } from "@/l
  * Provider ID + UTM data per Section 2. Works as a plain form action so
  * submission doesn't require client JS — the character counter is a
  * separate, optional client enhancement (see MessageField.tsx).
+ *
+ * All three public forms share the honeypot check (src/lib/forms.ts): a bot
+ * that fills the hidden field gets the normal success redirect, nothing saved.
  *
  * Two-stage lead email verification (Section 4): Stage 1 is a synchronous
  * MX/domain check here, before anything is persisted — a structurally
@@ -29,10 +33,14 @@ export async function submitContactMessage(formData: FormData) {
   const lastName = String(formData.get("lastName") || "").trim();
   const email = String(formData.get("email") || "").trim();
   const phone = String(formData.get("phone") || "").trim() || null;
-  const message = String(formData.get("message") || "").trim().slice(0, 500);
+  const message = String(formData.get("message") || "").trim().slice(0, MESSAGE_MAX_LENGTH);
   const utmSource = String(formData.get("utmSource") || "") || null;
   const utmMedium = String(formData.get("utmMedium") || "") || null;
   const utmCampaign = String(formData.get("utmCampaign") || "") || null;
+
+  if (isHoneypotFilled(formData)) {
+    redirect(`${returnPath}?sent=1`);
+  }
 
   if (!providerId || !firstName || !lastName || !email || !message) {
     redirect(`${returnPath}?error=missing_fields`);
@@ -91,14 +99,12 @@ export async function submitPracticeLead(formData: FormData) {
   const phoneExt = String(formData.get("phoneExt") || "").trim() || null;
   const city = String(formData.get("city") || "").trim();
   const state = String(formData.get("state") || "").trim();
-  const comments = String(formData.get("comments") || "").trim() || null;
+  const comments = String(formData.get("comments") || "").trim().slice(0, MESSAGE_MAX_LENGTH) || null;
   const utmSource = String(formData.get("utmSource") || "") || null;
   const utmMedium = String(formData.get("utmMedium") || "") || null;
   const utmCampaign = String(formData.get("utmCampaign") || "") || null;
 
-  // Honeypot: an off-screen field real visitors never see. Bots that fill
-  // every input get the normal success page, but nothing is saved.
-  if (String(formData.get("leave_blank") || "")) {
+  if (isHoneypotFilled(formData)) {
     redirect("/for-practices?sent=1");
   }
 
@@ -155,6 +161,10 @@ export async function submitGeneralInquiry(formData: FormData) {
   const utmSource = String(formData.get("utmSource") || "") || null;
   const utmMedium = String(formData.get("utmMedium") || "") || null;
   const utmCampaign = String(formData.get("utmCampaign") || "") || null;
+
+  if (isHoneypotFilled(formData)) {
+    redirect("/about?sent=1#contact");
+  }
 
   if (!firstName || !lastName || !email || !message) {
     redirect("/about?error=missing_fields#contact");

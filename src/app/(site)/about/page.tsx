@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { ZipSearchForm } from "@/components/ZipSearchForm";
 import { submitGeneralInquiry } from "@/lib/actions";
+import { HoneypotField } from "@/components/HoneypotField";
 
 export const metadata: Metadata = {
   title: "About",
@@ -81,6 +82,7 @@ export default async function AboutPage({ searchParams }: PageProps<"/about">) {
                 <input type="hidden" name="utmSource" value={utm.source} />
                 <input type="hidden" name="utmMedium" value={utm.medium} />
                 <input type="hidden" name="utmCampaign" value={utm.campaign} />
+                <HoneypotField />
 
                 <div className="mb-3.5 grid grid-cols-2 gap-3.5">
                   <div>

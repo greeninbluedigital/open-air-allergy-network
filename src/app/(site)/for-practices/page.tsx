@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import { PRACTICE_LEAD_REASONS } from "@/lib/practiceLead";
+import { HoneypotField } from "@/components/HoneypotField";
+import { MessageField } from "@/components/MessageField";
 import { submitPracticeLead } from "@/lib/actions";
 import { US_STATES } from "@/lib/states";
 import { US_PHONE_PATTERN, US_PHONE_TITLE } from "@/lib/phone";
@@ -57,10 +59,7 @@ export default async function ForPracticesPage({
                     : "Please fill in all required fields and try again."}
                 </p>
               )}
-              <div aria-hidden="true" className="absolute -left-[9999px] h-px w-px overflow-hidden">
-                <label htmlFor="leave_blank">Leave this field empty</label>
-                <input id="leave_blank" name="leave_blank" tabIndex={-1} autoComplete="off" />
-              </div>
+              <HoneypotField />
               <input type="hidden" name="utmSource" value={utm.source} />
               <input type="hidden" name="utmMedium" value={utm.medium} />
               <input type="hidden" name="utmCampaign" value={utm.campaign} />
@@ -223,16 +222,7 @@ export default async function ForPracticesPage({
                 </div>
               </div>
 
-              <div className="mb-4">
-                <label className="mb-1 block text-xs text-muted" htmlFor="comments">
-                  Comments (optional)
-                </label>
-                <textarea
-                  id="comments"
-                  name="comments"
-                  className="h-18 w-full resize-none rounded border border-line px-2.5 py-2 text-sm"
-                />
-              </div>
+              <MessageField name="comments" label="Comments (optional)" required={false} variant="default" />
 
               <button
                 type="submit"

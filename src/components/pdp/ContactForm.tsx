@@ -1,5 +1,6 @@
 import { submitContactMessage } from "@/lib/actions";
-import { MessageField } from "./MessageField";
+import { MessageField } from "@/components/MessageField";
+import { HoneypotField } from "@/components/HoneypotField";
 import { US_PHONE_PATTERN, US_PHONE_TITLE } from "@/lib/phone";
 
 export function ContactForm({
@@ -24,6 +25,7 @@ export function ContactForm({
       <input type="hidden" name="utmSource" value={utm.source ?? ""} />
       <input type="hidden" name="utmMedium" value={utm.medium ?? ""} />
       <input type="hidden" name="utmCampaign" value={utm.campaign ?? ""} />
+      <HoneypotField />
 
       <div className="mb-2.5">
         <label className="mb-0.5 block text-[11.5px] text-muted" htmlFor="firstName">
