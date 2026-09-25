@@ -15,6 +15,17 @@ ideas come up rather than losing them.
   Learn About ILIT page's evergreen FAQ section as of this date; this
   article would go deeper on the same claim.
 
+- **Allergy medicine vs. allergy shots** (2026-09-25) — target keyword
+  "allergy medicine vs allergy shots." Lives in the Learn page's "More
+  Allergy Treatment Guides" section. The Learn page's comparison table now
+  has an "Allergy Medicine" column (targets symptoms vs. the underlying
+  allergy); this article goes deeper. Should cover the medication types
+  cut from the Learn page's old "Other Ways to Manage Allergy Symptoms"
+  block: oral antihistamines, nasal steroid sprays, eye drops,
+  decongestants, leukotriene modifiers. Keep it neutral: these are useful
+  for symptom control, and the tradeoff is ongoing use if the allergy
+  itself isn't treated.
+
 - **ILIT safety and FDA review status** (2026-09-23) — deeper dive on
   ILIT's safety profile and its FDA approval status (not yet approved,
   same situation as SLIT/allergy drops). The Learn page's "Is ILIT Safe?"
