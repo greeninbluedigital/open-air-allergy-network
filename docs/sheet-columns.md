@@ -170,8 +170,11 @@ homepage shows the Learn About ILIT field photo as a fallback.
 | B | Alt Text | Describe the photo for screen readers and search, e.g. `Woman planting flowers in a sunny garden`. Blank is allowed but not recommended |
 | C | Active | `Y` / `N` — only `Y` rows are shown (blank counts as `N`) |
 
-**Photo framing:** the hero is very wide and short, roughly 4:1 on desktop
-and closer to 3:2 on phones, so photos are cropped to a horizontal band
-through the middle. On desktop the search card covers the lower-left third.
-Keep the subject centered or right of center, and use landscape photos at
-least 2400px wide.
+**Photo framing:** crop and resize photos to **2400 × 800 (3:1)** before
+uploading, exported as JPG at about 80% quality. On laptops and desktops the
+hero is exactly 3:1 (capped at 600px tall on very wide screens), so the
+whole photo shows. Tablets and phones show a center slice, so keep the
+subject in the middle half of the frame. On desktop the search card covers
+the lower-left corner; keep the subject clear of it. After uploading new
+photos, ask Claude to run the image warm-up so the first visitors don't
+wait on resizing.

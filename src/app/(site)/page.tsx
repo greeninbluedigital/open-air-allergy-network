@@ -43,7 +43,10 @@ export default async function HomePage() {
     <>
       {/* Hero / FAP module */}
       <section className="relative border-b border-line">
-        <div className="relative h-64 overflow-hidden bg-bg-alt sm:h-80">
+        {/* 3:1 from laptop width up, matching the 2400x800 crops the hero
+            photos are prepared at (see docs/sheet-columns.md). w-full keeps
+            the height cap from shrinking the width to hold the ratio. */}
+        <div className="relative h-64 w-full overflow-hidden bg-bg-alt sm:h-80 lg:aspect-[3/1] lg:h-auto lg:max-h-[600px]">
           <Image
             src={cloudinaryLimitWidth(hero.imageUrl, 2400)}
             alt={hero.altText}
