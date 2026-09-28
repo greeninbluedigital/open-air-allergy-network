@@ -52,9 +52,10 @@ tags per article.
 
 **What tags are actually used for today:**
 - The Blog index's tag filter pills + counts (`getTagCounts()` in `src/lib/blog.ts`).
-- Curating thematic `ArticleFeed` pulls elsewhere on the site — e.g. Learn
-  About ILIT's "Backed by Clinical Literature" section shows anything tagged
-  `Clinical Research`.
+- Curating thematic `ArticleFeed` pulls elsewhere on the site (the `tag`
+  prop). Nothing uses this right now: Learn About ILIT's old "Backed by
+  Clinical Literature" section (which pulled `Clinical Research`) was
+  replaced by "Recent Blog Articles from Our Providers" in 2026-09.
 - Displayed as badge chips at the top of each article page — decorative only
   today, not clickable from there.
 
@@ -77,6 +78,111 @@ A typical article gets one content-type tag plus one topic tag (e.g. the
 Avant Allergy comparison article is `["ILIT", "Comparisons"]`). Exact
 spelling/casing matters since matching is a literal string compare
 (`tags: { has: tag }`) — copy from this list rather than retyping it.
+
+## Writing about clinical research (playbook)
+
+Agreed with the site owner 2026-09-28. Applies to any article that
+summarizes a published study (usually BLOG, tagged `Clinical Research` plus
+a topic tag). The style guide still governs sentence-level writing; its
+"Medical Sourcing and Claims" section applies in full. Drafts go through the
+usual `content-drafts/` workflow (draft, owner edits, fact-check, publish,
+delete the draft).
+
+### Before writing
+
+1. **Read the full paper, not just the abstract.** Abstracts present results
+   in their best light; the results, limitations, and disclosures sections
+   are where the honest detail is. Note the paper's license (PMC shows it
+   near the top): CC BY allows reuse with attribution; anything else means
+   keeping direct quotes short.
+2. **Pick target keywords from what the study actually supports.** Favor
+   specific phrases people search (for example "ILIT study results,"
+   "intralymphatic immunotherapy clinical trial," plus the allergen or
+   condition studied). If a keyword would need the study to say something it
+   doesn't, drop the keyword, never bend the summary.
+3. **Check what currently ranks for that keyword** (length, structure,
+   tone) and match the searcher's intent.
+
+### Summarizing faithfully
+
+- **Quote sparingly.** One or two short direct quotes for the central
+  conclusion, in quotation marks and attributed. Paraphrase the rest.
+- **Copy numbers exactly as reported, with context:** how many people, what
+  was measured, compared with what. Don't round in a way that changes
+  meaning, and don't turn a relative change into an absolute one (or the
+  reverse).
+- **Don't strengthen the language.** "May reduce" stays "may reduce";
+  "associated with" never becomes "causes"; nothing "proves" or "cures."
+  Explain "statistically significant" in plain words; it doesn't mean
+  "large."
+- **Don't generalize beyond who was studied** (age group, allergen,
+  severity, country).
+- **Report every main result, good and bad,** including outcomes that
+  showed no difference, and side effects or adverse events.
+- **Include the authors' own stated limitations.**
+- **Translate terms, not claims.** Define jargon (placebo-controlled,
+  double-blind) once in plain words; keep what the authors concluded intact.
+- **State the study design:** type (randomized controlled trial,
+  observational study, review or meta-analysis), number of participants,
+  duration, and who they were.
+- **Note funding and author conflicts of interest** from the paper's
+  disclosures. Example: the 2008 PNAS ILIT trial cited on Learn About ILIT
+  was led by the researcher named as inventor on the ILIT patent.
+- **One study isn't the final word.** Give the publication year and present
+  it as one piece of the evidence, not a settled answer.
+- **Regulatory context:** where relevant, note that ILIT isn't
+  FDA-approved, using the same framing as Learn About ILIT's safety
+  section.
+
+### Structure and length
+
+Fixed outline:
+
+1. **Bottom line:** 2 to 3 plain sentences.
+2. **What they studied.**
+3. **What they found,** good and bad.
+4. **Limitations,** as the authors stated them.
+5. **What it does and doesn't mean for you.** One pointer to an allergist,
+   with a specific reason (style guide: hedge-closers are capped).
+6. **Source:** full citation and link (format below).
+7. **Disclosure line** (below).
+
+**Length: 600 to 1,000 words.** Reference: Semrush, "How Long Should a Blog
+Post Be?" (Margarita Loktionova, 2022) puts news articles at 600 to 1,000
+words and informational posts at 1,000 to 1,500, with 1,500 to 2,500 as a
+general blog range. A study summary sits at the news end: readers want the
+findings, honestly stated, not a guide. The same article stresses that
+search intent and quality matter more than word count, so check what ranks
+(step 3 above) and never pad.
+
+**Headline:** says what was studied and found, in measured terms. No
+"breakthrough," "cure," or "game-changer."
+
+### Citation format
+
+Link the study the first time it's mentioned in the body, then give the
+full citation in the Source section:
+
+> Authors (first three, then "et al."). "Title." *Journal*. Year;Volume(Issue):pages. doi:… PMID: … (linked)
+
+Example (verified against PubMed):
+
+> Senti G, Prinz Vavricka BM, Erdmann I, et al. "Intralymphatic allergen administration renders specific immunotherapy faster and safer: a randomized controlled trial." *Proc Natl Acad Sci U S A*. 2008;105(46):17908-12. doi:10.1073/pnas.0803725105. PMID: 19001265.
+
+### Disclosure line
+
+OAAN is a directory of ILIT providers, so it has a business reason to
+present ILIT favorably. Every research summary ends with a short disclosure
+(proposed wording, confirm with the site owner before first use):
+
+> Open Air Allergy Network is a directory of ILIT providers. This summary is for general information and isn't medical advice.
+
+### Fact-check before publishing
+
+Every factual sentence must trace to a specific passage in the paper. The
+draft file carries a fact-check table at the bottom (claim, then the paper
+section or quote it comes from); it's checked before publishing and deleted
+along with the draft.
 
 ## Crediting a guest article to a practice (BLOG)
 
