@@ -192,9 +192,25 @@ reasoning stays on record. If a study is declined, it's declined outright:
 the playbook's disclosure rules are never relaxed to make a paper
 publishable.
 
+**Status (2026-09-28): research summaries are paused.** After screening the
+papers below, the owner found more red flags than material that would help
+consumers consider ILIT, and prefers to let consumers do their own research
+on clinical findings for now. Possible future direction: ask credited
+providers which studies they'd want summarized in their own blog entries,
+then run those through this playbook.
+
+**Not yet screened** (primary trials cited by the Ramchandani review below,
+noted as better candidates than reviews if summaries resume): Skaarup et
+al. 2021, *J Allergy Clin Immunol*, 3-year randomized placebo-controlled
+ILIT trial for grass pollen (Denmark); Hjalmarsson et al. 2023, *J Investig
+Allergol Clin Immunol*, 5-year follow-up of a randomized placebo-controlled
+trial for birch and grass allergy (Sweden); Hoang et al., ILIT
+meta-analysis (483 participants).
+
 | Date | Study | Decision | Reasons |
 |---|---|---|---|
 | 2026-09-28 | Jiang S, Xie S, Tang Q, et al. "Evaluation of Intralymphatic Immunotherapy in Allergic Rhinitis Patients: A Systematic Review and Meta-analysis." *Mediators of Inflammation*. 2023;2023:9377518. doi:10.1155/2023/9377518. PMID: 37197570. [PMC10185423](https://pmc.ncbi.nlm.nih.gov/articles/PMC10185423/) | Declined | **Data-quality red flags:** the quality-of-life result is printed with a confidence interval that can't match its p-value (minus signs missing, in both abstract and results); the authors' conclusion ("validated the safety and effectiveness") is stronger than their own stated limitations (substantial heterogeneity and risk of bias, selective-reporting risk unclear in 62% of trials); the booster-injection finding rests on a 2-trial subgroup; the nasal-score interval subgroup uses a scale direction the paper doesn't explain; the paper says ILIT was "favored" for injection-site swelling when swelling was more common with ILIT. Summarizing it honestly would mean explaining away the paper's own errors. **Funding disclosure:** funded by the National Natural Science Foundation of China and the Hunan Provincial Natural Science Foundation. The playbook requires disclosing funding, and the owner judged that disclosure could be a sensitive topic for some US readers. Mixed results otherwise (13 RCTs, 454 participants): symptom/medication scores and quality of life improved vs. placebo; nasal symptom scores and skin-prick tests showed no significant difference; local swelling/redness more common with ILIT, no severe adverse events reported. |
+| 2026-09-28 | Ramchandani R, Lucyshyn R, Linton S, Ellis AK. "Breaking the mold: nontraditional approaches to allergen immunotherapy for environmental allergens." *Immunotherapy*. 2024;16(18-19):1153-1169. doi:10.1080/1750743X.2024.2408216. PMID: 39382452. [PMC11633400](https://pmc.ncbi.nlm.nih.gov/articles/PMC11633400/) | Declined | **Misreports its sources:** narrative review whose ILIT section cites the Jiang 2023 meta-analysis (declined above) inaccurately: gives Jiang's symptom-medication result as SMD -0.51 (95% CI -1.31 to 0.28) and calls it significant, when Jiang reported -0.85 (-1.58 to -0.11); says Jiang found the booster significantly improved nasal (VAS) scores, when Jiang's VAS booster subgroup showed no difference (p = 0.60); copies Jiang's misprinted quality-of-life interval; gives Jiang's n as 452 (Jiang: 454). **Secondary source:** a summary would be a summary of a summary, and ILIT is one short section of seven approaches. **Conflicts of interest (disclosed):** senior author AK Ellis lists advisory, speaker, grant, or consulting ties to more than a dozen companies, including ALK-Abelló and Stallergenes Greer (major SCIT/SLIT product makers), and was president of the Canadian Society of Allergy and Clinical Immunology at submission. No funding statement found. Otherwise measured on ILIT: "the efficacy and safety of ILIT are not yet fully established, and no ILIT products have been approved for use"; mostly local, mild side effects; fewer reactions than SCIT; little pediatric data. |
 
 ## Crediting a guest article to a practice (BLOG)
 
