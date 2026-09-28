@@ -108,6 +108,11 @@ model Provider {
   notificationEmail String?
 
   tier Tier @default(FREE_CLAIMED)
+  // Set by the sync when a provider is created or its tier changes, so
+  // long-running premium practices can be identified (e.g. who to offer a
+  // freed Learn page credit to). Rows that predate this field were
+  // backfilled with createdAt.
+  tierSince DateTime?
 
   // Add-ons layered on top of whatever tier the provider already has — not
   // separate tiers themselves.
@@ -134,6 +139,10 @@ model Provider {
 
   offersVideoConsult Boolean @default(false)
   offersPhoneConsult Boolean @default(false)
+  // Separate switch for the organic surfaces (PDP + SRP card): a practice may
+  // want remote consults advertised on its SEM landing pages only. SEM pages
+  // keep using the two fields above directly.
+  pdpRemoteConsultBadge Boolean @default(false)
 
   shortBio    String?
   extendedBio String?

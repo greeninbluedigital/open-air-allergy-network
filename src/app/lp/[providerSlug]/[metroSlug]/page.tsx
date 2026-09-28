@@ -11,6 +11,7 @@ import { PatientReviews, reviewsWouldShow } from "@/components/PatientReviews";
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { SYMPTOMS as ALL_SYMPTOMS, TREATMENT_COMPARISON, WHAT_IS_ILIT_COPY } from "@/lib/content";
 import { parseFormError } from "@/lib/forms";
+import { isFullProfilePlus, isVerifiedPlus } from "@/lib/tiers";
 
 const SYMPTOMS = ALL_SYMPTOMS.slice(0, 4);
 
@@ -100,8 +101,10 @@ export default async function SemLandingPage({
           {lp.targetMetroName}.
         </p>
         <div className="mb-4 flex flex-wrap justify-center gap-1.5">
-          {provider.foundingMember && <Badge variant="founder">Founding Member</Badge>}
-          {provider.tier !== "FREE_CLAIMED" && <Badge variant="verified">Verified</Badge>}
+          {isFullProfilePlus(provider.tier) && provider.foundingMember && (
+            <Badge variant="founder">Founding Member</Badge>
+          )}
+          {isVerifiedPlus(provider.tier) && <Badge variant="verified">Verified</Badge>}
           {offersVideoConsult && <Badge variant="consult">Video Consults</Badge>}
           {offersPhoneConsult && <Badge variant="consult">Phone Consults</Badge>}
         </div>

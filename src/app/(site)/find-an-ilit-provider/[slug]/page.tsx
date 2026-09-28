@@ -12,6 +12,7 @@ import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { PhotoGallery } from "@/components/pdp/PhotoGallery";
 import { truncateForMeta } from "@/lib/metadata";
 import { parseFormError } from "@/lib/forms";
+import { isFullProfilePlus as isFullProfileTier, isVerifiedPlus as isVerifiedTier } from "@/lib/tiers";
 
 // 4 or fewer FAQs render fully expanded (today's behavior, unchanged); 5+
 // switches to a collapsed accordion so a practice with a lot of FAQ content
@@ -92,8 +93,8 @@ export default async function ProviderDetailPage({
     campaign: typeof sp.utm_campaign === "string" ? sp.utm_campaign : undefined,
   };
 
-  const isVerifiedPlus = provider.tier !== "FREE_CLAIMED";
-  const isFullProfilePlus = provider.tier === "FULL_PROFILE" || provider.tier === "FEATURED";
+  const isVerifiedPlus = isVerifiedTier(provider.tier);
+  const isFullProfilePlus = isFullProfileTier(provider.tier);
 
   const [siblings, articleCount] = await Promise.all([
     isVerifiedPlus && provider.groupId
@@ -183,11 +184,17 @@ export default async function ProviderDetailPage({
       <div className="flex items-start justify-between gap-4 px-6 pt-6 sm:px-10">
         <div>
           <div className="mb-2 flex flex-wrap gap-1.5">
-            {provider.foundingMember && <Badge variant="founder">Founding Member</Badge>}
+            {isFullProfilePlus && provider.foundingMember && <Badge variant="founder">Founding Member</Badge>}
             <Badge variant="verified">Verified</Badge>
             {provider.geoExtension && <Badge variant="geo">Sees Out-of-Area Patients</Badge>}
-            {provider.offersVideoConsult && <Badge variant="consult">Video Consults</Badge>}
-            {provider.offersPhoneConsult && <Badge variant="consult">Phone Consults</Badge>}
+            {/* pdpRemoteConsultBadge is the on/off switch for organic pages;
+                the two fields still say which kind of consult to show. */}
+            {provider.pdpRemoteConsultBadge && provider.offersVideoConsult && (
+              <Badge variant="consult">Video Consults</Badge>
+            )}
+            {provider.pdpRemoteConsultBadge && provider.offersPhoneConsult && (
+              <Badge variant="consult">Phone Consults</Badge>
+            )}
           </div>
           {isVerifiedPlus && provider.verifiedAsOf && (
             <div className="mb-1 text-xs text-muted">

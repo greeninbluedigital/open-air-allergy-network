@@ -46,9 +46,10 @@ const COLUMNS = [
   "notes",
   "isDemo",
   "srpPhotoUrl",
+  "pdpRemoteConsultBadge",
 ] as const;
 
-const SHEET_RANGE = "Providers!A2:AL";
+const SHEET_RANGE = "Providers!A2:AM";
 
 // "Freemium" is the business's own term for this tier (bare listing, no
 // other info, unverified) — accepted as a synonym alongside the original
@@ -550,6 +551,8 @@ export type SyncSummary = {
   updated: number;
   geocoded: number;
   skipped: number;
+  /** Active providers whose slug is no longer on the sheet. */
+  deactivated: number;
   errors: string[];
   landingPages: LandingPageSyncSummary;
   faqs: FaqSyncSummary;
@@ -568,6 +571,7 @@ export async function runSync(): Promise<SyncSummary> {
     updated: 0,
     geocoded: 0,
     skipped: 0,
+    deactivated: 0,
     errors: [],
     landingPages: { created: 0, updated: 0, skipped: 0, errors: [] },
     faqs: { providersUpdated: 0, itemsSynced: 0, skipped: 0, errors: [] },
@@ -607,6 +611,7 @@ export async function runSync(): Promise<SyncSummary> {
 
       const geoExtension = parseBool(r.geoExtension);
       const active = parseBool(r.active);
+      const tier = parseTier(r.tier);
 
       const data = {
         groupId: r.groupId || null,
@@ -621,7 +626,8 @@ export async function runSync(): Promise<SyncSummary> {
         phone: r.phone || null,
         website: r.website || null,
         notificationEmail: r.notificationEmail || null,
-        tier: parseTier(r.tier),
+        tier,
+        ...(!existing || existing.tier !== tier ? { tierSince: new Date() } : {}),
         foundingMember: parseBool(r.foundingMember),
         geoExtension,
         active,
@@ -639,6 +645,7 @@ export async function runSync(): Promise<SyncSummary> {
         searchRadiusMiles: geoExtension ? 600 : 200,
         offersVideoConsult: parseBool(r.offersVideoConsult),
         offersPhoneConsult: parseBool(r.offersPhoneConsult),
+        pdpRemoteConsultBadge: parseBool(r.pdpRemoteConsultBadge),
         shortBio: r.shortBio || null,
         extendedBio: r.extendedBio || null,
         photoUrl: r.photoUrl || null,
@@ -687,6 +694,21 @@ export async function runSync(): Promise<SyncSummary> {
     } catch (err) {
       summary.errors.push(`${slug}: ${(err as Error).message}`);
     }
+  }
+
+  // The sheet is the source of truth: a provider whose slug is no longer on
+  // it (deleted row, or a renamed slug, which the upsert above treats as a
+  // brand-new provider) is deactivated, not deleted, so re-adding the row
+  // brings it back. Demo listings are skipped (the original seed examples
+  // were never sheet-managed), and an empty read skips this entirely so a
+  // bad fetch can't deactivate everything.
+  const sheetSlugs = rawRows.map((row) => parseRow(row).slug.trim()).filter(Boolean);
+  if (sheetSlugs.length > 0) {
+    const { count } = await db.provider.updateMany({
+      where: { active: true, isDemo: false, slug: { notIn: sheetSlugs } },
+      data: { active: false },
+    });
+    summary.deactivated = count;
   }
 
   // A missing sheet tab (or any other failure in either of these) must

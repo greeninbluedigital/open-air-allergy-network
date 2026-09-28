@@ -15,15 +15,14 @@ export const metadata: Metadata = {
 
 const RADIUS_VALUES = new Set<number>([20, 30, 40, 50, 75, 100, 150, 200]);
 
-// Patient-facing — deliberately no internal tier names (Full Profile,
-// Featured, Founders), pricing implications, or sort-order mechanics (all
-// three buckets are actually distance-sorted only, but that's an
-// implementation detail, not something a patient needs to know).
-const BUCKET_LABELS: Record<SrpBucket, string> = {
-  premium: "Featured Providers",
-  verified: "Verified Providers",
-  free: "Unverified Listings",
-};
+// Patient-facing — deliberately no internal tier names or pricing
+// implications. Two headings over the three sort buckets: Verified and
+// Freemium share "ILIT Providers" but keep their order (Verified first,
+// each distance-sorted).
+const RESULT_GROUPS: { label: string; buckets: SrpBucket[] }[] = [
+  { label: "Featured Providers", buckets: ["premium"] },
+  { label: "ILIT Providers", buckets: ["verified", "free"] },
+];
 
 function buildQuery(params: Record<string, string | undefined>) {
   const usp = new URLSearchParams();
@@ -138,20 +137,19 @@ export default async function FindAProviderPage({
               <div
                 className={`flex-1 space-y-3 overflow-y-auto p-4 md:block ${view === "list" ? "block" : "hidden"}`}
               >
-                {(["premium", "verified", "free"] as const).map((bucket) =>
-                  result.buckets[bucket].length > 0 ? (
-                    <div key={bucket}>
-                      <div className="mb-2 text-xs font-bold tracking-wide text-muted uppercase">
-                        {BUCKET_LABELS[bucket]}
-                      </div>
+                {RESULT_GROUPS.map(({ label, buckets }) => {
+                  const providers = buckets.flatMap((b) => result.buckets[b]);
+                  return providers.length > 0 ? (
+                    <div key={label}>
+                      <div className="mb-2 text-xs font-bold tracking-wide text-muted uppercase">{label}</div>
                       <div className="space-y-3">
-                        {result.buckets[bucket].map((p) => (
+                        {providers.map((p) => (
                           <ProviderCard key={p.id} provider={p} backHref={backHref} />
                         ))}
                       </div>
                     </div>
-                  ) : null,
-                )}
+                  ) : null;
+                })}
               </div>
             </div>
           )}

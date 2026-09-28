@@ -6,6 +6,7 @@ import { Badge } from "@/components/Badge";
 import { ArticleFeed } from "@/components/ArticleFeed";
 import { cloudinaryFaceCrop } from "@/lib/cloudinary";
 import type { ArticleDetailData } from "@/lib/articles";
+import { isFullProfilePlus, isVerifiedPlus } from "@/lib/tiers";
 
 // Maps rendered Markdown elements to the site's existing type scale, rather
 // than pulling in a Tailwind Typography plugin whose opinionated defaults
@@ -189,16 +190,24 @@ export function ArticleDetail({ article }: { article: ArticleDetailData }) {
           </div>
           <div className="text-sm">
             <div className="mb-1 flex flex-wrap gap-1.5">
-              {article.providerCredited.foundingMember && <Badge variant="founder">Founding Member</Badge>}
-              {article.providerCredited.tier !== "FREE_CLAIMED" && <Badge variant="verified">Verified</Badge>}
+              {isFullProfilePlus(article.providerCredited.tier) && article.providerCredited.foundingMember && (
+                <Badge variant="founder">Founding Member</Badge>
+              )}
+              {isVerifiedPlus(article.providerCredited.tier) && <Badge variant="verified">Verified</Badge>}
             </div>
             {creditLabel} <span className="font-semibold">{article.author!.name}</span> of{" "}
-            <Link
-              href={`/find-an-ilit-provider/${article.providerCredited.slug}`}
-              className="font-semibold text-badge-contrib-text"
-            >
-              {article.providerCredited.practiceName}
-            </Link>{" "}
+            {/* The credit (name) stays if a practice lapses, but the link to
+                its PDP only shows while it's an active paying listing. */}
+            {article.providerCredited.active && isVerifiedPlus(article.providerCredited.tier) ? (
+              <Link
+                href={`/find-an-ilit-provider/${article.providerCredited.slug}`}
+                className="font-semibold text-badge-contrib-text"
+              >
+                {article.providerCredited.practiceName}
+              </Link>
+            ) : (
+              <span className="font-semibold">{article.providerCredited.practiceName}</span>
+            )}{" "}
             in {article.providerCredited.city}
             {article.author!.bio && (
               <p className="mt-2 text-xs text-foreground/80">{article.author!.bio}</p>

@@ -6,7 +6,7 @@ text). Column order:
 
 | # | Column | Notes |
 |---|--------|-------|
-| A | Provider Slug | Required, unique, url-safe (e.g. `example-ilit-center`) — this is the matching key |
+| A | Provider Slug | Required, unique, url-safe (e.g. `example-ilit-center`) — this is the matching key and the PDP's URL. **Treat it as permanent once a practice is created.** If it's a formula built from the practice name, paste it as a value after creating the row: changing a slug makes the sync create a brand-new practice (and deactivate the old one, see below), which also changes the PDP URL and breaks anything keyed to the old slug (FAQs, SEM Landing Pages, Learn Page Credits) |
 | B | Group ID | Optional — same value across sibling locations. No required format; suggested convention: `<brand-slug>-group` (e.g. `example-ilit-group`) |
 | C | Practice Name | |
 | D | Address | Street address only |
@@ -17,14 +17,14 @@ text). Column order:
 | I | Phone | Patient-facing |
 | J | Website | |
 | K | Notification Email | **New** — where lead notifications get sent (not shown publicly). Required for the practice to actually receive PDP/SEM contact-form leads |
-| L | Tier | One of: `Freemium`, `Verified`, `Full Profile`, `Featured` |
-| M | Founding Member | `Y` / `N` |
+| L | Tier | One of: `Freemium`, `Verified`, `Full Profile`, `Featured`. Anything else is treated as Freemium |
+| M | Founding Member | `Y` / `N`. Only ever displayed for Full Profile and Featured, whatever this says |
 | N | Geo-Extension | `Y` / `N` |
 | O | Active | `Y` / `N` |
 | P | Verification Date | Any parseable date, e.g. `2026-09-01` |
 | Q | Verification Notes | |
-| R | Offers Video Consult | `Y` / `N` |
-| S | Offers Phone Consult | `Y` / `N` |
+| R | Offers Video Consult | `Y` / `N`. Drives the SEM landing page's Video Consults badge directly; on the PDP it only shows when AM is `Y` |
+| S | Offers Phone Consult | `Y` / `N`. Same as R, for the Phone Consults badge |
 | T | Short Bio | |
 | U | Extended Bio | |
 | V | Provider Photo URL | Upload to Cloudinary's Media Library (res.cloudinary.com — the only host the site's `next/image` config currently allows) and paste the resulting URL here |
@@ -43,7 +43,18 @@ text). Column order:
 | AI | Custom Field 2 | |
 | AJ | Notes | Internal only |
 | AK | Demo/Example Listing | **New** — `Y` / `N`. For sales-demo practices only (showing a prospective client what a PDP/SEM page looks like without using a competitor or a page real traffic could land on). `Y` excludes the listing from SRP search results and the sitemap, and adds `noindex`/`nofollow` to its PDP — reachable only by whoever has the direct link. Use a dedicated Group ID like `example-practice-group` if you want several demo practices grouped for your own reference, but note Group ID's real purpose is cross-linking sibling locations on the PDP ("Other Locations") — don't group unrelated demo practices together or they'll cross-link each other on the page you're showing a client |
-| AL | SRP Card Photo URL | **New** — a square-friendly Cloudinary URL for the small photo on the SRP result card. Deliberately separate from Provider Photo URL (V): that one is portrait-oriented for the PDP and crops badly at the SRP card's small square size. Leave blank and the card simply shows no photo (not a placeholder box) — no image is required |
+| AL | SRP Card Photo URL | **New** — a square-friendly Cloudinary URL for the small photo on the SRP result card. Deliberately separate from Provider Photo URL (V): that one is portrait-oriented for the PDP and crops badly at the SRP card's small square size. Leave blank and the card simply shows no photo (not a placeholder box) — no image is required. Only displayed for Full Profile and Featured |
+| AM | PDP Remote Consult Badge | `Y` / `N`. Turns on the remote consult badge(s) on the PDP and the "Remote Consults" badge on the SRP card, so a practice can advertise remote consults on its SEM landing pages only. Which badge(s) the PDP shows still comes from R and S. Blank counts as `N` |
+
+**Rows that disappear from this tab get deactivated.** Any active practice
+whose slug is no longer on the Providers tab (row deleted, or slug changed)
+is set to inactive on the next sync, not deleted: it drops out of search and
+its PDP stops loading. Re-adding the row brings it back. Demo listings that
+were never on the sheet (the original seed examples) are left alone.
+
+**Tier Since** is tracked automatically (not a column): the sync records the
+date a practice was created or last changed tier, for spotting the
+longest-running premium practices.
 
 **Deliberately excluded** (not sheet-managed):
 - Subscription Status, Billing Reference, Next Billing Date — set by Stripe
