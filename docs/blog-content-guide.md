@@ -184,6 +184,18 @@ draft file carries a fact-check table at the bottom (claim, then the paper
 section or quote it comes from); it's checked before publishing and deleted
 along with the draft.
 
+### Research considered (log)
+
+Every study reviewed for a summary article gets a row here, whether it was
+published or not, so the same paper isn't re-researched later and the
+reasoning stays on record. If a study is declined, it's declined outright:
+the playbook's disclosure rules are never relaxed to make a paper
+publishable.
+
+| Date | Study | Decision | Reasons |
+|---|---|---|---|
+| 2026-09-28 | Jiang S, Xie S, Tang Q, et al. "Evaluation of Intralymphatic Immunotherapy in Allergic Rhinitis Patients: A Systematic Review and Meta-analysis." *Mediators of Inflammation*. 2023;2023:9377518. doi:10.1155/2023/9377518. PMID: 37197570. [PMC10185423](https://pmc.ncbi.nlm.nih.gov/articles/PMC10185423/) | Declined | **Data-quality red flags:** the quality-of-life result is printed with a confidence interval that can't match its p-value (minus signs missing, in both abstract and results); the authors' conclusion ("validated the safety and effectiveness") is stronger than their own stated limitations (substantial heterogeneity and risk of bias, selective-reporting risk unclear in 62% of trials); the booster-injection finding rests on a 2-trial subgroup; the nasal-score interval subgroup uses a scale direction the paper doesn't explain; the paper says ILIT was "favored" for injection-site swelling when swelling was more common with ILIT. Summarizing it honestly would mean explaining away the paper's own errors. **Funding disclosure:** funded by the National Natural Science Foundation of China and the Hunan Provincial Natural Science Foundation. The playbook requires disclosing funding, and the owner judged that disclosure could be a sensitive topic for some US readers. Mixed results otherwise (13 RCTs, 454 participants): symptom/medication scores and quality of life improved vs. placebo; nasal symptom scores and skin-prick tests showed no significant difference; local swelling/redness more common with ILIT, no severe adverse events reported. |
+
 ## Crediting a guest article to a practice (BLOG)
 
 Practitioners (the `Author` record — name/title as it should appear in a
