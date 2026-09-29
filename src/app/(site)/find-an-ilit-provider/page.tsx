@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ScraperTrapLink } from "@/components/ScraperTrapLink";
 import type { Metadata } from "next";
 import { ZipSearchForm } from "@/components/ZipSearchForm";
 import { ProviderCard } from "@/components/srp/ProviderCard";
@@ -151,6 +152,7 @@ export default async function FindAProviderPage({
                     </div>
                   ) : null;
                 })}
+                <ScraperTrapLink />
               </div>
             </div>
           )}

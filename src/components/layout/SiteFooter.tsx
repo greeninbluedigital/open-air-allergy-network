@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { ScraperTrapLink } from "@/components/ScraperTrapLink";
 
 const YEAR = new Date().getFullYear();
 
@@ -64,6 +65,7 @@ export function SiteFooter() {
 
       <div className="mt-6 flex flex-wrap gap-4 border-t border-line pt-4 text-xs">
         <span>© {YEAR} Open Air Allergy Network</span>
+        <ScraperTrapLink />
       </div>
     </footer>
   );

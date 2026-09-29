@@ -73,6 +73,7 @@ cut mid-word and doesn't enforce the 155 ceiling if the max changes later.
 | SEM landing page (`/lp/[providerSlug]/[metroSlug]`) | `ILIT in {City} — {Metro}`, no suffix (`absolute`) | Not set | None (noindexed, moot) | Always `noindex, nofollow` |
 | Legal pages (`/legal/[slug]`) | Page title + suffix | Not set | None (noindexed, moot) | `noindex, follow` |
 | `/api/*` | n/a | n/a | n/a | `X-Robots-Tag: noindex, nofollow` (HTTP header, not meta) |
+| Scraper trap (`/find-an-ilit-provider/quillmoor-allergy-sinus-center-wichita`) | Mirrors a PDP title (`absolute`) | Not set | None | `noindex, nofollow`, and disallowed in `robots.ts` (keep that disallow when the blanket rule is lifted). Never in the sitemap. See `docs/anti-scraping.md` |
 
 Everything above is currently moot for actual search visibility: `robots.ts`
 blanket-disallows crawling site-wide while the site is being used as a

@@ -15,7 +15,8 @@ import { truncateForMeta } from "@/lib/metadata";
 import { parseFormError } from "@/lib/forms";
 import { nearbyFeaturedProviders } from "@/lib/srp";
 import { COMPARISON_ARTICLE_SLUG, ILIT_DEFINITION } from "@/lib/content";
-import { ProviderCard } from "@/components/srp/ProviderCard";import { isFullProfilePlus as isFullProfileTier, isVerifiedPlus as isVerifiedTier } from "@/lib/tiers";
+import { ProviderCard } from "@/components/srp/ProviderCard";
+import { isFullProfilePlus as isFullProfileTier, isVerifiedPlus as isVerifiedTier } from "@/lib/tiers";
 
 // 4 or fewer FAQs render fully expanded (today's behavior, unchanged); 5+
 // switches to a collapsed accordion so a practice with a lot of FAQ content
