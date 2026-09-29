@@ -100,6 +100,23 @@ async function queryWithinRadius(
   }));
 }
 
+/**
+ * Nearest Full Profile/Featured listings to a point (a Freemium PDP's own
+ * location), using the same eligibility rules as search: each listing only
+ * appears within its own radius (200mi, or 600mi with Geo-Extension).
+ */
+export async function nearbyFeaturedProviders(
+  lat: number,
+  lng: number,
+  excludeId: string,
+  limit = 3,
+): Promise<SrpProvider[]> {
+  const rows = await queryWithinRadius(lat, lng, 600);
+  return rows
+    .filter((p) => p.id !== excludeId && (p.tier === "FULL_PROFILE" || p.tier === "FEATURED"))
+    .slice(0, limit);
+}
+
 export async function searchProviders(
   lat: number,
   lng: number,

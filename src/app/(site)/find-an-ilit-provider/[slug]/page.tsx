@@ -12,6 +12,8 @@ import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { PhotoGallery } from "@/components/pdp/PhotoGallery";
 import { truncateForMeta } from "@/lib/metadata";
 import { parseFormError } from "@/lib/forms";
+import { nearbyFeaturedProviders } from "@/lib/srp";
+import { ProviderCard } from "@/components/srp/ProviderCard";
 import { isFullProfilePlus as isFullProfileTier, isVerifiedPlus as isVerifiedTier } from "@/lib/tiers";
 
 // 4 or fewer FAQs render fully expanded (today's behavior, unchanged); 5+
@@ -145,23 +147,38 @@ export default async function ProviderDetailPage({
         }
       : null;
 
-  // Free/Claimed: bare-bones listing with a claim CTA, nothing else.
+  // Freemium: bare listing with a claim CTA, plus the nearest paying
+  // Full Profile/Featured practices so a visitor isn't at a dead end.
   if (!isVerifiedPlus) {
+    const nearby =
+      provider.latitude != null && provider.longitude != null
+        ? await nearbyFeaturedProviders(provider.latitude, provider.longitude, provider.id)
+        : [];
     return (
-      <div className="mx-auto max-w-lg px-6 py-16 text-center sm:px-10">
-        <Link href={backHref} className="mb-6 inline-block text-xs text-muted">
-          ← Back to Search Results
-        </Link>
-        <h1 className="mb-2 text-2xl font-extrabold">{provider.practiceName}</h1>
-        <p className="mb-6 text-sm text-muted">
-          {formatAddress(provider)}, {provider.city}, {provider.state} {provider.zip}
-        </p>
-        <Link
-          href="/for-practices"
-          className="text-sm font-semibold text-sage"
-        >
-          Is this your practice? Claim this listing →
-        </Link>
+      <div className="mx-auto max-w-2xl px-6 py-16 sm:px-10">
+        <div className="text-center">
+          <Link href={backHref} className="mb-6 inline-block text-xs text-muted">
+            ← Back to Search Results
+          </Link>
+          <h1 className="mb-2 text-2xl font-extrabold">{provider.practiceName}</h1>
+          <p className="mb-6 text-sm text-muted">
+            {formatAddress(provider)}, {provider.city}, {provider.state} {provider.zip}
+          </p>
+          <Link href="/for-practices" className="text-sm font-semibold text-sage">
+            Is this your practice? Claim this listing →
+          </Link>
+        </div>
+        {nearby.length > 0 && (
+          <section className="mt-12 border-t border-line pt-8">
+            <h2 className="mb-1 text-lg font-bold">Featured ILIT Providers Near {provider.city}</h2>
+            <p className="mb-4 text-xs text-muted">Distances are from {provider.practiceName}.</p>
+            <div className="space-y-3">
+              {nearby.map((p) => (
+                <ProviderCard key={p.id} provider={p} backHref={backHref} />
+              ))}
+            </div>
+          </section>
+        )}
       </div>
     );
   }
