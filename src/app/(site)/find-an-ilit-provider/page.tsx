@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { ZipSearchForm } from "@/components/ZipSearchForm";
 import { ProviderCard } from "@/components/srp/ProviderCard";
 import { ProviderMap } from "@/components/srp/ProviderMap";
+import { ImpressionTracker } from "@/components/analytics/ImpressionTracker";
 import { lookupZip } from "@/lib/zip";
 import { searchProviders, type SrpBucket } from "@/lib/srp";
 
@@ -137,6 +138,10 @@ export default async function FindAProviderPage({
               <div
                 className={`flex-1 space-y-3 overflow-y-auto p-4 md:block ${view === "list" ? "block" : "hidden"}`}
               >
+                <ImpressionTracker
+                  type="SRP_IMPRESSION"
+                  providerIds={[...result.buckets.premium, ...result.buckets.verified, ...result.buckets.free].map((p) => p.id)}
+                />
                 {RESULT_GROUPS.map(({ label, buckets }) => {
                   const providers = buckets.flatMap((b) => result.buckets[b]);
                   return providers.length > 0 ? (

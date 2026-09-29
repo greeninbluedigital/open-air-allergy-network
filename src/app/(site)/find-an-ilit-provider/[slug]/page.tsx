@@ -15,6 +15,7 @@ import { parseFormError } from "@/lib/forms";
 import { nearbyFeaturedProviders } from "@/lib/srp";
 import { COMPARISON_ARTICLE_SLUG, ILIT_DEFINITION } from "@/lib/content";
 import { ProviderCard } from "@/components/srp/ProviderCard";
+import { ImpressionTracker } from "@/components/analytics/ImpressionTracker";
 import { isFullProfilePlus as isFullProfileTier, isVerifiedPlus as isVerifiedTier } from "@/lib/tiers";
 
 // 4 or fewer FAQs render fully expanded (today's behavior, unchanged); 5+
@@ -199,6 +200,7 @@ export default async function ProviderDetailPage({
         </div>
         {nearby.length > 0 && (
           <section className="mt-12 border-t border-line pt-8">
+            <ImpressionTracker type="PDP_NEARBY_IMPRESSION" providerIds={nearby.map((p) => p.id)} />
             <h2 className="mb-1 text-lg font-bold">Featured ILIT Providers Near {provider.city}</h2>
             <p className="mb-4 text-xs text-muted">Distances are from {provider.practiceName}.</p>
             <div className="space-y-3">

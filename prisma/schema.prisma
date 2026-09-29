@@ -496,6 +496,11 @@ model ContactSubmission {
 enum AnalyticsEventType {
   PAGE_VIEW
   PHONE_CLICK
+  // The practice appeared in a list a visitor actually loaded in a browser
+  // (one row per practice per page view).
+  HOMEPAGE_IMPRESSION
+  SRP_IMPRESSION
+  PDP_NEARBY_IMPRESSION
 }
 
 /// Internal events log (PROJECT_SPEC.md's Analytics section) — provider-scoped
