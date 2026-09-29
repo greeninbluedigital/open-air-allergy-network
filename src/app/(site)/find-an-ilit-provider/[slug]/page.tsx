@@ -179,7 +179,7 @@ export default async function ProviderDetailPage({
   if (!isVerifiedPlus) {
     const nearby =
       provider.latitude != null && provider.longitude != null
-        ? await nearbyFeaturedProviders(provider.latitude, provider.longitude, provider.id)
+        ? await nearbyFeaturedProviders(provider.latitude, provider.longitude, { excludeId: provider.id })
         : [];
     return (
       <div className="mx-auto max-w-2xl px-6 py-16 sm:px-10">

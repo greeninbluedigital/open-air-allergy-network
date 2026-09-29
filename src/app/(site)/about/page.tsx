@@ -1,6 +1,5 @@
-import Link from "next/link";
 import type { Metadata } from "next";
-import { ZipSearchForm } from "@/components/ZipSearchForm";
+import { FindOrJoinRow } from "@/components/FindOrJoinRow";
 import { submitGeneralInquiry } from "@/lib/actions";
 import { HoneypotField } from "@/components/HoneypotField";
 import { MessageField } from "@/components/MessageField";
@@ -37,14 +36,14 @@ export default async function AboutPage({ searchParams }: PageProps<"/about">) {
       <div className="border-b border-line px-6 py-8 sm:px-10">
         <h2 className="mb-3 text-xl font-bold">Our Mission</h2>
         <p className="max-w-2xl text-sm text-foreground/80">
-          ILIT is a fast-growing treatment, but it&apos;s still hard to find
-          — there&apos;s no organized way for a patient to know which nearby
-          practices offer it, or for a practice offering it to reach the
-          patients specifically looking for it. Open Air Allergy Network
-          exists to close that gap: a directory built around this one
-          treatment, with every listed practice personally verified, so
-          patients can find real options and practices can reach the
-          patients already searching for what they offer.
+          ILIT is still hard to find. There&apos;s no organized way for a
+          patient to know which nearby practices offer it, or for a practice
+          offering it to reach the patients specifically looking for it.
+          Open Air Allergy Network exists to close that gap: a directory
+          built around this one treatment, with every listed practice
+          confirmed to offer ILIT, so patients can find real options and
+          practices can reach the patients already searching for what they
+          offer.
         </p>
       </div>
 
@@ -147,25 +146,7 @@ export default async function AboutPage({ searchParams }: PageProps<"/about">) {
         </div>
       </div>
 
-      <div className="mx-6 my-7 grid grid-cols-1 gap-5 sm:mx-10 md:grid-cols-[2fr_1fr]">
-        <div className="rounded border border-line bg-bg-alt p-6">
-          <div className="mb-4 text-base font-semibold">
-            Looking for a provider instead?
-          </div>
-          <ZipSearchForm />
-        </div>
-        <div className="flex flex-col items-start justify-between gap-4 rounded border border-line bg-bg-alt p-6">
-          <div className="text-base font-semibold">
-            Are you a provider? Join the network.
-          </div>
-          <Link
-            href="/for-practices"
-            className="rounded border border-foreground/30 bg-white px-4 py-2.5 text-sm font-semibold whitespace-nowrap hover:border-foreground/60"
-          >
-            For Practices →
-          </Link>
-        </div>
-      </div>
+      <FindOrJoinRow searchHeading="Looking for a provider instead?" />
     </>
   );
 }

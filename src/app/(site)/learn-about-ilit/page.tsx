@@ -234,7 +234,7 @@ export default async function LearnAboutIlitPage() {
         </ol>
       </section>
 
-      <section className="border-b border-line bg-bg-alt px-6 py-10 sm:px-10">
+      <section id="is-ilit-right-for-me" className="scroll-mt-4 border-b border-line bg-bg-alt px-6 py-10 sm:px-10">
         <h2 className="mb-5 text-2xl font-bold">Is ILIT Right for Me?</h2>
         <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <div className="flex flex-col rounded border border-line bg-white p-5">
@@ -355,7 +355,7 @@ export default async function LearnAboutIlitPage() {
         </div>
       </section>
 
-      <section className="border-b border-line px-6 py-10 sm:px-10">
+      <section id="guides" className="scroll-mt-4 border-b border-line px-6 py-10 sm:px-10">
         <h2 className="mb-5 text-2xl font-bold">More Allergy Treatment Guides</h2>
         {/* The /learn-about-ilit/[slug] cluster pages, minus the comparison
             article already featured above. Promoting individual pages into

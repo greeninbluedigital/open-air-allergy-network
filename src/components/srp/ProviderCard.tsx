@@ -22,7 +22,7 @@ export function ProviderCard({
     >
       {premium && provider.srpPhotoUrl && (
         <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded bg-bg-alt">
-          <Image src={provider.srpPhotoUrl} alt="" fill className="object-cover" />
+          <Image src={provider.srpPhotoUrl} alt="" fill sizes="64px" className="object-cover" />
         </div>
       )}
       <div className="min-w-0 flex-1">

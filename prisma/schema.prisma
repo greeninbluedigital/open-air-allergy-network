@@ -378,9 +378,9 @@ model Article {
   authorPhotoUrl  String?
 
   // Admin-settable — locks the article into a specific Article Feed slot
-  // regardless of recency. A free string identifying the feed instance (e.g.
-  // "homepage_recent", "learn_about_ilit_clinical", "blog_featured") rather than
-  // an enum, since new Article Feed instances are expected to keep appearing.
+  // regardless of recency. A free string identifying the feed instance (the
+  // only one in use today is "blog_featured") rather than an enum, since new
+  // Article Feed instances may appear.
   pinnedTo String?
 
   publishedDate DateTime?

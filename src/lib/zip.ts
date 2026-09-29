@@ -7,6 +7,9 @@ import zipcodes from "zipcodes";
  * geocoder, but a bundled zip centroid table is accurate enough for "search
  * near this zip" and avoids an external API call on every search.
  */
+/** Last zip a visitor searched with, set by src/proxy.ts. */
+export const ZIP_COOKIE = "oaan_zip";
+
 export function lookupZip(zip: string): { lat: number; lng: number; city: string; state: string } | null {
   const entry = zipcodes.lookup(zip.trim());
   if (!entry) return null;

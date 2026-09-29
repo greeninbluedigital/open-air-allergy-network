@@ -3,9 +3,12 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import { db } from "@/lib/db";
 import { cloudinaryLimitWidth } from "@/lib/cloudinary";
+import { ILIT_DEFINITION, SYMPTOMS } from "@/lib/content";
+import { nearbyFeaturedProviders } from "@/lib/srp";
+import { getVisitorLocation } from "@/lib/visitorLocation";
 import { ZipSearchForm } from "@/components/ZipSearchForm";
-import { ArticleFeed } from "@/components/ArticleFeed";
-import { SYMPTOMS as ALL_SYMPTOMS } from "@/lib/content";
+import { ProviderCard } from "@/components/srp/ProviderCard";
+import { FindOrJoinRow } from "@/components/FindOrJoinRow";
 
 // Title/description are intentionally left unset here — they inherit the
 // good, keyword-bearing defaults from the root layout.
@@ -13,16 +16,10 @@ export const metadata: Metadata = {
   alternates: { canonical: "/" },
 };
 
-// Same fix as learn-about-ilit/page.tsx (see comment there) — this page
-// also has no searchParams/params, so it was a candidate for the full
-// route cache, meaning DB-only content changes (e.g. a new pinned blog
-// article) wouldn't show up here without a fresh deploy.
+// Every request gets its own random hero photo and visitor-location lookup,
+// and DB-only changes (a new hero photo, a newly featured practice) must show
+// up without a redeploy.
 export const dynamic = "force-dynamic";
-
-// Homepage gets a compact 4-item subset — Learn About ILIT shows the fuller
-// list (Section design note: "a single row, not the fuller two-column card
-// treatment those pages use").
-const SYMPTOMS = ALL_SYMPTOMS.slice(0, 4);
 
 // Shown until the "Homepage Hero Images" sheet tab has at least one active photo.
 const FALLBACK_HERO = {
@@ -30,18 +27,32 @@ const FALLBACK_HERO = {
   altText: "Open green field under a clear blue sky",
 };
 
-// force-dynamic means this runs per request, so each visit can get a different photo.
 async function pickHeroImage() {
   const images = await db.homepageHeroImage.findMany();
   return images.length > 0 ? images[Math.floor(Math.random() * images.length)] : FALLBACK_HERO;
 }
 
+// Every claim here is already stated (and sourced) on Learn About ILIT.
+const FACTS = [
+  { title: "Typically 3 visits", caption: "Spaced about a month apart" },
+  { title: "Months, not years", caption: "Compared with years of traditional allergy shots" },
+  { title: "Often HSA/FSA eligible", caption: "How HSA and FSA funds work", href: "/learn-about-ilit#faq-hsa-fsa" },
+];
+
+// How to use the directory, deliberately not the Learn page's treatment steps.
+const HOW_IT_WORKS = [
+  { title: "Search by zip", text: "Enter your zip code to see ILIT providers near you." },
+  { title: "Compare providers", text: "Browse nearby practices, each confirmed to offer ILIT." },
+  { title: "Contact a practice", text: "Reach out to a practice directly. It's always free for patients." },
+];
+
 export default async function HomePage() {
-  const hero = await pickHeroImage();
+  const [hero, visitor] = await Promise.all([pickHeroImage(), getVisitorLocation()]);
+  const featured = visitor ? await nearbyFeaturedProviders(visitor.lat, visitor.lng) : [];
+  const nearbySearch = visitor?.zip ? `/find-an-ilit-provider?zip=${visitor.zip}` : "/find-an-ilit-provider";
 
   return (
     <>
-      {/* Hero / FAP module */}
       <section className="relative border-b border-line">
         {/* 3:1 from laptop width up, matching the 2400x800 crops the hero
             photos are prepared at (see docs/sheet-columns.md). w-full keeps
@@ -56,110 +67,110 @@ export default async function HomePage() {
             className="object-cover"
           />
         </div>
-        <div className="relative z-10 mx-6 -mt-16 max-w-sm rounded border border-line bg-white p-5 shadow-lg sm:absolute sm:bottom-6 sm:left-10 sm:mx-0 sm:mt-0">
-          <h1 className="mb-1 text-lg font-bold">
-            Allergy season shouldn&apos;t mean missing yours.
-          </h1>
-          <p className="mb-3.5 text-xs text-muted">
-            See ILIT providers near you.
-          </p>
+        <div
+          id="find"
+          className="relative z-10 mx-6 -mt-16 max-w-sm scroll-mt-4 rounded border border-line bg-white p-5 shadow-lg sm:absolute sm:bottom-6 sm:left-10 sm:mx-0 sm:mt-0"
+        >
+          <h1 className="mb-1 text-lg font-bold">Allergy treatment in months, not years.</h1>
+          <p className="mb-3.5 text-xs text-muted">Find an ILIT provider near you.</p>
           <ZipSearchForm />
+          <p className="mt-3 text-xs text-muted">✓ Every practice listed is confirmed to offer ILIT.</p>
         </div>
       </section>
 
-      {/* Symptoms strip */}
-      <section className="border-b border-line bg-sand px-6 py-8 text-center sm:px-10">
-        <h2 className="mb-1 text-lg font-bold">Does this sound familiar?</h2>
-        <p className="mb-5 text-sm text-muted">
-          Sneezing, itchy eyes, and seasonal misery aren&apos;t something you
-          have to just live with.
-        </p>
-        <div className="mb-4 flex flex-wrap justify-center gap-6">
-          {SYMPTOMS.map((s) => (
-            <div key={s.label} className="flex items-center gap-2 text-sm">
-              <span className="text-base">{s.icon}</span>
-              {s.label}
+      <section className="border-b border-line px-6 py-8 sm:px-10">
+        <div className="grid grid-cols-1 gap-4 text-center sm:grid-cols-3">
+          {FACTS.map((fact) => (
+            <div key={fact.title}>
+              <div className="text-lg font-bold">{fact.title}</div>
+              {fact.href ? (
+                <Link href={fact.href} className="text-sm text-sage hover:underline">
+                  {fact.caption} →
+                </Link>
+              ) : (
+                <div className="text-sm text-foreground/80">{fact.caption}</div>
+              )}
             </div>
           ))}
         </div>
-        <Link
-          href="/learn-about-ilit"
-          className="inline-block text-sm font-semibold text-sage"
-        >
-          Learn about ILIT →
+      </section>
+
+      <section className="border-b border-line bg-bg-alt px-6 py-10 sm:px-10">
+        <h2 className="mb-3 text-2xl font-bold">What is ILIT?</h2>
+        <p className="max-w-3xl text-base text-foreground">{ILIT_DEFINITION}</p>
+        <Link href="/learn-about-ilit" className="mt-4 inline-block text-sm font-semibold text-sage">
+          Learn more about ILIT →
         </Link>
       </section>
 
-      {/* Credibility */}
-      <section className="border-b border-line px-6 py-9 sm:px-10">
-        <h2 className="mb-4 text-xl font-bold">
-          Testimonials & medical reference content
-        </h2>
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
-          {[1, 2, 3].map((i) => (
-            <div key={i} className="min-h-36 rounded border border-line bg-bg-alt p-4" />
+      <section className="border-b border-line px-6 py-10 sm:px-10">
+        <h2 className="mb-5 text-2xl font-bold">How It Works</h2>
+        <ol className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+          {HOW_IT_WORKS.map((step, i) => (
+            <li key={step.title} className="flex items-start gap-4 rounded border border-line p-5">
+              <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-action text-sm font-bold text-white">
+                {i + 1}
+              </div>
+              <div>
+                <h3 className="mb-1 font-bold">{step.title}</h3>
+                <p className="text-sm text-foreground/80">{step.text}</p>
+              </div>
+            </li>
           ))}
-        </div>
-        <Link
-          href="/learn-about-ilit"
-          className="mt-3.5 inline-block text-sm font-semibold"
-        >
-          See more testimonials & research → Learn About ILIT
+        </ol>
+      </section>
+
+      {visitor && featured.length > 0 && (
+        // data-nosnippet: the city comes from the visitor (or Google's own
+        // crawler location), so keep it out of search result snippets.
+        <section data-nosnippet className="border-b border-line bg-bg-alt px-6 py-10 sm:px-10">
+          <div className="mb-5 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+            <h2 className="text-2xl font-bold">Featured ILIT Providers Near {visitor.city}</h2>
+            <Link href="#find" className="text-sm text-muted hover:underline">
+              Not near {visitor.city}? Change location
+            </Link>
+          </div>
+          <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
+            {featured.map((p) => (
+              <ProviderCard key={p.id} provider={p} backHref={nearbySearch} />
+            ))}
+          </div>
+          <Link href={nearbySearch} className="mt-5 inline-block text-sm font-semibold text-sage">
+            See all ILIT providers near {visitor.city} →
+          </Link>
+        </section>
+      )}
+
+      <section className="border-b border-line px-6 py-10 text-center sm:px-10">
+        <h2 className="mb-4 text-2xl font-bold">Does This Sound Familiar?</h2>
+        <ul className="mx-auto mb-5 flex max-w-4xl flex-wrap justify-center gap-x-6 gap-y-3 text-sm">
+          {SYMPTOMS.map((s) => (
+            <li key={s.label} className="flex items-center gap-2">
+              <span className="text-base">{s.icon}</span>
+              {s.label}
+            </li>
+          ))}
+        </ul>
+        <Link href="/learn-about-ilit#is-ilit-right-for-me" className="text-sm font-semibold text-sage">
+          Is ILIT right for me? →
         </Link>
       </section>
 
-      {/* Verification + growth */}
-      <section className="border-b border-line px-6 py-9 sm:px-10">
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-          <div>
-            <h3 className="mb-2 text-sm font-semibold text-muted uppercase">
-              Every listed practice, personally verified
-            </h3>
-            <p className="text-sm text-foreground/80">
-              Before a practice appears in our directory, we confirm they
-              actually offer ILIT — no automated listings, no guesswork.
-            </p>
-          </div>
-          <div>
-            <h3 className="mb-2 text-sm font-semibold text-muted uppercase">
-              A fast-growing treatment
-            </h3>
-            <p className="text-sm text-foreground/80">
-              More allergy practices are adding ILIT every year as an option
-              alongside traditional immunotherapy.
-            </p>
-          </div>
-        </div>
+      <section className="border-b border-line bg-bg-alt px-6 py-8 text-center sm:px-10">
+        <p className="text-base">
+          Get answers to{" "}
+          <Link href="/learn-about-ilit#faq" className="font-semibold text-sage hover:underline">
+            common questions
+          </Link>{" "}
+          and read our{" "}
+          <Link href="/learn-about-ilit#guides" className="font-semibold text-sage hover:underline">
+            allergy treatment guides
+          </Link>{" "}
+          on Learn About ILIT.
+        </p>
       </section>
 
-      {/* Recent from Blog */}
-      <section className="border-b border-line px-6 py-9 sm:px-10">
-        <h2 className="mb-4 text-xl font-bold">Recent from the Blog</h2>
-        <ArticleFeed pinnedToSlot="homepage_recent" limit={3} />
-      </section>
-
-      {/* Bookend FAP */}
-      <section className="flex flex-col items-start gap-4 border-b border-line bg-dark-panel px-6 py-6 text-white sm:flex-row sm:items-center sm:justify-between sm:px-10">
-        <div className="text-base font-semibold">
-          Still haven&apos;t searched? Find a provider near you.
-        </div>
-        <div className="w-full sm:w-auto">
-          <ZipSearchForm variant="dark" />
-        </div>
-      </section>
-
-      {/* Practice teaser */}
-      <section className="flex flex-col items-start gap-4 bg-dark-panel px-6 py-8 text-white sm:flex-row sm:items-center sm:justify-between sm:px-10">
-        <div className="text-base font-semibold">
-          Are you a provider? Join the network.
-        </div>
-        <Link
-          href="/for-practices"
-          className="rounded border border-white px-4 py-2.5 text-sm whitespace-nowrap"
-        >
-          For Practices →
-        </Link>
-      </section>
+      <FindOrJoinRow searchHeading="Ready to find an ILIT provider?" />
     </>
   );
 }

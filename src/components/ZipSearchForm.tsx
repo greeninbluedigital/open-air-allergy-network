@@ -1,4 +1,8 @@
+import { cookies } from "next/headers";
+import { ZIP_COOKIE } from "@/lib/zip";
+
 const RADIUS_OPTIONS = [20, 30, 40, 50, 75, 100, 150, 200] as const;
+const PROVIDER_SEARCH = "/find-an-ilit-provider";
 
 /**
  * Plain GET form — no client JS needed, works with SEO/GEO server-rendering
@@ -7,22 +11,25 @@ const RADIUS_OPTIONS = [20, 30, 40, 50, 75, 100, 150, 200] as const;
  * (Section 9) for every instance site-wide: homepage hero, SRP top bar,
  * Learn About ILIT, Blog PAF, SEM landing page.
  */
-export function ZipSearchForm({
-  action = "/find-an-ilit-provider",
+export async function ZipSearchForm({
+  action = PROVIDER_SEARCH,
   showRadius = false,
   defaultRadius = 50,
-  defaultZip = "",
+  defaultZip,
   buttonLabel = "Find a Provider",
   variant = "light",
 }: {
   action?: string;
   showRadius?: boolean;
   defaultRadius?: number;
+  /** Omit to pre-fill provider searches with the visitor's saved zip. */
   defaultZip?: string;
   buttonLabel?: string;
   variant?: "light" | "dark";
 }) {
   const isDark = variant === "dark";
+  const zipValue =
+    defaultZip ?? (action === PROVIDER_SEARCH ? ((await cookies()).get(ZIP_COOKIE)?.value ?? "") : "");
 
   return (
     <form
@@ -37,7 +44,7 @@ export function ZipSearchForm({
         pattern="[0-9]{5}"
         placeholder="Enter zip code"
         autoComplete="postal-code"
-        defaultValue={defaultZip}
+        defaultValue={zipValue}
         required
         className={`min-w-0 flex-1 rounded border px-3 py-2.5 text-sm ${
           isDark

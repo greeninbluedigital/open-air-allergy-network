@@ -4,8 +4,8 @@ import type { ArticleSection } from "@/generated/prisma/client";
 
 /**
  * One reusable component backing every Article Feed instance site-wide
- * (Homepage, Learn About ILIT x2, Blog Index x2, PDP "Articles by This
- * Practice", Blog article "More from the Blog"). Logic: pinned items
+ * (Learn About ILIT x2, Blog Index x2, PDP "Articles From This Practice",
+ * article pages' "More from the Blog" / "More Articles"). Logic: pinned items
  * matching the filter (sorted by date) fill up to `limit` slots; if
  * `sameAuthorId` is set (contribution articles' "More from the Blog"),
  * remaining slots try same-author articles next; whatever's left fills with
@@ -24,7 +24,7 @@ export async function ArticleFeed({
   oldestFirst = false,
   providerCreditedOnly = false,
 }: {
-  /** Admin-curated pin slot key, e.g. "homepage_recent". */
+  /** Admin-curated pin slot key, e.g. "blog_featured". */
   pinnedToSlot?: string;
   tag?: string;
   /** Defaults to BLOG so every pre-existing call site keeps showing only
