@@ -21,10 +21,33 @@ All in the Vercel dashboard: project → **Firewall** → **Rules**. Each change
 needs **Review Changes** → **Publish**, and every version can be restored
 from the audit log.
 
-1. **Bot Protection**, under Bot Management. Set it to **Log** at launch.
+**Timing.** Firewall rules belong to the Vercel project, not to a domain, so
+anything set up now carries over to openairallergynetwork.com automatically.
+Set up every rule now in **Log** mode (except the bypass, which is always
+Bypass). Log never blocks anything, and the trap starts catching scrapers
+already probing the vercel.app address. Switch Bot Protection and the rate
+limit to **Challenge** only after launch plus a week of real traffic, since
+there's nothing to calibrate against before then. That's 3 custom rules
+(bypass, rate limit, trap), exactly Hobby's limit.
+
+0. **Bypass rule for the site's own automated jobs** (custom rule, must sit
+   above the others):
+   - If: Request Path starts with `/api/`
+   - Then: **Bypass**
+   - Why: four jobs call the site without a browser, and Bot Protection's
+     Challenge mode would block them. They are Vercel's daily sheet sync
+     (`/api/sync`), the Google reviews refresh (`/api/reviews/refresh`),
+     the GitHub Actions job that forwards unconfirmed leads every 15 minutes
+     (`/api/leads/process-pending`), and the sheet's sync button
+     (`/api/sync`). Every `/api/` route checks `CRON_SECRET`, needs a
+     one-time token (the lead confirmation link), or only records analytics
+     events, so skipping bot checks there is safe.
+1. **Bot Protection**, under Bot Management. Set it to **Log** first.
    After a week of watching the Firewall overview for real visitors being
    flagged, switch it to **Challenge**. Google, Bing, and other verified
    crawlers are exempt automatically, so search rankings aren't affected.
+   Once it's on Challenge, the hero-photo warm-up has to run through a real
+   browser rather than command-line requests.
 2. **Rate limit on provider pages** (custom rule, action "Rate Limit"):
    - If: Request Path starts with `/find-an-ilit-provider`
    - Fixed window, 60 seconds, 120 requests, keyed on IP
