@@ -147,7 +147,12 @@ const FAQ_ITEMS = [
   {
     id: "faq-insurance",
     q: "Is ILIT covered by insurance?",
-    a: "ILIT is typically self-pay and not covered by most insurance plans, unlike SCIT (allergy shots), which is often covered. Confirm coverage details with your own insurer.",
+    a: "ILIT is typically self-pay and not covered by most insurance plans, unlike SCIT (allergy shots), which is often covered. Covered allergy shots still carry a copay or deductible at each visit, though, and a full course means dozens of visits over several years, so those costs add up. Work with your plan administrator and allergy treatment provider to confirm what's covered and estimate costs.",
+  },
+  {
+    id: "faq-hsa-fsa",
+    q: "Can I pay for ILIT with my HSA or FSA?",
+    a: "Generally, yes. Health savings account (HSA) and flexible spending account (FSA) funds can usually be used for out-of-pocket medical treatment, which can include ILIT since insurance typically doesn't cover it. Ask the practice for an itemized receipt, which your plan may need for reimbursement or your records.",
   },
 ];
 
