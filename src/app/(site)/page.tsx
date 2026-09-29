@@ -9,8 +9,6 @@ import { getVisitorLocation } from "@/lib/visitorLocation";
 import { ZipSearchForm } from "@/components/ZipSearchForm";
 import { ProviderCard } from "@/components/srp/ProviderCard";
 import { FindOrJoinRow } from "@/components/FindOrJoinRow";
-import { ImpressionTracker } from "@/components/analytics/ImpressionTracker";
-
 // Owner-chosen title, 63 characters: one over the usual 62 budget
 // (docs/metadata-rules.md), accepted since any truncation only trims the
 // brand at the end. Description inherits the root layout default.
@@ -153,7 +151,6 @@ export default async function HomePage() {
         // data-nosnippet: the city comes from the visitor (or Google's own
         // crawler location), so keep it out of search result snippets.
         <section data-nosnippet className="border-b border-line bg-bg-alt px-6 py-10 sm:px-10">
-          <ImpressionTracker type="HOMEPAGE_IMPRESSION" providerIds={featured.map((p) => p.id)} />
           <div className="mb-5 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
             <h2 className="text-2xl font-bold">Featured ILIT Providers Near {visitor.city}</h2>
             <Link href="#find" className="text-sm text-muted hover:underline">
@@ -162,7 +159,7 @@ export default async function HomePage() {
           </div>
           <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
             {featured.map((p) => (
-              <ProviderCard key={p.id} provider={p} backHref={nearbySearch} />
+              <ProviderCard key={p.id} provider={p} backHref={nearbySearch} impressionType="HOMEPAGE_IMPRESSION" />
             ))}
           </div>
           <Link href={nearbySearch} className="mt-5 inline-block text-sm font-semibold text-sage">

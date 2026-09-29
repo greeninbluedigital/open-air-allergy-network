@@ -14,9 +14,7 @@ import { truncateForMeta } from "@/lib/metadata";
 import { parseFormError } from "@/lib/forms";
 import { nearbyFeaturedProviders } from "@/lib/srp";
 import { COMPARISON_ARTICLE_SLUG, ILIT_DEFINITION } from "@/lib/content";
-import { ProviderCard } from "@/components/srp/ProviderCard";
-import { ImpressionTracker } from "@/components/analytics/ImpressionTracker";
-import { isFullProfilePlus as isFullProfileTier, isVerifiedPlus as isVerifiedTier } from "@/lib/tiers";
+import { ProviderCard } from "@/components/srp/ProviderCard";import { isFullProfilePlus as isFullProfileTier, isVerifiedPlus as isVerifiedTier } from "@/lib/tiers";
 
 // 4 or fewer FAQs render fully expanded (today's behavior, unchanged); 5+
 // switches to a collapsed accordion so a practice with a lot of FAQ content
@@ -184,6 +182,7 @@ export default async function ProviderDetailPage({
         : [];
     return (
       <div className="mx-auto max-w-2xl px-6 py-16 sm:px-10">
+        <PageViewTracker providerId={provider.id} path={`/find-an-ilit-provider/${provider.slug}`} utm={utm} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <div className="text-center">
           <Link href={backHref} className="mb-6 inline-block text-xs text-muted">
@@ -200,12 +199,11 @@ export default async function ProviderDetailPage({
         </div>
         {nearby.length > 0 && (
           <section className="mt-12 border-t border-line pt-8">
-            <ImpressionTracker type="PDP_NEARBY_IMPRESSION" providerIds={nearby.map((p) => p.id)} />
             <h2 className="mb-1 text-lg font-bold">Featured ILIT Providers Near {provider.city}</h2>
             <p className="mb-4 text-xs text-muted">Distances are from {provider.practiceName}.</p>
             <div className="space-y-3">
               {nearby.map((p) => (
-                <ProviderCard key={p.id} provider={p} backHref={backHref} />
+                <ProviderCard key={p.id} provider={p} backHref={backHref} impressionType="PDP_NEARBY_IMPRESSION" />
               ))}
             </div>
           </section>

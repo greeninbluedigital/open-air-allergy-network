@@ -2,9 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { ZipSearchForm } from "@/components/ZipSearchForm";
 import { ProviderCard } from "@/components/srp/ProviderCard";
-import { ProviderMap } from "@/components/srp/ProviderMap";
-import { ImpressionTracker } from "@/components/analytics/ImpressionTracker";
-import { lookupZip } from "@/lib/zip";
+import { ProviderMap } from "@/components/srp/ProviderMap";import { lookupZip } from "@/lib/zip";
 import { searchProviders, type SrpBucket } from "@/lib/srp";
 
 export const metadata: Metadata = {
@@ -38,7 +36,9 @@ export default async function FindAProviderPage({
   const zip = typeof params.zip === "string" ? params.zip : undefined;
   const radiusParam = typeof params.radius === "string" ? parseInt(params.radius, 10) : 50;
   const radius = RADIUS_VALUES.has(radiusParam) ? radiusParam : 50;
-  const view = params.view === "list" ? "list" : "map";
+  // List by default: its cards show tier badges and the Featured group,
+  // which the map's identical pins don't. Only matters below md.
+  const view = params.view === "map" ? "map" : "list";
 
   const location = zip ? lookupZip(zip) : null;
   const result = location ? await searchProviders(location.lat, location.lng, radius) : null;
@@ -64,16 +64,16 @@ export default async function FindAProviderPage({
           // one at a time. Hidden at md+ since it's inert there.
           <div className="flex overflow-hidden rounded border border-line text-xs md:hidden">
             <Link
-              href={buildQuery({ zip, radius: String(radius), view: "map" })}
-              className={`px-3.5 py-2 ${view === "map" ? "bg-foreground text-background" : "bg-white"}`}
-            >
-              Map
-            </Link>
-            <Link
               href={buildQuery({ zip, radius: String(radius), view: "list" })}
               className={`px-3.5 py-2 ${view === "list" ? "bg-foreground text-background" : "bg-white"}`}
             >
               List
+            </Link>
+            <Link
+              href={buildQuery({ zip, radius: String(radius), view: "map" })}
+              className={`px-3.5 py-2 ${view === "map" ? "bg-foreground text-background" : "bg-white"}`}
+            >
+              Map
             </Link>
           </div>
         )}
@@ -138,10 +138,6 @@ export default async function FindAProviderPage({
               <div
                 className={`flex-1 space-y-3 overflow-y-auto p-4 md:block ${view === "list" ? "block" : "hidden"}`}
               >
-                <ImpressionTracker
-                  type="SRP_IMPRESSION"
-                  providerIds={[...result.buckets.premium, ...result.buckets.verified, ...result.buckets.free].map((p) => p.id)}
-                />
                 {RESULT_GROUPS.map(({ label, buckets }) => {
                   const providers = buckets.flatMap((b) => result.buckets[b]);
                   return providers.length > 0 ? (
@@ -149,7 +145,7 @@ export default async function FindAProviderPage({
                       <div className="mb-2 text-xs font-bold tracking-wide text-muted uppercase">{label}</div>
                       <div className="space-y-3">
                         {providers.map((p) => (
-                          <ProviderCard key={p.id} provider={p} backHref={backHref} />
+                          <ProviderCard key={p.id} provider={p} backHref={backHref} impressionType="SRP_IMPRESSION" />
                         ))}
                       </div>
                     </div>

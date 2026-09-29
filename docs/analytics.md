@@ -1,0 +1,131 @@
+# Analytics: what we measure, and how
+
+The reference for every number OAAN tracks, what it means, and how it's
+counted. If a report or a sales conversation needs a definition, it should
+be here. Last updated 2026-09-28.
+
+There are three separate sources of numbers:
+
+1. **OAAN's own event log** (the `AnalyticsEvent` table): per-practice
+   metrics for provider reports. Everything in the first section below.
+2. **Leads** (`ContactSubmission`, `PracticeLead`, `GeneralInquiry`): form
+   submissions. Defined in `docs/lead-forms.md`, summarized below.
+3. **Google Analytics 4** via Google Tag Manager: sitewide traffic. **Not
+   set up yet** (the code is ready and waits for `NEXT_PUBLIC_GTM_ID`).
+
+## Provider metrics (for practice reports)
+
+| Metric | Event type | Counted when | Where it happens |
+|---|---|---|---|
+| Search result impressions | `SRP_IMPRESSION` | The practice's result card is a **viewable impression** (see definitions) | Find a Provider results list |
+| Homepage impressions | `HOMEPAGE_IMPRESSION` | Same, for its card in the homepage section | Homepage "Featured ILIT Providers Near {city}" (Full Profile and Featured practices only) |
+| Nearby impressions | `PDP_NEARBY_IMPRESSION` | Same, for its card on another practice's page | A Freemium practice's page, "Featured ILIT Providers Near {city}" (Full Profile and Featured only) |
+| Provider page views | `PAGE_VIEW` | The page loads in a visitor's browser (not a viewability measure) | Provider pages (every tier, Freemium included) and SEM landing pages. Tell them apart by path: SEM pages start with `/lp/` |
+| Phone clicks | `PHONE_CLICK` | A visitor clicks or taps the practice's phone number | Provider page contact panel, SEM landing pages, and the phone fallback in the lead form's email error |
+
+Impressions are recorded for every practice shown, whatever its tier. A
+report would normally only cover paying practices.
+
+## Definitions and counting rules
+
+**Viewable impression.** At least 50% of the practice's card is on screen
+for at least one continuous second. This is the advertising industry's
+standard for display ads (IAB/MRC). A card that loads below the fold and
+is never scrolled to doesn't count. A page in a hidden or background tab
+never counts, because the browser doesn't report visibility for it.
+
+**Once per list, per page load.** A practice counts once per list (the
+impression type plus the page URL). Moving around the site with links and
+coming back doesn't count it again. A full reload does, and so does a new
+search (a different URL counts as a different list).
+
+**Page views count every load**, including reloads. They aren't
+de-duplicated.
+
+**Phone clicks** count the click itself. On a phone the tap dials; on a
+desktop the click only reveals the number, so it measures intent to call,
+not completed calls.
+
+**Search results on phones.** On narrow screens the Find a Provider page
+shows the list or the map, one at a time. It opens on the list (since
+2026-09-28), so phone visitors see the cards, badges, and Featured group
+first. A visitor who switches to the Map view stops generating search
+impressions, because map pins aren't counted as impressions. On tablets
+and desktops the map and list show side by side.
+
+## What's excluded, and what isn't
+
+Excluded:
+- Visitors whose browser doesn't run JavaScript, which covers most search
+  engine crawlers.
+- Automated browsers that identify themselves as automated
+  (`navigator.webdriver`).
+
+**Not** excluded:
+- Your own visits and testing. Check the site in a separate browser
+  profile if you don't want those counted, or ask for rows to be deleted.
+- Bots that run JavaScript and hide that they're automated. They're
+  uncommon but can inflate counts.
+
+Some privacy extensions may block the tracking request and undercount.
+Treat all of these as close approximations, and say "approximately" in
+client reports.
+
+## What's stored
+
+Each `AnalyticsEvent` row holds only: the event type, the practice's id,
+the page path (including a searched zip, e.g.
+`/find-an-ilit-provider?zip=90012`), UTM campaign fields (page views on SEM
+pages), and a timestamp. **No visitor identifiers are stored**: no IP
+address, cookie id, name, or email. A row can't be traced back to a person.
+
+## Leads (summary)
+
+Defined in full in `docs/lead-forms.md`. For reports, the useful lead counts
+per practice are: inquiries submitted, inquiries the patient confirmed
+(forwarded as **[Verified]**), and inquiries auto-forwarded after about an
+hour without confirmation (**[Unverified]**).
+
+## Getting the numbers
+
+There's no report screen yet. Ask Claude for any practice and date range,
+or run this in the Neon SQL console (replace the practice slug and dates):
+
+```sql
+SELECT e.type, COUNT(*) AS total
+FROM "AnalyticsEvent" e
+JOIN "Provider" p ON p.id = e."providerId"
+WHERE p.slug = 'avant-allergy-los-angeles'
+  AND e."createdAt" >= '2026-10-01'
+  AND e."createdAt" <  '2026-11-01'
+GROUP BY e.type
+ORDER BY e.type;
+```
+
+## Not measured (yet)
+
+- Sitewide traffic, traffic sources, and conversions: GA4's job once it's
+  set up. Suggested first conversion: a homepage provider search.
+- Clicks on map pins.
+
+## Where it lives in the code
+
+| Piece | File |
+|---|---|
+| Viewable impression tracking | `src/components/analytics/ViewableImpression.tsx` (wraps each card via `ProviderCard`'s `impressionType`) |
+| Page views | `src/components/analytics/PageViewTracker.tsx` |
+| Phone clicks | `src/components/PhoneLink.tsx` |
+| Shared client sender (page views, phone clicks) | `src/lib/track.ts` |
+| Endpoint that saves every event | `src/app/api/events/route.ts` |
+| Event types | `AnalyticsEventType` in `prisma/schema.prisma` |
+
+## Change log
+
+- **2026-09-28:** impression tracking added (homepage, search results,
+  Freemium page nearby section), switched the same day from "counted on page
+  load" to viewable impressions. All test rows were deleted, so impression
+  counts start from the switch.
+- **2026-09-28:** Freemium provider page views now tracked, the same as paid
+  pages (useful for upgrade pitches: "your free listing was viewed N times
+  last month"). Before this date, only Verified and up were counted. Find a
+  Provider on phones now opens on the list instead of the map.

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { trackEvent } from "@/lib/track";
 
 /**
@@ -18,7 +18,13 @@ export function PageViewTracker({
   path: string;
   utm?: { source?: string | null; medium?: string | null; campaign?: string | null };
 }) {
+  // Dev Strict Mode runs effects twice; the ref survives its remount, so
+  // local testing counts one view per load, as production does.
+  const sent = useRef(false);
+
   useEffect(() => {
+    if (sent.current) return;
+    sent.current = true;
     trackEvent("PAGE_VIEW", {
       providerId,
       path,
