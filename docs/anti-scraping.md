@@ -110,9 +110,12 @@ anywhere when it was chosen (2026-09-29), so any hit is a copy of this site.
 Screenshot and save any copy you find, with the date, and take it to
 counsel.
 
-**Rules for the trap:** never add Quillmoor to the Google Sheet, never
-change its values (they're the fingerprint), and keep its `robots.txt`
-disallow when the blanket pre-launch disallow is lifted.
+**Rules for the trap:** never add Quillmoor to the Providers tab (or any
+other synced tab) of the Google Sheet, never change its values (they're the
+fingerprint), and keep its `robots.txt` disallow when the blanket
+pre-launch disallow is lifted. A reference note in a tab the sync doesn't
+read, such as "Scraper Trap (do not sync)", is fine: the sync only reads
+the tabs listed in `docs/sheet-columns.md` and ignores the rest.
 
 Code: `src/lib/scraperTrap.ts` (values), `src/components/ScraperTrapLink.tsx`
 (hidden link), `src/app/(site)/find-an-ilit-provider/quillmoor-allergy-sinus-center-wichita/page.tsx`
