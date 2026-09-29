@@ -179,6 +179,13 @@ G-S8P8XYEGMP, under **Admin**.
    campaign, ad group, and keyword into GA4 automatically, and lets Google
    Ads import the key events above for bidding.
 
+**Hold until the attorney weighs in** (`docs/legal-facts.md`, questions 1,
+2, and 7): lead and search events can count as health-related data under
+some state laws. Until then, leave **Google signals** off (Data collection
+and modification → Data collection), leave the optional **Data sharing
+settings** off (Account settings → Account details), and don't import lead
+events into Google Ads or build ad audiences from them.
+
 ## 4. Your questions, and where GA4 answers them
 
 **Which "Find a Provider" buttons get used, and on which pages?**

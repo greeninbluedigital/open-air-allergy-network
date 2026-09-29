@@ -14,7 +14,8 @@ updated 2026-09-29.
 - [ ] **Clear test data:** test providers in the sheet, and every article
       credit (including the test "Medically reviewed by" credit on the
       comparison article) until there are paying clients.
-- [ ] **Legal pages with counsel:** Privacy Notice (lead-data language,
+- [ ] **Legal pages with counsel:** start from the facts and open questions
+      in [legal-facts.md](legal-facts.md). Privacy Notice (lead-data language,
       possible consent checkbox) and Terms of Use, including a clause
       prohibiting scraping and bulk copying ([anti-scraping.md](anti-scraping.md)).
       The Cookie Policy should list GA4's cookies and the site's `oaan_attr`
