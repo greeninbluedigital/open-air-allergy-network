@@ -156,7 +156,6 @@ export default async function ProviderDetailPage({
         <p className="mb-6 text-sm text-muted">
           {formatAddress(provider)}, {provider.city}, {provider.state} {provider.zip}
         </p>
-        <div className="mb-6 h-40 rounded border border-dashed border-line bg-bg-alt" />
         <Link
           href="/for-practices"
           className="text-sm font-semibold text-sage"

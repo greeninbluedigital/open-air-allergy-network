@@ -4,22 +4,25 @@ import { useEffect, useRef, useState } from "react";
 import type LType from "leaflet";
 import "leaflet/dist/leaflet.css";
 import type { SrpProvider } from "@/lib/srp";
+import { isFullProfilePlus, isVerifiedPlus } from "@/lib/tiers";
 
 const MILES_TO_METERS = 1609.344;
 
+// Same tier gating as the SRP card badges: Founding Member color only for
+// Full Profile+, and Freemium never gets a badge-style color.
 function pinColor(p: SrpProvider): string {
-  if (p.foundingMember) return "#b45309"; // amber
-  if (p.geoExtension) return "#2c7a88"; // teal
-  if (p.tier !== "FREE_CLAIMED") return "#4A6350"; // sage
   // TEMPORARY dev-visibility color, not a real brand choice — white was
   // nearly invisible against most map tile backgrounds. Swap this out once
   // a real palette exists.
-  return "#e11d48"; // free/unverified — rose
+  if (!isVerifiedPlus(p.tier)) return "#e11d48"; // Freemium — rose
+  if (isFullProfilePlus(p.tier) && p.foundingMember) return "#b45309"; // amber
+  if (p.geoExtension) return "#2c7a88"; // teal
+  return "#4A6350"; // sage
 }
 
 function makeIcon(L: typeof LType, p: SrpProvider): LType.DivIcon {
   const color = pinColor(p);
-  const isFree = p.tier === "FREE_CLAIMED";
+  const isFree = !isVerifiedPlus(p.tier);
   return L.divIcon({
     className: "",
     html: `<div style="width:16px;height:16px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:${color};border:2px solid ${isFree ? "#bbb" : color};box-shadow:0 1px 3px rgba(0,0,0,.4);"></div>`,
@@ -43,7 +46,6 @@ export function ProviderMap({
   const mapRef = useRef<LType.Map | null>(null);
   const leafletRef = useRef<typeof LType | null>(null);
   const markersRef = useRef<LType.Marker[]>([]);
-  const [showFree, setShowFree] = useState(true);
   const [ready, setReady] = useState(false);
 
   // Leaflet touches `window` at import time, so it must be loaded
@@ -97,9 +99,7 @@ export function ProviderMap({
     markersRef.current.forEach((m) => m.remove());
     markersRef.current = [];
 
-    const visible = showFree ? providers : providers.filter((p) => p.tier !== "FREE_CLAIMED");
-
-    for (const p of visible) {
+    for (const p of providers) {
       const marker = L.marker([p.latitude, p.longitude], { icon: makeIcon(L, p) })
         .addTo(map)
         .bindPopup(`<a href="/find-an-ilit-provider/${p.slug}">${p.practiceName}</a>`);
@@ -113,24 +113,12 @@ export function ProviderMap({
       // rendering a visible circle overlay.
       const bounds = L.latLng(center.lat, center.lng).toBounds(radiusMiles * MILES_TO_METERS);
       map.fitBounds(bounds, { padding: [16, 16] });
-    } else if (visible.length > 0) {
+    } else if (providers.length > 0) {
       map.fitBounds(L.featureGroup(markersRef.current).getBounds(), { padding: [32, 32] });
     } else {
       map.setView([center.lat, center.lng], 6);
     }
-  }, [ready, providers, showFree, mode, center, radiusMiles]);
+  }, [ready, providers, mode, center, radiusMiles]);
 
-  return (
-    <div className="flex h-full flex-col">
-      <div ref={containerRef} className="min-h-64 flex-1" />
-      <label className="flex items-center gap-2 border-t border-line px-3.5 py-2.5 text-xs">
-        <input
-          type="checkbox"
-          checked={showFree}
-          onChange={(e) => setShowFree(e.target.checked)}
-        />
-        Show Unverified Listings on Map
-      </label>
-    </div>
-  );
+  return <div ref={containerRef} className="h-full min-h-64" />;
 }

@@ -20,7 +20,7 @@ const RADIUS_VALUES = new Set<number>([20, 30, 40, 50, 75, 100, 150, 200]);
 // Freemium share "ILIT Providers" but keep their order (Verified first,
 // each distance-sorted).
 const RESULT_GROUPS: { label: string; buckets: SrpBucket[] }[] = [
-  { label: "Featured Providers", buckets: ["premium"] },
+  { label: "Featured ILIT Providers", buckets: ["premium"] },
   { label: "ILIT Providers", buckets: ["verified", "free"] },
 ];
 
