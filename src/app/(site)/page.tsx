@@ -4,16 +4,39 @@ import type { Metadata } from "next";
 import { db } from "@/lib/db";
 import { cloudinaryLimitWidth } from "@/lib/cloudinary";
 import { ILIT_DEFINITION, SYMPTOMS } from "@/lib/content";
-import { nearbyFeaturedProviders } from "@/lib/srp";
+import { countProvidersNear, nearbyFeaturedProviders } from "@/lib/srp";
 import { getVisitorLocation } from "@/lib/visitorLocation";
 import { ZipSearchForm } from "@/components/ZipSearchForm";
 import { ProviderCard } from "@/components/srp/ProviderCard";
 import { FindOrJoinRow } from "@/components/FindOrJoinRow";
 
-// Title/description are intentionally left unset here — they inherit the
-// good, keyword-bearing defaults from the root layout.
+// Owner-chosen title, 63 characters: one over the usual 62 budget
+// (docs/metadata-rules.md), accepted since any truncation only trims the
+// brand at the end. Description inherits the root layout default.
 export const metadata: Metadata = {
+  title: { absolute: "Find ILIT Allergy Treatment Near You | Open Air Allergy Network" },
   alternates: { canonical: "/" },
+};
+
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+const OAAN_DESCRIPTION =
+  "Open Air Allergy Network is a free directory of allergy practices confirmed to offer ILIT (intralymphatic immunotherapy).";
+
+// WebSite.name is what Google uses for the site name in results. No email:
+// anything in page source gets scraped, so contact goes to the About form.
+// Add `logo` to the Organization once the designed logo exists.
+const SITE_JSON_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    { "@type": "WebSite", name: "Open Air Allergy Network", url: SITE_URL },
+    {
+      "@type": "Organization",
+      name: "Open Air Allergy Network",
+      url: SITE_URL,
+      description: OAAN_DESCRIPTION,
+      contactPoint: { "@type": "ContactPoint", contactType: "customer support", url: `${SITE_URL}/about#contact` },
+    },
+  ],
 };
 
 // Every request gets its own random hero photo and visitor-location lookup,
@@ -49,10 +72,14 @@ const HOW_IT_WORKS = [
 export default async function HomePage() {
   const [hero, visitor] = await Promise.all([pickHeroImage(), getVisitorLocation()]);
   const featured = visitor ? await nearbyFeaturedProviders(visitor.lat, visitor.lng) : [];
+  // Only needed when there's no featured section: keeps the homepage useful
+  // for visitors with listings nearby but no paying practice among them.
+  const nearbyCount = visitor && featured.length === 0 ? await countProvidersNear(visitor.lat, visitor.lng) : 0;
   const nearbySearch = visitor?.zip ? `/find-an-ilit-provider?zip=${visitor.zip}` : "/find-an-ilit-provider";
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SITE_JSON_LD) }} />
       <section className="relative border-b border-line">
         {/* 3:1 from laptop width up, matching the 2400x800 crops the hero
             photos are prepared at (see docs/sheet-columns.md). w-full keeps
@@ -104,7 +131,8 @@ export default async function HomePage() {
       </section>
 
       <section className="border-b border-line px-6 py-10 sm:px-10">
-        <h2 className="mb-5 text-2xl font-bold">How It Works</h2>
+        <h2 className="mb-2 text-2xl font-bold">How It Works</h2>
+        <p className="mb-5 max-w-3xl text-base text-foreground/80">{OAAN_DESCRIPTION}</p>
         <ol className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           {HOW_IT_WORKS.map((step, i) => (
             <li key={step.title} className="flex items-start gap-4 rounded border border-line p-5">
@@ -141,12 +169,25 @@ export default async function HomePage() {
         </section>
       )}
 
+      {visitor && nearbyCount > 0 && (
+        <section data-nosnippet className="border-b border-line bg-bg-alt px-6 py-8 text-center sm:px-10">
+          <p className="text-base">
+            {nearbyCount} ILIT {nearbyCount === 1 ? "provider" : "providers"} within 200 miles of {visitor.city}.{" "}
+            <Link href={nearbySearch} className="font-semibold text-sage hover:underline">
+              See {nearbyCount === 1 ? "it" : "them"} →
+            </Link>
+          </p>
+        </section>
+      )}
+
       <section className="border-b border-line px-6 py-10 text-center sm:px-10">
         <h2 className="mb-4 text-2xl font-bold">Does This Sound Familiar?</h2>
         <ul className="mx-auto mb-5 flex max-w-4xl flex-wrap justify-center gap-x-6 gap-y-3 text-sm">
           {SYMPTOMS.map((s) => (
             <li key={s.label} className="flex items-center gap-2">
-              <span className="text-base">{s.icon}</span>
+              <span aria-hidden="true" className="text-base">
+                {s.icon}
+              </span>
               {s.label}
             </li>
           ))}

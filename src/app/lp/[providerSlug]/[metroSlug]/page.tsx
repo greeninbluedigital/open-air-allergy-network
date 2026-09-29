@@ -134,7 +134,7 @@ export default async function SemLandingPage({
         <div className="flex flex-wrap gap-4">
           {SYMPTOMS.map((s) => (
             <div key={s.label} className="flex items-center gap-2 text-sm">
-              <span>{s.icon}</span>
+              <span aria-hidden="true">{s.icon}</span>
               {s.label}
             </div>
           ))}

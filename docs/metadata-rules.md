@@ -65,7 +65,8 @@ cut mid-word and doesn't enforce the 155 ceiling if the max changes later.
 
 | Page type | Title | Description | Canonical | Robots |
 |---|---|---|---|---|
-| Home, SRP, Learn About ILIT, For Practices, About, Blog index | Static string + `\| Open Air Allergy Network` suffix | Static string, 70–155 chars | Self-referencing | Indexable |
+| Home (`/`) | `Find ILIT Allergy Treatment Near You \| Open Air Allergy Network`, written out in full (`absolute`). **63 characters: a deliberate owner-approved exception to the 62 budget** (2026-09-28); any truncation only trims the brand at the end. Also carries WebSite + Organization JSON-LD (site name for results; contact points to the About form, no email, to avoid scraping) | Root layout default | Self-referencing | Indexable |
+| SRP, Learn About ILIT, For Practices, About, Blog index | Static string + `\| Open Air Allergy Network` suffix | Static string, 70–155 chars | Self-referencing | Indexable |
 | PDP (`/find-an-ilit-provider/[slug]`) | `{Practice Name} — ILIT Provider in {City}, {State}`, no suffix (`absolute`) | Verified+: `shortBio` (or a generated fallback sentence) via `truncateForMeta()`. Freemium: never `shortBio` (it isn't displayed), always the page's own summary sentence ("{Practice} in {City}, {State} is confirmed to offer ILIT…", or "is listed as…" before the Verification Date is set) plus "Listed on Open Air Allergy Network." Share image (`og:image`) only for Full Profile+, the tiers that show the photo | Self-referencing | Indexable, except `isDemo` listings (`noindex, nofollow`) |
 | Blog article (`/blog/[slug]`) | Article's own title, no suffix (`absolute`) | `summaryPoints` (or stripped Markdown body) via `truncateForMeta()` | Self-referencing | Indexable |
 | Learn About ILIT cluster page (`/learn-about-ilit/[slug]`) | Article's own title, no suffix (`absolute`) | Same as Blog article, via `truncateForMeta()` | Self-referencing | Indexable |
@@ -86,8 +87,8 @@ These rules are what will actually take effect once that's lifted.
   splitting across two different ones.
 - Blog article / Learn About ILIT cluster page: the article's own title,
   shared via `ArticleDetail.tsx`.
-- Homepage: the hero headline (`"Allergy season shouldn't mean missing
-  yours."`) is the `<h1>`.
+- Homepage: the hero headline (`"Allergy treatment in months, not
+  years."`) is the `<h1>`.
 - SRP: no visible headline fits the compact search-bar header without a
   redesign — uses a `sr-only` `<h1>` ("Find an ILIT Provider Near You") so
   there's still a real H1 in the DOM without changing the visual design.

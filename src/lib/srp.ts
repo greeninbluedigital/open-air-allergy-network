@@ -117,6 +117,11 @@ export async function nearbyFeaturedProviders(
     .slice(0, limit);
 }
 
+/** How many listings a normal search from this point would show (200mi, each listing's own cap). */
+export async function countProvidersNear(lat: number, lng: number, radiusMiles = 200): Promise<number> {
+  return (await queryWithinRadius(lat, lng, radiusMiles)).length;
+}
+
 export async function searchProviders(
   lat: number,
   lng: number,

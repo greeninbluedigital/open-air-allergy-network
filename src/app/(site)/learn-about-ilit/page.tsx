@@ -243,7 +243,9 @@ export default async function LearnAboutIlitPage() {
             <ul className="space-y-2.5 text-sm">
               {SYMPTOMS.map((s) => (
                 <li key={s.label} className="flex items-center gap-2.5">
-                  <span className="text-base">{s.icon}</span>
+                  <span aria-hidden="true" className="text-base">
+                    {s.icon}
+                  </span>
                   {s.label}
                 </li>
               ))}
@@ -266,7 +268,9 @@ export default async function LearnAboutIlitPage() {
             <ul className="flex flex-1 flex-col divide-y divide-line">
               {TREATS.map((t) => (
                 <li key={t.title} className="flex flex-1 items-start gap-2.5 py-3 first:pt-0 last:pb-0">
-                  <span className="text-base leading-5">{t.icon}</span>
+                  <span aria-hidden="true" className="text-base leading-5">
+                    {t.icon}
+                  </span>
                   <div className="text-sm">
                     <h4 className="font-bold">{t.title}</h4>
                     <p className="text-foreground/80">{t.text}</p>

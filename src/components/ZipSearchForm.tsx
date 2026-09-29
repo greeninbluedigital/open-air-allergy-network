@@ -1,5 +1,14 @@
-import { cookies } from "next/headers";
+import { cookies, headers } from "next/headers";
 import { ZIP_COOKIE } from "@/lib/zip";
+
+/** Saved zip first; otherwise Vercel's approximate zip (US only), which the visitor can edit. */
+async function knownZip(): Promise<string> {
+  const saved = (await cookies()).get(ZIP_COOKIE)?.value;
+  if (saved) return saved;
+  const h = await headers();
+  const ipZip = h.get("x-vercel-ip-postal-code") ?? "";
+  return h.get("x-vercel-ip-country") === "US" && /^\d{5}$/.test(ipZip) ? ipZip : "";
+}
 
 const RADIUS_OPTIONS = [20, 30, 40, 50, 75, 100, 150, 200] as const;
 const PROVIDER_SEARCH = "/find-an-ilit-provider";
@@ -22,14 +31,13 @@ export async function ZipSearchForm({
   action?: string;
   showRadius?: boolean;
   defaultRadius?: number;
-  /** Omit to pre-fill provider searches with the visitor's saved zip. */
+  /** Omit to pre-fill provider searches with the visitor's saved or approximate zip. */
   defaultZip?: string;
   buttonLabel?: string;
   variant?: "light" | "dark";
 }) {
   const isDark = variant === "dark";
-  const zipValue =
-    defaultZip ?? (action === PROVIDER_SEARCH ? ((await cookies()).get(ZIP_COOKIE)?.value ?? "") : "");
+  const zipValue = defaultZip ?? (action === PROVIDER_SEARCH ? await knownZip() : "");
 
   return (
     <form
