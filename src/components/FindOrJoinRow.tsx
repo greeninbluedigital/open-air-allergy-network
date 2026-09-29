@@ -15,7 +15,7 @@ export function FindOrJoinRow({ searchHeading }: { searchHeading: string }) {
           href="/for-practices"
           className="rounded border border-foreground/30 bg-white px-4 py-2.5 text-sm font-semibold whitespace-nowrap hover:border-foreground/60"
         >
-          For Practices →
+          For Practices
         </Link>
       </div>
     </div>
