@@ -13,8 +13,10 @@ There are three separate sources of numbers:
 3. **Google Analytics 4** via Google Tag Manager: sitewide traffic. Live
    (confirmed 2026-09-29): GTM container `GTM-P3J8T24W` (set as
    `NEXT_PUBLIC_GTM_ID`) loads a Google tag for GA4 property
-   `G-S8P8XYEGMP`. The site also pushes its own events to GTM's dataLayer
-   (see "GA4 events" below), but GTM doesn't forward them to GA4 yet.
+   `G-S8P8XYEGMP`, on the production site only. The site sends its own
+   `oaan_*` events (CTA clicks, provider searches, leads, and the provider
+   events above) to Tag Manager. The event list, Tag Manager and GA4 setup,
+   and report recipes are in `docs/gtm-ga4-setup.md`.
 
 ## Provider metrics (for practice reports)
 
@@ -120,11 +122,8 @@ ORDER BY e.type;
 
 ## Not measured (yet)
 
-- GA4 custom events and key events (conversions). GA4 currently gets page
-  views plus whatever its automatic enhanced measurement collects. The
-  site's own dataLayer events (`oaan_page_view`, `oaan_phone_click`,
-  `oaan_website_click`, `oaan_address_click`) have no GTM trigger or tag
-  yet. Suggested first key event: a homepage provider search.
+- In GA4, the site's `oaan_*` events until the Tag Manager trigger and tag
+  in `docs/gtm-ga4-setup.md` are set up and published.
 - Clicks on map pins.
 
 ## Where it lives in the code
@@ -151,3 +150,8 @@ ORDER BY e.type;
   Provider on phones now opens on the list instead of the map.
 - **2026-09-28:** website clicks and address clicks added (provider pages;
   website clicks on SEM pages too). Earlier dates have no data for these.
+- **2026-09-29:** GA4 events added (CTA clicks, provider searches, lead
+  submissions; `docs/gtm-ga4-setup.md`). Leads now also save the campaign
+  keyword, ad variant, ad click id, and landing page, remembered for 30 days
+  from the campaign visit (`oaan_attr` cookie). Tag Manager now loads on
+  production only.

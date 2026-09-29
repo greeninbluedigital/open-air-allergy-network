@@ -25,13 +25,13 @@ export function SiteFooter() {
           <div className="mb-1 text-xs font-semibold tracking-wide text-muted uppercase">
             Explore
           </div>
-          <Link href="/learn-about-ilit" className="text-foreground/80 hover:text-foreground">
+          <Link href="/learn-about-ilit" data-cta="footer" className="text-foreground/80 hover:text-foreground">
             Learn About ILIT
           </Link>
-          <Link href="/find-an-ilit-provider" className="text-foreground/80 hover:text-foreground">
+          <Link href="/find-an-ilit-provider" data-cta="footer" className="text-foreground/80 hover:text-foreground">
             Find a Provider
           </Link>
-          <Link href="/blog" className="text-foreground/80 hover:text-foreground">
+          <Link href="/blog" data-cta="footer" className="text-foreground/80 hover:text-foreground">
             Blog
           </Link>
         </div>
@@ -46,7 +46,7 @@ export function SiteFooter() {
           <Link href="/about#contact" className="text-foreground/80 hover:text-foreground">
             Contact
           </Link>
-          <Link href="/for-practices" className="text-foreground/80 hover:text-foreground">
+          <Link href="/for-practices" data-cta="footer" className="text-foreground/80 hover:text-foreground">
             For Practices
           </Link>
         </div>

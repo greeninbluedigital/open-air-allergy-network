@@ -5,6 +5,13 @@ import type { SrpProvider } from "@/lib/srp";
 import { isFullProfilePlus, isVerifiedPlus } from "@/lib/tiers";
 import { ViewableImpression, type ImpressionType } from "@/components/analytics/ViewableImpression";
 
+/** Card clicks (oaan_cta_click) are named after the list the card sat in. */
+const CARD_CTA: Record<ImpressionType, string> = {
+  HOMEPAGE_IMPRESSION: "provider_card_homepage",
+  SRP_IMPRESSION: "provider_card_search",
+  PDP_NEARBY_IMPRESSION: "provider_card_nearby",
+};
+
 export function ProviderCard({
   provider,
   backHref,
@@ -23,6 +30,8 @@ export function ProviderCard({
     <ViewableImpression type={impressionType} providerId={provider.id}>
       <Link
         href={`/find-an-ilit-provider/${provider.slug}?back=${encodeURIComponent(backHref)}`}
+        data-cta={CARD_CTA[impressionType]}
+        data-cta-provider={provider.practiceName}
         className={`flex gap-3 rounded border border-line p-3.5 ${paid ? "bg-white" : "bg-bg-alt"}`}
       >
         {premium && provider.srpPhotoUrl && (

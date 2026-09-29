@@ -17,6 +17,8 @@ type GeneralInquiryForEmail = {
   utmSource: string | null;
   utmMedium: string | null;
   utmCampaign: string | null;
+  utmTerm?: string | null;
+  landingPage?: string | null;
 };
 
 function oneLine(s: string) {
@@ -33,7 +35,9 @@ export function buildGeneralInquiryEmail(inquiry: GeneralInquiryForEmail) {
     ["Message", escapeHtml(inquiry.message).replace(/\n/g, "<br>")],
   ];
   const utm = [inquiry.utmSource, inquiry.utmMedium, inquiry.utmCampaign].filter(Boolean).join(" / ");
-  if (utm) rows.push(["UTM", escapeHtml(utm)]);
+  if (utm) rows.push(["Campaign", escapeHtml(utm)]);
+  if (inquiry.utmTerm) rows.push(["Keyword", escapeHtml(inquiry.utmTerm)]);
+  if (inquiry.landingPage) rows.push(["Landing page", escapeHtml(inquiry.landingPage)]);
 
   const html = `
     <p>New About page message. Reply to this email to respond directly.</p>

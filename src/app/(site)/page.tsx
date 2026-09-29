@@ -99,7 +99,7 @@ export default async function HomePage() {
         >
           <h1 className="mb-1 text-lg font-bold">Allergy treatment in months, not years.</h1>
           <p className="mb-3.5 text-xs text-muted">Find an ILIT provider near you.</p>
-          <ZipSearchForm />
+          <ZipSearchForm origin="homepage_hero" />
           <p className="mt-3 text-xs text-muted">✓ Every practice listed is confirmed to offer ILIT.</p>
         </div>
       </section>
@@ -124,7 +124,7 @@ export default async function HomePage() {
       <section className="border-b border-line bg-bg-alt px-6 py-10 sm:px-10">
         <h2 className="mb-3 text-2xl font-bold">What is ILIT?</h2>
         <p className="max-w-3xl text-base text-foreground">{ILIT_DEFINITION}</p>
-        <Link href="/learn-about-ilit" className="mt-4 inline-block text-sm font-semibold text-sage">
+        <Link href="/learn-about-ilit" data-cta="homepage_what_is_ilit" className="mt-4 inline-block text-sm font-semibold text-sage">
           Learn more about ILIT →
         </Link>
       </section>
@@ -153,7 +153,7 @@ export default async function HomePage() {
         <section data-nosnippet className="border-b border-line bg-bg-alt px-6 py-10 sm:px-10">
           <div className="mb-5 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
             <h2 className="text-2xl font-bold">Featured ILIT Providers Near {visitor.city}</h2>
-            <Link href="#find" className="text-sm text-muted hover:underline">
+            <Link href="#find" data-cta="homepage_change_location" className="text-sm text-muted hover:underline">
               Not near {visitor.city}? Change location
             </Link>
           </div>
@@ -162,7 +162,7 @@ export default async function HomePage() {
               <ProviderCard key={p.id} provider={p} backHref={nearbySearch} impressionType="HOMEPAGE_IMPRESSION" />
             ))}
           </div>
-          <Link href={nearbySearch} className="mt-5 inline-block text-sm font-semibold text-sage">
+          <Link href={nearbySearch} data-cta="homepage_featured_see_all" className="mt-5 inline-block text-sm font-semibold text-sage">
             See all ILIT providers near {visitor.city} →
           </Link>
         </section>
@@ -172,7 +172,7 @@ export default async function HomePage() {
         <section data-nosnippet className="border-b border-line bg-bg-alt px-6 py-8 text-center sm:px-10">
           <p className="text-base">
             {nearbyCount} ILIT {nearbyCount === 1 ? "provider" : "providers"} within 200 miles of {visitor.city}.{" "}
-            <Link href={nearbySearch} className="font-semibold text-sage hover:underline">
+            <Link href={nearbySearch} data-cta="homepage_nearby_count" className="font-semibold text-sage hover:underline">
               See {nearbyCount === 1 ? "it" : "them"} →
             </Link>
           </p>
@@ -191,7 +191,7 @@ export default async function HomePage() {
             </li>
           ))}
         </ul>
-        <Link href="/learn-about-ilit#is-ilit-right-for-me" className="text-sm font-semibold text-sage">
+        <Link href="/learn-about-ilit#is-ilit-right-for-me" data-cta="homepage_symptoms" className="text-sm font-semibold text-sage">
           Is ILIT right for me? →
         </Link>
       </section>
@@ -210,7 +210,7 @@ export default async function HomePage() {
         </p>
       </section>
 
-      <FindOrJoinRow searchHeading="Ready to find an ILIT provider?" />
+      <FindOrJoinRow searchHeading="Ready to find an ILIT provider?" origin="homepage_bottom" />
     </>
   );
 }

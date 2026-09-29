@@ -17,10 +17,13 @@ export function PhoneLink({
   phone,
   className,
   providerId,
+  providerName,
 }: {
   phone: string;
   className?: string;
   providerId?: string;
+  /** Sent to GA4 so reports show the practice, not just its id. */
+  providerName?: string;
 }) {
   const id = useId();
   const pathname = usePathname();
@@ -33,7 +36,7 @@ export function PhoneLink({
       className={className}
       onClick={(e) => {
         if (providerId) {
-          trackEvent("PHONE_CLICK", { providerId, path: pathname });
+          trackEvent("PHONE_CLICK", { providerId, providerName, path: pathname });
         }
         const isTouchDevice = window.matchMedia("(pointer: coarse)").matches;
         if (!isTouchDevice) {

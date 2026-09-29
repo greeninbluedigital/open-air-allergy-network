@@ -471,6 +471,12 @@ model ContactSubmission {
   utmSource   String?
   utmMedium   String?
   utmCampaign String?
+  // Campaign keyword/ad variant, ad click id, and first page of the
+  // campaign visit, from the oaan_attr cookie (src/lib/attribution.ts).
+  utmTerm     String?
+  utmContent  String?
+  gclid       String?
+  landingPage String?
 
   // Two-stage lead email verification (Section 4), PDP + SEM landing page
   // forms specifically. Stage 1 (MX/domain check) happens before a row is
@@ -555,6 +561,12 @@ model PracticeLead {
   utmSource   String?
   utmMedium   String?
   utmCampaign String?
+  // Campaign keyword/ad variant, ad click id, and first page of the
+  // campaign visit, from the oaan_attr cookie (src/lib/attribution.ts).
+  utmTerm     String?
+  utmContent  String?
+  gclid       String?
+  landingPage String?
 
   createdAt DateTime @default(now())
 }
@@ -576,6 +588,12 @@ model GeneralInquiry {
   utmSource   String?
   utmMedium   String?
   utmCampaign String?
+  // Campaign keyword/ad variant, ad click id, and first page of the
+  // campaign visit, from the oaan_attr cookie (src/lib/attribution.ts).
+  utmTerm     String?
+  utmContent  String?
+  gclid       String?
+  landingPage String?
 
   createdAt DateTime @default(now())
 }

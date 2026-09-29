@@ -209,6 +209,7 @@ export default async function LearnAboutIlitPage() {
           </ul>
           <Link
             href="/find-an-ilit-provider"
+            data-cta="learn_hero"
             className="mt-7 inline-block rounded bg-action px-5 py-3 text-sm font-semibold text-white hover:bg-action-hover"
           >
             Find a Provider
@@ -256,6 +257,7 @@ export default async function LearnAboutIlitPage() {
               </p>
               <Link
                 href="/find-an-ilit-provider"
+                data-cta="learn_right_for_me"
                 className="inline-block rounded bg-action px-4 py-2.5 text-sm font-semibold text-white hover:bg-action-hover"
               >
                 Find a Provider
@@ -328,7 +330,7 @@ export default async function LearnAboutIlitPage() {
             </p>
             <p className="mt-3">
               Discuss your treatment options with a{" "}
-              <Link href="/find-an-ilit-provider" className="font-semibold text-sage hover:underline">
+              <Link href="/find-an-ilit-provider" data-cta="learn_comparison_summary" className="font-semibold text-sage hover:underline">
                 provider in your area →
               </Link>
             </p>
@@ -395,7 +397,7 @@ export default async function LearnAboutIlitPage() {
 
       <div className="mx-6 my-8 rounded bg-action p-6 text-white sm:mx-10">
         <div className="mb-4 text-base font-semibold">Still have questions? Search available providers near you.</div>
-        <ZipSearchForm variant="dark" />
+        <ZipSearchForm variant="dark" origin="learn_bottom" />
       </div>
     </>
   );

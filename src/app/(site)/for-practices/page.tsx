@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { DataLayerEvent } from "@/components/analytics/DataLayerEvent";
 import type { Metadata } from "next";
 import { PRACTICE_LEAD_REASONS } from "@/lib/practiceLead";
 import { HoneypotField } from "@/components/HoneypotField";
@@ -42,13 +43,14 @@ export default async function ForPracticesPage({
       <div id="contact-form" className="px-6 py-10 sm:px-10">
         <p className="mx-auto mb-8 max-w-lg rounded border border-line bg-bg-alt px-4 py-3 text-center text-sm font-bold">
           Looking for ILIT allergy treatment?{" "}
-          <Link href="/find-an-ilit-provider" className="text-sage hover:underline">
+          <Link href="/find-an-ilit-provider" data-cta="for_practices_patient_nudge" className="text-sage hover:underline">
             Find a provider near you →
           </Link>
         </p>
         <div className="mx-auto max-w-lg rounded border border-line p-6">
           {sent ? (
             <p className="text-center text-sm font-semibold text-sage">
+              <DataLayerEvent event="oaan_practice_lead_submit" />
               Thanks for reaching out — we&apos;ll be in touch soon.
             </p>
           ) : (

@@ -17,11 +17,16 @@ updated 2026-09-29.
 - [ ] **Legal pages with counsel:** Privacy Notice (lead-data language,
       possible consent checkbox) and Terms of Use, including a clause
       prohibiting scraping and bulk copying ([anti-scraping.md](anti-scraping.md)).
+      The Cookie Policy should list GA4's cookies and the site's `oaan_attr`
+      campaign cookie ([gtm-ga4-setup.md](gtm-ga4-setup.md), section 5).
 - [x] **GA4 and Google Tag Manager installed** (GTM-P3J8T24W → GA4
       G-S8P8XYEGMP, confirmed receiving data 2026-09-29).
-- [ ] **GA4 events and key events:** GTM triggers and tags for the site's
-      dataLayer events, plus the key events (conversions) to report on
-      ([analytics.md](analytics.md)).
+- [ ] **Tag Manager and GA4 setup** (step by step in
+      [gtm-ga4-setup.md](gtm-ga4-setup.md)): 9 data layer variables, one
+      trigger, one GA4 event tag, preview, publish. Then in GA4: custom
+      dimensions, key events, 14-month data retention, internal traffic
+      filter, Search Console link, and a Google Ads link once that account
+      exists.
 
 ## Vercel Firewall (can be done now, in Log mode)
 

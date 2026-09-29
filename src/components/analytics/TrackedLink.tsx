@@ -12,12 +12,14 @@ export function TrackedLink({
   href,
   type,
   providerId,
+  providerName,
   className,
   children,
 }: {
   href: string;
   type: "WEBSITE_CLICK" | "ADDRESS_CLICK";
   providerId: string;
+  providerName?: string;
   className?: string;
   children: React.ReactNode;
 }) {
@@ -29,7 +31,7 @@ export function TrackedLink({
       target="_blank"
       rel="noopener noreferrer"
       className={className}
-      onClick={() => trackEvent(type, { providerId, path: pathname })}
+      onClick={() => trackEvent(type, { providerId, providerName, path: pathname })}
     >
       {children}
     </a>

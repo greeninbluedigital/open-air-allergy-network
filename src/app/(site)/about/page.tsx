@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { DataLayerEvent } from "@/components/analytics/DataLayerEvent";
 import { FindOrJoinRow } from "@/components/FindOrJoinRow";
 import { submitGeneralInquiry } from "@/lib/actions";
 import { HoneypotField } from "@/components/HoneypotField";
@@ -58,6 +59,7 @@ export default async function AboutPage({ searchParams }: PageProps<"/about">) {
           <div>
             {sent ? (
               <p className="text-sm font-semibold text-sage">
+                <DataLayerEvent event="oaan_general_inquiry_submit" />
                 Thanks for reaching out — we&apos;ll be in touch soon.
               </p>
             ) : (
@@ -146,7 +148,7 @@ export default async function AboutPage({ searchParams }: PageProps<"/about">) {
         </div>
       </div>
 
-      <FindOrJoinRow searchHeading="Looking for a provider instead?" />
+      <FindOrJoinRow searchHeading="Looking for a provider instead?" origin="about_bottom" />
     </>
   );
 }

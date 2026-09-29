@@ -84,7 +84,7 @@ export default async function SemLandingPage({
 
   return (
     <>
-      <PageViewTracker providerId={provider.id} path={returnPath} utm={utm} />
+      <PageViewTracker providerId={provider.id} providerName={provider.practiceName} path={returnPath} utm={utm} />
       <div className="bg-bg-alt px-6 py-9 text-center sm:px-10">
         <h1 className="mb-2 text-2xl font-extrabold sm:text-[26px]">
           ILIT Available in {provider.city} — a Short Flight from {lp.targetMetroName}
@@ -119,7 +119,7 @@ export default async function SemLandingPage({
           </a>
           {provider.phone && (
             <span className="rounded border border-foreground px-5 py-2.5 text-sm font-semibold">
-              📞 <PhoneLink phone={provider.phone} providerId={provider.id} />
+              📞 <PhoneLink phone={provider.phone} providerId={provider.id} providerName={provider.practiceName} />
             </span>
           )}
         </div>
@@ -212,13 +212,18 @@ export default async function SemLandingPage({
       <div id="contact-form" className="px-6 py-8 sm:px-10">
         <div className="max-w-md rounded border border-line p-5">
           {sent || confirmed ? (
-            <LeadStatusMessage status={sent ? "sent" : "confirmed"} practiceName={provider.practiceName} />
+            <LeadStatusMessage
+              status={sent ? "sent" : "confirmed"}
+              practiceName={provider.practiceName}
+              providerId={provider.id}
+              formLocation="sem_landing_page"
+            />
           ) : (
             <>
               {provider.phone && (
                 <div className="mb-2 text-sm">
                   📞{" "}
-                  <PhoneLink phone={provider.phone} className="text-[#1c5ea8]" providerId={provider.id} />
+                  <PhoneLink phone={provider.phone} className="text-[#1c5ea8]" providerId={provider.id} providerName={provider.practiceName} />
                 </div>
               )}
               {provider.website && (
@@ -228,6 +233,7 @@ export default async function SemLandingPage({
                     href={provider.website}
                     type="WEBSITE_CLICK"
                     providerId={provider.id}
+                    providerName={provider.practiceName}
                     className="text-[#1c5ea8]"
                   >
                     {provider.website.replace(/^https?:\/\//, "")}

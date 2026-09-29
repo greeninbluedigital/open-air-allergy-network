@@ -33,6 +33,7 @@ export function MobileNav() {
             <Link
               key={link.href}
               href={link.href}
+              data-cta="nav_mobile"
               onClick={() => setOpen(false)}
               className="border-b border-line py-3 text-sm text-foreground last:border-none"
             >

@@ -2,8 +2,12 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import { AnalyticsListener } from "@/components/analytics/AnalyticsListener";
 
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
+// Production deployments only: local dev and Vercel preview deployments
+// would otherwise send test traffic to the real GA4 property. The site's
+// dataLayer events still fire everywhere, so they can be checked locally.
+const GTM_ID = process.env.VERCEL_ENV === "production" ? process.env.NEXT_PUBLIC_GTM_ID : undefined;
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -54,6 +58,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             />
           </noscript>
         )}
+        <AnalyticsListener />
         {children}
       </body>
     </html>

@@ -7,7 +7,7 @@ import Link from "next/link";
 export function StrippedHeader() {
   return (
     <header className="border-b border-line bg-bg-alt px-6 py-4 sm:px-10">
-      <Link href="/" className="text-base font-bold">
+      <Link href="/" data-cta="sem_header_logo" className="text-base font-bold">
         Open Air Allergy Network
       </Link>
     </header>

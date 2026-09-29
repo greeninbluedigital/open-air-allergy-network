@@ -11,10 +11,12 @@ import { trackEvent } from "@/lib/track";
  */
 export function PageViewTracker({
   providerId,
+  providerName,
   path,
   utm,
 }: {
   providerId: string;
+  providerName?: string;
   path: string;
   utm?: { source?: string | null; medium?: string | null; campaign?: string | null };
 }) {
@@ -27,6 +29,7 @@ export function PageViewTracker({
     sent.current = true;
     trackEvent("PAGE_VIEW", {
       providerId,
+      providerName,
       path,
       utmSource: utm?.source,
       utmMedium: utm?.medium,

@@ -1,6 +1,8 @@
 "use server";
 
+import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { ATTRIBUTION_COOKIE, parseAttribution } from "@/lib/attribution";
 import { db } from "@/lib/db";
 import { domainCanReceiveMail } from "@/lib/emailDomainCheck";
 import { sendConfirmationEmail } from "@/lib/leadNotify";
@@ -8,6 +10,38 @@ import { normalizeUsPhone } from "@/lib/phone";
 import { MESSAGE_MAX_LENGTH, containsLink, isHoneypotFilled } from "@/lib/forms";
 import { PRACTICE_LEAD_REASONS, normalizeWebsite, notifyPracticeLead } from "@/lib/practiceLead";
 import { GENERAL_INQUIRY_REASONS, notifyGeneralInquiry } from "@/lib/generalInquiry";
+
+/**
+ * Campaign data for a lead. The attribution cookie (src/lib/attribution.ts)
+ * wins when set: it holds everything from the campaign landing URL, and it
+ * survives the visitor moving from an SEM landing page into the main site.
+ * The form's hidden UTM fields (read from the current URL) cover visitors
+ * whose browser blocks cookies.
+ */
+async function leadAttribution(formData: FormData) {
+  const saved = parseAttribution((await cookies()).get(ATTRIBUTION_COOKIE)?.value);
+  if (saved.source || saved.campaign || saved.gclid) {
+    return {
+      utmSource: saved.source ?? null,
+      utmMedium: saved.medium ?? null,
+      utmCampaign: saved.campaign ?? null,
+      utmTerm: saved.term ?? null,
+      utmContent: saved.content ?? null,
+      gclid: saved.gclid ?? null,
+      landingPage: saved.landingPage ?? null,
+    };
+  }
+  const fromForm = (name: string) => String(formData.get(name) || "").slice(0, 200) || null;
+  return {
+    utmSource: fromForm("utmSource"),
+    utmMedium: fromForm("utmMedium"),
+    utmCampaign: fromForm("utmCampaign"),
+    utmTerm: null,
+    utmContent: null,
+    gclid: null,
+    landingPage: null,
+  };
+}
 
 /**
  * PDP/SEM "tracked contact form" (Full Profile+ on the PDP; always shown on
@@ -35,9 +69,7 @@ export async function submitContactMessage(formData: FormData) {
   const email = String(formData.get("email") || "").trim();
   const phone = String(formData.get("phone") || "").trim() || null;
   const message = String(formData.get("message") || "").trim().slice(0, MESSAGE_MAX_LENGTH);
-  const utmSource = String(formData.get("utmSource") || "") || null;
-  const utmMedium = String(formData.get("utmMedium") || "") || null;
-  const utmCampaign = String(formData.get("utmCampaign") || "") || null;
+  const attribution = await leadAttribution(formData);
 
   if (isHoneypotFilled(formData)) {
     redirect(`${returnPath}?sent=1`);
@@ -68,9 +100,7 @@ export async function submitContactMessage(formData: FormData) {
       email,
       phone,
       message,
-      utmSource,
-      utmMedium,
-      utmCampaign,
+      ...attribution,
     },
     include: { provider: { select: { practiceName: true, phone: true, notificationEmail: true } } },
   });
@@ -105,9 +135,7 @@ export async function submitPracticeLead(formData: FormData) {
   const city = String(formData.get("city") || "").trim();
   const state = String(formData.get("state") || "").trim();
   const comments = String(formData.get("comments") || "").trim().slice(0, MESSAGE_MAX_LENGTH) || null;
-  const utmSource = String(formData.get("utmSource") || "") || null;
-  const utmMedium = String(formData.get("utmMedium") || "") || null;
-  const utmCampaign = String(formData.get("utmCampaign") || "") || null;
+  const attribution = await leadAttribution(formData);
 
   if (isHoneypotFilled(formData)) {
     redirect("/for-practices?sent=1");
@@ -139,9 +167,7 @@ export async function submitPracticeLead(formData: FormData) {
       city,
       state,
       comments,
-      utmSource,
-      utmMedium,
-      utmCampaign,
+      ...attribution,
     },
   });
 
@@ -169,9 +195,7 @@ export async function submitGeneralInquiry(formData: FormData) {
   const reasonRaw = String(formData.get("reason") || "");
   const reason = GENERAL_INQUIRY_REASONS.find((r) => r === reasonRaw);
   const message = String(formData.get("message") || "").trim().slice(0, MESSAGE_MAX_LENGTH);
-  const utmSource = String(formData.get("utmSource") || "") || null;
-  const utmMedium = String(formData.get("utmMedium") || "") || null;
-  const utmCampaign = String(formData.get("utmCampaign") || "") || null;
+  const attribution = await leadAttribution(formData);
 
   if (isHoneypotFilled(formData)) {
     redirect("/about?sent=1#contact");
@@ -190,7 +214,7 @@ export async function submitGeneralInquiry(formData: FormData) {
   }
 
   const inquiry = await db.generalInquiry.create({
-    data: { firstName, lastName, email, reason, message, utmSource, utmMedium, utmCampaign },
+    data: { firstName, lastName, email, reason, message, ...attribution },
   });
 
   try {

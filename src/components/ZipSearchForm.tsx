@@ -27,6 +27,7 @@ export async function ZipSearchForm({
   defaultZip,
   buttonLabel = "Find a Provider",
   variant = "light",
+  origin,
 }: {
   action?: string;
   showRadius?: boolean;
@@ -35,6 +36,8 @@ export async function ZipSearchForm({
   defaultZip?: string;
   buttonLabel?: string;
   variant?: "light" | "dark";
+  /** Where this search box sits, sent to GA4 with each provider search (docs/gtm-ga4-setup.md). */
+  origin?: string;
 }) {
   const isDark = variant === "dark";
   const zipValue = defaultZip ?? (action === PROVIDER_SEARCH ? await knownZip() : "");
@@ -43,6 +46,7 @@ export async function ZipSearchForm({
     <form
       action={action}
       method="get"
+      data-search-origin={action === PROVIDER_SEARCH ? origin : undefined}
       className="flex flex-col gap-2 sm:flex-row"
     >
       <input

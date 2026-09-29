@@ -184,7 +184,7 @@ export default async function ProviderDetailPage({
         : [];
     return (
       <div className="mx-auto max-w-2xl px-6 py-16 sm:px-10">
-        <PageViewTracker providerId={provider.id} path={`/find-an-ilit-provider/${provider.slug}`} utm={utm} />
+        <PageViewTracker providerId={provider.id} providerName={provider.practiceName} path={`/find-an-ilit-provider/${provider.slug}`} utm={utm} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <div className="text-center">
           <Link href={backHref} className="mb-6 inline-block text-xs text-muted">
@@ -195,7 +195,7 @@ export default async function ProviderDetailPage({
             {formatAddress(provider)}, {provider.city}, {provider.state} {provider.zip}
           </p>
           <p className="mb-6 text-sm text-foreground/80">{freemiumSummary(provider)}</p>
-          <Link href="/for-practices" className="text-sm font-semibold text-sage">
+          <Link href="/for-practices" data-cta="freemium_claim_listing" className="text-sm font-semibold text-sage">
             Is this your practice? Claim this listing →
           </Link>
         </div>
@@ -237,6 +237,7 @@ export default async function ProviderDetailPage({
     <>
       <PageViewTracker
         providerId={provider.id}
+        providerName={provider.practiceName}
         path={`/find-an-ilit-provider/${provider.slug}`}
         utm={{ source: utm.source, medium: utm.medium, campaign: utm.campaign }}
       />
@@ -414,7 +415,12 @@ export default async function ProviderDetailPage({
             <h3 className="mb-3 text-base font-bold">Contact {provider.practiceName}</h3>
 
             {sent || confirmed ? (
-              <LeadStatusMessage status={sent ? "sent" : "confirmed"} practiceName={provider.practiceName} />
+              <LeadStatusMessage
+                status={sent ? "sent" : "confirmed"}
+                practiceName={provider.practiceName}
+                providerId={provider.id}
+                formLocation="provider_page"
+              />
             ) : (
               isFullProfilePlus && (
                 <>
@@ -441,7 +447,7 @@ export default async function ProviderDetailPage({
                 {provider.phone && (
                   <div className="mb-2 text-sm">
                     📞{" "}
-                    <PhoneLink phone={provider.phone} className="text-[#1c5ea8]" providerId={provider.id} />
+                    <PhoneLink phone={provider.phone} className="text-[#1c5ea8]" providerId={provider.id} providerName={provider.practiceName} />
                   </div>
                 )}
                 {provider.website && (
@@ -451,6 +457,7 @@ export default async function ProviderDetailPage({
                       href={provider.website}
                       type="WEBSITE_CLICK"
                       providerId={provider.id}
+                      providerName={provider.practiceName}
                       className="text-[#1c5ea8]"
                     >
                       {provider.website.replace(/^https?:\/\//, "")}
@@ -468,6 +475,7 @@ export default async function ProviderDetailPage({
                 )}`}
                 type="ADDRESS_CLICK"
                 providerId={provider.id}
+                providerName={provider.practiceName}
                 className="text-[#1c5ea8] hover:underline"
               >
                 {formatAddress(provider)}, {provider.city}, {provider.state} {provider.zip}

@@ -76,7 +76,10 @@ dropdown list; the server rejects any value not on that list.
 1. **Submit.** The honeypot, required fields, link check, and email domain
    check all run before anything is saved. A failed domain check shows the
    practice's phone number as an alternative way to reach them.
-2. **Save.** The lead is stored with the provider ID and any UTM data.
+2. **Save.** The lead is stored with the provider ID and its campaign data:
+   source, medium, campaign, keyword, ad click id, and landing page. These
+   come from the campaign visit even if the patient browsed other pages
+   first, for up to 30 days (`docs/gtm-ga4-setup.md`, section 5).
 3. **Confirmation email** goes to the patient immediately with a one-click
    confirm link.
 4. **Patient confirms:** the lead is forwarded to the practice right away,

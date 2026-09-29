@@ -56,7 +56,7 @@ export default async function FindAProviderPage({
       <h1 className="sr-only">Find an ILIT Provider Near You</h1>
       <div className="flex flex-wrap items-center gap-2.5 border-b border-line bg-bg-alt px-6 py-4 sm:px-10">
         <div className="flex-1">
-          <ZipSearchForm action="/find-an-ilit-provider" showRadius defaultRadius={radius} defaultZip={zip ?? ""} />
+          <ZipSearchForm action="/find-an-ilit-provider" origin="srp_header" showRadius defaultRadius={radius} defaultZip={zip ?? ""} />
         </div>
         {zip && (
           // Map and list already render side by side at md+ (both columns
@@ -66,12 +66,14 @@ export default async function FindAProviderPage({
           <div className="flex overflow-hidden rounded border border-line text-xs md:hidden">
             <Link
               href={buildQuery({ zip, radius: String(radius), view: "list" })}
+              data-cta="srp_view_list"
               className={`px-3.5 py-2 ${view === "list" ? "bg-foreground text-background" : "bg-white"}`}
             >
               List
             </Link>
             <Link
               href={buildQuery({ zip, radius: String(radius), view: "map" })}
+              data-cta="srp_view_map"
               className={`px-3.5 py-2 ${view === "map" ? "bg-foreground text-background" : "bg-white"}`}
             >
               Map

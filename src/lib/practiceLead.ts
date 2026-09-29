@@ -22,6 +22,8 @@ type PracticeLeadForEmail = {
   utmSource: string | null;
   utmMedium: string | null;
   utmCampaign: string | null;
+  utmTerm?: string | null;
+  landingPage?: string | null;
 };
 
 /** Adds https:// when the visitor typed a bare domain like "mypractice.com". */
@@ -60,7 +62,9 @@ export function buildPracticeLeadEmail(lead: PracticeLeadForEmail) {
     ...(lead.comments ? ([["Comments", escapeHtml(lead.comments).replace(/\n/g, "<br>")]] as [string, string][]) : []),
   ];
   const utm = [lead.utmSource, lead.utmMedium, lead.utmCampaign].filter(Boolean).join(" / ");
-  if (utm) rows.push(["UTM", escapeHtml(utm)]);
+  if (utm) rows.push(["Campaign", escapeHtml(utm)]);
+  if (lead.utmTerm) rows.push(["Keyword", escapeHtml(lead.utmTerm)]);
+  if (lead.landingPage) rows.push(["Landing page", escapeHtml(lead.landingPage)]);
 
   const html = `
     <p>New For Practices inquiry. Reply to this email to respond directly.</p>
