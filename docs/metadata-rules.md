@@ -66,7 +66,7 @@ cut mid-word and doesn't enforce the 155 ceiling if the max changes later.
 | Page type | Title | Description | Canonical | Robots |
 |---|---|---|---|---|
 | Home, SRP, Learn About ILIT, For Practices, About, Blog index | Static string + `\| Open Air Allergy Network` suffix | Static string, 70–155 chars | Self-referencing | Indexable |
-| PDP (`/find-an-ilit-provider/[slug]`) | `{Practice Name} — ILIT Provider in {City}, {State}`, no suffix (`absolute`) | `shortBio` (or a generated fallback sentence) via `truncateForMeta()` | Self-referencing | Indexable, except `isDemo` listings (`noindex, nofollow`) |
+| PDP (`/find-an-ilit-provider/[slug]`) | `{Practice Name} — ILIT Provider in {City}, {State}`, no suffix (`absolute`) | Verified+: `shortBio` (or a generated fallback sentence) via `truncateForMeta()`. Freemium: never `shortBio` (it isn't displayed), always the page's own summary sentence ("{Practice} in {City}, {State} is confirmed to offer ILIT…", or "is listed as…" before the Verification Date is set) plus "Listed on Open Air Allergy Network." Share image (`og:image`) only for Full Profile+, the tiers that show the photo | Self-referencing | Indexable, except `isDemo` listings (`noindex, nofollow`) |
 | Blog article (`/blog/[slug]`) | Article's own title, no suffix (`absolute`) | `summaryPoints` (or stripped Markdown body) via `truncateForMeta()` | Self-referencing | Indexable |
 | Learn About ILIT cluster page (`/learn-about-ilit/[slug]`) | Article's own title, no suffix (`absolute`) | Same as Blog article, via `truncateForMeta()` | Self-referencing | Indexable |
 | SEM landing page (`/lp/[providerSlug]/[metroSlug]`) | `ILIT in {City} — {Metro}`, no suffix (`absolute`) | Not set | None (noindexed, moot) | Always `noindex, nofollow` |

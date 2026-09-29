@@ -13,6 +13,17 @@
 export const WHAT_IS_ILIT_COPY =
   "Intralymphatic immunotherapy (ILIT) delivers allergen extract directly into a lymph node, where the immune system processes it efficiently. Because of this targeted delivery, a typical ILIT course involves far fewer visits than conventional subcutaneous immunotherapy (SCIT, commonly known as allergy shots). ILIT is administered by trained allergists and immunologists, and — like any allergy treatment — isn't the right fit for every patient. Providers typically also offer other treatment options, and the best choice is the one you and your doctor decide on together.";
 
+// User-provided copy (2026-09-23), one edit made: "injected painlessly"
+// softened to "with minimal discomfort for most patients". "Painlessly" is an
+// absolute claim that contradicts the Learn page's own pain FAQs, and the
+// style guide bans it.
+export const ILIT_DEFINITION =
+  "ILIT (intralymphatic immunotherapy) is an allergy treatment in which small amounts of allergen are injected directly into a lymph node, with minimal discomfort for most patients, over a few monthly visits, rather than the years-long course associated with traditional allergy shots (SCIT) or allergy drops (SLIT).";
+
+// The LEARN article that owns "allergy shots vs. allergy drops". If this slug
+// ever changes, also update the Page Slug on the Learn Page Credits sheet tab.
+export const COMPARISON_ARTICLE_SLUG = "allergy-shots-vs-allergy-drops-vs-ilit";
+
 export const SYMPTOMS = [
   { icon: "🤧", label: "Sneezing & nasal congestion" },
   { icon: "👁️", label: "Itchy, watery eyes" },

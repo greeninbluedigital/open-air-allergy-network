@@ -13,6 +13,7 @@ import { PhotoGallery } from "@/components/pdp/PhotoGallery";
 import { truncateForMeta } from "@/lib/metadata";
 import { parseFormError } from "@/lib/forms";
 import { nearbyFeaturedProviders } from "@/lib/srp";
+import { COMPARISON_ARTICLE_SLUG, ILIT_DEFINITION } from "@/lib/content";
 import { ProviderCard } from "@/components/srp/ProviderCard";
 import { isFullProfilePlus as isFullProfileTier, isVerifiedPlus as isVerifiedTier } from "@/lib/tiers";
 
@@ -24,6 +25,25 @@ const FAQ_ACCORDION_THRESHOLD = 4;
 function formatAddress(provider: { address: string; addressLine2: string | null }): string {
   return provider.addressLine2 ? `${provider.address}, ${provider.addressLine2}` : provider.address;
 }
+
+// Freemium listings are only claimed as "confirmed" once the phone
+// confirmation (Verification Date) has actually happened.
+function freemiumSummary(p: { practiceName: string; city: string; state: string; verificationDate: Date | null }) {
+  const where = `${p.practiceName} in ${p.city}, ${p.state}`;
+  return p.verificationDate
+    ? `${where} is confirmed to offer ILIT (intralymphatic immunotherapy).`
+    : `${where} is listed as an ILIT (intralymphatic immunotherapy) provider.`;
+}
+
+const NEW_TO_ILIT_LINKS = [
+  {
+    label: "How does ILIT compare to allergy shots and allergy drops?",
+    href: `/learn-about-ilit/${COMPARISON_ARTICLE_SLUG}`,
+  },
+  { label: "Is ILIT safe?", href: "/learn-about-ilit#faq-safety" },
+  { label: "How do I know if I'm a candidate for ILIT?", href: "/learn-about-ilit#faq-candidate" },
+  { label: "Is ILIT covered by insurance?", href: "/learn-about-ilit#faq-insurance" },
+];
 
 async function getProvider(slug: string) {
   return db.provider.findUnique({
@@ -50,9 +70,13 @@ export async function generateMetadata({
   // shortBio is long-form ("About This Practice"-length) copy, not written
   // to meta-description length — truncateForMeta bounds it at a clean
   // sentence/word boundary instead of showing 200-500+ raw characters.
+  // Freemium pages don't display the short bio or photo (even if they're
+  // stored), so the description and share image don't use them either.
   const description = truncateForMeta(
-    provider.shortBio ??
-      `${provider.practiceName} is a verified ILIT (intralymphatic immunotherapy) provider in ${provider.city}, ${provider.state}, listed on Open Air Allergy Network.`,
+    !isVerifiedTier(provider.tier)
+      ? `${freemiumSummary(provider)} Listed on Open Air Allergy Network.`
+      : (provider.shortBio ??
+          `${provider.practiceName} is a verified ILIT (intralymphatic immunotherapy) provider in ${provider.city}, ${provider.state}, listed on Open Air Allergy Network.`),
   );
 
   return {
@@ -62,7 +86,7 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      images: provider.photoUrl ? [provider.photoUrl] : undefined,
+      images: isFullProfileTier(provider.tier) && provider.photoUrl ? [provider.photoUrl] : undefined,
     },
     twitter: {
       card: "summary",
@@ -110,29 +134,32 @@ export default async function ProviderDetailPage({
 
   const aggregateRating = isVerifiedPlus ? await getAggregateRatingSchema(provider) : null;
 
+  // Structured data only describes what the page shows: Freemium pages show
+  // name + address, so that's all their markup claims.
+  const businessJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "MedicalBusiness",
+    name: provider.practiceName,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: provider.addressLine2 ? `${provider.address}, ${provider.addressLine2}` : provider.address,
+      addressLocality: provider.city,
+      addressRegion: provider.state,
+      postalCode: provider.zip,
+    },
+  };
   const jsonLd = isVerifiedPlus
     ? {
-        "@context": "https://schema.org",
-        "@type": "MedicalBusiness",
-        name: provider.practiceName,
-        address: {
-          "@type": "PostalAddress",
-          streetAddress: provider.addressLine2
-            ? `${provider.address}, ${provider.addressLine2}`
-            : provider.address,
-          addressLocality: provider.city,
-          addressRegion: provider.state,
-          postalCode: provider.zip,
-        },
+        ...businessJsonLd,
         telephone: provider.phone ?? undefined,
         url: provider.website ?? undefined,
-        image: provider.photoUrl ?? undefined,
+        image: isFullProfilePlus ? (provider.photoUrl ?? undefined) : undefined,
         ...(provider.geoExtension
           ? { areaServed: { "@type": "GeoCircle", geoMidpoint: { "@type": "GeoCoordinates", latitude: provider.latitude, longitude: provider.longitude }, geoRadius: "600 mi" } }
           : {}),
         ...(aggregateRating ? { aggregateRating } : {}),
       }
-    : null;
+    : businessJsonLd;
 
   const faqJsonLd =
     isFullProfilePlus && provider.faqItems.length > 0
@@ -156,14 +183,16 @@ export default async function ProviderDetailPage({
         : [];
     return (
       <div className="mx-auto max-w-2xl px-6 py-16 sm:px-10">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <div className="text-center">
           <Link href={backHref} className="mb-6 inline-block text-xs text-muted">
             ← Back to Search Results
           </Link>
           <h1 className="mb-2 text-2xl font-extrabold">{provider.practiceName}</h1>
-          <p className="mb-6 text-sm text-muted">
+          <p className="mb-3 text-sm text-muted">
             {formatAddress(provider)}, {provider.city}, {provider.state} {provider.zip}
           </p>
+          <p className="mb-6 text-sm text-foreground/80">{freemiumSummary(provider)}</p>
           <Link href="/for-practices" className="text-sm font-semibold text-sage">
             Is this your practice? Claim this listing →
           </Link>
@@ -179,6 +208,25 @@ export default async function ProviderDetailPage({
             </div>
           </section>
         )}
+        {/* Freemium only: these pages are the site's, not a client's, so
+            they point visitors to the Learn content. Paid PDPs never link
+            away like this. */}
+        <section className="mt-10 rounded border border-line bg-bg-alt p-5">
+          <h2 className="mb-2 text-lg font-bold">New to ILIT?</h2>
+          <p className="mb-4 text-sm text-foreground/80">{ILIT_DEFINITION}</p>
+          <ul className="mb-4 space-y-2 text-sm">
+            {NEW_TO_ILIT_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className="text-[#1c5ea8] hover:underline">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <Link href="/learn-about-ilit" className="text-sm font-semibold text-sage">
+            Learn more about ILIT →
+          </Link>
+        </section>
       </div>
     );
   }

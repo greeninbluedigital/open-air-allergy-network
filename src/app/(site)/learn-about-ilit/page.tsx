@@ -6,14 +6,16 @@ import { ZipSearchForm } from "@/components/ZipSearchForm";
 import { ArticleFeed } from "@/components/ArticleFeed";
 import { ArticleCard } from "@/components/ArticleCard";
 import { FaqJumpLink } from "@/components/FaqJumpLink";
+import { FaqHashOpener } from "@/components/FaqHashOpener";
 import {
+  COMPARISON_ARTICLE_SLUG,
+  ILIT_DEFINITION,
   SYMPTOMS,
   TREATMENT_COMPARISON,
   TREATMENT_COMPARISON_HEADERS,
   TREATMENT_TARGETS_ROW,
 } from "@/lib/content";
 
-const COMPARISON_SLUG = "allergy-shots-vs-allergy-drops-vs-ilit";
 const COMPARISON_COLUMNS = ["ilit", "scit", "slit", "medicine"] as const;
 const HERO_IMAGE =
   "https://res.cloudinary.com/qruprn0t/image/upload/c_limit,w_2400,q_auto/v1790318756/learn-about-ilit-hero.jpg";
@@ -88,30 +90,37 @@ const SAFETY_POINTS = [
 
 const FAQ_ITEMS = [
   {
+    id: "faq-candidate",
     q: "How do I know if I'm a candidate for ILIT?",
     a: "Good candidates typically have confirmed allergies to a defined set of common triggers, things like pollen, dust mites, or pet dander, identified through a skin or blood allergy test. A broader or more complex allergy profile may be better suited to SCIT or SLIT instead. An allergist can review your test results and history to tell you directly whether ILIT is a fit.",
   },
   {
+    id: "faq-allergens",
     q: "What allergens can ILIT treat?",
     a: "Most ILIT protocols target up to about six allergens at once, which makes it a strong fit for common triggers like tree and grass pollen, dust mites, and pet dander. A broader or more complex allergy profile may be better suited to SCIT or SLIT instead, since those approaches aren't limited the same way.",
   },
   {
+    id: "faq-testing",
     q: "Do I need allergy testing before starting ILIT?",
     a: "Yes. A skin or blood test identifies exactly which allergens you react to, which is what your provider uses to build your treatment plan, whether that ends up being ILIT, SCIT, or SLIT.",
   },
   {
+    id: "faq-asthma",
     q: "Can ILIT help with my asthma?",
     a: "It may, if the asthma is triggered by an allergen ILIT is treating. Reducing your body's reaction to that allergen can mean easier breathing and fewer flare-ups for some patients. Asthma needs its own management plan though, so this is worth raising with your allergist alongside whatever your asthma treatment already includes.",
   },
   {
+    id: "faq-switching",
     q: "Can I get ILIT if I'm already getting allergy drops or allergy shots?",
     a: "Yes, that's a common situation. Many allergists who offer ILIT also treat patients already on SCIT or SLIT, and switching or combining approaches is possible depending on your specific allergens and how far into your current treatment you are. It's not automatic though, so bring your current treatment history to a consultation so your allergist can advise on the best path from where you already are.",
   },
   {
+    id: "faq-pain",
     q: "Is ILIT painful?",
     a: "Most patients describe it as a brief pinch. ILIT injections go into a superficial lymph node, usually near the groin, an area with far fewer pain-sensing nerve endings than the skin or muscle tissue used for a standard allergy shot.",
   },
   {
+    id: "faq-pain-vs-shots",
     q: "Does ILIT hurt more or less than a standard allergy shot?",
     a: "Many patients describe it as milder than a standard allergy shot or a routine blood draw. Standard allergy shots go into fatty tissue under the skin, which carries more pain-sensing nerve endings than the lymph node ILIT targets. Pain tolerance still varies from person to person.",
   },
@@ -131,10 +140,12 @@ const FAQ_ITEMS = [
     a: "Not yet. ILIT began clinical trials in the 2000s but hasn't been reviewed for FDA approval. That's not unique to it. Sublingual immunotherapy (allergy drops) has been used for decades and also isn't FDA-approved, largely because approval requires years of accumulated data a newer treatment hasn't had time to generate.",
   },
   {
+    id: "faq-cost",
     q: "How much does ILIT typically cost?",
     a: "Cost varies by provider and treatment plan. Because ILIT is typically self-pay, ask any practice you're considering for their current pricing directly.",
   },
   {
+    id: "faq-insurance",
     q: "Is ILIT covered by insurance?",
     a: "ILIT is typically self-pay and not covered by most insurance plans, unlike SCIT (allergy shots), which is often covered. Confirm coverage details with your own insurer.",
   },
@@ -142,7 +153,7 @@ const FAQ_ITEMS = [
 
 export default async function LearnAboutIlitPage() {
   const comparisonArticle = await db.article.findFirst({
-    where: { slug: COMPARISON_SLUG, status: "PUBLISHED" },
+    where: { slug: COMPARISON_ARTICLE_SLUG, status: "PUBLISHED" },
     include: { author: true },
   });
 
@@ -202,16 +213,7 @@ export default async function LearnAboutIlitPage() {
 
       <section className="border-b border-line px-6 py-10 sm:px-10">
         <h2 className="mb-3 text-2xl font-bold">What is ILIT?</h2>
-        {/* User-provided copy (2026-09-23), one edit made: "injected
-            painlessly" softened to "with minimal discomfort for most
-            patients". "Painlessly" is an absolute claim that contradicts
-            this page's own pain FAQs, and the style guide bans it. */}
-        <p className="max-w-3xl text-base text-foreground">
-          ILIT (intralymphatic immunotherapy) is an allergy treatment in which small amounts of allergen are
-          injected directly into a lymph node, with minimal discomfort for most patients, over a few monthly
-          visits, rather than the years-long course associated with traditional allergy shots (SCIT) or allergy
-          drops (SLIT).
-        </p>
+        <p className="max-w-3xl text-base text-foreground">{ILIT_DEFINITION}</p>
         <ol className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-3">
           {HOW_IT_WORKS.map((step, i) => (
             <li key={step.title} className="flex items-start gap-4 rounded border border-line p-5">
@@ -358,6 +360,7 @@ export default async function LearnAboutIlitPage() {
 
       <section id="faq" className="scroll-mt-4 border-b border-line bg-bg-alt px-6 py-10 sm:px-10">
         <h2 className="mb-4 text-2xl font-bold">Frequently Asked Questions</h2>
+        <FaqHashOpener />
         {/* Native <details> so the full answer text stays in the initial HTML
             (crawlable, and mirrored in the FAQPage JSON-LD above). */}
         <div className="max-w-3xl">
