@@ -17,8 +17,11 @@ updated 2026-09-29.
 - [ ] **Legal pages with counsel:** Privacy Notice (lead-data language,
       possible consent checkbox) and Terms of Use, including a clause
       prohibiting scraping and bulk copying ([anti-scraping.md](anti-scraping.md)).
-- [ ] **GA4 and Google Tag Manager:** create the accounts and add the
-      container ID as `NEXT_PUBLIC_GTM_ID` in Vercel ([analytics.md](analytics.md)).
+- [x] **GA4 and Google Tag Manager installed** (GTM-P3J8T24W → GA4
+      G-S8P8XYEGMP, confirmed receiving data 2026-09-29).
+- [ ] **GA4 events and key events:** GTM triggers and tags for the site's
+      dataLayer events, plus the key events (conversions) to report on
+      ([analytics.md](analytics.md)).
 
 ## Vercel Firewall (can be done now, in Log mode)
 

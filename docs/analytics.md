@@ -10,8 +10,11 @@ There are three separate sources of numbers:
    metrics for provider reports. Everything in the first section below.
 2. **Leads** (`ContactSubmission`, `PracticeLead`, `GeneralInquiry`): form
    submissions. Defined in `docs/lead-forms.md`, summarized below.
-3. **Google Analytics 4** via Google Tag Manager: sitewide traffic. **Not
-   set up yet** (the code is ready and waits for `NEXT_PUBLIC_GTM_ID`).
+3. **Google Analytics 4** via Google Tag Manager: sitewide traffic. Live
+   (confirmed 2026-09-29): GTM container `GTM-P3J8T24W` (set as
+   `NEXT_PUBLIC_GTM_ID`) loads a Google tag for GA4 property
+   `G-S8P8XYEGMP`. The site also pushes its own events to GTM's dataLayer
+   (see "GA4 events" below), but GTM doesn't forward them to GA4 yet.
 
 ## Provider metrics (for practice reports)
 
@@ -117,8 +120,11 @@ ORDER BY e.type;
 
 ## Not measured (yet)
 
-- Sitewide traffic, traffic sources, and conversions: GA4's job once it's
-  set up. Suggested first conversion: a homepage provider search.
+- GA4 custom events and key events (conversions). GA4 currently gets page
+  views plus whatever its automatic enhanced measurement collects. The
+  site's own dataLayer events (`oaan_page_view`, `oaan_phone_click`,
+  `oaan_website_click`, `oaan_address_click`) have no GTM trigger or tag
+  yet. Suggested first key event: a homepage provider search.
 - Clicks on map pins.
 
 ## Where it lives in the code
