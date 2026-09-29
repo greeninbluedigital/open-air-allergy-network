@@ -6,7 +6,7 @@
  * throws or blocks the UI — analytics failing shouldn't break the page.
  */
 export function trackEvent(
-  type: "PAGE_VIEW" | "PHONE_CLICK",
+  type: "PAGE_VIEW" | "PHONE_CLICK" | "WEBSITE_CLICK" | "ADDRESS_CLICK",
   data: {
     providerId: string;
     path: string;

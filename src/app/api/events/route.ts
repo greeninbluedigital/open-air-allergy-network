@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import type { AnalyticsEventType } from "@/generated/prisma/client";
 
-const SINGLE_TYPES = new Set<AnalyticsEventType>(["PAGE_VIEW", "PHONE_CLICK"]);
+const SINGLE_TYPES = new Set<AnalyticsEventType>(["PAGE_VIEW", "PHONE_CLICK", "WEBSITE_CLICK", "ADDRESS_CLICK"]);
 const IMPRESSION_TYPES = new Set<AnalyticsEventType>(["HOMEPAGE_IMPRESSION", "SRP_IMPRESSION", "PDP_NEARBY_IMPRESSION"]);
 const MAX_IMPRESSIONS = 50;
 
@@ -13,7 +13,7 @@ const MAX_IMPRESSIONS = 50;
  * shouldn't ever surface as a page-breaking error, and there's nothing
  * sensitive being written that a bad row would put at risk.
  *
- * PAGE_VIEW/PHONE_CLICK send one `providerId`; impression types send a batch
+ * Page views and click events send one `providerId`; impression types send a batch
  * of `providerIds` (every practice shown in one list), filtered to real
  * providers so one bad id can't sink the whole batch.
  */

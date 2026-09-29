@@ -496,6 +496,10 @@ model ContactSubmission {
 enum AnalyticsEventType {
   PAGE_VIEW
   PHONE_CLICK
+  // Clicks on the practice's website link, and on its address (opens
+  // Google Maps). Lead actions, like PHONE_CLICK.
+  WEBSITE_CLICK
+  ADDRESS_CLICK
   // The practice appeared in a list a visitor actually loaded in a browser
   // (one row per practice per page view).
   HOMEPAGE_IMPRESSION

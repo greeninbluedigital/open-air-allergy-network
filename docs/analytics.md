@@ -22,9 +22,17 @@ There are three separate sources of numbers:
 | Nearby impressions | `PDP_NEARBY_IMPRESSION` | Same, for its card on another practice's page | A Freemium practice's page, "Featured ILIT Providers Near {city}" (Full Profile and Featured only) |
 | Provider page views | `PAGE_VIEW` | The page loads in a visitor's browser (not a viewability measure) | Provider pages (every tier, Freemium included) and SEM landing pages. Tell them apart by path: SEM pages start with `/lp/` |
 | Phone clicks | `PHONE_CLICK` | A visitor clicks or taps the practice's phone number | Provider page contact panel, SEM landing pages, and the phone fallback in the lead form's email error |
+| Website clicks | `WEBSITE_CLICK` | A visitor clicks the practice's website link | Provider page contact panel and SEM landing pages |
+| Address clicks | `ADDRESS_CLICK` | A visitor clicks the practice's address, which opens it in Google Maps | Provider page contact panel |
 
 Impressions are recorded for every practice shown, whatever its tier. A
 report would normally only cover paying practices.
+
+**Lead actions** are the four ways a visitor reaches out to or heads toward
+a practice: form submissions (see Leads below), phone clicks, website clicks,
+and address clicks. Report them separately and as a total. A practice with
+healthy page views but few lead actions, or too few page views overall, is
+a candidate for targeted SEM.
 
 ## Definitions and counting rules
 
@@ -42,9 +50,14 @@ search (a different URL counts as a different list).
 **Page views count every load**, including reloads. They aren't
 de-duplicated.
 
-**Phone clicks** count the click itself. On a phone the tap dials; on a
-desktop the click only reveals the number, so it measures intent to call,
-not completed calls.
+**Phone clicks** count the click or tap itself, not completed calls. On a
+phone the tap starts dialing. On a desktop the number is already shown on
+the page, so most desktop visitors just read it and dial, and those calls
+aren't counted. Phone clicks mostly measure mobile callers. Counting every
+call would need call tracking numbers (a future option).
+
+**Website and address clicks** count the click. Both open in a new tab, so
+what happens on the practice's site or in Google Maps isn't measured.
 
 **Search results on phones.** On narrow screens the Find a Provider page
 shows the list or the map, one at a time. It opens on the list (since
@@ -115,7 +128,8 @@ ORDER BY e.type;
 | Viewable impression tracking | `src/components/analytics/ViewableImpression.tsx` (wraps each card via `ProviderCard`'s `impressionType`) |
 | Page views | `src/components/analytics/PageViewTracker.tsx` |
 | Phone clicks | `src/components/PhoneLink.tsx` |
-| Shared client sender (page views, phone clicks) | `src/lib/track.ts` |
+| Website and address clicks | `src/components/analytics/TrackedLink.tsx` |
+| Shared client sender (page views and clicks; also pushed to GTM's dataLayer) | `src/lib/track.ts` |
 | Endpoint that saves every event | `src/app/api/events/route.ts` |
 | Event types | `AnalyticsEventType` in `prisma/schema.prisma` |
 
@@ -129,3 +143,5 @@ ORDER BY e.type;
   pages (useful for upgrade pitches: "your free listing was viewed N times
   last month"). Before this date, only Verified and up were counted. Find a
   Provider on phones now opens on the list instead of the map.
+- **2026-09-28:** website clicks and address clicks added (provider pages;
+  website clicks on SEM pages too). Earlier dates have no data for these.

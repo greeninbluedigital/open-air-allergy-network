@@ -9,6 +9,7 @@ import { ContactForm } from "@/components/pdp/ContactForm";
 import { LeadStatusMessage, LeadErrorMessage } from "@/components/pdp/LeadStatusMessage";
 import { PatientReviews, reviewsWouldShow } from "@/components/PatientReviews";
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { SYMPTOMS as ALL_SYMPTOMS, TREATMENT_COMPARISON, WHAT_IS_ILIT_COPY } from "@/lib/content";
 import { parseFormError } from "@/lib/forms";
 import { isFullProfilePlus, isVerifiedPlus } from "@/lib/tiers";
@@ -223,9 +224,14 @@ export default async function SemLandingPage({
               {provider.website && (
                 <div className="mb-3 text-sm">
                   🌐{" "}
-                  <a href={provider.website} target="_blank" rel="noopener noreferrer" className="text-[#1c5ea8]">
+                  <TrackedLink
+                    href={provider.website}
+                    type="WEBSITE_CLICK"
+                    providerId={provider.id}
+                    className="text-[#1c5ea8]"
+                  >
                     {provider.website.replace(/^https?:\/\//, "")}
-                  </a>
+                  </TrackedLink>
                 </div>
               )}
               {error && (

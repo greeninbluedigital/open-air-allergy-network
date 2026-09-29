@@ -9,6 +9,7 @@ import { ContactForm } from "@/components/pdp/ContactForm";
 import { LeadStatusMessage, LeadErrorMessage } from "@/components/pdp/LeadStatusMessage";
 import { PatientReviews, getAggregateRatingSchema } from "@/components/PatientReviews";
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
+import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { PhotoGallery } from "@/components/pdp/PhotoGallery";
 import { truncateForMeta } from "@/lib/metadata";
 import { parseFormError } from "@/lib/forms";
@@ -445,9 +446,14 @@ export default async function ProviderDetailPage({
                 {provider.website && (
                   <div className="text-sm">
                     🌐{" "}
-                    <a href={provider.website} target="_blank" rel="noopener noreferrer" className="text-[#1c5ea8]">
+                    <TrackedLink
+                      href={provider.website}
+                      type="WEBSITE_CLICK"
+                      providerId={provider.id}
+                      className="text-[#1c5ea8]"
+                    >
                       {provider.website.replace(/^https?:\/\//, "")}
-                    </a>
+                    </TrackedLink>
                   </div>
                 )}
               </div>
@@ -455,16 +461,16 @@ export default async function ProviderDetailPage({
 
             <div className="mt-3.5 border-t border-line pt-3.5 text-sm">
               📍{" "}
-              <a
+              <TrackedLink
                 href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
                   `${formatAddress(provider)}, ${provider.city}, ${provider.state} ${provider.zip}`,
                 )}`}
-                target="_blank"
-                rel="noopener noreferrer"
+                type="ADDRESS_CLICK"
+                providerId={provider.id}
                 className="text-[#1c5ea8] hover:underline"
               >
                 {formatAddress(provider)}, {provider.city}, {provider.state} {provider.zip}
-              </a>
+              </TrackedLink>
             </div>
           </div>
 
