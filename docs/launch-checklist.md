@@ -81,8 +81,13 @@ move carries over. Full settings in [anti-scraping.md](anti-scraping.md).
 
 ## About a week after launch
 
-- [ ] Review the Firewall overview. If real visitors aren't being flagged,
-      switch **Bot Protection** to **Challenge**.
+- [ ] **Switch Bot Protection to Challenge mode.** Vercel dashboard →
+      project → Firewall → Rules → Bot Management → Bot Protection →
+      **Challenge** → Review Changes → Publish. First check the Firewall
+      overview: if a week of Log mode shows real visitors being flagged,
+      hold off and investigate. This is what turns on the 1-hour security
+      cookie the Cookie Policy already lists
+      ([legal-facts.md](legal-facts.md), cookie table).
 - [ ] Check what real visitors' request rates look like, adjust the rate
       limit if needed, then switch it to **Challenge**.
 - [ ] Link Search Console to the GA4 property.
