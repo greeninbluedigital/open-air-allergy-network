@@ -206,6 +206,16 @@ turns each one into a promise.
    the badge be renamed? Same question for the "Founding Member" badge.
 6b. **Reviews.** Featured pages show selected Google and Yelp review
    excerpts. Anything required under the FTC's rule on consumer reviews?
+   Google's reviews and rating arrive automatically through its official
+   feed (Google chooses which reviews), and OAAN hand-picks the Yelp
+   excerpts. Visitors can't post anything on the site, so the Terms
+   answer "no" to user posting. They should instead carry a third-party
+   content clause, e.g. "The Site displays content from third parties,
+   including reviews from Google and Yelp and information provided by
+   listed practices. We don't write, verify, or endorse this content, and
+   it may not reflect all reviews of a practice. Reviews belong to their
+   authors and are subject to the terms of the platform where they were
+   posted."
 7. **Privacy choices and cookie banner.** Which opt-outs are required
    (California "Do Not Sell or Share", Global Privacy Control signals,
    "Limit the Use of My Sensitive Personal Information"), and is opt-in
