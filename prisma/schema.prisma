@@ -143,6 +143,9 @@ model Provider {
   // want remote consults advertised on its SEM landing pages only. SEM pages
   // keep using the two fields above directly.
   pdpRemoteConsultBadge Boolean @default(false)
+  // Custom copy for the PDP's "Getting Here — Fly In" module (Geo-Extension
+  // practices only), e.g. nearest airports. Null shows the standard line.
+  travelNotes           String?
 
   shortBio    String?
   extendedBio String?

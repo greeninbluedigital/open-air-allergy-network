@@ -23,6 +23,10 @@ import { isFullProfilePlus as isFullProfileTier, isVerifiedPlus as isVerifiedTie
 // doesn't turn the page into a long uninterrupted scroll.
 const FAQ_ACCORDION_THRESHOLD = 4;
 
+// "Getting Here — Fly In" body when the sheet's Travel Notes (AN) is blank.
+const DEFAULT_TRAVEL_NOTE =
+  "This practice welcomes out-of-area patients. Contact them directly for travel guidance.";
+
 function formatAddress(provider: { address: string; addressLine2: string | null }): string {
   return provider.addressLine2 ? `${provider.address}, ${provider.addressLine2}` : provider.address;
 }
@@ -338,9 +342,10 @@ export default async function ProviderDetailPage({
           {provider.geoExtension && (
             <div>
               <h3 className="mb-2 text-base font-bold">Getting Here — Fly In</h3>
-              <p className="text-sm text-muted">
-                This practice welcomes out-of-area patients. Contact them directly for
-                travel guidance.
+              {/* Sheet column AN; blank falls back to the standard line.
+                  whitespace-pre-line keeps line breaks typed in the cell. */}
+              <p className="text-sm whitespace-pre-line text-muted">
+                {provider.travelNotes ?? DEFAULT_TRAVEL_NOTE}
               </p>
             </div>
           )}

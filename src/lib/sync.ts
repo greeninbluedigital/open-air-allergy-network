@@ -47,9 +47,10 @@ const COLUMNS = [
   "isDemo",
   "srpPhotoUrl",
   "pdpRemoteConsultBadge",
+  "travelNotes",
 ] as const;
 
-const SHEET_RANGE = "Providers!A2:AM";
+const SHEET_RANGE = "Providers!A2:AN";
 
 // "Freemium" is the business's own term for this tier (bare listing, no
 // other info, unverified) — accepted as a synonym alongside the original
@@ -646,6 +647,7 @@ export async function runSync(): Promise<SyncSummary> {
         offersVideoConsult: parseBool(r.offersVideoConsult),
         offersPhoneConsult: parseBool(r.offersPhoneConsult),
         pdpRemoteConsultBadge: parseBool(r.pdpRemoteConsultBadge),
+        travelNotes: r.travelNotes?.trim() || null,
         shortBio: r.shortBio || null,
         extendedBio: r.extendedBio || null,
         photoUrl: r.photoUrl || null,
