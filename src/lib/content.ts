@@ -49,6 +49,10 @@ export const TREATMENT_COMPARISON_HEADERS = {
  * Comparison guardrail (Section 4): duration/visit-count/administration
  * differences only — never efficacy or outcome claims. Tone stays positive
  * and objective toward SCIT/SLIT; all three are valid options.
+ * Durations and visit schedules checked 2026-09-30: SCIT build-up 1 to 2
+ * shots a week for 3 to 6 months, maintenance every 2 to 4 weeks for 3 to 5
+ * years (Cleveland Clinic); SLIT daily, "3 years or longer" (AAAAI); ILIT
+ * typically 3 injections about a month apart.
  *
  * Rendered by ComparingIlit (src/components/ilit/IlitModules.tsx) on both
  * Learn About ILIT and the SEM landing pages.
@@ -56,9 +60,9 @@ export const TREATMENT_COMPARISON_HEADERS = {
 export const TREATMENT_COMPARISON = [
   {
     label: "Treatment timeframe",
-    ilit: "Months",
-    scit: "Years",
-    slit: "Years (varies by formulation)",
+    ilit: "A few months",
+    scit: "3 to 5 years",
+    slit: "3 years or more",
     medicine: "Daily or as needed, indefinitely",
   },
   {
@@ -70,9 +74,9 @@ export const TREATMENT_COMPARISON = [
   },
   {
     label: "Typical visit frequency",
-    ilit: "A handful of visits",
-    scit: "Regular ongoing visits",
-    slit: "At-home dosing, plus periodic in-office visits",
+    ilit: "Typically 3 visits, about a month apart",
+    scit: "1 to 2 visits weekly for 3 to 6 months, then monthly",
+    slit: "Daily doses at home, plus periodic office visits",
     medicine: "None for over-the-counter options, checkups for prescriptions",
   },
 ] as const;

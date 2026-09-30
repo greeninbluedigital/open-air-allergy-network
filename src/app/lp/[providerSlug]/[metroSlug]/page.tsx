@@ -37,7 +37,7 @@ export async function generateMetadata({
     // `absolute` skips the site-name template — noindexed, so there's no
     // SERP truncation risk, but kept consistent with the other dynamic
     // detail pages (PDP, Article) rather than a one-off exception.
-    title: { absolute: `ILIT in ${result.provider.city} — ${result.lp.targetMetroName}` },
+    title: { absolute: `ILIT in ${result.provider.city} for ${result.lp.targetMetroName} Patients` },
     // Paid-traffic-only, noindex — Section 3: avoids duplicate-content risk
     // and never competes with the real PDP's ranking.
     robots: { index: false, follow: false },
@@ -71,33 +71,30 @@ export default async function SemLandingPage({
   const whyIlitBlurb = settings?.semHeroBlurb || "";
 
   const { offersVideoConsult, offersPhoneConsult } = provider;
-  const ctaLine =
-    offersVideoConsult && offersPhoneConsult
-      ? `Have questions? Talk to ${provider.practiceName} by phone or video.`
-      : offersVideoConsult
-        ? `Have questions? Talk to ${provider.practiceName} by video consultation.`
-        : offersPhoneConsult
-          ? `Have questions? Talk to ${provider.practiceName} by phone.`
-          : null;
+  // Points to the form (there's no video call on the page itself).
+  const consultBy =
+    offersVideoConsult && offersPhoneConsult ? "phone or video" : offersVideoConsult ? "video" : offersPhoneConsult ? "phone" : null;
+  const ctaLine = consultBy
+    ? `Have questions? Send a message to schedule a consult with ${provider.practiceName} by ${consultBy}.`
+    : null;
 
   return (
     <>
       <PageViewTracker providerId={provider.id} providerName={provider.practiceName} path={returnPath} utm={utm} />
       <div className="bg-bg-alt px-6 py-9 text-center sm:px-10">
         <h1 className="mb-2 text-2xl font-extrabold sm:text-[26px]">
-          ILIT Available in {provider.city} — a Short Flight from {lp.targetMetroName}
+          A Few Trips to {provider.city} Instead of Years of Allergy Shots
         </h1>
         <p className="mx-auto mb-3.5 max-w-xl text-base font-semibold">
-          Complete allergy treatment in a few office visits, instead of the
-          years of regular appointments for traditional allergy shots.
+          ILIT (intralymphatic immunotherapy) usually takes a few monthly visits, instead of years of regular
+          appointments for allergy shots.
         </p>
         {whyIlitBlurb && (
           <p className="mx-auto mb-3.5 max-w-lg text-sm text-muted">{whyIlitBlurb}</p>
         )}
         <p className="mx-auto mb-4 max-w-lg text-sm">
-          {provider.practiceName} in {provider.city}, {provider.state}, is a
-          leading innovator in ILIT and works with patients from{" "}
-          {lp.targetMetroName}.
+          {provider.practiceName} in {provider.city}, {provider.state} offers ILIT and welcomes patients traveling
+          from {lp.targetMetroName}.
         </p>
         <div className="mb-4 flex flex-wrap justify-center gap-1.5">
           {isFullProfilePlus(provider.tier) && provider.foundingMember && (
