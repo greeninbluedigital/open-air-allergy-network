@@ -158,7 +158,11 @@ the site by a scheduled job.
    the right approach? And what exact "we never sell your information"
    wording is safe for the Privacy Notice and the site (given leads go to
    the practice and to service providers, and planned Google Ads
-   measurement)?
+   measurement)? Specifically, confirm that forwarding a patient's message
+   to the practice they chose isn't a "sale" (under the CCPA, a disclosure
+   the consumer intentionally directs isn't one; confirm Washington's
+   definition too), given practices pay a flat listing subscription, not a
+   per-lead fee. Pay-per-lead pricing would likely change the answer.
 4. **HIPAA.** Confirm OAAN is not a covered entity or business associate
    (it isn't a provider, health plan, or clearinghouse, and receives
    inquiries directly from the public, not from practices).
