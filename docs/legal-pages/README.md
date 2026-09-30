@@ -83,8 +83,8 @@ formatting glitches.
 - **Added a line** that practices buying listings are bound by a separate
   agreement covering pricing, billing, cancellation, and refunds.
 - Changed "Service" to "Site" where the draft mixed the two.
-- **Contact:** filled the blank email with hello@openairallergynetwork.com
-  and removed the blank phone number.
+- **Contact:** filled the blank email with legal@openairallergynetwork.com
+  (created 2026-09-30) and removed the blank phone number.
 - Arbitration and class action waiver kept as drafted. **Attorney:** see
   `docs/legal-facts.md`, question 11b (small-claims carve-out, informal
   resolution step, mass-arbitration provisions, opt-out window).
