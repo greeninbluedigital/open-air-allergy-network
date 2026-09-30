@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { db } from "@/lib/db";
+import { PRIVACY_CHOICES_PATH } from "@/lib/consent";
+import { PrivacyChoicesPanel } from "@/components/consent/PrivacyChoicesPanel";
 
 async function getLegalPage(slug: string) {
   return db.legalPage.findUnique({ where: { slug } });
@@ -32,6 +34,7 @@ export default async function LegalPage({ params }: PageProps<"/legal/[slug]">) 
   return (
     <div className="mx-auto max-w-2xl px-6 py-12 sm:px-10">
       <h1 className="mb-6 text-2xl font-extrabold">{page.title}</h1>
+      {`/legal/${slug}` === PRIVACY_CHOICES_PATH && <PrivacyChoicesPanel />}
       <div
         className="text-sm text-foreground/80 [&_h2]:mt-6 [&_h2]:mb-2 [&_h2]:text-base [&_h2]:font-bold [&_p]:mb-3"
         // Trusted, owner/counsel-authored content — same trust boundary as

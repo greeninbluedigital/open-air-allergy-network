@@ -20,6 +20,9 @@ updated 2026-09-29.
       prohibiting scraping and bulk copying ([anti-scraping.md](anti-scraping.md)).
       The Cookie Policy should list GA4's cookies and the site's `oaan_attr`
       campaign cookie ([gtm-ga4-setup.md](gtm-ga4-setup.md), section 5).
+- [ ] **Consent mode decided with counsel:** opt-out (current) or opt-in,
+      plus the banner and My Privacy Choices wording
+      ([consent.md](consent.md)). The banner and controls are built.
 - [x] **GA4 and Google Tag Manager installed** (GTM-P3J8T24W → GA4
       G-S8P8XYEGMP, confirmed receiving data 2026-09-29).
 - [ ] **Tag Manager and GA4 setup** (step by step in

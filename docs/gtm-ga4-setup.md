@@ -7,7 +7,9 @@ someone new to Tag Manager. Last updated 2026-09-29.
 Accounts: Tag Manager container `GTM-P3J8T24W`, GA4 property
 `G-S8P8XYEGMP`. The container only loads on the live production site, not
 on local development or Vercel preview deployments, so test traffic stays
-out of GA4.
+out of GA4. It also respects each visitor's cookie choices through Google
+Consent Mode (`docs/consent.md`, including one optional GA4 tag setting).
+Preview mode needs a browser that hasn't opted out.
 
 ## How the pieces fit
 

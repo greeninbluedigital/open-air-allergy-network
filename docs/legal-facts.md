@@ -59,7 +59,8 @@ On all three forms:
   address. Stores only the event type, the practice, the page path
   (which can include a searched zip code), campaign tags, and a timestamp.
   **No visitor identifiers**: no IP, cookie id, name, or email.
-- **Google Analytics 4** (through Google Tag Manager, live site only):
+- **Google Analytics 4** (through Google Tag Manager, live site only,
+  subject to the visitor's consent choices, see "Consent" below):
   page views, traffic sources, campaign data, clicks on site buttons, zip
   searches (including the zip entered), and form-submission events that
   name the practice contacted (no name or contact details). Identifies
@@ -73,7 +74,17 @@ On all three forms:
 | `oaan_zip` | OAAN (first party, not readable by scripts) | Remembers the last zip searched so the search and homepage can reuse it | 1 year |
 | `oaan_attr` | OAAN (first party) | Remembers campaign data (source, medium, campaign, keyword, ad variant, ad click id, landing page) so leads can be attributed to ads | 30 days |
 | `_ga`, `_ga_<id>` | Google Analytics | Distinguishes visitors and sessions for analytics | Up to 2 years |
+| `oaan_consent` | OAAN (first party) | Remembers the visitor's analytics and advertising choices | 1 year |
 | Session storage key `oaan_sent:…` | OAAN | Stops a reloaded form-success page from counting a lead twice | Until the tab closes |
+
+## Consent
+
+A banner on the first visit, and a working My Privacy Choices page, let
+visitors turn analytics and advertising cookies off. The site is set to
+**opt-out** today (on until the visitor opts out) and can switch to
+**opt-in** with a one-line change. A browser's **Global Privacy Control**
+signal always turns advertising off. If a visitor turns both off, Google
+Tag Manager never loads. Details: `docs/consent.md`.
 
 ## Service providers (vendors)
 

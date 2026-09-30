@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { AnalyticsListener } from "@/components/analytics/AnalyticsListener";
+import { ConsentBanner } from "@/components/consent/ConsentBanner";
+import { consentBootScript } from "@/lib/consent";
 
 // Production deployments only: local dev and Vercel preview deployments
 // would otherwise send test traffic to the real GA4 property. The site's
@@ -38,28 +40,18 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      {/* Google Tag Manager — no-ops until NEXT_PUBLIC_GTM_ID is set (see
-          Analytics section, PROJECT_SPEC.md). GA4, Ads conversion tracking,
-          and any future pixel all get configured inside the GTM container
-          itself, not here — this script tag is the only code-side dependency. */}
-      {GTM_ID && (
-        <Script id="gtm" strategy="afterInteractive">
-          {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${GTM_ID}');`}
-        </Script>
-      )}
       <body className="flex min-h-full flex-col">
-        {GTM_ID && (
-          <noscript>
-            <iframe
-              src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-              height="0"
-              width="0"
-              style={{ display: "none", visibility: "hidden" }}
-            />
-          </noscript>
-        )}
+        {/* Consent first (docs/consent.md): sets Google Consent Mode defaults
+            and loads Tag Manager only if the visitor's choices allow it. GA4,
+            Ads conversion tracking, and any future pixel are configured
+            inside the GTM container, not here. No <noscript> GTM fallback:
+            without JavaScript there's no way to check consent. */}
+        <Script id="consent" strategy="beforeInteractive">
+          {consentBootScript(GTM_ID)}
+        </Script>
         <AnalyticsListener />
         {children}
+        <ConsentBanner />
       </body>
     </html>
   );

@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { pushDataLayer } from "@/lib/track";
 import { ATTRIBUTION_COOKIE, ATTRIBUTION_MAX_AGE_DAYS } from "@/lib/attribution";
+import { getConsentApi } from "@/lib/consent";
 
 /** Paid-click ids and the source/medium they imply when no UTM tags came with them. */
 const CLICK_IDS = [
@@ -12,8 +13,13 @@ const CLICK_IDS = [
   { param: "msclkid", source: "bing", medium: "cpc" },
 ];
 
-/** Saves campaign details from the landing URL (see src/lib/attribution.ts). */
+/**
+ * Saves campaign details from the landing URL (see src/lib/attribution.ts).
+ * Needs analytics consent; the ad click id also needs advertising consent.
+ */
 function captureAttribution() {
+  const consent = getConsentApi()?.current;
+  if (!consent?.analytics) return;
   const params = new URLSearchParams(window.location.search);
   const clickId = CLICK_IDS.find((c) => params.get(c.param));
   const utm = (name: string) => params.get(`utm_${name}`) || undefined;
@@ -25,7 +31,7 @@ function captureAttribution() {
     campaign: utm("campaign"),
     term: utm("term"),
     content: utm("content"),
-    gclid: clickId ? params.get(clickId.param) ?? undefined : undefined,
+    gclid: clickId && consent.ads ? params.get(clickId.param) ?? undefined : undefined,
     landingPage: window.location.pathname,
   };
   try {
