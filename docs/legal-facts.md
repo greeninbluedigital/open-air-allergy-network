@@ -133,8 +133,12 @@ the site by a scheduled job.
   emails a consumer to confirm their inquiry. Following up is the practice's
   job once it has the lead. If that ever changes, it needs a Privacy Notice
   update and likely opt-in consent first.
-- **On the form:** the consumer contact form says "We never sell your
-  information." under the Send button.
+- **On the form (2026-09-30):** under the consumer contact form's Send
+  button: "By sending, you agree to our Terms and Privacy Notice, and that
+  {Practice} may contact you about your inquiry. We never sell your
+  information." (Terms and Privacy Notice are links that open in a new
+  tab.) Modeled on Cars.com's line, minus its autodialer and marketing
+  consent, which OAAN doesn't need.
 - **Marketing emails to practices:** OAAN's sales outreach to practices
   (following up For Practices inquiries, pitching listings) counts as
   commercial email under CAN-SPAM, even one-to-one and business to
@@ -255,9 +259,11 @@ turns each one into a promise.
     health data. Questions: clause design (small-claims carve-out,
     informal-resolution step, mass-arbitration batching, a 30-day opt-out),
     and how consumers agree to it. Footer-only Terms may not bind anyone.
-    One option is a line under the contact form's Send button, sharing the
-    existing "We never sell your information." line: "By sending, you agree
-    to our Terms and Privacy Notice," with links.
+    Added 2026-09-30 under the contact form's Send button (see "Sharing and
+    selling"). Please review the wording, and whether OAAN should also
+    record which version of the Terms each sender agreed to. Today only the
+    submission time is stored. Should the For Practices and About forms
+    carry the same line?
 12. **Anti-scraping clause** in the Terms of Use (see
     `docs/anti-scraping.md`).
 13. **A note under the consumer message box?** Some health directories add

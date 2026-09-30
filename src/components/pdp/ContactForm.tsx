@@ -6,11 +6,14 @@ import { US_PHONE_PATTERN, US_PHONE_TITLE } from "@/lib/phone";
 export function ContactForm({
   providerId,
   providerSlug,
+  practiceName,
   utm,
   returnPath,
 }: {
   providerId: string;
   providerSlug: string;
+  /** Named in the consent line under the Send button. */
+  practiceName: string;
   utm: { source?: string; medium?: string; campaign?: string };
   /** Where to redirect back to after submit — the PDP by default, but a SEM
    * landing page passes its own path so a paid-ad visitor isn't sent
@@ -89,7 +92,21 @@ export function ContactForm({
       >
         Send Message
       </button>
-      <p className="mt-1.5 text-center text-[11.5px] text-muted">We never sell your information.</p>
+      {/* Agreement at the point of action, so the Terms (including any
+          arbitration clause) bind the sender; see docs/legal-facts.md,
+          question 11b. The links open in a new tab so a half-typed message
+          isn't lost. */}
+      <p className="mt-1.5 text-center text-[11.5px] leading-snug text-muted">
+        By sending, you agree to our{" "}
+        <a href="/legal/terms-and-conditions" target="_blank" rel="noopener" className="underline">
+          Terms
+        </a>{" "}
+        and{" "}
+        <a href="/legal/privacy-notice" target="_blank" rel="noopener" className="underline">
+          Privacy Notice
+        </a>
+        , and that {practiceName} may contact you about your inquiry. We never sell your information.
+      </p>
     </form>
   );
 }
