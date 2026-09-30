@@ -113,15 +113,25 @@ the site by a scheduled job.
 
 ## Sharing and selling
 
-- **Today:** a patient's inquiry goes only to the practice they contacted,
-  plus the service providers above. OAAN does not sell visitor data.
-- **Owner's stated future option:** selling aggregate or anonymized lead
-  data (for example as seed data for ad audiences through a company like
-  LiveRamp), only at much higher volume. The Privacy Notice should not
-  promise that information goes only to the practice.
-- **Planned:** Google Ads campaigns, with conversions (such as lead form
-  submissions) possibly imported into Google Ads for ad optimization.
+- **Commitment (decided 2026-09-29): OAAN will not sell visitor data.**
+  The owner dropped an earlier idea of selling lead data (e.g. through
+  LiveRamp) and wants "we never sell your information" as a selling point.
+- **Who receives a patient's inquiry:** the practice they contacted, plus
+  the service providers above. Suggested wording: "We never sell your
+  information. Your message goes only to the practice you contact and to
+  the service providers who help us run this site."
 - **Never:** a practice's leads given to a competing practice.
+- **Follow-up emails (planned):** OAAN wants to email people who used a
+  contact form, to follow up on their experience with the site or remind
+  them about the practice they contacted. Not built yet. Needs: a mention
+  in the Privacy Notice, an unsubscribe link and a postal address in every
+  email (CAN-SPAM), and likely an optional, unchecked consent checkbox on
+  the patient form (see question 3).
+- **Planned:** Google Ads campaigns, with conversions (such as lead form
+  submissions) possibly imported into Google Ads for ad optimization. Under
+  the CCPA, "sharing" includes cross-context behavioral advertising, so the
+  no-sale promise also rules out remarketing audiences built from site
+  visitors (see question 2).
 
 ## Open questions for the attorney
 
@@ -138,15 +148,17 @@ the site by a scheduled job.
    allowed without opt-in consent? Should those events stay out of Google
    Ads conversion imports? (The FTC's GoodRx and BetterHelp cases involved
    health-related events shared with ad platforms.)
-3. **Future sale of lead data.** What consent is needed now to keep that
-   option open later? Hashed emails aren't treated as anonymous by the FTC.
-   Consent generally can't be added after the fact for data already
-   collected. The owner's example is uploading contact records to LiveRamp,
-   which then converts them to its own identifiers. That upload is itself
-   a disclosure of identifiable data to a third party (likely a "sale" and
-   "sharing" under the CCPA, and a sale of consumer health data under
-   Washington's law, which requires signed authorization). How should the
-   Privacy Notice word this so the option stays open?
+3. **Follow-up emails and the no-sale promise.** OAAN won't sell visitor
+   data (decided 2026-09-29) but wants to email form users to follow up on
+   their site experience or remind them about the practice they contacted.
+   Using the fact that someone contacted an allergy practice for those
+   emails is arguably a use of consumer health data beyond the service
+   requested. Is an optional, unchecked consent checkbox on the patient
+   form ("Email me occasional follow-ups from Open Air Allergy Network")
+   the right approach? And what exact "we never sell your information"
+   wording is safe for the Privacy Notice and the site (given leads go to
+   the practice and to service providers, and planned Google Ads
+   measurement)?
 4. **HIPAA.** Confirm OAAN is not a covered entity or business associate
    (it isn't a provider, health plan, or clearinghouse, and receives
    inquiries directly from the public, not from practices).
