@@ -84,13 +84,20 @@ On all three forms:
 
 ## Cookies and browser storage
 
-| Name | Set by | Purpose | Lasts |
-|---|---|---|---|
-| `oaan_zip` | OAAN (first party, not readable by scripts) | Remembers the last zip searched so the search and homepage can reuse it | 1 year |
-| `oaan_attr` | OAAN (first party) | Remembers campaign data (source, medium, campaign, keyword, ad variant, ad click id, landing page) so leads can be attributed to ads | 30 days |
-| `_ga`, `_ga_<id>` | Google Analytics | Distinguishes visitors and sessions for analytics | Up to 2 years |
-| `oaan_consent` | OAAN (first party) | Remembers the visitor's analytics and advertising choices | 1 year |
-| Session storage key `oaan_sent:…` | OAAN | Stops a reloaded form-success page from counting a lead twice | Until the tab closes |
+| Name | Category | Set by | Purpose | Lasts |
+|---|---|---|---|---|
+| `oaan_consent` | Strictly necessary | OAAN (first party) | Remembers the visitor's analytics and advertising choices | 1 year |
+| `_vcrcs` | Strictly necessary | Vercel (hosting) | Security: set only when Vercel's bot protection challenges a visitor, once Bot Protection is switched to Challenge mode (after launch) | Short-lived |
+| `_ga`, `_ga_<id>` | Analytical / performance; 3rd party | Google Analytics (stored under OAAN's domain, controlled by Google) | Distinguishes visitors and sessions for analytics | Up to 2 years |
+| `oaan_zip` | Functionality | OAAN (first party, not readable by scripts) | Remembers the last zip searched so the search and homepage can reuse it | 1 year |
+| `oaan_attr` | Advertising / tracking | OAAN (first party) | Remembers campaign data (source, medium, campaign, keyword, ad variant, ad click id, landing page) so leads can be attributed to ads | 30 days |
+| Google Ads cookies, e.g. `_gcl_au` | Advertising / tracking; 3rd party | Google | **Not active yet.** Expected once Google Ads and conversion tracking are connected in Tag Manager. Update the Cookie Policy then | Up to 90 days |
+| Session storage key `oaan_sent:…` | Similar technology (not a cookie) | OAAN | Stops a reloaded form-success page from counting a lead twice | Until the tab closes |
+
+No cookies from the map (Mapbox), images (Cloudinary), or Yelp review
+excerpts (plain text and links, no Yelp script). Fonts are self-hosted.
+Visitors can turn off analytics and advertising cookies on My Privacy
+Choices, and Global Privacy Control turns advertising off automatically.
 
 ## Consent
 
