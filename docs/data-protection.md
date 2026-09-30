@@ -39,6 +39,11 @@ attackers more than it reassures visitors.
 - **Server logs.** Vercel's request and firewall logs include visitors' IP
   addresses, kept per Vercel's retention.
 
+## If something goes wrong
+
+The step-by-step response plan (spot, contain, assess, notify, record) is
+in `docs/incident-response.md`.
+
 ## Gaps being closed
 
 Tracked on the launch checklist (`docs/launch-checklist.md`, "Account and

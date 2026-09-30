@@ -40,6 +40,9 @@ updated 2026-09-29.
 - [ ] **Encrypt the laptop that holds the site's `.env` file** (Windows:
       Settings → Privacy & security → Device encryption, or BitLocker). It
       contains the production database password.
+- [ ] **Incident response plan reviewed by counsel**
+      ([incident-response.md](incident-response.md)), and the attorney's
+      contact added to it.
 - [ ] **Decide a retention period** for patient inquiries and contact
       messages with counsel ([legal-facts.md](legal-facts.md), question 8),
       then have the old ones deleted automatically.

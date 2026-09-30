@@ -196,9 +196,12 @@ turns each one into a promise.
 10. **Terms for practices.** A separate listing or advertising agreement
     for paying practices (tiers, billing, cancellation, content accuracy,
     lead delivery, no guarantee of results).
-11. **Anti-scraping clause** in the Terms of Use (see
+11. **Breach response.** Review `docs/incident-response.md`. Which
+    notification laws would apply to a leak of patient inquiries, and what
+    should the Privacy Notice say about breach notification?
+12. **Anti-scraping clause** in the Terms of Use (see
     `docs/anti-scraping.md`).
-12. **A note under the patient message box?** Some health directories add
+13. **A note under the patient message box?** Some health directories add
     a line like "Please don't include detailed medical information. The
     practice will ask for what they need." That would reduce the sensitive
     health data OAAN collects and stores. The trade-off: patients
