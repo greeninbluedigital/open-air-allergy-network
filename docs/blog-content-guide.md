@@ -79,6 +79,29 @@ Avant Allergy comparison article is `["ILIT", "Comparisons"]`). Exact
 spelling/casing matters since matching is a literal string compare
 (`tags: { has: tag }`) — copy from this list rather than retyping it.
 
+## Sourcing every article (owner's rule, 2026-10-01)
+
+Treat this as journalistic integrity. Every number or medical fact in an
+article (a schedule, a timeframe, a test detail) is attributed to a named,
+reputable source in the text, with a link to that source. External links
+open in a new tab automatically (`src/components/ArticleDetail.tsx`).
+
+- **Name the source in the sentence** ("The AAAAI says…", "Cleveland Clinic
+  describes…") and link the name. Prefer professional bodies (AAAAI, ACAAI),
+  government health sites (MedlinePlus, NIH), major medical centers, and
+  peer-reviewed studies.
+- **When reputable sources differ, show both.** For example, AAAAI gives 4
+  to 6 months of allergy-shot build-up and Cleveland Clinic gives 6 to 10.
+  Showing the range tells readers that treatment regimens vary from practice
+  to practice, which is true and more useful than picking one number.
+- **The final decision is between the patient and their doctor.** Say so
+  once, with a real reason attached (see the hedge-closer rules in
+  `OpenAirAllergyNetwork_STYLE_GUIDE.md`), not as a reflex on every point.
+- **Verify each claim against the source itself**, not a search summary. If
+  a source can't be read or doesn't say it, cut the claim or soften it.
+- Each draft in `content-drafts/` lists its sources and what each supports,
+  so the reviewer can check them.
+
 ## Writing about clinical research (playbook)
 
 Agreed with the site owner 2026-09-28. Applies to any article that

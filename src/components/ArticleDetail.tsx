@@ -27,7 +27,9 @@ const markdownComponents = {
     return (
       <a
         href={href}
-        className="text-[#1c5ea8] hover:underline"
+        // Site-wide in-text link style: the semibold weight, not just color,
+        // marks it as a link (WCAG 1.4.1).
+        className="font-semibold text-sage hover:underline"
         target={isInternal ? undefined : "_blank"}
         rel={isInternal ? undefined : "noopener noreferrer"}
         {...rest}
