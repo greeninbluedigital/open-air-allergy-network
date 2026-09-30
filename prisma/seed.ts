@@ -116,47 +116,9 @@ async function main() {
     },
   });
 
-  const article1Data = {
-    status: "PUBLISHED" as const,
-    authorId: author.id,
-    providerCreditedId: featured.id,
-    tags: ["Practice Spotlight", "ILIT Basics"],
-    title: "5 Things to Know Before Starting ILIT",
-    body: "If you're considering intralymphatic immunotherapy, here are five things your allergist wants you to know before your first visit...",
-    publishedDate: new Date("2026-08-12"),
-  };
-  await db.article.upsert({
-    where: { slug: "5-things-to-know-before-starting-ilit" },
-    update: article1Data,
-    create: { slug: "5-things-to-know-before-starting-ilit", ...article1Data },
-  });
-
-  const article2Data = {
-    status: "PUBLISHED" as const,
-    tags: ["Clinical Research"],
-    title: "ILIT Growth in U.S. Allergy Practices",
-    body: "A growing number of allergy practices across the United States are adding intralymphatic immunotherapy to their treatment offerings...",
-    publishedDate: new Date("2026-09-02"),
-    pinnedTo: "blog_featured",
-  };
-  await db.article.upsert({
-    where: { slug: "ilit-growth-in-us-allergy-practices" },
-    update: article2Data,
-    create: { slug: "ilit-growth-in-us-allergy-practices", ...article2Data },
-  });
-
-  const article3Data = {
-    status: "PUBLISHED" as const,
-    tags: ["House", "Comparisons"],
-    title: "ILIT vs. SCIT vs. SLIT: A Full Comparison",
-    body: "Choosing an allergy immunotherapy option is a personal decision best made with your doctor. Here's how ILIT, SCIT, and SLIT compare on duration, visit count, and administration...",
-    publishedDate: new Date("2026-08-20"),
-  };
-  await db.article.upsert({
-    where: { slug: "ilit-vs-scit-vs-slit-a-full-comparison" },
-    update: article3Data,
-    create: { slug: "ilit-vs-scit-vs-slit-a-full-comparison", ...article3Data },
-  });
+  // No seed articles: the old placeholder stubs were deleted (2026-10-01),
+  // and real articles are written directly to the database
+  // (docs/blog-content-guide.md). Seeding them would recreate fake content.
 
   await db.siteSetting.upsert({
     where: { id: 1 },
