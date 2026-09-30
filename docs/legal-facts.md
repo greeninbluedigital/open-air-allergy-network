@@ -135,34 +135,18 @@ the site by a scheduled job.
 
 ## Security
 
-- **HTTPS everywhere:** the site is served only over HTTPS (TLS
-  certificates managed by Vercel, renewed automatically). Plain HTTP
-  requests are permanently redirected to HTTPS, and the site sends a
-  Strict-Transport-Security header (2 years, including subdomains) so
-  browsers refuse to connect without encryption. Verified 2026-09-29.
-- **Database:** connections to Neon require SSL (`sslmode=require`).
-  Neon encrypts stored data with AES-256 and keeps backups for 30 days
-  (per Neon's security documentation).
-- **Minimal collection:** no visitor accounts or passwords, no payment
-  details, phone optional on the patient form, and OAAN's own analytics
-  log stores no visitor identifiers. Practice notification emails are never
-  shown on the site or in page source.
-- **Form safeguards:** a patient must confirm their email address before a
-  lead is marked verified, visitor input is escaped before it goes into
-  any email, and spam protections (hidden bot field, email domain check,
-  link blocking) keep junk out (`docs/lead-forms.md`).
-- **Tracking controls:** a consent banner and My Privacy Choices page, with
-  Global Privacy Control honored; Google Tag Manager doesn't load for
-  visitors who opt out (`docs/consent.md`).
-- **Vendors:** every service the site calls (Resend, Mapbox, Google,
-  Cloudinary) is reached over HTTPS.
-- **Email is the weakest link:** confirmation emails and forwarded leads
-  travel by ordinary email. Mail servers usually encrypt in transit, but
-  it isn't guaranteed end to end, and a forwarded lead then sits in the
-  practice's inbox.
-- **Access:** form submissions are stored in the database and emailed to
-  OAAN's leads inbox or the practice. No customer-facing accounts or
-  passwords exist on the site.
+The full list of protections, known weak spots, and gaps being closed is
+in `docs/data-protection.md`. In short: HTTPS everywhere (with HSTS),
+encrypted database connections and storage, minimal data collection, and
+consent controls. Email is the weakest link, since confirmation emails and
+forwarded leads travel as ordinary email.
+
+For the Privacy Notice, a short general statement is the norm, e.g. "We
+use reasonable administrative, technical, and physical safeguards to
+protect personal information, including encryption in transit and at
+rest. No method of transmission or storage is completely secure, so we
+can't guarantee absolute security." Listing specific controls publicly
+turns each one into a promise.
 
 ## Open questions for the attorney
 
