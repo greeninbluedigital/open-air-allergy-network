@@ -91,8 +91,13 @@ On all three forms:
 | `_ga`, `_ga_<id>` | Analytical / performance; 3rd party | Google Analytics (stored under OAAN's domain, controlled by Google) | Distinguishes visitors and sessions for analytics | Up to 2 years |
 | `oaan_zip` | Functionality | OAAN (first party, not readable by scripts) | Remembers the last zip searched so the search and homepage can reuse it | 1 year |
 | `oaan_attr` | Advertising / tracking | OAAN (first party) | Remembers campaign data (source, medium, campaign, keyword, ad variant, ad click id, landing page) so leads can be attributed to ads | 30 days |
-| Google Ads cookies, e.g. `_gcl_au` | Advertising / tracking; 3rd party | Google | **Not active yet.** Expected once Google Ads and conversion tracking are connected in Tag Manager. Update the Cookie Policy then | Up to 90 days |
+| Google Ads cookies, e.g. `_gcl_au` | Advertising / tracking; 3rd party | Google | **Not active yet, but included in the Cookie Policy now** (owner's decision, 2026-09-30) so it won't need changing when Google Ads is connected. Described as measurement ("we may use advertising cookies from Google to measure how well our ads work"), not targeting, to stay consistent with the no-sale promise, which rules out remarketing audiences built from visitors | Up to 90 days |
 | Session storage key `oaan_sent:…` | Similar technology (not a cookie) | OAAN | Stops a reloaded form-success page from counting a lead twice | Until the tab closes |
+
+**Rocket Lawyer answers:** the strictly necessary cookies' purpose is
+"Other": remembering visitors' privacy and cookie choices, and protecting
+the site from bots and abuse (hosting provider security checks). The zip
+code cookie belongs under functionality, not strictly necessary.
 
 No cookies from the map (Mapbox), images (Cloudinary), or Yelp review
 excerpts (plain text and links, no Yelp script). Fonts are self-hosted.
