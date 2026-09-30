@@ -127,6 +127,15 @@ the site by a scheduled job.
   update and likely opt-in consent first.
 - **On the form:** the patient contact form says "We never sell your
   information." under the Send button.
+- **Marketing emails to practices:** OAAN's sales outreach to practices
+  (following up For Practices inquiries, pitching listings) counts as
+  commercial email under CAN-SPAM, even one-to-one and business to
+  business. Every such email needs an opt-out (e.g. "Reply 'unsubscribe'
+  and I won't email you again", honored within 10 business days), OAAN's
+  physical postal address, and an honest sender and subject line. An email
+  signature covers it. Privacy Notice answer: marketing emails can be
+  unsubscribed from; patients receive none, only their inquiry
+  confirmation (a transactional email).
 - **Planned:** Google Ads campaigns, with conversions (such as lead form
   submissions) possibly imported into Google Ads for ad optimization. Under
   the CCPA, "sharing" includes cross-context behavioral advertising, so the
