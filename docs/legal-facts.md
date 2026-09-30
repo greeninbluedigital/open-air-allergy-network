@@ -7,6 +7,13 @@ code on 2026-09-29. Update it whenever data handling changes.
 
 ## The business
 
+- **Legal entity:** Green in Blue Digital LLC, doing business as Open Air
+  Allergy Network (a registered fictitious business name). Legal documents
+  should name the LLC as the party, with the DBA defined once, e.g.
+  "Green in Blue Digital LLC, doing business as Open Air Allergy Network
+  ("Open Air Allergy Network," "we," "us")". To confirm with counsel: the
+  FBN is registered to the LLC, not to an individual.
+
 - **What it is:** a free directory of allergy practices confirmed (by phone)
   to offer ILIT (intralymphatic immunotherapy), plus educational content
   (Learn articles, Blog).
