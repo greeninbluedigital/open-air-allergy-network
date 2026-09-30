@@ -56,6 +56,13 @@ Vercel, **redeploy** so the site uses the new value.
 (`NEXT_PUBLIC_GTM_ID`, `NEXT_PUBLIC_SITE_URL`, `EMAIL_FROM_ADDRESS`, and
 `GOOGLE_SHEETS_SPREADSHEET_ID` are identifiers, not secrets.)
 
+**Gmail "Send mail as" key:** a separate Resend API key ("Gmail send-as",
+sending access only) lets Gmail send as hello@ and other domain addresses.
+It isn't used by the site. If the Gmail account may be compromised, delete
+that key in Resend, create a new one, and update the password under Gmail →
+Settings → Accounts and Import → Send mail as → edit info, for each address.
+Deleting it doesn't affect the site's lead emails.
+
 **Stop the forms temporarily**, if form submissions are part of the
 problem: in the Vercel Firewall, add a custom rule "Request Method equals
 POST" → **Deny**, placed **below** the `/api/` Bypass rule
