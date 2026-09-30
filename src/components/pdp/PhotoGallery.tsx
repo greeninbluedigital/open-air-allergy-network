@@ -42,7 +42,7 @@ export function PhotoGallery({
             type="button"
             onClick={() => setOpenIndex(0)}
             className="absolute inset-0 cursor-zoom-in"
-            aria-label="View full-size photo"
+            aria-label={`${alt}: view photo 1 of ${allPhotos.length} full size`}
           >
             <Image src={mainPhoto} alt={alt} fill className="object-cover" />
           </button>
@@ -59,7 +59,7 @@ export function PhotoGallery({
                 type="button"
                 onClick={() => setOpenIndex(i + 1)}
                 className="relative aspect-4/3 flex-1 cursor-zoom-in overflow-hidden rounded bg-bg-alt"
-                aria-label="View full-size photo"
+                aria-label={`${alt}: view photo ${i + 2} of ${allPhotos.length} full size`}
               >
                 <Image src={url} alt="" fill className="object-cover" />
               </button>

@@ -14,13 +14,14 @@ updated 2026-09-29.
 - [ ] **Clear test data:** test providers in the sheet, and every article
       credit (including the test "Medically reviewed by" credit on the
       comparison article) until there are paying clients.
-- [ ] **Create privacy@openairallergynetwork.com** (Cloudflare Email Routing,
-      forwarding like leads@ and hello@). The Privacy Policy, Cookie Policy,
-      and My Privacy Choices page all give it as the privacy contact.
-- [ ] **Attorney review of the published legal pages** (Privacy Policy, Terms,
-      Cookie Policy, My Privacy Choices). Every change from the Rocket Lawyer
-      drafts is listed in [legal-pages/README.md](legal-pages/README.md).
-      Medical Disclaimer and Accessibility Statement are still placeholders.
+- [x] **privacy@openairallergynetwork.com created** and working (2026-09-30).
+      It's the privacy contact on the Privacy Policy, Cookie Policy, and My
+      Privacy Choices page.
+- [ ] **Attorney review of all six published legal pages** (Privacy Policy,
+      Terms, Cookie Policy, My Privacy Choices, Medical Disclaimer,
+      Accessibility Statement). Every change from the Rocket Lawyer drafts,
+      and what to check on the two pages written for the site, is in
+      [legal-pages/README.md](legal-pages/README.md).
 - [ ] **Legal pages with counsel:** start from the facts and open questions
       in [legal-facts.md](legal-facts.md). Privacy Notice (lead-data language,
       possible consent checkbox) and Terms of Use, including a clause

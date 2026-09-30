@@ -15,7 +15,8 @@ npx tsx scripts/publish-legal-pages.ts cookie-policy   # one page
 | `terms-and-conditions.html` | Terms & Conditions | Rocket Lawyer draft "260930 Website Terms of Use", edited as below |
 | `cookie-policy.html` | Cookie Policy | Rocket Lawyer draft "260930 website Cookie Policy", edited as below |
 | `privacy-choices.html` | My Privacy Choices (text under the working controls) | Written for the site |
-| (none yet) | Medical Disclaimer, Accessibility Statement | Still placeholders |
+| `medical-disclaimer.html` | Medical Disclaimer | Written for the site (2026-09-30), consistent with the Terms and the Learn page's FDA wording |
+| `accessibility-statement.html` | Accessibility Statement | Written for the site (2026-09-30), W3C statement format, WCAG 2.1 AA target |
 
 The Rocket Lawyer originals are in the owner's Google Drive folder. **Every
 page still needs the attorney's review.**
@@ -116,8 +117,12 @@ formatting glitches.
 - **Contact:** removed the blank phone number.
 
 ## Open items
-- **privacy@openairallergynetwork.com** is used in the Privacy Policy, Cookie
-  Policy, and My Privacy Choices. Create it before launch (Cloudflare Email
-  Routing, forwarding to the leads Gmail like leads@ and hello@).
-- Medical Disclaimer and Accessibility Statement are still placeholders.
+- **Medical Disclaimer** (attorney): it says ILIT hasn't been reviewed for
+  FDA approval, that badges like "Verified" aren't endorsements, and that
+  some practices pay for "medically reviewed by" credits (see
+  `docs/legal-facts.md`, questions 5 and 6).
+- **Accessibility Statement** (attorney): it claims partial WCAG 2.1 AA
+  conformance, names the search map as a known limitation (the list view is
+  the accessible alternative), and commits to responding within 5 business
+  days. No formal accessibility audit has been done yet.
 - Washington consumer health data policy: `docs/legal-facts.md`, question 1.
