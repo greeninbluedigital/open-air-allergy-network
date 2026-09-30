@@ -1,0 +1,31 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { NAV_LINKS, isCurrentNav } from "./nav-links";
+
+/** Header links at md and up. The current section gets a sage pill. */
+export function DesktopNav() {
+  const pathname = usePathname();
+
+  return (
+    <nav className="hidden items-center gap-1 text-sm md:flex">
+      {NAV_LINKS.map((link) => {
+        const current = isCurrentNav(pathname, link.href);
+        return (
+          <Link
+            key={link.href}
+            href={link.href}
+            data-cta="nav_header"
+            aria-current={current ? "page" : undefined}
+            className={`rounded px-3 py-1.5 transition-colors ${
+              current ? "bg-sage font-semibold text-white" : "text-foreground/80 hover:text-sage"
+            }`}
+          >
+            {link.label}
+          </Link>
+        );
+      })}
+    </nav>
+  );
+}

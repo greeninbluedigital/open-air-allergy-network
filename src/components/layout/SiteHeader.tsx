@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { MobileNav } from "./MobileNav";
-import { NAV_LINKS } from "./nav-links";
+import { DesktopNav } from "./DesktopNav";
 
 export function SiteHeader() {
   return (
@@ -9,13 +9,7 @@ export function SiteHeader() {
         Open Air Allergy Network
       </Link>
 
-      <nav className="hidden gap-6 text-sm text-foreground/80 md:flex">
-        {NAV_LINKS.map((link) => (
-          <Link key={link.href} href={link.href} data-cta="nav_header" className="hover:text-foreground">
-            {link.label}
-          </Link>
-        ))}
-      </nav>
+      <DesktopNav />
 
       <MobileNav />
     </header>

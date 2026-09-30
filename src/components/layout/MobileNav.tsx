@@ -2,10 +2,12 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { NAV_LINKS } from "./nav-links";
+import { usePathname } from "next/navigation";
+import { NAV_LINKS, isCurrentNav } from "./nav-links";
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <div className="md:hidden">
@@ -29,17 +31,23 @@ export function MobileNav() {
 
       {open && (
         <nav className="absolute inset-x-0 top-full flex flex-col border-b border-line bg-background px-6 py-4 shadow-sm">
-          {NAV_LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              data-cta="nav_mobile"
-              onClick={() => setOpen(false)}
-              className="border-b border-line py-3 text-sm text-foreground last:border-none"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {NAV_LINKS.map((link) => {
+            const current = isCurrentNav(pathname, link.href);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                data-cta="nav_mobile"
+                aria-current={current ? "page" : undefined}
+                onClick={() => setOpen(false)}
+                className={`border-b border-line py-3 text-sm last:border-none ${
+                  current ? "-mx-3 rounded bg-sage px-3 font-semibold text-white" : "text-foreground"
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </nav>
       )}
     </div>

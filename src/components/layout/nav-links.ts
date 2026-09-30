@@ -9,3 +9,11 @@ export const NAV_LINKS = [
   // links to the same page (Section 9).
   { href: "/about", label: "About" },
 ];
+
+/**
+ * The section a page belongs to: a nav link is current on its own page and
+ * everything under it (e.g. every provider page counts as Find a Provider).
+ */
+export function isCurrentNav(pathname: string, href: string): boolean {
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
