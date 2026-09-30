@@ -1,8 +1,13 @@
 # Google Sheet setup for the sync job
 
-Tab name must be exactly **"Providers"**. Row 1 is headers (any text is fine,
-row 2 onward is data — column *position* is what matters, not the header
-text). Column order:
+Tab name must be exactly **"Providers"**. Row 1 is headers, row 2 onward
+is data. The sync reads columns by position, so **before every sync it
+checks that row 1's headers match the "Column" names below, in this exact
+order** (capitalization and extra spaces don't matter). If any header is
+missing, moved, or renamed, the whole sync stops without changing anything,
+and the error names the column (it shows on the sheet's sync button). To
+add, move, or rename a Providers column, change the code first, then the
+sheet. Column order:
 
 | # | Column | Notes |
 |---|--------|-------|
@@ -20,32 +25,32 @@ text). Column order:
 | L | Tier | One of: `Freemium`, `Verified`, `Full Profile`, `Featured`. Anything else is treated as Freemium |
 | M | Founding Member | `Y` / `N`. Only ever displayed for Full Profile and Featured, whatever this says |
 | N | Geo-Extension | `Y` / `N` |
-| O | Active | `Y` / `N` |
-| P | Verification Date | Any parseable date, e.g. `2026-09-01` |
-| Q | Verification Notes | |
-| R | Offers Video Consult | `Y` / `N`. Drives the SEM landing page's Video Consults badge directly; on the PDP it only shows when AM is `Y` |
-| S | Offers Phone Consult | `Y` / `N`. Same as R, for the Phone Consults badge |
-| T | Short Bio | |
-| U | Extended Bio | |
-| V | Provider Photo URL | Upload to Cloudinary's Media Library (res.cloudinary.com — the only host the site's `next/image` config currently allows) and paste the resulting URL here |
-| W | Secondary Photo URLs | Semicolon-separated, up to 4 |
-| X | Business Hours | Semicolon-separated, e.g. `Tue-Fri: 8am-5pm; Sat: 9am-1pm` |
-| Y | ILIT Schedule Notes | |
-| Z | Treatments Offered | Semicolon-separated, e.g. `ILIT; SCIT; Food Allergy Testing` |
-| AA | Show Reviews | **Renamed** from "Show Google Reviews" — `Y` / `N`, one master toggle for the whole Patient Reviews module (Featured tier only regardless of this flag). Which platform(s) actually render depends on whether Google Place ID / any Yelp field below is filled in |
-| AB | Google Place ID | |
-| AC | Yelp Embed Code 1 | **New** — paste from Yelp's own free "Embed Review" feature (the "···" menu on any review on Yelp's site). Not the Fusion API |
-| AD | Yelp Embed Code 2 | **New** — same as above |
-| AE | Yelp Embed Code 3 | **New** — same as above. Exactly 3 slots, no more |
-| AF | Yelp Business ID | **New** — the practice's Yelp business ID or alias (from its Yelp page URL, e.g. `example-ilit-allergy-center-beverly-hills`). Not used yet (see below) — filling it in now means switching on live Yelp ratings later needs no sheet changes |
-| AG | Yelp Rating Badge Embed | **New** — paste a free rating-badge widget snippet (from Yelp for Business, or a free-tier third-party like Elfsight/TagEmbed). Self-updates on the widget's own end at zero cost. Shown only until a real Yelp API rating is active (see below) |
-| AH | Custom Field 1 | |
-| AI | Custom Field 2 | |
-| AJ | Notes | Internal only |
-| AK | Demo/Example Listing | **New** — `Y` / `N`. For sales-demo practices only (showing a prospective client what a PDP/SEM page looks like without using a competitor or a page real traffic could land on). `Y` excludes the listing from SRP search results and the sitemap, and adds `noindex`/`nofollow` to its PDP — reachable only by whoever has the direct link. Use a dedicated Group ID like `example-practice-group` if you want several demo practices grouped for your own reference, but note Group ID's real purpose is cross-linking sibling locations on the PDP ("Other Locations") — don't group unrelated demo practices together or they'll cross-link each other on the page you're showing a client |
-| AL | SRP Card Photo URL | **New** — a square-friendly Cloudinary URL for the small photo on the SRP result card. Deliberately separate from Provider Photo URL (V): that one is portrait-oriented for the PDP and crops badly at the SRP card's small square size. Leave blank and the card simply shows no photo (not a placeholder box) — no image is required. Only displayed for Full Profile and Featured |
-| AM | PDP Remote Consult Badge | `Y` / `N`. Turns on the remote consult badge(s) on the PDP and the "Remote Consults" badge on the SRP card, so a practice can advertise remote consults on its SEM landing pages only. Which badge(s) the PDP shows still comes from R and S. Blank counts as `N` |
-| AN | Travel Notes | **New.** Body text for the "Getting Here — Fly In" module on the PDP, which only shows when Geo-Extension (N) is `Y`. Use it for nearest airports, transit, hotels the practice recommends, or anything else the practice wants traveling patients to know. Plain text: links aren't clickable, and Alt+Enter line breaks inside the cell show as line breaks on the page. Blank shows the standard line: "This practice welcomes out-of-area patients. Contact them directly for travel guidance." |
+| O | Travel Notes | **New.** Body text for the "Getting Here — Fly In" module on the PDP, which only shows when Geo-Extension (N) is `Y`. Use it for nearest airports, transit, hotels the practice recommends, or anything else the practice wants traveling patients to know. Plain text: links aren't clickable, and Alt+Enter line breaks inside the cell show as line breaks on the page. Blank shows the standard line: "This practice welcomes out-of-area patients. Contact them directly for travel guidance." |
+| P | Active | `Y` / `N` |
+| Q | Verification Date | Any parseable date, e.g. `2026-09-01` |
+| R | Verification Notes | |
+| S | Offers Video Consult | `Y` / `N`. Drives the SEM landing page's Video Consults badge directly; on the PDP it only shows when AN is `Y` |
+| T | Offers Phone Consult | `Y` / `N`. Same as S, for the Phone Consults badge |
+| U | Short Bio | |
+| V | Extended Bio | |
+| W | Provider Photo URL | Upload to Cloudinary's Media Library (res.cloudinary.com — the only host the site's `next/image` config currently allows) and paste the resulting URL here |
+| X | Secondary Photo URLs | Semicolon-separated, up to 4 |
+| Y | Business Hours | Semicolon-separated, e.g. `Tue-Fri: 8am-5pm; Sat: 9am-1pm` |
+| Z | ILIT Schedule Notes | |
+| AA | Treatments Offered | Semicolon-separated, e.g. `ILIT; SCIT; Food Allergy Testing` |
+| AB | Show Reviews | **Renamed** from "Show Google Reviews" — `Y` / `N`, one master toggle for the whole Patient Reviews module (Featured tier only regardless of this flag). Which platform(s) actually render depends on whether Google Place ID / any Yelp field below is filled in |
+| AC | Google Place ID | |
+| AD | Yelp Embed Code 1 | **New** — paste from Yelp's own free "Embed Review" feature (the "···" menu on any review on Yelp's site). Not the Fusion API |
+| AE | Yelp Embed Code 2 | **New** — same as above |
+| AF | Yelp Embed Code 3 | **New** — same as above. Exactly 3 slots, no more |
+| AG | Yelp Business ID | **New** — the practice's Yelp business ID or alias (from its Yelp page URL, e.g. `example-ilit-allergy-center-beverly-hills`). Not used yet (see below) — filling it in now means switching on live Yelp ratings later needs no sheet changes |
+| AH | Yelp Rating Badge Embed | **New** — paste a free rating-badge widget snippet (from Yelp for Business, or a free-tier third-party like Elfsight/TagEmbed). Self-updates on the widget's own end at zero cost. Shown only until a real Yelp API rating is active (see below) |
+| AI | Custom Field 1 | |
+| AJ | Custom Field 2 | |
+| AK | Notes | Internal only |
+| AL | Demo/Example Listing | **New** — `Y` / `N`. For sales-demo practices only (showing a prospective client what a PDP/SEM page looks like without using a competitor or a page real traffic could land on). `Y` excludes the listing from SRP search results and the sitemap, and adds `noindex`/`nofollow` to its PDP — reachable only by whoever has the direct link. Use a dedicated Group ID like `example-practice-group` if you want several demo practices grouped for your own reference, but note Group ID's real purpose is cross-linking sibling locations on the PDP ("Other Locations") — don't group unrelated demo practices together or they'll cross-link each other on the page you're showing a client |
+| AM | SRP Card Photo URL | **New** — a square-friendly Cloudinary URL for the small photo on the SRP result card. Deliberately separate from Provider Photo URL (W): that one is portrait-oriented for the PDP and crops badly at the SRP card's small square size. Leave blank and the card simply shows no photo (not a placeholder box) — no image is required. Only displayed for Full Profile and Featured |
+| AN | PDP Remote Consult Badge | `Y` / `N`. Turns on the remote consult badge(s) on the PDP and the "Remote Consults" badge on the SRP card, so a practice can advertise remote consults on its SEM landing pages only. Which badge(s) the PDP shows still comes from S and T. Blank counts as `N` |
 
 **Rows that disappear from this tab get deactivated.** Any active practice
 whose slug is no longer on the Providers tab (row deleted, or slug changed)

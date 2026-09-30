@@ -7,50 +7,77 @@ import { geocodeAddress } from "@/lib/geocode";
 // Status, Billing Reference, Next Billing Date — set by billing webhooks,
 // not hand-entered) and Search Radius (derived from Geo-Extension, not a
 // sheet input — see PROJECT_SPEC.md Section 4).
-const COLUMNS = [
-  "slug",
-  "groupId",
-  "practiceName",
-  "address",
-  "addressLine2",
-  "city",
-  "state",
-  "zip",
-  "phone",
-  "website",
-  "notificationEmail",
-  "tier",
-  "foundingMember",
-  "geoExtension",
-  "active",
-  "verificationDate",
-  "verificationNotes",
-  "offersVideoConsult",
-  "offersPhoneConsult",
-  "shortBio",
-  "extendedBio",
-  "photoUrl",
-  "secondaryPhotoUrls",
-  "businessHours",
-  "ilitScheduleNotes",
-  "treatmentsOffered",
-  "showReviews",
-  "googlePlaceId",
-  "yelpEmbedCode1",
-  "yelpEmbedCode2",
-  "yelpEmbedCode3",
-  "yelpBusinessId",
-  "yelpRatingBadgeEmbed",
-  "customField1",
-  "customField2",
-  "notes",
-  "isDemo",
-  "srpPhotoUrl",
-  "pdpRemoteConsultBadge",
-  "travelNotes",
+const PROVIDER_COLUMNS = [
+  ["slug", "Provider Slug"],
+  ["groupId", "Group ID"],
+  ["practiceName", "Practice Name"],
+  ["address", "Address"],
+  ["addressLine2", "Address Line 2"],
+  ["city", "City"],
+  ["state", "State"],
+  ["zip", "Zip"],
+  ["phone", "Phone"],
+  ["website", "Website"],
+  ["notificationEmail", "Notification Email"],
+  ["tier", "Tier"],
+  ["foundingMember", "Founding Member"],
+  ["geoExtension", "Geo-Extension"],
+  ["travelNotes", "Travel Notes"],
+  ["active", "Active"],
+  ["verificationDate", "Verification Date"],
+  ["verificationNotes", "Verification Notes"],
+  ["offersVideoConsult", "Offers Video Consult"],
+  ["offersPhoneConsult", "Offers Phone Consult"],
+  ["shortBio", "Short Bio"],
+  ["extendedBio", "Extended Bio"],
+  ["photoUrl", "Provider Photo URL"],
+  ["secondaryPhotoUrls", "Secondary Photo URLs"],
+  ["businessHours", "Business Hours"],
+  ["ilitScheduleNotes", "ILIT Schedule Notes"],
+  ["treatmentsOffered", "Treatments Offered"],
+  ["showReviews", "Show Reviews"],
+  ["googlePlaceId", "Google Place ID"],
+  ["yelpEmbedCode1", "Yelp Embed Code 1"],
+  ["yelpEmbedCode2", "Yelp Embed Code 2"],
+  ["yelpEmbedCode3", "Yelp Embed Code 3"],
+  ["yelpBusinessId", "Yelp Business ID"],
+  ["yelpRatingBadgeEmbed", "Yelp Rating Badge Embed"],
+  ["customField1", "Custom Field 1"],
+  ["customField2", "Custom Field 2"],
+  ["notes", "Notes"],
+  ["isDemo", "Demo/Example Listing"],
+  ["srpPhotoUrl", "SRP Card Photo URL"],
+  ["pdpRemoteConsultBadge", "PDP Remote Consult Badge"],
 ] as const;
 
+const COLUMNS = PROVIDER_COLUMNS.map(([key]) => key);
+
+// Positional, so the sheet's header row is checked first (verifyProviderHeaders):
+// a column inserted, removed, or renamed on the sheet stops the whole sync
+// with a clear error instead of shifting every value into the wrong field.
 const SHEET_RANGE = "Providers!A2:AN";
+const HEADER_RANGE = "Providers!A1:AN1";
+
+function columnLetter(i: number): string {
+  return (i < 26 ? "" : String.fromCharCode(64 + Math.floor(i / 26))) + String.fromCharCode(65 + (i % 26));
+}
+
+async function verifyProviderHeaders(spreadsheetId: string) {
+  const [headers = []] = await fetchSheetRows(spreadsheetId, HEADER_RANGE);
+  const normalize = (h: string | undefined) => (h ?? "").trim().toLowerCase();
+  const problems = PROVIDER_COLUMNS.flatMap(([, expected], i) =>
+    normalize(headers[i]) === normalize(expected)
+      ? []
+      : [`column ${columnLetter(i)} should be "${expected}" but is "${headers[i] ?? ""}"`],
+  );
+  if (problems.length > 0) {
+    throw new Error(
+      `Providers tab columns don't match what the sync expects, so nothing was synced: ${problems
+        .slice(0, 3)
+        .join("; ")}${problems.length > 3 ? ` (and ${problems.length - 3} more)` : ""}. See docs/sheet-columns.md.`,
+    );
+  }
+}
 
 // "Freemium" is the business's own term for this tier (bare listing, no
 // other info, unverified) — accepted as a synonym alongside the original
@@ -566,6 +593,7 @@ export async function runSync(): Promise<SyncSummary> {
   const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
   if (!spreadsheetId) throw new Error("GOOGLE_SHEETS_SPREADSHEET_ID is not set");
 
+  await verifyProviderHeaders(spreadsheetId);
   const rawRows = await fetchSheetRows(spreadsheetId, SHEET_RANGE);
   const summary: SyncSummary = {
     created: 0,

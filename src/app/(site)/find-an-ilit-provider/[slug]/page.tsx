@@ -23,7 +23,7 @@ import { isFullProfilePlus as isFullProfileTier, isVerifiedPlus as isVerifiedTie
 // doesn't turn the page into a long uninterrupted scroll.
 const FAQ_ACCORDION_THRESHOLD = 4;
 
-// "Getting Here — Fly In" body when the sheet's Travel Notes (AN) is blank.
+// "Getting Here — Fly In" body when the sheet's Travel Notes (column O) is blank.
 const DEFAULT_TRAVEL_NOTE =
   "This practice welcomes out-of-area patients. Contact them directly for travel guidance.";
 
@@ -342,7 +342,7 @@ export default async function ProviderDetailPage({
           {provider.geoExtension && (
             <div>
               <h3 className="mb-2 text-base font-bold">Getting Here — Fly In</h3>
-              {/* Sheet column AN; blank falls back to the standard line.
+              {/* Sheet column O; blank falls back to the standard line.
                   whitespace-pre-line keeps line breaks typed in the cell. */}
               <p className="text-sm whitespace-pre-line text-muted">
                 {provider.travelNotes ?? DEFAULT_TRAVEL_NOTE}

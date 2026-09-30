@@ -20,8 +20,15 @@ export async function GET(request: Request) {
   if (!isAuthorized(request)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
-  const summary = await runSync();
-  return NextResponse.json(summary);
+  try {
+    const summary = await runSync();
+    return NextResponse.json(summary);
+  } catch (err) {
+    // e.g. the Providers header check failing; the message says which
+    // column, and shows up on the sheet's sync button.
+    console.error("Sync failed:", err);
+    return NextResponse.json({ error: (err as Error).message }, { status: 500 });
+  }
 }
 
 export async function POST(request: Request) {
