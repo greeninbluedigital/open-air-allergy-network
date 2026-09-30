@@ -9,7 +9,7 @@ import { GENERAL_INQUIRY_REASONS } from "@/lib/generalInquiry";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Open Air Allergy Network connects patients searching for ILIT with practices that offer it.",
+  description: "Open Air Allergy Network connects people searching for ILIT with practices that offer it.",
   alternates: { canonical: "/about" },
 };
 
@@ -28,7 +28,7 @@ export default async function AboutPage({ searchParams }: PageProps<"/about">) {
       <div className="px-6 pt-8 sm:px-10">
         <h1 className="mb-2.5 text-3xl font-extrabold">About Open Air Allergy Network</h1>
         <p className="max-w-xl text-sm text-muted">
-          Open Air Allergy Network connects patients searching for ILIT with
+          Open Air Allergy Network connects people searching for ILIT with
           the practices that offer it — and helps those practices reach
           patients actively looking for this specific treatment.
         </p>

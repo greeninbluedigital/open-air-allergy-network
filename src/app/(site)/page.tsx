@@ -65,7 +65,7 @@ const FACTS = [
 const HOW_IT_WORKS = [
   { title: "Search by zip", text: "Enter your zip code to see ILIT providers near you." },
   { title: "Compare providers", text: "Browse nearby practices, each confirmed to offer ILIT." },
-  { title: "Contact a practice", text: "Reach out to a practice directly. It's always free for patients." },
+  { title: "Contact a practice", text: "Reach out to a practice directly. Our directory is always free to use." },
 ];
 
 export default async function HomePage() {
