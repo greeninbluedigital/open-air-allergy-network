@@ -248,6 +248,16 @@ turns each one into a promise.
 11. **Breach response.** Review `docs/incident-response.md`. Which
     notification laws would apply to a leak of consumer inquiries, and what
     should the Privacy Notice say about breach notification?
+11b. **Arbitration and class action waiver.** The owner leans toward
+    including individual arbitration with a class action waiver in the
+    Terms of Use, given privacy class actions against websites (e.g. CIPA
+    claims over analytics) and Washington's private right of action for
+    health data. Questions: clause design (small-claims carve-out,
+    informal-resolution step, mass-arbitration batching, a 30-day opt-out),
+    and how consumers agree to it. Footer-only Terms may not bind anyone.
+    One option is a line under the contact form's Send button, sharing the
+    existing "We never sell your information." line: "By sending, you agree
+    to our Terms and Privacy Notice," with links.
 12. **Anti-scraping clause** in the Terms of Use (see
     `docs/anti-scraping.md`).
 13. **A note under the consumer message box?** Some health directories add
