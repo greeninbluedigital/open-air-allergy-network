@@ -167,3 +167,11 @@ the site by a scheduled job.
     lead delivery, no guarantee of results).
 11. **Anti-scraping clause** in the Terms of Use (see
     `docs/anti-scraping.md`).
+12. **A note under the patient message box?** Some health directories add
+    a line like "Please don't include detailed medical information. The
+    practice will ask for what they need." That would reduce the sensitive
+    health data OAAN collects and stores. The trade-off: patients
+    describing their allergies helps practices judge fit, which is part of
+    OAAN's lead-quality pitch to practices. Is the note recommended, and
+    does it change what the Privacy Notice or a consent checkbox needs to
+    say?
