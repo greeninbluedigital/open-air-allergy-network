@@ -157,7 +157,11 @@ the site by a scheduled job.
 8. **Retention.** How long to keep patient inquiries, practice leads, and
    contact messages.
 9. **Privacy request contact.** Which email address handles privacy
-   requests (access, deletion, opt-out)?
+   requests (access, deletion, opt-out)? The plan is email only, no phone
+   number: the CCPA lets businesses that operate exclusively online and
+   deal with consumers directly use an email address instead of a
+   toll-free number. Also confirm which state privacy laws apply at OAAN's
+   current size (the CCPA's thresholds may not be met yet).
 10. **Terms for practices.** A separate listing or advertising agreement
     for paying practices (tiers, billing, cancellation, content accuracy,
     lead delivery, no guarantee of results).
