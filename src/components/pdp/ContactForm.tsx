@@ -27,29 +27,31 @@ export function ContactForm({
       <input type="hidden" name="utmCampaign" value={utm.campaign ?? ""} />
       <HoneypotField />
 
-      <div className="mb-2.5">
-        <label className="mb-0.5 block text-[11.5px] text-muted" htmlFor="firstName">
-          First Name
-        </label>
-        <input
-          id="firstName"
-          name="firstName"
-          autoComplete="given-name"
-          required
-          className="w-full rounded border border-line px-2 py-1.5 text-xs"
-        />
-      </div>
-      <div className="mb-2.5">
-        <label className="mb-0.5 block text-[11.5px] text-muted" htmlFor="lastName">
-          Last Name
-        </label>
-        <input
-          id="lastName"
-          name="lastName"
-          autoComplete="family-name"
-          required
-          className="w-full rounded border border-line px-2 py-1.5 text-xs"
-        />
+      <div className="mb-2.5 grid grid-cols-2 gap-2">
+        <div>
+          <label className="mb-0.5 block text-[11.5px] text-muted" htmlFor="firstName">
+            First Name
+          </label>
+          <input
+            id="firstName"
+            name="firstName"
+            autoComplete="given-name"
+            required
+            className="w-full rounded border border-line px-2 py-1.5 text-xs"
+          />
+        </div>
+        <div>
+          <label className="mb-0.5 block text-[11.5px] text-muted" htmlFor="lastName">
+            Last Name
+          </label>
+          <input
+            id="lastName"
+            name="lastName"
+            autoComplete="family-name"
+            required
+            className="w-full rounded border border-line px-2 py-1.5 text-xs"
+          />
+        </div>
       </div>
       <div className="mb-2.5">
         <label className="mb-0.5 block text-[11.5px] text-muted" htmlFor="email">
@@ -87,6 +89,7 @@ export function ContactForm({
       >
         Send Message
       </button>
+      <p className="mt-1.5 text-center text-[11.5px] text-muted">We never sell your information.</p>
     </form>
   );
 }

@@ -71,6 +71,12 @@ Every email sets Reply-To to the person who filled out the form.
 The For Practices and About forms also require a reason from a fixed
 dropdown list; the server rejects any value not on that list.
 
+The patient contact form (provider pages and SEM landing pages) shows
+"We never sell your information." under the Send button. OAAN doesn't sell
+visitor data and doesn't send follow-up or marketing emails to patients;
+following up is the practice's job once it has the lead (decided
+2026-09-29, see `docs/legal-facts.md`).
+
 ## Patient lead pipeline (provider pages and SEM landing pages)
 
 1. **Submit.** The honeypot, required fields, link check, and email domain

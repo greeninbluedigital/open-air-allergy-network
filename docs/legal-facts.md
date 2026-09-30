@@ -121,17 +121,35 @@ the site by a scheduled job.
   information. Your message goes only to the practice you contact and to
   the service providers who help us run this site."
 - **Never:** a practice's leads given to a competing practice.
-- **Follow-up emails (planned):** OAAN wants to email people who used a
-  contact form, to follow up on their experience with the site or remind
-  them about the practice they contacted. Not built yet. Needs: a mention
-  in the Privacy Notice, an unsubscribe link and a postal address in every
-  email (CAN-SPAM), and likely an optional, unchecked consent checkbox on
-  the patient form (see question 3).
+- **No marketing or follow-up emails (decided 2026-09-29).** OAAN only
+  emails a patient to confirm their inquiry. Following up is the practice's
+  job once it has the lead. If that ever changes, it needs a Privacy Notice
+  update and likely opt-in consent first.
+- **On the form:** the patient contact form says "We never sell your
+  information." under the Send button.
 - **Planned:** Google Ads campaigns, with conversions (such as lead form
   submissions) possibly imported into Google Ads for ad optimization. Under
   the CCPA, "sharing" includes cross-context behavioral advertising, so the
   no-sale promise also rules out remarketing audiences built from site
   visitors (see question 2).
+
+## Security
+
+- **HTTPS everywhere:** the site is served only over HTTPS (TLS
+  certificates managed by Vercel, renewed automatically). Plain HTTP
+  requests are permanently redirected to HTTPS, and the site sends a
+  Strict-Transport-Security header (2 years, including subdomains) so
+  browsers refuse to connect without encryption. Verified 2026-09-29.
+- **Database:** connections to Neon require SSL (`sslmode=require`).
+- **Vendors:** every service the site calls (Resend, Mapbox, Google,
+  Cloudinary) is reached over HTTPS.
+- **Email is the weakest link:** confirmation emails and forwarded leads
+  travel by ordinary email. Mail servers usually encrypt in transit, but
+  it isn't guaranteed end to end, and a forwarded lead then sits in the
+  practice's inbox.
+- **Access:** form submissions are stored in the database and emailed to
+  OAAN's leads inbox or the practice. No customer-facing accounts or
+  passwords exist on the site.
 
 ## Open questions for the attorney
 
@@ -148,21 +166,16 @@ the site by a scheduled job.
    allowed without opt-in consent? Should those events stay out of Google
    Ads conversion imports? (The FTC's GoodRx and BetterHelp cases involved
    health-related events shared with ad platforms.)
-3. **Follow-up emails and the no-sale promise.** OAAN won't sell visitor
-   data (decided 2026-09-29) but wants to email form users to follow up on
-   their site experience or remind them about the practice they contacted.
-   Using the fact that someone contacted an allergy practice for those
-   emails is arguably a use of consumer health data beyond the service
-   requested. Is an optional, unchecked consent checkbox on the patient
-   form ("Email me occasional follow-ups from Open Air Allergy Network")
-   the right approach? And what exact "we never sell your information"
-   wording is safe for the Privacy Notice and the site (given leads go to
-   the practice and to service providers, and planned Google Ads
-   measurement)? Specifically, confirm that forwarding a patient's message
-   to the practice they chose isn't a "sale" (under the CCPA, a disclosure
-   the consumer intentionally directs isn't one; confirm Washington's
-   definition too), given practices pay a flat listing subscription, not a
-   per-lead fee. Pay-per-lead pricing would likely change the answer.
+3. **The no-sale promise.** OAAN won't sell visitor data (decided
+   2026-09-29), and the patient form says "We never sell your
+   information." What exact wording is safe there and in the Privacy
+   Notice, given leads go to the practice and to service providers, and
+   Google Ads measurement is planned? Confirm that forwarding a patient's
+   message to the practice they chose isn't a "sale" (under the CCPA, a
+   disclosure the consumer intentionally directs isn't one; confirm
+   Washington's definition too), given practices pay a flat listing
+   subscription, not a per-lead fee. Pay-per-lead pricing would likely
+   change the answer.
 4. **HIPAA.** Confirm OAAN is not a covered entity or business associate
    (it isn't a provider, health plan, or clearinghouse, and receives
    inquiries directly from the public, not from practices).
