@@ -141,6 +141,19 @@ the site by a scheduled job.
   Strict-Transport-Security header (2 years, including subdomains) so
   browsers refuse to connect without encryption. Verified 2026-09-29.
 - **Database:** connections to Neon require SSL (`sslmode=require`).
+  Neon encrypts stored data with AES-256 and keeps backups for 30 days
+  (per Neon's security documentation).
+- **Minimal collection:** no visitor accounts or passwords, no payment
+  details, phone optional on the patient form, and OAAN's own analytics
+  log stores no visitor identifiers. Practice notification emails are never
+  shown on the site or in page source.
+- **Form safeguards:** a patient must confirm their email address before a
+  lead is marked verified, visitor input is escaped before it goes into
+  any email, and spam protections (hidden bot field, email domain check,
+  link blocking) keep junk out (`docs/lead-forms.md`).
+- **Tracking controls:** a consent banner and My Privacy Choices page, with
+  Global Privacy Control honored; Google Tag Manager doesn't load for
+  visitors who opt out (`docs/consent.md`).
 - **Vendors:** every service the site calls (Resend, Mapbox, Google,
   Cloudinary) is reached over HTTPS.
 - **Email is the weakest link:** confirmation emails and forwarded leads

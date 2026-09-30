@@ -32,6 +32,18 @@ updated 2026-09-29.
       filter, Search Console link, and a Google Ads link once that account
       exists.
 
+## Account and data security (can be done now)
+
+- [ ] **Two-factor authentication on every account** that can reach
+      visitor data or the site: Vercel, Neon, GitHub, Resend, Cloudflare,
+      Cloudinary, Mapbox, and both Google accounts (Gmail receives leads).
+- [ ] **Encrypt the laptop that holds the site's `.env` file** (Windows:
+      Settings → Privacy & security → Device encryption, or BitLocker). It
+      contains the production database password.
+- [ ] **Decide a retention period** for patient inquiries and contact
+      messages with counsel ([legal-facts.md](legal-facts.md), question 8),
+      then have the old ones deleted automatically.
+
 ## Vercel Firewall (can be done now, in Log mode)
 
 Rules belong to the Vercel project, so anything set up before the domain
