@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
@@ -6,6 +5,8 @@ import { db } from "@/lib/db";
 import { Badge } from "@/components/Badge";
 import { PhoneLink } from "@/components/PhoneLink";
 import { ContactPanel } from "@/components/pdp/ContactPanel";
+import { StickyContactBar } from "@/components/pdp/StickyContactBar";
+import { ProfileLink } from "@/components/analytics/ProfileLink";
 import { ComparingIlit, IsIlitRightForMe, WhatIsIlit } from "@/components/ilit/IlitModules";
 import { PatientReviews, reviewsWouldShow } from "@/components/PatientReviews";
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
@@ -171,14 +172,15 @@ export default async function SemLandingPage({
           </div>
           <div className="flex-1">
             <h2 className="mb-2 text-2xl font-bold">About {provider.practiceName}</h2>
-            <p className="text-sm text-foreground/80">{provider.extendedBio ?? provider.shortBio}</p>
-            <Link
+            <p className="text-sm whitespace-pre-line text-foreground/80">{provider.extendedBio ?? provider.shortBio}</p>
+            <ProfileLink
               href={`/find-an-ilit-provider/${provider.slug}`}
-              data-cta="sem_view_full_profile"
+              providerId={provider.id}
+              providerName={provider.practiceName}
               className="mt-3.5 inline-block text-sm font-semibold text-sage hover:underline"
             >
               View full provider profile, contact &amp; location →
-            </Link>
+            </ProfileLink>
           </div>
         </div>
       </section>
@@ -193,7 +195,7 @@ export default async function SemLandingPage({
         <section className="border-b border-line px-6 py-10 sm:px-10">
           <div className="rounded border border-badge-verified-bg bg-badge-verified-bg/20 p-4.5">
             <h3 className="mb-2 text-base font-bold">Traveling from {lp.targetMetroName}</h3>
-            <p className="text-sm text-muted">{lp.travelNarrative}</p>
+            <p className="text-sm whitespace-pre-line text-muted">{lp.travelNarrative}</p>
           </div>
         </section>
       )}
@@ -213,6 +215,7 @@ export default async function SemLandingPage({
           className="mx-auto max-w-md"
         />
       </section>
+      {!sent && !confirmed && <StickyContactBar targetId="contact-form" />}
     </>
   );
 }

@@ -29,6 +29,7 @@ There are three separate sources of numbers:
 | Phone clicks | `PHONE_CLICK` | A visitor clicks or taps the practice's phone number | Provider page contact panel, SEM landing pages, and the phone fallback in the lead form's email error |
 | Website clicks | `WEBSITE_CLICK` | A visitor clicks the practice's website link | Provider page contact panel and SEM landing pages |
 | Address clicks | `ADDRESS_CLICK` | A visitor clicks the practice's address, which opens it in Google Maps | Provider page and SEM landing page contact panels |
+| Profile clicks (soft lead) | `PROFILE_CLICK` | A visitor clicks "View full provider profile" on an SEM landing page, going to the practice's main page | SEM landing pages |
 
 Impressions are recorded for every practice shown, whatever its tier. A
 report would normally only cover paying practices.
@@ -38,6 +39,10 @@ a practice: form submissions (see Leads below), phone clicks, website clicks,
 and address clicks. Report them separately and as a total. A practice with
 healthy page views but few lead actions, or too few page views overall, is
 a candidate for targeted SEM.
+
+**Soft leads:** profile clicks from SEM landing pages. The visitor didn't
+contact the practice, but chose to learn more about it. Reported to
+practices separately from the four lead actions.
 
 ## Definitions and counting rules
 
@@ -158,3 +163,6 @@ ORDER BY e.type;
 - **2026-09-30:** SEM landing pages now use the provider page's contact
   panel, so address clicks are tracked there too (website clicks already
   were). New SEM button ids in `docs/gtm-ga4-setup.md`.
+- **2026-09-30:** profile clicks from SEM landing pages recorded as
+  `PROFILE_CLICK`, a soft lead. SEM pages also got a phone-only "Send a
+  Message" bar pinned to the bottom of the screen (`sem_sticky_send_message`).

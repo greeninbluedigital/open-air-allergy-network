@@ -90,7 +90,7 @@ onward is data, same position-based rule as the Providers tab.
 | A | Provider Slug | Must match an existing row's Provider Slug on the Providers tab exactly — this is how a landing page is tied to a practice. Required on every row — no fill-down; a blank cell here means the row is skipped, not inherited from the row above |
 | B | URL Slug | Becomes the URL, e.g. `sf-bay-area` → `/lp/example-ilit-center/sf-bay-area`. Url-safe, unique per practice (a practice can reuse the same URL Slug another practice already used, since the full path also includes the practice's own slug) |
 | C | Target Metro Name | Display name shown on the page, e.g. `SF Bay Area` |
-| D | Travel Narrative | Optional flavor text about traveling in from that metro |
+| D | Travel Narrative | Optional. Shown in the "Traveling from {Target Metro Name}" box on the landing page. Write it for that market, e.g. how a few quick trips beat years of appointments, plus nearest airports. Alt+Enter line breaks inside the cell show as line breaks on the page. This is separate from the Providers tab's Travel Notes (column O), which is only for the practice's main page |
 | E | Active | `Y` / `N`. Sync never deletes a landing page row that's removed from the sheet — set this to `N` to take one down rather than deleting the row |
 
 Like the Providers tab, sync only ever creates/updates rows here, never

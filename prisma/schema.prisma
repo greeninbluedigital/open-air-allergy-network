@@ -509,6 +509,9 @@ enum AnalyticsEventType {
   // Google Maps). Lead actions, like PHONE_CLICK.
   WEBSITE_CLICK
   ADDRESS_CLICK
+  // A click from an SEM landing page to the practice's full profile page.
+  // Reported to practices as a soft lead.
+  PROFILE_CLICK
   // The practice appeared in a list a visitor actually loaded in a browser
   // (one row per practice per page view).
   HOMEPAGE_IMPRESSION

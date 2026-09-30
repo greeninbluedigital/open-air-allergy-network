@@ -42,6 +42,7 @@ and outbound link clicks.
 | `oaan_phone_click` | Practice phone number clicked or tapped | `provider_id`, `provider_name` |
 | `oaan_website_click` | Practice website link clicked | `provider_id`, `provider_name` |
 | `oaan_address_click` | Practice address clicked (opens Google Maps) | `provider_id`, `provider_name` |
+| `oaan_profile_click` | "View full provider profile" clicked on an SEM landing page (a soft lead) | `provider_id`, `provider_name` |
 | `oaan_lead_submit` | Patient contact form sent, on a provider page or SEM landing page | `provider_id`, `provider_name`, `form_location` (`provider_page` or `sem_landing_page`) |
 | `oaan_lead_confirm` | Patient clicked the confirmation link in their email | same as `oaan_lead_submit` |
 | `oaan_practice_lead_submit` | For Practices form sent | none |
@@ -75,7 +76,7 @@ success page in the same browser session doesn't send the event again.
 | `sem_hero_send_message` | SEM landing page, "Send a Message" button in the hero |
 | `sem_right_for_me` | SEM landing page, "Send a Message" button in "Is ILIT Right for Me?" |
 | `sem_comparison_summary` | SEM landing page, "Send a message" link under the comparison table |
-| `sem_view_full_profile` | SEM landing page, "View full provider profile" link to the practice's main page |
+| `sem_sticky_send_message` | SEM landing page, the "Send a Message" bar pinned to the bottom of the screen on phones |
 
 ### Search origins (`search_origin`)
 
