@@ -82,7 +82,7 @@ pixel, for example) needs its consent requirement set by hand.
   for health-related events).
 - The banner and choices page wording, including whether the footer link
   should read "Your Privacy Choices" with California's opt-out icon.
-- Whether the patient contact form needs its own consent checkbox, which
+- Whether the consumer contact form needs its own consent checkbox, which
   is separate from this banner.
 
 Code: `src/lib/consent.ts` (mode, boot script),

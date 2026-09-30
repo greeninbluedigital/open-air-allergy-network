@@ -9,7 +9,7 @@ launch. Last updated 2026-09-29.
 **The first call is the attorney.** Breach notification is required by law
 in every US state, whether or not OAAN has a policy. Several states,
 including California, count medical information tied to a name as
-reportable, and patient inquiries can contain it. Some states set
+reportable, and consumer inquiries can contain it. Some states set
 deadlines as short as 30 days. Don't notify anyone publicly, delete
 evidence, or make promises before talking to counsel.
 
@@ -24,7 +24,7 @@ Warning signs worth treating as a possible incident:
   sudden spike in reads.
 - Unusual form traffic: a burst of submissions, or leads arriving somewhere
   they shouldn't.
-- A practice or patient reporting a lead or email that didn't come from
+- A practice or consumer reporting a lead or email that didn't come from
   them, or a message reaching the wrong practice.
 - The `.env` file, or a key from it, showing up anywhere public (a
   screenshot, a shared file, a code commit).
@@ -71,16 +71,16 @@ all account passwords saved on it.
 ## 3. Assess it
 
 Work out, as precisely as possible:
-- **What data:** which forms or tables (patient inquiries, practice
+- **What data:** which forms or tables (consumer inquiries, practice
   leads, About messages), and which fields. `docs/legal-facts.md` lists
   what each form collects.
 - **Whose, and how many people.**
 - **Where they live.** This decides which state laws apply. Leads don't
-  record a patient's state, but the practice they contacted, and any
+  record a consumer's state, but the practice they contacted, and any
   searched zip in the page path, are good indicators.
 - **When it started and ended**, and whether the data was actually seen or
   taken, or only exposed.
-- **Which practices** had patient inquiries involved.
+- **Which practices** received the inquiries involved.
 
 Keep the evidence: vendor logs, Vercel firewall and request logs, and
 screenshots. Don't delete records or logs to "clean up".
@@ -91,7 +91,7 @@ With the attorney deciding who, when, and how:
 - **Affected people**, as state laws require.
 - **State attorneys general** where required (California, for example,
   when more than 500 residents are affected).
-- **Practices** whose patients' inquiries were involved, and anyone OAAN's
+- **Practices** whose consumer inquiries were involved, and anyone OAAN's
   practice agreements require notifying.
 - **Vendors** involved, if the incident started on their side or they can
   help.

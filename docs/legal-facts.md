@@ -26,16 +26,24 @@ code on 2026-09-29. Update it whenever data handling changes.
   Providers"), on the homepage, and on free listings' pages. Practices can
   also pay for SEM landing pages (ad landing pages for their practice) and
   for a "Medically reviewed by" credit on Learn articles.
-- **Patients pay nothing.** OAAN does not provide medical care, book
-  appointments, or process payments from patients.
-- **OAAN is not the practice.** A patient's message goes to the practice
+- **Terminology (owner's policy, 2026-09-29):** legal and privacy documents
+  call the people who use the site **consumers** (or visitors), not
+  patients. OAAN is not a healthcare provider and has no care relationship
+  with anyone. Public documents should say so plainly. They should still
+  note, in a neutral line, that a message may include health information
+  the consumer chooses to share: the data's legal status depends on what
+  it is, not on what it's called, and an understated privacy policy is its
+  own risk.
+- **Consumers pay nothing.** OAAN does not provide medical care, book
+  appointments, or process payments from consumers.
+- **OAAN is not the practice.** A consumer's message goes to the practice
   they chose, and treatment happens entirely between them.
 
 ## Information visitors give us (forms)
 
 | Form | Where | What it collects | What happens to it |
 |---|---|---|---|
-| Patient contact form | Paid provider pages (Full Profile and up) and SEM landing pages | First and last name, email, phone (optional), message (free text, **may include health details**), campaign data (below) | Stored by OAAN. A confirmation email goes to the patient. The lead is forwarded by email to **that practice only**, either when the patient confirms or after about 60 minutes unconfirmed. Never sent to competing practices. |
+| Consumer contact form | Paid provider pages (Full Profile and up) and SEM landing pages | First and last name, email, phone (optional), message (free text, **may include health details**), campaign data (below) | Stored by OAAN. A confirmation email goes to the consumer. The lead is forwarded by email to **that practice only**, either when the consumer confirms or after about 60 minutes unconfirmed. Never sent to competing practices. |
 | For Practices form | /for-practices | Name, practice name, practice website, email, phone, city, state, reason, comments, campaign data | Stored by OAAN and emailed to OAAN's leads inbox. Used for sales follow-up. |
 | About page form | /about | Name, email, reason, message, campaign data | Stored by OAAN and emailed to OAAN's leads inbox. |
 
@@ -116,16 +124,16 @@ the site by a scheduled job.
 - **Commitment (decided 2026-09-29): OAAN will not sell visitor data.**
   The owner dropped an earlier idea of selling lead data (e.g. through
   LiveRamp) and wants "we never sell your information" as a selling point.
-- **Who receives a patient's inquiry:** the practice they contacted, plus
+- **Who receives a consumer's inquiry:** the practice they contacted, plus
   the service providers above. Suggested wording: "We never sell your
   information. Your message goes only to the practice you contact and to
   the service providers who help us run this site."
 - **Never:** a practice's leads given to a competing practice.
 - **No marketing or follow-up emails (decided 2026-09-29).** OAAN only
-  emails a patient to confirm their inquiry. Following up is the practice's
+  emails a consumer to confirm their inquiry. Following up is the practice's
   job once it has the lead. If that ever changes, it needs a Privacy Notice
   update and likely opt-in consent first.
-- **On the form:** the patient contact form says "We never sell your
+- **On the form:** the consumer contact form says "We never sell your
   information." under the Send button.
 - **Marketing emails to practices:** OAAN's sales outreach to practices
   (following up For Practices inquiries, pitching listings) counts as
@@ -134,7 +142,7 @@ the site by a scheduled job.
   and I won't email you again", honored within 10 business days), OAAN's
   physical postal address, and an honest sender and subject line. An email
   signature covers it. Privacy Notice answer: marketing emails can be
-  unsubscribed from; patients receive none, only their inquiry
+  unsubscribed from; consumers receive none, only their inquiry
   confirmation (a transactional email).
 - **Planned:** Google Ads campaigns, with conversions (such as lead form
   submissions) possibly imported into Google Ads for ad optimization. Under
@@ -159,13 +167,13 @@ turns each one into a promise.
 
 ## Open questions for the attorney
 
-1. **Consumer health data.** Patient inquiries (and possibly the fact that
+1. **Consumer health data.** Consumer inquiries (and possibly the fact that
    someone searched for or contacted an allergy practice) may be "consumer
    health data" under Washington's My Health My Data Act, and similar laws
    in Nevada and Connecticut, and "sensitive personal information" under
    California's CPRA. Washington requires a separate consumer health data
    privacy policy, consent to collect and share, and signed authorization
-   to sell. Does the site need a consent checkbox on the patient contact
+   to sell. Does the site need a consent checkbox on the consumer contact
    form, a separate health data policy, or both?
 2. **Analytics and ads on health-related actions.** GA4 receives events
    like "lead form submitted to [practice]" and zip searches. Is that
@@ -173,10 +181,10 @@ turns each one into a promise.
    Ads conversion imports? (The FTC's GoodRx and BetterHelp cases involved
    health-related events shared with ad platforms.)
 3. **The no-sale promise.** OAAN won't sell visitor data (decided
-   2026-09-29), and the patient form says "We never sell your
+   2026-09-29), and the consumer form says "We never sell your
    information." What exact wording is safe there and in the Privacy
    Notice, given leads go to the practice and to service providers, and
-   Google Ads measurement is planned? Confirm that forwarding a patient's
+   Google Ads measurement is planned? Confirm that forwarding a consumer's
    message to the practice they chose isn't a "sale" (under the CCPA, a
    disclosure the consumer intentionally directs isn't one; confirm
    Washington's definition too), given practices pay a flat listing
@@ -194,7 +202,7 @@ turns each one into a promise.
    (California "Do Not Sell or Share", Global Privacy Control signals,
    "Limit the Use of My Sensitive Personal Information"), and is opt-in
    consent needed anywhere?
-8. **Retention.** How long to keep patient inquiries, practice leads, and
+8. **Retention.** How long to keep consumer inquiries, practice leads, and
    contact messages.
 9. **Privacy request contact.** Which email address handles privacy
    requests (access, deletion, opt-out)? The plan is email only, no phone
@@ -206,14 +214,14 @@ turns each one into a promise.
     for paying practices (tiers, billing, cancellation, content accuracy,
     lead delivery, no guarantee of results).
 11. **Breach response.** Review `docs/incident-response.md`. Which
-    notification laws would apply to a leak of patient inquiries, and what
+    notification laws would apply to a leak of consumer inquiries, and what
     should the Privacy Notice say about breach notification?
 12. **Anti-scraping clause** in the Terms of Use (see
     `docs/anti-scraping.md`).
-13. **A note under the patient message box?** Some health directories add
+13. **A note under the consumer message box?** Some health directories add
     a line like "Please don't include detailed medical information. The
     practice will ask for what they need." That would reduce the sensitive
-    health data OAAN collects and stores. The trade-off: patients
+    health data OAAN collects and stores. The trade-off: consumers
     describing their allergies helps practices judge fit, which is part of
     OAAN's lead-quality pitch to practices. Is the note recommended, and
     does it change what the Privacy Notice or a consent checkbox needs to
