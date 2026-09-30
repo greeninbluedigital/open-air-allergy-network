@@ -196,7 +196,15 @@ turns each one into a promise.
 5. **Paid placement disclosure.** Paid tiers get higher placement and the
    "Featured" label, and "Medically reviewed by" credits are a paid perk.
    What disclosure is needed (FTC endorsement and advertising rules)?
-6. **Reviews.** Featured pages show selected Google and Yelp review
+6. **The "Verified" badge.** Paid listings (Verified tier and up) show a
+   "Verified" badge, but its meaning has never been defined on the site.
+   The draft Terms say OAAN doesn't verify practices' qualifications,
+   licensing, or quality of care, so consumers could read the badge as
+   more than it means. What should "Verified" be defined as (for example,
+   "this practice confirmed its listing details with us and has an active
+   listing subscription"), where should that definition appear, and should
+   the badge be renamed? Same question for the "Founding Member" badge.
+6b. **Reviews.** Featured pages show selected Google and Yelp review
    excerpts. Anything required under the FTC's rule on consumer reviews?
 7. **Privacy choices and cookie banner.** Which opt-outs are required
    (California "Do Not Sell or Share", Global Privacy Control signals,
