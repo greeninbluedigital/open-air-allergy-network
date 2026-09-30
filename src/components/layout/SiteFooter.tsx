@@ -4,7 +4,7 @@ import { ScraperTrapLink } from "@/components/ScraperTrapLink";
 const YEAR = new Date().getFullYear();
 
 const LEGAL_LINKS = [
-  { href: "/legal/privacy-notice", label: "Privacy Notice" },
+  { href: "/legal/privacy-notice", label: "Privacy Policy" },
   { href: "/legal/terms-and-conditions", label: "Terms & Conditions" },
   { href: "/legal/cookie-policy", label: "Cookie Policy" },
   { href: "/legal/privacy-choices", label: "My Privacy Choices" },
@@ -76,7 +76,7 @@ export function MinimalFooter() {
     <footer className="border-t border-line px-6 py-6 text-xs text-muted sm:px-10">
       <div className="flex flex-wrap items-center gap-4">
         <Link href="/legal/privacy-notice" className="text-foreground/80 transition-colors hover:text-sage">
-          Privacy Notice
+          Privacy Policy
         </Link>
         <Link href="/legal/terms-and-conditions" className="text-foreground/80 transition-colors hover:text-sage">
           Terms & Conditions

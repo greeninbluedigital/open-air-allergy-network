@@ -100,7 +100,7 @@ export function ContactForm({
         </a>{" "}
         and{" "}
         <a href="/legal/privacy-notice" target="_blank" rel="noopener" className="font-semibold text-sage hover:underline">
-          Privacy Notice
+          Privacy Policy
         </a>
         .
       </p>

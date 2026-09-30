@@ -36,7 +36,7 @@ export default async function LegalPage({ params }: PageProps<"/legal/[slug]">) 
       <h1 className="mb-6 text-2xl font-extrabold">{page.title}</h1>
       {`/legal/${slug}` === PRIVACY_CHOICES_PATH && <PrivacyChoicesPanel />}
       <div
-        className="text-sm text-foreground/80 [&_h2]:mt-6 [&_h2]:mb-2 [&_h2]:text-base [&_h2]:font-bold [&_p]:mb-3"
+        className="text-sm text-foreground/80 [&_a]:font-semibold [&_a]:text-sage [&_a:hover]:underline [&_h2]:mt-6 [&_h2]:mb-2 [&_h2]:text-base [&_h2]:font-bold [&_h3]:mt-4 [&_h3]:mb-1 [&_h3]:font-bold [&_li]:mb-1 [&_p]:mb-3 [&_ul]:mb-3 [&_ul]:list-disc [&_ul]:pl-5"
         // Trusted, owner/counsel-authored content — same trust boundary as
         // extendedBio/Yelp embeds elsewhere in the app.
         dangerouslySetInnerHTML={{ __html: page.bodyHtml }}
