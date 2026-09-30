@@ -141,7 +141,12 @@ the site by a scheduled job.
 3. **Future sale of lead data.** What consent is needed now to keep that
    option open later? Hashed emails aren't treated as anonymous by the FTC.
    Consent generally can't be added after the fact for data already
-   collected.
+   collected. The owner's example is uploading contact records to LiveRamp,
+   which then converts them to its own identifiers. That upload is itself
+   a disclosure of identifiable data to a third party (likely a "sale" and
+   "sharing" under the CCPA, and a sale of consumer health data under
+   Washington's law, which requires signed authorization). How should the
+   Privacy Notice word this so the option stays open?
 4. **HIPAA.** Confirm OAAN is not a covered entity or business associate
    (it isn't a provider, health plan, or clearinghouse, and receives
    inquiries directly from the public, not from practices).
