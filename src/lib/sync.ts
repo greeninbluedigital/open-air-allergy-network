@@ -28,6 +28,7 @@ const PROVIDER_COLUMNS = [
   ["verificationNotes", "Verification Notes"],
   ["offersVideoConsult", "Offers Video Consult"],
   ["offersPhoneConsult", "Offers Phone Consult"],
+  ["pdpRemoteConsultBadge", "PDP Remote Consult Badge"],
   ["shortBio", "Short Bio"],
   ["extendedBio", "Extended Bio"],
   ["photoUrl", "Provider Photo URL"],
@@ -47,7 +48,6 @@ const PROVIDER_COLUMNS = [
   ["notes", "Notes"],
   ["isDemo", "Demo/Example Listing"],
   ["srpPhotoUrl", "SRP Card Photo URL"],
-  ["pdpRemoteConsultBadge", "PDP Remote Consult Badge"],
 ] as const;
 
 const COLUMNS = PROVIDER_COLUMNS.map(([key]) => key);
