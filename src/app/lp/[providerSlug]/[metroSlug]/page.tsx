@@ -5,16 +5,13 @@ import type { Metadata } from "next";
 import { db } from "@/lib/db";
 import { Badge } from "@/components/Badge";
 import { PhoneLink } from "@/components/PhoneLink";
-import { ContactForm } from "@/components/pdp/ContactForm";
-import { LeadStatusMessage, LeadErrorMessage } from "@/components/pdp/LeadStatusMessage";
+import { ContactPanel } from "@/components/pdp/ContactPanel";
+import { ComparingIlit, IsIlitRightForMe, WhatIsIlit } from "@/components/ilit/IlitModules";
 import { PatientReviews, reviewsWouldShow } from "@/components/PatientReviews";
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
-import { TrackedLink } from "@/components/analytics/TrackedLink";
-import { SYMPTOMS as ALL_SYMPTOMS, TREATMENT_COMPARISON, WHAT_IS_ILIT_COPY } from "@/lib/content";
 import { parseFormError } from "@/lib/forms";
 import { isFullProfilePlus, isVerifiedPlus } from "@/lib/tiers";
 
-const SYMPTOMS = ALL_SYMPTOMS.slice(0, 4);
 
 async function getLandingPage(providerSlug: string, metroSlug: string) {
   const provider = await db.provider.findUnique({ where: { slug: providerSlug, active: true } });
@@ -113,9 +110,10 @@ export default async function SemLandingPage({
         <div className="flex flex-wrap justify-center gap-2.5">
           <a
             href="#contact-form"
+            data-cta="sem_hero_send_message"
             className="rounded bg-action px-5 py-2.5 text-sm font-semibold text-white hover:bg-action-hover"
           >
-            Contact This Practice
+            Send a Message
           </a>
           {provider.phone && (
             <span className="rounded border border-foreground px-5 py-2.5 text-sm font-semibold">
@@ -125,139 +123,96 @@ export default async function SemLandingPage({
         </div>
       </div>
 
-      <div className="border-b border-line px-6 py-8 sm:px-10">
-        <h2 className="mb-3 text-lg font-bold">What is ILIT?</h2>
-        <p className="text-sm text-foreground/80">{WHAT_IS_ILIT_COPY}</p>
-      </div>
+      {/* Same modules as Learn About ILIT (src/components/ilit/IlitModules.tsx),
+          but every call to action points to this practice's contact form:
+          paid traffic stays on this page rather than going to the directory. */}
+      <section className="border-b border-line px-6 py-10 sm:px-10">
+        <WhatIsIlit />
+      </section>
 
-      <div className="border-b border-line px-6 py-8 sm:px-10">
-        <h2 className="mb-3 text-lg font-bold">Does This Sound Familiar?</h2>
-        <div className="flex flex-wrap gap-4">
-          {SYMPTOMS.map((s) => (
-            <div key={s.label} className="flex items-center gap-2 text-sm">
-              <span aria-hidden="true">{s.icon}</span>
-              {s.label}
-            </div>
-          ))}
-        </div>
-      </div>
+      <section className="border-b border-line bg-bg-alt px-6 py-10 sm:px-10">
+        <IsIlitRightForMe
+          cta={
+            <>
+              <p className="mt-1 mb-3 text-sm font-semibold">
+                Ask {provider.practiceName} whether ILIT is a good fit for your allergies.
+              </p>
+              <a
+                href="#contact-form"
+                data-cta="sem_right_for_me"
+                className="inline-block rounded bg-action px-4 py-2.5 text-sm font-semibold text-white hover:bg-action-hover"
+              >
+                Send a Message
+              </a>
+            </>
+          }
+        />
+      </section>
 
-      <div className="border-b border-line px-6 py-8 sm:px-10">
-        <h2 className="mb-3 text-lg font-bold">
-          Comparing ILIT to Other Allergy Treatments
-        </h2>
-        <div className="overflow-x-auto">
-          <table className="w-full min-w-[420px] border-collapse text-sm">
-            <thead>
-              <tr>
-                <th></th>
-                <th className="pb-2 text-left text-[11px] font-semibold text-muted uppercase">ILIT</th>
-                <th className="pb-2 text-left text-[11px] font-semibold text-muted uppercase">SCIT</th>
-                <th className="pb-2 text-left text-[11px] font-semibold text-muted uppercase">SLIT</th>
-              </tr>
-            </thead>
-            <tbody>
-              {TREATMENT_COMPARISON.map((row) => (
-                <tr key={row.label} className="border-t border-line/60">
-                  <td className="py-2 pr-4 text-muted">{row.label}</td>
-                  <td className="py-2 pr-4">{row.ilit}</td>
-                  <td className="py-2 pr-4">{row.scit}</td>
-                  <td className="py-2">{row.slit}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
+      <section className="border-b border-line px-6 py-10 sm:px-10">
+        <ComparingIlit
+          cta={
+            <>
+              Discuss your treatment options with {provider.practiceName}.{" "}
+              <a href="#contact-form" data-cta="sem_comparison_summary" className="font-semibold text-sage hover:underline">
+                Send a message →
+              </a>
+            </>
+          }
+        />
+      </section>
 
-      <div className="border-b border-line px-6 py-8 sm:px-10">
+      <section className="border-b border-line bg-bg-alt px-6 py-10 sm:px-10">
         <div className="flex flex-col gap-5 sm:flex-row">
           <div className="relative aspect-4/5 w-full shrink-0 overflow-hidden rounded bg-bg-alt sm:w-40">
             {provider.photoUrl && (
-              <Image src={provider.photoUrl} alt={provider.practiceName} fill className="object-cover" />
+              <Image src={provider.photoUrl} alt={provider.practiceName} fill sizes="(min-width: 640px) 160px, 100vw" className="object-cover" />
             )}
           </div>
           <div className="flex-1">
-            <div className="mb-1.5 text-base font-bold">
-              About {provider.practiceName}
-            </div>
+            <h2 className="mb-2 text-2xl font-bold">About {provider.practiceName}</h2>
             <p className="text-sm text-foreground/80">{provider.extendedBio ?? provider.shortBio}</p>
+            <Link
+              href={`/find-an-ilit-provider/${provider.slug}`}
+              data-cta="sem_view_full_profile"
+              className="mt-3.5 inline-block text-sm font-semibold text-sage hover:underline"
+            >
+              View full provider profile, contact &amp; location →
+            </Link>
           </div>
         </div>
-        <Link
-          href={`/find-an-ilit-provider/${provider.slug}`}
-          className="mt-3.5 inline-block text-sm font-semibold"
-        >
-          View full provider profile, contact &amp; location →
-        </Link>
-      </div>
+      </section>
 
       {reviewsWouldShow(provider) && (
-        <div className="border-b border-line px-6 py-8 sm:px-10">
+        <section className="border-b border-line px-6 py-10 sm:px-10">
           <PatientReviews provider={provider} />
-        </div>
+        </section>
       )}
 
       {lp.travelNarrative && (
-        <div className="border-b border-line px-6 py-8 sm:px-10">
+        <section className="border-b border-line px-6 py-10 sm:px-10">
           <div className="rounded border border-badge-verified-bg bg-badge-verified-bg/20 p-4.5">
-            <h3 className="mb-2 text-base font-bold">
-              Traveling from {lp.targetMetroName}
-            </h3>
+            <h3 className="mb-2 text-base font-bold">Traveling from {lp.targetMetroName}</h3>
             <p className="text-sm text-muted">{lp.travelNarrative}</p>
           </div>
-        </div>
+        </section>
       )}
 
-      <div id="contact-form" className="px-6 py-8 sm:px-10">
-        <div className="max-w-md rounded border border-line p-5">
-          {sent || confirmed ? (
-            <LeadStatusMessage
-              status={sent ? "sent" : "confirmed"}
-              practiceName={provider.practiceName}
-              providerId={provider.id}
-              formLocation="sem_landing_page"
-            />
-          ) : (
-            <>
-              {provider.phone && (
-                <div className="mb-2 text-sm">
-                  📞{" "}
-                  <PhoneLink phone={provider.phone} className="text-[#1c5ea8]" providerId={provider.id} providerName={provider.practiceName} />
-                </div>
-              )}
-              {provider.website && (
-                <div className="mb-3 text-sm">
-                  🌐{" "}
-                  <TrackedLink
-                    href={provider.website}
-                    type="WEBSITE_CLICK"
-                    providerId={provider.id}
-                    providerName={provider.practiceName}
-                    className="text-[#1c5ea8]"
-                  >
-                    {provider.website.replace(/^https?:\/\//, "")}
-                  </TrackedLink>
-                </div>
-              )}
-              {error && (
-                <LeadErrorMessage
-                  error={error}
-                  practiceName={provider.practiceName}
-                  phone={provider.phone}
-                  providerId={provider.id}
-                />
-              )}
-              <ContactForm
-                providerId={provider.id}
-                providerSlug={provider.slug}
-                utm={utm}
-                returnPath={returnPath}
-              />
-            </>
-          )}
-        </div>
-      </div>
+      <section id="contact-form" className="scroll-mt-4 bg-bg-alt px-6 py-10 sm:px-10">
+        {/* The same panel as the provider page (form, then phone, website,
+            and the tracked map link). */}
+        <ContactPanel
+          provider={provider}
+          showForm
+          sent={sent}
+          confirmed={confirmed}
+          error={error}
+          utm={utm}
+          returnPath={returnPath}
+          formLocation="sem_landing_page"
+          className="mx-auto max-w-md"
+        />
+      </section>
     </>
   );
 }

@@ -3,13 +3,10 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { db } from "@/lib/db";
 import { Badge } from "@/components/Badge";
-import { PhoneLink } from "@/components/PhoneLink";
 import { ArticleFeed } from "@/components/ArticleFeed";
-import { ContactForm } from "@/components/pdp/ContactForm";
-import { LeadStatusMessage, LeadErrorMessage } from "@/components/pdp/LeadStatusMessage";
+import { ContactPanel, formatAddress } from "@/components/pdp/ContactPanel";
 import { PatientReviews, getAggregateRatingSchema } from "@/components/PatientReviews";
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
-import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { PhotoGallery } from "@/components/pdp/PhotoGallery";
 import { truncateForMeta } from "@/lib/metadata";
 import { parseFormError } from "@/lib/forms";
@@ -26,10 +23,6 @@ const FAQ_ACCORDION_THRESHOLD = 4;
 // "Getting Here — Fly In" body when the sheet's Travel Notes (column O) is blank.
 const DEFAULT_TRAVEL_NOTE =
   "This practice welcomes out-of-area patients. Contact them directly for travel guidance.";
-
-function formatAddress(provider: { address: string; addressLine2: string | null }): string {
-  return provider.addressLine2 ? `${provider.address}, ${provider.addressLine2}` : provider.address;
-}
 
 // Freemium listings are only claimed as "confirmed" once the phone
 // confirmation (Verification Date) has actually happened.
@@ -416,77 +409,17 @@ export default async function ProviderDetailPage({
             it's already visible in the sidebar. md:sticky keeps it in view
             while scrolling through the long content column on desktop. */}
         <div className="order-first flex-1 md:order-none">
-          <div className="rounded border border-line bg-background p-4.5 md:sticky md:top-6 border-t-4 border-t-action">
-            <h3 className="mb-3 text-base font-bold">Contact {provider.practiceName}</h3>
-
-            {sent || confirmed ? (
-              <LeadStatusMessage
-                status={sent ? "sent" : "confirmed"}
-                practiceName={provider.practiceName}
-                providerId={provider.id}
-                formLocation="provider_page"
-              />
-            ) : (
-              isFullProfilePlus && (
-                <>
-                  {error && (
-                    <LeadErrorMessage
-                      error={error}
-                      practiceName={provider.practiceName}
-                      phone={provider.phone}
-                      providerId={provider.id}
-                    />
-                  )}
-                  <ContactForm
-                    providerId={provider.id}
-                    providerSlug={provider.slug}
-                    utm={utm}
-                    returnPath={`/find-an-ilit-provider/${provider.slug}`}
-                  />
-                </>
-              )
-            )}
-
-            {(provider.phone || provider.website) && (
-              <div className="mt-3.5 border-t border-line pt-3.5">
-                {provider.phone && (
-                  <div className="mb-2 text-sm">
-                    📞{" "}
-                    <PhoneLink phone={provider.phone} className="text-[#1c5ea8]" providerId={provider.id} providerName={provider.practiceName} />
-                  </div>
-                )}
-                {provider.website && (
-                  <div className="text-sm">
-                    🌐{" "}
-                    <TrackedLink
-                      href={provider.website}
-                      type="WEBSITE_CLICK"
-                      providerId={provider.id}
-                      providerName={provider.practiceName}
-                      className="text-[#1c5ea8]"
-                    >
-                      {provider.website.replace(/^https?:\/\//, "")}
-                    </TrackedLink>
-                  </div>
-                )}
-              </div>
-            )}
-
-            <div className="mt-3.5 border-t border-line pt-3.5 text-sm">
-              📍{" "}
-              <TrackedLink
-                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-                  `${formatAddress(provider)}, ${provider.city}, ${provider.state} ${provider.zip}`,
-                )}`}
-                type="ADDRESS_CLICK"
-                providerId={provider.id}
-                providerName={provider.practiceName}
-                className="text-[#1c5ea8] hover:underline"
-              >
-                {formatAddress(provider)}, {provider.city}, {provider.state} {provider.zip}
-              </TrackedLink>
-            </div>
-          </div>
+          <ContactPanel
+            provider={provider}
+            showForm={isFullProfilePlus}
+            sent={sent}
+            confirmed={confirmed}
+            error={error}
+            utm={utm}
+            returnPath={`/find-an-ilit-provider/${provider.slug}`}
+            formLocation="provider_page"
+            className="md:sticky md:top-6"
+          />
 
           {/* Deliberately its own, non-sticky box rather than part of the
               card above: with Hours folded into the sticky card, the whole

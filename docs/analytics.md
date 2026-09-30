@@ -28,7 +28,7 @@ There are three separate sources of numbers:
 | Provider page views | `PAGE_VIEW` | The page loads in a visitor's browser (not a viewability measure) | Provider pages (every tier, Freemium included) and SEM landing pages. Tell them apart by path: SEM pages start with `/lp/` |
 | Phone clicks | `PHONE_CLICK` | A visitor clicks or taps the practice's phone number | Provider page contact panel, SEM landing pages, and the phone fallback in the lead form's email error |
 | Website clicks | `WEBSITE_CLICK` | A visitor clicks the practice's website link | Provider page contact panel and SEM landing pages |
-| Address clicks | `ADDRESS_CLICK` | A visitor clicks the practice's address, which opens it in Google Maps | Provider page contact panel |
+| Address clicks | `ADDRESS_CLICK` | A visitor clicks the practice's address, which opens it in Google Maps | Provider page and SEM landing page contact panels |
 
 Impressions are recorded for every practice shown, whatever its tier. A
 report would normally only cover paying practices.
@@ -155,3 +155,6 @@ ORDER BY e.type;
   keyword, ad variant, ad click id, and landing page, remembered for 30 days
   from the campaign visit (`oaan_attr` cookie). Tag Manager now loads on
   production only.
+- **2026-09-30:** SEM landing pages now use the provider page's contact
+  panel, so address clicks are tracked there too (website clicks already
+  were). New SEM button ids in `docs/gtm-ga4-setup.md`.

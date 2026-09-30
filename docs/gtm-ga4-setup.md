@@ -72,6 +72,10 @@ success page in the same browser session doesn't send the event again.
 | `provider_card_homepage`, `provider_card_search`, `provider_card_nearby` | A practice card clicked in the homepage featured list, search results, or a free listing's nearby list |
 | `srp_view_list`, `srp_view_map` | List/Map switch on phones |
 | `sem_header_logo` | Logo on an SEM landing page, the way out to the main site |
+| `sem_hero_send_message` | SEM landing page, "Send a Message" button in the hero |
+| `sem_right_for_me` | SEM landing page, "Send a Message" button in "Is ILIT Right for Me?" |
+| `sem_comparison_summary` | SEM landing page, "Send a message" link under the comparison table |
+| `sem_view_full_profile` | SEM landing page, "View full provider profile" link to the practice's main page |
 
 ### Search origins (`search_origin`)
 

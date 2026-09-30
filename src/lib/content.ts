@@ -5,15 +5,7 @@
  * PROJECT_SPEC.md Section 4: these read as "common triggers addressed
  * through allergy immunotherapy including ILIT," never a promise of relief.
  */
-/**
- * Single-sourced per Section 3 (SEM Landing Page) — "safe to duplicate
- * verbatim since these pages are noindexed," but the source of truth is
- * here, not retyped on each page.
- */
-export const WHAT_IS_ILIT_COPY =
-  "Intralymphatic immunotherapy (ILIT) delivers allergen extract directly into a lymph node, where the immune system processes it efficiently. Because of this targeted delivery, a typical ILIT course involves far fewer visits than conventional subcutaneous immunotherapy (SCIT, commonly known as allergy shots). ILIT is administered by trained allergists and immunologists, and — like any allergy treatment — isn't the right fit for every patient. Providers typically also offer other treatment options, and the best choice is the one you and your doctor decide on together.";
-
-// Shared by the Learn page, Freemium PDPs, and the homepage. Opens with the
+// Shared by the Learn page, SEM landing pages, Freemium PDPs, and the homepage. Opens with the
 // allergy-shots comparison most readers already know, while keeping the
 // "ILIT is an allergy treatment…" form AI answers extract definitions from.
 export const ILIT_DEFINITION =
@@ -58,8 +50,8 @@ export const TREATMENT_COMPARISON_HEADERS = {
  * differences only — never efficacy or outcome claims. Tone stays positive
  * and objective toward SCIT/SLIT; all three are valid options.
  *
- * `medicine` only renders on Learn About ILIT; the SEM landing page table
- * shows the three immunotherapy columns.
+ * Rendered by ComparingIlit (src/components/ilit/IlitModules.tsx) on both
+ * Learn About ILIT and the SEM landing pages.
  */
 export const TREATMENT_COMPARISON = [
   {
