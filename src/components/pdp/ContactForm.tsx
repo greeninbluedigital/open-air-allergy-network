@@ -95,11 +95,11 @@ export function ContactForm({
           isn't lost. */}
       <p className="mt-1.5 text-center text-[11.5px] leading-snug text-muted">
         We never sell your information. By sending, you agree to our{" "}
-        <a href="/legal/terms-and-conditions" target="_blank" rel="noopener" className="underline">
+        <a href="/legal/terms-and-conditions" target="_blank" rel="noopener" className="font-semibold text-sage hover:underline">
           Terms
         </a>{" "}
         and{" "}
-        <a href="/legal/privacy-notice" target="_blank" rel="noopener" className="underline">
+        <a href="/legal/privacy-notice" target="_blank" rel="noopener" className="font-semibold text-sage hover:underline">
           Privacy Notice
         </a>
         .
