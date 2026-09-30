@@ -220,7 +220,21 @@ turns each one into a promise.
    current size (the CCPA's thresholds may not be met yet).
 10. **Terms for practices.** A separate listing or advertising agreement
     for paying practices (tiers, billing, cancellation, content accuracy,
-    lead delivery, no guarantee of results).
+    lead delivery, no guarantee of results). Cancellation and refunds
+    belong here, not in the website Terms of Use (consumers pay nothing).
+    The Terms of Use should say that practices buying listings are also
+    bound by this separate agreement. Cancellation points to cover:
+    - Term and renewal (monthly or annual, automatic renewal, and any
+      auto-renewal notice rules that apply to business contracts)
+    - Notice required to cancel (e.g. 30 days before the next billing date)
+    - Refunds: none for partial periods, prorated, or case by case
+    - What happens to the listing: it drops to a free basic listing, losing
+      photos, the contact form (no more leads through the site), badges,
+      reviews, and Featured placement
+    - Founding Member status: lost for good, or restored on resubscribing
+    - SEM landing pages: turned off at cancellation
+    - Learn article review credits: reassigned when a practice lapses (the
+      owner's existing policy)
 11. **Breach response.** Review `docs/incident-response.md`. Which
     notification laws would apply to a leak of consumer inquiries, and what
     should the Privacy Notice say about breach notification?
