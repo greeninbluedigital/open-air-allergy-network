@@ -49,10 +49,12 @@ export const TREATMENT_COMPARISON_HEADERS = {
  * Comparison guardrail (Section 4): duration/visit-count/administration
  * differences only — never efficacy or outcome claims. Tone stays positive
  * and objective toward SCIT/SLIT; all three are valid options.
- * Durations and visit schedules checked 2026-09-30: SCIT build-up 1 to 2
- * shots a week for 3 to 6 months, maintenance every 2 to 4 weeks for 3 to 5
- * years (Cleveland Clinic); SLIT daily, "3 years or longer" (AAAAI); ILIT
- * typically 3 injections about a month apart.
+ * Durations and visit schedules checked 2026-10-01: SCIT build-up 1 to 2
+ * shots a week for 4 to 6 months (AAAAI; Mayo Clinic says 3 to 6), then
+ * every 2 to 4 weeks for 3 to 5 years (AAAAI); SLIT daily, "3 years or
+ * longer" (AAAAI); ILIT typically 3 injections about a month apart.
+ * Sources vary: Cleveland Clinic gives 1 to 3 shots a week for 6 to 10
+ * months of build-up.
  *
  * Rendered by ComparingIlit (src/components/ilit/IlitModules.tsx) on both
  * Learn About ILIT and the SEM landing pages.
