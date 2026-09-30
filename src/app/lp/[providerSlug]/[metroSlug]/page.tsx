@@ -251,7 +251,6 @@ export default async function SemLandingPage({
               <ContactForm
                 providerId={provider.id}
                 providerSlug={provider.slug}
-                practiceName={provider.practiceName}
                 utm={utm}
                 returnPath={returnPath}
               />

@@ -435,7 +435,6 @@ export default async function ProviderDetailPage({
                   <ContactForm
                     providerId={provider.id}
                     providerSlug={provider.slug}
-                    practiceName={provider.practiceName}
                     utm={utm}
                     returnPath={`/find-an-ilit-provider/${provider.slug}`}
                   />

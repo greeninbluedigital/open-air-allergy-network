@@ -134,11 +134,11 @@ the site by a scheduled job.
   job once it has the lead. If that ever changes, it needs a Privacy Notice
   update and likely opt-in consent first.
 - **On the form (2026-09-30):** under the consumer contact form's Send
-  button: "By sending, you agree to our Terms and Privacy Notice, and that
-  {Practice} may contact you about your inquiry. We never sell your
-  information." (Terms and Privacy Notice are links that open in a new
-  tab.) Modeled on Cars.com's line, minus its autodialer and marketing
-  consent, which OAAN doesn't need.
+  button: "We never sell your information. By sending, you agree to our
+  Terms and Privacy Notice." (Terms and Privacy Notice are links that open
+  in a new tab.) No separate consent for the practice to call back: the
+  form itself is a request to be contacted about the inquiry, and the
+  Privacy Notice discloses that messages go to the chosen practice.
 - **Marketing emails to practices:** OAAN's sales outreach to practices
   (following up For Practices inquiries, pitching listings) counts as
   commercial email under CAN-SPAM, even one-to-one and business to
