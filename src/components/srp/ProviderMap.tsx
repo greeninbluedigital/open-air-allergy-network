@@ -4,25 +4,27 @@ import { useEffect, useRef, useState } from "react";
 import type LType from "leaflet";
 import "leaflet/dist/leaflet.css";
 import type { SrpProvider } from "@/lib/srp";
-import { isFullProfilePlus, isVerifiedPlus } from "@/lib/tiers";
+import { isFullProfilePlus, isVerifiedPlus, showsAcademic } from "@/lib/tiers";
 
 const MILES_TO_METERS = 1609.344;
 
 // One tier system for pins and card badges (see Badge.tsx), told apart by
 // size, lightness and shape as well as hue, so it still works for
 // colorblind visitors: solid pins for Full Profile and Featured (violet
-// with a star for Founding Members), and smaller pins for everyone else:
+// with a star for Founding Members), navy with a diamond for Academic
+// (wins over Founding Member; sized by tier), and smaller pins for everyone else:
 // light green with a dark green outline and dot for Verified, plain gray
 // for the rest. Solid colors stay dark and saturated
 // so they don't blend with the map's pastel parks, water and highways, and
 // every pin has a contrasting outline. Violet also stays distinct from
 // green for red-green colorblind visitors, unlike amber or red.
-type PinKind = "founder" | "featured" | "verified" | "listed";
+type PinKind = "academic" | "founder" | "featured" | "verified" | "listed";
 
 const PIN_STYLES: Record<
   PinKind,
-  { size: number; fill: string; outline: string; glyph: "star" | "dot" | null; glyphColor: string; z: number; label: string }
+  { size: number; fill: string; outline: string; glyph: "star" | "dot" | "diamond" | null; glyphColor: string; z: number; label: string }
 > = {
+  academic: { size: 20, fill: "#1E3A8A", outline: "#ffffff", glyph: "diamond", glyphColor: "#ffffff", z: 3500, label: "Academic" },
   founder: { size: 20, fill: "#3F08E0", outline: "#ffffff", glyph: "star", glyphColor: "#ffffff", z: 3000, label: "Founding Member" },
   featured: { size: 20, fill: "#1F7A4D", outline: "#ffffff", glyph: "dot", glyphColor: "#ffffff", z: 2000, label: "Featured" },
   verified: { size: 14, fill: "#DCEEE0", outline: "#276B3D", glyph: "dot", glyphColor: "#276B3D", z: 1000, label: "Verified" },
@@ -30,6 +32,7 @@ const PIN_STYLES: Record<
 };
 
 function pinKind(p: SrpProvider): PinKind {
+  if (showsAcademic(p)) return "academic";
   if (isFullProfilePlus(p.tier)) return p.foundingMember ? "founder" : "featured";
   return isVerifiedPlus(p.tier) ? "verified" : "listed";
 }
@@ -41,19 +44,21 @@ function pinHtml(kind: PinKind, size = PIN_STYLES[kind].size): string {
   const inner =
     glyph === "star"
       ? `<span style="transform:rotate(45deg);color:${glyphColor};font-size:${Math.round(size * 0.55)}px;line-height:1">★</span>`
-      : glyph === "dot"
+      : glyph === "diamond"
+        ? // The pin is rotated 45°, so an unrotated square reads as a diamond.
+          `<span style="width:${Math.round(size * 0.32)}px;height:${Math.round(size * 0.32)}px;background:${glyphColor}"></span>`
+        : glyph === "dot"
         ? `<span style="width:${Math.round(size * 0.3)}px;height:${Math.round(size * 0.3)}px;border-radius:50%;background:${glyphColor}"></span>`
         : "";
   return `<div style="width:${size}px;height:${size}px;box-sizing:border-box;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:${fill};border:${border}px solid ${outline};box-shadow:0 1px 3px rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;">${inner}</div>`;
 }
 
-function makeIcon(L: typeof LType, kind: PinKind): LType.DivIcon {
-  const { size } = PIN_STYLES[kind];
+function makeIcon(L: typeof LType, kind: PinKind, size = PIN_STYLES[kind].size): LType.DivIcon {
   // The rotated square's point sits about 0.71 × size below its center.
   const tip = Math.round(size / 2 + size * 0.71);
   return L.divIcon({
     className: "",
-    html: pinHtml(kind),
+    html: pinHtml(kind, size),
     iconSize: [size, size],
     iconAnchor: [size / 2, tip],
     popupAnchor: [0, -tip + 4],
@@ -130,7 +135,9 @@ export function ProviderMap({
 
     for (const p of providers) {
       const kind = pinKind(p);
-      const marker = L.marker([p.latitude, p.longitude], { icon: makeIcon(L, kind), zIndexOffset: PIN_STYLES[kind].z })
+      // An Academic Verified listing gets a mid-size pin; Full Profile+ the full size.
+      const size = kind === "academic" && !isFullProfilePlus(p.tier) ? 17 : PIN_STYLES[kind].size;
+      const marker = L.marker([p.latitude, p.longitude], { icon: makeIcon(L, kind, size), zIndexOffset: PIN_STYLES[kind].z })
         .addTo(map)
         .bindPopup(`<a href="/find-an-ilit-provider/${p.slug}">${p.practiceName}</a>`);
       markersRef.current.push(marker);

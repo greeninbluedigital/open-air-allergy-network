@@ -11,7 +11,7 @@ import { ComparingIlit, IsIlitRightForMe, WhatIsIlit } from "@/components/ilit/I
 import { PatientReviews, reviewsWouldShow } from "@/components/PatientReviews";
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { parseFormError } from "@/lib/forms";
-import { isFullProfilePlus, isVerifiedPlus } from "@/lib/tiers";
+import { isFullProfilePlus, isVerifiedPlus, showsAcademic } from "@/lib/tiers";
 
 
 async function getLandingPage(providerSlug: string, metroSlug: string) {
@@ -97,6 +97,7 @@ export default async function SemLandingPage({
           from {lp.targetMetroName}.
         </p>
         <div className="mb-4 flex flex-wrap justify-center gap-1.5">
+          {showsAcademic(provider) && <Badge variant="academic">Academic</Badge>}
           {isFullProfilePlus(provider.tier) && provider.foundingMember && (
             <Badge variant="founder">Founding Member</Badge>
           )}

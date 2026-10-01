@@ -13,14 +13,19 @@ import { parseFormError } from "@/lib/forms";
 import { nearbyFeaturedProviders } from "@/lib/srp";
 import { COMPARISON_ARTICLE_SLUG, ILIT_DEFINITION } from "@/lib/content";
 import { ProviderCard } from "@/components/srp/ProviderCard";
-import { isFullProfilePlus as isFullProfileTier, isVerifiedPlus as isVerifiedTier } from "@/lib/tiers";
+import {
+  isFullProfilePlus as isFullProfileTier,
+  isVerifiedPlus as isVerifiedTier,
+  showsAcademic,
+  showsPracticeDetails,
+} from "@/lib/tiers";
 
 // 4 or fewer FAQs render fully expanded (today's behavior, unchanged); 5+
 // switches to a collapsed accordion so a practice with a lot of FAQ content
 // doesn't turn the page into a long uninterrupted scroll.
 const FAQ_ACCORDION_THRESHOLD = 4;
 
-// "Getting Here — Fly In" body when the sheet's Travel Notes (column O) is blank.
+// "Getting Here — Fly In" body when the sheet's Travel Notes (column P) is blank.
 const DEFAULT_TRAVEL_NOTE =
   "This practice welcomes out-of-area patients. Contact them directly for travel guidance.";
 
@@ -84,7 +89,7 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      images: isFullProfileTier(provider.tier) && provider.photoUrl ? [provider.photoUrl] : undefined,
+      images: isVerifiedTier(provider.tier) && provider.photoUrl ? [provider.photoUrl] : undefined,
     },
     twitter: {
       card: "summary",
@@ -119,6 +124,8 @@ export default async function ProviderDetailPage({
 
   const isVerifiedPlus = isVerifiedTier(provider.tier);
   const isFullProfilePlus = isFullProfileTier(provider.tier);
+  // FAQs, treatments and hours: Full Profile+, or the Academic package.
+  const showDetails = showsPracticeDetails(provider);
 
   const [siblings, articleCount] = await Promise.all([
     isVerifiedPlus && provider.groupId
@@ -151,7 +158,7 @@ export default async function ProviderDetailPage({
         ...businessJsonLd,
         telephone: provider.phone ?? undefined,
         url: provider.website ?? undefined,
-        image: isFullProfilePlus ? (provider.photoUrl ?? undefined) : undefined,
+        image: provider.photoUrl ?? undefined,
         ...(provider.geoExtension
           ? { areaServed: { "@type": "GeoCircle", geoMidpoint: { "@type": "GeoCoordinates", latitude: provider.latitude, longitude: provider.longitude }, geoRadius: "600 mi" } }
           : {}),
@@ -160,7 +167,7 @@ export default async function ProviderDetailPage({
     : businessJsonLd;
 
   const faqJsonLd =
-    isFullProfilePlus && provider.faqItems.length > 0
+    showDetails && provider.faqItems.length > 0
       ? {
           "@context": "https://schema.org",
           "@type": "FAQPage",
@@ -248,6 +255,7 @@ export default async function ProviderDetailPage({
       <div className="flex items-start justify-between gap-4 px-6 pt-6 sm:px-10">
         <div>
           <div className="mb-2 flex flex-wrap gap-1.5">
+            {showsAcademic(provider) && <Badge variant="academic">Academic</Badge>}
             {isFullProfilePlus && provider.foundingMember && <Badge variant="founder">Founding Member</Badge>}
             <Badge variant={isFullProfilePlus ? "featured" : "verified"}>Verified</Badge>
             {provider.geoExtension && <Badge variant="geo">Sees Out-of-Area Patients</Badge>}
@@ -288,18 +296,18 @@ export default async function ProviderDetailPage({
         </Link>
       </div>
 
-      {isFullProfilePlus ? (
+      {isFullProfilePlus || provider.photoUrl ? (
+        // Verified gets the main photo only; the extra photos are Full Profile+.
         provider.shortBio && (
           <PhotoGallery
             mainPhoto={provider.photoUrl}
-            secondaryPhotos={provider.secondaryPhotoUrls}
+            secondaryPhotos={isFullProfilePlus ? provider.secondaryPhotoUrls : []}
             shortBio={provider.shortBio}
             alt={provider.practiceName}
           />
         )
       ) : (
-        // Verified (not Full Profile+): short bio only, no photo gallery
-        // (Section 3 — photos are a Full Profile+ inclusion).
+        // Verified with no photo: the short bio on its own.
         provider.shortBio && (
           <p className="px-6 pt-5 text-sm whitespace-pre-line text-foreground/80 sm:px-10">
             {provider.shortBio}
@@ -316,7 +324,7 @@ export default async function ProviderDetailPage({
             </div>
           )}
 
-          {isFullProfilePlus && provider.treatments.length > 0 && (
+          {showDetails && provider.treatments.length > 0 && (
             <div>
               <h3 className="mb-2 text-base font-bold">Treatments Offered</h3>
               <div className="flex flex-wrap gap-2">
@@ -335,7 +343,7 @@ export default async function ProviderDetailPage({
           {provider.geoExtension && (
             <div>
               <h3 className="mb-2 text-base font-bold">Getting Here — Fly In</h3>
-              {/* Sheet column O; blank falls back to the standard line.
+              {/* Sheet column P; blank falls back to the standard line.
                   whitespace-pre-line keeps line breaks typed in the cell. */}
               <p className="text-sm whitespace-pre-line text-muted">
                 {provider.travelNotes ?? DEFAULT_TRAVEL_NOTE}
@@ -345,7 +353,7 @@ export default async function ProviderDetailPage({
 
           <PatientReviews provider={provider} />
 
-          {isFullProfilePlus && provider.faqItems.length > 0 && (
+          {showDetails && provider.faqItems.length > 0 && (
             <div>
               <h3 className="mb-2 text-base font-bold">Frequently Asked Questions</h3>
               {provider.faqItems.length > FAQ_ACCORDION_THRESHOLD
@@ -411,7 +419,7 @@ export default async function ProviderDetailPage({
         <div className="order-first flex-1 md:order-none">
           <ContactPanel
             provider={provider}
-            showForm={isFullProfilePlus}
+            showForm={isVerifiedPlus}
             sent={sent}
             confirmed={confirmed}
             error={error}
@@ -429,7 +437,7 @@ export default async function ProviderDetailPage({
               thing this page is trying to get someone to act on, so it
               scrolls normally instead of competing with the form for
               permanent screen space. */}
-          {isFullProfilePlus && (provider.businessHours || provider.ilitScheduleNotes) && (
+          {showDetails && (provider.businessHours || provider.ilitScheduleNotes) && (
             <div className="mt-3.5 rounded border border-line p-4.5">
               {provider.businessHours
                 ?.split(";")

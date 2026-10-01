@@ -25,10 +25,13 @@
 
   /* Practice badges and map pins share one color system (see Badge.tsx and
      ProviderMap's PIN_STYLES): solid action green = Full Profile/Featured,
-     light green = Verified, violet = Founding Member, gray = everything else.
+     light green = Verified, navy = Academic, violet = Founding Member, gray =
+     everything else.
      Cyan and amber are badge-only (out-of-area patients, remote consults). */
   --color-badge-verified-bg: #dceee0;
   --color-badge-verified-text: #276b3d;
+  --color-badge-academic-bg: #dfe6f6;
+  --color-badge-academic-text: #1e3a8a;
   --color-badge-founder-bg: #ebe5fd;
   --color-badge-founder-text: #3f08e0;
   --color-badge-geo-bg: #d6eff5;
@@ -59,6 +62,8 @@
 
   --color-badge-verified-bg: var(--color-badge-verified-bg);
   --color-badge-verified-text: var(--color-badge-verified-text);
+  --color-badge-academic-bg: var(--color-badge-academic-bg);
+  --color-badge-academic-text: var(--color-badge-academic-text);
   --color-badge-founder-bg: var(--color-badge-founder-bg);
   --color-badge-founder-text: var(--color-badge-founder-text);
   --color-badge-geo-bg: var(--color-badge-geo-bg);

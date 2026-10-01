@@ -44,7 +44,7 @@ async function leadAttribution(formData: FormData) {
 }
 
 /**
- * PDP/SEM "tracked contact form" (Full Profile+ on the PDP; always shown on
+ * PDP/SEM "tracked contact form" (Verified and up on the PDP; always shown on
  * SEM landing pages, which are only ever generated for paying tiers). Logs
  * Provider ID + UTM data per Section 2. Works as a plain form action so
  * submission doesn't require client JS — the character counter is a

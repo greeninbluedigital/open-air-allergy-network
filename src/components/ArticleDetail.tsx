@@ -6,7 +6,7 @@ import { Badge } from "@/components/Badge";
 import { ArticleFeed } from "@/components/ArticleFeed";
 import { cloudinaryFaceCrop } from "@/lib/cloudinary";
 import type { ArticleDetailData } from "@/lib/articles";
-import { isFullProfilePlus, isVerifiedPlus } from "@/lib/tiers";
+import { isFullProfilePlus, isVerifiedPlus, showsAcademic } from "@/lib/tiers";
 
 // Maps rendered Markdown elements to the site's existing type scale, rather
 // than pulling in a Tailwind Typography plugin whose opinionated defaults
@@ -192,6 +192,7 @@ export function ArticleDetail({ article }: { article: ArticleDetailData }) {
           </div>
           <div className="text-sm">
             <div className="mb-1 flex flex-wrap gap-1.5">
+              {showsAcademic(article.providerCredited) && <Badge variant="academic">Academic</Badge>}
               {isFullProfilePlus(article.providerCredited.tier) && article.providerCredited.foundingMember && (
                 <Badge variant="founder">Founding Member</Badge>
               )}

@@ -9,3 +9,14 @@ export function isVerifiedPlus(tier: Tier): boolean {
 export function isFullProfilePlus(tier: Tier): boolean {
   return tier === "FULL_PROFILE" || tier === "FEATURED";
 }
+
+/** Academic badge and pin: any paid tier (Freemium shows no badges). */
+export function showsAcademic(p: { tier: Tier; academic: boolean }): boolean {
+  return p.academic && isVerifiedPlus(p.tier);
+}
+
+/** FAQs, treatments and hours: Full Profile+, or the Academic package (an
+ * Academic practice at the Verified tier). See docs/tiers-and-pricing.md. */
+export function showsPracticeDetails(p: { tier: Tier; academic: boolean }): boolean {
+  return isFullProfilePlus(p.tier) || showsAcademic(p);
+}

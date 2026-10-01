@@ -28,9 +28,9 @@ page actually displays it. Last updated 2026-09-30.
 | Homepage hero photo | "Homepage Hero Images" sheet tab | **2400 × 800** | 3:1 |
 | Blog and Learn article image | Article draft ("Feature image") | **1600 × 900** | 16:9 |
 | Photos inside an article | Article body | **1600 wide**, any height | Any |
-| Provider main photo | Providers tab, Provider Photo URL (X) | **1200 × 1500** | 4:5 (portrait) |
-| Provider secondary photos | Providers tab, Secondary Photo URLs (Y), up to 4 | **1600 × 1200** | 4:3 |
-| Search result card photo | Providers tab, SRP Card Photo URL (Z) | **400 × 400** | 1:1 (square) |
+| Provider main photo | Providers tab, Provider Photo URL (Y) | **1200 × 1500** | 4:5 (portrait) |
+| Provider secondary photos | Providers tab, Secondary Photo URLs (Z), up to 4 | **1600 × 1200** | 4:3 |
+| Search result card photo | Providers tab, SRP Card Photo URL (AA) | **400 × 400** | 1:1 (square) |
 | Article author photo | Practitioners tab, Practitioner Thumbnail URL (E) | **400 × 400**, face centered | 1:1 |
 | Learn About ILIT hero | Set in the site code (ask Claude) | **2400 wide**, landscape | About 3:1 or wider |
 
@@ -65,13 +65,13 @@ page actually displays it. Last updated 2026-09-30.
 
 ### Provider main photo
 - **Portrait, 4:5, e.g. 1200 × 1500.** Shown beside the bio on the provider
-  page, and on that practice's SEM landing pages.
+  page (Verified and up), and on that practice's SEM landing pages.
 - Clicking it opens a full-size view, so a larger upload looks sharper.
 - A building or team photo works better than a tight headshot.
 
 ### Provider secondary photos
 - **Landscape, 4:3, e.g. 1600 × 1200**, up to 4, separated by semicolons in
-  the cell.
+  the cell. Full Profile and Featured only.
 - Shown as a row of thumbnails under the bio. Each opens full size when
   clicked.
 

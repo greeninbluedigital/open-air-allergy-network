@@ -118,6 +118,10 @@ model Provider {
   // separate tiers themselves.
   foundingMember Boolean @default(false)
   geoExtension   Boolean @default(false)
+  // Academic medical center (Providers column O). Adds the Academic badge and
+  // pin at any paid tier, and unlocks FAQs, treatments and hours on a
+  // Verified-tier page (the "Academic package"; see docs/tiers-and-pricing.md).
+  academic       Boolean @default(false)
 
   // One-time phone confirmation for Free-tier onboarding.
   verificationDate  DateTime?

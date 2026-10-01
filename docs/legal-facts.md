@@ -20,7 +20,8 @@ code on 2026-09-29. Update it whenever data handling changes.
 - **Who uses it:** adults in the United States looking for allergy
   treatment. Not directed at children.
 - **How it earns money:** practices pay for listing tiers (Verified, Full
-  Profile, Featured). Paid tiers get more on their listing page (photos, a
+  Profile, Featured, plus an Academic package for academic medical
+  centers). Paid tiers get more on their listing page (photos, a
   contact form, reviews, badges) and **higher placement**: Full Profile and
   Featured practices appear first in search results ("Featured ILIT
   Providers"), on the homepage, and on free listings' pages. Practices can
@@ -43,7 +44,7 @@ code on 2026-09-29. Update it whenever data handling changes.
 
 | Form | Where | What it collects | What happens to it |
 |---|---|---|---|
-| Consumer contact form | Paid provider pages (Full Profile and up) and SEM landing pages | First and last name, email, phone (optional), message (free text, **may include health details**), campaign data (below) | Stored by OAAN. A confirmation email goes to the consumer. The lead is forwarded by email to **that practice only**, either when the consumer confirms or after about 60 minutes unconfirmed. Never sent to competing practices. |
+| Consumer contact form | Paid provider pages (Verified and up, since 2026-10-01) and SEM landing pages | First and last name, email, phone (optional), message (free text, **may include health details**), campaign data (below) | Stored by OAAN. A confirmation email goes to the consumer. The lead is forwarded by email to **that practice only**, either when the consumer confirms or after about 60 minutes unconfirmed. Never sent to competing practices. |
 | For Practices form | /for-practices | Name, practice name, practice website, email, phone, city, state, reason, comments, campaign data | Stored by OAAN and emailed to OAAN's leads inbox. Used for sales follow-up. |
 | About page form | /about | Name, email, reason, message, campaign data | Stored by OAAN and emailed to OAAN's leads inbox. |
 
@@ -219,7 +220,11 @@ turns each one into a promise.
    more than it means. What should "Verified" be defined as (for example,
    "this practice confirmed its listing details with us and has an active
    listing subscription"), where should that definition appear, and should
-   the badge be renamed? Same question for the "Founding Member" badge.
+   the badge be renamed? Same question for the "Founding Member" badge,
+   and for the "Academic" badge (added 2026-10-01 for academic medical
+   centers; proposed meaning: the practice is part of a university or
+   academic medical center, confirmed by OAAN before the badge is turned
+   on). The Academic badge is also part of a paid package.
 6b. **Reviews.** Featured pages show selected Google and Yelp review
    excerpts. Anything required under the FTC's rule on consumer reviews?
    Google's reviews and rating arrive automatically through its official

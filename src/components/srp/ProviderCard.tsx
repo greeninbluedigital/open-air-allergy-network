@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Badge } from "@/components/Badge";
 import type { SrpProvider } from "@/lib/srp";
-import { isFullProfilePlus, isVerifiedPlus } from "@/lib/tiers";
+import { isFullProfilePlus, isVerifiedPlus, showsAcademic } from "@/lib/tiers";
 import { ViewableImpression, type ImpressionType } from "@/components/analytics/ViewableImpression";
 
 /** Card clicks (oaan_cta_click) are named after the list the card sat in. */
@@ -42,6 +42,7 @@ export function ProviderCard({
         <div className="min-w-0 flex-1">
           {paid && (
             <div className="mb-1.5 flex flex-wrap gap-1.5">
+              {showsAcademic(provider) && <Badge variant="academic">Academic</Badge>}
               {premium && provider.foundingMember && <Badge variant="founder">Founding Member</Badge>}
               <Badge variant={premium ? "featured" : "verified"}>Verified</Badge>
               {provider.geoExtension && <Badge variant="geo">Sees Out-of-Area Patients</Badge>}

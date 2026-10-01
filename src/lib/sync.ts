@@ -22,6 +22,7 @@ const PROVIDER_COLUMNS = [
   ["tier", "Tier"],
   ["foundingMember", "Founding Member"],
   ["geoExtension", "Geo-Extension"],
+  ["academic", "Academic"],
   ["travelNotes", "Travel Notes"],
   ["active", "Active"],
   ["verificationDate", "Verification Date"],
@@ -55,8 +56,8 @@ const COLUMNS = PROVIDER_COLUMNS.map(([key]) => key);
 // Positional, so the sheet's header row is checked first (verifyProviderHeaders):
 // a column inserted, removed, or renamed on the sheet stops the whole sync
 // with a clear error instead of shifting every value into the wrong field.
-const SHEET_RANGE = "Providers!A2:AN";
-const HEADER_RANGE = "Providers!A1:AN1";
+const SHEET_RANGE = "Providers!A2:AO";
+const HEADER_RANGE = "Providers!A1:AO1";
 
 function columnLetter(i: number): string {
   return (i < 26 ? "" : String.fromCharCode(64 + Math.floor(i / 26))) + String.fromCharCode(65 + (i % 26));
@@ -124,6 +125,11 @@ function slugify(name: string): string {
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
 }
+
+// Sales/onboarding limits (docs/tiers-and-pricing.md). Longer text still
+// syncs; the sync result just flags it.
+const SHORT_BIO_MAX = 600;
+const EXTENDED_BIO_MAX = 2000;
 
 type RenameCandidate = { slug: string; practiceName: string; address: string; city: string; zip: string; row?: number };
 
@@ -674,6 +680,26 @@ export async function runSync(): Promise<SyncSummary> {
       const active = parseBool(r.active);
       const tier = parseTier(r.tier);
 
+      // Never blocking: these only add to the sync result's warnings.
+      if (active && tier !== "FREE_CLAIMED" && !r.notificationEmail.trim()) {
+        summary.warnings.push(
+          `${slug} (row ${sheetRow}) has a contact form but no Notification Email, so its leads can't be delivered.`,
+        );
+      }
+      if (parseBool(r.academic) && tier === "FREE_CLAIMED") {
+        summary.warnings.push(`${slug} (row ${sheetRow}) is marked Academic but is Freemium, so no Academic badge shows.`);
+      }
+      if (r.shortBio.trim().length > SHORT_BIO_MAX) {
+        summary.warnings.push(
+          `${slug} (row ${sheetRow}) Short Bio is ${r.shortBio.trim().length} characters (limit ${SHORT_BIO_MAX}).`,
+        );
+      }
+      if (r.extendedBio.trim().length > EXTENDED_BIO_MAX) {
+        summary.warnings.push(
+          `${slug} (row ${sheetRow}) Extended Bio is ${r.extendedBio.trim().length} characters (limit ${EXTENDED_BIO_MAX}).`,
+        );
+      }
+
       const data = {
         groupId: r.groupId || null,
         practiceName: r.practiceName,
@@ -691,6 +717,7 @@ export async function runSync(): Promise<SyncSummary> {
         ...(!existing || existing.tier !== tier ? { tierSince: new Date() } : {}),
         foundingMember: parseBool(r.foundingMember),
         geoExtension,
+        academic: parseBool(r.academic),
         active,
         verificationDate: parseDate(r.verificationDate),
         verificationNotes: r.verificationNotes || null,
