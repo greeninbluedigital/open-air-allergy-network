@@ -25,7 +25,8 @@ only benefit from OAAN's general sitewide SEM.
 
 **Full Profile and Featured are priced close together on purpose,** so the
 step up to Featured is an easy upsell. Site features cost OAAN nothing to
-turn on; SEM is the only real cost.
+turn on; SEM is the only real cost. Full Profile also gives practices a premium
+option under $1,000/month.
 
 **Academic pricing is negotiable.** Open around $7,000/year and leave room
 to come down to the client's budget or a fast-approval purchase limit
@@ -35,10 +36,15 @@ to come down to the client's budget or a fast-approval purchase limit
 paid traffic (SEM landing pages aimed at other metros), so the price is
 framed as campaign support. More increments, more out-of-area patients.
 
-**Founding Member** costs nothing. It's an incentive for the first practice
-in an area to sign up for Full Profile or Featured, and it shows as a badge
-and a violet star pin. Not yet defined: how big an "area" is, and whether
-the status survives a cancellation (`docs/legal-facts.md` question 10).
+**Founding Member** costs nothing. It's a sales nudge for the first
+practice in an area to sign up for Full Profile or Featured, and it shows as
+a badge and a violet star pin. Offered at the owner's discretion; the site
+doesn't enforce any area rule (it's just the sheet's Y/N column). General
+guideline: **one Founding Member per county, and within about 10 miles**, so
+the exclusivity carries across a county line when two practices sit just on
+either side of it. Odd county shapes (Texas, for example) are judged case by
+case. Not yet defined: whether the status survives a cancellation
+(`docs/legal-facts.md` question 10).
 
 ## SEM support: what to promise, and the internal target
 
@@ -133,5 +139,5 @@ no Notification Email, and Academic `Y` on a Freemium row.
 - **Minimum terms** give SEM the 60 to 90 days it typically needs to
   optimize, and longer minimums on cheaper tiers protect against churn.
 - **Still to define:** what one Geo-Extension increment buys (for example
-  one target metro with its own landing page and campaign), and the
-  Founding Member area and cancellation rules above.
+  one target metro with its own landing page and campaign), and whether
+  Founding Member status survives a cancellation.
