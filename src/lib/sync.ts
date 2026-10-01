@@ -125,6 +125,16 @@ function slugify(name: string): string {
     .replace(/^-+|-+$/g, "");
 }
 
+type RenameCandidate = { slug: string; practiceName: string; address: string; city: string; zip: string };
+
+/** Same street address and zip, or same name in the same city. */
+function looksLikeSamePractice(a: RenameCandidate, b: RenameCandidate): boolean {
+  const norm = (v: string) => v.toLowerCase().replace(/[^a-z0-9]/g, "");
+  const sameAddress = norm(a.address) !== "" && norm(a.address) === norm(b.address) && norm(a.zip) === norm(b.zip);
+  const sameName = norm(a.practiceName) === norm(b.practiceName) && norm(a.city) === norm(b.city);
+  return sameAddress || sameName;
+}
+
 function parseRow(row: string[]): Record<(typeof COLUMNS)[number], string> {
   const record = {} as Record<(typeof COLUMNS)[number], string>;
   COLUMNS.forEach((key, i) => {
@@ -582,6 +592,12 @@ export type SyncSummary = {
   /** Active providers whose slug is no longer on the sheet. */
   deactivated: number;
   errors: string[];
+  /**
+   * Things to double-check that the sync didn't block or change, e.g. a
+   * practice that looks renamed (new slug, same address) or a changed Group
+   * ID. Shown in the sync result alongside errors.
+   */
+  warnings: string[];
   landingPages: LandingPageSyncSummary;
   faqs: FaqSyncSummary;
   practitioners: PractitionerSyncSummary;
@@ -602,12 +618,17 @@ export async function runSync(): Promise<SyncSummary> {
     skipped: 0,
     deactivated: 0,
     errors: [],
+    warnings: [],
     landingPages: { created: 0, updated: 0, skipped: 0, errors: [] },
     faqs: { providersUpdated: 0, itemsSynced: 0, skipped: 0, errors: [] },
     practitioners: { created: 0, updated: 0, skipped: 0, errors: [] },
     learnCredits: { updated: 0, unchanged: 0, cleared: 0, skipped: 0, errors: [] },
     heroImages: { synced: 0, skipped: 0, errors: [] },
   };
+
+  // For the rename and Group ID warnings (see SyncSummary.warnings).
+  const createdThisRun: RenameCandidate[] = [];
+  const groupChanges = new Map<string, string[]>();
 
   for (const row of rawRows) {
     const r = parseRow(row);
@@ -718,12 +739,24 @@ export async function runSync(): Promise<SyncSummary> {
 
       if (existing) {
         summary.updated++;
+        const newGroup = r.groupId || null;
+        if (existing.groupId && existing.groupId !== newGroup) {
+          const key = `"${existing.groupId}" to ${newGroup ? `"${newGroup}"` : "blank"}`;
+          groupChanges.set(key, [...(groupChanges.get(key) ?? []), slug]);
+        }
       } else {
         summary.created++;
+        createdThisRun.push({ slug, practiceName: r.practiceName, address: r.address, city: r.city, zip: r.zip });
       }
     } catch (err) {
       summary.errors.push(`${slug}: ${(err as Error).message}`);
     }
+  }
+
+  for (const [change, slugs] of groupChanges) {
+    summary.warnings.push(
+      `Group ID changed from ${change} for: ${slugs.join(", ")}. Practices with the same Group ID link to each other as other locations, so check that every location in the group has the same Group ID.`,
+    );
   }
 
   // The sheet is the source of truth: a provider whose slug is no longer on
@@ -734,11 +767,26 @@ export async function runSync(): Promise<SyncSummary> {
   // bad fetch can't deactivate everything.
   const sheetSlugs = rawRows.map((row) => parseRow(row).slug.trim()).filter(Boolean);
   if (sheetSlugs.length > 0) {
+    const toDeactivate = await db.provider.findMany({
+      where: { active: true, isDemo: false, slug: { notIn: sheetSlugs } },
+      select: { slug: true, practiceName: true, address: true, city: true, zip: true },
+    });
     const { count } = await db.provider.updateMany({
       where: { active: true, isDemo: false, slug: { notIn: sheetSlugs } },
       data: { active: false },
     });
     summary.deactivated = count;
+
+    // A slug built by formula changes when the practice name changes, which
+    // the upsert above treats as a brand-new practice. Flag it, change nothing.
+    for (const old of toDeactivate) {
+      const match = createdThisRun.find((c) => looksLikeSamePractice(old, c));
+      if (match) {
+        summary.warnings.push(
+          `Possible rename: "${old.slug}" was deactivated and "${match.slug}" was created for the same practice (${match.address}, ${match.city}). Its page address changed and the old listing is now hidden. If that wasn't intended, restore the old Provider Slug in the sheet and sync again.`,
+        );
+      }
+    }
   }
 
   // A missing sheet tab (or any other failure in either of these) must

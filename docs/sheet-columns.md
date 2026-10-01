@@ -7,7 +7,22 @@ order** (capitalization and extra spaces don't matter). If any header is
 missing, moved, or renamed, the whole sync stops without changing anything,
 and the error names the column (it shows on the sheet's sync button). To
 add, move, or rename a Providers column, change the code first, then the
-sheet. Column order:
+sheet.
+
+The sync result also lists **warnings**, which never stop or change
+anything:
+- **Possible rename:** a practice was deactivated (its slug left the sheet)
+  and a new one was created with the same street address and zip, or the
+  same name in the same city. Usually a Provider Slug formula changed after
+  a rename. If that wasn't intended, put the old slug back and sync again.
+- **Group ID changed:** an existing practice's Group ID changed or was
+  cleared. Sibling locations link to each other by Group ID, so every
+  location in a group needs the same one.
+
+Lock a settled practice's slug and Group ID by replacing the formula with
+its value (Copy, then Paste special, Values only).
+
+Column order:
 
 | # | Column | Notes |
 |---|--------|-------|
