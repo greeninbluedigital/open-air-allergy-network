@@ -101,7 +101,7 @@ export function PatientReviews({ provider }: { provider: ReviewsProvider }) {
         <div className="mb-2 text-sm text-muted">
           Google: <span className="text-[#e0a11c]">{stars(provider.googleRating)}</span>{" "}
           <span className="font-semibold text-foreground">{provider.googleRating.toFixed(1)}</span> (
-          {provider.googleReviewCount ?? 0} reviews)
+          {(provider.googleReviewCount ?? 0).toLocaleString("en-US")} reviews)
         </div>
       )}
 
@@ -110,7 +110,7 @@ export function PatientReviews({ provider }: { provider: ReviewsProvider }) {
         // badge embed below once yelpBusinessId + YELP_API_KEY are active.
         <div className="mb-3 text-xs text-muted">
           Yelp: <span className="font-semibold text-foreground">{provider.yelpRating.toFixed(1)}</span> (
-          {provider.yelpReviewCount ?? 0} reviews)
+          {(provider.yelpReviewCount ?? 0).toLocaleString("en-US")} reviews)
         </div>
       ) : (
         provider.yelpRatingBadgeEmbed && (
