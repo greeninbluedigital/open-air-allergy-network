@@ -2,15 +2,16 @@
 // ProviderMap's pinStyle), so a card's badge matches its pin:
 // - featured: solid green, Full Profile and Featured practices
 // - verified: light green, Verified practices
-// - founder: amber, Founding Members
-// - info: neutral outline for plain facts (remote consults, out-of-area
-//   patients), so they don't compete with the tier colors
+// - founder: violet, Founding Members (the pin is violet with a star)
+// - geo: cyan, "Sees Out-of-Area Patients" (badge only, no pin color)
+// - consult: amber, remote consult badges (badge only)
 // contrib/house are article tag colors, unrelated to practices.
 const VARIANTS = {
   featured: "bg-action text-white",
   verified: "bg-badge-verified-bg text-badge-verified-text",
   founder: "bg-badge-founder-bg text-badge-founder-text",
-  info: "bg-white text-foreground/70 ring-1 ring-line ring-inset",
+  geo: "bg-badge-geo-bg text-badge-geo-text",
+  consult: "bg-badge-consult-bg text-badge-consult-text",
   contrib: "bg-badge-contrib-bg text-badge-contrib-text",
   house: "bg-badge-house-bg text-badge-house-text",
 } as const;

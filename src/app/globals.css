@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+/* Tailwind 4 only applies hover: styles when the device reports a mouse-like
+   pointer, and some touchscreen laptops report none, so hover effects never
+   appeared there. Apply them on any real hover instead. */
+@custom-variant hover (&:hover);
+
 :root {
   --background: #ffffff;
   --foreground: #222222;
@@ -18,13 +23,18 @@
   --color-bg-alt: #f4f4f4;
   --color-muted: #777777;
 
-  /* Practice badges and map pins share one tier system (see ProviderMap's
-     pinStyle): solid action green = Full Profile/Featured, light green =
-     Verified, amber = Founding Member, gray = everything else. */
+  /* Practice badges and map pins share one color system (see Badge.tsx and
+     ProviderMap's PIN_STYLES): solid action green = Full Profile/Featured,
+     light green = Verified, violet = Founding Member, gray = everything else.
+     Cyan and amber are badge-only (out-of-area patients, remote consults). */
   --color-badge-verified-bg: #dceee0;
   --color-badge-verified-text: #276b3d;
-  --color-badge-founder-bg: #fdecd2;
-  --color-badge-founder-text: #b45309;
+  --color-badge-founder-bg: #ebe5fd;
+  --color-badge-founder-text: #3f08e0;
+  --color-badge-geo-bg: #d6eff5;
+  --color-badge-geo-text: #0b6478;
+  --color-badge-consult-bg: #fdecd2;
+  --color-badge-consult-text: #a14a08;
   --color-badge-contrib-bg: #e6ddf7;
   --color-badge-contrib-text: #5b34a8;
   --color-badge-house-bg: #eeeeee;
@@ -51,6 +61,10 @@
   --color-badge-verified-text: var(--color-badge-verified-text);
   --color-badge-founder-bg: var(--color-badge-founder-bg);
   --color-badge-founder-text: var(--color-badge-founder-text);
+  --color-badge-geo-bg: var(--color-badge-geo-bg);
+  --color-badge-geo-text: var(--color-badge-geo-text);
+  --color-badge-consult-bg: var(--color-badge-consult-bg);
+  --color-badge-consult-text: var(--color-badge-consult-text);
   --color-badge-contrib-bg: var(--color-badge-contrib-bg);
   --color-badge-contrib-text: var(--color-badge-contrib-text);
   --color-badge-house-bg: var(--color-badge-house-bg);

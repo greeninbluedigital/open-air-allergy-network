@@ -10,18 +10,19 @@ const MILES_TO_METERS = 1609.344;
 
 // One tier system for pins and card badges (see Badge.tsx), told apart by
 // size, lightness and shape as well as hue, so it still works for
-// colorblind visitors: big solid pins for Full Profile and Featured (amber
-// with a star for Founding Members), a smaller light-green pin for
-// Verified, and a small gray pin for everyone else. Solid colors stay dark
-// and saturated so they don't blend with the map's pastel parks, water and
-// highways, and every pin has a contrasting outline.
+// colorblind visitors: solid pins for Full Profile and Featured (violet
+// with a star for Founding Members), a light-green pin for Verified, and a
+// smaller gray pin for everyone else. Solid colors stay dark and saturated
+// so they don't blend with the map's pastel parks, water and highways, and
+// every pin has a contrasting outline. Violet also stays distinct from
+// green for red-green colorblind visitors, unlike amber or red.
 type PinKind = "founder" | "featured" | "verified" | "listed";
 
 const PIN_STYLES: Record<PinKind, { size: number; fill: string; outline: string; glyph: "star" | "dot" | null; z: number; label: string }> = {
-  founder: { size: 28, fill: "#B45309", outline: "#ffffff", glyph: "star", z: 3000, label: "Founding Member" },
-  featured: { size: 26, fill: "#1F7A4D", outline: "#ffffff", glyph: "dot", z: 2000, label: "Featured" },
+  founder: { size: 20, fill: "#3F08E0", outline: "#ffffff", glyph: "star", z: 3000, label: "Founding Member" },
+  featured: { size: 20, fill: "#1F7A4D", outline: "#ffffff", glyph: "dot", z: 2000, label: "Featured" },
   verified: { size: 20, fill: "#DCEEE0", outline: "#276B3D", glyph: null, z: 1000, label: "Verified" },
-  listed: { size: 14, fill: "#E2E2E2", outline: "#7A7A7A", glyph: null, z: 0, label: "Other listings" },
+  listed: { size: 14, fill: "#E2E2E2", outline: "#7A7A7A", glyph: null, z: 0, label: "Providers" },
 };
 
 function pinKind(p: SrpProvider): PinKind {
@@ -158,7 +159,7 @@ export function ProviderMap({
               {/* Scaled down, but keeping the pins' relative sizes. */}
               <span
                 className="flex w-4 justify-center"
-                dangerouslySetInnerHTML={{ __html: pinHtml(k, Math.round(PIN_STYLES[k].size * 0.6)) }}
+                dangerouslySetInnerHTML={{ __html: pinHtml(k, Math.round(PIN_STYLES[k].size * 0.7)) }}
               />
               {PIN_STYLES[k].label}
             </div>

@@ -103,8 +103,8 @@ export default async function SemLandingPage({
           {isVerifiedPlus(provider.tier) && (
             <Badge variant={isFullProfilePlus(provider.tier) ? "featured" : "verified"}>Verified</Badge>
           )}
-          {offersVideoConsult && <Badge variant="info">Video Consults</Badge>}
-          {offersPhoneConsult && <Badge variant="info">Phone Consults</Badge>}
+          {offersVideoConsult && <Badge variant="consult">Video Consults</Badge>}
+          {offersPhoneConsult && <Badge variant="consult">Phone Consults</Badge>}
         </div>
         {ctaLine && <p className="mb-3 text-sm font-semibold">{ctaLine}</p>}
         <div className="flex flex-wrap justify-center gap-2.5">

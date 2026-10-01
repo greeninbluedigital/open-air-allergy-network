@@ -44,8 +44,8 @@ export function ProviderCard({
             <div className="mb-1.5 flex flex-wrap gap-1.5">
               {premium && provider.foundingMember && <Badge variant="founder">Founding Member</Badge>}
               <Badge variant={premium ? "featured" : "verified"}>Verified</Badge>
-              {provider.geoExtension && <Badge variant="info">Sees Out-of-Area Patients</Badge>}
-              {provider.pdpRemoteConsultBadge && <Badge variant="info">Remote Consults</Badge>}
+              {provider.geoExtension && <Badge variant="geo">Sees Out-of-Area Patients</Badge>}
+              {provider.pdpRemoteConsultBadge && <Badge variant="consult">Remote Consults</Badge>}
             </div>
           )}
           <div className="truncate text-sm font-bold">{provider.practiceName}</div>

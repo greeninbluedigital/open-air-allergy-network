@@ -250,14 +250,14 @@ export default async function ProviderDetailPage({
           <div className="mb-2 flex flex-wrap gap-1.5">
             {isFullProfilePlus && provider.foundingMember && <Badge variant="founder">Founding Member</Badge>}
             <Badge variant={isFullProfilePlus ? "featured" : "verified"}>Verified</Badge>
-            {provider.geoExtension && <Badge variant="info">Sees Out-of-Area Patients</Badge>}
+            {provider.geoExtension && <Badge variant="geo">Sees Out-of-Area Patients</Badge>}
             {/* pdpRemoteConsultBadge is the on/off switch for organic pages;
                 the two fields still say which kind of consult to show. */}
             {provider.pdpRemoteConsultBadge && provider.offersVideoConsult && (
-              <Badge variant="info">Video Consults</Badge>
+              <Badge variant="consult">Video Consults</Badge>
             )}
             {provider.pdpRemoteConsultBadge && provider.offersPhoneConsult && (
-              <Badge variant="info">Phone Consults</Badge>
+              <Badge variant="consult">Phone Consults</Badge>
             )}
           </div>
           {isVerifiedPlus && provider.verifiedAsOf && (
