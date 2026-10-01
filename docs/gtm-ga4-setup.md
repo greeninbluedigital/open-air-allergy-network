@@ -36,7 +36,8 @@ and outbound link clicks.
 
 | Event | When it fires | Parameters |
 |---|---|---|
-| `oaan_cta_click` | Click on any tagged button or link (see the CTA list below) | `cta_id`, `cta_text`, `link_url`, `provider_name` (provider cards only) |
+| `oaan_cta_click` | Click on any tagged button or link (see the CTA list below) | `cta_id`, `cta_text`, `link_url`, `provider_name` (provider cards and map popups only) |
+| `oaan_map_pin_click` | A pin on the search results map is clicked (opens its popup) | `provider_name` |
 | `oaan_provider_search` | A zip search for providers is submitted | `search_origin`, `search_zip`, `search_radius` (search page only) |
 | `oaan_page_view` | A provider page or SEM landing page loads | `provider_id`, `provider_name` |
 | `oaan_phone_click` | Practice phone number clicked or tapped | `provider_id`, `provider_name` |
@@ -71,6 +72,7 @@ success page in the same browser session doesn't send the event again.
 | `homepage_bottom_for_practices`, `about_bottom_for_practices` | "For Practices" button in the bottom row |
 | `freemium_claim_listing` | Free listing page, "Is this your practice? Claim this listing" |
 | `provider_card_homepage`, `provider_card_search`, `provider_card_nearby` | A practice card clicked in the homepage featured list, search results, or a free listing's nearby list |
+| `map_pin_popup` | The practice name clicked in a search results map pin's popup |
 | `srp_view_list`, `srp_view_map` | List/Map switch on phones |
 | `sem_header_logo` | Logo on an SEM landing page, the way out to the main site |
 | `sem_hero_send_message` | SEM landing page, "Send a Message" button in the hero |

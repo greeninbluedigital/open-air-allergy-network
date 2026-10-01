@@ -1,11 +1,14 @@
+import { isFullProfilePlus, isVerifiedPlus, showsAcademic } from "@/lib/tiers";
+import type { Tier } from "@/generated/prisma/client";
+
 // Practice badges follow the same tier system as the map pins (see
-// ProviderMap's pinStyle), so a card's badge matches its pin:
+// ProviderMap's PIN_STYLES), so a card's badge matches its pin:
 // - featured: solid green, Full Profile and Featured practices
 // - verified: light green, Verified practices
-// - academic: navy, academic medical centers (navy pin with a diamond;
-//   wins over Founding Member on the map)
+// - academic: blue, academic medical centers (blue pin; wins over Founding
+//   Member on the map)
 // - founder: violet, Founding Members (the pin is violet with a star)
-// - geo: cyan, "Sees Out-of-Area Patients" (badge only, no pin color)
+// - geo: rose, "Sees Out-of-Area Patients" (badge only, no pin color)
 // - consult: amber, remote consult badges (badge only)
 // contrib/house are article tag colors, unrelated to practices.
 const VARIANTS = {
@@ -21,6 +24,31 @@ const VARIANTS = {
 
 export type BadgeVariant = keyof typeof VARIANTS;
 
+/** The full class list, also used for badges built as HTML strings (map popups). */
+export function badgeClass(variant: BadgeVariant): string {
+  return `inline-block rounded px-2 py-0.5 text-[10px] font-bold tracking-wide uppercase ${VARIANTS[variant]}`;
+}
+
+/** The badges on a practice's search result card and map popup, in order.
+ * Freemium practices get none. */
+export function cardBadges(p: {
+  tier: Tier;
+  academic: boolean;
+  foundingMember: boolean;
+  geoExtension: boolean;
+  pdpRemoteConsultBadge: boolean;
+}): { variant: BadgeVariant; label: string }[] {
+  if (!isVerifiedPlus(p.tier)) return [];
+  const premium = isFullProfilePlus(p.tier);
+  return [
+    ...(showsAcademic(p) ? [{ variant: "academic" as const, label: "Academic" }] : []),
+    ...(premium && p.foundingMember ? [{ variant: "founder" as const, label: "Founding Member" }] : []),
+    { variant: premium ? ("featured" as const) : ("verified" as const), label: "Verified" },
+    ...(p.geoExtension ? [{ variant: "geo" as const, label: "Sees Out-of-Area Patients" }] : []),
+    ...(p.pdpRemoteConsultBadge ? [{ variant: "consult" as const, label: "Remote Consults" }] : []),
+  ];
+}
+
 export function Badge({
   variant,
   children,
@@ -28,11 +56,5 @@ export function Badge({
   variant: BadgeVariant;
   children: React.ReactNode;
 }) {
-  return (
-    <span
-      className={`inline-block rounded px-2 py-0.5 text-[10px] font-bold tracking-wide uppercase ${VARIANTS[variant]}`}
-    >
-      {children}
-    </span>
-  );
+  return <span className={badgeClass(variant)}>{children}</span>;
 }

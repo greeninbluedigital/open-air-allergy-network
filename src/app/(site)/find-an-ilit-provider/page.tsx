@@ -136,6 +136,7 @@ export default async function FindAProviderPage({
                     ...result.buckets.free,
                   ]}
                   mode={result.mode}
+                  backHref={backHref}
                 />
               </div>
               <div

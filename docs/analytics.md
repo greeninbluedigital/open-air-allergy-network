@@ -129,7 +129,6 @@ ORDER BY e.type;
 
 - In GA4, the site's `oaan_*` events until the Tag Manager trigger and tag
   in `docs/gtm-ga4-setup.md` are set up and published.
-- Clicks on map pins.
 
 ## Where it lives in the code
 
