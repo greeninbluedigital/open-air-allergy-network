@@ -31,7 +31,7 @@ page actually displays it. Last updated 2026-09-30.
 | Provider main photo | Providers tab, Provider Photo URL (X) | **1200 × 1500** | 4:5 (portrait) |
 | Provider secondary photos | Providers tab, Secondary Photo URLs (Y), up to 4 | **1600 × 1200** | 4:3 |
 | Search result card photo | Providers tab, SRP Card Photo URL (Z) | **400 × 400** | 1:1 (square) |
-| Article author photo | Ask Claude (set per article) | **400 × 400**, face centered | 1:1 |
+| Article author photo | Practitioners tab, Practitioner Thumbnail URL (E) | **400 × 400**, face centered | 1:1 |
 | Learn About ILIT hero | Set in the site code (ask Claude) | **2400 wide**, landscape | About 3:1 or wider |
 
 ## Details
@@ -89,6 +89,8 @@ page actually displays it. Last updated 2026-09-30.
   face automatically and crops it into a small circle beside the "Contributed
   by" or "Medically reviewed by" credit.
 - It must be a photo of that specific person, not a general practice photo.
+- Set once per person on the Practitioners tab (column E). It shows on every
+  article that person is credited on.
 
 ### Learn About ILIT hero
 - Set in the site code rather than the sheet, so ask Claude to change it.

@@ -181,6 +181,9 @@ on an existing row just updates it. Row 1 is headers, row 2 onward is data.
 | B | Provider Slug(s) | Required, at least one. Semicolon-separated if affiliated with multiple locations, e.g. `avant-allergy-los-angeles; avant-allergy-santa-monica`. Each must match an existing Provider Slug. This list is reconciled exactly to what's in the cell on every sync — removing a slug here removes that affiliation, it doesn't just stop adding new ones |
 | C | Display Name | Required — the exact text shown in bylines, e.g. `Dr. Sandra Ho, MD`. Include whatever title/credentials you want displayed; there's no separate title field, this is the whole string |
 | D | Bio | Optional — shown under the credit box on Blog/Learn pages when set |
+| E | Practitioner Thumbnail URL | Optional. A Cloudinary headshot of this specific person (400 × 400, face centered), shown in a small circle in the Blog/Learn credit box. Blank shows a generic silhouette. Any non-Cloudinary link is left blank and reported as a sync error |
+
+Columns after E (e.g. a slug check formula) are yours; the sync never reads them.
 
 Used by both the Blog's "Contributed by" credit (set via direct DB write,
 see `docs/blog-content-guide.md`) and the Learn Page Credits tab above —

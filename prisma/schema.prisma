@@ -302,11 +302,11 @@ model ProviderFaqItem {
 /// practicing at multiple locations).
 model Author {
   id   String @id @default(cuid())
-  // Sheet-managed via the "Practitioners" tab (upsert-by-key), unlike the
-  // rest of Author, which is still a direct DB write — see
-  // docs/blog-content-guide.md.
+  // Sheet-managed via the "Practitioners" tab (upsert-by-key) — see
+  // docs/sheet-columns.md.
   slug String @unique
   name String
+  // Headshot for the Blog/Learn credit box (Practitioners column E).
   photoUrl String?
   bio      String?
 
@@ -383,9 +383,9 @@ model Article {
   // Describes the feature image for screen readers and image search.
   // Falls back to the article title when unset.
   featureImageAlt String?
-  // Falls back to a generic silhouette in the UI if unset — never to the
-  // practice's general PDP photo, for the same multi-doctor-accuracy reason.
-  authorPhotoUrl  String?
+  // The credit box's headshot is the practitioner's own photo (Author.photoUrl,
+  // Practitioners tab column E), never the practice's PDP photo, for the same
+  // multi-doctor-accuracy reason. Blank shows a generic silhouette.
 
   // Admin-settable — locks the article into a specific Article Feed slot
   // regardless of recency. A free string identifying the feed instance (the

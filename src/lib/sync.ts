@@ -261,8 +261,9 @@ async function syncSemLandingPages(): Promise<LandingPageSyncSummary> {
 // reconciled to exactly match the sheet on every sync (add newly-listed
 // affiliations, remove ones no longer listed), same edit/delete-friendly
 // intent as the other tabs, without touching the Author record itself.
-const PRACTITIONER_COLUMNS = ["practitionerSlug", "providerSlugs", "displayName", "bio"] as const;
-const PRACTITIONER_SHEET_RANGE = "Practitioners!A2:D";
+// Column F onward is the sheet editor's own (e.g. a slug check) and is never read.
+const PRACTITIONER_COLUMNS = ["practitionerSlug", "providerSlugs", "displayName", "bio", "photoUrl"] as const;
+const PRACTITIONER_SHEET_RANGE = "Practitioners!A2:E";
 
 function parsePractitionerRow(row: string[]): Record<(typeof PRACTITIONER_COLUMNS)[number], string> {
   const record = {} as Record<(typeof PRACTITIONER_COLUMNS)[number], string>;
@@ -296,13 +297,21 @@ async function syncPractitioners(): Promise<PractitionerSyncSummary> {
       continue;
     }
 
+    // next/image only loads Cloudinary URLs, so anything else would break
+    // every page showing this practitioner's credit. Saved blank instead.
+    let photoUrl: string | null = r.photoUrl.trim() || null;
+    if (photoUrl && !/^https:\/\/res\.cloudinary\.com\//.test(photoUrl)) {
+      summary.errors.push(`${slug}: Practitioner Thumbnail URL must be a res.cloudinary.com link (left blank)`);
+      photoUrl = null;
+    }
+
     try {
       const existing = await db.author.findUnique({ where: { slug } });
 
       const author = await db.author.upsert({
         where: { slug },
-        create: { slug, name: displayName, bio: r.bio || null },
-        update: { name: displayName, bio: r.bio || null },
+        create: { slug, name: displayName, bio: r.bio || null, photoUrl },
+        update: { name: displayName, bio: r.bio || null, photoUrl },
       });
 
       const matchedProviderIds: string[] = [];

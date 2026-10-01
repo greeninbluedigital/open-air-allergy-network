@@ -181,9 +181,9 @@ export function ArticleDetail({ article }: { article: ArticleDetailData }) {
       {showCredit && article.providerCredited && (
         <div className="mb-6 flex items-center gap-3 rounded border border-badge-contrib-bg bg-badge-contrib-bg/30 p-3.5">
           <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-full bg-bg-alt">
-            {article.authorPhotoUrl && (
+            {article.author?.photoUrl && (
               <Image
-                src={cloudinaryFaceCrop(article.authorPhotoUrl, 88)}
+                src={cloudinaryFaceCrop(article.author.photoUrl, 88)}
                 alt={article.author!.name}
                 fill
                 className="object-cover"

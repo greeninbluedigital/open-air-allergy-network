@@ -262,10 +262,11 @@ byline, bio, which provider(s) they're affiliated with) are managed on the
 
 Then set two fields on the Article (still a direct DB write, not
 sheet-synced):
-- `Article.authorId` → that `Author` record's id. Optionally set
-  `Article.authorPhotoUrl` too — only if it's genuinely a photo of that
-  specific person; confirm with the provider, don't assume for multi-doctor
-  practices.
+- `Article.authorId` → that `Author` record's id. The credit box's headshot
+  comes from the practitioner's Thumbnail URL on the Practitioners tab
+  (column E), so it's the same on every article they're credited on. Only
+  use a photo of that specific person; confirm with the provider, don't
+  assume for multi-doctor practices.
 - `Article.providerCreditedId` → the credited `Provider`'s id.
 
 This drives three things automatically: the "Contributed by" byline box on
