@@ -1,5 +1,46 @@
 # Engineering notes: built-but-unused, and how to build what's not there yet
 
+## Future upgrades list
+
+Not scheduled. Details for some are in the sections below.
+
+- **Map pin clustering** (below): when dense metros have many practices.
+- **Map "Search this area"** (below): probably never needed while ILIT
+  providers are sparse.
+- **SRP filter by treatment type** (below): the data is already there.
+- **Data-driven badges** via the unused `ProviderBadge` table (below).
+- **State and market-area hub pages** grouping practices, once there are
+  enough phone-confirmed listings (planned 2026-09).
+- **Practice report screen**: reporting data is collected
+  (`docs/analytics.md`) but pulled by database query on request today.
+- **Call tracking numbers**, so desktop phone calls (where the number is
+  visible without a click) can be counted.
+- **Paid Yelp API**: setting `YELP_API_KEY` turns on live Yelp ratings; the
+  sheet fields are already in place.
+- **Facebook reviews**: reserved fields exist; blocked on Meta app review.
+- **Logo**: header and structured data, once designed (`docs/image-guide.md`).
+
+## Map: pin clustering (planned)
+
+At today's listing count, every pin is readable. Once a metro has enough
+practices that pins overlap, group nearby pins into a numbered circle that
+splits apart as you zoom in. The standard tool is the `leaflet.markercluster`
+plugin: wrap the markers in `ProviderMap.tsx` in a cluster group instead of
+adding them straight to the map. Things to keep when building it:
+- Paid placement must still show: either keep Full Profile and Featured
+  pins out of clusters, or color a cluster by the best tier inside it.
+- The card-to-pin link (hover a card to enlarge its pin, open a pin to
+  outline its card) needs the clustered pin revealed first
+  (`zoomToShowLayer`).
+
+## Map: "Search this area" (possible, probably not needed)
+
+A button that appears after the visitor pans the map and reruns the search
+for the visible area. It needs a bounds-based query alongside the
+zip-and-radius one in `src/lib/srp.ts` (PostGIS can do it with
+`ST_MakeEnvelope`). Only worth it if providers become dense enough that
+people browse the map instead of searching a zip.
+
 ## `ProviderBadge` — exists in the schema, currently empty and unused
 
 `prisma/schema.prisma` has a `ProviderBadge` model (`type`, `label`,

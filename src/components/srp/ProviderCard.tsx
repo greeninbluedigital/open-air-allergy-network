@@ -31,6 +31,8 @@ export function ProviderCard({
       <Link
         href={`/find-an-ilit-provider/${provider.slug}?back=${encodeURIComponent(backHref)}`}
         data-cta={CARD_CTA[impressionType]}
+        // Links the card to its map pin on the search page (ProviderMap).
+        data-map-id={provider.id}
         data-cta-provider={provider.practiceName}
         className={`flex gap-3 rounded border border-line p-3.5 transition-colors hover:border-muted hover:shadow-sm ${paid ? "bg-white" : "bg-bg-alt"}`}
       >

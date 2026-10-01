@@ -5,6 +5,13 @@
    appeared there. Apply them on any real hover instead. */
 @custom-variant hover (&:hover);
 
+/* A search result card whose map pin popup is open (ProviderMap). */
+[data-map-active] {
+  outline: 2px solid var(--color-action);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 6px rgb(31 122 77 / 0.15);
+}
+
 :root {
   --background: #ffffff;
   --foreground: #222222;

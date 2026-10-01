@@ -10,13 +10,13 @@ import { pushDataLayer } from "@/lib/track";
 
 const MILES_TO_METERS = 1609.344;
 
-// One tier system for pins and card badges (see Badge.tsx), told apart by
-// size and lightness as well as hue, so it still works for colorblind
-// visitors: large solid pins for Full Profile and Featured (violet with a
-// star for Founding Members, blue for Academic centers), small light pins
-// with a dark outline and dot for Verified (green) and the Academic package
-// (blue), and small gray pins for everyone else. Every pin has an outline
-// and shadow so it stands off the map's pastel parks, water and highways.
+// One tier system for pins and card badges (see Badge.tsx). Every pin is
+// solid with a white outline, a white dot (a star for Founding Members) and
+// a shadow, so it stands off the map's busy, pastel detail at any zoom.
+// Size separates paid placement (large: Full Profile and Featured) from the
+// rest (small), which also works for colorblind visitors; hue then matches
+// the card's badge: green, blue for Academic, violet for Founding Members,
+// a lighter green for Verified and gray for unbadged listings.
 type PinKind = "academicPremium" | "founder" | "featured" | "academic" | "verified" | "listed";
 
 const PIN_STYLES: Record<
@@ -26,9 +26,10 @@ const PIN_STYLES: Record<
   academicPremium: { size: 20, fill: "#00ABDA", outline: "#ffffff", glyph: "dot", glyphColor: "#ffffff", z: 3500 },
   founder: { size: 20, fill: "#3F08E0", outline: "#ffffff", glyph: "star", glyphColor: "#ffffff", z: 3000 },
   featured: { size: 20, fill: "#1F7A4D", outline: "#ffffff", glyph: "dot", glyphColor: "#ffffff", z: 2000 },
-  academic: { size: 14, fill: "#D4F1FA", outline: "#00ABDA", glyph: "dot", glyphColor: "#00ABDA", z: 1500 },
-  verified: { size: 14, fill: "#DCEEE0", outline: "#276B3D", glyph: "dot", glyphColor: "#276B3D", z: 1000 },
-  listed: { size: 14, fill: "#E2E2E2", outline: "#7A7A7A", glyph: null, glyphColor: "#ffffff", z: 0 },
+  academic: { size: 14, fill: "#00ABDA", outline: "#ffffff", glyph: "dot", glyphColor: "#ffffff", z: 1500 },
+  // Lighter than Featured's green so the two read as different tiers.
+  verified: { size: 14, fill: "#43A066", outline: "#ffffff", glyph: "dot", glyphColor: "#ffffff", z: 1000 },
+  listed: { size: 14, fill: "#7A7A7A", outline: "#ffffff", glyph: "dot", glyphColor: "#ffffff", z: 0 },
 };
 
 function pinKind(p: SrpProvider): PinKind {
@@ -48,7 +49,7 @@ function pinHtml(kind: PinKind): string {
       : glyph === "dot"
         ? `<span style="width:${Math.round(size * 0.3)}px;height:${Math.round(size * 0.3)}px;border-radius:50%;background:${glyphColor}"></span>`
         : "";
-  return `<div style="width:${size}px;height:${size}px;box-sizing:border-box;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:${fill};border:${border}px solid ${outline};box-shadow:0 1px 3px rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;">${inner}</div>`;
+  return `<div style="width:${size}px;height:${size}px;box-sizing:border-box;border-radius:50% 50% 50% 0;transform:rotate(-45deg);transition:transform .15s;background:${fill};border:${border}px solid ${outline};box-shadow:0 1px 3px rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;">${inner}</div>`;
 }
 
 function makeIcon(L: typeof LType, kind: PinKind): LType.DivIcon {
@@ -62,6 +63,22 @@ function makeIcon(L: typeof LType, kind: PinKind): LType.DivIcon {
     iconAnchor: [size / 2, tip],
     popupAnchor: [0, -tip + 4],
   });
+}
+
+// The searched location: a round dot (not a pin shape), drawn under the pins.
+const SEARCH_POINT_HTML =
+  '<div style="width:14px;height:14px;border-radius:50%;background:#222;border:3px solid #fff;box-shadow:0 0 0 4px rgba(34,34,34,.18),0 1px 3px rgba(0,0,0,.4)"></div>';
+
+/** Enlarges a pin (or restores it) while its card is hovered or its popup is open. */
+function setPinActive(marker: LType.Marker, kind: PinKind, active: boolean) {
+  const pin = marker.getElement()?.firstElementChild as HTMLElement | null;
+  if (pin) pin.style.transform = active ? "rotate(-45deg) scale(1.45)" : "rotate(-45deg)";
+  marker.setZIndexOffset(active ? 10000 : PIN_STYLES[kind].z);
+}
+
+/** The practice's card in the list beside the map (ProviderCard's data-map-id). */
+function cardFor(id: string): HTMLElement | null {
+  return document.querySelector(`[data-map-id="${CSS.escape(id)}"]`);
 }
 
 function escapeHtml(text: string): string {
@@ -101,6 +118,7 @@ export function ProviderMap({
   const mapRef = useRef<LType.Map | null>(null);
   const leafletRef = useRef<typeof LType | null>(null);
   const markersRef = useRef<LType.Marker[]>([]);
+  const markersById = useRef(new Map<string, { marker: LType.Marker; kind: PinKind }>());
   const [ready, setReady] = useState(false);
 
   // Leaflet touches `window` at import time, so it must be loaded
@@ -153,14 +171,39 @@ export function ProviderMap({
 
     markersRef.current.forEach((m) => m.remove());
     markersRef.current = [];
+    markersById.current.clear();
+
+    // Not added to markersRef, so it doesn't count toward the zoom-to-fit
+    // bounds twice (the center is added to those bounds directly).
+    const searchPoint = L.marker([center.lat, center.lng], {
+      icon: L.divIcon({ className: "", html: SEARCH_POINT_HTML, iconSize: [20, 20], iconAnchor: [10, 10] }),
+      zIndexOffset: -1000,
+      keyboard: false,
+    })
+      .addTo(map)
+      .bindTooltip("Your search location", { direction: "top", offset: [0, -8] });
 
     for (const p of providers) {
       const kind = pinKind(p);
       const marker = L.marker([p.latitude, p.longitude], { icon: makeIcon(L, kind), zIndexOffset: PIN_STYLES[kind].z })
         .addTo(map)
         .bindPopup(popupHtml(p, backHref))
-        .on("popupopen", () => pushDataLayer("oaan_map_pin_click", { provider_name: p.practiceName }));
+        .on("popupopen", () => {
+          pushDataLayer("oaan_map_pin_click", { provider_name: p.practiceName });
+          setPinActive(marker, kind, true);
+          // Outline the practice's card and bring it into view in the list.
+          const card = cardFor(p.id);
+          if (card) {
+            card.dataset.mapActive = "";
+            card.scrollIntoView({ block: "nearest", behavior: "smooth" });
+          }
+        })
+        .on("popupclose", () => {
+          setPinActive(marker, kind, false);
+          delete cardFor(p.id)?.dataset.mapActive;
+        });
       markersRef.current.push(marker);
+      markersById.current.set(p.id, { marker, kind });
     }
 
     if (providers.length > 0) {
@@ -176,7 +219,32 @@ export function ProviderMap({
     } else {
       map.setView([center.lat, center.lng], 6);
     }
+
+    return () => {
+      searchPoint.remove();
+    };
   }, [ready, providers, mode, center, radiusMiles, backHref]);
+
+  // Hovering a card in the list enlarges its pin (desktop, where the list and
+  // map sit side by side).
+  useEffect(() => {
+    const toggle = (e: MouseEvent, active: boolean) => {
+      const card = (e.target as Element | null)?.closest?.("[data-map-id]");
+      if (!(card instanceof HTMLElement)) return;
+      // Ignore moves between elements inside the same card.
+      if (e.relatedTarget instanceof Node && card.contains(e.relatedTarget)) return;
+      const entry = markersById.current.get(card.dataset.mapId ?? "");
+      if (entry && !entry.marker.isPopupOpen()) setPinActive(entry.marker, entry.kind, active);
+    };
+    const over = (e: MouseEvent) => toggle(e, true);
+    const out = (e: MouseEvent) => toggle(e, false);
+    document.addEventListener("mouseover", over);
+    document.addEventListener("mouseout", out);
+    return () => {
+      document.removeEventListener("mouseover", over);
+      document.removeEventListener("mouseout", out);
+    };
+  }, []);
 
   return <div ref={containerRef} className="h-full min-h-64" />;
 }
