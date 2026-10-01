@@ -253,6 +253,11 @@ turns each one into a promise.
     for paying practices (tiers, billing, cancellation, content accuracy,
     lead delivery, no guarantee of results). Cancellation and refunds
     belong here, not in the website Terms of Use (consumers pay nothing).
+    The owner plans to draft it on Rocket Lawyer (2026-10-01). Business
+    terms to include: minimum terms (Verified 6 months; Full Profile and
+    Featured 3 or 4 months; Academic billed yearly), no guarantee of leads,
+    clicks or traffic, and search advertising for Featured practices run at
+    OAAN's discretion with no committed amount or share of spend.
     The Terms of Use should say that practices buying listings are also
     bound by this separate agreement. Cancellation points to cover:
     - Term and renewal (monthly or annual, automatic renewal, and any

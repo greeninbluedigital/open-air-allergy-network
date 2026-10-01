@@ -8,22 +8,55 @@ sizes are in `docs/image-guide.md`.
 
 ## Pricing (draft, 2026-10-01)
 
-| Package | Price | Sheet setup |
-|---|---|---|
-| Featured | $1,250/month | Tier `Featured` |
-| Full Profile | $950/month | Tier `Full Profile` |
-| Academic package | $400/month | Tier `Academic` |
-| Verified | $300/month | Tier `Verified` |
-| Freemium | Free | Tier `Freemium` |
-| Geo-Extension add-on | $500/month per increment | Geo-Extension `Y`, plus SEM Landing Pages rows |
+Confidential: never published on the site, and quoted per client.
+
+| Package | Price | Minimum term | Sheet setup |
+|---|---|---|---|
+| Featured | $1,250/month | 3 or 4 months (TBD) | Tier `Featured` |
+| Full Profile | $950/month | 3 or 4 months (TBD) | Tier `Full Profile` |
+| Academic package | Negotiated, billed yearly (open around $7,000/year) | 1 year | Tier `Academic` |
+| Verified | $300/month | 6 months | Tier `Verified` |
+| Freemium | Free | none | Tier `Freemium` |
+| Geo-Extension add-on | $500/month per increment | TBD | Geo-Extension `Y`, plus SEM Landing Pages rows |
 
 **Main differentiator, Verified vs. Featured: SEM support.** Featured
 practices get SEM campaigns driving traffic to their own page. Lower tiers
 only benefit from OAAN's general sitewide SEM.
 
+**Full Profile and Featured are priced close together on purpose,** so the
+step up to Featured is an easy upsell. Site features cost OAAN nothing to
+turn on; SEM is the only real cost.
+
+**Academic pricing is negotiable.** Open around $7,000/year and leave room
+to come down to the client's budget or a fast-approval purchase limit
+(often $5,000). Decide your floor before each meeting.
+
 **Geo-Extension** is sold in $500/month increments. It's built mostly on
 paid traffic (SEM landing pages aimed at other metros), so the price is
 framed as campaign support. More increments, more out-of-area patients.
+
+**Founding Member** costs nothing. It's an incentive for the first practice
+in an area to sign up for Full Profile or Featured, and it shows as a badge
+and a violet star pin. Not yet defined: how big an "area" is, and whether
+the status survives a cancellation (`docs/legal-facts.md` question 10).
+
+## SEM support: what to promise, and the internal target
+
+**In the pitch, keep SEM intentionally general.** OAAN runs search ad
+campaigns that promote Featured practices' pages. Never promise a number of
+leads, clicks or visits, or a set amount or share of ad spend. Spend is at
+OAAN's discretion and is expected to drop as organic traffic grows. The
+practice agreement should say the same (`docs/legal-facts.md` question 10).
+
+**Internal target, never shared with clients:** deliver leads at about
+**$200 or less per lead** for Featured practices, so $1,250/month means about
+6 to 7 leads a month. SEM spend is adjusted per client during the month to
+stay in that range. Geo-Extension is excluded from this target.
+
+Open question: which actions count as a lead toward the target. The site
+records contact form leads (confirmed or not), phone taps and clicks,
+website clicks and address clicks (`docs/analytics.md`). Desktop calls
+can't be counted, since the number is visible without a click.
 
 ## What each package includes
 
@@ -85,25 +118,20 @@ the badge (pending counsel's definition, `docs/legal-facts.md` question 6).
 The sync flags (but doesn't block) bios over the limits, paid practices with
 no Notification Email, and Academic `Y` on a Freemium row.
 
-## Pricing considerations (notes from planning, 2026-10-01)
+## Pricing notes
 
-- **Academic budget:** the $5,000/year figure comes from one UCLA
+- **Academic budgets:** the $5,000/year figure comes from one UCLA
   radiologist's discretionary fund. ILIT runs through allergy and immunology
-  divisions, whose budgets may differ. $400/month is $4,800/year, nearly all
-  of that fund. An annual price invoiced once (for example $4,500) fits
-  university purchasing better than monthly card billing, and stays under
-  common no-bid purchase limits. Large academic centers may route paid
-  listings through their marketing or communications office.
-- **Full Profile to Featured is a $300/month step**, and it has to cover
-  reviews plus real SEM ad spend. Allergy keywords can cost several dollars
-  per click, so $300 buys a limited number of clicks before any margin.
-  Consider stating how much ad spend Featured includes, or widening the gap.
-- **Verified to Full Profile is a $650/month step.** Verified now includes
-  the contact form, so Full Profile's case rests on top placement, the
-  large pin, the full content (About, FAQs, extra photos, hours, treatments)
-  and the card photo.
-- **SEM needs time to optimize** (typically 60 to 90 days), so a minimum
-  term for Featured and Geo-Extension protects both sides.
-- **Still to define:** what Founding Member status includes beyond the
-  badge (e.g. a locked price), and what one Geo-Extension increment buys
-  (for example one target metro and its landing page).
+  divisions, whose budgets may differ. Universities usually pay by annual
+  invoice or purchase order, and purchases under a set limit (often $5,000
+  to $10,000) skip competitive bidding. Large academic centers may route
+  paid listings through their marketing or communications office.
+- **Verified to Full Profile is a $650/month step,** and Verified now
+  includes the contact form. The upgrade case rests on top placement, the
+  large pin, the full content (About, FAQs, extra photos, hours,
+  treatments) and the card photo.
+- **Minimum terms** give SEM the 60 to 90 days it typically needs to
+  optimize, and longer minimums on cheaper tiers protect against churn.
+- **Still to define:** what one Geo-Extension increment buys (for example
+  one target metro with its own landing page and campaign), and the
+  Founding Member area and cancellation rules above.
