@@ -30,7 +30,7 @@ page actually displays it. Last updated 2026-09-30.
 | Photos inside an article | Article body | **1600 wide**, any height | Any |
 | Provider main photo | Providers tab, Provider Photo URL (X) | **1200 × 1500** | 4:5 (portrait) |
 | Provider secondary photos | Providers tab, Secondary Photo URLs (Y), up to 4 | **1600 × 1200** | 4:3 |
-| Search result card photo | Providers tab, SRP Card Photo URL (AN) | **400 × 400** | 1:1 (square) |
+| Search result card photo | Providers tab, SRP Card Photo URL (Z) | **400 × 400** | 1:1 (square) |
 | Article author photo | Ask Claude (set per article) | **400 × 400**, face centered | 1:1 |
 | Learn About ILIT hero | Set in the site code (ask Claude) | **2400 wide**, landscape | About 3:1 or wider |
 

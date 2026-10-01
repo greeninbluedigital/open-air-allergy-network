@@ -33,6 +33,7 @@ const PROVIDER_COLUMNS = [
   ["extendedBio", "Extended Bio"],
   ["photoUrl", "Provider Photo URL"],
   ["secondaryPhotoUrls", "Secondary Photo URLs"],
+  ["srpPhotoUrl", "SRP Card Photo URL"],
   ["businessHours", "Business Hours"],
   ["ilitScheduleNotes", "ILIT Schedule Notes"],
   ["treatmentsOffered", "Treatments Offered"],
@@ -47,7 +48,6 @@ const PROVIDER_COLUMNS = [
   ["customField2", "Custom Field 2"],
   ["notes", "Notes"],
   ["isDemo", "Demo/Example Listing"],
-  ["srpPhotoUrl", "SRP Card Photo URL"],
 ] as const;
 
 const COLUMNS = PROVIDER_COLUMNS.map(([key]) => key);
