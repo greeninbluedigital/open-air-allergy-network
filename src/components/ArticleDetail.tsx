@@ -163,7 +163,7 @@ export function ArticleDetail({ article }: { article: ArticleDetailData }) {
 
       {article.featureImageUrl && (
         <div className="relative mb-6 h-64 overflow-hidden rounded bg-bg-alt sm:h-80">
-          <Image src={article.featureImageUrl} alt={article.title} fill className="object-cover" />
+          <Image src={article.featureImageUrl} alt={article.featureImageAlt ?? article.title} fill className="object-cover" />
         </div>
       )}
 

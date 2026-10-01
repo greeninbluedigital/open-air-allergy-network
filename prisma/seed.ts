@@ -116,7 +116,7 @@ async function main() {
     },
   });
 
-  // No seed articles: the old placeholder stubs were deleted (2026-10-01),
+  // No seed articles: the old placeholder stubs were deleted (2026-09-30),
   // and real articles are written directly to the database
   // (docs/blog-content-guide.md). Seeding them would recreate fake content.
 

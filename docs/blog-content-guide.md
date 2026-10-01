@@ -79,7 +79,25 @@ Avant Allergy comparison article is `["ILIT", "Comparisons"]`). Exact
 spelling/casing matters since matching is a literal string compare
 (`tags: { has: tag }`) — copy from this list rather than retyping it.
 
-## Sourcing every article (owner's rule, 2026-10-01)
+## Drafting and publishing
+
+1. Draft in `content-drafts/<slug>.md`: a metadata comment block (Section,
+   Title, URL, Meta description, Tags, Feature image, Image alt, KEY
+   TAKEAWAYS, FAQS with `Q:`/`A:` lines, SOURCES), then the Markdown body
+   after the `BODY` line. The owner edits (saving `v2`, `v3`…), Claude
+   fact-checks the edits.
+2. Publish the approved version:
+   `npx tsx scripts/publish-article.ts "content-drafts/<file>.md"` (add
+   `--dry-run` to check first). It checks the title (62 characters max) and
+   description (70 to 155) and creates or updates the article and its FAQs.
+3. Add it to the Published table in `docs/content-ideas.md`, and delete the
+   draft files.
+
+The feature image is 1600 × 900 (16:9) on Cloudinary, used for both the
+article header and the blog card. "Image alt" describes the photo for screen
+readers and image search, and falls back to the title if blank.
+
+## Sourcing every article (owner's rule, 2026-09-30)
 
 Treat this as journalistic integrity. Every number or medical fact in an
 article (a schedule, a timeframe, a test detail) is attributed to a named,

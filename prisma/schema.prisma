@@ -373,9 +373,16 @@ model Article {
   // property below for a legitimate (if minor) structured-data nod.
   summaryPoints String[] @default([])
 
+  // Hand-written search-result description (70 to 155 characters, see
+  // docs/metadata-rules.md). Falls back to the Key Takeaways when unset.
+  metaDescription String?
+
   // Contribution articles: optional, article-specific — never auto-inherited from
   // the Provider's PDP photo (multi-doctor practices need per-author accuracy).
   featureImageUrl String?
+  // Describes the feature image for screen readers and image search.
+  // Falls back to the article title when unset.
+  featureImageAlt String?
   // Falls back to a generic silhouette in the UI if unset — never to the
   // practice's general PDP photo, for the same multi-doctor-accuracy reason.
   authorPhotoUrl  String?

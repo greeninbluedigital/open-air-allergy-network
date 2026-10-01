@@ -15,7 +15,6 @@ evergreen, keyword-targeted guides.
 | Working title | Section | Target keywords | Draft |
 |---|---|---|---|
 | How Often Do You Get Allergy Shots? A Busy Person's Guide | Blog | "how often do you get allergy shots", "how often can you get allergy shots" | `content-drafts/how-often-do-you-get-allergy-shots.md` |
-| Allergy Testing Before Immunotherapy: Skin Test vs. Blood Test | Blog | "allergy skin test vs blood test", "allergy testing" | `content-drafts/allergy-skin-test-vs-blood-test.md` |
 
 ## Ideas: Blog
 
@@ -52,7 +51,8 @@ evergreen, keyword-targeted guides.
 | Allergy Shots & Allergy Immunotherapy: A Full Guide | Learn | `/learn-about-ilit/allergy-shots-and-allergy-immunotherapy` | 2026-09-22 |
 | Pet Allergy Treatment: Cat & Dog Allergy Shots | Learn | `/learn-about-ilit/pet-cat-dog-allergy-treatment` | 2026-09-23 |
 | Seasonal Allergies: Spring, Summer, Fall & Winter Guide | Learn | `/learn-about-ilit/seasonal-allergies-by-season` | 2026-09-23 |
+| Allergy Testing Before Immunotherapy: Skin Test vs. Blood Test | Blog | `/blog/allergy-skin-test-vs-blood-test` | 2026-09-30 (keywords: "allergy skin test vs blood test", "allergy testing") |
 
-Removed (2026-10-01): the placeholder stubs "5 Things to Know Before
+Removed (2026-09-30): the placeholder stubs "5 Things to Know Before
 Starting ILIT" and "ILIT Growth in U.S. Allergy Practices". Both ideas live
 on in the Blog list above.

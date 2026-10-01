@@ -17,7 +17,8 @@ export async function generateMetadata({
   if (!article) return {};
 
   const description = truncateForMeta(
-    article.summaryPoints.length > 0 ? article.summaryPoints.join(" ") : stripMarkdown(article.body),
+    article.metaDescription ??
+      (article.summaryPoints.length > 0 ? article.summaryPoints.join(" ") : stripMarkdown(article.body)),
   );
   return {
     // `absolute` skips the site-name template, same reasoning as PDP/Blog

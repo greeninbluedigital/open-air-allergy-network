@@ -20,7 +20,8 @@ export async function generateMetadata({
   // Network" template — that 28-char suffix alone pushed every real article
   // title (including this user-chosen headline) past the 62-char budget.
   const description = truncateForMeta(
-    article.summaryPoints.length > 0 ? article.summaryPoints.join(" ") : stripMarkdown(article.body),
+    article.metaDescription ??
+      (article.summaryPoints.length > 0 ? article.summaryPoints.join(" ") : stripMarkdown(article.body)),
   );
   return {
     title: { absolute: article.title },
