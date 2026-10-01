@@ -12,7 +12,7 @@ sizes are in `docs/image-guide.md`.
 |---|---|---|
 | Featured | $1,250/month | Tier `Featured` |
 | Full Profile | $950/month | Tier `Full Profile` |
-| Academic package | $400/month | Tier `Verified`, Academic `Y` |
+| Academic package | $400/month | Tier `Academic` |
 | Verified | $300/month | Tier `Verified` |
 | Freemium | Free | Tier `Freemium` |
 | Geo-Extension add-on | $500/month per increment | Geo-Extension `Y`, plus SEM Landing Pages rows |
@@ -59,7 +59,8 @@ the endpoint).
 
 For academic medical centers, such as a university allergy and immunology
 division (target prospects: Ohio State, Washington University). Set up as
-tier `Verified` with Academic `Y`. The Academic badge and pin show at
+Tier `Academic` (stored as a Verified page with the Academic flag on). For an
+academic center on Full Profile or Featured, set that tier plus Academic `Y`. The Academic badge and pin show at
 **any** paid tier, so an academic center that buys Full Profile or Featured
 keeps them. On the map, Academic wins over Founding Member.
 

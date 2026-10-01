@@ -91,6 +91,9 @@ const TIER_MAP: Record<string, "FREE_CLAIMED" | "VERIFIED" | "FULL_PROFILE" | "F
   free: "FREE_CLAIMED",
   claimed: "FREE_CLAIMED",
   verified: "VERIFIED",
+  // The Academic package: stored as Verified with the academic flag on (see
+  // isAcademic below), so it works without the Academic column too.
+  academic: "VERIFIED",
   "full profile": "FULL_PROFILE",
   featured: "FEATURED",
 };
@@ -102,6 +105,11 @@ function parseBool(cell: string | undefined): boolean {
 
 function parseTier(cell: string | undefined): "FREE_CLAIMED" | "VERIFIED" | "FULL_PROFILE" | "FEATURED" {
   return TIER_MAP[(cell ?? "").trim().toLowerCase()] ?? "FREE_CLAIMED";
+}
+
+/** Academic column Y, or Tier "Academic". */
+function isAcademic(r: { tier: string; academic: string }): boolean {
+  return parseBool(r.academic) || r.tier.trim().toLowerCase() === "academic";
 }
 
 function parseDate(cell: string | undefined): Date | null {
@@ -686,7 +694,11 @@ export async function runSync(): Promise<SyncSummary> {
           `${slug} (row ${sheetRow}) has a contact form but no Notification Email, so its leads can't be delivered.`,
         );
       }
-      if (parseBool(r.academic) && tier === "FREE_CLAIMED") {
+      if (r.tier.trim() && !(r.tier.trim().toLowerCase() in TIER_MAP)) {
+        summary.warnings.push(
+          `${slug} (row ${sheetRow}) has Tier "${r.tier.trim()}", which isn't a recognized tier, so it was treated as Freemium. Use Freemium, Verified, Academic, Full Profile or Featured.`,
+        );
+      } else if (isAcademic(r) && tier === "FREE_CLAIMED") {
         summary.warnings.push(`${slug} (row ${sheetRow}) is marked Academic but is Freemium, so no Academic badge shows.`);
       }
       if (r.shortBio.trim().length > SHORT_BIO_MAX) {
@@ -717,7 +729,7 @@ export async function runSync(): Promise<SyncSummary> {
         ...(!existing || existing.tier !== tier ? { tierSince: new Date() } : {}),
         foundingMember: parseBool(r.foundingMember),
         geoExtension,
-        academic: parseBool(r.academic),
+        academic: isAcademic(r),
         active,
         verificationDate: parseDate(r.verificationDate),
         verificationNotes: r.verificationNotes || null,

@@ -37,10 +37,10 @@ Column order:
 | I | Phone | Patient-facing |
 | J | Website | |
 | K | Notification Email | **New** — where lead notifications get sent (not shown publicly). Required for the practice to actually receive PDP/SEM contact-form leads. Every paid tier (Verified and up) has the contact form, so the sync warns when an active paid row has this blank |
-| L | Tier | One of: `Freemium`, `Verified`, `Full Profile`, `Featured`. Anything else is treated as Freemium |
+| L | Tier | One of: `Freemium`, `Verified`, `Academic`, `Full Profile`, `Featured`. `Academic` is the Academic package: a Verified page with the Academic badge and extras, whatever column O says. Anything else is treated as Freemium, and the sync warns about it |
 | M | Founding Member | `Y` / `N`. Only ever displayed for Full Profile and Featured, whatever this says |
 | N | Geo-Extension | `Y` / `N` |
-| O | Academic | `Y` / `N`. For academic medical centers (e.g. a university allergy and immunology division). Adds the Academic badge and a navy map pin at any paid tier (it wins over Founding Member on the map). At the Verified tier it also unlocks FAQs, Treatments Offered and Business Hours (the Academic package). Ignored on Freemium rows, and the sync warns about it |
+| O | Academic | `Y` / `N`. For academic medical centers (e.g. a university allergy and immunology division). Not needed when Tier is `Academic` (that turns it on by itself). Use it for an academic center on a higher tier, e.g. Featured. Adds the Academic badge and a navy map pin at any paid tier (it wins over Founding Member on the map). At the Verified tier it also unlocks FAQs, Treatments Offered and Business Hours (the Academic package). Ignored on Freemium rows, and the sync warns about it |
 | P | Travel Notes | **New.** Body text for the "Getting Here — Fly In" module on the PDP, which only shows when Geo-Extension (N) is `Y`. Use it for nearest airports, transit, hotels the practice recommends, or anything else the practice wants traveling patients to know. Plain text: links aren't clickable, and Alt+Enter line breaks inside the cell show as line breaks on the page. Blank shows the standard line: "This practice welcomes out-of-area patients. Contact them directly for travel guidance." |
 | Q | Active | `Y` / `N` |
 | R | Verification Date | Any parseable date, e.g. `2026-09-01` |
