@@ -41,7 +41,7 @@ export function MobileNav() {
                 aria-current={current ? "page" : undefined}
                 onClick={() => setOpen(false)}
                 className={`border-b border-line py-3 text-sm last:border-none ${
-                  current ? "-mx-3 rounded bg-action px-3 font-semibold text-white" : "text-foreground"
+                  current ? "-mx-3 rounded border border-action bg-white px-3 font-bold text-action" : "text-foreground"
                 }`}
               >
                 {link.label}
