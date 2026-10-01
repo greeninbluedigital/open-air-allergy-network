@@ -102,6 +102,15 @@ page actually displays it. Last updated 2026-09-30.
 - **Logo:** when it's designed, Claude adds it to the header and to the
   site's structured data. A square version (at least 512 × 512) will also be
   useful for search results and social profiles.
+  - **Header size:** shown about **40 pixels tall** on computers and about
+    **32 tall** on phones. On tablets it must fit in about **180 pixels of
+    width** beside the menu, so the shape should be no wider than about
+    4.5:1. A one-line "Open Air Allergy Network" at 40 tall would be about
+    350 wide, so plan a stacked version (icon plus two lines of text) or an
+    icon plus a shorter wordmark.
+  - **File:** SVG is best (sharp at every size, tiny file). Otherwise a
+    transparent PNG at 3× display size (about 120 pixels tall), trimmed with
+    no empty margin around it.
 - **Social sharing for provider pages:** shared links use the provider's main
   photo, which is portrait. Social sites crop it to a wide rectangle, so
   part of the photo gets cut off. A dedicated landscape share image would
