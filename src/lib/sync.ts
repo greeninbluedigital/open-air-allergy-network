@@ -125,7 +125,7 @@ function slugify(name: string): string {
     .replace(/^-+|-+$/g, "");
 }
 
-type RenameCandidate = { slug: string; practiceName: string; address: string; city: string; zip: string };
+type RenameCandidate = { slug: string; practiceName: string; address: string; city: string; zip: string; row?: number };
 
 /** Same street address and zip, or same name in the same city. */
 function looksLikeSamePractice(a: RenameCandidate, b: RenameCandidate): boolean {
@@ -630,9 +630,11 @@ export async function runSync(): Promise<SyncSummary> {
   const createdThisRun: RenameCandidate[] = [];
   const groupChanges = new Map<string, string[]>();
 
-  for (const row of rawRows) {
+  for (const [index, row] of rawRows.entries()) {
     const r = parseRow(row);
     const slug = r.slug.trim();
+    // Data starts on sheet row 2 (row 1 is headers).
+    const sheetRow = index + 2;
     if (!slug) {
       summary.skipped++;
       continue;
@@ -742,11 +744,11 @@ export async function runSync(): Promise<SyncSummary> {
         const newGroup = r.groupId || null;
         if (existing.groupId && existing.groupId !== newGroup) {
           const key = `"${existing.groupId}" to ${newGroup ? `"${newGroup}"` : "blank"}`;
-          groupChanges.set(key, [...(groupChanges.get(key) ?? []), slug]);
+          groupChanges.set(key, [...(groupChanges.get(key) ?? []), `${slug} (row ${sheetRow})`]);
         }
       } else {
         summary.created++;
-        createdThisRun.push({ slug, practiceName: r.practiceName, address: r.address, city: r.city, zip: r.zip });
+        createdThisRun.push({ slug, practiceName: r.practiceName, address: r.address, city: r.city, zip: r.zip, row: sheetRow });
       }
     } catch (err) {
       summary.errors.push(`${slug}: ${(err as Error).message}`);
@@ -783,7 +785,7 @@ export async function runSync(): Promise<SyncSummary> {
       const match = createdThisRun.find((c) => looksLikeSamePractice(old, c));
       if (match) {
         summary.warnings.push(
-          `Possible rename: "${old.slug}" was deactivated and "${match.slug}" was created for the same practice (${match.address}, ${match.city}). Its page address changed and the old listing is now hidden. If that wasn't intended, restore the old Provider Slug in the sheet and sync again.`,
+          `Possible rename: "${old.slug}" was deactivated and "${match.slug}" (sheet row ${match.row}) was created for the same practice (${match.address}, ${match.city}). Its page address changed and the old listing is now hidden. If that wasn't intended, restore the old Provider Slug in that row and sync again.`,
         );
       }
     }
