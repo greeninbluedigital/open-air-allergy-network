@@ -7,7 +7,6 @@
   --color-sand: #f5f1e8;
   --color-sand-line: #e3dcc9;
   --color-sage: #4a6350;
-  --color-sage-dark: #3a4f3f;
 
   /* Primary accent — a more saturated evolution of the existing sage green,
      used deliberately in exactly one role (primary CTAs) rather than
@@ -18,20 +17,18 @@
   --color-line: #dcdcdc;
   --color-bg-alt: #f4f4f4;
   --color-muted: #777777;
-  --color-dark-panel: #2e2e2e;
 
+  /* Practice badges and map pins share one tier system (see ProviderMap's
+     pinStyle): solid action green = Full Profile/Featured, light green =
+     Verified, amber = Founding Member, gray = everything else. */
   --color-badge-verified-bg: #dceee0;
   --color-badge-verified-text: #276b3d;
   --color-badge-founder-bg: #fdecd2;
   --color-badge-founder-text: #b45309;
-  --color-badge-geo-bg: #dceef0;
-  --color-badge-geo-text: #1c6b78;
   --color-badge-contrib-bg: #e6ddf7;
   --color-badge-contrib-text: #5b34a8;
   --color-badge-house-bg: #eeeeee;
   --color-badge-house-text: #666666;
-  --color-badge-consult-bg: #dde8f5;
-  --color-badge-consult-text: #1c5ea8;
 }
 
 @theme inline {
@@ -43,27 +40,21 @@
   --color-sand: var(--color-sand);
   --color-sand-line: var(--color-sand-line);
   --color-sage: var(--color-sage);
-  --color-sage-dark: var(--color-sage-dark);
   --color-action: var(--color-action);
   --color-action-hover: var(--color-action-hover);
 
   --color-line: var(--color-line);
   --color-bg-alt: var(--color-bg-alt);
   --color-muted: var(--color-muted);
-  --color-dark-panel: var(--color-dark-panel);
 
   --color-badge-verified-bg: var(--color-badge-verified-bg);
   --color-badge-verified-text: var(--color-badge-verified-text);
   --color-badge-founder-bg: var(--color-badge-founder-bg);
   --color-badge-founder-text: var(--color-badge-founder-text);
-  --color-badge-geo-bg: var(--color-badge-geo-bg);
-  --color-badge-geo-text: var(--color-badge-geo-text);
   --color-badge-contrib-bg: var(--color-badge-contrib-bg);
   --color-badge-contrib-text: var(--color-badge-contrib-text);
   --color-badge-house-bg: var(--color-badge-house-bg);
   --color-badge-house-text: var(--color-badge-house-text);
-  --color-badge-consult-bg: var(--color-badge-consult-bg);
-  --color-badge-consult-text: var(--color-badge-consult-text);
 }
 
 body {

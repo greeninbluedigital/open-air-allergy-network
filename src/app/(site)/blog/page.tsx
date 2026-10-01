@@ -71,7 +71,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
         <div className="flex flex-wrap gap-2">
           <Link
             href={`/blog${buildQuery({ zip, radius: baseParams.radius })}`}
-            className={`rounded px-3 py-1 text-xs font-bold uppercase ${!tag ? "bg-foreground text-background" : "bg-bg-alt"}`}
+            className={`rounded px-3 py-1 text-xs font-bold uppercase ${!tag ? "bg-foreground text-background" : "bg-bg-alt hover:bg-line"}`}
           >
             All
           </Link>
@@ -79,7 +79,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
             <Link
               key={t.tag}
               href={`/blog${buildQuery({ ...baseParams, tag: t.tag })}`}
-              className={`rounded px-3 py-1 text-xs font-bold uppercase ${tag === t.tag ? "bg-foreground text-background" : "bg-bg-alt"}`}
+              className={`rounded px-3 py-1 text-xs font-bold uppercase ${tag === t.tag ? "bg-foreground text-background" : "bg-bg-alt hover:bg-line"}`}
             >
               {t.tag} ({t.count})
             </Link>
@@ -93,7 +93,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
         </div>
         <ZipSearchForm action="/blog" showRadius defaultRadius={radius} buttonLabel="Filter" />
         {(tag || zip) && (
-          <Link href="/blog" className="mt-2.5 inline-block text-xs text-muted">
+          <Link href="/blog" className="mt-2.5 inline-block text-xs text-muted hover:underline">
             Clear Filters
           </Link>
         )}
@@ -111,7 +111,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
               <Link
                 key={article.id}
                 href={`/blog/${article.slug}`}
-                className="flex flex-col overflow-hidden rounded border border-line bg-white"
+                className="flex flex-col overflow-hidden rounded border border-line bg-white transition-colors hover:border-muted hover:shadow-sm"
               >
                 <div className="relative h-30 overflow-hidden bg-bg-alt">
                   {article.featureImageUrl && (
@@ -141,9 +141,9 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
             <Link
               key={article.id}
               href={`/blog/${article.slug}`}
-              className="flex items-center justify-between gap-4 py-2.5 text-sm hover:bg-bg-alt"
+              className="group flex items-center justify-between gap-4 py-2.5 text-sm"
             >
-              <span>{article.title}</span>
+              <span className="group-hover:underline">{article.title}</span>
               <span className="shrink-0 text-xs whitespace-nowrap text-muted">
                 {article.publishedDate?.toLocaleDateString("en-US", {
                   month: "short",
@@ -161,7 +161,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
               <Link
                 key={p}
                 href={`/blog${buildQuery({ ...baseParams, page: String(p) })}`}
-                className={`rounded border px-3 py-1.5 ${p === page ? "border-foreground bg-foreground text-background" : "border-line"}`}
+                className={`rounded border px-3 py-1.5 ${p === page ? "border-foreground bg-foreground text-background" : "border-line hover:border-muted hover:bg-bg-alt"}`}
               >
                 {p}
               </Link>

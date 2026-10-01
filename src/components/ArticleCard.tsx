@@ -14,7 +14,7 @@ export function ArticleCard({ article }: { article: ArticleCardData }) {
   return (
     <Link
       href={`/${isLearn ? "learn-about-ilit" : "blog"}/${article.slug}`}
-      className="flex flex-col overflow-hidden rounded border border-line bg-white"
+      className="flex flex-col overflow-hidden rounded border border-line bg-white transition-colors hover:border-muted hover:shadow-sm"
     >
       <div className="relative h-30 overflow-hidden bg-bg-alt">
         {article.featureImageUrl && (

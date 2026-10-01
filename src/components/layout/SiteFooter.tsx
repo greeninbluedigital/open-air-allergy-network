@@ -25,13 +25,13 @@ export function SiteFooter() {
           <div className="mb-1 text-xs font-semibold tracking-wide text-muted uppercase">
             Explore
           </div>
-          <Link href="/learn-about-ilit" data-cta="footer" className="text-foreground/80 transition-colors hover:text-sage">
+          <Link href="/learn-about-ilit" data-cta="footer" className="text-foreground/80 underline-offset-2 hover:underline">
             Learn About ILIT
           </Link>
-          <Link href="/find-an-ilit-provider" data-cta="footer" className="text-foreground/80 transition-colors hover:text-sage">
+          <Link href="/find-an-ilit-provider" data-cta="footer" className="text-foreground/80 underline-offset-2 hover:underline">
             Find a Provider
           </Link>
-          <Link href="/blog" data-cta="footer" className="text-foreground/80 transition-colors hover:text-sage">
+          <Link href="/blog" data-cta="footer" className="text-foreground/80 underline-offset-2 hover:underline">
             Blog
           </Link>
         </div>
@@ -40,13 +40,13 @@ export function SiteFooter() {
           <div className="mb-1 text-xs font-semibold tracking-wide text-muted uppercase">
             Organization
           </div>
-          <Link href="/about" className="text-foreground/80 transition-colors hover:text-sage">
+          <Link href="/about" className="text-foreground/80 underline-offset-2 hover:underline">
             About
           </Link>
-          <Link href="/about#contact" className="text-foreground/80 transition-colors hover:text-sage">
+          <Link href="/about#contact" className="text-foreground/80 underline-offset-2 hover:underline">
             Contact
           </Link>
-          <Link href="/for-practices" data-cta="footer" className="text-foreground/80 transition-colors hover:text-sage">
+          <Link href="/for-practices" data-cta="footer" className="text-foreground/80 underline-offset-2 hover:underline">
             For Practices
           </Link>
         </div>
@@ -56,7 +56,7 @@ export function SiteFooter() {
             Legal
           </div>
           {LEGAL_LINKS.map((link) => (
-            <Link key={link.href} href={link.href} className="text-foreground/80 transition-colors hover:text-sage">
+            <Link key={link.href} href={link.href} className="text-foreground/80 underline-offset-2 hover:underline">
               {link.label}
             </Link>
           ))}
@@ -75,10 +75,10 @@ export function MinimalFooter() {
   return (
     <footer className="border-t border-line px-6 py-6 text-xs text-muted sm:px-10">
       <div className="flex flex-wrap items-center gap-4">
-        <Link href="/legal/privacy-notice" className="text-foreground/80 transition-colors hover:text-sage">
+        <Link href="/legal/privacy-notice" className="text-foreground/80 underline-offset-2 hover:underline">
           Privacy Policy
         </Link>
-        <Link href="/legal/terms-and-conditions" className="text-foreground/80 transition-colors hover:text-sage">
+        <Link href="/legal/terms-and-conditions" className="text-foreground/80 underline-offset-2 hover:underline">
           Terms & Conditions
         </Link>
         <span>© {YEAR} Open Air Allergy Network</span>

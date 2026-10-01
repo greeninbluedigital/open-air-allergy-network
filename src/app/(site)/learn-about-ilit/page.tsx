@@ -230,7 +230,7 @@ export default async function LearnAboutIlitPage() {
             <div key={point.title} className="flex flex-col rounded border border-t-4 border-line border-t-action bg-white p-5">
               <h3 className="mb-2 font-bold">{point.title}</h3>
               <p className="flex-1 text-sm text-foreground/80">{point.text}</p>
-              <FaqJumpLink targetId={point.faqId} className="mt-3 text-sm font-semibold text-sage">
+              <FaqJumpLink targetId={point.faqId} className="mt-3 text-sm font-semibold text-sage hover:underline">
                 More in the FAQ below →
               </FaqJumpLink>
             </div>
@@ -267,7 +267,7 @@ export default async function LearnAboutIlitPage() {
       <section className="border-b border-line px-6 py-10 sm:px-10">
         <h2 className="mb-5 text-2xl font-bold">Recent Blog Articles from Our Providers</h2>
         <ArticleFeed limit={3} providerCreditedOnly emptyHidden />
-        <Link href="/blog" className="mt-5 inline-block text-sm font-semibold text-sage">
+        <Link href="/blog" className="mt-5 inline-block text-sm font-semibold text-sage hover:underline">
           View all blog articles →
         </Link>
       </section>

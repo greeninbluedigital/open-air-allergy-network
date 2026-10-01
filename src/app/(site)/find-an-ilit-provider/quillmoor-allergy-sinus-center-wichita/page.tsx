@@ -29,7 +29,7 @@ export default function TrapListingPage() {
   return (
     <div className="mx-auto max-w-2xl px-6 py-16 text-center sm:px-10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }} />
-      <Link href="/find-an-ilit-provider" className="mb-6 inline-block text-xs text-muted">
+      <Link href="/find-an-ilit-provider" className="mb-6 inline-block text-xs text-muted hover:underline">
         ← Back to Search Results
       </Link>
       <h1 className="mb-2 text-2xl font-extrabold">{P.name}</h1>

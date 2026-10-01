@@ -124,7 +124,7 @@ export default async function HomePage() {
       <section className="border-b border-line bg-bg-alt px-6 py-10 sm:px-10">
         <h2 className="mb-3 text-2xl font-bold">What is ILIT?</h2>
         <p className="max-w-3xl text-base text-foreground">{ILIT_DEFINITION}</p>
-        <Link href="/learn-about-ilit" data-cta="homepage_what_is_ilit" className="mt-4 inline-block text-sm font-semibold text-sage">
+        <Link href="/learn-about-ilit" data-cta="homepage_what_is_ilit" className="mt-4 inline-block text-sm font-semibold text-sage hover:underline">
           Learn more about ILIT →
         </Link>
       </section>
@@ -162,7 +162,7 @@ export default async function HomePage() {
               <ProviderCard key={p.id} provider={p} backHref={nearbySearch} impressionType="HOMEPAGE_IMPRESSION" />
             ))}
           </div>
-          <Link href={nearbySearch} data-cta="homepage_featured_see_all" className="mt-5 inline-block text-sm font-semibold text-sage">
+          <Link href={nearbySearch} data-cta="homepage_featured_see_all" className="mt-5 inline-block text-sm font-semibold text-sage hover:underline">
             See all ILIT providers near {visitor.city} →
           </Link>
         </section>
@@ -191,7 +191,7 @@ export default async function HomePage() {
             </li>
           ))}
         </ul>
-        <Link href="/learn-about-ilit#is-ilit-right-for-me" data-cta="homepage_symptoms" className="text-sm font-semibold text-sage">
+        <Link href="/learn-about-ilit#is-ilit-right-for-me" data-cta="homepage_symptoms" className="text-sm font-semibold text-sage hover:underline">
           Is ILIT right for me? →
         </Link>
       </section>

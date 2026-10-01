@@ -184,7 +184,7 @@ export default async function ProviderDetailPage({
         <PageViewTracker providerId={provider.id} providerName={provider.practiceName} path={`/find-an-ilit-provider/${provider.slug}`} utm={utm} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
         <div className="text-center">
-          <Link href={backHref} className="mb-6 inline-block text-xs text-muted">
+          <Link href={backHref} className="mb-6 inline-block text-xs text-muted hover:underline">
             ← Back to Search Results
           </Link>
           <h1 className="mb-2 text-2xl font-extrabold">{provider.practiceName}</h1>
@@ -192,7 +192,7 @@ export default async function ProviderDetailPage({
             {formatAddress(provider)}, {provider.city}, {provider.state} {provider.zip}
           </p>
           <p className="mb-6 text-sm text-foreground/80">{freemiumSummary(provider)}</p>
-          <Link href="/for-practices" data-cta="freemium_claim_listing" className="text-sm font-semibold text-sage">
+          <Link href="/for-practices" data-cta="freemium_claim_listing" className="text-sm font-semibold text-sage hover:underline">
             Is this your practice? Claim this listing →
           </Link>
         </div>
@@ -222,7 +222,7 @@ export default async function ProviderDetailPage({
               </li>
             ))}
           </ul>
-          <Link href="/learn-about-ilit" className="text-sm font-semibold text-sage">
+          <Link href="/learn-about-ilit" className="text-sm font-semibold text-sage hover:underline">
             Learn more about ILIT →
           </Link>
         </section>
@@ -249,15 +249,15 @@ export default async function ProviderDetailPage({
         <div>
           <div className="mb-2 flex flex-wrap gap-1.5">
             {isFullProfilePlus && provider.foundingMember && <Badge variant="founder">Founding Member</Badge>}
-            <Badge variant="verified">Verified</Badge>
-            {provider.geoExtension && <Badge variant="geo">Sees Out-of-Area Patients</Badge>}
+            <Badge variant={isFullProfilePlus ? "featured" : "verified"}>Verified</Badge>
+            {provider.geoExtension && <Badge variant="info">Sees Out-of-Area Patients</Badge>}
             {/* pdpRemoteConsultBadge is the on/off switch for organic pages;
                 the two fields still say which kind of consult to show. */}
             {provider.pdpRemoteConsultBadge && provider.offersVideoConsult && (
-              <Badge variant="consult">Video Consults</Badge>
+              <Badge variant="info">Video Consults</Badge>
             )}
             {provider.pdpRemoteConsultBadge && provider.offersPhoneConsult && (
-              <Badge variant="consult">Phone Consults</Badge>
+              <Badge variant="info">Phone Consults</Badge>
             )}
           </div>
           {isVerifiedPlus && provider.verifiedAsOf && (
@@ -282,7 +282,7 @@ export default async function ProviderDetailPage({
         </div>
         <Link
           href={backHref}
-          className="shrink-0 rounded border border-line px-3 py-1.5 text-xs whitespace-nowrap text-foreground/80"
+          className="shrink-0 rounded border border-line px-3 py-1.5 text-xs whitespace-nowrap text-foreground/80 transition-colors hover:border-muted hover:bg-bg-alt"
         >
           ← Back to Search Results
         </Link>
@@ -370,7 +370,7 @@ export default async function ProviderDetailPage({
               <Link
                 href="/learn-about-ilit#faq"
                 target="_blank"
-                className="mt-2.5 inline-block text-xs font-semibold"
+                className="mt-2.5 inline-block text-xs font-semibold hover:underline"
               >
                 See general ILIT FAQ on Learn About ILIT ↗ (opens in new tab)
               </Link>
@@ -392,7 +392,7 @@ export default async function ProviderDetailPage({
                   <Link
                     key={s.slug}
                     href={`/find-an-ilit-provider/${s.slug}`}
-                    className="block rounded border border-line p-2.5 text-sm hover:bg-bg-alt"
+                    className="block rounded border border-line p-2.5 text-sm transition-colors hover:border-muted hover:shadow-sm"
                   >
                     {s.practiceName} — {s.city}, {s.state}
                   </Link>

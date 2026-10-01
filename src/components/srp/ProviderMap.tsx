@@ -8,26 +8,50 @@ import { isFullProfilePlus, isVerifiedPlus } from "@/lib/tiers";
 
 const MILES_TO_METERS = 1609.344;
 
-// Same tier gating as the SRP card badges: Founding Member color only for
-// Full Profile+, and Freemium never gets a badge-style color.
-function pinColor(p: SrpProvider): string {
-  // TEMPORARY dev-visibility color, not a real brand choice — white was
-  // nearly invisible against most map tile backgrounds. Swap this out once
-  // a real palette exists.
-  if (!isVerifiedPlus(p.tier)) return "#e11d48"; // Freemium — rose
-  if (isFullProfilePlus(p.tier) && p.foundingMember) return "#b45309"; // amber
-  if (p.geoExtension) return "#2c7a88"; // teal
-  return "#4A6350"; // sage
+// One tier system for pins and card badges (see Badge.tsx), told apart by
+// size, lightness and shape as well as hue, so it still works for
+// colorblind visitors: big solid pins for Full Profile and Featured (amber
+// with a star for Founding Members), a smaller light-green pin for
+// Verified, and a small gray pin for everyone else. Solid colors stay dark
+// and saturated so they don't blend with the map's pastel parks, water and
+// highways, and every pin has a contrasting outline.
+type PinKind = "founder" | "featured" | "verified" | "listed";
+
+const PIN_STYLES: Record<PinKind, { size: number; fill: string; outline: string; glyph: "star" | "dot" | null; z: number; label: string }> = {
+  founder: { size: 28, fill: "#B45309", outline: "#ffffff", glyph: "star", z: 3000, label: "Founding Member" },
+  featured: { size: 26, fill: "#1F7A4D", outline: "#ffffff", glyph: "dot", z: 2000, label: "Featured" },
+  verified: { size: 20, fill: "#DCEEE0", outline: "#276B3D", glyph: null, z: 1000, label: "Verified" },
+  listed: { size: 14, fill: "#E2E2E2", outline: "#7A7A7A", glyph: null, z: 0, label: "Other listings" },
+};
+
+function pinKind(p: SrpProvider): PinKind {
+  if (isFullProfilePlus(p.tier)) return p.foundingMember ? "founder" : "featured";
+  return isVerifiedPlus(p.tier) ? "verified" : "listed";
 }
 
-function makeIcon(L: typeof LType, p: SrpProvider): LType.DivIcon {
-  const color = pinColor(p);
-  const isFree = !isVerifiedPlus(p.tier);
+/** A teardrop pin pointing down; the glyph is counter-rotated to sit upright. */
+function pinHtml(kind: PinKind, size = PIN_STYLES[kind].size): string {
+  const { fill, outline, glyph } = PIN_STYLES[kind];
+  const border = size >= 20 ? 2 : 1.5;
+  const inner =
+    glyph === "star"
+      ? `<span style="transform:rotate(45deg);color:#fff;font-size:${Math.round(size * 0.55)}px;line-height:1">★</span>`
+      : glyph === "dot"
+        ? `<span style="width:${Math.round(size * 0.3)}px;height:${Math.round(size * 0.3)}px;border-radius:50%;background:#fff"></span>`
+        : "";
+  return `<div style="width:${size}px;height:${size}px;box-sizing:border-box;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:${fill};border:${border}px solid ${outline};box-shadow:0 1px 3px rgba(0,0,0,.45);display:flex;align-items:center;justify-content:center;">${inner}</div>`;
+}
+
+function makeIcon(L: typeof LType, kind: PinKind): LType.DivIcon {
+  const { size } = PIN_STYLES[kind];
+  // The rotated square's point sits about 0.71 × size below its center.
+  const tip = Math.round(size / 2 + size * 0.71);
   return L.divIcon({
     className: "",
-    html: `<div style="width:16px;height:16px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:${color};border:2px solid ${isFree ? "#bbb" : color};box-shadow:0 1px 3px rgba(0,0,0,.4);"></div>`,
-    iconSize: [16, 16],
-    iconAnchor: [8, 16],
+    html: pinHtml(kind),
+    iconSize: [size, size],
+    iconAnchor: [size / 2, tip],
+    popupAnchor: [0, -tip + 4],
   });
 }
 
@@ -100,7 +124,8 @@ export function ProviderMap({
     markersRef.current = [];
 
     for (const p of providers) {
-      const marker = L.marker([p.latitude, p.longitude], { icon: makeIcon(L, p) })
+      const kind = pinKind(p);
+      const marker = L.marker([p.latitude, p.longitude], { icon: makeIcon(L, kind), zIndexOffset: PIN_STYLES[kind].z })
         .addTo(map)
         .bindPopup(`<a href="/find-an-ilit-provider/${p.slug}">${p.practiceName}</a>`);
       markersRef.current.push(marker);
@@ -120,5 +145,26 @@ export function ProviderMap({
     }
   }, [ready, providers, mode, center, radiusMiles]);
 
-  return <div ref={containerRef} className="h-full min-h-64" />;
+  // Legend lists only the pin types on this map, most prominent first.
+  const kinds = (Object.keys(PIN_STYLES) as PinKind[]).filter((k) => providers.some((p) => pinKind(p) === k));
+
+  return (
+    <div className="relative h-full min-h-64">
+      <div ref={containerRef} className="h-full min-h-64" />
+      {kinds.length > 1 && (
+        <div className="pointer-events-none absolute bottom-6 left-2 z-[1000] flex flex-col gap-1 rounded border border-line bg-white/90 px-2 py-1.5 text-[11px] text-foreground/80 shadow-sm">
+          {kinds.map((k) => (
+            <div key={k} className="flex items-center gap-1.5">
+              {/* Scaled down, but keeping the pins' relative sizes. */}
+              <span
+                className="flex w-4 justify-center"
+                dangerouslySetInnerHTML={{ __html: pinHtml(k, Math.round(PIN_STYLES[k].size * 0.6)) }}
+              />
+              {PIN_STYLES[k].label}
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
 }

@@ -67,14 +67,14 @@ export default async function FindAProviderPage({
             <Link
               href={buildQuery({ zip, radius: String(radius), view: "list" })}
               data-cta="srp_view_list"
-              className={`px-3.5 py-2 ${view === "list" ? "bg-foreground text-background" : "bg-white"}`}
+              className={`px-3.5 py-2 ${view === "list" ? "bg-foreground text-background" : "bg-white hover:bg-line"}`}
             >
               List
             </Link>
             <Link
               href={buildQuery({ zip, radius: String(radius), view: "map" })}
               data-cta="srp_view_map"
-              className={`px-3.5 py-2 ${view === "map" ? "bg-foreground text-background" : "bg-white"}`}
+              className={`px-3.5 py-2 ${view === "map" ? "bg-foreground text-background" : "bg-white hover:bg-line"}`}
             >
               Map
             </Link>

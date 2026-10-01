@@ -120,7 +120,7 @@ export function ArticleDetail({ article }: { article: ArticleDetailData }) {
           link, for consistency across the site's "go back" links. */}
       <Link
         href={backHref}
-        className="mb-3 inline-block rounded border border-line px-3 py-1.5 text-xs whitespace-nowrap text-foreground/80"
+        className="mb-3 inline-block rounded border border-line px-3 py-1.5 text-xs whitespace-nowrap text-foreground/80 transition-colors hover:border-muted hover:bg-bg-alt"
       >
         {backLabel}
       </Link>
@@ -195,7 +195,11 @@ export function ArticleDetail({ article }: { article: ArticleDetailData }) {
               {isFullProfilePlus(article.providerCredited.tier) && article.providerCredited.foundingMember && (
                 <Badge variant="founder">Founding Member</Badge>
               )}
-              {isVerifiedPlus(article.providerCredited.tier) && <Badge variant="verified">Verified</Badge>}
+              {isVerifiedPlus(article.providerCredited.tier) && (
+                <Badge variant={isFullProfilePlus(article.providerCredited.tier) ? "featured" : "verified"}>
+                  Verified
+                </Badge>
+              )}
             </div>
             {creditLabel} <span className="font-semibold">{article.author!.name}</span> of{" "}
             {/* The credit (name) stays if a practice lapses, but the link to
@@ -203,7 +207,7 @@ export function ArticleDetail({ article }: { article: ArticleDetailData }) {
             {article.providerCredited.active && isVerifiedPlus(article.providerCredited.tier) ? (
               <Link
                 href={`/find-an-ilit-provider/${article.providerCredited.slug}`}
-                className="font-semibold text-badge-contrib-text"
+                className="font-semibold text-badge-contrib-text hover:underline"
               >
                 {article.providerCredited.practiceName}
               </Link>

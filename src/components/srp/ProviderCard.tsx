@@ -32,7 +32,7 @@ export function ProviderCard({
         href={`/find-an-ilit-provider/${provider.slug}?back=${encodeURIComponent(backHref)}`}
         data-cta={CARD_CTA[impressionType]}
         data-cta-provider={provider.practiceName}
-        className={`flex gap-3 rounded border border-line p-3.5 ${paid ? "bg-white" : "bg-bg-alt"}`}
+        className={`flex gap-3 rounded border border-line p-3.5 transition-colors hover:border-muted hover:shadow-sm ${paid ? "bg-white" : "bg-bg-alt"}`}
       >
         {premium && provider.srpPhotoUrl && (
           <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded bg-bg-alt">
@@ -43,9 +43,9 @@ export function ProviderCard({
           {paid && (
             <div className="mb-1.5 flex flex-wrap gap-1.5">
               {premium && provider.foundingMember && <Badge variant="founder">Founding Member</Badge>}
-              <Badge variant="verified">Verified</Badge>
-              {provider.geoExtension && <Badge variant="geo">Sees Out-of-Area Patients</Badge>}
-              {provider.pdpRemoteConsultBadge && <Badge variant="consult">Remote Consults</Badge>}
+              <Badge variant={premium ? "featured" : "verified"}>Verified</Badge>
+              {provider.geoExtension && <Badge variant="info">Sees Out-of-Area Patients</Badge>}
+              {provider.pdpRemoteConsultBadge && <Badge variant="info">Remote Consults</Badge>}
             </div>
           )}
           <div className="truncate text-sm font-bold">{provider.practiceName}</div>
