@@ -11,9 +11,9 @@ const MILES_TO_METERS = 1609.344;
 // One tier system for pins and card badges (see Badge.tsx), told apart by
 // size, lightness and shape as well as hue, so it still works for
 // colorblind visitors: solid pins for Full Profile and Featured (violet
-// with a star for Founding Members), a light-green pin with a dark green
-// dot for Verified, and a
-// smaller gray pin for everyone else. Solid colors stay dark and saturated
+// with a star for Founding Members), and smaller pins for everyone else:
+// light green with a dark green outline and dot for Verified, plain gray
+// for the rest. Solid colors stay dark and saturated
 // so they don't blend with the map's pastel parks, water and highways, and
 // every pin has a contrasting outline. Violet also stays distinct from
 // green for red-green colorblind visitors, unlike amber or red.
@@ -25,7 +25,7 @@ const PIN_STYLES: Record<
 > = {
   founder: { size: 20, fill: "#3F08E0", outline: "#ffffff", glyph: "star", glyphColor: "#ffffff", z: 3000, label: "Founding Member" },
   featured: { size: 20, fill: "#1F7A4D", outline: "#ffffff", glyph: "dot", glyphColor: "#ffffff", z: 2000, label: "Featured" },
-  verified: { size: 20, fill: "#DCEEE0", outline: "#ffffff", glyph: "dot", glyphColor: "#276B3D", z: 1000, label: "Verified" },
+  verified: { size: 14, fill: "#DCEEE0", outline: "#276B3D", glyph: "dot", glyphColor: "#276B3D", z: 1000, label: "Verified" },
   listed: { size: 14, fill: "#E2E2E2", outline: "#7A7A7A", glyph: null, glyphColor: "#ffffff", z: 0, label: "Providers" },
 };
 
