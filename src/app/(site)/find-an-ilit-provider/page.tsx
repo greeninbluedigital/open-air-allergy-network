@@ -162,8 +162,8 @@ export default async function FindAProviderPage({
                       Out-of-area practices welcoming traveling patients
                     </div>
                     <p className="mb-2 text-xs text-muted">
-                      Beyond your {result.effectiveRadius}-mile search, within 600 miles. ILIT takes only a few
-                      visits, so some patients travel for it.
+                      Beyond your {result.effectiveRadius}-mile search. ILIT takes only a few visits, so some
+                      patients travel for it.
                     </p>
                     <div className="space-y-3">
                       {result.outOfArea.map((p) => (

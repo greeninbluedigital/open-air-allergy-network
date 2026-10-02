@@ -39,7 +39,7 @@ option under $1,000/month.
 to come down to the client's budget or a fast-approval purchase limit
 (often $5,000). Decide your floor before each meeting.
 
-**Geo-Extension** is an optional, paid add-on, sold in $500/month increments. It raises the practice's reach from 200 to **600 miles**. Since 2026-10-02, every search with local results also lists up to 3 of the nearest Geo-Extension practices beyond the patient's search radius (within 600 miles) in an **"Out-of-area practices welcoming traveling patients"** section below the local results; their map pins don't affect the map's zoom. "Out-of-area" means beyond the patient's own chosen radius (20 to 200 miles), so a full 200-mile search shows 201 to 600 miles. When a patient has no provider within 200 miles at all, Geo-Extension practices become the main results. It's built mostly on
+**Geo-Extension** is an optional, paid add-on, sold in $500/month increments. It raises the practice's reach from 200 to **600 miles**. Since 2026-10-02, every search with local results also lists up to 10 (a failsafe cap) of the nearest Geo-Extension practices beyond the patient's search radius (within 600 miles) in an **"Out-of-area practices welcoming traveling patients"** section below the local results; their map pins don't affect the map's zoom. "Out-of-area" means beyond the patient's own chosen radius (20 to 200 miles), so a full 200-mile search shows 201 to 600 miles. When a patient has no provider within 200 miles at all, Geo-Extension practices become the main results. It's built mostly on
 paid traffic (SEM landing pages aimed at other metros), so the price is
 framed as campaign support. More increments, more out-of-area patients.
 

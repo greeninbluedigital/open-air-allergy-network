@@ -35,7 +35,9 @@ export type SrpResult = {
 };
 
 /** How many out-of-area Geo-Extension practices a search shows. */
-const OUT_OF_AREA_LIMIT = 3;
+// A failsafe, not a design limit: the section sits at the bottom, and more
+// choices let patients pick where they'd rather travel (2026-10-02).
+const OUT_OF_AREA_LIMIT = 10;
 
 // User-facing dropdown options — 200 is the hard UI ceiling (Section 4).
 export const RADIUS_OPTIONS = [20, 30, 40, 50, 75, 100, 150, 200] as const;
