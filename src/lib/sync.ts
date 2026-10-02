@@ -30,6 +30,7 @@ const PROVIDER_COLUMNS = [
   ["offersVideoConsult", "Offers Video Consult"],
   ["offersPhoneConsult", "Offers Phone Consult"],
   ["pdpRemoteConsultBadge", "PDP Remote Consult Badge"],
+  ["specialOffer", "Special Offer Badge"],
   ["shortBio", "Short Bio"],
   ["extendedBio", "Extended Bio"],
   ["photoUrl", "Provider Photo URL"],
@@ -56,8 +57,8 @@ const COLUMNS = PROVIDER_COLUMNS.map(([key]) => key);
 // Positional, so the sheet's header row is checked first (verifyProviderHeaders):
 // a column inserted, removed, or renamed on the sheet stops the whole sync
 // with a clear error instead of shifting every value into the wrong field.
-const SHEET_RANGE = "Providers!A2:AO";
-const HEADER_RANGE = "Providers!A1:AO1";
+const SHEET_RANGE = "Providers!A2:AP";
+const HEADER_RANGE = "Providers!A1:AP1";
 
 function columnLetter(i: number): string {
   return (i < 26 ? "" : String.fromCharCode(64 + Math.floor(i / 26))) + String.fromCharCode(65 + (i % 26));
@@ -107,7 +108,7 @@ function parseTier(cell: string | undefined): "FREE_CLAIMED" | "VERIFIED" | "FUL
   return TIER_MAP[(cell ?? "").trim().toLowerCase()] ?? "FREE_CLAIMED";
 }
 
-/** Academic column Y, or Tier "Academic". */
+/** Academic column (O) Y, or Tier "Academic". */
 function isAcademic(r: { tier: string; academic: string }): boolean {
   return parseBool(r.academic) || r.tier.trim().toLowerCase() === "academic";
 }
@@ -137,6 +138,7 @@ function slugify(name: string): string {
 // Sales/onboarding limits (docs/tiers-and-pricing.md). Longer text still
 // syncs; the sync result just flags it.
 const SHORT_BIO_MAX = 600;
+const SPECIAL_OFFER_MAX = 30;
 const EXTENDED_BIO_MAX = 2000;
 
 type RenameCandidate = { slug: string; practiceName: string; address: string; city: string; zip: string; row?: number };
@@ -701,6 +703,15 @@ export async function runSync(): Promise<SyncSummary> {
       } else if (isAcademic(r) && tier === "FREE_CLAIMED") {
         summary.warnings.push(`${slug} (row ${sheetRow}) is marked Academic but is Freemium, so no Academic badge shows.`);
       }
+      const offer = r.specialOffer.trim();
+      if (offer && tier !== "FEATURED") {
+        summary.warnings.push(`${slug} (row ${sheetRow}) has a Special Offer Badge but isn't Featured, so it doesn't show.`);
+      }
+      if (offer.length > SPECIAL_OFFER_MAX) {
+        summary.warnings.push(
+          `${slug} (row ${sheetRow}) Special Offer Badge is ${offer.length} characters (limit ${SPECIAL_OFFER_MAX}); badges are small, so shorten it.`,
+        );
+      }
       if (r.shortBio.trim().length > SHORT_BIO_MAX) {
         summary.warnings.push(
           `${slug} (row ${sheetRow}) Short Bio is ${r.shortBio.trim().length} characters (limit ${SHORT_BIO_MAX}).`,
@@ -746,6 +757,7 @@ export async function runSync(): Promise<SyncSummary> {
         offersVideoConsult: parseBool(r.offersVideoConsult),
         offersPhoneConsult: parseBool(r.offersPhoneConsult),
         pdpRemoteConsultBadge: parseBool(r.pdpRemoteConsultBadge),
+        specialOffer: r.specialOffer.trim() || null,
         travelNotes: r.travelNotes?.trim() || null,
         shortBio: r.shortBio || null,
         extendedBio: r.extendedBio || null,

@@ -70,7 +70,8 @@ const HOW_IT_WORKS = [
 
 export default async function HomePage() {
   const [hero, visitor] = await Promise.all([pickHeroImage(), getVisitorLocation()]);
-  const featured = visitor ? await nearbyFeaturedProviders(visitor.lat, visitor.lng) : [];
+  // The homepage is premium space, reserved for the Featured tier.
+  const featured = visitor ? await nearbyFeaturedProviders(visitor.lat, visitor.lng, { featuredOnly: true }) : [];
   // Only needed when there's no featured section: keeps the homepage useful
   // for visitors with listings nearby but no paying practice among them.
   const nearbyCount = visitor && featured.length === 0 ? await countProvidersNear(visitor.lat, visitor.lng) : 0;

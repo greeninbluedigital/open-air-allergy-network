@@ -23,7 +23,7 @@ There are three separate sources of numbers:
 | Metric | Event type | Counted when | Where it happens |
 |---|---|---|---|
 | Search result impressions | `SRP_IMPRESSION` | The practice's result card is a **viewable impression** (see definitions) | Find a Provider results list |
-| Homepage impressions | `HOMEPAGE_IMPRESSION` | Same, for its card in the homepage section | Homepage "Featured ILIT Providers Near {city}" (Full Profile and Featured practices only) |
+| Homepage impressions | `HOMEPAGE_IMPRESSION` | Same, for its card in the homepage section | Homepage "Featured ILIT Providers Near {city}" (Featured practices only since 2026-10-02; Full Profile appeared there before) |
 | Nearby impressions | `PDP_NEARBY_IMPRESSION` | Same, for its card on another practice's page | A Freemium practice's page, "Featured ILIT Providers Near {city}" (Full Profile and Featured only) |
 | Provider page views | `PAGE_VIEW` | The page loads in a visitor's browser (not a viewability measure) | Provider pages (every tier, Freemium included) and SEM landing pages. Tell them apart by path: SEM pages start with `/lp/` |
 | Phone clicks | `PHONE_CLICK` | A visitor clicks or taps the practice's phone number | Provider page contact panel, SEM landing pages, and the phone fallback in the lead form's email error |

@@ -306,3 +306,12 @@ turns each one into a promise.
     practice's care (the Terms say OAAN doesn't), health-care advertising
     rules for practices that use it, misuse by former members, and keeping
     enough control over its use to protect the trademark.
+15. **Practice special offers (added 2026-10-02).** Featured practices can
+    show a short offer badge they write themselves, e.g. "Free ILIT
+    consultation", entered by OAAN on their behalf. What rules apply to
+    advertising free or discounted medical services (for example federal
+    and state rules on inducements to patients, especially Medicare or
+    Medicaid patients, and state medical-advertising rules), what should
+    OAAN check before publishing an offer, and should the practice
+    agreement make the practice responsible for its offer's accuracy and
+    legality?

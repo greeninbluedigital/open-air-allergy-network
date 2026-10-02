@@ -10,6 +10,11 @@ export function isFullProfilePlus(tier: Tier): boolean {
   return tier === "FULL_PROFILE" || tier === "FEATURED";
 }
 
+/** The practice-written special offer badge: Featured only. */
+export function specialOfferText(p: { tier: Tier; specialOffer: string | null }): string | null {
+  return p.tier === "FEATURED" && p.specialOffer ? p.specialOffer : null;
+}
+
 /** Academic badge and pin: any paid tier (Freemium shows no badges). */
 export function showsAcademic(p: { tier: Tier; academic: boolean }): boolean {
   return p.academic && isVerifiedPlus(p.tier);

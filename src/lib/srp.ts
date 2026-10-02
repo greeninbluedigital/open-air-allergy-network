@@ -16,6 +16,7 @@ export type SrpProvider = {
   photoUrl: string | null;
   srpPhotoUrl: string | null;
   pdpRemoteConsultBadge: boolean;
+  specialOffer: string | null;
   distanceMiles: number;
 };
 
@@ -78,7 +79,7 @@ async function queryWithinRadius(
       SELECT
         "id", "slug", "practiceName", "city", "state",
         "latitude", "longitude", "tier", "foundingMember", "academic", "geoExtension",
-        "photoUrl", "srpPhotoUrl", "pdpRemoteConsultBadge",
+        "photoUrl", "srpPhotoUrl", "pdpRemoteConsultBadge", "specialOffer",
         ST_Distance("geog", ST_SetSRID(ST_MakePoint(${lng}, ${lat}), 4326)::geography) AS "distanceMeters"
       FROM "Provider"
       WHERE "active" = true
@@ -103,18 +104,25 @@ async function queryWithinRadius(
 
 /**
  * Nearest Full Profile/Featured listings to a point (a Freemium PDP's own
- * location, or a homepage visitor's), using the same eligibility rules as
+ * location, or a homepage visitor's, where `featuredOnly` limits it to the
+ * Featured tier: the homepage is reserved for it), using the same eligibility rules as
  * search: each listing only appears within its own radius (200mi, or 600mi
  * with Geo-Extension).
  */
 export async function nearbyFeaturedProviders(
   lat: number,
   lng: number,
-  { excludeId, limit = 3 }: { excludeId?: string; limit?: number } = {},
+  {
+    excludeId,
+    limit = 3,
+    featuredOnly = false,
+  }: { excludeId?: string; limit?: number; featuredOnly?: boolean } = {},
 ): Promise<SrpProvider[]> {
   const rows = await queryWithinRadius(lat, lng, 600);
   return rows
-    .filter((p) => p.id !== excludeId && (p.tier === "FULL_PROFILE" || p.tier === "FEATURED"))
+    .filter(
+      (p) => p.id !== excludeId && (p.tier === "FEATURED" || (!featuredOnly && p.tier === "FULL_PROFILE")),
+    )
     .slice(0, limit);
 }
 

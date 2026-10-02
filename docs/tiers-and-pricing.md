@@ -92,7 +92,9 @@ can't be counted, since the number is visible without a click.
 | Business Hours and ILIT Schedule Notes | | | ✓ | ✓ | ✓ |
 | "About This Practice" (Extended Bio) | | | | ✓ | ✓ |
 | Up to 4 more photos | | | | ✓ | ✓ |
-| Top of search results ("Featured ILIT Providers"), homepage, and on nearby free listings' pages | | | | ✓ | ✓ |
+| Top of search results ("Featured ILIT Providers") and on nearby free listings' pages | | | | ✓ | ✓ |
+| Homepage section for nearby visitors ("Featured ILIT Providers Near {city}"; premium space, changed 2026-10-02) | | | | | ✓ |
+| Special offer badge, practice-written (Providers column W, 30 characters max) | | | | | ✓ |
 | Photo on the search result card | | | | ✓ | ✓ |
 | Google and Yelp reviews module | | | | | ✓ |
 | Targeted SEM support for the practice's own page (included, no additional cost) | | | | ✓ | ✓✓ priority |

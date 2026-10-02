@@ -28,9 +28,9 @@ page actually displays it. Last updated 2026-09-30.
 | Homepage hero photo | "Homepage Hero Images" sheet tab | **2400 × 800** | 3:1 |
 | Blog and Learn article image | Article draft ("Feature image") | **1600 × 900** | 16:9 |
 | Photos inside an article | Article body | **1600 wide**, any height | Any |
-| Provider main photo | Providers tab, Provider Photo URL (Y) | **1200 × 1500** | 4:5 (portrait) |
-| Provider secondary photos | Providers tab, Secondary Photo URLs (Z), up to 4 | **1600 × 1200** | 4:3 |
-| Search result card photo | Providers tab, SRP Card Photo URL (AA) | **400 × 400** | 1:1 (square) |
+| Provider main photo | Providers tab, Provider Photo URL (Z) | **1200 × 1500** | 4:5 (portrait) |
+| Provider secondary photos | Providers tab, Secondary Photo URLs (AA), up to 4 | **1600 × 1200** | 4:3 |
+| Search result card photo | Providers tab, SRP Card Photo URL (AB) | **400 × 400** | 1:1 (square) |
 | Article author photo | Practitioners tab, Practitioner Thumbnail URL (E) | **400 × 400**, face centered | 1:1 |
 | Learn About ILIT hero | Set in the site code (ask Claude) | **2400 wide**, landscape | About 3:1 or wider |
 

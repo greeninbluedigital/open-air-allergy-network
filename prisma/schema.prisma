@@ -122,6 +122,9 @@ model Provider {
   // pin at any paid tier, and unlocks FAQs, treatments and hours on a
   // Verified-tier page (the "Academic package"; see docs/tiers-and-pricing.md).
   academic       Boolean @default(false)
+  // Practice-written offer, e.g. "Free ILIT consultation" (Providers column W,
+  // 30 characters max). Shown as a badge on Featured listings only.
+  specialOffer   String?
 
   // One-time phone confirmation for Free-tier onboarding.
   verificationDate  DateTime?

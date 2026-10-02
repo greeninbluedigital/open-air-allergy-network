@@ -18,6 +18,7 @@ import {
   isVerifiedPlus as isVerifiedTier,
   showsAcademic,
   showsPracticeDetails,
+  specialOfferText,
 } from "@/lib/tiers";
 
 // 4 or fewer FAQs render fully expanded (today's behavior, unchanged); 5+
@@ -258,6 +259,7 @@ export default async function ProviderDetailPage({
             {showsAcademic(provider) && <Badge variant="academic">Academic</Badge>}
             {isFullProfilePlus && provider.foundingMember && <Badge variant="founder">Founding Member</Badge>}
             <Badge variant={isFullProfilePlus ? "featured" : "verified"}>Verified</Badge>
+            {specialOfferText(provider) && <Badge variant="offer">{specialOfferText(provider)}</Badge>}
             {provider.geoExtension && <Badge variant="geo">Sees Out-of-Area Patients</Badge>}
             {/* pdpRemoteConsultBadge is the on/off switch for organic pages;
                 the two fields still say which kind of consult to show. */}

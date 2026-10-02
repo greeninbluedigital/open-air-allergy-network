@@ -1,4 +1,4 @@
-import { isFullProfilePlus, isVerifiedPlus, showsAcademic } from "@/lib/tiers";
+import { isFullProfilePlus, isVerifiedPlus, showsAcademic, specialOfferText } from "@/lib/tiers";
 import type { Tier } from "@/generated/prisma/client";
 
 // Practice badges follow the same tier system as the map pins (see
@@ -10,6 +10,7 @@ import type { Tier } from "@/generated/prisma/client";
 // - founder: violet, Founding Members (the pin is violet with a star)
 // - geo: rose, "Sees Out-of-Area Patients" (badge only, no pin color)
 // - consult: amber, remote consult badges (badge only)
+// - offer: solid red, the practice's special offer (Featured only)
 // contrib/house are article tag colors, unrelated to practices.
 const VARIANTS = {
   featured: "bg-action text-white",
@@ -18,6 +19,7 @@ const VARIANTS = {
   founder: "bg-badge-founder-bg text-badge-founder-text",
   geo: "bg-badge-geo-bg text-badge-geo-text",
   consult: "bg-badge-consult-bg text-badge-consult-text",
+  offer: "bg-badge-offer text-white",
   contrib: "bg-badge-contrib-bg text-badge-contrib-text",
   house: "bg-badge-house-bg text-badge-house-text",
 } as const;
@@ -37,13 +39,16 @@ export function cardBadges(p: {
   foundingMember: boolean;
   geoExtension: boolean;
   pdpRemoteConsultBadge: boolean;
+  specialOffer: string | null;
 }): { variant: BadgeVariant; label: string }[] {
   if (!isVerifiedPlus(p.tier)) return [];
   const premium = isFullProfilePlus(p.tier);
+  const offer = specialOfferText(p);
   return [
     ...(showsAcademic(p) ? [{ variant: "academic" as const, label: "Academic" }] : []),
     ...(premium && p.foundingMember ? [{ variant: "founder" as const, label: "Founding Member" }] : []),
     { variant: premium ? ("featured" as const) : ("verified" as const), label: "Verified" },
+    ...(offer ? [{ variant: "offer" as const, label: offer }] : []),
     ...(p.geoExtension ? [{ variant: "geo" as const, label: "Sees Out-of-Area Patients" }] : []),
     ...(p.pdpRemoteConsultBadge ? [{ variant: "consult" as const, label: "Remote Consults" }] : []),
   ];
