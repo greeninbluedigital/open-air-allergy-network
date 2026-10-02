@@ -28,7 +28,14 @@ export type SrpResult = {
   mode: "normal" | "extended-geo" | "extended-any" | "none";
   effectiveRadius: number;
   totalCount: number;
+  /** Geo-Extension practices beyond the search radius (up to 600mi), shown
+   * in their own section below the local results. Only filled in the normal
+   * mode: when nothing is local, they're already the main results. */
+  outOfArea: SrpProvider[];
 };
+
+/** How many out-of-area Geo-Extension practices a search shows. */
+const OUT_OF_AREA_LIMIT = 3;
 
 // User-facing dropdown options — 200 is the hard UI ceiling (Section 4).
 export const RADIUS_OPTIONS = [20, 30, 40, 50, 75, 100, 150, 200] as const;
@@ -154,11 +161,18 @@ export async function searchProviders(
   }
 
   if (rows.length > 0) {
+    // Out-of-area: Geo-Extension practices beyond the patient's own radius
+    // but within their 600mi reach, nearest first.
+    const local = new Set(rows.map((r) => r.id));
+    const outOfArea = (await queryWithinRadius(lat, lng, 600, { geoExtensionOnly: true }))
+      .filter((p) => !local.has(p.id) && p.distanceMiles > effectiveRadius)
+      .slice(0, OUT_OF_AREA_LIMIT);
     return {
       buckets: bucketize(rows),
       mode: "normal",
       effectiveRadius,
       totalCount: rows.length,
+      outOfArea,
     };
   }
 
@@ -170,6 +184,7 @@ export async function searchProviders(
       mode: "extended-geo",
       effectiveRadius: 600,
       totalCount: rows.length,
+      outOfArea: [],
     };
   }
 
@@ -181,6 +196,7 @@ export async function searchProviders(
       mode: "extended-any",
       effectiveRadius: 600,
       totalCount: rows.length,
+      outOfArea: [],
     };
   }
 
@@ -189,5 +205,6 @@ export async function searchProviders(
     mode: "none",
     effectiveRadius: 600,
     totalCount: 0,
+    outOfArea: [],
   };
 }

@@ -135,6 +135,7 @@ export default async function FindAProviderPage({
                     ...result.buckets.verified,
                     ...result.buckets.free,
                   ]}
+                  outOfArea={result.outOfArea}
                   mode={result.mode}
                   backHref={backHref}
                 />
@@ -155,6 +156,22 @@ export default async function FindAProviderPage({
                     </div>
                   ) : null;
                 })}
+                {result.outOfArea.length > 0 && (
+                  <div>
+                    <div className="mb-0.5 text-xs font-bold tracking-wide text-muted uppercase">
+                      Out-of-area practices welcoming traveling patients
+                    </div>
+                    <p className="mb-2 text-xs text-muted">
+                      Beyond your {result.effectiveRadius}-mile search, within 600 miles. ILIT takes only a few
+                      visits, so some patients travel for it.
+                    </p>
+                    <div className="space-y-3">
+                      {result.outOfArea.map((p) => (
+                        <ProviderCard key={p.id} provider={p} backHref={backHref} impressionType="SRP_IMPRESSION" />
+                      ))}
+                    </div>
+                  </div>
+                )}
                 <ScraperTrapLink />
               </div>
             </div>

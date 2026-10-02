@@ -144,6 +144,7 @@ ORDER BY e.type;
 
 ## Change log
 
+- **2026-10-02:** search results gained an out-of-area section (Geo-Extension practices beyond the patient's radius, up to 600 miles). Those cards also count as SRP_IMPRESSION.
 - **2026-09-28:** impression tracking added (homepage, search results,
   Freemium page nearby section), switched the same day from "counted on page
   load" to viewable impressions. All test rows were deleted, so impression

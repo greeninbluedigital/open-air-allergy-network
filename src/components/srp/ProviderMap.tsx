@@ -100,17 +100,24 @@ function popupHtml(p: SrpProvider, backHref: string): string {
   </div>`;
 }
 
+// A stable default, so the markers effect doesn't rerun on every render.
+const NO_PROVIDERS: SrpProvider[] = [];
+
 export function ProviderMap({
   center,
   radiusMiles,
   providers,
   mode,
   backHref,
+  outOfArea = NO_PROVIDERS,
 }: {
   center: { lat: number; lng: number };
   radiusMiles: number;
   /** The search to return to from a practice's page (same as the cards'). */
   backHref: string;
+  /** Out-of-area Geo-Extension practices: pinned, but left out of the
+   * zoom-to-fit so the map stays on the patient's area. */
+  outOfArea?: SrpProvider[];
   providers: SrpProvider[];
   mode: "normal" | "extended-geo" | "extended-any" | "none";
 }) {
@@ -183,7 +190,8 @@ export function ProviderMap({
       .addTo(map)
       .bindTooltip("Your search location", { direction: "top", offset: [0, -8] });
 
-    for (const p of providers) {
+    const local: LType.Marker[] = [];
+    for (const p of [...providers, ...outOfArea]) {
       const kind = pinKind(p);
       const marker = L.marker([p.latitude, p.longitude], { icon: makeIcon(L, kind), zIndexOffset: PIN_STYLES[kind].z })
         .addTo(map)
@@ -204,13 +212,14 @@ export function ProviderMap({
         });
       markersRef.current.push(marker);
       markersById.current.set(p.id, { marker, kind });
+      if (!outOfArea.includes(p)) local.push(marker);
     }
 
     if (providers.length > 0) {
       // Zoom in as far as possible while keeping every practice and the
       // searched location in view. maxZoom keeps a single nearby practice
       // from zooming to street level.
-      const bounds = L.featureGroup(markersRef.current).getBounds().extend([center.lat, center.lng]);
+      const bounds = L.featureGroup(local).getBounds().extend([center.lat, center.lng]);
       map.fitBounds(bounds, { padding: [32, 32], maxZoom: 13 });
     } else if (mode === "normal") {
       // LatLng.toBounds() computes the search circle's bounds without
@@ -223,7 +232,7 @@ export function ProviderMap({
     return () => {
       searchPoint.remove();
     };
-  }, [ready, providers, mode, center, radiusMiles, backHref]);
+  }, [ready, providers, outOfArea, mode, center, radiusMiles, backHref]);
 
   // Hovering a card in the list enlarges its pin (desktop, where the list and
   // map sit side by side).
