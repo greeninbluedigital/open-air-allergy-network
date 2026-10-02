@@ -19,9 +19,15 @@ Confidential: never published on the site, and quoted per client.
 | Freemium | Free | none | Tier `Freemium` |
 | Geo-Extension add-on | $500/month per increment | TBD | Geo-Extension `Y`, plus SEM Landing Pages rows |
 
-**Main differentiator, Verified vs. Featured: SEM support.** Featured
-practices get SEM campaigns driving traffic to their own page. Lower tiers
-only benefit from OAAN's general sitewide SEM.
+**Main step up from Verified: SEM support.** Full Profile and Featured
+practices get targeted SEM support driving traffic to their own page,
+included in the monthly price (pitch it as "no additional cost"). Verified,
+Academic and Basic only benefit from OAAN's general sitewide SEM. Featured
+adds the Google reviews module on top of Full Profile (changed 2026-10-01:
+SEM was Featured-only).
+
+**Sales materials call Freemium "Basic"** (pitch deck v2, 2026-10-01). The
+sheet and code still use Freemium.
 
 **Full Profile and Featured are priced close together on purpose,** so the
 step up to Featured is an easy upsell. Site features cost OAAN nothing to
@@ -48,15 +54,18 @@ case. Not yet defined: whether the status survives a cancellation
 
 ## SEM support: what to promise, and the internal target
 
-**In the pitch, keep SEM intentionally general.** OAAN runs search ad
-campaigns that promote Featured practices' pages. Never promise a number of
+**In the pitch, keep SEM intentionally general, and call it "SEM support".**
+OAAN runs search ad campaigns that promote Full Profile and Featured
+practices' OAAN pages. Frame it as working alongside the practice's own
+marketing, never as replacing their website, ads or agency. Never promise a number of
 leads, clicks or visits, or a set amount or share of ad spend. Spend is at
 OAAN's discretion and is expected to drop as organic traffic grows. The
 practice agreement should say the same (`docs/legal-facts.md` question 10).
 
 **Internal target, never shared with clients:** deliver leads at about
 **$200 or less per lead** for Featured practices, so $1,250/month means about
-6 to 7 leads a month. SEM spend is adjusted per client during the month to
+6 to 7 leads a month (open question: the same rate for Full Profile would be
+about 5 leads a month at $950). SEM spend is adjusted per client during the month to
 stay in that range. Geo-Extension is excluded from this target.
 
 Open question: which actions count as a lead toward the target. The site
@@ -85,7 +94,8 @@ can't be counted, since the number is visible without a click.
 | Top of search results ("Featured ILIT Providers"), homepage, and on nearby free listings' pages | | | | ✓ | ✓ |
 | Photo on the search result card | | | | ✓ | ✓ |
 | Google and Yelp reviews module | | | | | ✓ |
-| SEM campaigns to the practice's own page | | | | | ✓ |
+| Targeted SEM support for the practice's own page (included, no additional cost) | | | | ✓ | ✓ |
+| Complimentary writing and editing of page content (bio, FAQs and other page text) | | ✓ | ✓ | ✓ | ✓ |
 | Submit a blog article each month (reviewed by OAAN before publishing) | | ✓ | ✓ | ✓ | ✓ |
 | One blog article a quarter, ghost-written by OAAN for the practice to review, edit and approve | | | | ✓ | ✓ |
 | Network Member logo for the practice's own website and materials (planned; artwork in design) | | ✓ | ✓ | ✓ | ✓ |

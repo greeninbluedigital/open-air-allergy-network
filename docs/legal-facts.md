@@ -296,3 +296,13 @@ turns each one into a promise.
     OAAN's lead-quality pitch to practices. Is the note recommended, and
     does it change what the Privacy Notice or a consent checkbox needs to
     say?
+14. **Network Member logo license (added 2026-10-01).** OAAN plans a
+    "Network Member" logo and wants to give every paying member a free
+    license to use it in their digital and print marketing and
+    communications, linked to their OAAN page where online. What should the
+    license say (scope, approved uses, ending the license when a membership
+    lapses, removing the logo after cancellation), and what are the risks?
+    For example: the logo being read as OAAN endorsing or vouching for the
+    practice's care (the Terms say OAAN doesn't), health-care advertising
+    rules for practices that use it, misuse by former members, and keeping
+    enough control over its use to protect the trademark.
