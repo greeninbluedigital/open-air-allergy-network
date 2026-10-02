@@ -12,12 +12,12 @@ Confidential: never published on the site, and quoted per client.
 
 | Package | Price | Minimum term | Sheet setup |
 |---|---|---|---|
-| Featured | $1,250/month | 3 or 4 months (TBD) | Tier `Featured` |
-| Full Profile | $950/month | 3 or 4 months (TBD) | Tier `Full Profile` |
+| Featured | $1,250/month | 4 months | Tier `Featured` |
+| Full Profile | $950/month | 4 months | Tier `Full Profile` |
 | Academic package | Negotiated, billed yearly (open around $7,000/year) | 1 year | Tier `Academic` |
 | Verified | $300/month | 6 months | Tier `Verified` |
 | Freemium | Free | none | Tier `Freemium` |
-| Geo-Extension add-on | $500/month per increment | TBD | Geo-Extension `Y`, plus SEM Landing Pages rows |
+| Geo-Extension add-on | $500/month per increment | 1 month | Geo-Extension `Y`, plus SEM Landing Pages rows |
 
 **Main step up from Verified: SEM support.** Full Profile and Featured
 practices get targeted SEM support driving traffic to their own page,
@@ -39,7 +39,7 @@ option under $1,000/month.
 to come down to the client's budget or a fast-approval purchase limit
 (often $5,000). Decide your floor before each meeting.
 
-**Geo-Extension** is sold in $500/month increments. It's built mostly on
+**Geo-Extension** is an optional, paid add-on, sold in $500/month increments. It raises the practice's search radius from 200 to **600 miles**, but only in a limited way: patients choose a search radius of 200 miles at most, so a Geo-Extension practice farther away shows up in search results only when the patient has **no** ILIT provider within 200 miles (it also appears on Basic listing and homepage modules within 600 miles when its tier qualifies). It's built mostly on
 paid traffic (SEM landing pages aimed at other metros), so the price is
 framed as campaign support. More increments, more out-of-area patients.
 
