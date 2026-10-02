@@ -27,6 +27,10 @@
   --color-action-hover: #195f3c;
 
   --color-line: #dcdcdc;
+  /* Form warnings (e.g. "remove links from your message"). Kept separate
+     from the badge colors so a badge recolor can't change them. */
+  --color-warning-bg: #fdecd2;
+  --color-warning-text: #a14a08;
   --color-bg-alt: #f4f4f4;
   --color-muted: #777777;
 
@@ -65,6 +69,8 @@
   --color-action-hover: var(--color-action-hover);
 
   --color-line: var(--color-line);
+  --color-warning-bg: var(--color-warning-bg);
+  --color-warning-text: var(--color-warning-text);
   --color-bg-alt: var(--color-bg-alt);
   --color-muted: var(--color-muted);
 

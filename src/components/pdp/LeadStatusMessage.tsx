@@ -52,7 +52,7 @@ export function LeadErrorMessage({
   providerId?: string;
 }) {
   return (
-    <p className="mb-3 rounded border border-badge-founder-bg bg-badge-founder-bg/40 px-3 py-2 text-xs text-badge-founder-text">
+    <p className="mb-3 rounded border border-warning-bg bg-warning-bg/40 px-3 py-2 text-xs text-warning-text">
       {error === "has_links" ? (
         LINKS_ERROR_MESSAGE
       ) : error === "invalid_email" ? (

@@ -57,7 +57,7 @@ export default async function ForPracticesPage({
             <form action={submitPracticeLead}>
               <h2 className="mb-4 text-lg font-bold">Providers use this form to contact us</h2>
               {error && (
-                <p className="mb-3.5 rounded border border-badge-founder-bg bg-badge-founder-bg/40 px-3 py-2 text-xs text-badge-founder-text">
+                <p className="mb-3.5 rounded border border-warning-bg bg-warning-bg/40 px-3 py-2 text-xs text-warning-text">
                   {FORM_ERROR_MESSAGES[error]}
                 </p>
               )}

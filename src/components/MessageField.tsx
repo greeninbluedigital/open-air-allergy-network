@@ -55,7 +55,7 @@ export function MessageField({
         className={s.textarea}
       />
       <div className={`flex justify-between gap-3 ${s.footer}`}>
-        <span id={`${name}-link-error`} className="text-badge-founder-text">
+        <span id={`${name}-link-error`} className="text-warning-text">
           {hasLink ? LINKS_ERROR_MESSAGE : ""}
         </span>
         <span className="shrink-0 text-muted/70">
