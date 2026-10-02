@@ -48,7 +48,7 @@
   --color-badge-founder-text: #3f08e0;
   --color-badge-geo-bg: #fbe4ee;
   --color-badge-geo-text: #a31a5a;
-  --color-badge-offer: #dc2626;
+  --color-badge-message: #dc2626;
   --color-badge-consult-bg: #fdecd2;
   --color-badge-consult-text: #a14a08;
   --color-badge-contrib-bg: #e6ddf7;
@@ -83,7 +83,7 @@
   --color-badge-founder-text: var(--color-badge-founder-text);
   --color-badge-geo-bg: var(--color-badge-geo-bg);
   --color-badge-geo-text: var(--color-badge-geo-text);
-  --color-badge-offer: var(--color-badge-offer);
+  --color-badge-message: var(--color-badge-message);
   --color-badge-consult-bg: var(--color-badge-consult-bg);
   --color-badge-consult-text: var(--color-badge-consult-text);
   --color-badge-contrib-bg: var(--color-badge-contrib-bg);

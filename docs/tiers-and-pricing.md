@@ -94,7 +94,7 @@ can't be counted, since the number is visible without a click.
 | Up to 4 more photos | | | | ✓ | ✓ |
 | Top of search results ("Featured ILIT Providers") and on nearby free listings' pages | | | | ✓ | ✓ |
 | Homepage section for nearby visitors ("Featured ILIT Providers Near {city}"; premium space, changed 2026-10-02) | | | | | ✓ |
-| Special offer badge, practice-written (Providers column W, 30 characters max) | | | | | ✓ |
+| Custom message badge, practice-written (Providers column W, 30 characters max; informational only, see below) | | | | | ✓ |
 | Photo on the search result card | | | | ✓ | ✓ |
 | Google and Yelp reviews module | | | | | ✓ |
 | Targeted SEM support for the practice's own page (included, no additional cost) | | | | ✓ | ✓✓ priority |
@@ -122,6 +122,19 @@ keeps them. On the map, Academic wins over Founding Member.
 No SEM support beyond OAAN's general sitewide SEM. Confirm the practice
 really is part of a university or academic medical center before turning on
 the badge (pending counsel's definition, `docs/legal-facts.md` question 6).
+
+## Custom message badge: what's allowed
+
+The name was changed from "special offer" (2026-10-02) to steer it away from
+promotions. Advertising free or discounted medical services can run into
+patient-inducement and medical-advertising rules (`docs/legal-facts.md`
+question 15), so OAAN only enters **informational** messages.
+
+- Fine: "Now accepting new patients", "Same-week appointments", "Evening
+  and Saturday hours", "Telehealth consults available", "Se habla español".
+- Not allowed: prices, discounts, anything free ("Free consultation"),
+  guaranteed or comparative results ("Best ILIT in Texas"), or pressure
+  ("Limited time").
 
 ## Content specs for onboarding
 

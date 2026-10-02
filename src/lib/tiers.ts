@@ -10,9 +10,9 @@ export function isFullProfilePlus(tier: Tier): boolean {
   return tier === "FULL_PROFILE" || tier === "FEATURED";
 }
 
-/** The practice-written special offer badge: Featured only. */
-export function specialOfferText(p: { tier: Tier; specialOffer: string | null }): string | null {
-  return p.tier === "FEATURED" && p.specialOffer ? p.specialOffer : null;
+/** The practice-written custom message badge: Featured only. */
+export function customMessageText(p: { tier: Tier; customMessage: string | null }): string | null {
+  return p.tier === "FEATURED" && p.customMessage ? p.customMessage : null;
 }
 
 /** Academic badge and pin: any paid tier (Freemium shows no badges). */

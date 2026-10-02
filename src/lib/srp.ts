@@ -16,7 +16,7 @@ export type SrpProvider = {
   photoUrl: string | null;
   srpPhotoUrl: string | null;
   pdpRemoteConsultBadge: boolean;
-  specialOffer: string | null;
+  customMessage: string | null;
   distanceMiles: number;
 };
 
@@ -79,7 +79,7 @@ async function queryWithinRadius(
       SELECT
         "id", "slug", "practiceName", "city", "state",
         "latitude", "longitude", "tier", "foundingMember", "academic", "geoExtension",
-        "photoUrl", "srpPhotoUrl", "pdpRemoteConsultBadge", "specialOffer",
+        "photoUrl", "srpPhotoUrl", "pdpRemoteConsultBadge", "customMessage",
         ST_Distance("geog", ST_SetSRID(ST_MakePoint(${lng}, ${lat}), 4326)::geography) AS "distanceMeters"
       FROM "Provider"
       WHERE "active" = true

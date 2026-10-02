@@ -30,7 +30,7 @@ const PROVIDER_COLUMNS = [
   ["offersVideoConsult", "Offers Video Consult"],
   ["offersPhoneConsult", "Offers Phone Consult"],
   ["pdpRemoteConsultBadge", "PDP Remote Consult Badge"],
-  ["specialOffer", "Special Offer Badge"],
+  ["customMessage", "Custom Message Badge"],
   ["shortBio", "Short Bio"],
   ["extendedBio", "Extended Bio"],
   ["photoUrl", "Provider Photo URL"],
@@ -138,7 +138,7 @@ function slugify(name: string): string {
 // Sales/onboarding limits (docs/tiers-and-pricing.md). Longer text still
 // syncs; the sync result just flags it.
 const SHORT_BIO_MAX = 600;
-const SPECIAL_OFFER_MAX = 30;
+const CUSTOM_MESSAGE_MAX = 30;
 const EXTENDED_BIO_MAX = 2000;
 
 type RenameCandidate = { slug: string; practiceName: string; address: string; city: string; zip: string; row?: number };
@@ -703,13 +703,13 @@ export async function runSync(): Promise<SyncSummary> {
       } else if (isAcademic(r) && tier === "FREE_CLAIMED") {
         summary.warnings.push(`${slug} (row ${sheetRow}) is marked Academic but is Freemium, so no Academic badge shows.`);
       }
-      const offer = r.specialOffer.trim();
-      if (offer && tier !== "FEATURED") {
-        summary.warnings.push(`${slug} (row ${sheetRow}) has a Special Offer Badge but isn't Featured, so it doesn't show.`);
+      const message = r.customMessage.trim();
+      if (message && tier !== "FEATURED") {
+        summary.warnings.push(`${slug} (row ${sheetRow}) has a Custom Message Badge but isn't Featured, so it doesn't show.`);
       }
-      if (offer.length > SPECIAL_OFFER_MAX) {
+      if (message.length > CUSTOM_MESSAGE_MAX) {
         summary.warnings.push(
-          `${slug} (row ${sheetRow}) Special Offer Badge is ${offer.length} characters (limit ${SPECIAL_OFFER_MAX}); badges are small, so shorten it.`,
+          `${slug} (row ${sheetRow}) Custom Message Badge is ${message.length} characters (limit ${CUSTOM_MESSAGE_MAX}); badges are small, so shorten it.`,
         );
       }
       if (r.shortBio.trim().length > SHORT_BIO_MAX) {
@@ -757,7 +757,7 @@ export async function runSync(): Promise<SyncSummary> {
         offersVideoConsult: parseBool(r.offersVideoConsult),
         offersPhoneConsult: parseBool(r.offersPhoneConsult),
         pdpRemoteConsultBadge: parseBool(r.pdpRemoteConsultBadge),
-        specialOffer: r.specialOffer.trim() || null,
+        customMessage: r.customMessage.trim() || null,
         travelNotes: r.travelNotes?.trim() || null,
         shortBio: r.shortBio || null,
         extendedBio: r.extendedBio || null,
