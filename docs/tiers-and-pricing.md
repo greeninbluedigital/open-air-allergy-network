@@ -2,7 +2,7 @@
 
 The sales reference: what each package costs, what a practice gets, and what
 to collect from them. Internal only (prices aren't shown on the site).
-Last updated 2026-10-01. Lead-quality selling points are in
+Last updated 2026-10-01. Pitch deck: `SALES materials/Open Air Allergy Network - Membership Pitch Deck v2.pptx` in OneDrive, with screenshots in `SALES materials/Screenshots 2026-10-01`. Lead-quality selling points are in
 `docs/lead-forms.md`; reporting metrics are in `docs/analytics.md`; photo
 sizes are in `docs/image-guide.md`.
 
@@ -86,7 +86,10 @@ can't be counted, since the number is visible without a click.
 | Photo on the search result card | | | | ✓ | ✓ |
 | Google and Yelp reviews module | | | | | ✓ |
 | SEM campaigns to the practice's own page | | | | | ✓ |
-| "Medically reviewed by" credit on a Learn article | | | | | Sold case by case |
+| Submit a blog article each month (reviewed by OAAN before publishing) | | ✓ | ✓ | ✓ | ✓ |
+| One blog article a quarter, ghost-written by OAAN for the practice to review, edit and approve | | | | ✓ | ✓ |
+| Network Member logo for the practice's own website and materials (planned; artwork in design) | | ✓ | ✓ | ✓ | ✓ |
+| "Medically reviewed by" credit on a Learn article | | | | | Case by case, **never advertised** (few Learn articles; used selectively as a sales tool) |
 | Remote consult badges | | ✓ if offered | ✓ if offered | ✓ if offered | ✓ if offered |
 | Tracked for practice reporting (no report screen yet; pulled on request) | Page views, search impressions | + calls, website and address clicks, leads | same as Verified | same as Verified | same as Verified |
 
