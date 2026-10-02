@@ -23,8 +23,9 @@ Confidential: never published on the site, and quoted per client.
 practices get targeted SEM support driving traffic to their own page,
 included in the monthly price (pitch it as "no additional cost"). Verified,
 Academic and Basic only benefit from OAAN's general sitewide SEM. Featured
-adds the Google reviews module on top of Full Profile (changed 2026-10-01:
-SEM was Featured-only).
+adds the Google reviews module and **priority** SEM support (shown as a
+double check in the deck; keep what "priority" means general) on top of Full
+Profile (changed 2026-10-01: SEM was Featured-only).
 
 **Sales materials call Freemium "Basic"** (pitch deck v2, 2026-10-01). The
 sheet and code still use Freemium.
@@ -94,7 +95,7 @@ can't be counted, since the number is visible without a click.
 | Top of search results ("Featured ILIT Providers"), homepage, and on nearby free listings' pages | | | | ✓ | ✓ |
 | Photo on the search result card | | | | ✓ | ✓ |
 | Google and Yelp reviews module | | | | | ✓ |
-| Targeted SEM support for the practice's own page (included, no additional cost) | | | | ✓ | ✓ |
+| Targeted SEM support for the practice's own page (included, no additional cost) | | | | ✓ | ✓✓ priority |
 | Complimentary writing and editing of page content (bio, FAQs and other page text) | | ✓ | ✓ | ✓ | ✓ |
 | Submit a blog article each month (reviewed by OAAN before publishing) | | ✓ | ✓ | ✓ | ✓ |
 | One blog article a quarter, ghost-written by OAAN for the practice to review, edit and approve | | | | ✓ | ✓ |
