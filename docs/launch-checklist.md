@@ -2,18 +2,25 @@
 
 Everything that has to happen before or at public launch, in order. Check
 items off here as they're done. Details live in the linked docs. Last
-updated 2026-09-29.
+updated 2026-10-02.
 
 ## Before launch
 
 - [ ] **Upgrade Vercel to Pro** ($20/month per team member). The free Hobby
       plan is for non-commercial use only, so this has to happen before any
       practice pays for a listing.
-- [ ] **Delete the two fake blog stubs** ("5 Things to Know Before Starting
-      ILIT" and "ILIT Growth in U.S. Allergy Practices").
-- [ ] **Clear test data:** test providers in the sheet, and every article
-      credit (including the test "Medically reviewed by" credit on the
-      comparison article) until there are paying clients.
+- [x] **Delete the two fake blog stubs** (done 2026-09-30).
+- [ ] **Hide the example practices:** set Demo/Example Listing (column AP)
+      to `Y` on all six example rows, then sync. They stay reachable by
+      direct link for sales demos.
+- [ ] **Remove the example author credits:** Dr. Helen Seuss on the
+      comparison article (Learn Page Credits tab) and on the
+      ilit-vs-traditional-allergy-shots blog article (ask Claude).
+- [ ] **Delete test leads and messages:** the "Rivera Allergy Clinic" For
+      Practices lead (2026-09-15), the About page inquiry, and the test
+      contact-form lead to Avant Allergy (ask Claude).
+- [ ] **Every paid practice has a Notification Email** in the sheet (the
+      sync warns when one is missing).
 - [x] **privacy@openairallergynetwork.com created** and working (2026-09-30).
       It's the privacy contact on the Privacy Policy, Cookie Policy, and My
       Privacy Choices page.
@@ -22,8 +29,14 @@ updated 2026-09-29.
       Accessibility Statement). Every change from the Rocket Lawyer drafts,
       and what to check on the two pages written for the site, is in
       [legal-pages/README.md](legal-pages/README.md).
+- [ ] **Practice agreement** (drafted on Rocket Lawyer, then counsel):
+      minimum terms, no lead or traffic guarantees, SEM at OAAN's
+      discretion, cancellation terms, custom message responsibility
+      ([legal-facts.md](legal-facts.md) questions 10 and 15).
 - [ ] **Legal pages with counsel:** start from the facts and open questions
-      in [legal-facts.md](legal-facts.md). Privacy Notice (lead-data language,
+      in [legal-facts.md](legal-facts.md) (15 questions, including what the
+      Verified, Founding Member and Academic badges mean, and the Network
+      Member logo license). Privacy Notice (lead-data language,
       possible consent checkbox) and Terms of Use, including a clause
       prohibiting scraping and bulk copying ([anti-scraping.md](anti-scraping.md)).
       The Cookie Policy should list GA4's cookies and the site's `oaan_attr`
@@ -39,6 +52,13 @@ updated 2026-09-29.
       dimensions, key events, 14-month data retention, internal traffic
       filter, Search Console link, and a Google Ads link once that account
       exists.
+
+## Brand and sales
+
+- [ ] **Site logo and Network Member logo** from the graphic designer
+      (sizes in [image-guide.md](image-guide.md)). Then Claude adds the site
+      logo to the header and structured data.
+- [ ] **Pitch deck v3:** add the phone number on the Contact slide.
 
 ## Account and data security (can be done now)
 
