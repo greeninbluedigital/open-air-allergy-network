@@ -1,6 +1,7 @@
 import { db } from "@/lib/db";
 import { fetchSheetRows } from "@/lib/googleSheets";
 import { geocodeAddress } from "@/lib/geocode";
+import { refreshContentDates } from "@/lib/contentDates";
 
 // Column order for the "Providers" sheet tab, starting at row 2 (row 1 is
 // headers). Deliberately excludes Stripe-managed fields (Subscription
@@ -628,6 +629,8 @@ export type SyncSummary = {
   practitioners: PractitionerSyncSummary;
   learnCredits: LearnCreditSyncSummary;
   heroImages: HeroImageSyncSummary;
+  /** Practice pages whose visible content changed, and the IndexNow result. */
+  indexing: { changed: number; submitted: number; status: string };
 };
 
 export async function runSync(): Promise<SyncSummary> {
@@ -649,6 +652,7 @@ export async function runSync(): Promise<SyncSummary> {
     practitioners: { created: 0, updated: 0, skipped: 0, errors: [] },
     learnCredits: { updated: 0, unchanged: 0, cleared: 0, skipped: 0, errors: [] },
     heroImages: { synced: 0, skipped: 0, errors: [] },
+    indexing: { changed: 0, submitted: 0, status: "not run" },
   };
 
   // For the rename and Group ID warnings (see SyncSummary.warnings).
@@ -883,6 +887,14 @@ export async function runSync(): Promise<SyncSummary> {
     summary.heroImages = await syncHomepageHeroImages();
   } catch (err) {
     summary.heroImages.errors.push((err as Error).message);
+  }
+
+  // Last, after FAQs and treatments are in place, since both count as
+  // page content.
+  try {
+    summary.indexing = await refreshContentDates();
+  } catch (err) {
+    summary.indexing.status = `failed: ${(err as Error).message}`;
   }
 
   return summary;

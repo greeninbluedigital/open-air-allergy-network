@@ -11,6 +11,7 @@
 import "dotenv/config";
 import { readFileSync } from "node:fs";
 import { db } from "@/lib/db";
+import { notifyIndexNow } from "@/lib/indexNow";
 
 function field(meta: string, label: string): string | undefined {
   const m = meta.match(new RegExp(`^${label}(?: \\([^)]*\\))?:\\s*(.+)$`, "m"));
@@ -84,6 +85,11 @@ async function main() {
     await db.articleFaqItem.createMany({ data: faqItems.map((f) => ({ ...f, articleId: article.id })) });
   }
   console.log(existing ? "updated" : "published");
+
+  // The article and the index page that lists it.
+  const index = section === "LEARN" ? "/learn-about-ilit" : "/blog";
+  const indexNow = await notifyIndexNow([`${index}/${slug}`, index]);
+  console.log(`  IndexNow: ${indexNow.submitted} URLs, ${indexNow.status}`);
 }
 
 main().finally(() => db.$disconnect());

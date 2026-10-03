@@ -26,7 +26,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [providers, articles] = await Promise.all([
     db.provider.findMany({
       where: { active: true, isDemo: false },
-      select: { slug: true, updatedAt: true },
+      select: { slug: true, updatedAt: true, contentUpdatedAt: true },
     }),
     db.article.findMany({
       where: { status: "PUBLISHED" },
@@ -36,7 +36,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   return [
     ...STATIC_PATHS.map((path) => ({ url: `${SITE_URL}${path}` })),
-    ...providers.map((p) => ({ url: `${SITE_URL}/find-an-ilit-provider/${p.slug}`, lastModified: p.updatedAt })),
+    ...providers.map((p) => ({ url: `${SITE_URL}/find-an-ilit-provider/${p.slug}`, lastModified: p.contentUpdatedAt ?? p.updatedAt })),
     ...articles.map((a) => ({
       url: `${SITE_URL}/${a.section === "LEARN" ? "learn-about-ilit" : "blog"}/${a.slug}`,
       // LEARN pages are evergreen ("Last reviewed") — lastUpdated is the

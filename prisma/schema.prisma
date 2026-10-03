@@ -135,6 +135,14 @@ model Provider {
   // inactive. Verified-tier-and-up display only.
   verifiedAsOf DateTime?
 
+  // When something a visitor sees on the practice page last changed, for the
+  // sitemap's lastmod and IndexNow (src/lib/contentDates.ts). Deliberately
+  // not updatedAt, which every daily sync bumps, and not verifiedAsOf, which
+  // moves daily by design. contentHash fingerprints the visible fields,
+  // treatments and FAQs so the sync can tell a real change from a rewrite.
+  contentHash      String?
+  contentUpdatedAt DateTime?
+
   subscriptionStatus SubscriptionStatus @default(INACTIVE)
   // Stripe Customer/Subscription ID.
   billingReference   String?

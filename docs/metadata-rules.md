@@ -83,6 +83,21 @@ the scraper trap, so these rules are live. The canonical host is
 Domains for www, `next.config.ts` for vercel.app, which leaves `/api/*` alone
 for the cron jobs).
 
+## Sitemap dates and IndexNow
+
+- **Practice pages:** `lastmod` is `Provider.contentUpdatedAt`, which only
+  moves when something a visitor sees changes (fields, treatments, FAQs).
+  The daily sync rewrites every row and "Verified as of" moves daily by
+  design, so neither is used: Google ignores `lastmod` on sites where it
+  changes without real changes. The visible "Verified as of" date is a
+  patient trust signal and stays daily.
+- **Articles:** Learn pages use `lastUpdated`, Blog posts their publish date.
+- **IndexNow** (Bing, Yandex and others, not Google): the sync reports
+  practice pages whose content changed, and `scripts/publish-article.ts`
+  reports the article it publishes (`src/lib/indexNow.ts`, key file in
+  `public/`). For Google, use Search Console's Request Indexing
+  ([onboarding-checklist.md](onboarding-checklist.md)).
+
 ## H1 conventions
 
 - PDP: practice name as the dominant line, with a smaller "ILIT Provider in
