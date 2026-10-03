@@ -67,6 +67,7 @@ export async function ZipSearchForm({
       {showRadius && (
         <select
           name="radius"
+          aria-label="Search radius"
           defaultValue={defaultRadius}
           className={`rounded border px-3 py-2.5 text-sm ${
             isDark

@@ -105,7 +105,12 @@ move carries over. Full settings in [anti-scraping.md](anti-scraping.md).
 - [ ] Submit `sitemap.xml` in Google Search Console. Don't delete the
       `google-site-verification` TXT record in Cloudflare.
 - [ ] Optional: Bing Webmaster Tools, imported from Search Console.
-- [ ] Run a Core Web Vitals check (PageSpeed Insights) on the live domain.
+- [x] Core Web Vitals lab check (Lighthouse, mobile, 2026-10-02): homepage,
+      search, a practice page and a blog article all scored 89 to 96 on
+      performance, 100 on SEO and best practices, layout shift 0. Fixed
+      afterwards: blog header photo now preloads, muted gray text darkened to
+      #6b6b6b for contrast, radius dropdown labeled. Real-visitor (field)
+      data appears in Search Console after a few weeks of traffic.
 
 ## About a week after launch
 

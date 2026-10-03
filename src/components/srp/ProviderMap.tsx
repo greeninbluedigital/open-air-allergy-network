@@ -96,7 +96,7 @@ function popupHtml(p: SrpProvider, backHref: string): string {
   return `<div style="min-width:240px">
     ${badges ? `<div class="mb-1.5 flex flex-wrap gap-1">${badges}</div>` : ""}
     <a href="${href}" data-cta="map_pin_popup" data-cta-provider="${name}" class="text-sm font-bold hover:underline" style="color:#222">${name}</a>
-    <div class="mt-0.5 text-xs" style="color:#777">${escapeHtml(p.city)}, ${escapeHtml(p.state)} · ${p.distanceMiles.toFixed(1)} mi</div>
+    <div class="mt-0.5 text-xs" style="color:#6b6b6b">${escapeHtml(p.city)}, ${escapeHtml(p.state)} · ${p.distanceMiles.toFixed(1)} mi</div>
   </div>`;
 }
 
