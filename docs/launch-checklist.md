@@ -102,9 +102,10 @@ move carries over. Full settings in [anti-scraping.md](anti-scraping.md).
 - [x] `robots.ts` blanket `/` disallow removed (scraper-trap disallow kept),
       and the old vercel.app address redirects to the domain (`/api/` excluded
       for the cron jobs).
-- [ ] Submit `sitemap.xml` in Google Search Console. Don't delete the
-      `google-site-verification` TXT record in Cloudflare.
-- [ ] Optional: Bing Webmaster Tools, imported from Search Console.
+- [x] `sitemap.xml` submitted in Google Search Console and Bing Webmaster
+      Tools (imported from Search Console); both read it successfully
+      (2026-10-03). Don't delete the `google-site-verification` TXT record
+      in Cloudflare.
 - [x] Core Web Vitals lab check (Lighthouse, mobile, 2026-10-02): homepage,
       search, a practice page and a blog article all scored 89 to 96 on
       performance, 100 on SEO and best practices, layout shift 0. Fixed
