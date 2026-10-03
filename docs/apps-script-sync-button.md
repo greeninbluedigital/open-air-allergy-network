@@ -39,7 +39,7 @@ the sheet; do the setup once, then use whichever you prefer.
    visible code: **Project Settings** (gear icon, left sidebar) → **Script
    Properties** → **Add script property** →
    - `SITE_URL` = your deployed site's URL (currently
-     `https://open-air-allergy-network.vercel.app`)
+     `https://openairallergynetwork.com`)
    - `CRON_SECRET` = the same value as `CRON_SECRET` in the project's `.env`
 4. Save the script (the disk icon, or Ctrl/Cmd+S).
 5. Reload the spreadsheet tab. A new **OAAN Sync** menu appears next to

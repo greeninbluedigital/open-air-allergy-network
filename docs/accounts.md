@@ -11,7 +11,7 @@ Google/email account you used for each signup unless you've told me.
 | **Prisma Studio** | Browsing/editing the database directly | **No account exists** — it's a local tool (`npx prisma studio`), not a hosted service. It connects using the `DATABASE_URL` already in `.env`. Nothing to sign up for. | Run `npx prisma studio` from the project folder, opens at `http://localhost:5555` |
 | **Neon** | Postgres database hosting | ? | [console.neon.tech](https://console.neon.tech) |
 | **GitHub** | Source code repo | `greeninbluedigital` account | [github.com/greeninbluedigital/open-air-allergy-network](https://github.com/greeninbluedigital/open-air-allergy-network) |
-| **Vercel** | Site hosting — live at `open-air-allergy-network.vercel.app` (custom domain not connected yet) | ? | [vercel.com](https://vercel.com) |
+| **Vercel** | Site hosting — live at `openairallergynetwork.com` since 2026-10-02 (`www` and the old `open-air-allergy-network.vercel.app` redirect there) | ? | [vercel.com](https://vercel.com) |
 | **Google Cloud Console** | Places API key + the Sheets sync service account | ? — project ID `infinite-mantis-508700-c1` | [console.cloud.google.com](https://console.cloud.google.com) |
 | **Google Sheets** ("OAAN data sync") | Source data for the provider sync job | ? — whichever Google account owns the actual spreadsheet | [The sheet itself](https://docs.google.com/spreadsheets/d/1a4GVISoL_Q-QcRpjis60yAKxBGrSGVPg0i04BrbqEHs) |
 | **Google Analytics (GA4)** | Site analytics | ? | [analytics.google.com](https://analytics.google.com) |

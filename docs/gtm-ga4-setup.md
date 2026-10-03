@@ -136,8 +136,7 @@ If the "Event" variable isn't offered, turn it on under **Variables** →
 ### 2.4 Preview: see events live
 
 Click **Preview** (top right) and enter
-`https://open-air-allergy-network.vercel.app` (the real domain after
-launch). The site opens in a new tab connected to Tag Assistant.
+`https://openairallergynetwork.com`. The site opens in a new tab connected to Tag Assistant.
 - Click around: a Find a Provider button, a search, a practice card.
 - In Tag Assistant, each action appears in the left column as an event
   (`oaan_cta_click`, `oaan_provider_search`, …).

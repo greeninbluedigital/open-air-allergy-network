@@ -112,8 +112,7 @@ counsel.
 
 **Rules for the trap:** never add Quillmoor to the Providers tab (or any
 other synced tab) of the Google Sheet, never change its values (they're the
-fingerprint), and keep its `robots.txt` disallow when the blanket
-pre-launch disallow is lifted. A reference note in a tab the sync doesn't
+fingerprint), and keep its `robots.txt` disallow. A reference note in a tab the sync doesn't
 read, such as "Scraper Trap (do not sync)", is fine: the sync only reads
 the tabs listed in `docs/sheet-columns.md` and ignores the rest.
 

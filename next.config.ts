@@ -8,6 +8,21 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "res.cloudinary.com" },
     ],
   },
+  // The original vercel.app address still serves the production site, so
+  // send visitors and crawlers to the real domain. API routes are left alone:
+  // Vercel's cron jobs call them on that address and wouldn't follow a
+  // redirect. Preview deployments have their own hostnames, so they're
+  // unaffected.
+  async redirects() {
+    return [
+      {
+        source: "/:path((?!api/).*)",
+        has: [{ type: "host", value: "open-air-allergy-network.vercel.app" }],
+        destination: "https://openairallergynetwork.com/:path",
+        permanent: true,
+      },
+    ];
+  },
   // <meta name="robots"> only applies to HTML documents — API routes return
   // JSON, so they need the HTTP-header form instead. Defensive: robots.ts
   // already blanket-disallows crawling everything site-wide right now, but

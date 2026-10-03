@@ -2,21 +2,21 @@
 
 Everything that has to happen before or at public launch, in order. Check
 items off here as they're done. Details live in the linked docs. Last
-updated 2026-10-02.
+updated 2026-10-02 (site live on openairallergynetwork.com).
 
 ## Before launch
 
-- [ ] **Upgrade Vercel to Pro** ($20/month per team member). The free Hobby
-      plan is for non-commercial use only, so this has to happen before any
-      practice pays for a listing.
+- [ ] **Upgrade Vercel to Pro** ($20/month per team member) before the first
+      practice pays. The free Hobby plan is for non-commercial use only. The
+      site launched on Hobby (2026-10-02) because nothing is being sold yet.
 - [x] **Delete the two fake blog stubs** (done 2026-09-30).
-- [ ] **Hide the example practices:** set Demo/Example Listing (column AP)
+- [x] **Hide the example practices:** set Demo/Example Listing (column AP)
       to `Y` on all six example rows, then sync. They stay reachable by
       direct link for sales demos.
-- [ ] **Remove the example author credits:** Dr. Helen Seuss on the
+- [x] **Remove the example author credits:** Dr. Helen Seuss on the
       comparison article (Learn Page Credits tab) and on the
       ilit-vs-traditional-allergy-shots blog article (ask Claude).
-- [ ] **Delete test leads and messages:** the "Rivera Allergy Clinic" For
+- [x] **Delete test leads and messages:** the "Rivera Allergy Clinic" For
       Practices lead (2026-09-15), the About page inquiry, and the test
       contact-form lead to Avant Allergy (ask Claude).
 - [ ] **Every paid practice has a Notification Email** in the sheet (the
@@ -93,18 +93,18 @@ move carries over. Full settings in [anti-scraping.md](anti-scraping.md).
 
 ## Domain migration (launch day)
 
-- [ ] Connect openairallergynetwork.com in Vercel. In Cloudflare, set the
-      records pointing to Vercel to **DNS only (gray cloud)**. The orange
-      cloud proxy breaks Vercel Bot Protection.
-- [ ] Change `NEXT_PUBLIC_SITE_URL` in Vercel to
-      `https://openairallergynetwork.com`, then **redeploy** (it's built
-      into the site at deploy time).
-- [ ] Update the GitHub repo variable `SITE_URL` (Settings → Secrets and
-      variables → Actions → Variables) for the lead-forwarding job.
-- [ ] In `src/app/robots.ts`, remove the blanket `/` disallow. **Keep the
-      scraper-trap disallow.**
+- [x] openairallergynetwork.com connected in Vercel, Cloudflare records set
+      to DNS only (gray cloud). `www` redirects to the bare domain (2026-10-02).
+- [x] `NEXT_PUBLIC_SITE_URL` changed to `https://openairallergynetwork.com`
+      and redeployed. GitHub `SITE_URL` variable and the Apps Script
+      `SITE_URL` property updated.
+- [x] First sync on the live domain (26 practices).
+- [x] `robots.ts` blanket `/` disallow removed (scraper-trap disallow kept),
+      and the old vercel.app address redirects to the domain (`/api/` excluded
+      for the cron jobs).
 - [ ] Submit `sitemap.xml` in Google Search Console. Don't delete the
       `google-site-verification` TXT record in Cloudflare.
+- [ ] Optional: Bing Webmaster Tools, imported from Search Console.
 - [ ] Run a Core Web Vitals check (PageSpeed Insights) on the live domain.
 
 ## About a week after launch

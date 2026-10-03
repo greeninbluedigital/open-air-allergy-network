@@ -12,10 +12,15 @@ const STATIC_PATHS = [
   "/about",
 ];
 
+// Without this the sitemap is built once at deploy time and keeps listing
+// whatever the database held then (it kept the example practices after the
+// launch sync hid them). Same fix as the Learn About ILIT index.
+export const dynamic = "force-dynamic";
+
 /**
- * Exists now so it's ready the day robots.ts stops disallowing everything —
- * doesn't do anything on its own until then. See robots.ts for why crawling
- * is blocked site-wide right now.
+ * Listed in robots.txt and submitted in Search Console. Built from the
+ * database on each request, so new practices and articles appear right after
+ * a sync or publish.
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [providers, articles] = await Promise.all([

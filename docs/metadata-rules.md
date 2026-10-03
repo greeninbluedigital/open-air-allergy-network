@@ -74,12 +74,14 @@ cut mid-word and doesn't enforce the 155 ceiling if the max changes later.
 | SEM landing page (`/lp/[providerSlug]/[metroSlug]`) | `ILIT in {City} — {Metro}`, no suffix (`absolute`) | Not set | None (noindexed, moot) | Always `noindex, nofollow` |
 | Legal pages (`/legal/[slug]`) | Page title + suffix | Not set | None (noindexed, moot) | `noindex, follow` |
 | `/api/*` | n/a | n/a | n/a | `X-Robots-Tag: noindex, nofollow` (HTTP header, not meta) |
-| Scraper trap (`/find-an-ilit-provider/quillmoor-allergy-sinus-center-wichita`) | Mirrors a PDP title (`absolute`) | Not set | None | `noindex, nofollow`, and disallowed in `robots.ts` (keep that disallow when the blanket rule is lifted). Never in the sitemap. See `docs/anti-scraping.md` |
+| Scraper trap (`/find-an-ilit-provider/quillmoor-allergy-sinus-center-wichita`) | Mirrors a PDP title (`absolute`) | Not set | None | `noindex, nofollow`, and disallowed in `robots.ts` (keep that disallow). Never in the sitemap. See `docs/anti-scraping.md` |
 
-Everything above is currently moot for actual search visibility: `robots.ts`
-blanket-disallows crawling site-wide while the site is being used as a
-pseudo-dev environment on the Vercel URL (see the launch punch list memory).
-These rules are what will actually take effect once that's lifted.
+Since launch (2026-10-02), `robots.ts` allows crawling of everything except
+the scraper trap, so these rules are live. The canonical host is
+`https://openairallergynetwork.com` (no www): `www` and the old
+`open-air-allergy-network.vercel.app` address both redirect there (Vercel
+Domains for www, `next.config.ts` for vercel.app, which leaves `/api/*` alone
+for the cron jobs).
 
 ## H1 conventions
 
