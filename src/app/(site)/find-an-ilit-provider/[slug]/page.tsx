@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import { db } from "@/lib/db";
+import { RENAMED_SLUGS } from "@/lib/slugRedirects";
 import { Badge } from "@/components/Badge";
 import { ArticleFeed } from "@/components/ArticleFeed";
 import { ContactPanel, formatAddress } from "@/components/pdp/ContactPanel";
@@ -111,7 +112,11 @@ export default async function ProviderDetailPage({
   const { slug } = await params;
   const sp = await searchParams;
   const provider = await getProvider(slug);
-  if (!provider) notFound();
+  if (!provider) {
+    const renamed = RENAMED_SLUGS[slug];
+    if (renamed) permanentRedirect(`/find-an-ilit-provider/${renamed}`);
+    notFound();
+  }
 
   const backHref = typeof sp.back === "string" ? sp.back : "/find-an-ilit-provider";
   const sent = sp.sent === "1";

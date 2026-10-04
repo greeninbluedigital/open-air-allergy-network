@@ -63,3 +63,5 @@ Specs and limits live in [tiers-and-pricing.md](tiers-and-pricing.md)
 - [ ] Remove anything the new tier doesn't include (custom message, Learn
       Page Credits tab row) so the sync warnings stay clean
 - [ ] Request Indexing for their page again in Search Console
+- [ ] Never change a live practice's slug. If one must change, ask Claude
+      to add a redirect from the old one (`src/lib/slugRedirects.ts`)
