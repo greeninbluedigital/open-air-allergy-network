@@ -1,7 +1,7 @@
 # Image guide: sizes and shapes for every page
 
 What to upload for each kind of image on the site, measured from how each
-page actually displays it. Last updated 2026-09-30.
+page actually displays it. Last updated 2026-10-06.
 
 ## The basics (every image)
 
@@ -20,6 +20,18 @@ page actually displays it. Last updated 2026-09-30.
 - **Free stock photos:** Unsplash and Pexels allow commercial use without
   credit. Avoid showing an identifiable person as sick, avoid visible brand
   names, and skip needles (they put people off).
+
+## Image style (owner's direction, 2026-10-06)
+
+- **Realistic over obviously generated.** Photos, or images that pass as
+  photos: real materials and light (a wooden desk, a paper planner, a
+  stethoscope, a plant), not flat, glossy or floating "AI render" scenes.
+- **Saturated, warm color.** Rich, natural color reads more professional
+  than washed-out grays. It also matches the homepage hero photos.
+- **A clear subject tied to the article,** set in a real place. The
+  allergy shots article's open planner with circled appointments is the
+  reference example
+  (`allergy-treatment-appointment-schedule.png` on Cloudinary).
 
 ## Quick reference
 
