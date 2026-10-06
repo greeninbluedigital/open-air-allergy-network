@@ -2,7 +2,7 @@
 
 Everything that has to happen before or at public launch, in order. Check
 items off here as they're done. Details live in the linked docs. Last
-updated 2026-10-02 (site live on openairallergynetwork.com).
+updated 2026-10-06 (site live on openairallergynetwork.com since 2026-10-02).
 
 ## Before launch
 
@@ -28,6 +28,8 @@ updated 2026-10-02 (site live on openairallergynetwork.com).
 - [x] **privacy@openairallergynetwork.com created** and working (2026-09-30).
       It's the privacy contact on the Privacy Policy, Cookie Policy, and My
       Privacy Choices page.
+- [ ] **Attorney selected (2026-10-06),** running a conflict check on the
+      LLC. First meeting to be scheduled the week of 2026-10-06.
 - [ ] **Attorney review of all six published legal pages** (Privacy Policy,
       Terms, Cookie Policy, My Privacy Choices, Medical Disclaimer,
       Accessibility Statement). Every change from the Rocket Lawyer drafts,
@@ -62,7 +64,8 @@ updated 2026-10-02 (site live on openairallergynetwork.com).
 - [ ] **Site logo and Network Member logo** from the graphic designer
       (sizes in [image-guide.md](image-guide.md)). Then Claude adds the site
       logo to the header and structured data.
-- [ ] **Pitch deck v3:** add the phone number on the Contact slide.
+- [x] **Pitch deck:** final version moved to Google Slides with the phone
+      number added (2026-10-06).
 
 ## Account and data security (can be done now)
 
