@@ -12,9 +12,34 @@ evergreen, keyword-targeted guides.
 
 ## In progress
 
-Nothing in progress. Next up: the fall allergies article (timely, October).
+Nothing in progress. The owner picks the next article from the ideas below.
 
-## Next up: Fall and winter allergies by region (Blog, publish in October)
+## Ideas: Blog
+
+| Idea | Target keywords | Tag | Notes |
+|---|---|---|---|
+| Fall Allergies Are Here: What's Next for Winter, Region by Region | "fall allergies", "ragweed season", "winter allergies", "cedar fever" | Allergy Symptoms | **Timely: best in October.** Details below the tables |
+| How to Find an ILIT Provider, and What to Ask | "ilit near me", "intralymphatic immunotherapy near me", "ilit provider", "questions to ask an allergist about immunotherapy" | Patient Guide | Highest intent. Links straight to Find a Provider |
+| What to Expect at Your First ILIT Appointment | "ilit procedure", "intralymphatic immunotherapy procedure", "lymph node allergy injection" | Patient Guide | First-visit prep: what happens, questions to ask. Replaces the old placeholder "5 Things to Know Before Starting ILIT" |
+| How Much Does ILIT Cost? Insurance, HSA, and FSA | "ilit cost", "intralymphatic immunotherapy cost", "is ilit covered by insurance", "allergy immunotherapy hsa eligible" | Patient Guide | What drives cost. Don't quote prices without a source |
+| What to Bring to Your First Allergist Appointment | "what to bring to allergist appointment", "first allergist appointment", "what to expect at an allergist" | Patient Guide | Checklist-style prep article. Inspired by the "what to bring" list on United Allergy Services' allergist listing pages (e.g. unitedallergyservices.com/allergists/california/los-angeles/sandra-ho-1659680411/): symptom history and suspected triggers, current and past allergy medicines, prior test records, insurance and ID, questions to ask. Write our own version, don't reuse their wording. Our angles: which antihistamines to pause before skin testing (link the skin test article), a symptom diary or photos of reactions, and ILIT as one of the questions to ask. Broader than "What to Expect at Your First ILIT Appointment" (that one is ILIT-specific), and its questions section overlaps "How to Find an ILIT Provider, and What to Ask", so keep the question lists distinct or link between them |
+| Switching From Allergy Shots to ILIT | "switch from allergy shots to ilit", "alternative to allergy shots", "stop allergy shots" | Comparisons | For people tired of years of shots. The Learn FAQ only touches on it |
+| Is ILIT Worth Traveling For? | "travel for allergy treatment", "allergy treatment [metro]" | Patient Guide | Supports Geo-Extension and SEM: a few trips vs. years of local visits |
+| Practice Spotlight series: "Meet [Practice]: ILIT in [City]" | "ilit [city]", "allergist [city]", "allergy shots [city]" | Practice Spotlight | Local search value for paying practices, and a sellable Featured perk |
+| ILIT and allergy immunotherapy for children | "allergy shots for kids", "ilit for children", "allergy immunotherapy children" | Patient Guide | **Only as a practice-contributed article** by an allergist who treats children. OAAN won't write it in-house: pediatric ILIT research is limited (see the research log in `docs/blog-content-guide.md`) |
+| ILIT Growth in U.S. Allergy Practices | "new allergy treatment", "ilit allergy treatment" | Industry News | Needs a real source for adoption data before it can be written. Replaces the old placeholder stub |
+
+## Ideas: Learn
+
+| Idea | Target keywords | Notes |
+|---|---|---|
+| Regional series: "[State] Allergy Season" articles | "allergies in [state]", "[state] allergy season", "[city] pollen" | One per state with ILIT listings. Plan below the tables |
+| ILIT's brand names: Quick LI, ExACT Immunoplasty and others, compared | each brand name, "[brand] near me", "ilit", "intralymphatic immunotherapy" | **Hold until at least 10 paying practices.** Explains that the branded programs are all ILIT and compares what each practice's own materials say (injections, schedule, allergens). Names found so far: QUICK-LI® (Prairie Allergy, KC), ExACT Immunoplasty℠ (Aspire Allergy, TX), "ILIT™" (WashU Medicine), ILIT (Auni Protocol) (Auni Allergy, OH); still to verify: Premier ILIT, AAT (Accelerated Allergy Treatment), RapImmune, Advanced ILIT. Link each brand to the practices using it, grouped by state. Supports the primary goal of owning ILIT terms. Before writing: a sheet column for each practice's protocol name, and counsel's view on naming other companies' trademarks (`docs/legal-facts.md` question 16) |
+| Allergy medicine vs. allergy shots | "allergy medicine vs allergy shots" | Goes deeper on the comparison table's Allergy Medicine column: oral antihistamines, nasal steroid sprays, eye drops, decongestants, leukotriene modifiers. Neutral: good for symptom control, the tradeoff is ongoing use |
+| ILIT safety and FDA review status | "is ilit safe", "ilit fda approval" | Deeper than the Learn page's "Is ILIT Safe?" section. Sources: Senti et al. 2008 RCT (PNAS, PMID 19001265, NCT00470457); health.osu.edu/health/general-health/ilit-allergy-shots |
+| Allergy-induced asthma | "allergy induced asthma", "allergy related asthma" | Hedged, not a cure claim. Model: "for patients with asthma triggered by allergens, [ILIT] may improve breathing and reduce flare-ups" (premierallergyohio.com). The Learn FAQ "Can ILIT help with my asthma?" covers it briefly |
+
+## Idea detail: Fall and winter allergies by region (Blog, best published in October)
 
 - **Working title:** "Fall Allergies Are Here: What's Next for Winter, Region by Region"
 - **Keywords:** "fall allergies", "fall allergy season", "ragweed season",
@@ -32,7 +57,7 @@ Nothing in progress. Next up: the fall allergies article (timely, October).
   evergreen and national, this one is timely and regional. Link between them.
 - **Later:** link each region's section to its regional article (below).
 
-## Regional allergy series (plan)
+## Idea detail: Regional allergy series (Learn)
 
 Goal: long-tail searches like "allergies in Ohio", "Ohio allergy season",
 "St. Louis pollen", "worst allergy season Texas".
@@ -55,29 +80,6 @@ Goal: long-tail searches like "allergies in Ohio", "Ohio allergy season",
   both trust and the practice's own visibility, which makes it a sales tool.
 - **Section:** Learn (evergreen, keyword-targeted). Title pattern: "Ohio
   Allergy Season: What Triggers Allergies Year-Round in Ohio".
-
-## Ideas: Blog
-
-| Idea | Target keywords | Tag | Notes |
-|---|---|---|---|
-| How to Find an ILIT Provider, and What to Ask | "ilit near me", "intralymphatic immunotherapy near me", "ilit provider", "questions to ask an allergist about immunotherapy" | Patient Guide | Highest intent. Links straight to Find a Provider |
-| What to Expect at Your First ILIT Appointment | "ilit procedure", "intralymphatic immunotherapy procedure", "lymph node allergy injection" | Patient Guide | First-visit prep: what happens, questions to ask. Replaces the old placeholder "5 Things to Know Before Starting ILIT" |
-| How Much Does ILIT Cost? Insurance, HSA, and FSA | "ilit cost", "intralymphatic immunotherapy cost", "is ilit covered by insurance", "allergy immunotherapy hsa eligible" | Patient Guide | What drives cost. Don't quote prices without a source |
-| What to Bring to Your First Allergist Appointment | "what to bring to allergist appointment", "first allergist appointment", "what to expect at an allergist" | Patient Guide | Checklist-style prep article. Inspired by the "what to bring" list on United Allergy Services' allergist listing pages (e.g. unitedallergyservices.com/allergists/california/los-angeles/sandra-ho-1659680411/): symptom history and suspected triggers, current and past allergy medicines, prior test records, insurance and ID, questions to ask. Write our own version, don't reuse their wording. Our angles: which antihistamines to pause before skin testing (link the skin test article), a symptom diary or photos of reactions, and ILIT as one of the questions to ask. Broader than "What to Expect at Your First ILIT Appointment" (that one is ILIT-specific), and its questions section overlaps "How to Find an ILIT Provider, and What to Ask", so keep the question lists distinct or link between them |
-| Switching From Allergy Shots to ILIT | "switch from allergy shots to ilit", "alternative to allergy shots", "stop allergy shots" | Comparisons | For people tired of years of shots. The Learn FAQ only touches on it |
-| Is ILIT Worth Traveling For? | "travel for allergy treatment", "allergy treatment [metro]" | Patient Guide | Supports Geo-Extension and SEM: a few trips vs. years of local visits |
-| Practice Spotlight series: "Meet [Practice]: ILIT in [City]" | "ilit [city]", "allergist [city]", "allergy shots [city]" | Practice Spotlight | Local search value for paying practices, and a sellable Featured perk |
-| ILIT and allergy immunotherapy for children | "allergy shots for kids", "ilit for children", "allergy immunotherapy children" | Patient Guide | **Only as a practice-contributed article** by an allergist who treats children. OAAN won't write it in-house: pediatric ILIT research is limited (see the research log in `docs/blog-content-guide.md`) |
-| ILIT Growth in U.S. Allergy Practices | "new allergy treatment", "ilit allergy treatment" | Industry News | Needs a real source for adoption data before it can be written. Replaces the old placeholder stub |
-
-## Ideas: Learn
-
-| Idea | Target keywords | Notes |
-|---|---|---|
-| ILIT's brand names: Quick LI, ExACT Immunoplasty and others, compared | each brand name, "[brand] near me", "ilit", "intralymphatic immunotherapy" | **Hold until at least 10 paying practices.** Explains that the branded programs are all ILIT and compares what each practice's own materials say (injections, schedule, allergens). Names found so far: QUICK-LI® (Prairie Allergy, KC), ExACT Immunoplasty℠ (Aspire Allergy, TX), "ILIT™" (WashU Medicine), ILIT (Auni Protocol) (Auni Allergy, OH); still to verify: Premier ILIT, AAT (Accelerated Allergy Treatment), RapImmune, Advanced ILIT. Link each brand to the practices using it, grouped by state. Supports the primary goal of owning ILIT terms. Before writing: a sheet column for each practice's protocol name, and counsel's view on naming other companies' trademarks (`docs/legal-facts.md` question 16) |
-| Allergy medicine vs. allergy shots | "allergy medicine vs allergy shots" | Goes deeper on the comparison table's Allergy Medicine column: oral antihistamines, nasal steroid sprays, eye drops, decongestants, leukotriene modifiers. Neutral: good for symptom control, the tradeoff is ongoing use |
-| ILIT safety and FDA review status | "is ilit safe", "ilit fda approval" | Deeper than the Learn page's "Is ILIT Safe?" section. Sources: Senti et al. 2008 RCT (PNAS, PMID 19001265, NCT00470457); health.osu.edu/health/general-health/ilit-allergy-shots |
-| Allergy-induced asthma | "allergy induced asthma", "allergy related asthma" | Hedged, not a cure claim. Model: "for patients with asthma triggered by allergens, [ILIT] may improve breathing and reduce flare-ups" (premierallergyohio.com). The Learn FAQ "Can ILIT help with my asthma?" covers it briefly |
 
 ## Also pending
 - **Comparison article revisit:** add written content about allergy medicine

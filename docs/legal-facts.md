@@ -323,4 +323,6 @@ turns each one into a promise.
     intralymphatic immunotherapy, used in the research literature since 2008.
     Is that use safe given the ™? And can a planned article name and compare
     the branded programs, linking to the practices that use them, as
-    descriptive (nominative) use?
+    descriptive (nominative) use? Owner's view: "ILIT" is becoming
+    the generic name for the treatment, like Kleenex or Xerox, and a
+    university is unlikely to pursue ordinary descriptive use. Low priority.
