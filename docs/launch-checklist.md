@@ -38,7 +38,7 @@ updated 2026-10-02 (site live on openairallergynetwork.com).
       discretion, cancellation terms, custom message responsibility
       ([legal-facts.md](legal-facts.md) questions 10 and 15).
 - [ ] **Legal pages with counsel:** start from the facts and open questions
-      in [legal-facts.md](legal-facts.md) (15 questions, including what the
+      in [legal-facts.md](legal-facts.md) (16 questions, including what the
       Verified, Founding Member and Academic badges mean, and the Network
       Member logo license). Privacy Notice (lead-data language,
       possible consent checkbox) and Terms of Use, including a clause
