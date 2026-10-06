@@ -6,7 +6,7 @@ Section: BLOG
 Title (57 chars): How Often Do You Get Allergy Shots? A Busy Person's Guide
 URL: /blog/how-often-do-you-get-allergy-shots
 Meta description (152 chars): Allergy shots help about 80% of people but mean weekly visits for months, then shots every few weeks for years. Here's the schedule, and faster options.
-Target keywords: "how often do you get allergy shots", "how often can you get allergy shots"
+Target keywords: "how often do you get allergy shots", "how often can you get allergy shots", "fast allergy treatment" / "faster allergy treatment" (FAQ 1)
 Tags: Comparisons, SCIT, ILIT
 Credit: none (house article). A practice could be credited later.
 
@@ -18,6 +18,9 @@ KEY TAKEAWAYS
 - In the trial that established ILIT, the allergy shot group got 54 injections over three years. The ILIT group got three, over two months.
 
 FAQS
+Q: Is there a faster allergy treatment than allergy shots?
+A: Yes. In the [2008 trial](https://pmc.ncbi.nlm.nih.gov/articles/PMC2582048/) that established ILIT, patients' tolerance to grass pollen had already improved four months after their first injection, and three years later it matched what the allergy shot group had reached. A full ILIT course is three injections over about two months, which makes it the fastest allergy treatment course of the three immunotherapy options. Not every allergist offers it yet. Our [directory of ILIT providers](/find-an-ilit-provider) shows who does near you.
+
 Q: Can you skip a month of allergy shots?
 A: You can, but it may cost you ground. After a long gap, many allergists step the dose back down and build up again, and each practice sets its own rules for how long a gap triggers that. An [AAAAI work group](https://pubmed.ncbi.nlm.nih.gov/36443172/) found wide variation in how allergists adjust doses after missed shots. If a busy stretch or a long trip is coming, tell your clinic ahead of time so they can plan around it.
 

@@ -41,6 +41,25 @@ Both sections share the same rendering (`src/components/ArticleDetail.tsx`)
 and the same Markdown/FAQ/Key-Takeaways/metadata machinery described below —
 only the framing differs.
 
+## Keyword strategy (updated 2026-10-05)
+
+1. **Primary goal: own every ILIT search term** ("ILIT", "intralymphatic
+   immunotherapy", "ILIT near me", "ILIT cost" and so on), so the site is
+   the top source as the treatment grows.
+2. **Traffic now: meet people where they search today.** Almost nobody
+   searches "ILIT" yet, so every article should also target the
+   higher-volume terms people actually use, and bridge them to ILIT:
+   "allergy shots", "allergy drops", "how often do you get allergy shots",
+   "fast allergy treatment", "faster allergy treatment", "alternative to
+   allergy shots", "allergy shots without weekly visits".
+3. **Work them in creatively, everywhere they fit:** titles and H2s, FAQ
+   questions (each FAQ is a separate search result), Key Takeaways, meta
+   descriptions, image alt text, and internal link text. Record each
+   article's terms on its draft's "Target keywords" line.
+4. **Keep "fast" honest.** ILIT is a faster *course* (three injections over
+   about two months, versus years of shots). It is not instant symptom
+   relief. Never imply it is (style guide: no exaggerated framing).
+
 ## Tags
 
 `Article.tags` is a plain `String[]` — free text, no schema enum, no
