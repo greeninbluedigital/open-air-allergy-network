@@ -82,20 +82,20 @@ updated 2026-10-06 (site live on openairallergynetwork.com since 2026-10-02).
       messages with counsel ([legal-facts.md](legal-facts.md), question 8),
       then have the old ones deleted automatically.
 
-## Vercel Firewall (can be done now, in Log mode)
+## Vercel Firewall (set up 2026-10-06, all in Log mode)
 
 Rules belong to the Vercel project, so anything set up before the domain
 move carries over. Full settings in [anti-scraping.md](anti-scraping.md).
 
-- [ ] **Rule 1, at the top: Bypass for `/api/`.** Keeps the sheet sync,
+- [x] **Rule 1, at the top: Bypass for `/api/`.** Keeps the sheet sync,
       reviews refresh, lead-forwarding job, and sheet sync button from being
       blocked once Bot Protection is on Challenge.
-- [ ] **Rule 2: rate limit** on `/find-an-ilit-provider` (60 seconds, 120
+- [x] **Rule 2: rate limit** on `/find-an-ilit-provider` (60 seconds, 120
       requests, by IP), action **Log**.
-- [ ] **Rule 3: scraper trap** on the Quillmoor page path, action **Log**
+- [x] **Rule 3: scraper trap** on the Quillmoor page path, action **Log**
       (never Deny).
-- [ ] **Bot Protection** (Bot Management section): **Log**.
-- [ ] **AI Bots:** leave on **Allow** (protects GEO).
+- [x] **Bot Protection** (Bot Management section): **Log**.
+- [x] **AI Bots:** leave on **Allow** (protects GEO).
 - [ ] **Google Alerts** for `"Quillmoor Allergy"` and `"555-0142"`.
 
 ## Domain migration (launch day)
