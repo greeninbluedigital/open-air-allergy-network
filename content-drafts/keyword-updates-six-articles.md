@@ -1,4 +1,4 @@
-# Keyword updates for the six older articles (for review)
+# Keyword updates for the six older articles (applied 2026-10-06)
 
 Drafted 2026-10-05 for the new keyword strategy (docs/blog-content-guide.md,
 "Keyword strategy"). No article bodies are rewritten. Changes are limited to
@@ -26,10 +26,7 @@ A written one lets us put the search terms exactly where searchers see them.
 - New: "Is ILIT a faster allergy treatment than shots or drops?" The answer gains
   an opening "Yes, in how long the course takes." The rest stays as is.
 
-**Optional title change** (61 chars): "Allergy Shots vs. Drops vs. ILIT: Which Treatment Is Fastest?"
-Stronger for "fast" searches, but it drops the exact phrase "allergy drops" from
-the title. My lean: keep the current title, since the description and FAQ now
-carry "fastest".
+
 
 ## 2. Allergy Shots & Allergy Immunotherapy: A Full Guide (Learn)
 
@@ -42,7 +39,7 @@ carry "fastest".
 
 **FAQ 5 question**
 - Now: "Is ILIT a type of allergy immunotherapy?"
-- New: "Is ILIT an alternative to allergy shots?" The answer already opens with
+- New: "Is ILIT (intralymphatic immunotherapy) an alternative to allergy shots?" The answer already opens with
   "Yes. Like allergy shots, ILIT works by…", so it stays as is.
 
 ## 3. Seasonal Allergies: Spring, Summer, Fall & Winter Guide (Learn)
