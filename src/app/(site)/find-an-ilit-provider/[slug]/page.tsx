@@ -33,8 +33,11 @@ const DEFAULT_TRAVEL_NOTE =
 
 // Freemium listings are only claimed as "confirmed" once the phone
 // confirmation (Verification Date) has actually happened.
-function freemiumSummary(p: { practiceName: string; city: string; state: string; verificationDate: Date | null }) {
-  const where = `${p.practiceName} in ${p.city}, ${p.state}`;
+function freemiumSummary(
+  p: { practiceName: string; city: string; state: string; verificationDate: Date | null },
+  street: string | null,
+) {
+  const where = `${p.practiceName}${street ? ` on ${street}` : ""} in ${p.city}, ${p.state}`;
   return p.verificationDate
     ? `${where} is confirmed to offer ILIT (intralymphatic immunotherapy).`
     : `${where} is listed as an ILIT (intralymphatic immunotherapy) provider.`;
@@ -49,6 +52,22 @@ const NEW_TO_ILIT_LINKS = [
   { label: "How do I know if I'm a candidate for ILIT?", href: "/learn-about-ilit#faq-candidate" },
   { label: "Is ILIT covered by insurance?", href: "/learn-about-ilit#faq-insurance" },
 ];
+
+/**
+ * The office's street (e.g. "Central Ave"), but only when the same practice
+ * has another active office in the same city. Without it, both pages would
+ * share one title and description, and Google may treat them as duplicates.
+ * Demo listings are left out, so the sales examples keep their titles.
+ */
+async function sameCityStreet(p: { id: string; groupId: string | null; city: string; state: string; address: string; isDemo: boolean }) {
+  if (!p.groupId || p.isDemo) return null;
+  const siblings = await db.provider.count({
+    where: { groupId: p.groupId, city: p.city, state: p.state, active: true, isDemo: false, id: { not: p.id } },
+  });
+  if (siblings === 0) return null;
+  // Drop the house number and a trailing period: "4200 4th St. N." -> "4th St. N".
+  return p.address.replace(/^\s*\d+[A-Za-z-]*\s+/, "").replace(/\.$/, "").trim() || null;
+}
 
 async function getProvider(slug: string) {
   return db.provider.findUnique({
@@ -66,12 +85,13 @@ export async function generateMetadata({
   const { slug } = await params;
   const provider = await getProvider(slug);
   if (!provider) return {};
+  const street = await sameCityStreet(provider);
 
   // Keyword-rich for search ("ILIT provider in {city}"). Uses `absolute` to
   // skip the root layout's " | Open Air Allergy Network" template — with a
   // real practice name + city + state, the 28-char suffix alone pushed every
   // PDP well past the 62-char budget (verified against all live providers).
-  const title = `${provider.practiceName} — ILIT Provider in ${provider.city}, ${provider.state}`;
+  const title = `${provider.practiceName} — ILIT Provider in ${provider.city}, ${provider.state}${street ? ` (${street})` : ""}`;
   // shortBio is long-form ("About This Practice"-length) copy, not written
   // to meta-description length — truncateForMeta bounds it at a clean
   // sentence/word boundary instead of showing 200-500+ raw characters.
@@ -79,7 +99,7 @@ export async function generateMetadata({
   // stored), so the description and share image don't use them either.
   const description = truncateForMeta(
     !isVerifiedTier(provider.tier)
-      ? `${freemiumSummary(provider)} Listed on Open Air Allergy Network.`
+      ? `${freemiumSummary(provider, street)} Listed on Open Air Allergy Network.`
       : (provider.shortBio ??
           `${provider.practiceName} is a verified ILIT (intralymphatic immunotherapy) provider in ${provider.city}, ${provider.state}, listed on Open Air Allergy Network.`),
   );
@@ -121,6 +141,7 @@ export default async function ProviderDetailPage({
     }
     notFound();
   }
+  const street = await sameCityStreet(provider);
 
   const backHref = typeof sp.back === "string" ? sp.back : "/find-an-ilit-provider";
   const sent = sp.sent === "1";
@@ -208,7 +229,7 @@ export default async function ProviderDetailPage({
           <p className="mb-3 text-sm text-muted">
             {formatAddress(provider)}, {provider.city}, {provider.state} {provider.zip}
           </p>
-          <p className="mb-6 text-sm text-foreground/80">{freemiumSummary(provider)}</p>
+          <p className="mb-6 text-sm text-foreground/80">{freemiumSummary(provider, street)}</p>
           <Link href="/for-practices" data-cta="freemium_claim_listing" className="text-sm font-semibold text-sage hover:underline">
             Is this your practice? Claim this listing →
           </Link>
@@ -296,6 +317,7 @@ export default async function ProviderDetailPage({
                 the practice name losing visual top billing. */}
             <span className="mt-0.5 block text-sm font-normal text-muted">
               ILIT Provider in {provider.city}, {provider.state}
+              {street && ` (${street})`}
             </span>
           </h1>
         </div>
