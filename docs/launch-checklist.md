@@ -9,6 +9,10 @@ updated 2026-10-02 (site live on openairallergynetwork.com).
 - [ ] **Upgrade Vercel to Pro** ($20/month per team member) before the first
       practice pays. The free Hobby plan is for non-commercial use only. The
       site launched on Hobby (2026-10-02) because nothing is being sold yet.
+      Once on Pro, ask Claude to move the 15-minute lead-forwarding job from
+      GitHub Actions to a Vercel cron (Hobby only allows daily crons). That
+      removes the dependency on GitHub's runners, which failed for hours on
+      2026-10-05 during a GitHub outage.
 - [x] **Delete the two fake blog stubs** (done 2026-09-30).
 - [x] **Hide the example practices:** set Demo/Example Listing (column AP)
       to `Y` on all six example rows, then sync. They stay reachable by
