@@ -113,8 +113,12 @@ export default async function ProviderDetailPage({
   const sp = await searchParams;
   const provider = await getProvider(slug);
   if (!provider) {
+    // Only redirect to a page that's live. A renamed practice that was
+    // later deactivated should read as gone, not redirect to a 404.
     const renamed = RENAMED_SLUGS[slug];
-    if (renamed) permanentRedirect(`/find-an-ilit-provider/${renamed}`);
+    if (renamed && (await db.provider.count({ where: { slug: renamed, active: true } }))) {
+      permanentRedirect(`/find-an-ilit-provider/${renamed}`);
+    }
     notFound();
   }
 

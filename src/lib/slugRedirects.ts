@@ -2,7 +2,9 @@
  * Practice pages whose slug changed after going live: old slug → new slug.
  * The practice page sends a permanent redirect only once the old slug is no
  * longer an active practice (the sync deactivates it when the sheet row's
- * slug changes), so adding an entry before that sync is harmless.
+ * slug changes), and only while the new slug is an active practice, so
+ * adding an entry before that sync, or keeping one for a practice later
+ * deactivated, is harmless.
  *
  * Add an entry whenever a live practice's slug changes on the sheet, and
  * never remove one: search engines and old links may still use it.
