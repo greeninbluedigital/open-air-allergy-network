@@ -316,3 +316,11 @@ turns each one into a promise.
     state medical-advertising rules? What should OAAN check before
     publishing a message, and should the practice agreement make the
     practice responsible for its message's accuracy and legality?
+16. **ILIT brand names and trademarks (added 2026-10-06).** Practices market
+    ILIT under their own names, some marked ® or ℠ (QUICK-LI®, ExACT
+    Immunoplasty℠), and WashU Medicine writes "ILIT™". OAAN uses "ILIT"
+    throughout the site as the standard medical abbreviation for
+    intralymphatic immunotherapy, used in the research literature since 2008.
+    Is that use safe given the ™? And can a planned article name and compare
+    the branded programs, linking to the practices that use them, as
+    descriptive (nominative) use?

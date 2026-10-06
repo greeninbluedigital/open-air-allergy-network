@@ -12,9 +12,49 @@ evergreen, keyword-targeted guides.
 
 ## In progress
 
-| Working title | Section | Target keywords | Draft |
-|---|---|---|---|
-| How Often Do You Get Allergy Shots? A Busy Person's Guide | Blog | "how often do you get allergy shots", "how often can you get allergy shots" | `content-drafts/how-often-do-you-get-allergy-shots.md` |
+Nothing in progress. Next up: the fall allergies article (timely, October).
+
+## Next up: Fall and winter allergies by region (Blog, publish in October)
+
+- **Working title:** "Fall Allergies Are Here: What's Next for Winter, Region by Region"
+- **Keywords:** "fall allergies", "fall allergy season", "ragweed season",
+  "winter allergies", "cedar fever", "fall allergies [region]", plus the
+  traffic bridge "fast allergy treatment".
+- **Angle:** what peaks now and what's coming, by U.S. region: ragweed and
+  leaf mold across the Midwest and East, the long Gulf and Florida season,
+  sagebrush and ragweed in the West, then winter's shift indoors (dust
+  mites, pets, mold) and Texas mountain cedar ("cedar fever") from December.
+- **ILIT hook (keep it honest):** a three-injection course over about two
+  months fits between fall and spring. Don't promise relief by a date.
+- **Sources to use:** AAFA Allergy Capitals report (use the latest year),
+  AAAAI National Allergy Bureau pollen data, ACAAI, state extension services.
+- **Differs from** the Learn page "Seasonal Allergies by Season": that one is
+  evergreen and national, this one is timely and regional. Link between them.
+- **Later:** link each region's section to its regional article (below).
+
+## Regional allergy series (plan)
+
+Goal: long-tail searches like "allergies in Ohio", "Ohio allergy season",
+"St. Louis pollen", "worst allergy season Texas".
+
+- **Unit: one article per state** where ILIT providers are listed, plus
+  city articles only for big metros with a distinct story (Dallas and
+  Austin cedar fever, St. Louis). State is the level people search and the
+  level a practice can credibly speak for.
+- **Start with** states with several listings and a strong allergy story:
+  Texas, Missouri, Ohio, Illinois, Virginia, North Carolina, Florida.
+- **Each must be genuinely local:** the state's actual trees, grasses and
+  weeds with their months, its AAFA Allergy Capitals cities and ranks, and
+  local quirks. Templated pages with the state name swapped in risk Google's
+  scaled-content penalty, so no fill-in-the-blank versions.
+- **Every article links** to Find a Provider for that state's cities, and
+  to the fall/winter and seasonal articles.
+- **Practice credit:** publish as OAAN house articles first, then add a
+  "Contributed by" credit for a paying local practice (Verified and up can
+  submit articles). A local allergist's name on "Allergies in Ohio" helps
+  both trust and the practice's own visibility, which makes it a sales tool.
+- **Section:** Learn (evergreen, keyword-targeted). Title pattern: "Ohio
+  Allergy Season: What Triggers Allergies Year-Round in Ohio".
 
 ## Ideas: Blog
 
@@ -34,6 +74,7 @@ evergreen, keyword-targeted guides.
 
 | Idea | Target keywords | Notes |
 |---|---|---|
+| ILIT's brand names: Quick LI, ExACT Immunoplasty and others, compared | each brand name, "[brand] near me", "ilit", "intralymphatic immunotherapy" | **Hold until at least 10 paying practices.** Explains that the branded programs are all ILIT and compares what each practice's own materials say (injections, schedule, allergens). Names found so far: QUICK-LI® (Prairie Allergy, KC), ExACT Immunoplasty℠ (Aspire Allergy, TX), "ILIT™" (WashU Medicine), ILIT (Auni Protocol) (Auni Allergy, OH); still to verify: Premier ILIT, AAT (Accelerated Allergy Treatment), RapImmune, Advanced ILIT. Link each brand to the practices using it, grouped by state. Supports the primary goal of owning ILIT terms. Before writing: a sheet column for each practice's protocol name, and counsel's view on naming other companies' trademarks (`docs/legal-facts.md` question 16) |
 | Allergy medicine vs. allergy shots | "allergy medicine vs allergy shots" | Goes deeper on the comparison table's Allergy Medicine column: oral antihistamines, nasal steroid sprays, eye drops, decongestants, leukotriene modifiers. Neutral: good for symptom control, the tradeoff is ongoing use |
 | ILIT safety and FDA review status | "is ilit safe", "ilit fda approval" | Deeper than the Learn page's "Is ILIT Safe?" section. Sources: Senti et al. 2008 RCT (PNAS, PMID 19001265, NCT00470457); health.osu.edu/health/general-health/ilit-allergy-shots |
 | Allergy-induced asthma | "allergy induced asthma", "allergy related asthma" | Hedged, not a cure claim. Model: "for patients with asthma triggered by allergens, [ILIT] may improve breathing and reduce flare-ups" (premierallergyohio.com). The Learn FAQ "Can ILIT help with my asthma?" covers it briefly |
@@ -47,6 +88,7 @@ evergreen, keyword-targeted guides.
 
 | Title | Section | URL | Published |
 |---|---|---|---|
+| How Often Do You Get Allergy Shots? A Busy Person's Guide | Blog | `/blog/how-often-do-you-get-allergy-shots` | 2026-10-05 (keywords: "how often do you get allergy shots", "fast allergy treatment"; hero swapped 2026-10-06) |
 | Allergy Shots vs. Allergy Drops vs. ILIT: Full Comparison | Learn | `/learn-about-ilit/allergy-shots-vs-allergy-drops-vs-ilit` | 2026-09-21 (renamed from the ILIT vs. SCIT vs. SLIT stub; table updated 2026-09-30) |
 | ILIT vs. Traditional Allergy Shots: What a Few Months Buys You | Blog | `/blog/ilit-vs-traditional-allergy-shots` | 2026-09-18 |
 | Allergy Shots & Allergy Immunotherapy: A Full Guide | Learn | `/learn-about-ilit/allergy-shots-and-allergy-immunotherapy` | 2026-09-22 |
