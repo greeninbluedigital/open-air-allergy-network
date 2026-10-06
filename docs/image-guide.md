@@ -31,7 +31,7 @@ page actually displays it. Last updated 2026-10-06.
 - **A clear subject tied to the article,** set in a real place. The
   allergy shots article's open planner with circled appointments is the
   reference example
-  (`allergy-treatment-appointment-schedule.png` on Cloudinary).
+  (`allergy-treatment-appointment-schedule.jpg` on Cloudinary).
 
 ## Quick reference
 

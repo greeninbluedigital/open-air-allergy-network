@@ -8,7 +8,7 @@ URL: /blog/how-often-do-you-get-allergy-shots
 Meta description (152 chars): Allergy shots help about 80% of people but mean weekly visits for months, then shots every few weeks for years. Here's the schedule, and faster options.
 Target keywords: "how often do you get allergy shots", "how often can you get allergy shots", "fast allergy treatment" / "faster allergy treatment" (FAQ 1)
 Tags: Comparisons, SCIT, ILIT
-Feature image: https://res.cloudinary.com/qruprn0t/image/upload/v1791305064/allergy-treatment-appointment-schedule.png
+Feature image: https://res.cloudinary.com/qruprn0t/image/upload/v1791305830/allergy-treatment-appointment-schedule.jpg
 Image alt: An open spiral calendar on a wooden desk with appointment days circled every week through March and every other week after that, beside a stethoscope and a potted plant.
 Credit: none (house article). A practice could be credited later.
 
