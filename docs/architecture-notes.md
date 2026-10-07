@@ -19,6 +19,10 @@ Not scheduled. Details for some are in the sections below.
   sheet fields are already in place.
 - **Facebook reviews**: reserved fields exist; blocked on Meta app review.
 - **Logo**: header and structured data, once designed (`docs/image-guide.md`).
+- **Neon read replica for ad-hoc SQL**: a read-only compute on the
+  production branch (free plan allows 3), so practice and analysis queries
+  can't write. Until then, start SQL Editor sessions with
+  `SET default_transaction_read_only = on;` (decided 2026-10-06).
 
 ## Map: pin clustering (planned)
 
