@@ -57,12 +57,30 @@ const NEW_TO_ILIT_LINKS = [
  * The office's street (e.g. "Central Ave"), but only when the same practice
  * has another active office in the same city. Without it, both pages would
  * share one title and description, and Google may treat them as duplicates.
+ * Not needed when the offices already have their own names (e.g. "Aspire
+ * Allergy & Sinus - Central Austin"), so only same-named siblings count.
  * Demo listings are left out, so the sales examples keep their titles.
  */
-async function sameCityStreet(p: { id: string; groupId: string | null; city: string; state: string; address: string; isDemo: boolean }) {
+async function sameCityStreet(p: {
+  id: string;
+  groupId: string | null;
+  practiceName: string;
+  city: string;
+  state: string;
+  address: string;
+  isDemo: boolean;
+}) {
   if (!p.groupId || p.isDemo) return null;
   const siblings = await db.provider.count({
-    where: { groupId: p.groupId, city: p.city, state: p.state, active: true, isDemo: false, id: { not: p.id } },
+    where: {
+      groupId: p.groupId,
+      practiceName: p.practiceName,
+      city: p.city,
+      state: p.state,
+      active: true,
+      isDemo: false,
+      id: { not: p.id },
+    },
   });
   if (siblings === 0) return null;
   // Drop the house number and a trailing period: "4200 4th St. N." -> "4th St. N".
@@ -161,7 +179,14 @@ export default async function ProviderDetailPage({
   const [siblings, articleCount] = await Promise.all([
     isVerifiedPlus && provider.groupId
       ? db.provider.findMany({
-          where: { groupId: provider.groupId, id: { not: provider.id } },
+          // Live offices only: an inactive one's page is a 404. Demo pages
+          // list their fellow demos; real pages never list a demo.
+          where: {
+            groupId: provider.groupId,
+            id: { not: provider.id },
+            active: true,
+            ...(provider.isDemo ? {} : { isDemo: false }),
+          },
           select: { slug: true, practiceName: true, city: true, state: true },
         })
       : Promise.resolve([]),
