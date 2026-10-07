@@ -32,6 +32,8 @@ Specs and limits live in [tiers-and-pricing.md](tiers-and-pricing.md)
 - [ ] Slug (A), typed once and never changed: `{brand}-{city}-{state}`,
       e.g. `allergenix-west-des-moines-ia`. Two offices in one city: add the
       street before the state, e.g. `bay-area-allergy-asthma-st-petersburg-central-ave-fl`
+      Office named after a nearby community (not a whole metro): put that
+      name before the address city, e.g. `aspire-allergy-sinus-lakeway-bee-cave-tx`
 - [ ] Upload photos to Cloudinary, paste the URLs (Z, AA, AB)
 - [ ] Fill the row: Tier (L), add-ons (M, N, O), bios (X, Y), hours (AC,
       AD), treatments (AE), consults (T to V), message (W), reviews (AF, AG).
