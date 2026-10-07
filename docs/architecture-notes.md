@@ -19,6 +19,16 @@ Not scheduled. Details for some are in the sections below.
   sheet fields are already in place.
 - **Facebook reviews**: reserved fields exist; blocked on Meta app review.
 - **Logo**: header and structured data, once designed (`docs/image-guide.md`).
+- **House-call ("comes to you") providers** (designed 2026-10-07, build
+  when a confirmed house-call ILIT provider signs up; first candidate Dr.
+  Kara Wada, Central Ohio): sheet columns Service Mode (Office / House
+  calls / Both) and Service Area text. House-call-only rows carry city,
+  state and zip only (geocoded to the zip center, never a street). Search
+  matches when the patient is inside the service radius; the card says
+  "Comes to you" plus the area instead of miles and an address; the map
+  draws a shaded service circle instead of a pin; the practice page drops
+  the address and directions and adds a "House calls" badge; JSON-LD uses
+  `areaServed` instead of an address. `Both` keeps today's behavior plus the badge.
 - **Neon read replica for ad-hoc SQL**: a read-only compute on the
   production branch (free plan allows 3), so practice and analysis queries
   can't write. Until then, start SQL Editor sessions with
