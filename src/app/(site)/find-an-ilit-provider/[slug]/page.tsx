@@ -9,6 +9,7 @@ import { ContactPanel, formatAddress } from "@/components/pdp/ContactPanel";
 import { PatientReviews, getAggregateRatingSchema } from "@/components/PatientReviews";
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { PhotoGallery } from "@/components/pdp/PhotoGallery";
+import { OtherLocations } from "@/components/pdp/OtherLocations";
 import { truncateForMeta } from "@/lib/metadata";
 import { parseFormError } from "@/lib/forms";
 import { nearbyFeaturedProviders } from "@/lib/srp";
@@ -187,7 +188,7 @@ export default async function ProviderDetailPage({
             active: true,
             ...(provider.isDemo ? {} : { isDemo: false }),
           },
-          select: { slug: true, practiceName: true, city: true, state: true },
+          select: { slug: true, practiceName: true, city: true, state: true, latitude: true, longitude: true },
         })
       : Promise.resolve([]),
     db.article.count({ where: { providerCreditedId: provider.id, status: "PUBLISHED" } }),
@@ -450,22 +451,7 @@ export default async function ProviderDetailPage({
             </div>
           )}
 
-          {siblings.length > 0 && (
-            <div>
-              <h3 className="mb-2 text-base font-bold">Other Locations</h3>
-              <div className="space-y-2">
-                {siblings.map((s) => (
-                  <Link
-                    key={s.slug}
-                    href={`/find-an-ilit-provider/${s.slug}`}
-                    className="block rounded border border-line p-2.5 text-sm transition-colors hover:border-muted hover:shadow-sm"
-                  >
-                    {s.practiceName} — {s.city}, {s.state}
-                  </Link>
-                ))}
-              </div>
-            </div>
-          )}
+          <OtherLocations from={provider} offices={siblings} />
         </div>
 
         {/* order-first: on mobile, the lead form appears right after the
