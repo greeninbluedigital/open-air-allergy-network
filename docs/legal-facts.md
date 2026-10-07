@@ -326,3 +326,14 @@ turns each one into a promise.
     descriptive (nominative) use? Owner's view: "ILIT" is becoming
     the generic name for the treatment, like Kleenex or Xerox, and a
     university is unlikely to pursue ordinary descriptive use. Low priority.
+17. **Free trial upgrades during sales pushes (added 2026-10-07).** The owner
+    is considering a free month of the Featured tier for practices in a
+    market during a sales push, with OAAN adding photos and writing
+    descriptions. Plan: only with the practice's opt-in (their OK to use
+    photos from their own website, and a notification email for patient
+    messages), since Featured shows the Verified badge and a contact form.
+    Questions: is an emailed "yes" enough permission to use a practice's
+    photos, or does it need written terms? Should the practice agreement
+    (and a short trial agreement) include a license for photos, logos and
+    text the practice provides? Anything to watch in OAAN writing a
+    practice's description itself (accuracy, medical-advertising rules)?
