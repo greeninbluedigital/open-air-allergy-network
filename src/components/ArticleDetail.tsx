@@ -58,6 +58,25 @@ const markdownComponents = {
   tr: (props: React.ComponentProps<"tr">) => <tr className="border-b border-line/60" {...props} />,
 };
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+
+// FAQ answers are short Markdown too (mainly source links), set tighter than
+// body paragraphs.
+const faqMarkdownComponents = {
+  ...markdownComponents,
+  p: (props: React.ComponentProps<"p">) => <p className="[&+p]:mt-2" {...props} />,
+};
+
+/** FAQ answer Markdown as plain text plus <a> links, for the FAQPage JSON-LD
+ * (Google allows links in an Answer's text). */
+function faqAnswerForSchema(answer: string) {
+  return answer
+    .replace(/\[([^\]]+)\]\(([^)\s]+)\)/g, (_, text: string, href: string) =>
+      `<a href="${href.startsWith("/") ? `${SITE_URL}${href}` : href}">${text}</a>`,
+    )
+    .replace(/\*\*([^*]+)\*\*/g, "$1");
+}
+
 /**
  * Shared rendering for both /blog/[slug] and /learn-about-ilit/[slug] — same
  * Markdown/FAQ/credit-box/JSON-LD machinery, different section-driven
@@ -104,7 +123,7 @@ export function ArticleDetail({ article }: { article: ArticleDetailData }) {
           mainEntity: article.faqItems.map((item) => ({
             "@type": "Question",
             name: item.question,
-            acceptedAnswer: { "@type": "Answer", text: item.answer },
+            acceptedAnswer: { "@type": "Answer", text: faqAnswerForSchema(item.answer) },
           })),
         }
       : null;
@@ -235,7 +254,11 @@ export function ArticleDetail({ article }: { article: ArticleDetailData }) {
           {article.faqItems.map((item) => (
             <div key={item.id} className="border-b border-line py-2.5">
               <div className="text-sm font-semibold">{item.question}</div>
-              <div className="mt-1 text-sm whitespace-pre-line text-muted">{item.answer}</div>
+              <div className="mt-1 text-sm text-muted">
+                <ReactMarkdown remarkPlugins={[remarkGfm]} components={faqMarkdownComponents}>
+                  {item.answer}
+                </ReactMarkdown>
+              </div>
             </div>
           ))}
         </div>
