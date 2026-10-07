@@ -17,6 +17,9 @@ Specs and limits live in [tiers-and-pricing.md](tiers-and-pricing.md)
 
 - [ ] **Notification Email** (where leads go, never shown) and the phone,
       website and address as they want them shown
+- [ ] Address is a real place patients visit: not a home, and not a
+      mailbox (UPS Store and similar, often written as a "Suite"; NPI
+      registry addresses can be mailboxes too). No real office yet: don't list
 - [ ] Photos: main 4:5 portrait. Full Profile and Featured also: square
       card photo or logo, up to 4 extra photos
 - [ ] Bio material (we write or polish it), treatments, hours, ILIT
