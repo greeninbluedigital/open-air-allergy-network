@@ -36,7 +36,7 @@ Column order:
 | H | Zip | |
 | I | Phone | Patient-facing |
 | J | Website | |
-| K | Notification Email | **New** — where lead notifications get sent (not shown publicly). Required for the practice to actually receive PDP/SEM contact-form leads. Every paid tier (Verified and up) has the contact form, so the sync warns when an active paid row has this blank |
+| K | Notification Email | **New** — where lead notifications get sent (not shown publicly). Required for the practice to receive PDP/SEM contact-form leads. **The contact form only shows when this is filled in**, at any paid tier (Verified and up); blank means phone and website links only, e.g. for health systems that won't take leads by email (2026-10-08). The sync warns when an active paid row has this blank |
 | L | Tier | One of: `Freemium`, `Verified`, `Academic`, `Full Profile`, `Featured`. `Academic` is the Academic package: a Verified page with the Academic badge and extras, whatever column O says. Anything else is treated as Freemium, and the sync warns about it |
 | M | Founding Member | `Y` / `N`. Only ever displayed for Full Profile and Featured, whatever this says |
 | N | Geo-Extension | `Y` / `N` |

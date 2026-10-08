@@ -4,6 +4,7 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { ATTRIBUTION_COOKIE, parseAttribution } from "@/lib/attribution";
 import { db } from "@/lib/db";
+import { showsContactForm } from "@/lib/tiers";
 import { domainCanReceiveMail } from "@/lib/emailDomainCheck";
 import { sendConfirmationEmail } from "@/lib/leadNotify";
 import { normalizeUsPhone } from "@/lib/phone";
@@ -81,6 +82,17 @@ export async function submitContactMessage(formData: FormData) {
 
   if (containsLink(message)) {
     redirect(`${returnPath}?error=has_links`);
+  }
+
+  // The form only renders for practices that can receive messages
+  // (showsContactForm); this guards against a stale page or a direct post
+  // saving a patient's message that could never be delivered.
+  const recipient = await db.provider.findUnique({
+    where: { id: providerId },
+    select: { active: true, tier: true, notificationEmail: true },
+  });
+  if (!recipient?.active || !showsContactForm(recipient)) {
+    redirect(returnPath);
   }
 
   // Stage 1 — reject structurally-undeliverable addresses before persisting

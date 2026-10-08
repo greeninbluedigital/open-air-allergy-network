@@ -697,7 +697,7 @@ export async function runSync(): Promise<SyncSummary> {
       // Never blocking: these only add to the sync result's warnings.
       if (active && tier !== "FREE_CLAIMED" && !r.notificationEmail.trim()) {
         summary.warnings.push(
-          `${slug} (row ${sheetRow}) has a contact form but no Notification Email, so its leads can't be delivered.`,
+          `${slug} (row ${sheetRow}) has no Notification Email, so its page shows no contact form (phone and website only). Add one if the practice wants patient messages.`,
         );
       }
       if (r.tier.trim() && !(r.tier.trim().toLowerCase() in TIER_MAP)) {

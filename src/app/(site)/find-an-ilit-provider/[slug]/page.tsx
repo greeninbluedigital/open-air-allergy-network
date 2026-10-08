@@ -18,6 +18,7 @@ import { ProviderCard } from "@/components/srp/ProviderCard";
 import {
   isFullProfilePlus as isFullProfileTier,
   isVerifiedPlus as isVerifiedTier,
+  showsContactForm,
   showsAcademic,
   showsPracticeDetails,
   customMessageText,
@@ -463,7 +464,7 @@ export default async function ProviderDetailPage({
         <div className="order-first flex-1 md:order-none">
           <ContactPanel
             provider={provider}
-            showForm={isVerifiedPlus}
+            showForm={showsContactForm(provider)}
             sent={sent}
             confirmed={confirmed}
             error={error}

@@ -11,7 +11,7 @@ import { ComparingIlit, IsIlitRightForMe, WhatIsIlit } from "@/components/ilit/I
 import { PatientReviews, reviewsWouldShow } from "@/components/PatientReviews";
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { parseFormError } from "@/lib/forms";
-import { isFullProfilePlus, isVerifiedPlus, showsAcademic, customMessageText } from "@/lib/tiers";
+import { isFullProfilePlus, isVerifiedPlus, showsAcademic, customMessageText, showsContactForm } from "@/lib/tiers";
 
 
 async function getLandingPage(providerSlug: string, metroSlug: string) {
@@ -206,7 +206,7 @@ export default async function SemLandingPage({
             and the tracked map link). */}
         <ContactPanel
           provider={provider}
-          showForm
+          showForm={showsContactForm(provider)}
           sent={sent}
           confirmed={confirmed}
           error={error}

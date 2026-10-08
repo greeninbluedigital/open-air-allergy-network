@@ -148,7 +148,7 @@ question 15), so OAAN only enters **informational** messages.
 | Search result card photo | 400 × 400 square | Full Profile and Featured. A logo works well |
 | Business Hours | Free text, semicolons between lines | e.g. `Tue-Fri: 8am-5pm; Sat: 9am-1pm` |
 | Treatments Offered | Semicolon-separated list | Use the same names across practices so the list stays consistent |
-| Notification Email | Required for every paid tier | Where leads go. Never shown publicly |
+| Notification Email | Required for the contact form on every paid tier | Where leads go. Never shown publicly. Blank hides the contact form (phone and website only) |
 
 The sync flags (but doesn't block) bios over the limits, paid practices with
 no Notification Email, and Academic `Y` on a Freemium row.
