@@ -1,4 +1,4 @@
-import { isFullProfilePlus, isVerifiedPlus, showsAcademic, customMessageText } from "@/lib/tiers";
+import { isFullProfilePlus, isVerifiedPlus, showsAcademic, showsVerifiedBadge, customMessageText } from "@/lib/tiers";
 import type { Tier } from "@/generated/prisma/client";
 
 // Practice badges follow the same tier system as the map pins (see
@@ -40,6 +40,7 @@ export function cardBadges(p: {
   geoExtension: boolean;
   pdpRemoteConsultBadge: boolean;
   customMessage: string | null;
+  verificationDate: Date | null;
 }): { variant: BadgeVariant; label: string }[] {
   if (!isVerifiedPlus(p.tier)) return [];
   const premium = isFullProfilePlus(p.tier);
@@ -47,7 +48,7 @@ export function cardBadges(p: {
   return [
     ...(showsAcademic(p) ? [{ variant: "academic" as const, label: "Academic" }] : []),
     ...(premium && p.foundingMember ? [{ variant: "founder" as const, label: "Founding Member" }] : []),
-    { variant: premium ? ("featured" as const) : ("verified" as const), label: "Verified" },
+    ...(showsVerifiedBadge(p) ? [{ variant: premium ? ("featured" as const) : ("verified" as const), label: "Verified" }] : []),
     ...(message ? [{ variant: "message" as const, label: message }] : []),
     ...(p.geoExtension ? [{ variant: "geo" as const, label: "Sees Out-of-Area Patients" }] : []),
     ...(p.pdpRemoteConsultBadge ? [{ variant: "consult" as const, label: "Remote Consults" }] : []),

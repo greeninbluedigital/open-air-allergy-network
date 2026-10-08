@@ -19,6 +19,7 @@ import {
   isFullProfilePlus as isFullProfileTier,
   isVerifiedPlus as isVerifiedTier,
   showsContactForm,
+  showsVerifiedBadge,
   showsAcademic,
   showsPracticeDetails,
   customMessageText,
@@ -315,7 +316,7 @@ export default async function ProviderDetailPage({
           <div className="mb-2 flex flex-wrap gap-1.5">
             {showsAcademic(provider) && <Badge variant="academic">Academic</Badge>}
             {isFullProfilePlus && provider.foundingMember && <Badge variant="founder">Founding Member</Badge>}
-            <Badge variant={isFullProfilePlus ? "featured" : "verified"}>Verified</Badge>
+            {showsVerifiedBadge(provider) && <Badge variant={isFullProfilePlus ? "featured" : "verified"}>Verified</Badge>}
             {customMessageText(provider) && <Badge variant="message">{customMessageText(provider)}</Badge>}
             {provider.geoExtension && <Badge variant="geo">Sees Out-of-Area Patients</Badge>}
             {/* pdpRemoteConsultBadge is the on/off switch for organic pages;
@@ -327,7 +328,7 @@ export default async function ProviderDetailPage({
               <Badge variant="consult">Phone Consults</Badge>
             )}
           </div>
-          {isVerifiedPlus && provider.verifiedAsOf && (
+          {showsVerifiedBadge(provider) && provider.verifiedAsOf && (
             <div className="mb-1 text-xs text-muted">
               Verified as of{" "}
               {provider.verifiedAsOf.toLocaleDateString("en-US", {

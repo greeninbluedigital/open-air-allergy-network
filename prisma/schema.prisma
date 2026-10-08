@@ -107,12 +107,22 @@ model Provider {
   // where to send it, so this is structurally necessary.
   notificationEmail String?
 
-  tier Tier @default(FREE_CLAIMED)
+  // The tier the site renders: the sheet's Tier, or FEATURED while a free
+  // trial is running (Providers columns R and S). Everything that gates on
+  // tier reads this, so a trial unlocks every feature.
+  tier        Tier      @default(FREE_CLAIMED)
+  // The Tier as entered on the sheet (what the practice actually pays for).
+  // tierSince follows this, so a trial doesn't reset it.
+  sheetTier   Tier      @default(FREE_CLAIMED)
+  // Free trial: Trial (R) = Y unlocks the Featured tier until Trial
+  // Expiration (S), inclusive. Set by the sync; never shown publicly.
+  trial       Boolean   @default(false)
+  trialEndsAt DateTime?
   // Set by the sync when a provider is created or its tier changes, so
   // long-running premium practices can be identified (e.g. who to offer a
   // freed Learn page credit to). Rows that predate this field were
   // backfilled with createdAt.
-  tierSince DateTime?
+  tierSince   DateTime?
 
   // Add-ons layered on top of whatever tier the provider already has — not
   // separate tiers themselves.
@@ -123,7 +133,7 @@ model Provider {
   // Verified-tier page (the "Academic package"; see docs/tiers-and-pricing.md).
   academic       Boolean @default(false)
   // Practice-written custom message badge, e.g. "Now accepting new patients"
-  // (Providers column W, 30 characters max). Featured listings only.
+  // (Providers column Y, 30 characters max). Featured listings only.
   customMessage  String?
 
   // One-time phone confirmation for Free-tier onboarding.
@@ -152,8 +162,8 @@ model Provider {
   // not a DB constraint, since it's a business rule that can have exceptions).
   searchRadiusMiles Int @default(200)
 
-  offersVideoConsult Boolean @default(false)
-  offersPhoneConsult Boolean @default(false)
+  offersVideoConsult    Boolean @default(false)
+  offersPhoneConsult    Boolean @default(false)
   // Separate switch for the organic surfaces (PDP + SRP card): a practice may
   // want remote consults advertised on its SEM landing pages only. SEM pages
   // keep using the two fields above directly.
@@ -172,7 +182,7 @@ model Provider {
   // square crop, and reusing the ~4:5 PDP photo there scaled/cropped badly.
   // Null renders nothing on the SRP card (no placeholder box) rather than
   // an empty box — a real design choice, not an oversight.
-  srpPhotoUrl String?
+  srpPhotoUrl        String?
 
   // Semicolon-segmented free text, e.g. "Tue-Fri: 8am-5pm; Sat: 9am-1pm" — parsed
   // for display, not normalized into rows (no fixed Mon-Sun grid).
@@ -222,11 +232,11 @@ model Provider {
   // src/lib/yelpReviews.ts), it just no-ops without a key, same as Google
   // does without GOOGLE_PLACES_API_KEY. yelpRatingBadgeEmbed naturally stops
   // being read once yelpRating starts being populated by the cron.
-  yelpRatingBadgeEmbed   String?
-  yelpBusinessId         String?
-  yelpRating             Float?
-  yelpReviewCount        Int?
-  yelpReviewsFetchedAt   DateTime?
+  yelpRatingBadgeEmbed String?
+  yelpBusinessId       String?
+  yelpRating           Float?
+  yelpReviewCount      Int?
+  yelpReviewsFetchedAt DateTime?
 
   // Facebook remains excluded — still gated behind Meta App Review and
   // per-practice OAuth. Reserved so turning it on later is additive.
@@ -316,11 +326,11 @@ model ProviderFaqItem {
 /// every article that person writes. Can link to more than one Provider (a doctor
 /// practicing at multiple locations).
 model Author {
-  id   String @id @default(cuid())
+  id       String  @id @default(cuid())
   // Sheet-managed via the "Practitioners" tab (upsert-by-key) — see
   // docs/sheet-columns.md.
-  slug String @unique
-  name String
+  slug     String  @unique
+  name     String
   // Headshot for the Blog/Learn credit box (Practitioners column E).
   photoUrl String?
   bio      String?

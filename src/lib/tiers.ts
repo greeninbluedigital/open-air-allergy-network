@@ -5,6 +5,14 @@ export function isVerifiedPlus(tier: Tier): boolean {
   return tier !== "FREE_CLAIMED";
 }
 
+/** The Verified badge (and "Verified as of" line): a paid tier, and only
+ * once OAAN has actually confirmed the practice (Verification Date, Providers
+ * column T). A listing verified from public sources only, e.g. a health
+ * system that won't confirm by phone, shows no badge at any tier. */
+export function showsVerifiedBadge(p: { tier: Tier; verificationDate: Date | null }): boolean {
+  return isVerifiedPlus(p.tier) && p.verificationDate != null;
+}
+
 /** The patient contact form: Verified and up, and only when the practice has
  * a Notification Email to receive the messages (some, e.g. large health
  * systems, never give one). Without it the page keeps phone and website

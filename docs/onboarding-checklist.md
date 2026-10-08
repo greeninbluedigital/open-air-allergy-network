@@ -37,10 +37,12 @@ Specs and limits live in [tiers-and-pricing.md](tiers-and-pricing.md)
       street before the state, e.g. `bay-area-allergy-asthma-st-petersburg-central-ave-fl`
       Office named after a nearby community (not a whole metro): put that
       name before the address city, e.g. `aspire-allergy-sinus-lakeway-bee-cave-tx`
-- [ ] Upload photos to Cloudinary, paste the URLs (Z, AA, AB)
-- [ ] Fill the row: Tier (L), add-ons (M, N, O), bios (X, Y), hours (AC,
-      AD), treatments (AE), consults (T to V), message (W), reviews (AF, AG).
-      Active (Q) `Y`, Demo (AP) `N`
+- [ ] Upload photos to Cloudinary, paste the URLs (AB, AC, AD)
+- [ ] Fill the row: Tier (L), add-ons (M, N, O), bios (Z, AA), hours (AE,
+      AF), treatments (AG), consults (V to X), message (Y), reviews (AH, AI).
+      Active (Q) `Y`, Verification Date (T), Demo (AR) `N`
+- [ ] Free trial: Trial (R) `Y` and Trial Expiration (S). Unlocks every
+      Featured feature until that date, then reverts on its own
 - [ ] Other tabs as needed: FAQs, SEM Landing Pages (Geo-Extension),
       Practitioners (if they'll write articles)
 - [ ] **OAAN Sync → Run Sync Now.** Read the warnings in the result

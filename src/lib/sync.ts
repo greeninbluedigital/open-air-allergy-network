@@ -26,6 +26,8 @@ const PROVIDER_COLUMNS = [
   ["academic", "Academic"],
   ["travelNotes", "Travel Notes"],
   ["active", "Active"],
+  ["trial", "Trial"],
+  ["trialExpiration", "Trial Expiration"],
   ["verificationDate", "Verification Date"],
   ["verificationNotes", "Verification Notes"],
   ["offersVideoConsult", "Offers Video Consult"],
@@ -58,8 +60,8 @@ const COLUMNS = PROVIDER_COLUMNS.map(([key]) => key);
 // Positional, so the sheet's header row is checked first (verifyProviderHeaders):
 // a column inserted, removed, or renamed on the sheet stops the whole sync
 // with a clear error instead of shifting every value into the wrong field.
-const SHEET_RANGE = "Providers!A2:AP";
-const HEADER_RANGE = "Providers!A1:AP1";
+const SHEET_RANGE = "Providers!A2:AR";
+const HEADER_RANGE = "Providers!A1:AR1";
 
 function columnLetter(i: number): string {
   return (i < 26 ? "" : String.fromCharCode(64 + Math.floor(i / 26))) + String.fromCharCode(65 + (i % 26));
@@ -692,7 +694,29 @@ export async function runSync(): Promise<SyncSummary> {
 
       const geoExtension = parseBool(r.geoExtension);
       const active = parseBool(r.active);
-      const tier = parseTier(r.tier);
+      const sheetTier = parseTier(r.tier);
+      // A free trial unlocks the Featured tier until its expiration date
+      // (inclusive, by calendar day). After that the practice is back on its
+      // sheet tier automatically at the next sync.
+      const trial = parseBool(r.trial);
+      const trialEndsAt = parseDate(r.trialExpiration);
+      const today = new Date().toISOString().slice(0, 10);
+      const trialActive = trial && (!trialEndsAt || trialEndsAt.toISOString().slice(0, 10) >= today);
+      const tier = trialActive ? "FEATURED" : sheetTier;
+      if (trial && !trialActive && trialEndsAt) {
+        summary.warnings.push(
+          `${slug} (row ${sheetRow}) trial ended on ${trialEndsAt.toISOString().slice(0, 10)}, so it's back on its sheet tier. Set Trial to N.`,
+        );
+      } else if (trial && !r.trialExpiration.trim()) {
+        summary.warnings.push(`${slug} (row ${sheetRow}) is on a trial with no Trial Expiration, so the trial never ends.`);
+      } else if (trial && !trialEndsAt) {
+        summary.warnings.push(`${slug} (row ${sheetRow}) Trial Expiration "${r.trialExpiration.trim()}" isn't a date, so the trial has no end.`);
+      }
+      if (active && tier !== "FREE_CLAIMED" && !r.verificationDate.trim()) {
+        summary.warnings.push(
+          `${slug} (row ${sheetRow}) is a paid${trialActive ? " (trial)" : ""} listing with no Verification Date, so its page shows no Verified badge.`,
+        );
+      }
 
       // Never blocking: these only add to the sync result's warnings.
       if (active && tier !== "FREE_CLAIMED" && !r.notificationEmail.trim()) {
@@ -741,7 +765,10 @@ export async function runSync(): Promise<SyncSummary> {
         website: r.website || null,
         notificationEmail: r.notificationEmail || null,
         tier,
-        ...(!existing || existing.tier !== tier ? { tierSince: new Date() } : {}),
+        sheetTier,
+        trial: trialActive,
+        trialEndsAt,
+        ...(!existing || existing.sheetTier !== sheetTier ? { tierSince: new Date() } : {}),
         foundingMember: parseBool(r.foundingMember),
         geoExtension,
         academic: isAcademic(r),

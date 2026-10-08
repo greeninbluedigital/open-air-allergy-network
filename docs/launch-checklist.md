@@ -14,7 +14,7 @@ updated 2026-10-06 (site live on openairallergynetwork.com since 2026-10-02).
       removes the dependency on GitHub's runners, which failed for hours on
       2026-10-05 during a GitHub outage.
 - [x] **Delete the two fake blog stubs** (done 2026-09-30).
-- [x] **Hide the example practices:** set Demo/Example Listing (column AP)
+- [x] **Hide the example practices:** set Demo/Example Listing (column AR)
       to `Y` on all six example rows, then sync. They stay reachable by
       direct link for sales demos.
 - [x] **Remove the example author credits:** Dr. Helen Seuss on the

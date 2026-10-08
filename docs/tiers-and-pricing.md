@@ -94,7 +94,7 @@ can't be counted, since the number is visible without a click.
 | Up to 4 more photos | | | | ✓ | ✓ |
 | Top of search results ("Featured ILIT Providers") and on nearby free listings' pages | | | | ✓ | ✓ |
 | Homepage section for nearby visitors ("Featured ILIT Providers Near {city}"; premium space, changed 2026-10-02) | | | | | ✓ |
-| Custom message badge, practice-written (Providers column W, 30 characters max; informational only, see below) | | | | | ✓ |
+| Custom message badge, practice-written (Providers column Y, 30 characters max; informational only, see below) | | | | | ✓ |
 | Photo on the search result card | | | | ✓ | ✓ |
 | Google and Yelp reviews module | | | | | ✓ |
 | Targeted SEM support for the practice's own page (included, no additional cost) | | | | ✓ | ✓✓ priority |

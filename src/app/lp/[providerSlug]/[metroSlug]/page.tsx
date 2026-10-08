@@ -11,7 +11,7 @@ import { ComparingIlit, IsIlitRightForMe, WhatIsIlit } from "@/components/ilit/I
 import { PatientReviews, reviewsWouldShow } from "@/components/PatientReviews";
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { parseFormError } from "@/lib/forms";
-import { isFullProfilePlus, isVerifiedPlus, showsAcademic, customMessageText, showsContactForm } from "@/lib/tiers";
+import { isFullProfilePlus, showsAcademic, customMessageText, showsContactForm, showsVerifiedBadge } from "@/lib/tiers";
 
 
 async function getLandingPage(providerSlug: string, metroSlug: string) {
@@ -101,7 +101,7 @@ export default async function SemLandingPage({
           {isFullProfilePlus(provider.tier) && provider.foundingMember && (
             <Badge variant="founder">Founding Member</Badge>
           )}
-          {isVerifiedPlus(provider.tier) && (
+          {showsVerifiedBadge(provider) && (
             <Badge variant={isFullProfilePlus(provider.tier) ? "featured" : "verified"}>Verified</Badge>
           )}
           {customMessageText(provider) && <Badge variant="message">{customMessageText(provider)}</Badge>}
