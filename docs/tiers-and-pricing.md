@@ -151,7 +151,7 @@ question 15), so OAAN only enters **informational** messages.
 | Notification Email | Required for the contact form on every paid tier | Where leads go. Never shown publicly. Blank hides the contact form (phone and website only) |
 
 The sync flags (but doesn't block) bios over the limits, paid practices with
-no Notification Email, and Academic `Y` on a Freemium row.
+no Notification Email or Verification Date, and trials with no end date.
 
 ## Pricing notes
 
