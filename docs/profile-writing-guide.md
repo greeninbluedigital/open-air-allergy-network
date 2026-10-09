@@ -13,11 +13,18 @@ banned words). Third person, platform voice: never "we" for the practice.
 2. **Never include prices** from the practice's website, anywhere on the page.
    Payment methods (HSA, FSA, financing, direct pay) are fine.
 3. **Bios never say the practice treats children or adults.** Whether ILIT
-   suits a child is between the provider and the family. An FAQ like "Does
-   [Practice] treat children?" is fine on every profile.
-4. Competitive claims ("the only clinic in Iowa…") only when the practice's
-   site says so.
-5. No outbound links on paid or trial pages (the practice page is the
+   suits a child is between the provider and the family, and children aren't
+   ILIT's audience. A "Does [Practice] treat children?" FAQ is optional: only
+   when the practice's site strongly promotes treating kids and the profile
+   needs more FAQs.
+4. **No "only" claims** ("the only clinic in Iowa…"). They go stale the day a
+   competitor starts offering ILIT, and nobody remembers to update them. "The
+   first clinic in [region] to offer ILIT" is fine when the practice's site
+   supports it (e.g. it says it's the only one today).
+5. **Don't put hours in bios or FAQs.** Hours belong only in the Business
+   Hours column, the one place to update when they change. The same goes for
+   anything else that changes often.
+6. No outbound links on paid or trial pages (the practice page is the
    endpoint).
 
 ## FAQs
@@ -31,7 +38,7 @@ banned words). Third person, platform voice: never "we" for the practice.
   FDA-approved (FDA-approved extracts, off-label route, if the site says so);
   who isn't a good fit; a local allergen question; insurance and payment
   methods; how soon can I be seen; same-day test results (if stated);
-  children; location and hours.
+  location (address and nearby areas, no hours); children only per rule 3.
 - Each answer leads with something specific to this practice, never a
   restatement of the Learn pages.
 

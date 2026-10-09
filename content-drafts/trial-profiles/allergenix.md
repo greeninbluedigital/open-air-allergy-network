@@ -6,7 +6,8 @@ For the Providers sheet (row 9) and the FAQs tab. Written to
 **Sources (allergenix.com, read 2026-10-08):** home page (services, testing,
 hours, same week appointments, telehealth, service area, Dr. Stanga's
 credentials, "the only clinic in Iowa and several surrounding states offering
-ultrasound-guided intralymphatic immunotherapy"), RapImmune page (three visits
+ultrasound-guided intralymphatic immunotherapy", which supports "first clinic
+in the region"), RapImmune page (three visits
 over about eight weeks, allergens covered, who isn't a fit, 100+ shots over 3
 to 5 years, FDA-approved extracts and an off-label route, financing), pricing
 page (sublingual drops, venom immunotherapy, direct pay; no prices used).
@@ -32,9 +33,9 @@ lasts until the first freeze, mid October on average).
 | AG Treatments Offered | Allergy Testing; Intralymphatic Immunotherapy (ILIT); Allergy Drops (SLIT); Asthma; Eczema; Hives (Urticaria); Hay Fever (Allergic Rhinitis); Food Allergy Testing; Patch Testing; Pulmonary Function Testing; Venom Immunotherapy |
 | AH Show Reviews | Y once the Google Place ID is in AI |
 
-### Z Short Bio (497 characters; first sentence 152, used as the Google description)
+### Z Short Bio (474 characters; first sentence 152, used as the Google description)
 
-Allergenix is a West Des Moines allergy clinic where board certified allergist Dr. Sean Stanga diagnoses and treats allergies, asthma, eczema and hives. Skin testing is read during your visit, and you leave with a written plan. Allergenix is the only clinic in Iowa and several neighboring states offering ultrasound guided intralymphatic immunotherapy (ILIT), which it calls RapImmune®. It's a fast allergy treatment given in three visits over about two months, instead of years of allergy shots.
+Allergenix is a West Des Moines allergy clinic where board certified allergist Dr. Sean Stanga diagnoses and treats allergies, asthma, eczema and hives. Skin testing is read during your visit, and you leave with a written plan. Allergenix was the first clinic in the region to offer ultrasound guided intralymphatic immunotherapy (ILIT), which it calls RapImmune®. It's a fast allergy treatment given in three visits over about two months, instead of years of allergy shots.
 
 ### AA Extended Bio (1,692 characters)
 
@@ -79,8 +80,5 @@ Allergenix usually has appointments within the same week. A first visit runs 45 
 **8. Will I get my allergy test results the same day?**
 Skin test results are read during your visit, and you leave with a written treatment plan. Blood test results typically come back in one to two days.
 
-**9. Does Allergenix treat children?**
-Dr. Stanga is board certified in both allergy and immunology and pediatrics. Whether a child is a good candidate for RapImmune depends on the child's maturity, and that's a conversation to have with him directly.
-
-**10. Where is Allergenix, and what are its hours?**
-The clinic is at 595 S 60th St, Suite 160, in West Des Moines, close to Clive, Waukee and Urbandale. It's open Monday through Friday, 8:00 AM to 4:30 PM.
+**9. Where is Allergenix located?**
+The clinic is at 595 S 60th St, Suite 160, in West Des Moines, close to Clive, Waukee and Urbandale, and it sees patients from across Iowa.

@@ -13,7 +13,7 @@ Google/email account you used for each signup unless you've told me.
 | **GitHub** | Source code repo | `greeninbluedigital` account | [github.com/greeninbluedigital/open-air-allergy-network](https://github.com/greeninbluedigital/open-air-allergy-network) |
 | **Vercel** | Site hosting — live at `openairallergynetwork.com` since 2026-10-02 (`www` and the old `open-air-allergy-network.vercel.app` redirect there) | ? | [vercel.com](https://vercel.com) |
 | **Google Cloud Console** | Places API key + the Sheets sync service account | ? — project ID `infinite-mantis-508700-c1` | [console.cloud.google.com](https://console.cloud.google.com) |
-| **Google Sheets** ("OAAN data sync") | Source data for the provider sync job | ? — whichever Google account owns the actual spreadsheet | [The sheet itself](https://docs.google.com/spreadsheets/d/1a4GVISoL_Q-QcRpjis60yAKxBGrSGVPg0i04BrbqEHs) |
+| **Google Sheets** ("OAAN data sync") | Source data for the provider sync job | `greeninbluedigital@gmail.com` (owner) | [The sheet itself](https://docs.google.com/spreadsheets/d/1a4GVISoL_Q-QcRpjis60yAKxBGrSGVPg0i04BrbqEHs) |
 | **Google Analytics (GA4)** | Site analytics | ? | [analytics.google.com](https://analytics.google.com) |
 | **Google Tag Manager** | Manages the GA4/Ads tags on the site | ? | [tagmanager.google.com](https://tagmanager.google.com) |
 | **Google Search Console** | Indexing status, search queries, sitemap submission | `greeninbluedigital@gmail.com`. Domain property for `openairallergynetwork.com`, verified 2026-09-24 via a `google-site-verification=` TXT record in Cloudflare DNS. **Don't delete that TXT record** — removing it un-verifies the property. | [search.google.com/search-console](https://search.google.com/search-console) |
