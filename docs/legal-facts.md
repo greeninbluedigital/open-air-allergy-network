@@ -326,6 +326,11 @@ turns each one into a promise.
     descriptive (nominative) use? Owner's view: "ILIT" is becoming
     the generic name for the treatment, like Kleenex or Xerox, and a
     university is unlikely to pursue ordinary descriptive use. Low priority.
+    Update 2026-10-08: Integrative Allergy and Immunology Care (Charlotte)
+    also writes "ImmunoLymphatic Immunotherapy (ILIT™)". The owner searched
+    USPTO: the only filing for "ILIT" is an abandoned application, with no
+    live registration. The owner suspects the term is too generic for anyone
+    to own.
 17. **Free trial upgrades during sales pushes (added 2026-10-07).** The owner
     is considering a free month of the Featured tier for practices in a
     market during a sales push, with OAAN adding photos and writing
