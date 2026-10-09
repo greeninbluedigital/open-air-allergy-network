@@ -1,6 +1,7 @@
 import { PhoneLink } from "@/components/PhoneLink";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { ContactForm } from "@/components/pdp/ContactForm";
+import { EmailPracticeButton } from "@/components/pdp/EmailPracticeButton";
 import { LeadStatusMessage, LeadErrorMessage } from "@/components/pdp/LeadStatusMessage";
 import type { FormError } from "@/lib/forms";
 
@@ -11,12 +12,14 @@ export function formatAddress(provider: { address: string; addressLine2: string 
 /**
  * "Contact {practice}" panel shared by the provider page and SEM landing
  * pages, so the two stay identical: the contact form (or its success
- * message), then phone and website, then the address linking to Google
- * Maps. All four lead actions are tracked (docs/analytics.md).
+ * message), or on free trials the email button instead, then phone and
+ * website, then the address linking to Google Maps. Every lead action is
+ * tracked (docs/analytics.md).
  */
 export function ContactPanel({
   provider,
   showForm,
+  emailButtonAddress = null,
   sent,
   confirmed,
   error,
@@ -39,6 +42,8 @@ export function ContactPanel({
   };
   /** The provider page only shows the form for Full Profile and up. */
   showForm: boolean;
+  /** Free trials: the practice's address for the email button (showsEmailButton), else null. */
+  emailButtonAddress?: string | null;
   sent: boolean;
   confirmed: boolean;
   error: FormError | null;
@@ -75,6 +80,9 @@ export function ContactPanel({
             <ContactForm providerId={provider.id} providerSlug={provider.slug} utm={utm} returnPath={returnPath} />
           </>
         )
+      )}
+      {emailButtonAddress && !showForm && (
+        <EmailPracticeButton email={emailButtonAddress} practiceName={provider.practiceName} providerId={provider.id} />
       )}
 
       {(provider.phone || provider.website) && (

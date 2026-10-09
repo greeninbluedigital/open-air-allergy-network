@@ -19,6 +19,7 @@ import {
   isFullProfilePlus as isFullProfileTier,
   isVerifiedPlus as isVerifiedTier,
   showsContactForm,
+  showsEmailButton,
   showsVerifiedBadge,
   showsAcademic,
   showsPracticeDetails,
@@ -489,6 +490,7 @@ export default async function ProviderDetailPage({
           <ContactPanel
             provider={provider}
             showForm={showsContactForm(provider)}
+          emailButtonAddress={showsEmailButton(provider) ? provider.notificationEmail : null}
             sent={sent}
             confirmed={confirmed}
             error={error}

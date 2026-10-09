@@ -763,7 +763,7 @@ export async function runSync(): Promise<SyncSummary> {
         longitude,
         phone: r.phone || null,
         website: r.website || null,
-        notificationEmail: r.notificationEmail || null,
+        notificationEmail: r.notificationEmail.trim() || null,
         tier,
         sheetTier,
         trial: trialActive,

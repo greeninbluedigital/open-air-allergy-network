@@ -541,6 +541,10 @@ enum AnalyticsEventType {
   // Google Maps). Lead actions, like PHONE_CLICK.
   WEBSITE_CLICK
   ADDRESS_CLICK
+  // "Email this practice" (opens the visitor's own email app) or copying the
+  // practice's address. Replaces the contact form on trial pages, so OAAN
+  // never collects the message. A lead action, like PHONE_CLICK.
+  EMAIL_CLICK
   // A click from an SEM landing page to the practice's full profile page.
   // Reported to practices as a soft lead.
   PROFILE_CLICK

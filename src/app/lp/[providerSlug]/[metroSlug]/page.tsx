@@ -11,7 +11,7 @@ import { ComparingIlit, IsIlitRightForMe, WhatIsIlit } from "@/components/ilit/I
 import { PatientReviews, reviewsWouldShow } from "@/components/PatientReviews";
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { parseFormError } from "@/lib/forms";
-import { isFullProfilePlus, showsAcademic, customMessageText, showsContactForm, showsVerifiedBadge } from "@/lib/tiers";
+import { isFullProfilePlus, showsAcademic, customMessageText, showsContactForm, showsEmailButton, showsVerifiedBadge } from "@/lib/tiers";
 
 
 async function getLandingPage(providerSlug: string, metroSlug: string) {
@@ -207,6 +207,7 @@ export default async function SemLandingPage({
         <ContactPanel
           provider={provider}
           showForm={showsContactForm(provider)}
+          emailButtonAddress={showsEmailButton(provider) ? provider.notificationEmail : null}
           sent={sent}
           confirmed={confirmed}
           error={error}

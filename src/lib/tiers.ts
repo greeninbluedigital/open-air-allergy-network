@@ -16,9 +16,18 @@ export function showsVerifiedBadge(p: { tier: Tier; verificationDate: Date | nul
 /** The patient contact form: Verified and up, and only when the practice has
  * a Notification Email to receive the messages (some, e.g. large health
  * systems, never give one). Without it the page keeps phone and website
- * links only, so no patient message is collected that can't be delivered. */
-export function showsContactForm(p: { tier: Tier; notificationEmail: string | null }): boolean {
-  return isVerifiedPlus(p.tier) && !!p.notificationEmail?.trim();
+ * links only, so no patient message is collected that can't be delivered.
+ * Never on a free trial: those get the email button instead. */
+export function showsContactForm(p: { tier: Tier; trial: boolean; notificationEmail: string | null }): boolean {
+  return isVerifiedPlus(p.tier) && !p.trial && !!p.notificationEmail?.trim();
+}
+
+/** "Email this practice": on free trials, in place of the contact form. It
+ * opens the visitor's own email app, so OAAN never collects or forwards the
+ * message, which keeps the site clear of state consumer health data laws
+ * (owner's decision, 2026-10-09). The form code stays for paid listings. */
+export function showsEmailButton(p: { trial: boolean; notificationEmail: string | null }): boolean {
+  return p.trial && !!p.notificationEmail?.trim();
 }
 
 /** Full Profile and Featured. Founding Member is only ever shown at this level. */

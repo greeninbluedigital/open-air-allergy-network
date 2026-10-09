@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import type { AnalyticsEventType } from "@/generated/prisma/client";
 
-const SINGLE_TYPES = new Set<AnalyticsEventType>(["PAGE_VIEW", "PHONE_CLICK", "WEBSITE_CLICK", "ADDRESS_CLICK", "PROFILE_CLICK"]);
+const SINGLE_TYPES = new Set<AnalyticsEventType>(["PAGE_VIEW", "PHONE_CLICK", "WEBSITE_CLICK", "ADDRESS_CLICK", "EMAIL_CLICK", "PROFILE_CLICK"]);
 const IMPRESSION_TYPES = new Set<AnalyticsEventType>(["HOMEPAGE_IMPRESSION", "SRP_IMPRESSION", "PDP_NEARBY_IMPRESSION"]);
 const MAX_IMPRESSIONS = 50;
 

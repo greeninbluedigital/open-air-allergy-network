@@ -17,7 +17,7 @@ export function pushDataLayer(event: `oaan_${string}`, params: Record<string, st
  * reports, docs/analytics.md).
  */
 export function trackEvent(
-  type: "PAGE_VIEW" | "PHONE_CLICK" | "WEBSITE_CLICK" | "ADDRESS_CLICK" | "PROFILE_CLICK",
+  type: "PAGE_VIEW" | "PHONE_CLICK" | "WEBSITE_CLICK" | "ADDRESS_CLICK" | "EMAIL_CLICK" | "PROFILE_CLICK",
   data: {
     providerId: string;
     providerName?: string;

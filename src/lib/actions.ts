@@ -89,7 +89,7 @@ export async function submitContactMessage(formData: FormData) {
   // saving a patient's message that could never be delivered.
   const recipient = await db.provider.findUnique({
     where: { id: providerId },
-    select: { active: true, tier: true, notificationEmail: true },
+    select: { active: true, tier: true, trial: true, notificationEmail: true },
   });
   if (!recipient?.active || !showsContactForm(recipient)) {
     redirect(returnPath);
