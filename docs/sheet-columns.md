@@ -60,7 +60,7 @@ Column order:
 | AC | Secondary Photo URLs | Semicolon-separated, up to 4. Full Profile and Featured only |
 | AD | SRP Card Photo URL | **New** — a square-friendly Cloudinary URL for the small photo on the SRP result card. Deliberately separate from Provider Photo URL (AB): that one is portrait-oriented for the PDP and crops badly at the SRP card's small square size. Leave blank and the card simply shows no photo (not a placeholder box) — no image is required. Only displayed for Full Profile and Featured |
 | AE | Business Hours | Semicolon-separated, e.g. `Tue-Fri: 8am-5pm; Sat: 9am-1pm`. Shown on Full Profile and Featured, and on Academic Verified pages |
-| AF | ILIT Schedule Notes | |
+| AF | ILIT Schedule Notes | One short line promoting the practice's ILIT course, shown in the hours box under Business Hours (same tiers). Pattern: `[Brand name]: [number] injections over [time], instead of years of allergy shots.` Facts from the practice's site, no prices or payment, no hours (those go in AE). Originally meant for ILIT clinic days; repurposed 2026-10-09 because it's prime space to sell ILIT |
 | AG | Treatments Offered | Semicolon-separated, e.g. `ILIT; SCIT; Food Allergy Testing`. Shown on Full Profile and Featured, and on Academic Verified pages |
 | AH | Show Reviews | **Renamed** from "Show Google Reviews" — `Y` / `N`, one master toggle for the whole Patient Reviews module (Featured tier only regardless of this flag). Which platform(s) actually render depends on whether Google Place ID / any Yelp field below is filled in |
 | AI | Google Place ID | |
