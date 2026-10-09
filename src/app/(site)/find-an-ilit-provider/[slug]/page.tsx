@@ -212,6 +212,15 @@ export default async function ProviderDetailPage({
       postalCode: provider.zip,
     },
   };
+  // The same practice elsewhere on the web (its own site, Google Maps
+  // listing, Yelp page), so search engines can tie this page to it.
+  // Structured data only: no visible outbound links on the page.
+  const sameAs = [
+    provider.website,
+    provider.googlePlaceId ? `https://www.google.com/maps/place/?q=place_id:${provider.googlePlaceId}` : null,
+    provider.yelpBusinessId ? `https://www.yelp.com/biz/${provider.yelpBusinessId}` : null,
+  ].filter((u): u is string => Boolean(u));
+  if (sameAs.length > 0) Object.assign(businessJsonLd, { sameAs });
   const jsonLd = isVerifiedPlus
     ? {
         ...businessJsonLd,

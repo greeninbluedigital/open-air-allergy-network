@@ -19,6 +19,15 @@ Not scheduled. Details for some are in the sections below.
   sheet fields are already in place.
 - **Facebook reviews**: reserved fields exist; blocked on Meta app review.
 - **Logo**: header and structured data, once designed (`docs/image-guide.md`).
+- **Practitioner profile pages** (owner idea 2026-10-08): a page per
+  doctor (e.g. /find-an-ilit-provider/allergenix-west-des-moines-ia/dr-sean-stanga
+  or /practitioners/dr-sean-stanga) with credentials, training, the ILIT
+  brand they offer and their articles, carrying Person/Physician JSON-LD
+  (`sameAs` to their bio on the practice site, NPI registry). Linked from
+  the practice page, so visitors stay on OAAN rather than leaving for the
+  practice site. Build on the existing Practitioners tab and `Author`
+  model (already linked to providers). Adds expertise signals Google
+  weighs for medical content, and more indexable pages.
 - **House-call ("comes to you") providers** (designed 2026-10-07, build
   when a confirmed house-call ILIT provider signs up; first candidate Dr.
   Kara Wada, Central Ohio): sheet columns Service Mode (Office / House
