@@ -20,5 +20,21 @@ season (grass, weed); in the South trees can pollinate as early as Dec/Jan.
 | Shepherd Allergy | shepherdallergy.com, /about, /treatments | ILIT™ | Certified through the Auni ILIT Learning Network; "only practice in West Virginia" written as "first" |
 | Integrative Allergy & Immunology Care | integrativecarenc.com | ILIT™ | Site gives no ILIT schedule, so none is stated |
 | Grand Rapids Allergy | grandrapidsallergy.com, /ilit, /our-story | QUICK-LI | Same procedure name as Prairie Allergy |
-| Bay Area Allergy and Asthma, 4th St | bayallergy.com, /accelerated-allergy-treatment-aat/ | AAT (Accelerated Allergy Treatment) | AAT only at the 4th St office; Central Ave left without content |
+| Bay Area Allergy and Asthma, 4th St | bayallergy.com, /accelerated-allergy-treatment-aat/ | AAT (Accelerated Allergy Treatment) | AAT page says patients "arrive at our 4th St. office" on treatment day; it doesn't say Central Ave is excluded. Central Ave set Active N 2026-10-08 pending the owner's call |
 | Avant Allergy | avantallergy.com, /services-4, /meet-dr-ho | ILIT | Old FAQs (under the pre-rename slug) replaced |
+
+## "First in region" audit (2026-10-09)
+
+Bios carry a first or pioneer claim only where the practice's own site states it:
+Allergenix ("only clinic in Iowa and several surrounding states", written as
+first in the region), AllerPoint ("among the first in the Mid-Atlantic"),
+Shepherd ("only practice in West Virginia", written as first), Auni ("pioneered
+the ILIT™ Protocol in the U.S."). No regional claim found on the sites of Avant
+(says "one of few" physicians nationally, already used), Columbia (claims
+"America's leading" A-ILIT provider and "pioneer of A-ILIT", national
+superlatives, not regional), AASC ("currently the destination for ILIT in
+Illinois" reads as AASC's own Illinois offices, not a first), Prairie, Grand
+Rapids or Bay Area. Integrative claims to be "the only practice in the
+southeastern United States that offers ILIT™ in collaboration with ANUI"
+(likely Auni), which is narrower than "first in the Southeast", and Bay Area
+already offers ILIT in Florida, so it isn't used.
