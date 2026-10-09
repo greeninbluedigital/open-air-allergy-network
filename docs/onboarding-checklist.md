@@ -15,7 +15,8 @@ Specs and limits live in [tiers-and-pricing.md](tiers-and-pricing.md)
 
 ## 2. Collect from the practice
 
-- [ ] **Notification Email** (where leads go, never shown) and the phone,
+- [ ] **Notification Email** (where leads go, never shown; on a free trial it
+      IS shown, so only an address published on the practice's own site) and the phone,
       website and address as they want them shown
 - [ ] Address is a real place patients visit: not a home, and not a
       mailbox (UPS Store and similar, often written as a "Suite"; NPI
