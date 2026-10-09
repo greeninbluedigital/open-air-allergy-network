@@ -42,8 +42,8 @@ const SAFETY_POINTS = [
     faqId: "faq-safety",
   },
   {
-    title: "Not Yet FDA-Approved",
-    text: "ILIT has been studied in clinical trials since the 2000s but hasn't been reviewed for FDA approval yet. Allergy drops (SLIT) are in the same position.",
+    title: "FDA-Approved Extracts, Used Off-Label",
+    text: "ILIT uses FDA-approved allergen extracts. Injecting them into a lymph node isn't an approved route, which makes ILIT an off-label use, as allergy drops are.",
     faqId: "faq-fda",
   },
 ];
@@ -97,7 +97,7 @@ const FAQ_ITEMS = [
   {
     id: "faq-fda",
     q: "Is ILIT FDA-approved?",
-    a: "Not yet. ILIT began clinical trials in the 2000s but hasn't been reviewed for FDA approval. That's not unique to it. Sublingual immunotherapy (allergy drops) has been used for decades and also isn't FDA-approved, largely because approval requires years of accumulated data a newer treatment hasn't had time to generate.",
+    a: "The allergen extracts are. ILIT providers in the U.S. use FDA-approved allergen extracts, but injecting them into a lymph node isn't an FDA-approved route, so ILIT is an off-label use of an approved product. The FDA defines off-label use as using an approved drug in an unapproved way, including by a different route, and says doctors generally may prescribe it when they judge it medically appropriate for their patient. Off-label use is common in medicine, and your allergist should explain what it means for you at your consultation. Allergy drops are in a similar spot: a few allergy tablets have been FDA-approved since 2014, while liquid drops are used off-label.",
   },
   {
     id: "faq-cost",
