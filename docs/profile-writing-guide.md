@@ -26,6 +26,13 @@ banned words). Third person, platform voice: never "we" for the practice.
    anything else that changes often.
 6. No outbound links on paid or trial pages (the practice page is the
    endpoint).
+7. **Insurance: only with a clear explanation of what it covers.** ILIT is
+   usually not covered (off-label), so a bare "accepts most major insurance
+   plans" next to ILIT misleads. Leave insurance out and let the provider
+   explain, unless the site clearly says how ILIT is paid: direct pay or
+   self pay (Allergenix, Prairie), "insurance typically doesn't cover ILIT"
+   (AllerPoint), or insurance for other services only (Avant). A neutral line
+   that names self pay alongside insurance (Auni) is fine. Same rule in FAQs.
 
 ## FAQs
 - **Focus on ILIT and allergy treatment**, the questions of someone deciding
