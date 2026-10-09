@@ -17,6 +17,14 @@ type ReviewsProvider = {
   yelpReviewCount: number | null;
 };
 
+/** Google counts only once the daily refresh has brought back a rating or
+ * reviews: a Place ID alone (a listing with no reviews yet, or one added
+ * since the last refresh) must not leave an empty "Patient Reviews" heading. */
+function hasGoogleContent(p: ReviewsProvider): boolean {
+  const reviews = (p.googleReviewsJson as GoogleReview[] | null) ?? [];
+  return Boolean(p.googlePlaceId) && (p.googleRating != null || reviews.length > 0);
+}
+
 function stars(rating: number) {
   const full = Math.round(rating);
   return "★".repeat(full) + "☆".repeat(5 - full);
@@ -38,7 +46,7 @@ export function reviewsWouldShow(provider: ReviewsProvider): boolean {
       provider.yelpRatingBadgeEmbed ||
       provider.yelpRating != null,
   );
-  return hasYelp || Boolean(provider.googlePlaceId);
+  return hasYelp || hasGoogleContent(provider);
 }
 
 /**
@@ -87,7 +95,7 @@ export function PatientReviews({ provider }: { provider: ReviewsProvider }) {
     (c): c is string => Boolean(c),
   );
   const hasYelp = yelpEmbeds.length > 0 || Boolean(provider.yelpRatingBadgeEmbed) || provider.yelpRating != null;
-  const hasGoogle = Boolean(provider.googlePlaceId);
+  const hasGoogle = hasGoogleContent(provider);
 
   if (!hasYelp && !hasGoogle) return null;
 
