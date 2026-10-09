@@ -202,7 +202,9 @@ export default async function ProviderDetailPage({
   // name + address, so that's all their markup claims.
   const businessJsonLd = {
     "@context": "https://schema.org",
-    "@type": "MedicalBusiness",
+    // MedicalClinic (a MedicalBusiness) is the type that can list
+    // availableService.
+    "@type": "MedicalClinic",
     name: provider.practiceName,
     address: {
       "@type": "PostalAddress",
@@ -221,6 +223,17 @@ export default async function ProviderDetailPage({
     provider.yelpBusinessId ? `https://www.yelp.com/biz/${provider.yelpBusinessId}` : null,
   ].filter((u): u is string => Boolean(u));
   if (sameAs.length > 0) Object.assign(businessJsonLd, { sameAs });
+  // The treatments shown on the page, as tests and therapies. Conditions in
+  // the same list (asthma, hives…) aren't services, so they're left out.
+  const availableService = showDetails
+    ? provider.treatments.flatMap(({ treatment: { name } }) =>
+        /testing|challenge/i.test(name)
+          ? [{ "@type": "MedicalTest", name }]
+          : /immunotherapy|shots|drops|\b(SCIT|SLIT|OIT)\b/i.test(name)
+            ? [{ "@type": "MedicalTherapy", name }]
+            : [],
+      )
+    : [];
   const jsonLd = isVerifiedPlus
     ? {
         ...businessJsonLd,
@@ -231,6 +244,7 @@ export default async function ProviderDetailPage({
           ? { areaServed: { "@type": "GeoCircle", geoMidpoint: { "@type": "GeoCoordinates", latitude: provider.latitude, longitude: provider.longitude }, geoRadius: "600 mi" } }
           : {}),
         ...(aggregateRating ? { aggregateRating } : {}),
+        ...(availableService.length > 0 ? { availableService } : {}),
       }
     : businessJsonLd;
 
