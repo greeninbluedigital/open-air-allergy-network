@@ -38,3 +38,13 @@ Rapids or Bay Area. Integrative claims to be "the only practice in the
 southeastern United States that offers ILIT™ in collaboration with ANUI"
 (likely Auni), which is narrower than "first in the Southeast", and Bay Area
 already offers ILIT in Florida, so it isn't used.
+
+## Archive (2026-10-09)
+
+Before the move to neutral, consumer-information profiles, the OAAN data sync
+sheet got two snapshot tabs: **Archive 2026-10-09 Providers** and **Archive
+2026-10-09 FAQs**. They hold every trial bio, FAQ, schedule note and treatment
+list as written. The sync reads tabs by name, so it ignores them. Allergenix
+declined any affiliation (2026-10-09), so its row went back to Freemium
+(Trial, Geo-Extension, badges and marketing copy cleared, one neutral
+sentence in the Short Bio) and its FAQs were deleted. They're in the archive.
