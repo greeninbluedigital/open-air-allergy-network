@@ -39,13 +39,11 @@ Allergenix is a West Des Moines allergy clinic where board certified allergist D
 
 ### AA Extended Bio (1,692 characters)
 
-Allergenix is a direct specialty allergy and immunology clinic in West Des Moines, serving Clive, Waukee, Urbandale and patients from across Iowa. New patient visits run 45 to 60 minutes, appointments are usually available within the same week, and Dr. Sean Stanga handles your evaluation, testing and plan himself. Telehealth visits are available too.
+Allergenix is an allergy and immunology clinic in West Des Moines, serving Clive, Waukee, Urbandale and patients from across Iowa. New patient visits run 45 to 60 minutes, appointments are usually available within the same week, and Dr. Sean Stanga handles your evaluation, testing and plan himself. Telehealth visits are available too.
 
 Allergy testing is built around fast answers. Skin panels are read during the visit, blood results come back in one to two days, and every patient leaves with a written plan. The clinic treats seasonal and year round allergies, asthma, eczema, chronic hives and long running sinus and nasal symptoms.
 
 For environmental allergies, Allergenix offers RapImmune®, its name for intralymphatic immunotherapy (ILIT). Small doses of allergen go into a lymph node under ultrasound guidance in three visits over about eight weeks. Compare that with allergy shots, which the clinic notes can mean more than 100 injections over three to five years. RapImmune treats allergies to pollen, dust mites, pet dander and mold. In central Iowa, that covers the big seasonal triggers: tree pollen in spring, grass in early summer and ragweed from late summer until the first hard freeze. The clinic also offers sublingual allergy drops and venom immunotherapy.
-
-Allergenix bills patients directly rather than through insurance. HSA, FSA and CareCredit are accepted.
 
 Dr. Sean Stanga, MD
 Board certified, American Board of Allergy and Immunology
@@ -71,14 +69,11 @@ The allergen extracts it uses are FDA-approved. Injecting them into a lymph node
 **5. Who isn't a good fit for RapImmune?**
 The clinic doesn't recommend it during pregnancy, with uncontrolled asthma, or for patients taking a beta blocker without a plan to address it. It's also not used when testing doesn't show a clear environmental allergy that matches your symptoms.
 
-**6. Does Allergenix take insurance?**
-No. Allergenix is a direct specialty care clinic, so patients pay the clinic directly instead of going through insurance. HSA, FSA and CareCredit are accepted, and financing is available for RapImmune.
-
-**7. How soon can I see an allergist in West Des Moines?**
+**6. How soon can I see an allergist in West Des Moines?**
 Allergenix usually has appointments within the same week. A first visit runs 45 to 60 minutes, and telehealth consultations are available if you'd rather start from home.
 
-**8. Will I get my allergy test results the same day?**
+**7. Will I get my allergy test results the same day?**
 Skin test results are read during your visit, and you leave with a written treatment plan. Blood test results typically come back in one to two days.
 
-**9. Where is Allergenix located?**
+**8. Where is Allergenix located?**
 The clinic is at 595 S 60th St, Suite 160, in West Des Moines, close to Clive, Waukee and Urbandale, and it sees patients from across Iowa.

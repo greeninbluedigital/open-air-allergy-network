@@ -142,7 +142,7 @@ question 15), so OAAN only enters **informational** messages.
 |---|---|---|
 | Short Bio | **600 characters** (about 100 words) | Shown beside the main photo. Its opening becomes the Google search description, so the first sentence should stand on its own in about 155 characters |
 | Extended Bio | **2,000 characters** (about 330 words) | The "About This Practice" section. Paragraph breaks are kept. A short credentials list at the end works well |
-| FAQs | About 8 to 10 | 5 or more collapse into an expandable list. Answers should be specific to the practice (location, scheduling, insurance, the doctor), not general ILIT facts the Learn page already covers |
+| FAQs | About 8 to 10 | 5 or more collapse into an expandable list. Answers should be specific to the practice (location, scheduling, the doctor; no payment or insurance, see `docs/profile-writing-guide.md`), not general ILIT facts the Learn page already covers |
 | Main photo | 1200 × 1500 (4:5 portrait) | A building or team photo works better than a tight headshot |
 | Extra photos | Up to 4, 1600 × 1200 (4:3) | Full Profile and Featured |
 | Search result card photo | 400 × 400 square | Full Profile and Featured. A logo works well |

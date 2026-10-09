@@ -10,8 +10,12 @@ banned words). Third person, platform voice: never "we" for the practice.
 1. **Every fact about the practice must be stated clearly on the practice's
    own website.** No inferring, no filling gaps. Keep the source pages in the
    draft's notes.
-2. **Never include prices** from the practice's website, anywhere on the page.
-   Payment methods (HSA, FSA, financing, direct pay) are fine.
+2. **No prices, payment or insurance, anywhere on the page** (bios and
+   FAQs). That includes insurance accepted, self pay, direct pay or "direct
+   care" labels, HSA/FSA, financing, payment plans and superbills. OAAN's job
+   is the lead. How people pay is the provider's conversation when closing
+   it, and payment details only give a consumer a reason to hesitate before
+   submitting. Once a practice claims its page, it can say whatever it wants.
 3. **Bios never say the practice treats children or adults.** Whether ILIT
    suits a child is between the provider and the family, and children aren't
    ILIT's audience. A "Does [Practice] treat children?" FAQ is optional: only
@@ -26,16 +30,7 @@ banned words). Third person, platform voice: never "we" for the practice.
    anything else that changes often.
 6. No outbound links on paid or trial pages (the practice page is the
    endpoint).
-7. **Keep payment talk to a minimum.** How people pay is the provider's
-   conversation, and payment details can make a consumer hesitate before
-   submitting a lead. Default: leave insurance and payment out of bios.
-   Never a bare "accepts most major insurance plans": ILIT is usually not
-   covered (off-label), so that line misleads. If payment is mentioned at
-   all (bio or FAQ), it must say clearly how ILIT is paid, in one short
-   line (e.g. Allergenix: "bills patients directly rather than through
-   insurance. HSA, FSA and CareCredit are accepted."). A neutral line that
-   names self pay alongside insurance (Auni) is fine.
-8. **Never imply anyone can get ILIT.** No "available to all patients".
+7. **Never imply anyone can get ILIT.** No "available to all patients".
    Candidacy is a decision the provider and patient make together.
 
 ## FAQs
@@ -47,8 +42,7 @@ banned words). Third person, platform voice: never "we" for the practice.
   triggers (from a reliable source, noted in the draft) to what ILIT treats.
 - A standard set to adapt: faster alternative to allergy shots; is [brand]
   FDA-approved (FDA-approved extracts, off-label route, if the site says so);
-  who isn't a good fit; a local allergen question; insurance and payment
-  methods; how soon can I be seen; same-day test results (if stated);
+  who isn't a good fit; a local allergen question; how soon can I be seen; same-day test results (if stated);
   location (address and nearby areas, no hours); children only per rule 3.
 - Each answer leads with something specific to this practice, never a
   restatement of the Learn pages.
