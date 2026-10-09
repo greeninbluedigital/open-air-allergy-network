@@ -113,27 +113,18 @@ async function queryWithinRadius(
 }
 
 /**
- * Nearest Full Profile/Featured listings to a point (a Freemium PDP's own
- * location, or a homepage visitor's, where `featuredOnly` limits it to the
- * Featured tier: the homepage is reserved for it), using the same eligibility rules as
- * search: each listing only appears within its own radius (200mi, or 600mi
- * with Geo-Extension).
+ * Nearest listings to a point (a basic listing's own location, or a homepage
+ * visitor's), whatever their listing level (a neutral site since
+ * 2026-10-09), using the same eligibility rules as search: each listing only
+ * appears within its own radius (200mi, or 600mi with Geo-Extension).
  */
-export async function nearbyFeaturedProviders(
+export async function nearbyProviders(
   lat: number,
   lng: number,
-  {
-    excludeId,
-    limit = 3,
-    featuredOnly = false,
-  }: { excludeId?: string; limit?: number; featuredOnly?: boolean } = {},
+  { excludeId, limit = 3 }: { excludeId?: string; limit?: number } = {},
 ): Promise<SrpProvider[]> {
   const rows = await queryWithinRadius(lat, lng, 600);
-  return rows
-    .filter(
-      (p) => p.id !== excludeId && (p.tier === "FEATURED" || (!featuredOnly && p.tier === "FULL_PROFILE")),
-    )
-    .slice(0, limit);
+  return rows.filter((p) => p.id !== excludeId).slice(0, limit);
 }
 
 /** How many listings a normal search from this point would show (200mi, each listing's own cap). */

@@ -4,39 +4,27 @@ import { useEffect, useRef, useState } from "react";
 import type LType from "leaflet";
 import "leaflet/dist/leaflet.css";
 import type { SrpProvider } from "@/lib/srp";
-import { isFullProfilePlus, isVerifiedPlus, showsAcademic } from "@/lib/tiers";
 import { badgeClass, cardBadges } from "@/components/Badge";
 import { pushDataLayer } from "@/lib/track";
 
 const MILES_TO_METERS = 1609.344;
 
-// One tier system for pins and card badges (see Badge.tsx). Every pin is
-// solid with a white outline, a white dot (a star for Founding Members) and
-// a shadow, so it stands off the map's busy, pastel detail at any zoom.
-// Size separates paid placement (large: Full Profile and Featured) from the
-// rest (small), which also works for colorblind visitors; hue then matches
-// the card's badge: green, blue for Academic, violet for Founding Members,
-// a lighter green for Verified and gray for unbadged listings.
-type PinKind = "academicPremium" | "founder" | "featured" | "academic" | "verified" | "listed";
+// Every pin is solid with a white outline, a white dot and a shadow, so it
+// stands off the map's busy, pastel detail at any zoom. One size and color
+// for every practice (a neutral site: no tier styling), blue for academic
+// medical centers to match their card badge (Badge.tsx).
+type PinKind = "academic" | "practice";
 
 const PIN_STYLES: Record<
   PinKind,
   { size: number; fill: string; outline: string; glyph: "star" | "dot" | null; glyphColor: string; z: number }
 > = {
-  academicPremium: { size: 20, fill: "#00ABDA", outline: "#ffffff", glyph: "dot", glyphColor: "#ffffff", z: 3500 },
-  founder: { size: 20, fill: "#3F08E0", outline: "#ffffff", glyph: "star", glyphColor: "#ffffff", z: 3000 },
-  featured: { size: 20, fill: "#1F7A4D", outline: "#ffffff", glyph: "dot", glyphColor: "#ffffff", z: 2000 },
-  academic: { size: 14, fill: "#00ABDA", outline: "#ffffff", glyph: "dot", glyphColor: "#ffffff", z: 1500 },
-  // Lighter than Featured's green so the two read as different tiers.
-  verified: { size: 14, fill: "#43A066", outline: "#ffffff", glyph: "dot", glyphColor: "#ffffff", z: 1000 },
-  listed: { size: 14, fill: "#7A7A7A", outline: "#ffffff", glyph: "dot", glyphColor: "#ffffff", z: 0 },
+  academic: { size: 16, fill: "#00ABDA", outline: "#ffffff", glyph: "dot", glyphColor: "#ffffff", z: 1000 },
+  practice: { size: 16, fill: "#1F7A4D", outline: "#ffffff", glyph: "dot", glyphColor: "#ffffff", z: 0 },
 };
 
 function pinKind(p: SrpProvider): PinKind {
-  const premium = isFullProfilePlus(p.tier);
-  if (showsAcademic(p)) return premium ? "academicPremium" : "academic";
-  if (premium) return p.foundingMember ? "founder" : "featured";
-  return isVerifiedPlus(p.tier) ? "verified" : "listed";
+  return p.academic ? "academic" : "practice";
 }
 
 /** A teardrop pin pointing down; the glyph is counter-rotated to sit upright. */

@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { ZipSearchForm } from "@/components/ZipSearchForm";
 import { ProviderCard } from "@/components/srp/ProviderCard";
 import { ProviderMap } from "@/components/srp/ProviderMap";import { lookupZip } from "@/lib/zip";
-import { searchProviders, type SrpBucket } from "@/lib/srp";
+import { searchProviders } from "@/lib/srp";
 
 export const metadata: Metadata = {
   title: "Find an ILIT Provider",
@@ -14,15 +14,6 @@ export const metadata: Metadata = {
 };
 
 const RADIUS_VALUES = new Set<number>([20, 30, 40, 50, 75, 100, 150, 200]);
-
-// Patient-facing — deliberately no internal tier names or pricing
-// implications. Two headings over the three sort buckets: Verified and
-// Freemium share "ILIT Providers" but keep their order (Verified first,
-// each distance-sorted).
-const RESULT_GROUPS: { label: string; buckets: SrpBucket[] }[] = [
-  { label: "Featured ILIT Providers", buckets: ["premium"] },
-  { label: "ILIT Providers", buckets: ["verified", "free"] },
-];
 
 function buildQuery(params: Record<string, string | undefined>) {
   const usp = new URLSearchParams();
@@ -37,12 +28,19 @@ export default async function FindAProviderPage({
   const zip = typeof params.zip === "string" ? params.zip : undefined;
   const radiusParam = typeof params.radius === "string" ? parseInt(params.radius, 10) : 50;
   const radius = RADIUS_VALUES.has(radiusParam) ? radiusParam : 50;
-  // List by default: its cards show tier badges and the Featured group,
-  // which the map's identical pins don't. Only matters below md.
+  // List by default: its cards show each practice's badges, which the
+  // map's pins don't. Only matters below md.
   const view = params.view === "map" ? "map" : "list";
 
   const location = zip ? lookupZip(zip) : null;
   const result = location ? await searchProviders(location.lat, location.lng, radius) : null;
+  // One list, nearest first, whatever a practice's listing level: a
+  // neutral consumer information site ranks by distance only (2026-10-09).
+  const providers = result
+    ? [...result.buckets.premium, ...result.buckets.verified, ...result.buckets.free].sort(
+        (a, b) => a.distanceMiles - b.distanceMiles,
+      )
+    : [];
   const backHref = zip
     ? `/find-an-ilit-provider${buildQuery({ zip, radius: String(radius), view })}`
     : "/find-an-ilit-provider";
@@ -130,11 +128,7 @@ export default async function FindAProviderPage({
                   key={`${zip}-${result.effectiveRadius}-${result.mode}`}
                   center={location}
                   radiusMiles={result.effectiveRadius}
-                  providers={[
-                    ...result.buckets.premium,
-                    ...result.buckets.verified,
-                    ...result.buckets.free,
-                  ]}
+                  providers={providers}
                   outOfArea={result.outOfArea}
                   mode={result.mode}
                   backHref={backHref}
@@ -143,19 +137,16 @@ export default async function FindAProviderPage({
               <div
                 className={`flex-1 space-y-3 overflow-y-auto p-4 md:block ${view === "list" ? "block" : "hidden"}`}
               >
-                {RESULT_GROUPS.map(({ label, buckets }) => {
-                  const providers = buckets.flatMap((b) => result.buckets[b]);
-                  return providers.length > 0 ? (
-                    <div key={label}>
-                      <div className="mb-2 text-xs font-bold tracking-wide text-muted uppercase">{label}</div>
-                      <div className="space-y-3">
-                        {providers.map((p) => (
-                          <ProviderCard key={p.id} provider={p} backHref={backHref} impressionType="SRP_IMPRESSION" />
-                        ))}
-                      </div>
+                {providers.length > 0 && (
+                  <div>
+                    <div className="mb-2 text-xs font-bold tracking-wide text-muted uppercase">ILIT Providers</div>
+                    <div className="space-y-3">
+                      {providers.map((p) => (
+                        <ProviderCard key={p.id} provider={p} backHref={backHref} impressionType="SRP_IMPRESSION" />
+                      ))}
                     </div>
-                  ) : null;
-                })}
+                  </div>
+                )}
                 {result.outOfArea.length > 0 && (
                   <div>
                     <div className="mb-0.5 text-xs font-bold tracking-wide text-muted uppercase">

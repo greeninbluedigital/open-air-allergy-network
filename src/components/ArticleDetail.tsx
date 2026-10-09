@@ -2,11 +2,11 @@ import Link from "next/link";
 import Image from "next/image";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import { Badge } from "@/components/Badge";
+import { Badge, practiceBadges } from "@/components/Badge";
 import { ArticleFeed } from "@/components/ArticleFeed";
 import { cloudinaryFaceCrop } from "@/lib/cloudinary";
 import type { ArticleDetailData } from "@/lib/articles";
-import { isFullProfilePlus, isVerifiedPlus, showsAcademic } from "@/lib/tiers";
+import { isVerifiedPlus } from "@/lib/tiers";
 
 // Maps rendered Markdown elements to the site's existing type scale, rather
 // than pulling in a Tailwind Typography plugin whose opinionated defaults
@@ -211,15 +211,13 @@ export function ArticleDetail({ article }: { article: ArticleDetailData }) {
           </div>
           <div className="text-sm">
             <div className="mb-1 flex flex-wrap gap-1.5">
-              {showsAcademic(article.providerCredited) && <Badge variant="academic">Academic</Badge>}
-              {isFullProfilePlus(article.providerCredited.tier) && article.providerCredited.foundingMember && (
-                <Badge variant="founder">Founding Member</Badge>
-              )}
-              {isVerifiedPlus(article.providerCredited.tier) && (
-                <Badge variant={isFullProfilePlus(article.providerCredited.tier) ? "featured" : "verified"}>
-                  Verified
-                </Badge>
-              )}
+              {practiceBadges(article.providerCredited)
+                .filter((b) => b.variant !== "geo")
+                .map((b) => (
+                  <Badge key={b.label} variant={b.variant}>
+                    {b.label}
+                  </Badge>
+                ))}
             </div>
             {creditLabel} <span className="font-semibold">{article.author!.name}</span> of{" "}
             {/* The credit (name) stays if a practice lapses, but the link to

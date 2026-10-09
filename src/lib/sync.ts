@@ -729,11 +729,11 @@ export async function runSync(): Promise<SyncSummary> {
           `${slug} (row ${sheetRow}) has Tier "${r.tier.trim()}", which isn't a recognized tier, so it was treated as Freemium. Use Freemium, Verified, Academic, Full Profile or Featured.`,
         );
       }
-      // Academic Y on a Freemium row is fine: it's ready for the day the
-      // practice pays, and the badge simply waits until then (no warning).
+      // The custom message badge isn't shown anywhere since the site went
+      // neutral (2026-10-09), so a filled-in one is only a reminder.
       const message = r.customMessage.trim();
-      if (active && message && tier !== "FEATURED") {
-        summary.warnings.push(`${slug} (row ${sheetRow}) has a Custom Message Badge but isn't Featured, so it doesn't show.`);
+      if (active && message) {
+        summary.warnings.push(`${slug} (row ${sheetRow}) has a Custom Message Badge, which the site no longer shows. Clear it.`);
       }
       if (message.length > CUSTOM_MESSAGE_MAX) {
         summary.warnings.push(

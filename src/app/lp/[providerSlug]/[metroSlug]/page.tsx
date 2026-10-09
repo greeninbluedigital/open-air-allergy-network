@@ -2,7 +2,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { db } from "@/lib/db";
-import { Badge } from "@/components/Badge";
+import { Badge, practiceBadges } from "@/components/Badge";
 import { PhoneLink } from "@/components/PhoneLink";
 import { ContactPanel } from "@/components/pdp/ContactPanel";
 import { StickyContactBar } from "@/components/pdp/StickyContactBar";
@@ -11,7 +11,7 @@ import { ComparingIlit, IsIlitRightForMe, WhatIsIlit } from "@/components/ilit/I
 import { PatientReviews, reviewsWouldShow } from "@/components/PatientReviews";
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { parseFormError } from "@/lib/forms";
-import { isFullProfilePlus, showsAcademic, customMessageText, showsContactForm, showsEmailButton, showsVerifiedBadge } from "@/lib/tiers";
+import { showsContactForm, showsEmailButton } from "@/lib/tiers";
 
 
 async function getLandingPage(providerSlug: string, metroSlug: string) {
@@ -97,14 +97,11 @@ export default async function SemLandingPage({
           from {lp.targetMetroName}.
         </p>
         <div className="mb-4 flex flex-wrap justify-center gap-1.5">
-          {showsAcademic(provider) && <Badge variant="academic">Academic</Badge>}
-          {isFullProfilePlus(provider.tier) && provider.foundingMember && (
-            <Badge variant="founder">Founding Member</Badge>
-          )}
-          {showsVerifiedBadge(provider) && (
-            <Badge variant={isFullProfilePlus(provider.tier) ? "featured" : "verified"}>Verified</Badge>
-          )}
-          {customMessageText(provider) && <Badge variant="message">{customMessageText(provider)}</Badge>}
+          {practiceBadges(provider).map((b) => (
+            <Badge key={b.label} variant={b.variant}>
+              {b.label}
+            </Badge>
+          ))}
           {offersVideoConsult && <Badge variant="consult">Video Consults</Badge>}
           {offersPhoneConsult && <Badge variant="consult">Phone Consults</Badge>}
         </div>

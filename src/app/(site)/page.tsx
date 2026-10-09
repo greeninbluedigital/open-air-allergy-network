@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { db } from "@/lib/db";
 import { cloudinaryLimitWidth } from "@/lib/cloudinary";
 import { ILIT_DEFINITION, SYMPTOMS } from "@/lib/content";
-import { countProvidersNear, nearbyFeaturedProviders } from "@/lib/srp";
+import { countProvidersNear, nearbyProviders } from "@/lib/srp";
 import { getVisitorLocation } from "@/lib/visitorLocation";
 import { ZipSearchForm } from "@/components/ZipSearchForm";
 import { ProviderCard } from "@/components/srp/ProviderCard";
@@ -70,10 +70,10 @@ const HOW_IT_WORKS = [
 
 export default async function HomePage() {
   const [hero, visitor] = await Promise.all([pickHeroImage(), getVisitorLocation()]);
-  // The homepage is premium space, reserved for the Featured tier.
-  const featured = visitor ? await nearbyFeaturedProviders(visitor.lat, visitor.lng, { featuredOnly: true }) : [];
-  // Only needed when there's no featured section: keeps the homepage useful
-  // for visitors with listings nearby but no paying practice among them.
+  // The nearest practices to the visitor, whatever their listing level.
+  const featured = visitor ? await nearbyProviders(visitor.lat, visitor.lng) : [];
+  // Only needed when there's no nearby section: keeps the homepage useful
+  // when no listing is within reach of the visitor.
   const nearbyCount = visitor && featured.length === 0 ? await countProvidersNear(visitor.lat, visitor.lng) : 0;
   const nearbySearch = visitor?.zip ? `/find-an-ilit-provider?zip=${visitor.zip}` : "/find-an-ilit-provider";
 
@@ -153,7 +153,7 @@ export default async function HomePage() {
         // crawler location), so keep it out of search result snippets.
         <section data-nosnippet className="border-b border-line bg-bg-alt px-6 py-10 sm:px-10">
           <div className="mb-5 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-            <h2 className="text-2xl font-bold">Featured ILIT Providers Near {visitor.city}</h2>
+            <h2 className="text-2xl font-bold">ILIT Providers Near {visitor.city}</h2>
             <Link href="#find" data-cta="homepage_change_location" className="text-sm text-muted hover:underline">
               Not near {visitor.city}? Change location
             </Link>

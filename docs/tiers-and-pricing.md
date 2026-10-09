@@ -1,5 +1,12 @@
 # Tiers, pricing and onboarding specs
 
+> **Dormant since 2026-10-09.** OAAN is now a neutral, non-commercial consumer
+> information site: no paid tiers, one listing style for every practice
+> (badges state facts only: ILIT Confirmed, Academic, Sees Out-of-Area
+> Patients, consults), search ranked by distance only. Trials unlock full
+> profile content and an "Email this practice" button. This file is kept
+> for a possible future paid model.
+
 The sales reference: what each package costs, what a practice gets, and what
 to collect from them. Internal only (prices aren't shown on the site).
 Last updated 2026-10-01. Pitch deck: `SALES materials/Open Air Allergy Network - Membership Pitch Deck v2.pptx` in OneDrive, with screenshots in `SALES materials/Screenshots 2026-10-01`. Lead-quality selling points are in

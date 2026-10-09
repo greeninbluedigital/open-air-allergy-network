@@ -3,7 +3,7 @@ import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import { db } from "@/lib/db";
 import { RENAMED_SLUGS } from "@/lib/slugRedirects";
-import { Badge } from "@/components/Badge";
+import { Badge, practiceBadges } from "@/components/Badge";
 import { ArticleFeed } from "@/components/ArticleFeed";
 import { ContactPanel, formatAddress } from "@/components/pdp/ContactPanel";
 import { PatientReviews, getAggregateRatingSchema } from "@/components/PatientReviews";
@@ -12,7 +12,7 @@ import { PhotoGallery } from "@/components/pdp/PhotoGallery";
 import { OtherLocations } from "@/components/pdp/OtherLocations";
 import { truncateForMeta } from "@/lib/metadata";
 import { parseFormError } from "@/lib/forms";
-import { nearbyFeaturedProviders } from "@/lib/srp";
+import { nearbyProviders } from "@/lib/srp";
 import { COMPARISON_ARTICLE_SLUG, ILIT_DEFINITION } from "@/lib/content";
 import { ProviderCard } from "@/components/srp/ProviderCard";
 import {
@@ -20,10 +20,7 @@ import {
   isVerifiedPlus as isVerifiedTier,
   showsContactForm,
   showsEmailButton,
-  showsVerifiedBadge,
-  showsAcademic,
   showsPracticeDetails,
-  customMessageText,
 } from "@/lib/tiers";
 
 // 4 or fewer FAQs render fully expanded (today's behavior, unchanged); 5+
@@ -203,8 +200,6 @@ export default async function ProviderDetailPage({
   // name + address, so that's all their markup claims.
   const businessJsonLd = {
     "@context": "https://schema.org",
-    // MedicalClinic (a MedicalBusiness) is the type that can list
-    // availableService.
     "@type": "MedicalClinic",
     name: provider.practiceName,
     address: {
@@ -224,17 +219,6 @@ export default async function ProviderDetailPage({
     provider.yelpBusinessId ? `https://www.yelp.com/biz/${provider.yelpBusinessId}` : null,
   ].filter((u): u is string => Boolean(u));
   if (sameAs.length > 0) Object.assign(businessJsonLd, { sameAs });
-  // The treatments shown on the page, as tests and therapies. Conditions in
-  // the same list (asthma, hives…) aren't services, so they're left out.
-  const availableService = showDetails
-    ? provider.treatments.flatMap(({ treatment: { name } }) =>
-        /testing|challenge/i.test(name)
-          ? [{ "@type": "MedicalTest", name }]
-          : /immunotherapy|shots|drops|\b(SCIT|SLIT|OIT)\b/i.test(name)
-            ? [{ "@type": "MedicalTherapy", name }]
-            : [],
-      )
-    : [];
   const jsonLd = isVerifiedPlus
     ? {
         ...businessJsonLd,
@@ -245,7 +229,6 @@ export default async function ProviderDetailPage({
           ? { areaServed: { "@type": "GeoCircle", geoMidpoint: { "@type": "GeoCoordinates", latitude: provider.latitude, longitude: provider.longitude }, geoRadius: "600 mi" } }
           : {}),
         ...(aggregateRating ? { aggregateRating } : {}),
-        ...(availableService.length > 0 ? { availableService } : {}),
       }
     : businessJsonLd;
 
@@ -262,12 +245,12 @@ export default async function ProviderDetailPage({
         }
       : null;
 
-  // Freemium: bare listing with a claim CTA, plus the nearest paying
-  // Full Profile/Featured practices so a visitor isn't at a dead end.
+  // Freemium: bare listing with a claim CTA, plus the nearest other
+  // practices so a visitor isn't at a dead end.
   if (!isVerifiedPlus) {
     const nearby =
       provider.latitude != null && provider.longitude != null
-        ? await nearbyFeaturedProviders(provider.latitude, provider.longitude, { excludeId: provider.id })
+        ? await nearbyProviders(provider.latitude, provider.longitude, { excludeId: provider.id })
         : [];
     return (
       <div className="mx-auto max-w-2xl px-6 py-16 sm:px-10">
@@ -288,7 +271,7 @@ export default async function ProviderDetailPage({
         </div>
         {nearby.length > 0 && (
           <section className="mt-12 border-t border-line pt-8">
-            <h2 className="mb-1 text-lg font-bold">Featured ILIT Providers Near {provider.city}</h2>
+            <h2 className="mb-1 text-lg font-bold">Other ILIT Providers Near {provider.city}</h2>
             <p className="mb-4 text-xs text-muted">Distances are from {provider.practiceName}.</p>
             <div className="space-y-3">
               {nearby.map((p) => (
@@ -338,11 +321,11 @@ export default async function ProviderDetailPage({
       <div className="flex items-start justify-between gap-4 px-6 pt-6 sm:px-10">
         <div>
           <div className="mb-2 flex flex-wrap gap-1.5">
-            {showsAcademic(provider) && <Badge variant="academic">Academic</Badge>}
-            {isFullProfilePlus && provider.foundingMember && <Badge variant="founder">Founding Member</Badge>}
-            {showsVerifiedBadge(provider) && <Badge variant={isFullProfilePlus ? "featured" : "verified"}>Verified</Badge>}
-            {customMessageText(provider) && <Badge variant="message">{customMessageText(provider)}</Badge>}
-            {provider.geoExtension && <Badge variant="geo">Sees Out-of-Area Patients</Badge>}
+            {practiceBadges(provider).map((b) => (
+              <Badge key={b.label} variant={b.variant}>
+                {b.label}
+              </Badge>
+            ))}
             {/* pdpRemoteConsultBadge is the on/off switch for organic pages;
                 the two fields still say which kind of consult to show. */}
             {provider.pdpRemoteConsultBadge && provider.offersVideoConsult && (
@@ -352,13 +335,17 @@ export default async function ProviderDetailPage({
               <Badge variant="consult">Phone Consults</Badge>
             )}
           </div>
-          {showsVerifiedBadge(provider) && provider.verifiedAsOf && (
+          {/* The actual date OAAN confirmed the practice offers ILIT. */}
+          {provider.verificationDate && (
             <div className="mb-1 text-xs text-muted">
-              Verified as of{" "}
-              {provider.verifiedAsOf.toLocaleDateString("en-US", {
+              Last confirmed{" "}
+              {provider.verificationDate.toLocaleDateString("en-US", {
                 month: "short",
                 day: "numeric",
                 year: "numeric",
+                // Sheet dates are stored as UTC midnight: format in UTC so
+                // the day doesn't slip back in US time zones.
+                timeZone: "UTC",
               })}
             </div>
           )}
@@ -406,22 +393,6 @@ export default async function ProviderDetailPage({
             <div>
               <h3 className="mb-2 text-base font-bold">About This Practice</h3>
               <p className="text-sm whitespace-pre-line text-foreground/80">{provider.extendedBio}</p>
-            </div>
-          )}
-
-          {showDetails && provider.treatments.length > 0 && (
-            <div>
-              <h3 className="mb-2 text-base font-bold">Treatments Offered</h3>
-              <div className="flex flex-wrap gap-2">
-                {provider.treatments.map(({ treatment }) => (
-                  <span
-                    key={treatment.id}
-                    className="rounded-full border border-line bg-bg-alt px-3 py-1 text-xs"
-                  >
-                    {treatment.name}
-                  </span>
-                ))}
-              </div>
             </div>
           )}
 

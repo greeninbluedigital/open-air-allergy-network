@@ -2,7 +2,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { Badge, cardBadges } from "@/components/Badge";
 import type { SrpProvider } from "@/lib/srp";
-import { isFullProfilePlus, isVerifiedPlus } from "@/lib/tiers";
 import { ViewableImpression, type ImpressionType } from "@/components/analytics/ViewableImpression";
 
 /** Card clicks (oaan_cta_click) are named after the list the card sat in. */
@@ -23,8 +22,8 @@ export function ProviderCard({
   /** Records a viewable impression for this card (see docs/analytics.md). */
   impressionType: ImpressionType;
 }) {
-  const paid = isVerifiedPlus(provider.tier);
-  const premium = isFullProfilePlus(provider.tier);
+  // Every listing gets the same card: no tier styling on a neutral site.
+  const badges = cardBadges(provider);
 
   return (
     <ViewableImpression type={impressionType} providerId={provider.id}>
@@ -34,17 +33,17 @@ export function ProviderCard({
         // Links the card to its map pin on the search page (ProviderMap).
         data-map-id={provider.id}
         data-cta-provider={provider.practiceName}
-        className={`flex gap-3 rounded border border-line p-3.5 transition-colors hover:border-muted hover:shadow-sm ${paid ? "bg-white" : "bg-bg-alt"}`}
+        className="flex gap-3 rounded border border-line bg-white p-3.5 transition-colors hover:border-muted hover:shadow-sm"
       >
-        {premium && provider.srpPhotoUrl && (
+        {provider.srpPhotoUrl && (
           <div className="relative h-16 w-16 shrink-0 overflow-hidden rounded bg-bg-alt">
             <Image src={provider.srpPhotoUrl} alt="" fill sizes="64px" className="object-cover" />
           </div>
         )}
         <div className="min-w-0 flex-1">
-          {paid && (
+          {badges.length > 0 && (
             <div className="mb-1.5 flex flex-wrap gap-1.5">
-              {cardBadges(provider).map((b) => (
+              {badges.map((b) => (
                 <Badge key={b.label} variant={b.variant}>
                   {b.label}
                 </Badge>
