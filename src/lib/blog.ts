@@ -3,10 +3,19 @@ import { db } from "@/lib/db";
 
 export type TagCount = { tag: string; count: number };
 
+/** The Blog index lists Learn guides too (labeled "Learn", linking to their
+ * /learn-about-ilit URLs), so readers browsing the Blog see every new
+ * allergen and city guide without a companion post (2026-10-10). */
+const BLOG_FEED_SECTIONS: ("BLOG" | "LEARN")[] = ["BLOG", "LEARN"];
+
+export function articlePath(a: { section: string; slug: string }): string {
+  return `/${a.section === "LEARN" ? "learn-about-ilit" : "blog"}/${a.slug}`;
+}
+
 /** Auto-sorted by article count descending (Section 4 — Blog tag filter). */
 export async function getTagCounts(): Promise<TagCount[]> {
   const articles = await db.article.findMany({
-    where: { status: "PUBLISHED", section: "BLOG" },
+    where: { status: "PUBLISHED", section: { in: BLOG_FEED_SECTIONS } },
     select: { tags: true },
   });
 
@@ -66,7 +75,12 @@ export async function queryBlogArticles({
     };
   }
 
-  const where: Prisma.ArticleWhereInput = { status: "PUBLISHED", section: "BLOG", ...tagWhere, ...pafWhere };
+  const where: Prisma.ArticleWhereInput = {
+    status: "PUBLISHED",
+    section: { in: BLOG_FEED_SECTIONS },
+    ...tagWhere,
+    ...pafWhere,
+  };
 
   const [articles, totalCount] = await Promise.all([
     db.article.findMany({

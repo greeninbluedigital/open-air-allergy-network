@@ -3,7 +3,7 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import { ZipSearchForm } from "@/components/ZipSearchForm";
 import { ArticleFeed } from "@/components/ArticleFeed";
-import { getTagCounts, queryBlogArticles } from "@/lib/blog";
+import { articlePath, getTagCounts, queryBlogArticles } from "@/lib/blog";
 import { lookupZip } from "@/lib/zip";
 
 export async function generateMetadata({ searchParams }: PageProps<"/blog">): Promise<Metadata> {
@@ -17,7 +17,7 @@ export async function generateMetadata({ searchParams }: PageProps<"/blog">): Pr
     title: tag ? `${tag} Articles` : "Blog",
     description: tag
       ? `ILIT articles tagged "${tag}" from Open Air Allergy Network.`
-      : "ILIT news, clinical research, and practice spotlights from Open Air Allergy Network.",
+      : "Allergy articles and guides on symptoms, seasons and treatment, from allergy medicine and shots to ILIT, from Open Air Allergy Network.",
     alternates: { canonical: tag ? `/blog?tag=${encodeURIComponent(tag)}` : "/blog" },
   };
 }
@@ -110,7 +110,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
             {gridResult.articles.map((article) => (
               <Link
                 key={article.id}
-                href={`/blog/${article.slug}`}
+                href={articlePath(article)}
                 className="flex flex-col overflow-hidden rounded border border-line bg-white transition-colors hover:border-muted hover:shadow-sm"
               >
                 <div className="relative h-30 overflow-hidden bg-bg-alt">
@@ -121,6 +121,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
                 <div className="flex flex-1 flex-col gap-1.5 p-3.5">
                   <div className="text-sm font-bold">{article.title}</div>
                   <div className="text-xs text-muted">
+                    {article.section === "LEARN" && <span className="font-semibold text-sage">Learn · </span>}
                     {/* House content (no author) shows no name at all — just the date. */}
                     {article.author && <>By {article.author.name} · </>}
                     {article.publishedDate?.toLocaleDateString("en-US", { month: "short", year: "numeric" })}
@@ -140,10 +141,15 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
           {archiveResult.articles.map((article) => (
             <Link
               key={article.id}
-              href={`/blog/${article.slug}`}
+              href={articlePath(article)}
               className="group flex items-center justify-between gap-4 py-2.5 text-sm"
             >
-              <span className="group-hover:underline">{article.title}</span>
+              <span className="group-hover:underline">
+                {article.title}
+                {article.section === "LEARN" && (
+                  <span className="ml-2 inline-block text-[10px] font-bold tracking-wide text-sage uppercase">Learn</span>
+                )}
+              </span>
               <span className="shrink-0 text-xs whitespace-nowrap text-muted">
                 {article.publishedDate?.toLocaleDateString("en-US", {
                   month: "short",
