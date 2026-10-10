@@ -17,7 +17,7 @@ type ReviewsProvider = {
   yelpReviewCount: number | null;
 };
 
-/** Google counts only once the daily refresh has brought back a rating or
+/** Google counts only once the reviews refresh has brought back a rating or
  * reviews: a Place ID alone (a listing with no reviews yet, or one added
  * since the last refresh) must not leave an empty "Patient Reviews" heading. */
 function hasGoogleContent(p: ReviewsProvider): boolean {
@@ -52,7 +52,7 @@ export function reviewsWouldShow(provider: ReviewsProvider): boolean {
 /**
  * aggregateRating schema (Section 6) — prefers Google's cached aggregate
  * when available, falls back to the manually-entered Yelp figures. Reads
- * straight off the provider row (populated by the daily /api/reviews/refresh
+ * straight off the provider row (populated by /api/reviews/refresh, weekly per practice
  * cron), no live API call at request time.
  */
 export function getAggregateRatingSchema(provider: ReviewsProvider) {
@@ -81,7 +81,7 @@ export function getAggregateRatingSchema(provider: ReviewsProvider) {
  * Patient Reviews module — Featured tier only, shared verbatim between the
  * PDP and the SEM landing page (Section 3). Capped at 3 reviews per
  * platform, independently (up to 6 total). Google excerpts come from
- * googleReviewsJson, refreshed daily by /api/reviews/refresh rather than
+ * googleReviewsJson, refreshed weekly per practice by /api/reviews/refresh rather than
  * fetched live per-request (Place Details is billed per call). Yelp
  * excerpts are pre-formatted embed HTML a practice/admin pastes in via the
  * Sheet — that embed code is trusted admin-entered content (same trust

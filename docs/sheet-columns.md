@@ -91,7 +91,7 @@ longest-running premium practices.
   `Y`), never a manual input.
 - Lat/Long — computed by the sync job via Mapbox geocoding; never enter these
   yourself.
-- Google review *content* and rating — pulled by the daily `/api/reviews/refresh`
+- Google review *content* and rating — pulled by `/api/reviews/refresh` (runs daily, refreshes each practice once a week; a new Place ID is fetched the next morning)
   cron via the Places API, not sheet-entered at all.
 - Yelp rating/review count — cron-managed once `YELP_API_KEY` is set (Yelp's
   Fusion API is a paid product, not turned on yet). Until then, AG's badge

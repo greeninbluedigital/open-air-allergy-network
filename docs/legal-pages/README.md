@@ -74,6 +74,12 @@ formatting glitches.
   your account" (no accounts).
 - **Contact:** removed the blank phone number (email only, per the owner's
   decision).
+- **2026-10-09, contact form state check:** Section III adds that visitors
+  in Washington, Nevada or Connecticut (and every visitor to a practice
+  there) get an email link instead of the form, and what decides it.
+  Section V no longer says IP location is never stored: each message keeps
+  the IP's state and the visitor's answer as a record. Effective date moved
+  to October 9, 2026.
 
 ### Terms & Conditions
 - Named the DBA alongside the LLC in the opening.
