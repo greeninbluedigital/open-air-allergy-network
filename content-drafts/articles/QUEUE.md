@@ -8,7 +8,7 @@ session reorder, add or remove items. Details for each topic are in
 
 | # | Working title | Section | Slug | Publish by | Status | Draft file |
 |---|---|---|---|---|---|---|
-| 1 | Ragweed Allergy: Season, Symptoms and Treatment | Learn | ragweed-allergy | ASAP (searches peak now) | next | |
+| 1 | Ragweed Allergy: Season, Symptoms and Treatment | Learn | ragweed-allergy | ASAP (searches peak now) | published 2026-10-10 | ragweed-allergy.md |
 | 2 | How Long Do Cat Allergy Symptoms Last After Exposure? | Blog | how-long-do-cat-allergy-symptoms-last | any time | next | |
 | 3 | Austin Allergies: Cedar Fever, Oak and Grass Season, and Treatment Options | Learn | austin-allergies | early November | next | |
 | 4 | Cedar Fever: Mountain Cedar Allergy in Texas | Learn | cedar-fever-mountain-cedar-allergy | mid November | next | |

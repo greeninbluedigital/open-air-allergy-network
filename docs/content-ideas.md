@@ -200,6 +200,7 @@ writing another.
 | Pet Allergy Treatment: Cat & Dog Allergy Shots | Learn | `/learn-about-ilit/pet-cat-dog-allergy-treatment` | 2026-09-23 |
 | Seasonal Allergies: Spring, Summer, Fall & Winter Guide | Learn | `/learn-about-ilit/seasonal-allergies-by-season` | 2026-09-23 |
 | Allergy Testing Before Immunotherapy: Skin Test vs. Blood Test | Blog | `/blog/allergy-skin-test-vs-blood-test` | 2026-09-30 (keywords: "allergy skin test vs blood test", "allergy testing") |
+| Ragweed Allergy: Season, Symptoms and Treatment | Learn | `/learn-about-ilit/ragweed-allergy` | 2026-10-10 (keywords: "ragweed allergy", "ragweed season", "ragweed allergy symptoms"; AAFA 2026 top 10 weed pollen cities list; first draft from the daily drafting run; refresh each August) |
 
 Removed (2026-09-30): the placeholder stubs "5 Things to Know Before
 Starting ILIT" and "ILIT Growth in U.S. Allergy Practices". Both ideas live
