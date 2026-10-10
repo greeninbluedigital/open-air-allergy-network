@@ -84,14 +84,19 @@ Content type — what kind of piece this is:
 - `Clinical Research`
 - `Comparisons`
 - `Practice Spotlight`
-- `Patient Guide`
 - `Industry News`
+
+(`Patient Guide` was retired 2026-10-10: it read like OAAN guiding someone's
+care, too close to medical advice, and named no topic. Use a topic tag.)
 
 Topic — what it's actually about:
 - `ILIT`
 - `SCIT`
 - `SLIT`
 - `Allergy Symptoms`
+- `Allergens` (allergen and season guides: ragweed, cedar, oak, grass, dust
+  mites, birch, mold, pets)
+- `Allergy Testing`
 
 A typical article gets one content-type tag plus one topic tag (e.g. the
 Avant Allergy comparison article is `["ILIT", "Comparisons"]`). Exact

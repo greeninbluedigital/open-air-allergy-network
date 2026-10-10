@@ -135,7 +135,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
 
       <div className="px-6 py-8 sm:px-10">
         <div className="mb-3 text-xs font-semibold tracking-wide text-muted uppercase">
-          Complete Archive
+          All Articles
         </div>
         <div className="divide-y divide-line">
           {archiveResult.articles.map((article) => (
