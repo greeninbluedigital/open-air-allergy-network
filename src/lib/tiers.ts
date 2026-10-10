@@ -1,25 +1,32 @@
 import type { Tier } from "@/generated/prisma/client";
+import { isHealthDataState } from "@/lib/healthDataStates";
 
 /** Verified and up: paying listings. Freemium shows no badges anywhere. */
 export function isVerifiedPlus(tier: Tier): boolean {
   return tier !== "FREE_CLAIMED";
 }
 
-/** The patient contact form: Verified and up, and only when the practice has
- * a Notification Email to receive the messages (some, e.g. large health
- * systems, never give one). Without it the page keeps phone and website
- * links only, so no patient message is collected that can't be delivered.
- * Never on a free trial: those get the email button instead. */
-export function showsContactForm(p: { tier: Tier; trial: boolean; notificationEmail: string | null }): boolean {
-  return isVerifiedPlus(p.tier) && !p.trial && !!p.notificationEmail?.trim();
-}
+export type ContactMode = "form" | "email" | "none";
 
-/** "Email this practice": on free trials, in place of the contact form. It
- * opens the visitor's own email app, so OAAN never collects or forwards the
- * message, which keeps the site clear of state consumer health data laws
- * (owner's decision, 2026-10-09). The form code stays for paid listings. */
-export function showsEmailButton(p: { trial: boolean; notificationEmail: string | null }): boolean {
-  return p.trial && !!p.notificationEmail?.trim();
+/**
+ * How a patient contacts the practice from its page (Verified and up,
+ * free trials included, and only with a Notification Email to send to):
+ * - "form": the contact form, which asks first whether the visitor lives in
+ *   or is in a consumer health data state (healthDataStates.ts). "Yes"
+ *   swaps it for the email button in the browser.
+ * - "email": the "Email {practice}" button, which opens the visitor's own
+ *   email app so OAAN never collects the message. Used whenever the
+ *   practice is in one of those states, or the visitor's IP or searched zip
+ *   is (owner's decision, 2026-10-09). The address is shown, so column K
+ *   only ever holds an address the practice publishes (docs/practice-emails.md).
+ * - "none": phone and website only.
+ */
+export function contactMode(
+  p: { tier: Tier; state: string; notificationEmail: string | null },
+  visitorInHealthDataState: boolean,
+): ContactMode {
+  if (!isVerifiedPlus(p.tier) || !p.notificationEmail?.trim()) return "none";
+  return visitorInHealthDataState || isHealthDataState(p.state) ? "email" : "form";
 }
 
 /** Full Profile and Featured. Founding Member is only ever shown at this level. */

@@ -1,8 +1,9 @@
 # Practice email addresses (Notification Email, column K)
 
-On a free trial page the Notification Email is **public**: the page shows an
-"Email {practice}" button and the address itself (see `docs/sheet-columns.md`,
-column K). So a trial row only gets an address the practice already publishes
+The Notification Email can be **public**: visitors in a consumer health data
+state (WA, NV, CT) and every visitor to a practice located in one get an
+"Email {practice}" button showing the address instead of the contact form
+(see `docs/sheet-columns.md`, column K, and `src/lib/healthDataStates.ts`). So a row only gets an address the practice already publishes
 on its own website. A practice that only offers a contact form keeps column K
 blank, and its page shows phone and website only.
 

@@ -4,6 +4,7 @@ import { ContactForm } from "@/components/pdp/ContactForm";
 import { EmailPracticeButton } from "@/components/pdp/EmailPracticeButton";
 import { LeadStatusMessage, LeadErrorMessage } from "@/components/pdp/LeadStatusMessage";
 import type { FormError } from "@/lib/forms";
+import type { ContactMode } from "@/lib/tiers";
 
 export function formatAddress(provider: { address: string; addressLine2: string | null }): string {
   return provider.addressLine2 ? `${provider.address}, ${provider.addressLine2}` : provider.address;
@@ -12,14 +13,14 @@ export function formatAddress(provider: { address: string; addressLine2: string 
 /**
  * "Contact {practice}" panel shared by the provider page and SEM landing
  * pages, so the two stay identical: the contact form (or its success
- * message), or on free trials the email button instead, then phone and
- * website, then the address linking to Google Maps. Every lead action is
- * tracked (docs/analytics.md).
+ * message) or the email button, per contactMode (src/lib/tiers.ts), then
+ * phone and website, then the address linking to Google Maps. Every lead
+ * action is tracked (docs/analytics.md).
  */
 export function ContactPanel({
   provider,
-  showForm,
-  emailButtonAddress = null,
+  mode,
+  email,
   sent,
   confirmed,
   error,
@@ -40,10 +41,10 @@ export function ContactPanel({
     state: string;
     zip: string;
   };
-  /** The provider page only shows the form for Full Profile and up. */
-  showForm: boolean;
-  /** Free trials: the practice's address for the email button (showsEmailButton), else null. */
-  emailButtonAddress?: string | null;
+  /** Form, email button or neither (contactMode). */
+  mode: ContactMode;
+  /** The practice's published address (Notification Email); set whenever mode isn't "none". */
+  email: string | null;
   sent: boolean;
   confirmed: boolean;
   error: FormError | null;
@@ -67,7 +68,8 @@ export function ContactPanel({
           formLocation={formLocation}
         />
       ) : (
-        showForm && (
+        mode === "form" &&
+        email && (
           <>
             {error && (
               <LeadErrorMessage
@@ -77,12 +79,19 @@ export function ContactPanel({
                 providerId={provider.id}
               />
             )}
-            <ContactForm providerId={provider.id} providerSlug={provider.slug} utm={utm} returnPath={returnPath} />
+            <ContactForm
+              providerId={provider.id}
+              providerSlug={provider.slug}
+              practiceName={provider.practiceName}
+              email={email}
+              utm={utm}
+              returnPath={returnPath}
+            />
           </>
         )
       )}
-      {emailButtonAddress && !showForm && (
-        <EmailPracticeButton email={emailButtonAddress} practiceName={provider.practiceName} providerId={provider.id} />
+      {mode === "email" && email && !sent && !confirmed && (
+        <EmailPracticeButton email={email} practiceName={provider.practiceName} providerId={provider.id} />
       )}
 
       {(provider.phone || provider.website) && (

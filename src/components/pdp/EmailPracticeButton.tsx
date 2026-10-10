@@ -8,7 +8,8 @@ const SUBJECT = "ILIT question (found on Open Air Allergy Network)";
 const BODY = "Hi, I found your practice on openairallergynetwork.com and have a question about ILIT:\n\n";
 
 /**
- * Free trial pages' stand-in for the contact form (showsEmailButton): opens
+ * The contact form's stand-in for consumer health data states (contactMode
+ * in src/lib/tiers.ts, or a "Yes" in the form's location question): opens
  * the visitor's own email app, addressed to the practice and prefilled with a
  * subject and opening line that name OAAN. The message never touches OAAN,
  * so nothing is collected, stored or forwarded. The address is shown too,

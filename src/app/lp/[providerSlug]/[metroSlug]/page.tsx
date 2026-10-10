@@ -11,7 +11,8 @@ import { ComparingIlit, IsIlitRightForMe, WhatIsIlit } from "@/components/ilit/I
 import { PatientReviews, reviewsWouldShow } from "@/components/PatientReviews";
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { parseFormError } from "@/lib/forms";
-import { showsContactForm, showsEmailButton } from "@/lib/tiers";
+import { contactMode } from "@/lib/tiers";
+import { visitorInHealthDataState } from "@/lib/visitorLocation";
 
 
 async function getLandingPage(providerSlug: string, metroSlug: string) {
@@ -55,6 +56,9 @@ export default async function SemLandingPage({
   const { provider, lp } = result;
 
   const sent = sp.sent === "1";
+  // ?location=restricted: the server turned a "Yes" answer away (visitors
+  // without JavaScript), so the page shows the email button.
+  const visitorInHealthState = sp.location === "restricted" || (await visitorInHealthDataState());
   const confirmed = sp.confirmed === "1";
   const error = parseFormError(sp.error);
   const returnPath = `/lp/${provider.slug}/${lp.urlSlug}`;
@@ -203,8 +207,8 @@ export default async function SemLandingPage({
             and the tracked map link). */}
         <ContactPanel
           provider={provider}
-          showForm={showsContactForm(provider)}
-          emailButtonAddress={showsEmailButton(provider) ? provider.notificationEmail : null}
+          mode={contactMode(provider, visitorInHealthState)}
+          email={provider.notificationEmail?.trim() || null}
           sent={sent}
           confirmed={confirmed}
           error={error}

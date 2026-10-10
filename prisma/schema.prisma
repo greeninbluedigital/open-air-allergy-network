@@ -513,6 +513,12 @@ model ContactSubmission {
   gclid       String?
   landingPage String?
 
+  // The consumer health data state check (src/lib/healthDataStates.ts): the
+  // visitor answered "No" to living in or being in one of those states, and
+  // the state Vercel placed their IP in. Kept as the record of the check.
+  notInHealthDataState Boolean @default(false)
+  ipRegion             String?
+
   // Two-stage lead email verification (Section 4), PDP + SEM landing page
   // forms specifically. Stage 1 (MX/domain check) happens before a row is
   // ever created — a structurally-undeliverable address is rejected inline

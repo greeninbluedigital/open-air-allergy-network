@@ -15,13 +15,13 @@ import { truncateForMeta } from "@/lib/metadata";
 import { parseFormError } from "@/lib/forms";
 import { nearbyProviders } from "@/lib/srp";
 import { stockPhotoFor } from "@/lib/stockPhotos";
+import { visitorInHealthDataState } from "@/lib/visitorLocation";
 import { COMPARISON_ARTICLE_SLUG, ILIT_DEFINITION } from "@/lib/content";
 import { ProviderCard } from "@/components/srp/ProviderCard";
 import {
   isFullProfilePlus as isFullProfileTier,
   isVerifiedPlus as isVerifiedTier,
-  showsContactForm,
-  showsEmailButton,
+  contactMode,
   showsPracticeDetails,
 } from "@/lib/tiers";
 
@@ -166,6 +166,9 @@ export default async function ProviderDetailPage({
 
   const backHref = typeof sp.back === "string" ? sp.back : "/find-an-ilit-provider";
   const sent = sp.sent === "1";
+  // ?location=restricted: the server turned a "Yes" answer away (visitors
+  // without JavaScript), so the page shows the email button.
+  const visitorInHealthState = sp.location === "restricted" || (await visitorInHealthDataState());
   const confirmed = sp.confirmed === "1";
   const error = parseFormError(sp.error);
   const utm = {
@@ -462,8 +465,8 @@ export default async function ProviderDetailPage({
         <div className="order-first flex-1 md:order-none">
           <ContactPanel
             provider={provider}
-            showForm={showsContactForm(provider)}
-          emailButtonAddress={showsEmailButton(provider) ? provider.notificationEmail : null}
+            mode={contactMode(provider, visitorInHealthState)}
+          email={provider.notificationEmail?.trim() || null}
             sent={sent}
             confirmed={confirmed}
             error={error}

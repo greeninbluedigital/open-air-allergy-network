@@ -4,7 +4,9 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import { ATTRIBUTION_COOKIE, parseAttribution } from "@/lib/attribution";
 import { db } from "@/lib/db";
-import { showsContactForm } from "@/lib/tiers";
+import { contactMode } from "@/lib/tiers";
+import { isHealthDataState } from "@/lib/healthDataStates";
+import { visitorRegion } from "@/lib/visitorLocation";
 import { domainCanReceiveMail } from "@/lib/emailDomainCheck";
 import { sendConfirmationEmail } from "@/lib/leadNotify";
 import { normalizeUsPhone } from "@/lib/phone";
@@ -76,7 +78,16 @@ export async function submitContactMessage(formData: FormData) {
     redirect(`${returnPath}?sent=1`);
   }
 
-  if (!providerId || !firstName || !lastName || !email || !message) {
+  // The consumer health data state check (healthDataStates.ts), before
+  // anything is saved: a "Yes" (only possible without JavaScript, since the
+  // form swaps itself out in the browser) goes back to the page with the
+  // email button showing.
+  const healthDataStateAnswer = String(formData.get("healthDataState") || "");
+  if (healthDataStateAnswer === "yes") {
+    redirect(`${returnPath}?location=restricted`);
+  }
+
+  if (healthDataStateAnswer !== "no" || !providerId || !firstName || !lastName || !email || !message) {
     redirect(`${returnPath}?error=missing_fields`);
   }
 
@@ -84,15 +95,18 @@ export async function submitContactMessage(formData: FormData) {
     redirect(`${returnPath}?error=has_links`);
   }
 
-  // The form only renders for practices that can receive messages
-  // (showsContactForm); this guards against a stale page or a direct post
-  // saving a patient's message that could never be delivered.
+  // The form only renders when contactMode allows it; this guards against
+  // a stale page or a direct post saving a message that could never be
+  // delivered, or one from a practice or visitor in a consumer health data
+  // state (by IP or searched zip), whatever the visitor answered.
   const recipient = await db.provider.findUnique({
     where: { id: providerId },
-    select: { active: true, tier: true, trial: true, notificationEmail: true },
+    select: { active: true, tier: true, state: true, notificationEmail: true },
   });
-  if (!recipient?.active || !showsContactForm(recipient)) {
-    redirect(returnPath);
+  const region = await visitorRegion();
+  const visitorInHealthState = isHealthDataState(region.ipRegion) || isHealthDataState(region.zipState);
+  if (!recipient?.active || contactMode(recipient, visitorInHealthState) !== "form") {
+    redirect(visitorInHealthState || (recipient && isHealthDataState(recipient.state)) ? `${returnPath}?location=restricted` : returnPath);
   }
 
   // Stage 1 — reject structurally-undeliverable addresses before persisting
@@ -112,6 +126,8 @@ export async function submitContactMessage(formData: FormData) {
       email,
       phone,
       message,
+      notInHealthDataState: true,
+      ipRegion: region.ipRegion,
       ...attribution,
     },
     include: { provider: { select: { practiceName: true, phone: true, notificationEmail: true } } },

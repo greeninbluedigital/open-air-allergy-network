@@ -1,22 +1,42 @@
+"use client";
+
+import { useState } from "react";
 import { submitContactMessage } from "@/lib/actions";
 import { MessageField } from "@/components/MessageField";
 import { HoneypotField } from "@/components/HoneypotField";
 import { US_PHONE_PATTERN, US_PHONE_TITLE } from "@/lib/phone";
+import { HEALTH_DATA_STATE_LIST } from "@/lib/healthDataStates";
+import { EmailPracticeButton } from "@/components/pdp/EmailPracticeButton";
 
+/**
+ * The patient contact form. It opens with one compact, required question:
+ * does the visitor live in, or are they now in, a consumer health data state
+ * (healthDataStates.ts)? "Yes" swaps the fields for the "Email {practice}"
+ * button before anything is sent, so OAAN never collects a message from
+ * there. The server checks the answer again (src/lib/actions.ts), which also
+ * covers visitors without JavaScript.
+ */
 export function ContactForm({
   providerId,
   providerSlug,
+  practiceName,
+  email,
   utm,
   returnPath,
 }: {
   providerId: string;
   providerSlug: string;
+  practiceName: string;
+  /** The practice's published address, for the email button on "Yes". */
+  email: string;
   utm: { source?: string; medium?: string; campaign?: string };
   /** Where to redirect back to after submit — the PDP by default, but a SEM
    * landing page passes its own path so a paid-ad visitor isn't sent
    * somewhere else (Section 4's post-submission UX standard). */
   returnPath?: string;
 }) {
+  const [inHealthDataState, setInHealthDataState] = useState<"yes" | "no" | null>(null);
+
   return (
     <form action={submitContactMessage} className="mt-1">
       <input type="hidden" name="providerId" value={providerId} />
@@ -27,6 +47,46 @@ export function ContactForm({
       <input type="hidden" name="utmCampaign" value={utm.campaign ?? ""} />
       <HoneypotField />
 
+      {/* One row, so the form stays short on a phone. */}
+      <fieldset className="mb-2.5 flex items-center justify-between gap-2 rounded border border-line px-2 py-1.5">
+        <legend className="sr-only">Your location</legend>
+        <span className="text-[11.5px] leading-tight text-muted">Do you live in or are you now in {HEALTH_DATA_STATE_LIST}?</span>
+        <span className="flex shrink-0 gap-2.5 text-xs">
+          {(["yes", "no"] as const).map((value) => (
+            <label key={value} className="flex items-center gap-1">
+              <input
+                type="radio"
+                name="healthDataState"
+                value={value}
+                required
+                checked={inHealthDataState === value}
+                onChange={() => setInHealthDataState(value)}
+              />
+              {value === "yes" ? "Yes" : "No"}
+            </label>
+          ))}
+        </span>
+      </fieldset>
+
+      {inHealthDataState === "yes" ? (
+        <>
+          <p className="mb-2 text-[11.5px] leading-snug text-muted">
+            Health privacy laws in those states mean we can&apos;t pass along messages from there. Email the practice
+            directly instead.
+          </p>
+          <EmailPracticeButton email={email} practiceName={practiceName} providerId={providerId} />
+        </>
+      ) : (
+        <ContactFields />
+      )}
+    </form>
+  );
+}
+
+/** Name, email, phone and message, the send button and the Terms line. */
+function ContactFields() {
+  return (
+    <>
       <div className="mb-2.5 grid grid-cols-2 gap-2">
         <div>
           <label className="mb-0.5 block text-[11.5px] text-muted" htmlFor="firstName">
@@ -104,6 +164,6 @@ export function ContactForm({
         </a>
         .
       </p>
-    </form>
+    </>
   );
 }

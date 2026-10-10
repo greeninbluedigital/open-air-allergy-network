@@ -714,14 +714,14 @@ export async function runSync(): Promise<SyncSummary> {
       }
       if (active && tier !== "FREE_CLAIMED" && !r.verificationDate.trim()) {
         summary.warnings.push(
-          `${slug} (row ${sheetRow}) is a paid${trialActive ? " (trial)" : ""} listing with no Verification Date, so its page shows no Verified badge.`,
+          `${slug} (row ${sheetRow}) is a paid${trialActive ? " (trial)" : ""} listing with no Verification Date, so its page shows no ILIT Confirmed badge.`,
         );
       }
 
       // Never blocking: these only add to the sync result's warnings.
       if (active && tier !== "FREE_CLAIMED" && !r.notificationEmail.trim()) {
         summary.warnings.push(
-          `${slug} (row ${sheetRow}) has no Notification Email, so its page shows no contact form (phone and website only). Add one if the practice wants patient messages.`,
+          `${slug} (row ${sheetRow}) has no Notification Email, so its page shows no contact form (phone and website only). Add one only if the practice publishes an email address on its own site (docs/practice-emails.md).`,
         );
       }
       if (r.tier.trim() && !(r.tier.trim().toLowerCase() in TIER_MAP)) {

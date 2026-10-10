@@ -43,7 +43,7 @@ and outbound link clicks.
 | `oaan_phone_click` | Practice phone number clicked or tapped | `provider_id`, `provider_name` |
 | `oaan_website_click` | Practice website link clicked | `provider_id`, `provider_name` |
 | `oaan_address_click` | Practice address clicked (opens Google Maps) | `provider_id`, `provider_name` |
-| `oaan_email_click` | "Email {practice}" clicked, or the practice's email address copied (free trial pages, in place of the contact form) | `provider_id`, `provider_name` |
+| `oaan_email_click` | "Email {practice}" clicked, or the practice's email address copied (shown instead of the contact form for consumer health data states: WA, NV, CT) | `provider_id`, `provider_name` |
 | `oaan_profile_click` | "View full provider profile" clicked on an SEM landing page (a soft lead) | `provider_id`, `provider_name` |
 | `oaan_lead_submit` | Patient contact form sent, on a provider page or SEM landing page | `provider_id`, `provider_name`, `form_location` (`provider_page` or `sem_landing_page`) |
 | `oaan_lead_confirm` | Patient clicked the confirmation link in their email | same as `oaan_lead_submit` |
@@ -168,7 +168,7 @@ G-S8P8XYEGMP, under **Admin**.
    event** for:
    - `oaan_lead_submit`: the main patient conversion
    - `oaan_phone_click`
-   - `oaan_email_click`: the patient conversion on free trial pages
+   - `oaan_email_click`: the patient conversion where the form is replaced (WA, NV, CT)
    - `oaan_practice_lead_submit`: a sales lead for OAAN
    - `oaan_provider_search`: the suggested homepage conversion
    - Optionally `oaan_website_click` and `oaan_address_click`

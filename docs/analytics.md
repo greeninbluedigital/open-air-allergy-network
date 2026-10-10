@@ -29,7 +29,7 @@ There are three separate sources of numbers:
 | Phone clicks | `PHONE_CLICK` | A visitor clicks or taps the practice's phone number | Provider page contact panel, SEM landing pages, and the phone fallback in the lead form's email error |
 | Website clicks | `WEBSITE_CLICK` | A visitor clicks the practice's website link | Provider page contact panel and SEM landing pages |
 | Address clicks | `ADDRESS_CLICK` | A visitor clicks the practice's address, which opens it in Google Maps | Provider page and SEM landing page contact panels |
-| Email clicks | `EMAIL_CLICK` | A visitor clicks "Email {practice}" (opens their own email app) or copies the practice's email address | Free trial pages' contact panel, in place of the contact form (added 2026-10-09). OAAN never sees the message, so this click is the only lead signal |
+| Email clicks | `EMAIL_CLICK` | A visitor clicks "Email {practice}" (opens their own email app) or copies the practice's email address | The contact panel's email button (added 2026-10-09), shown instead of the form to visitors in a consumer health data state (WA, NV, CT) and on practices located in one, or after a "Yes" to the form's location question. OAAN never sees the message, so this click is the only lead signal there |
 | Profile clicks (soft lead) | `PROFILE_CLICK` | A visitor clicks "View full provider profile" on an SEM landing page, going to the practice's main page | SEM landing pages |
 
 Impressions are recorded for every practice shown, whatever its tier. A
