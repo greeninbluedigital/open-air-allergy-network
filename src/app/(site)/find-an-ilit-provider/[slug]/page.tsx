@@ -182,6 +182,17 @@ export default async function ProviderDetailPage({
   const stockPhoto = stockPhotoFor(provider.slug);
   // FAQs, treatments and hours: Full Profile+, or the Academic package.
   const showDetails = showsPracticeDetails(provider);
+  const hasFaqs = showDetails && provider.faqItems.length > 0;
+  // OAAN writes these profiles from the practice's own website, without the
+  // practice's involvement, so every page with that copy says so (owner's
+  // decision, 2026-10-09; docs/profile-writing-guide.md).
+  const sourceNote = (
+    <p className="mt-3 text-xs text-muted">
+      Open Air Allergy Network is an independent directory and isn&apos;t affiliated with {provider.practiceName}. This
+      profile summarizes information the practice publishes on its website, so please confirm details with the
+      practice.
+    </p>
+  );
 
   const [siblings, articleCount] = await Promise.all([
     isVerifiedPlus && provider.groupId
@@ -394,10 +405,11 @@ export default async function ProviderDetailPage({
 
       <div className="flex flex-col gap-7 px-6 py-6 md:flex-row sm:px-10">
         <div className="flex-2 space-y-6.5">
-          {isFullProfilePlus && (
+          {isFullProfilePlus && provider.extendedBio && (
             <div>
               <h3 className="mb-2 text-base font-bold">About This Practice</h3>
               <p className="text-sm whitespace-pre-line text-foreground/80">{provider.extendedBio}</p>
+              {sourceNote}
             </div>
           )}
 
@@ -445,6 +457,9 @@ export default async function ProviderDetailPage({
               </Link>
             </div>
           )}
+
+          {/* No extended bio to sit under: the note goes here instead. */}
+          {!(isFullProfilePlus && provider.extendedBio) && (provider.shortBio || hasFaqs) && sourceNote}
 
           {articleCount > 0 && (
             <div>
