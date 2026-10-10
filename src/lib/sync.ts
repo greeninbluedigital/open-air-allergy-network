@@ -718,8 +718,10 @@ export async function runSync(): Promise<SyncSummary> {
         );
       }
 
-      // Never blocking: these only add to the sync result's warnings.
-      if (active && tier !== "FREE_CLAIMED" && !r.notificationEmail.trim()) {
+      // Never blocking: these only add to the sync result's warnings. Trials
+      // are left out: their address is public, so a blank one just means the
+      // practice publishes none (docs/practice-emails.md), which is normal.
+      if (active && tier !== "FREE_CLAIMED" && !trialActive && !r.notificationEmail.trim()) {
         summary.warnings.push(
           `${slug} (row ${sheetRow}) has no Notification Email, so its page shows no contact form (phone and website only). Add one only if the practice publishes an email address on its own site (docs/practice-emails.md).`,
         );

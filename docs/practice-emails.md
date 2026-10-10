@@ -20,6 +20,8 @@ practice asks.
 | 31 | Shepherd Allergy | allergy@shepherdallergy.com | shepherdallergy.com homepage, as an email link |
 | 32 | Integrative Allergy & Immunology Care | hello@integrativecarenc.com | integrativecarenc.com/contact page text |
 | 35 | Bay Area Allergy and Asthma, 4th St | office@bayallergy.com | bayallergy.com/contact and site footer, listed for both offices |
+| 26–27 | St. Louis Family Allergy (St. Peters, St. Louis) | info@stlfamilyallergy.com | stlouisallergyasthma.com homepage contact details (added 2026-10-09) |
+| 98 | Premier Allergy & Asthma, Dublin | appt@ohallergy.com | premierallergyohio.com/locations/dublin (added 2026-10-09) |
 
 **No address published (column K left blank):**
 
@@ -28,6 +30,8 @@ practice asks.
 | Prairie Allergy | Contact form only (prairieallergykc.com/contact) |
 | Auni Allergy | Contact form only (auniallergy.com/contact-us) |
 | Grand Rapids Allergy | Only billing@ and hiring@ on /contact, not meant for patients |
+| Aspire Allergy & Sinus (31 offices) | Phone and online scheduling only. None of the 31 clinic pages publishes an email (checked 2026-10-09) |
+| AIR Care, Plano | Phone only, no email on the site (checked 2026-10-09) |
 
 None of these sites hid an address behind Cloudflare email protection. If
 one ever does, treat it like a contact form: the practice is guarding the
