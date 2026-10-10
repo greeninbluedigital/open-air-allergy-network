@@ -172,8 +172,9 @@ ORDER BY e.type;
 
 - **Only the live site counts.** `/api/events` ignores everything unless
   `VERCEL_ENV` is `production`, so local dev and preview deployments (which
-  share the production database) never add to practice numbers. Events
-  before 2026-10-10 include the owner's and Claude's testing.
+  share the production database) never add to practice numbers. All 545
+  earlier events (mostly the owner's and Claude's testing) were deleted at
+  2026-10-10 02:59 UTC, so the log starts clean from then.
 - **Owner's own devices are excluded.** Open any page with
   `?oaan_internal=on` once in each browser on each device (computer and
   phone, e.g. https://openairallergynetwork.com/?oaan_internal=on). That
