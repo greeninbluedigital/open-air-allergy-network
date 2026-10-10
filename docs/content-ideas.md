@@ -137,6 +137,53 @@ is the "drive traffic now" half of the SEO strategy.
 Before writing each one: check the keyword's volume and current top results
 in Semrush or Ahrefs, and confirm no OAAN article already covers it.
 
+## Allergen guide series (planned 2026-10-10)
+
+One evergreen Learn guide per allergen people search by name ("ragweed
+allergy", "oak pollen allergy", "dust mite allergy"), plus short myth-buster
+Blog posts timed to when people notice the plant. Every allergen here is one
+ILIT can treat (tree, grass and weed pollen, dust mites, pet dander, mold),
+so each guide ends naturally at treatment options and Find a Provider.
+
+**Each guide covers, in this order:** what it is and why it causes
+allergies (wind-pollinated, small light grains, protein content); where and
+when it's worst, by region, with months; symptoms; related food reactions
+where they apply (oral allergy syndrome, e.g. birch and apples, ragweed and
+melons or bananas); how to cut exposure; testing; treatment from allergy
+medicine through allergy shots, drops and ILIT; Find a Provider. Cite every
+fact (AAFA, ACAAI, AAAAI and its National Allergy Bureau, USDA, state
+extension services, peer reviewed studies). Paraphrase sources, never copy.
+
+**Shared sources:**
+- NC State College of Natural Resources, "Allergies are back, but don't
+  blame all trees" (Andrew Moore, April 1, 2024, quoting forestry professor
+  Robert Bardon): cnr.ncsu.edu/news/2024/04/allergies-back-dont-blame-all-trees/.
+  Oak, birch, maple, cedar and hickory pollen are light and wind carried, so
+  they're the allergy culprits. Loblolly pine's yellow pollen is large and
+  low in protein, so it's highly visible but rarely the problem. Counts peak
+  early morning on warm, dry, breezy days. Central NC tree pollen starts late
+  February to early March and peaks in early April.
+- Anderegg et al., PNAS 2021: North American pollen seasons start about 20
+  days earlier and run about 10 days longer than in 1990 (the study behind
+  NC State's climate line). Cite the study itself.
+- AAFA Allergy Capitals report (latest year) for city ranks.
+
+| # | Working title | Section | Target keywords | Timing and notes |
+|---|---|---|---|---|
+| 1 | Ragweed Allergy: Season, Symptoms and Treatment | Learn | "ragweed allergy", "ragweed season", "ragweed allergy symptoms", "when does ragweed season end" | Evergreen, refresh each August. Season ends at the first hard frost. Include the goldenrod mix-up (showy yellow goldenrod is insect pollinated and rarely the cause, ragweed is the inconspicuous green plant nearby). Ragweed and melons or bananas (oral allergy syndrome) |
+| 2 | Cedar Fever: Mountain Cedar Allergy in Texas | Learn | "cedar fever", "mountain cedar allergy", "cedar fever symptoms", "cedar fever season" | **Publish by mid November** (pollinates December to February). Pairs with the Austin city page. Ashe juniper, central Texas Hill Country, why it feels like flu |
+| 3 | Oak Pollen Allergy | Learn | "oak pollen allergy", "oak pollen season", "oak allergy symptoms" | Publish by February. One of NC State's named culprits. Big across the South, Texas and California |
+| 4 | Grass Pollen Allergy | Learn | "grass allergy", "grass pollen season", "bermuda grass allergy", "timothy grass allergy" | Publish by April. Northern vs. southern grasses and their seasons. FDA-approved grass tablets exist, so compare tablets, shots and ILIT accurately |
+| 5 | Dust Mite Allergy | Learn | "dust mite allergy", "dust mite allergy symptoms", "how to get rid of dust mites" | Year round, any time. Large search volume. Exposure tips with evidence (encasements, humidity, washing temperature) |
+| 6 | Birch Pollen Allergy | Learn | "birch pollen allergy", "birch allergy apples", "oral allergy syndrome" | Publish by March. Northeast and Midwest. Birch and apple, pear, cherry cross reactions |
+| 7 | Mold Allergy | Learn | "mold allergy", "mold allergy symptoms", "outdoor mold season" | Late summer and fall outdoors, year round indoors. Leaf mold in fall |
+| 8 | Pine Pollen: Why the Yellow Dust Usually Isn't What's Making You Sneeze | Blog | "pine pollen allergy", "yellow pollen", "is pine pollen allergenic" | **Publish late February** for the Southeast pine season. Built on the NC State article: it's the visible pollen, while oak and others do the damage at the same time |
+| 9 | Goldenrod or Ragweed? The Fall Allergy Mix-Up | Blog | "goldenrod allergy", "goldenrod vs ragweed" | **Publish mid August.** Use real photos of both plants, correctly labeled |
+
+Pet allergies already have a Learn guide (`pet-cat-dog-allergy-treatment`);
+link it from these and from the cat allergy Blog post above rather than
+writing another.
+
 ## Also pending
 - **Comparison article revisit:** add written content about allergy medicine
   to `/learn-about-ilit/allergy-shots-vs-allergy-drops-vs-ilit`. No
