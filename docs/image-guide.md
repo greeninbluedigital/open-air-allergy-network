@@ -140,6 +140,8 @@ Stock photos never go into structured data or social previews.
 
 To add one: upload a 4:5 portrait (realistic, saturated, real setting; no
 faces, no clinic interiors that could pass for a practice's office) and ask
-Claude to add it with alt text. Check what the plant actually is:
-`main-ragweed_1.jpg` turned out to be goldenrod, the plant people wrongly
-blame for hay fever, so it isn't used.
+Claude to add it with alt text. Check what the plant actually is: an
+early "ragweed" upload turned out to be goldenrod, the plant people wrongly
+blame for hay fever. In use (2026-10-09): two oaks, dust in a sunbeam, a
+grassy hillside, a ragweed field (AI generated, checked for accuracy) and a
+pine cone.

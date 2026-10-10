@@ -6,9 +6,8 @@
  * reason. Realistic, saturated, real settings (no AI look, no people's
  * faces, no clinic interiors that could pass for the practice's office).
  *
- * Left out on purpose: main-ragweed_1.jpg shows goldenrod, not ragweed.
- * Goldenrod is the plant people wrongly blame for hay fever, so it doesn't
- * belong on an allergy site until there's a real ragweed photo.
+ * Check what a plant really is before adding it: an earlier "ragweed" photo
+ * was goldenrod, the plant people wrongly blame for hay fever.
  */
 const STOCK_PHOTOS = [
   {
@@ -27,6 +26,14 @@ const STOCK_PHOTOS = [
     url: "https://res.cloudinary.com/qruprn0t/image/upload/v1791591080/main-grass_field.jpg",
     alt: "A grassy hillside under a blue sky",
   },
+  {
+    url: "https://res.cloudinary.com/qruprn0t/image/upload/v1791593428/main-ragweed_field.jpg",
+    alt: "A field of ragweed in bloom at the edge of a forest",
+  },
+  {
+    url: "https://res.cloudinary.com/qruprn0t/image/upload/v1791593427/main-pine_cone_on_tree.jpg",
+    alt: "A small pine cone on a pine branch",
+  },
 ] as const;
 
 export type StockPhoto = (typeof STOCK_PHOTOS)[number];
@@ -35,7 +42,12 @@ export type StockPhoto = (typeof STOCK_PHOTOS)[number];
  * stable for caching and search engines, while neighboring practices
  * usually get different ones. */
 export function stockPhotoFor(slug: string): StockPhoto {
-  let hash = 0;
-  for (const ch of slug) hash = (hash * 31 + ch.charCodeAt(0)) >>> 0;
+  // FNV-1a: mixes well, so practices spread evenly across the photos (a
+  // simple "× 31" hash bunched them up with six photos).
+  let hash = 0x811c9dc5;
+  for (const ch of slug) {
+    hash ^= ch.charCodeAt(0);
+    hash = Math.imul(hash, 0x01000193) >>> 0;
+  }
   return STOCK_PHOTOS[hash % STOCK_PHOTOS.length];
 }
