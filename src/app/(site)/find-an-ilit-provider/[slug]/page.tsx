@@ -4,7 +4,7 @@ import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import { db } from "@/lib/db";
 import { RENAMED_SLUGS } from "@/lib/slugRedirects";
-import { Badge, practiceBadges } from "@/components/Badge";
+import { Badge, practiceBadges, seesOutOfArea } from "@/components/Badge";
 import { ArticleFeed } from "@/components/ArticleFeed";
 import { ContactPanel, formatAddress } from "@/components/pdp/ContactPanel";
 import { PatientReviews, getAggregateRatingSchema } from "@/components/PatientReviews";
@@ -29,10 +29,6 @@ import {
 // switches to a collapsed accordion so a practice with a lot of FAQ content
 // doesn't turn the page into a long uninterrupted scroll.
 const FAQ_ACCORDION_THRESHOLD = 4;
-
-// "Getting Here — Fly In" body when the sheet's Travel Notes (column P) is blank.
-const DEFAULT_TRAVEL_NOTE =
-  "This practice welcomes out-of-area patients. Contact them directly for travel guidance.";
 
 // Freemium listings are only claimed as "confirmed" once the phone
 // confirmation (Verification Date) has actually happened.
@@ -242,7 +238,7 @@ export default async function ProviderDetailPage({
         telephone: provider.phone ?? undefined,
         url: provider.website ?? undefined,
         image: provider.photoUrl ?? undefined,
-        ...(provider.geoExtension
+        ...(seesOutOfArea(provider)
           ? { areaServed: { "@type": "GeoCircle", geoMidpoint: { "@type": "GeoCoordinates", latitude: provider.latitude, longitude: provider.longitude }, geoRadius: "600 mi" } }
           : {}),
         ...(aggregateRating ? { aggregateRating } : {}),
@@ -413,13 +409,14 @@ export default async function ProviderDetailPage({
             </div>
           )}
 
-          {provider.geoExtension && (
+          {seesOutOfArea(provider) && (
             <div>
               <h3 className="mb-2 text-base font-bold">Getting Here — Fly In</h3>
-              {/* Sheet column P; blank falls back to the standard line.
+              {/* Sheet column P, written from the practice's own site; no
+                  fallback text, since that would be our claim, not theirs.
                   whitespace-pre-line keeps line breaks typed in the cell. */}
               <p className="text-sm whitespace-pre-line text-muted">
-                {provider.travelNotes ?? DEFAULT_TRAVEL_NOTE}
+                {provider.travelNotes}
               </p>
             </div>
           )}

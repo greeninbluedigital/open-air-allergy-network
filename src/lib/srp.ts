@@ -13,6 +13,7 @@ export type SrpProvider = {
   foundingMember: boolean;
   academic: boolean;
   geoExtension: boolean;
+  travelNotes: string | null;
   photoUrl: string | null;
   srpPhotoUrl: string | null;
   pdpRemoteConsultBadge: boolean;
@@ -88,7 +89,7 @@ async function queryWithinRadius(
     Prisma.sql`
       SELECT
         "id", "slug", "practiceName", "city", "state",
-        "latitude", "longitude", "tier", "foundingMember", "academic", "geoExtension",
+        "latitude", "longitude", "tier", "foundingMember", "academic", "geoExtension", "travelNotes",
         "photoUrl", "srpPhotoUrl", "pdpRemoteConsultBadge", "customMessage", "verificationDate",
         ST_Distance("geog", ST_SetSRID(ST_MakePoint(${lng}, ${lat}), 4326)::geography) AS "distanceMeters"
       FROM "Provider"

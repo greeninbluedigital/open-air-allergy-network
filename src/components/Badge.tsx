@@ -23,17 +23,26 @@ export function badgeClass(variant: BadgeVariant): string {
   return `inline-block rounded px-2 py-0.5 text-[10px] font-bold tracking-wide uppercase ${VARIANTS[variant]}`;
 }
 
+/** Geo-Extension alone only widens search reach to 600mi (every trial has
+ * it). Saying the practice sees out-of-area patients is a claim about the
+ * practice, so it also needs Travel Notes (sheet column P), written from what
+ * the practice's own site says (2026-10-10). */
+export function seesOutOfArea(p: { geoExtension: boolean; travelNotes: string | null }): boolean {
+  return p.geoExtension && !!p.travelNotes?.trim();
+}
+
 /** A practice's fact badges, in order. Pages add their own consult badges
  * after these (cards say "Remote Consults", provider pages say which kind). */
 export function practiceBadges(p: {
   academic: boolean;
   geoExtension: boolean;
+  travelNotes: string | null;
   verificationDate: Date | null;
 }): { variant: BadgeVariant; label: string }[] {
   return [
     ...(p.verificationDate ? [{ variant: "verified" as const, label: "ILIT Confirmed" }] : []),
     ...(p.academic ? [{ variant: "academic" as const, label: "Academic" }] : []),
-    ...(p.geoExtension ? [{ variant: "geo" as const, label: "Sees Out-of-Area Patients" }] : []),
+    ...(seesOutOfArea(p) ? [{ variant: "geo" as const, label: "Sees Out-of-Area Patients" }] : []),
   ];
 }
 
@@ -41,6 +50,7 @@ export function practiceBadges(p: {
 export function cardBadges(p: {
   academic: boolean;
   geoExtension: boolean;
+  travelNotes: string | null;
   verificationDate: Date | null;
   pdpRemoteConsultBadge: boolean;
 }): { variant: BadgeVariant; label: string }[] {

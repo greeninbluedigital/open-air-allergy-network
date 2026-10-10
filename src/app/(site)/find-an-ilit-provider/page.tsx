@@ -150,7 +150,7 @@ export default async function FindAProviderPage({
                 {result.outOfArea.length > 0 && (
                   <div>
                     <div className="mb-0.5 text-xs font-bold tracking-wide text-muted uppercase">
-                      Out-of-area practices welcoming traveling patients
+                      More ILIT practices farther away
                     </div>
                     <p className="mb-2 text-xs text-muted">
                       Beyond your {result.effectiveRadius}-mile search. ILIT takes only a few visits, so some
