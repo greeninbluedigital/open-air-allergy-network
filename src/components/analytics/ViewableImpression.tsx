@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { isInternalDevice } from "@/lib/internalTraffic";
 
 export type ImpressionType = "HOMEPAGE_IMPRESSION" | "SRP_IMPRESSION" | "PDP_NEARBY_IMPRESSION";
 
@@ -20,6 +21,10 @@ let unloadHooked = false;
 function flush(useBeacon = false) {
   if (flushTimer) clearTimeout(flushTimer);
   flushTimer = null;
+  if (isInternalDevice()) {
+    pending.clear();
+    return;
+  }
   for (const { type, path, ids } of pending.values()) {
     const body = JSON.stringify({ type, path, providerIds: [...ids] });
     if (useBeacon && navigator.sendBeacon) {

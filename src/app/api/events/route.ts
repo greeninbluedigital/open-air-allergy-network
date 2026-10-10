@@ -18,6 +18,12 @@ const MAX_IMPRESSIONS = 50;
  * providers so one bad id can't sink the whole batch.
  */
 export async function POST(request: Request) {
+  // Only the live site counts. Local dev and preview deployments share the
+  // production database, so their test visits would otherwise land in the
+  // per-practice numbers (same rule as GTM in src/app/layout.tsx).
+  if (process.env.VERCEL_ENV !== "production") {
+    return new NextResponse(null, { status: 204 });
+  }
   try {
     const body = (await request.json()) as {
       type?: AnalyticsEventType;

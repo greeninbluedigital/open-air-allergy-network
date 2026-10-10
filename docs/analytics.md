@@ -167,3 +167,24 @@ ORDER BY e.type;
 - **2026-09-30:** profile clicks from SEM landing pages recorded as
   `PROFILE_CLICK`, a soft lead. SEM pages also got a phone-only "Send a
   Message" bar pinned to the bottom of the screen (`sem_sticky_send_message`).
+
+## What counts as traffic (2026-10-10)
+
+- **Only the live site counts.** `/api/events` ignores everything unless
+  `VERCEL_ENV` is `production`, so local dev and preview deployments (which
+  share the production database) never add to practice numbers. Events
+  before 2026-10-10 include the owner's and Claude's testing.
+- **Owner's own devices are excluded.** Open any page with
+  `?oaan_internal=on` once in each browser on each device (computer and
+  phone, e.g. https://openairallergynetwork.com/?oaan_internal=on). That
+  browser then sends nothing to GA4 (Tag Manager never loads), Vercel Web
+  Analytics or `/api/events`, and shows a small "Not counted (internal
+  device)" label in the bottom left corner. `?oaan_internal=off` undoes it.
+  It's stored in that browser only (localStorage), so a new browser, a
+  private window or clearing site data needs it again
+  (`src/lib/internalTraffic.ts`).
+- **Vercel Web Analytics** (`@vercel/analytics`, `src/components/analytics/VercelAnalytics.tsx`):
+  cookieless page views and visitors for every visitor, whatever their
+  consent choice, in the Vercel dashboard's Analytics tab. It must be
+  enabled once in the dashboard (project → Analytics → Enable). The free
+  Hobby plan has a monthly event cap.

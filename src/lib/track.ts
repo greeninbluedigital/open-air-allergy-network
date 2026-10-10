@@ -1,3 +1,5 @@
+import { isInternalDevice } from "@/lib/internalTraffic";
+
 /**
  * Pushes an event to GTM's dataLayer. Every site event is named `oaan_*` and
  * uses GA4-style snake_case parameters, so one GTM trigger and one GA4 tag
@@ -5,7 +7,7 @@
  * shouldn't break the page.
  */
 export function pushDataLayer(event: `oaan_${string}`, params: Record<string, string | number | undefined>) {
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined" || isInternalDevice()) return;
   const w = window as unknown as { dataLayer?: unknown[] };
   w.dataLayer = w.dataLayer ?? [];
   w.dataLayer.push({ event, ...params });
@@ -27,7 +29,7 @@ export function trackEvent(
     utmCampaign?: string | null;
   },
 ) {
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined" || isInternalDevice()) return;
 
   const { providerName, ...eventData } = data;
   pushDataLayer(`oaan_${type.toLowerCase()}`, {

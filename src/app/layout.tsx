@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { AnalyticsListener } from "@/components/analytics/AnalyticsListener";
+import { VercelAnalytics } from "@/components/analytics/VercelAnalytics";
+import { InternalDeviceBadge } from "@/components/analytics/InternalDeviceBadge";
 import { ConsentBanner } from "@/components/consent/ConsentBanner";
 import { consentBootScript } from "@/lib/consent";
 
@@ -52,6 +54,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <AnalyticsListener />
         {children}
         <ConsentBanner />
+        <VercelAnalytics />
+        <InternalDeviceBadge />
       </body>
     </html>
   );
