@@ -32,6 +32,25 @@ banned words). Third person, platform voice: never "we" for the practice.
    endpoint).
 7. **Never imply anyone can get ILIT.** No "available to all patients".
    Candidacy is a decision the provider and patient make together.
+8. **Attribute, don't endorse (2026-10-09).** OAAN is an independent
+   directory, not affiliated with any practice (every profile page also says
+   so in a note under the bio). Write as a neutral reporter:
+   - Credit practice facts and claims to the practice: "According to its
+     website…", "The practice says…", "AllerPoint describes…", "Its website
+     lists…". Vary the wording, and don't attribute every sentence: once a
+     paragraph is framed as the practice's information, plain facts like the
+     address or the number of injections can follow without a tag.
+   - Always attribute claims of distinction: firsts, "one of the few",
+     "pioneered", media coverage, a doctor's own words or opinions.
+   - No OAAN praise or recommendation ("a great choice", "experienced team",
+     "personal attention"). Describe, don't sell.
+   - General ILIT facts OAAN stands behind (on the Learn pages) and local
+     allergy facts from a named source (e.g. the AAFA report) need no
+     practice attribution, since they aren't the practice's claims.
+   - Keywords still belong: "fast allergy treatment" and "faster alternative
+     to allergy shots" work as plain descriptions of ILIT's schedule
+     ("three injections over about eight weeks, instead of years of allergy
+     shots").
 
 ## FAQs
 - **Focus on ILIT and allergy treatment**, the questions of someone deciding
