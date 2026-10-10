@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
 import { db } from "@/lib/db";
@@ -13,6 +14,7 @@ import { OtherLocations } from "@/components/pdp/OtherLocations";
 import { truncateForMeta } from "@/lib/metadata";
 import { parseFormError } from "@/lib/forms";
 import { nearbyProviders } from "@/lib/srp";
+import { stockPhotoFor } from "@/lib/stockPhotos";
 import { COMPARISON_ARTICLE_SLUG, ILIT_DEFINITION } from "@/lib/content";
 import { ProviderCard } from "@/components/srp/ProviderCard";
 import {
@@ -174,6 +176,7 @@ export default async function ProviderDetailPage({
 
   const isVerifiedPlus = isVerifiedTier(provider.tier);
   const isFullProfilePlus = isFullProfileTier(provider.tier);
+  const stockPhoto = stockPhotoFor(provider.slug);
   // FAQs, treatments and hours: Full Profile+, or the Academic package.
   const showDetails = showsPracticeDetails(provider);
 
@@ -256,18 +259,24 @@ export default async function ProviderDetailPage({
       <div className="mx-auto max-w-2xl px-6 py-16 sm:px-10">
         <PageViewTracker providerId={provider.id} providerName={provider.practiceName} path={`/find-an-ilit-provider/${provider.slug}`} utm={utm} />
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
-        <div className="text-center">
-          <Link href={backHref} className="mb-6 inline-block text-xs text-muted hover:underline">
-            ← Back to Search Results
-          </Link>
-          <h1 className="mb-2 text-2xl font-extrabold">{provider.practiceName}</h1>
-          <p className="mb-3 text-sm text-muted">
-            {formatAddress(provider)}, {provider.city}, {provider.state} {provider.zip}
-          </p>
-          <p className="mb-6 text-sm text-foreground/80">{freemiumSummary(provider, street)}</p>
-          <Link href="/for-practices" data-cta="freemium_claim_listing" className="text-sm font-semibold text-sage hover:underline">
-            Is this your practice? Claim this listing →
-          </Link>
+        <Link href={backHref} className="mb-6 inline-block text-xs text-muted hover:underline">
+          ← Back to Search Results
+        </Link>
+        <div className="flex flex-col items-center gap-6 sm:flex-row sm:items-start">
+          {/* A generic allergen photo (stockPhotos.ts): basic listings have none of their own. */}
+          <div className="relative aspect-4/5 w-40 shrink-0 overflow-hidden rounded bg-bg-alt sm:w-44">
+            <Image src={stockPhoto.url} alt={stockPhoto.alt} fill sizes="176px" className="object-cover" />
+          </div>
+          <div className="text-center sm:text-left">
+            <h1 className="mb-2 text-2xl font-extrabold">{provider.practiceName}</h1>
+            <p className="mb-3 text-sm text-muted">
+              {formatAddress(provider)}, {provider.city}, {provider.state} {provider.zip}
+            </p>
+            <p className="mb-6 text-sm text-foreground/80">{freemiumSummary(provider, street)}</p>
+            <Link href="/for-practices" data-cta="freemium_claim_listing" className="text-sm font-semibold text-sage hover:underline">
+              Is this your practice? Claim this listing →
+            </Link>
+          </div>
         </div>
         {nearby.length > 0 && (
           <section className="mt-12 border-t border-line pt-8">
@@ -368,23 +377,16 @@ export default async function ProviderDetailPage({
         </Link>
       </div>
 
-      {isFullProfilePlus || provider.photoUrl ? (
-        // Verified gets the main photo only; the extra photos are Full Profile+.
-        provider.shortBio && (
-          <PhotoGallery
-            mainPhoto={provider.photoUrl}
-            secondaryPhotos={isFullProfilePlus ? provider.secondaryPhotoUrls : []}
-            shortBio={provider.shortBio}
-            alt={provider.practiceName}
-          />
-        )
-      ) : (
-        // Verified with no photo: the short bio on its own.
-        provider.shortBio && (
-          <p className="px-6 pt-5 text-sm whitespace-pre-line text-foreground/80 sm:px-10">
-            {provider.shortBio}
-          </p>
-        )
+      {/* The practice's own photo, or a generic allergen photo (stockPhotos.ts)
+          when it has none. The extra photos are Full Profile+. */}
+      {provider.shortBio && (
+        <PhotoGallery
+          mainPhoto={provider.photoUrl ?? stockPhoto.url}
+          secondaryPhotos={isFullProfilePlus ? provider.secondaryPhotoUrls : []}
+          shortBio={provider.shortBio}
+          alt={provider.practiceName}
+          mainAlt={provider.photoUrl ? provider.practiceName : stockPhoto.alt}
+        />
       )}
 
       <div className="flex flex-col gap-7 px-6 py-6 md:flex-row sm:px-10">

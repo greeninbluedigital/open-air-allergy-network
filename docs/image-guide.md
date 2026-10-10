@@ -127,3 +127,19 @@ page actually displays it. Last updated 2026-10-06.
   photo, which is portrait. Social sites crop it to a wide rectangle, so
   part of the photo gets cut off. A dedicated landscape share image would
   fix that if it ever matters.
+
+## Generic photos for practice pages (2026-10-09)
+
+Practice pages without a photo of their own show a generic allergen photo
+instead, listed in `src/lib/stockPhotos.ts` (Cloudinary URL plus alt text that
+describes the photo, never the practice). Basic listings always use one, even
+if the sheet has a practice photo, since there's no permission to show their
+own. Trial pages use the practice's Provider Photo URL (AB) when it's filled
+in. Each page keeps the same photo on every visit (picked from its slug).
+Stock photos never go into structured data or social previews.
+
+To add one: upload a 4:5 portrait (realistic, saturated, real setting; no
+faces, no clinic interiors that could pass for a practice's office) and ask
+Claude to add it with alt text. Check what the plant actually is:
+`main-ragweed_1.jpg` turned out to be goldenrod, the plant people wrongly
+blame for hay fever, so it isn't used.

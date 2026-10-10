@@ -14,11 +14,14 @@ export function PhotoGallery({
   secondaryPhotos,
   shortBio,
   alt,
+  mainAlt = alt,
 }: {
   mainPhoto: string | null;
   secondaryPhotos: string[];
   shortBio: string;
   alt: string;
+  /** The main photo's own alt text, for a generic stock photo (stockPhotos.ts). */
+  mainAlt?: string;
 }) {
   const allPhotos = [mainPhoto, ...secondaryPhotos].filter((url): url is string => Boolean(url));
   const [openIndex, setOpenIndex] = useState<number | null>(null);
@@ -42,9 +45,9 @@ export function PhotoGallery({
             type="button"
             onClick={() => setOpenIndex(0)}
             className="absolute inset-0 cursor-zoom-in"
-            aria-label={`${alt}: view photo 1 of ${allPhotos.length} full size`}
+            aria-label={`${mainAlt}: view photo 1 of ${allPhotos.length} full size`}
           >
-            <Image src={mainPhoto} alt={alt} fill className="object-cover" />
+            <Image src={mainPhoto} alt={mainAlt} fill sizes="(min-width: 768px) 208px, 100vw" className="object-cover" />
           </button>
         )}
       </div>
@@ -108,7 +111,7 @@ export function PhotoGallery({
             </>
           )}
           <div className="relative h-full max-h-[85vh] w-full max-w-3xl" onClick={(e) => e.stopPropagation()}>
-            <Image src={allPhotos[openIndex]} alt={alt} fill className="object-contain" />
+            <Image src={allPhotos[openIndex]} alt={openIndex === 0 ? mainAlt : alt} fill className="object-contain" />
           </div>
         </div>
       )}
