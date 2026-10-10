@@ -64,7 +64,9 @@ Goal: long-tail searches like "allergies in Ohio", "Ohio allergy season",
 
 - **Unit: one article per state** where ILIT providers are listed, plus
   city articles only for big metros with a distinct story (Dallas and
-  Austin cedar fever, St. Louis). State is the level people search and the
+  Austin cedar fever, St. Louis). Update 2026-10-10: Aspire's "austin allergies"
+  traffic (4.1K a month) shows city searches matter, so city pages where
+  trial practices cluster now come first (see the search-driven plan above). State is the level people search and the
   level a practice can credibly speak for.
 - **Start with** states with several listings and a strong allergy story:
   Texas, Missouri, Ohio, Illinois, Virginia, North Carolina, Florida.
@@ -80,6 +82,60 @@ Goal: long-tail searches like "allergies in Ohio", "Ohio allergy season",
   both trust and the practice's own visibility, which makes it a sales tool.
 - **Section:** Learn (evergreen, keyword-targeted). Title pattern: "Ohio
   Allergy Season: What Triggers Allergies Year-Round in Ohio".
+
+## Search-driven plan: the topics that bring Aspire its traffic (2026-10-10)
+
+**Evidence (Ahrefs free tool, US, estimates).** Aspire Allergy & Sinus gets
+roughly 24K search visits a month, and its ExACT (ILIT) page isn't in its top
+five. Most traffic comes from blog posts that each answer one question, plus
+local searches:
+
+| Aspire keyword | Position | Searches/mo |
+|---|---|---|
+| can allergies cause sore throat | 1 | 8.4K |
+| sore throat allergies | 7 | about 6.1K |
+| austin allergies | 2 | 4.1K |
+| do i have allergies or a cold quiz | 1 | 1.4K |
+
+Top pages: homepage 2.2K, /blog/sore-throat 2.1K, /blog/how-long-do-cat-allergy-symptoms-last-after-exposure
+1.3K, /blog/can-allergies-cause-chest-tightness 1.2K (top five = about 35% of
+traffic, so the long tail does most of the work).
+
+**Takeaway:** ILIT terms are small. Broad allergy questions and city
+searches bring the visitors, and each article then walks readers from the
+question to "faster options than years of shots" and Find a Provider. This
+is the "drive traffic now" half of the SEO strategy.
+
+**Rules for these articles** (on top of the style guide and
+`docs/blog-content-guide.md`):
+- One question per article, answered plainly in the first paragraph.
+- Cite every fact to a named source (AAFA, ACAAI, AAAAI, CDC, NIH, peer
+  reviewed studies). Never reuse Aspire's wording or structure. Write our own.
+- A short "Longer term options" section near the end: allergy medicine,
+  allergy shots, allergy drops and ILIT (the faster course), linking the
+  Learn comparison article and Find a Provider. Inform, don't sell.
+- Symptoms that can signal an emergency (chest tightness, trouble
+  breathing, throat swelling) get a "When to get care right away" box at the
+  top, before anything else.
+- Never diagnose. Point readers to an allergist or their doctor.
+- Target narrower variations first. A new site rarely wins the head term
+  quickly against Aspire and the big health sites, but long-tail questions
+  can rank within months and build toward the head term.
+
+**Order of work:**
+
+| # | Working title | Section | Target keywords | Angle and notes |
+|---|---|---|---|---|
+| 1 | How Long Do Cat Allergy Symptoms Last After Exposure? | Blog | "how long do cat allergy symptoms last", "cat allergy symptoms after exposure", "cat allergy relief" | Pet dander is an ILIT allergen, so this is the best fit. Cover how long symptoms last after contact, why cat allergen lingers in homes (cite research on Fel d 1), what helps short term, and long term options. Links the Learn "Pet Allergy Treatment" article. Aspire's version gets about 1.3K a month |
+| 2 | Austin Allergies: Cedar Fever, Oak and Grass Season, and Treatment Options | Learn (city page) | "austin allergies", "austin allergy season", "cedar fever austin", "allergist austin" | Aspire is #2 for 4.1K a month. **Publish by early November** (mountain cedar peaks December to February). Real local content: the Austin pollen calendar (cite Texas A&M AgriLife and NAB counts), AAFA rank (Austin #81 in 2026), then the ILIT providers listed in the Austin area with links. OAAN's edge: Aspire lists only its own clinics |
+| 3 | City page series: Dallas–Fort Worth, Houston, Denver, Orlando, then others | Learn | "[city] allergies", "[city] allergy season", "allergist [city]" | Where trial practices cluster. Same format as Austin, each genuinely local (no swapped-in city names, per the regional series rules below). Denver (#30) and Orlando (#33) have strong AAFA stories |
+| 4 | Allergies or a Cold? A Quick Quiz | Learn (interactive) | "allergies or a cold quiz", "do i have allergies or a cold", "cold vs allergies" | Aspire is #1 for 1.4K. Six to eight questions (itchy eyes, fever, timing, duration, color of mucus) scored to "sounds more like allergies / a cold / see a doctor", every answer explained with a source. A portfolio piece too. Never a diagnosis |
+| 5 | Can Allergies Cause a Sore Throat? | Blog | "allergy sore throat", "sore throat allergies or cold", "post nasal drip sore throat", "allergy sore throat at night" | The biggest volume (8.4K plus 6.1K), but Aspire is #1, so aim at the variations first. Postnasal drip, dry air, when it's likely an infection instead (fever, white spots: see a doctor) |
+| 6 | Can Allergies Cause Chest Tightness? | Blog | "can allergies cause chest tightness", "allergies chest tightness", "allergic asthma symptoms" | Aspire 1.2K. "When to get care right away" box first. Explains allergic asthma, links the Learn asthma FAQ, then longer term options. Keep ILIT claims hedged |
+| 7 | Backlog | Blog | see titles | "Can You Get Rid of a Dog Allergy?", "Are Hypoallergenic Cats and Dogs Real?", "Why Are My Allergies Worse at Night?", "Can Allergies Cause Ear Pressure?", "Can Allergies Make You Tired?" Check volumes in Semrush before choosing |
+
+Before writing each one: check the keyword's volume and current top results
+in Semrush or Ahrefs, and confirm no OAAN article already covers it.
 
 ## Also pending
 - **Comparison article revisit:** add written content about allergy medicine
