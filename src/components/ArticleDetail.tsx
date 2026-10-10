@@ -11,14 +11,22 @@ import { isVerifiedPlus } from "@/lib/tiers";
 // Maps rendered Markdown elements to the site's existing type scale, rather
 // than pulling in a Tailwind Typography plugin whose opinionated defaults
 // would fight the hand-tuned classes used everywhere else on the site.
+// react-markdown passes each component its source AST `node`; spread as-is it
+// lands in the HTML as node="[object Object]", so drop it first.
+function omitNode<P extends object>(props: P & { node?: unknown }): P {
+  const { node, ...rest } = props;
+  void node;
+  return rest as P;
+}
+
 const markdownComponents = {
-  h1: (props: React.ComponentProps<"h1">) => <h2 className="mt-6 mb-2 text-xl font-bold" {...props} />,
-  h2: (props: React.ComponentProps<"h2">) => <h2 className="mt-6 mb-2 text-lg font-bold" {...props} />,
-  h3: (props: React.ComponentProps<"h3">) => <h3 className="mt-5 mb-2 text-base font-bold" {...props} />,
-  p: (props: React.ComponentProps<"p">) => <p className="mb-4" {...props} />,
-  ul: (props: React.ComponentProps<"ul">) => <ul className="mb-4 list-disc space-y-1 pl-5" {...props} />,
-  ol: (props: React.ComponentProps<"ol">) => <ol className="mb-4 list-decimal space-y-1 pl-5" {...props} />,
-  strong: (props: React.ComponentProps<"strong">) => <strong className="font-semibold text-foreground" {...props} />,
+  h1: (props: React.ComponentProps<"h1">) => <h2 className="mt-6 mb-2 text-xl font-bold" {...omitNode(props)} />,
+  h2: (props: React.ComponentProps<"h2">) => <h2 className="mt-6 mb-2 text-lg font-bold" {...omitNode(props)} />,
+  h3: (props: React.ComponentProps<"h3">) => <h3 className="mt-5 mb-2 text-base font-bold" {...omitNode(props)} />,
+  p: (props: React.ComponentProps<"p">) => <p className="mb-4" {...omitNode(props)} />,
+  ul: (props: React.ComponentProps<"ul">) => <ul className="mb-4 list-disc space-y-1 pl-5" {...omitNode(props)} />,
+  ol: (props: React.ComponentProps<"ol">) => <ol className="mb-4 list-decimal space-y-1 pl-5" {...omitNode(props)} />,
+  strong: (props: React.ComponentProps<"strong">) => <strong className="font-semibold text-foreground" {...omitNode(props)} />,
   a: ({ href, ...rest }: React.ComponentProps<"a">) => {
     // Internal links (e.g. a "find an ILIT provider" link to the SRP) should
     // navigate in the same tab like any other in-site link; only genuine
@@ -32,30 +40,30 @@ const markdownComponents = {
         className="font-semibold text-sage hover:underline"
         target={isInternal ? undefined : "_blank"}
         rel={isInternal ? undefined : "noopener noreferrer"}
-        {...rest}
+        {...omitNode(rest)}
       />
     );
   },
   img: (props: React.ComponentProps<"img">) => (
     // eslint-disable-next-line @next/next/no-img-element -- Markdown body images have arbitrary author-pasted URLs, not known at build time.
-    <img className="my-4 w-full rounded" {...props} alt={props.alt ?? ""} />
+    <img className="my-4 w-full rounded" {...omitNode(props)} alt={props.alt ?? ""} />
   ),
   // GFM tables (comparison content wants these) — matches the styling
   // already used for the hand-built table on Learn About ILIT, rather than
   // rendering a bare, unstyled HTML table.
   table: (props: React.ComponentProps<"table">) => (
     <div className="mb-4 overflow-x-auto">
-      <table className="w-full min-w-[420px] border-collapse text-sm" {...props} />
+      <table className="w-full min-w-[420px] border-collapse text-sm" {...omitNode(props)} />
     </div>
   ),
   th: (props: React.ComponentProps<"th">) => (
     <th
       className="border-b-2 border-line py-2 text-left text-[11px] font-semibold tracking-wide text-muted uppercase"
-      {...props}
+      {...omitNode(props)}
     />
   ),
-  td: (props: React.ComponentProps<"td">) => <td className="py-2.5 pr-4" {...props} />,
-  tr: (props: React.ComponentProps<"tr">) => <tr className="border-b border-line/60" {...props} />,
+  td: (props: React.ComponentProps<"td">) => <td className="py-2.5 pr-4" {...omitNode(props)} />,
+  tr: (props: React.ComponentProps<"tr">) => <tr className="border-b border-line/60" {...omitNode(props)} />,
 };
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -64,7 +72,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 // body paragraphs.
 const faqMarkdownComponents = {
   ...markdownComponents,
-  p: (props: React.ComponentProps<"p">) => <p className="[&+p]:mt-2" {...props} />,
+  p: (props: React.ComponentProps<"p">) => <p className="[&+p]:mt-2" {...omitNode(props)} />,
 };
 
 /** FAQ answer Markdown as plain text plus <a> links, for the FAQPage JSON-LD
