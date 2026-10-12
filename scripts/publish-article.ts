@@ -64,7 +64,8 @@ async function main() {
     tags,
     summaryPoints,
     metaDescription: metaDescription ?? null,
-    featureImageUrl: field(meta, "Feature image") ?? null,
+    // The brief's placeholder is "TBD (owner uploads)"; only a real URL counts.
+    featureImageUrl: field(meta, "Feature image")?.match(/^https?:\/\/\S+$/)?.[0] ?? null,
     featureImageAlt: field(meta, "Image alt") ?? null,
   } as const;
 
