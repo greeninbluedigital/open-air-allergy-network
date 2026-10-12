@@ -8,9 +8,9 @@ URL: /blog/how-long-do-cat-allergy-symptoms-last
 Meta description (149 chars): Cat allergy symptoms can return hours after you leave, and cat allergen can stay in a home for months. Here's why, what helps now, and longer term.
 Target keywords: "how long do cat allergy symptoms last", "cat allergy symptoms after exposure", "cat allergy relief", "faster alternative to allergy shots" (Longer term options section), "fast allergy treatment" (FAQ 4)
 Tags: Allergy Symptoms, Allergens
-Feature image: TBD (owner uploads)
+Feature image: https://res.cloudinary.com/qruprn0t/image/upload/v1791847373/sleeping_cat_2.jpg
 Image idea: A sunny living room corner with a gray tabby cat curled on a cream sofa cushion, a few cat hairs visible on a dark throw blanket beside it, warm afternoon window light, no people.
-Image alt: A tabby cat asleep on a sofa cushion in afternoon sunlight, with loose cat hair on a dark blanket beside it.
+Image alt: A white and orange cat asleep on a woven cushion on a sofa by a sunny window.
 Credit: none (house article).
 
 KEY TAKEAWAYS
