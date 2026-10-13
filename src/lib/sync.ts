@@ -20,6 +20,7 @@ const PROVIDER_COLUMNS = [
   ["phone", "Phone"],
   ["website", "Website"],
   ["notificationEmail", "Notification Email"],
+  ["notificationEmailPublic", "Notification Email Public"],
   ["tier", "Tier"],
   ["foundingMember", "Founding Member"],
   ["geoExtension", "Geo-Extension"],
@@ -53,7 +54,6 @@ const PROVIDER_COLUMNS = [
   ["customField2", "Custom Field 2"],
   ["notes", "Notes"],
   ["isDemo", "Demo/Example Listing"],
-  ["notificationEmailPublic", "Notification Email Public"],
 ] as const;
 
 const COLUMNS = PROVIDER_COLUMNS.map(([key]) => key);
@@ -112,7 +112,7 @@ function parseTier(cell: string | undefined): "FREE_CLAIMED" | "VERIFIED" | "FUL
   return TIER_MAP[(cell ?? "").trim().toLowerCase()] ?? "FREE_CLAIMED";
 }
 
-/** Academic column (O) Y, or Tier "Academic". */
+/** Academic column (P) Y, or Tier "Academic". */
 function isAcademic(r: { tier: string; academic: string }): boolean {
   return parseBool(r.academic) || r.tier.trim().toLowerCase() === "academic";
 }

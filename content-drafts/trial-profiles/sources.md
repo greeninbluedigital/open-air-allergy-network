@@ -1,7 +1,7 @@
 # Trial profiles: sources (written 2026-10-08)
 
 Content for these practices was written straight into the OAAN data sync sheet
-(Providers columns Z, AA, AE, AF, AG and the FAQs tab), following
+(Providers columns AA, AB, AF, AG, AH as of 2026-10-13, and the FAQs tab), following
 `docs/profile-writing-guide.md`. Every practice fact comes from the practice's
 own site, read 2026-10-08. Local allergy facts: AAFA 2026 Allergy Capitals
 report (aafa.org/wp-content/uploads/2026/03/aafa-2026-allergy-capitals-report.pdf):

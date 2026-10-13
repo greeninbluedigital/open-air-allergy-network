@@ -25,7 +25,7 @@ export function badgeClass(variant: BadgeVariant): string {
 
 /** Geo-Extension alone only widens search reach to 600mi (every trial has
  * it). Saying the practice sees out-of-area patients is a claim about the
- * practice, so it also needs Travel Notes (sheet column P), written from what
+ * practice, so it also needs Travel Notes (sheet column Q), written from what
  * the practice's own site says (2026-10-10). */
 export function seesOutOfArea(p: { geoExtension: boolean; travelNotes: string | null }): boolean {
   return p.geoExtension && !!p.travelNotes?.trim();

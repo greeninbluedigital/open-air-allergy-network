@@ -413,7 +413,7 @@ export default async function ProviderDetailPage({
           {seesOutOfArea(provider) && (
             <div>
               <h3 className="mb-2 text-base font-bold">Getting Here — Fly In</h3>
-              {/* Sheet column P, written from the practice's own site; no
+              {/* Sheet column Q, written from the practice's own site; no
                   fallback text, since that would be our claim, not theirs.
                   whitespace-pre-line keeps line breaks typed in the cell. */}
               <p className="text-sm whitespace-pre-line text-muted">

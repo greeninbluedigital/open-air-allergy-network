@@ -40,9 +40,9 @@ page actually displays it. Last updated 2026-10-06.
 | Homepage hero photo | "Homepage Hero Images" sheet tab | **2400 × 800** | 3:1 |
 | Blog and Learn article image | Article draft ("Feature image") | **1600 × 900** | 16:9 |
 | Photos inside an article | Article body | **1600 wide**, any height | Any |
-| Provider main photo | Providers tab, Provider Photo URL (AB) | **1200 × 1500** | 4:5 (portrait) |
-| Provider secondary photos | Providers tab, Secondary Photo URLs (AC), up to 4 | **1600 × 1200** | 4:3 |
-| Search result card photo | Providers tab, SRP Card Photo URL (AD) | **400 × 400** | 1:1 (square) |
+| Provider main photo | Providers tab, Provider Photo URL (AC) | **1200 × 1500** | 4:5 (portrait) |
+| Provider secondary photos | Providers tab, Secondary Photo URLs (AD), up to 4 | **1600 × 1200** | 4:3 |
+| Search result card photo | Providers tab, SRP Card Photo URL (AE) | **400 × 400** | 1:1 (square) |
 | Article author photo | Practitioners tab, Practitioner Thumbnail URL (E) | **400 × 400**, face centered | 1:1 |
 | Learn About ILIT hero | Set in the site code (ask Claude) | **2400 wide**, landscape | About 3:1 or wider |
 
@@ -134,7 +134,7 @@ Practice pages without a photo of their own show a generic allergen photo
 instead, listed in `src/lib/stockPhotos.ts` (Cloudinary URL plus alt text that
 describes the photo, never the practice). Basic listings always use one, even
 if the sheet has a practice photo, since there's no permission to show their
-own. Trial pages use the practice's Provider Photo URL (AB) when it's filled
+own. Trial pages use the practice's Provider Photo URL (AC) when it's filled
 in. Each page keeps the same photo on every visit (picked from its slug).
 Stock photos never go into structured data or social previews.
 

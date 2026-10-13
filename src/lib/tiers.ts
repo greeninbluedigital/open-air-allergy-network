@@ -18,7 +18,7 @@ export type ContactMode = "form" | "email" | "none";
  *   email app so OAAN never collects the message. Used whenever the
  *   practice is in one of those states, or the visitor's IP or searched zip
  *   is (owner's decision, 2026-10-09). The button shows the address, so it
- *   needs Notification Email Public (column AS); a private address means
+ *   needs Notification Email Public (column L); a private address means
  *   "none" here instead (2026-10-13, docs/practice-emails.md).
  * - "none": phone and website only.
  */

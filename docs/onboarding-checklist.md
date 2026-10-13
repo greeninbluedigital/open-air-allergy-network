@@ -38,11 +38,12 @@ Specs and limits live in [tiers-and-pricing.md](tiers-and-pricing.md)
       street before the state, e.g. `bay-area-allergy-asthma-st-petersburg-central-ave-fl`
       Office named after a nearby community (not a whole metro): put that
       name before the address city, e.g. `aspire-allergy-sinus-lakeway-bee-cave-tx`
-- [ ] Upload photos to Cloudinary, paste the URLs (AB, AC, AD)
-- [ ] Fill the row: Tier (L), add-ons (M, N, O), bios (Z, AA), hours (AE,
-      AF), treatments (AG), consults (V to X), message (Y), reviews (AH, AI).
-      Active (Q) `Y`, Verification Date (T), Demo (AR) `N`
-- [ ] Free trial: Trial (R) `Y` and Trial Expiration (S). Unlocks every
+- [ ] Upload photos to Cloudinary, paste the URLs (AC, AD, AE)
+- [ ] Fill the row: Notification Email (K), and Public (L) `Y` only if
+      their own site lists it. Tier (M), add-ons (N, O, P), bios (AA, AB),
+      hours (AF, AG), treatments (AH), consults (W to Y), message (Z),
+      reviews (AI, AJ). Active (R) `Y`, Verification Date (U), Demo (AS) `N`
+- [ ] Free trial: Trial (S) `Y` and Trial Expiration (T). Unlocks every
       Featured feature until that date, then reverts on its own
 - [ ] Other tabs as needed: FAQs, SEM Landing Pages (Geo-Extension),
       Practitioners (if they'll write articles)
@@ -70,7 +71,7 @@ Specs and limits live in [tiers-and-pricing.md](tiers-and-pricing.md)
 
 ## Upgrades, downgrades and cancellations
 
-- [ ] Change Tier (L), or set Active (Q) to `N`, then sync
+- [ ] Change Tier (M), or set Active (R) to `N`, then sync
 - [ ] Remove anything the new tier doesn't include (custom message, Learn
       Page Credits tab row) so the sync warnings stay clean
 - [ ] Request Indexing for their page again in Search Console

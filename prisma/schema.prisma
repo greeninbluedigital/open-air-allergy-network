@@ -106,7 +106,7 @@ model Provider {
   // list for this feature, but forwarding a lead by email requires knowing
   // where to send it, so this is structurally necessary.
   notificationEmail String?
-  // Sheet column AS. True only when the practice publishes this address
+  // Sheet column L. True only when the practice publishes this address
   // itself; only then is it shown to visitors (the email button). A private
   // address is used solely to forward contact form messages (2026-10-13).
   notificationEmailPublic Boolean @default(false)
@@ -118,8 +118,8 @@ model Provider {
   // The Tier as entered on the sheet (what the practice actually pays for).
   // tierSince follows this, so a trial doesn't reset it.
   sheetTier   Tier      @default(FREE_CLAIMED)
-  // Free trial: Trial (R) = Y unlocks the Featured tier until Trial
-  // Expiration (S), inclusive. Set by the sync; never shown publicly.
+  // Free trial: Trial (S) = Y unlocks the Featured tier until Trial
+  // Expiration (T), inclusive. Set by the sync; never shown publicly.
   trial       Boolean   @default(false)
   trialEndsAt DateTime?
   // Set by the sync when a provider is created or its tier changes, so
@@ -132,12 +132,12 @@ model Provider {
   // separate tiers themselves.
   foundingMember Boolean @default(false)
   geoExtension   Boolean @default(false)
-  // Academic medical center (Providers column O). Adds the Academic badge and
+  // Academic medical center (Providers column P). Adds the Academic badge and
   // pin at any paid tier, and unlocks FAQs, treatments and hours on a
   // Verified-tier page (the "Academic package"; see docs/tiers-and-pricing.md).
   academic       Boolean @default(false)
   // Practice-written custom message badge, e.g. "Now accepting new patients"
-  // (Providers column Y, 30 characters max). Featured listings only.
+  // (Providers column Z, 30 characters max). Featured listings only.
   customMessage  String?
 
   // One-time phone confirmation for Free-tier onboarding.

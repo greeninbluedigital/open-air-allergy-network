@@ -1,6 +1,6 @@
 # Practice email addresses (Notification Email, column K)
 
-Column AS (Notification Email Public) says whether the practice publishes
+Column L (Notification Email Public) says whether the practice publishes
 the address itself (added 2026-10-13):
 
 - **`Y` (public):** an address on the practice's own website. Visitors in a
@@ -55,7 +55,7 @@ Ask Claude to scrape the practice's site (homepage, contact and about pages,
 email links and page text), then add a row to this table before filling in
 column K.
 
-## Private addresses (column AS blank)
+## Private addresses (column L blank)
 
 | Row | Practice | Address | Source |
 |---|---|---|---|
