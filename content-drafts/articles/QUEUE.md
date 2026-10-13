@@ -15,10 +15,10 @@ before publishing.
 |---|---|---|---|---|---|---|---|
 | 1 | Ragweed Allergy: Season, Symptoms and Treatment | Learn | ragweed-allergy | ASAP (searches peak now) | published 2026-10-10 | ragweed-allergy.md |  |
 | 2 | How Long Do Cat Allergy Symptoms Last After Exposure? | Blog | how-long-do-cat-allergy-symptoms-last | any time | published 2026-10-12 | how-long-do-cat-allergy-symptoms-last.md |  |
-| 3 | Austin Allergies: Cedar Fever, Oak and Grass Season, and Treatment Options | Learn | austin-allergies | early November | next | |  |
-| 4 | Cedar Fever: Mountain Cedar Allergy in Texas | Learn | cedar-fever-mountain-cedar-allergy | mid November | next | |  |
-| 5 | Allergies or a Cold? A Quick Quiz | Learn | allergies-or-cold-quiz | any time | needs code | |  |
-| 6 | Dust Mite Allergy: Symptoms, Triggers and Treatment | Learn | dust-mite-allergy | any time | next | |  |
+| 3 | Austin Allergies: Cedar Fever, Oak and Grass Season, and Treatment Options | Learn | austin-allergies | early November | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791850338/ashe-juniper-mountain-cedar-oak-texas.jpg |
+| 4 | Cedar Fever: Mountain Cedar Allergy in Texas | Learn | cedar-fever-mountain-cedar-allergy | mid November | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791849870/ashe-juniper-mountain-cedar-texas.jpg |
+| 5 | Allergies or a Cold? A Quick Quiz | Learn | allergies-or-cold-quiz | any time | needs code | | https://res.cloudinary.com/qruprn0t/image/upload/v1791850725/allergy_in_pollen_field.jpg |
+| 6 | Dust Mite Allergy: Symptoms, Triggers and Treatment | Learn | dust-mite-allergy | any time | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1790817206/blog-hand-touching-dust-in-sunbeam.jpg |
 | 7 | Dallas–Fort Worth Allergies (city page) | Learn | dallas-fort-worth-allergies | before February (oak) | next | |  |
 | 8 | Houston Allergies (city page) | Learn | houston-allergies | before February | next | |  |
 | 9 | Can Allergies Cause a Sore Throat? | Blog | can-allergies-cause-sore-throat | any time | next | |  |
