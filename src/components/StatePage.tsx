@@ -128,13 +128,15 @@ export async function StatePage({ state, groups }: { state: StateInfo; groups: M
   );
 }
 
-/** A wrapping row of state links with counts, shared with Find a Provider. */
-export function StateLinks({ states }: { states: (StateInfo & { count: number })[] }) {
+/** A wrapping row of state links, shared with Find a Provider. No counts:
+ * with only a few practices per state, they made the directory look thin
+ * (owner, 2026-10-13). */
+export function StateLinks({ states }: { states: StateInfo[] }) {
   return (
     <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
       {states.map((s) => (
         <Link key={s.code} href={`/find-an-ilit-provider/${s.slug}`} className="font-semibold text-sage hover:underline">
-          {s.name} <span className="font-normal text-muted">({s.count})</span>
+          {s.name}
         </Link>
       ))}
     </div>
