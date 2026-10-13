@@ -63,7 +63,7 @@ Column order:
 | AF | ILIT Schedule Notes | One short line promoting the practice's ILIT course, shown in the hours box under Business Hours (same tiers). Pattern: `[Brand name]: [number] injections over [time], instead of years of allergy shots.` Facts from the practice's site, no prices or payment, no hours (those go in AE). Originally meant for ILIT clinic days; repurposed 2026-10-09 because it's prime space to sell ILIT |
 | AG | Treatments Offered | **No longer shown as pills on practice pages (2026-10-09)**, and not in the page's structured data; still synced and part of the page's content date. Semicolon-separated, e.g. `ILIT; SCIT; Food Allergy Testing`. Shown on Full Profile and Featured, and on Academic Verified pages |
 | AH | Show Reviews | **Renamed** from "Show Google Reviews" — `Y` / `N`, one master toggle for the whole Patient Reviews module (Featured tier only regardless of this flag). Which platform(s) actually render depends on whether Google Place ID / any Yelp field below is filled in |
-| AI | Google Place ID | |
+| AI | Google Place ID | The practice's Google Place ID (starts with `ChIJ`). Sync trims spaces and line breaks from a pasted ID. Anything that isn't a bare ID, such as a note explaining why a location has no ID yet, is ignored (with a sync warning if Show Reviews is `Y`). Reviews are fetched overnight, then refreshed weekly per practice; a Google error is retried the next night. |
 | AJ | Yelp Embed Code 1 | **New** — paste from Yelp's own free "Embed Review" feature (the "···" menu on any review on Yelp's site). Not the Fusion API |
 | AK | Yelp Embed Code 2 | **New** — same as above |
 | AL | Yelp Embed Code 3 | **New** — same as above. Exactly 3 slots, no more |
