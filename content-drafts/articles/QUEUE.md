@@ -21,10 +21,10 @@ before publishing.
 | 6 | Dust Mite Allergy: Symptoms, Triggers and Treatment | Learn | dust-mite-allergy | any time | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1790817206/blog-hand-touching-dust-in-sunbeam.jpg |
 | 7 | Dallas–Fort Worth Allergies (city page) | Learn | dallas-fort-worth-allergies | before February (oak) | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791851874/margaret-hunt-hill-bridge-dallas-texas.jpg |
 | 8 | Houston Allergies (city page) | Learn | houston-allergies | before February | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791852227/houston-texas-skyline-and-grassy-park.jpg |
-| 9 | Can Allergies Cause a Sore Throat? | Blog | can-allergies-cause-sore-throat | any time | next | |  |
-| 10 | Denver Allergies (city page) | Learn | denver-allergies | before March | next | |  |
-| 11 | Orlando Allergies (city page) | Learn | orlando-allergies | before January | next | |  |
-| 12 | Can Allergies Cause Chest Tightness? | Blog | can-allergies-cause-chest-tightness | any time | next | |  |
+| 9 | Can Allergies Cause a Sore Throat? | Blog | can-allergies-cause-sore-throat | any time | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791852724/sore-throat-1.jpg |
+| 10 | Denver Allergies (city page) | Learn | denver-allergies | before March | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791852967/denver-co-skyline.jpg |
+| 11 | Orlando Allergies (city page) | Learn | orlando-allergies | before January | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791853508/orlando-fl-lake-eola-park-and-linton-e-allen-memorial-fountain.jpg |
+| 12 | Can Allergies Cause Chest Tightness? | Blog | can-allergies-cause-chest-tightness | any time | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791854105/allergy-chest-tightness-2.jpg |
 | 13 | Oak Pollen Allergy | Learn | oak-pollen-allergy | February | next | |  |
 | 14 | Pine Pollen: Why the Yellow Dust Usually Isn't What's Making You Sneeze | Blog | pine-pollen-allergy | late February | next | |  |
 | 15 | Birch Pollen Allergy | Learn | birch-pollen-allergy | March | next | |  |
