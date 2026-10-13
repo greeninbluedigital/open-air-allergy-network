@@ -80,10 +80,13 @@ sources), so a careless article hurts the whole site.
   ("may", "in studies").
 - **No prices, insurance or payment details** for any practice. General
   education about cost is allowed only in an article planned for it.
-- **No practice endorsements.** City pages may list the ILIT practices OAAN
-  shows in that area, attributing any practice fact to the practice
-  ("according to its website"). Link to their OAAN pages
-  (`/find-an-ilit-provider/<slug>`), never to practice websites.
+- **No practice lists or endorsements.** Never list or name the ILIT
+  practices in an area, even on city pages: listings change, and an article
+  would go stale (owner's rule, 2026-10-13). Send readers to Find a Provider
+  with a zip filled in (`/find-an-ilit-provider?zip=<zip>`, e.g. a central
+  zip for the city), and to the state page once state pages exist. A study
+  author's affiliation may be named as part of citing the research. Never
+  link to practice websites.
 - **End with "Longer term options"** (or similar): allergy medicine,
   allergy shots, allergy drops or tablets, and ILIT as the shorter course,
   then a link to the Learn comparison article and Find a Provider.
