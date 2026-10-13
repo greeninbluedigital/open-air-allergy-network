@@ -84,7 +84,8 @@ sources), so a careless article hurts the whole site.
   practices in an area, even on city pages: listings change, and an article
   would go stale (owner's rule, 2026-10-13). Send readers to Find a Provider
   with a zip filled in (`/find-an-ilit-provider?zip=<zip>`, e.g. a central
-  zip for the city), and to the state page once state pages exist. A study
+  zip for the city), and to the state page (`/find-an-ilit-provider/texas`,
+  `/find-an-ilit-provider/north-carolina` and so on). A study
   author's affiliation may be named as part of citing the research. Never
   link to practice websites.
 - **End with "Longer term options"** (or similar): allergy medicine,
@@ -109,6 +110,9 @@ sources), so a careless article hurts the whole site.
 - `/blog/ilit-vs-traditional-allergy-shots`
 - `/blog/allergy-skin-test-vs-blood-test`
 - `/find-an-ilit-provider` and `/find-an-ilit-provider?zip=<zip>` for a city
+- State pages, `/find-an-ilit-provider/<state name, lowercase, hyphens>`, e.g.
+  `/find-an-ilit-provider/texas`, listing every practice in the state by metro
+  area (only states with practices exist; check the page loads before linking)
 - Any article in content-ideas' "Published" table added since this list
 
 ## Draft file format

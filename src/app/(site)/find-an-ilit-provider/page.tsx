@@ -3,7 +3,10 @@ import { ScraperTrapLink } from "@/components/ScraperTrapLink";
 import type { Metadata } from "next";
 import { ZipSearchForm } from "@/components/ZipSearchForm";
 import { ProviderCard } from "@/components/srp/ProviderCard";
-import { ProviderMap } from "@/components/srp/ProviderMap";import { lookupZip } from "@/lib/zip";
+import { ProviderMap } from "@/components/srp/ProviderMap";
+import { StateLinks } from "@/components/StatePage";
+import { lookupZip } from "@/lib/zip";
+import { statesWithProviders } from "@/lib/statePages";
 import { searchProviders } from "@/lib/srp";
 
 export const metadata: Metadata = {
@@ -33,7 +36,10 @@ export default async function FindAProviderPage({
   const view = params.view === "map" ? "map" : "list";
 
   const location = zip ? lookupZip(zip) : null;
-  const result = location ? await searchProviders(location.lat, location.lng, radius) : null;
+  const [result, states] = await Promise.all([
+    location ? searchProviders(location.lat, location.lng, radius) : null,
+    statesWithProviders(),
+  ]);
   // One list, nearest first, whatever a practice's listing level: a
   // neutral consumer information site ranks by distance only (2026-10-09).
   const providers = result
@@ -168,6 +174,13 @@ export default async function FindAProviderPage({
             </div>
           )}
         </>
+      )}
+
+      {states.length > 0 && (
+        <section className="border-t border-line px-6 py-8 sm:px-10">
+          <h2 className="mb-3 text-xs font-semibold tracking-wide text-muted uppercase">Browse ILIT providers by state</h2>
+          <StateLinks states={states} />
+        </section>
       )}
     </>
   );

@@ -18,6 +18,8 @@ import { stockPhotoFor } from "@/lib/stockPhotos";
 import { visitorInHealthDataState } from "@/lib/visitorLocation";
 import { COMPARISON_ARTICLE_SLUG, ILIT_DEFINITION } from "@/lib/content";
 import { ProviderCard } from "@/components/srp/ProviderCard";
+import { StatePage, stateMetadata } from "@/components/StatePage";
+import { stateBySlug, stateMetroGroups } from "@/lib/statePages";
 import {
   isFullProfilePlus as isFullProfileTier,
   isVerifiedPlus as isVerifiedTier,
@@ -101,6 +103,10 @@ export async function generateMetadata({
   params,
 }: PageProps<"/find-an-ilit-provider/[slug]">): Promise<Metadata> {
   const { slug } = await params;
+  // State pages share this route: a state name never matches a practice
+  // slug, which always ends in a city and state code.
+  const state = stateBySlug(slug);
+  if (state) return stateMetadata(state);
   const provider = await getProvider(slug);
   if (!provider) return {};
   const street = await sameCityStreet(provider);
@@ -148,6 +154,12 @@ export default async function ProviderDetailPage({
   searchParams,
 }: PageProps<"/find-an-ilit-provider/[slug]">) {
   const { slug } = await params;
+  const state = stateBySlug(slug);
+  if (state) {
+    const groups = await stateMetroGroups(state.code);
+    if (groups.length === 0) notFound();
+    return <StatePage state={state} groups={groups} />;
+  }
   const sp = await searchParams;
   const provider = await getProvider(slug);
   if (!provider) {

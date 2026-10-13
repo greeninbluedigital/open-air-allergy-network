@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { db } from "@/lib/db";
+import { statesWithProviders } from "@/lib/statePages";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
@@ -23,7 +24,7 @@ export const dynamic = "force-dynamic";
  * a sync or publish.
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [providers, articles] = await Promise.all([
+  const [providers, articles, states] = await Promise.all([
     db.provider.findMany({
       where: { active: true, isDemo: false },
       select: { slug: true, updatedAt: true, contentUpdatedAt: true },
@@ -32,10 +33,12 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       where: { status: "PUBLISHED" },
       select: { slug: true, section: true, publishedDate: true, lastUpdated: true },
     }),
+    statesWithProviders(),
   ]);
 
   return [
     ...STATIC_PATHS.map((path) => ({ url: `${SITE_URL}${path}` })),
+    ...states.map((s) => ({ url: `${SITE_URL}/find-an-ilit-provider/${s.slug}` })),
     ...providers.map((p) => ({ url: `${SITE_URL}/find-an-ilit-provider/${p.slug}`, lastModified: p.contentUpdatedAt ?? p.updatedAt })),
     ...articles.map((a) => ({
       url: `${SITE_URL}/${a.section === "LEARN" ? "learn-about-ilit" : "blog"}/${a.slug}`,

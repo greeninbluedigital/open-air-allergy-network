@@ -22,7 +22,7 @@ There are three separate sources of numbers:
 
 | Metric | Event type | Counted when | Where it happens |
 |---|---|---|---|
-| Search result impressions | `SRP_IMPRESSION` | The practice's result card is a **viewable impression** (see definitions) | Find a Provider results list |
+| Search result impressions | `SRP_IMPRESSION` | The practice's result card is a **viewable impression** (see definitions) | Find a Provider results list, and state pages (`/find-an-ilit-provider/{state}`, since 2026-10-13; tell them apart by the event's path) |
 | Homepage impressions | `HOMEPAGE_IMPRESSION` | Same, for its card in the homepage section | Homepage "ILIT Providers Near {city}" (every listing level since 2026-10-09; Featured only from 2026-10-02, Full Profile too before that) |
 | Nearby impressions | `PDP_NEARBY_IMPRESSION` | Same, for its card on another practice's page | A Freemium practice's page, "Other ILIT Providers Near {city}" (every listing level since 2026-10-09; Full Profile and Featured only before) |
 | Provider page views | `PAGE_VIEW` | The page loads in a visitor's browser (not a viewability measure) | Provider pages (every tier, Freemium included) and SEM landing pages. Tell them apart by path: SEM pages start with `/lp/` |

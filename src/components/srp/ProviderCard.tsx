@@ -15,12 +15,15 @@ export function ProviderCard({
   provider,
   backHref,
   impressionType,
+  hideDistance = false,
 }: {
   provider: SrpProvider;
   /** Preserves zip/radius/view so the PDP's back button can reconstruct this exact search. */
   backHref: string;
   /** Records a viewable impression for this card (see docs/analytics.md). */
   impressionType: ImpressionType;
+  /** State pages list by metro area, where a distance has no reference point. */
+  hideDistance?: boolean;
 }) {
   // Every listing gets the same card: no tier styling on a neutral site.
   const badges = cardBadges(provider);
@@ -55,9 +58,11 @@ export function ProviderCard({
             {provider.city}, {provider.state}
           </div>
         </div>
-        <div className="shrink-0 text-xs whitespace-nowrap text-muted">
-          {provider.distanceMiles.toFixed(1)} mi
-        </div>
+        {!hideDistance && (
+          <div className="shrink-0 text-xs whitespace-nowrap text-muted">
+            {provider.distanceMiles.toFixed(1)} mi
+          </div>
+        )}
       </Link>
     </ViewableImpression>
   );
