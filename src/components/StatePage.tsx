@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { ProviderCard } from "@/components/srp/ProviderCard";
 import { ILIT_DEFINITION } from "@/lib/content";
 import { truncateForMeta } from "@/lib/metadata";
-import { stateMetroGroups, statesWithProviders, type MetroGroup, type StateInfo } from "@/lib/statePages";
+import { metroAnchor, stateMetroGroups, statesWithProviders, type MetroGroup, type StateInfo } from "@/lib/statePages";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
@@ -11,19 +11,14 @@ function groupHeading(group: MetroGroup, state: StateInfo): string {
   return group.name ? `${group.name} area` : `Other ${state.name} locations`;
 }
 
-function countLabel(n: number): string {
-  return `${n} ${n === 1 ? "location" : "locations"}`;
-}
-
 export async function stateMetadata(state: StateInfo): Promise<Metadata> {
   const groups = await stateMetroGroups(state.code);
-  const total = groups.reduce((n, g) => n + g.providers.length, 0);
   const metros = groups.filter((g) => g.name).map((g) => g.name!);
   const title = `ILIT Providers in ${state.name}`;
   const description = truncateForMeta(
     metros.length > 0
-      ? `Find ILIT (intralymphatic immunotherapy) providers in ${state.name} by metro area: ${metros.slice(0, 4).join(", ")}. ${countLabel(total)} listed.`
-      : `Find ILIT (intralymphatic immunotherapy) providers in ${state.name}. ${countLabel(total)} listed on Open Air Allergy Network.`,
+      ? `Find ILIT (intralymphatic immunotherapy) providers in ${state.name} by metro area: ${metros.slice(0, 4).join(", ")}.`
+      : `Find ILIT (intralymphatic immunotherapy) providers in ${state.name}, listed on Open Air Allergy Network.`,
   );
   return {
     title,
@@ -82,8 +77,8 @@ export async function StatePage({ state, groups }: { state: StateInfo; groups: M
         </nav>
         <h1 className="mb-3 text-3xl font-extrabold">ILIT Providers in {state.name}</h1>
         <p className="max-w-2xl text-sm text-foreground/80">
-          Open Air Allergy Network lists {countLabel(total)} in {state.name} that offer ILIT, grouped by metro area
-          below. {ILIT_DEFINITION}
+          Open Air Allergy Network lists the practices in {state.name} that offer ILIT, grouped by metro area below.{" "}
+          {ILIT_DEFINITION}
         </p>
         <p className="mt-2 max-w-2xl text-sm text-foreground/80">
           New to ILIT?{" "}
@@ -94,12 +89,13 @@ export async function StatePage({ state, groups }: { state: StateInfo; groups: M
       </div>
 
       {groups.map((group) => (
-        <section key={group.name ?? "other"} className="border-b border-line px-6 py-8 sm:px-10">
+        <section
+          key={group.name ?? "other"}
+          id={metroAnchor(group.name)}
+          className="scroll-mt-4 border-b border-line px-6 py-8 sm:px-10"
+        >
           <div className="mb-3 flex flex-wrap items-baseline justify-between gap-2">
-            <h2 className="text-lg font-bold">
-              {groupHeading(group, state)}{" "}
-              <span className="text-sm font-normal text-muted">({countLabel(group.providers.length)})</span>
-            </h2>
+            <h2 className="text-lg font-bold">{groupHeading(group, state)}</h2>
             {group.zip && (
               <Link
                 href={`/find-an-ilit-provider?zip=${group.zip}`}

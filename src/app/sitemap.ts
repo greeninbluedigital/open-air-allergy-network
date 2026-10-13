@@ -7,6 +7,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 const STATIC_PATHS = [
   "",
   "/find-an-ilit-provider",
+  "/find-an-ilit-provider/by-state",
   "/learn-about-ilit",
   "/blog",
   "/for-practices",

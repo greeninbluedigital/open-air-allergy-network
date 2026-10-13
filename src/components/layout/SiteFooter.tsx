@@ -31,6 +31,9 @@ export function SiteFooter() {
           <Link href="/find-an-ilit-provider" data-cta="footer" className="text-foreground/80 underline-offset-2 hover:underline">
             Find a Provider
           </Link>
+          <Link href="/find-an-ilit-provider/by-state" data-cta="footer" className="text-foreground/80 underline-offset-2 hover:underline">
+            Providers by State
+          </Link>
           <Link href="/blog" data-cta="footer" className="text-foreground/80 underline-offset-2 hover:underline">
             Blog
           </Link>

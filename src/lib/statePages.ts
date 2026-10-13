@@ -13,7 +13,13 @@ export type StateInfo = { code: string; name: string; slug: string };
 
 /** "North Carolina" -> "north-carolina". */
 function slugify(name: string): string {
-  return name.toLowerCase().replace(/[^a-z]+/g, "-").replace(/^-|-$/g, "");
+  return name.toLowerCase().normalize("NFKD").replace(/[^a-z]+/g, "-").replace(/^-|-$/g, "");
+}
+
+/** The id of a metro's section on its state page, e.g. "dallas-fort-worth",
+ * or "other" for the catch-all group. */
+export function metroAnchor(metroName: string | null): string {
+  return metroName ? slugify(metroName) : "other";
 }
 
 const STATES: StateInfo[] = US_STATES.map(([code, name]) => ({ code, name, slug: slugify(name) }));
@@ -158,11 +164,32 @@ const CARD_FIELDS = {
   verificationDate: true,
 } as const;
 
+type CardRow = Awaited<ReturnType<typeof cardRows>>[number];
+
+function cardRows(where: { state?: string }) {
+  return db.provider.findMany({ where: { ...LIVE, ...where }, select: CARD_FIELDS });
+}
+
 /** The state's practices grouped by metro: biggest metros first, then
  * "Other", each group sorted by city then name. Empty when the state has
  * no active practices (the page then 404s). */
 export async function stateMetroGroups(code: string): Promise<MetroGroup[]> {
-  const rows = await db.provider.findMany({ where: { ...LIVE, state: code }, select: CARD_FIELDS });
+  return groupByMetro(code, await cardRows({ state: code }));
+}
+
+/** Every state with practices, A to Z, each with its metro groups. One
+ * query, for the "ILIT Providers by State" page. */
+export async function allStateMetroGroups(): Promise<{ state: StateInfo; groups: MetroGroup[] }[]> {
+  const rows = await cardRows({});
+  const byState = new Map<string, CardRow[]>();
+  for (const row of rows) byState.set(row.state, [...(byState.get(row.state) ?? []), row]);
+  return [...byState.entries()]
+    .map(([code, stateRows]) => ({ state: stateByCode(code), groups: groupByMetro(code, stateRows) }))
+    .filter((s): s is { state: StateInfo; groups: MetroGroup[] } => s.state !== null)
+    .sort((a, b) => a.state.name.localeCompare(b.state.name));
+}
+
+function groupByMetro(code: string, rows: CardRow[]): MetroGroup[] {
   const metros = METROS[code] ?? [];
   const groups = new Map<string, MetroGroup>();
   const other: MetroGroup = { name: null, zip: null, providers: [] };
