@@ -124,7 +124,7 @@ URL: /blog/<slug>        (or /learn-about-ilit/<slug>)
 Meta description (NN chars): ...   (70 to 155 characters)
 Target keywords: "...", "..."
 Tags: ...                (comma separated, from the tags already in use: Allergy Symptoms, Allergens, Allergy Testing, Comparisons, ILIT, SCIT, SLIT; propose a new tag only in REVIEW NOTES)
-Feature image: TBD (owner uploads)
+Feature image: TBD (owner uploads)   (or the URL from the queue row's Hero image column, if filled)
 Image idea: one sentence describing a realistic, saturated, real setting photo (no faces, no clinic interiors)
 Image alt: ...
 Credit: none (house article).
