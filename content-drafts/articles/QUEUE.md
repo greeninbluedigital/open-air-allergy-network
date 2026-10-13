@@ -19,8 +19,8 @@ before publishing.
 | 4 | Cedar Fever: Mountain Cedar Allergy in Texas | Learn | cedar-fever-mountain-cedar-allergy | mid November | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791849870/ashe-juniper-mountain-cedar-texas.jpg |
 | 5 | Allergies or a Cold? A Quick Quiz | Learn | allergies-or-cold-quiz | any time | needs code | | https://res.cloudinary.com/qruprn0t/image/upload/v1791850725/allergy_in_pollen_field.jpg |
 | 6 | Dust Mite Allergy: Symptoms, Triggers and Treatment | Learn | dust-mite-allergy | any time | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1790817206/blog-hand-touching-dust-in-sunbeam.jpg |
-| 7 | Dallas–Fort Worth Allergies (city page) | Learn | dallas-fort-worth-allergies | before February (oak) | next | |  |
-| 8 | Houston Allergies (city page) | Learn | houston-allergies | before February | next | |  |
+| 7 | Dallas–Fort Worth Allergies (city page) | Learn | dallas-fort-worth-allergies | before February (oak) | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791851874/margaret-hunt-hill-bridge-dallas-texas.jpg |
+| 8 | Houston Allergies (city page) | Learn | houston-allergies | before February | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791852227/houston-texas-skyline-and-grassy-park.jpg |
 | 9 | Can Allergies Cause a Sore Throat? | Blog | can-allergies-cause-sore-throat | any time | next | |  |
 | 10 | Denver Allergies (city page) | Learn | denver-allergies | before March | next | |  |
 | 11 | Orlando Allergies (city page) | Learn | orlando-allergies | before January | next | |  |
