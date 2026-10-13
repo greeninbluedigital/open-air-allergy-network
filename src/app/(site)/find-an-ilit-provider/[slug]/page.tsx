@@ -22,6 +22,7 @@ import {
   isFullProfilePlus as isFullProfileTier,
   isVerifiedPlus as isVerifiedTier,
   contactMode,
+  publicEmail,
   showsPracticeDetails,
 } from "@/lib/tiers";
 
@@ -478,7 +479,7 @@ export default async function ProviderDetailPage({
           <ContactPanel
             provider={provider}
             mode={contactMode(provider, visitorInHealthState)}
-          email={provider.notificationEmail?.trim() || null}
+          publicEmail={publicEmail(provider)}
             sent={sent}
             confirmed={confirmed}
             error={error}

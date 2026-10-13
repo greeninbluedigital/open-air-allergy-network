@@ -11,7 +11,7 @@ import { ComparingIlit, IsIlitRightForMe, WhatIsIlit } from "@/components/ilit/I
 import { PatientReviews, reviewsWouldShow } from "@/components/PatientReviews";
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { parseFormError } from "@/lib/forms";
-import { contactMode } from "@/lib/tiers";
+import { contactMode, publicEmail } from "@/lib/tiers";
 import { visitorInHealthDataState } from "@/lib/visitorLocation";
 
 
@@ -208,7 +208,7 @@ export default async function SemLandingPage({
         <ContactPanel
           provider={provider}
           mode={contactMode(provider, visitorInHealthState)}
-          email={provider.notificationEmail?.trim() || null}
+          publicEmail={publicEmail(provider)}
           sent={sent}
           confirmed={confirmed}
           error={error}

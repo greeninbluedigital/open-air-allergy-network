@@ -3,6 +3,7 @@ import type { Prisma } from "@/generated/prisma/client";
 import { YelpEmbed } from "@/components/pdp/YelpEmbed";
 
 type ReviewsProvider = {
+  practiceName: string;
   tier: "FREE_CLAIMED" | "VERIFIED" | "FULL_PROFILE" | "FEATURED";
   showReviews: boolean;
   googlePlaceId: string | null;
@@ -103,7 +104,7 @@ export function PatientReviews({ provider }: { provider: ReviewsProvider }) {
 
   return (
     <div>
-      <h3 className="mb-2 text-base font-bold">Patient Reviews</h3>
+      <h3 className="mb-2 text-base font-bold">Patient Reviews for {provider.practiceName}</h3>
 
       {hasGoogle && provider.googleRating != null && (
         <div className="mb-2 text-sm text-muted">

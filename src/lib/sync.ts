@@ -53,6 +53,7 @@ const PROVIDER_COLUMNS = [
   ["customField2", "Custom Field 2"],
   ["notes", "Notes"],
   ["isDemo", "Demo/Example Listing"],
+  ["notificationEmailPublic", "Notification Email Public"],
 ] as const;
 
 const COLUMNS = PROVIDER_COLUMNS.map(([key]) => key);
@@ -60,8 +61,8 @@ const COLUMNS = PROVIDER_COLUMNS.map(([key]) => key);
 // Positional, so the sheet's header row is checked first (verifyProviderHeaders):
 // a column inserted, removed, or renamed on the sheet stops the whole sync
 // with a clear error instead of shifting every value into the wrong field.
-const SHEET_RANGE = "Providers!A2:AR";
-const HEADER_RANGE = "Providers!A1:AR1";
+const SHEET_RANGE = "Providers!A2:AS";
+const HEADER_RANGE = "Providers!A1:AS1";
 
 function columnLetter(i: number): string {
   return (i < 26 ? "" : String.fromCharCode(64 + Math.floor(i / 26))) + String.fromCharCode(65 + (i % 26));
@@ -777,6 +778,7 @@ export async function runSync(): Promise<SyncSummary> {
         phone: r.phone || null,
         website: r.website || null,
         notificationEmail: r.notificationEmail.trim() || null,
+        notificationEmailPublic: parseBool(r.notificationEmailPublic),
         tier,
         sheetTier,
         trial: trialActive,

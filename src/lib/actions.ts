@@ -101,7 +101,7 @@ export async function submitContactMessage(formData: FormData) {
   // state (by IP or searched zip), whatever the visitor answered.
   const recipient = await db.provider.findUnique({
     where: { id: providerId },
-    select: { active: true, tier: true, state: true, notificationEmail: true },
+    select: { active: true, tier: true, state: true, notificationEmail: true, notificationEmailPublic: true },
   });
   const region = await visitorRegion();
   const visitorInHealthState = isHealthDataState(region.ipRegion) || isHealthDataState(region.zipState);

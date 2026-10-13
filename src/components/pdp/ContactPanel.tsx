@@ -20,7 +20,7 @@ export function formatAddress(provider: { address: string; addressLine2: string 
 export function ContactPanel({
   provider,
   mode,
-  email,
+  publicEmail,
   sent,
   confirmed,
   error,
@@ -43,8 +43,9 @@ export function ContactPanel({
   };
   /** Form, email button or neither (contactMode). */
   mode: ContactMode;
-  /** The practice's published address (Notification Email); set whenever mode isn't "none". */
-  email: string | null;
+  /** The Notification Email only when the practice publishes it (tiers.ts
+   * publicEmail), for the email button. Never a private address. */
+  publicEmail: string | null;
   sent: boolean;
   confirmed: boolean;
   error: FormError | null;
@@ -68,8 +69,7 @@ export function ContactPanel({
           formLocation={formLocation}
         />
       ) : (
-        mode === "form" &&
-        email && (
+        mode === "form" && (
           <>
             {error && (
               <LeadErrorMessage
@@ -83,15 +83,15 @@ export function ContactPanel({
               providerId={provider.id}
               providerSlug={provider.slug}
               practiceName={provider.practiceName}
-              email={email}
+              email={publicEmail}
               utm={utm}
               returnPath={returnPath}
             />
           </>
         )
       )}
-      {mode === "email" && email && !sent && !confirmed && (
-        <EmailPracticeButton email={email} practiceName={provider.practiceName} providerId={provider.id} />
+      {mode === "email" && publicEmail && !sent && !confirmed && (
+        <EmailPracticeButton email={publicEmail} practiceName={provider.practiceName} providerId={provider.id} />
       )}
 
       {(provider.phone || provider.website) && (

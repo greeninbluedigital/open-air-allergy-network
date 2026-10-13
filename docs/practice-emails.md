@@ -1,11 +1,20 @@
 # Practice email addresses (Notification Email, column K)
 
-The Notification Email can be **public**: visitors in a consumer health data
-state (WA, NV, CT) and every visitor to a practice located in one get an
-"Email {practice}" button showing the address instead of the contact form
-(see `docs/sheet-columns.md`, column K, and `src/lib/healthDataStates.ts`). So a row only gets an address the practice already publishes
-on its own website. A practice that only offers a contact form keeps column K
-blank, and its page shows phone and website only.
+Column AS (Notification Email Public) says whether the practice publishes
+the address itself (added 2026-10-13):
+
+- **`Y` (public):** an address on the practice's own website. Visitors in a
+  consumer health data state (WA, NV, CT), and every visitor to a practice
+  located in one, get an "Email {practice}" button that shows it, in place
+  of the contact form (`src/lib/tiers.ts`, `src/lib/healthDataStates.ts`).
+- **Blank or `N` (private):** an address the practice gave us only for
+  forwarding, e.g. a doctor's own inbox. It's used only to deliver contact
+  form messages and never reaches the browser: those visitors see phone and
+  website instead of the email button. Blank is the default, so an address
+  is never shown by accident.
+
+A practice with neither keeps column K blank, and its page shows phone and
+website only.
 
 This table records where each address came from, so it can be rechecked if a
 practice asks.
@@ -45,3 +54,9 @@ the practice declined (2026-10-09). It's a basic listing, so nothing shows.
 Ask Claude to scrape the practice's site (homepage, contact and about pages,
 email links and page text), then add a row to this table before filling in
 column K.
+
+## Private addresses (column AS blank)
+
+| Row | Practice | Address | Source |
+|---|---|---|---|
+| 28 | Prairie Allergy | beverist@prairieallergykc.com | Dr. Brynn Everist's address, given by Judy at the practice by phone 2026-10-13; confirming with Dr. Everist by email |

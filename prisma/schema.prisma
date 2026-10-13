@@ -106,6 +106,10 @@ model Provider {
   // list for this feature, but forwarding a lead by email requires knowing
   // where to send it, so this is structurally necessary.
   notificationEmail String?
+  // Sheet column AS. True only when the practice publishes this address
+  // itself; only then is it shown to visitors (the email button). A private
+  // address is used solely to forward contact form messages (2026-10-13).
+  notificationEmailPublic Boolean @default(false)
 
   // The tier the site renders: the sheet's Tier, or FEATURED while a free
   // trial is running (Providers columns R and S). Everything that gates on

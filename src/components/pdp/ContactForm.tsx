@@ -27,8 +27,9 @@ export function ContactForm({
   providerId: string;
   providerSlug: string;
   practiceName: string;
-  /** The practice's published address, for the email button on "Yes". */
-  email: string;
+  /** The practice's address if it publishes it, for the email button on
+   * "Yes". Null for a private address, which never reaches the browser. */
+  email: string | null;
   utm: { source?: string; medium?: string; campaign?: string };
   /** Where to redirect back to after submit — the PDP by default, but a SEM
    * landing page passes its own path so a paid-ad visitor isn't sent
@@ -71,10 +72,10 @@ export function ContactForm({
       {inHealthDataState === "yes" ? (
         <>
           <p className="mb-2 text-[11.5px] leading-snug text-muted">
-            Health privacy laws in those states mean we can&apos;t pass along messages from there. Email the practice
-            directly instead.
+            Health privacy laws in those states mean we can&apos;t pass along messages from there.{" "}
+            {email ? "Email the practice directly instead." : "Call the practice or visit its website instead."}
           </p>
-          <EmailPracticeButton email={email} practiceName={practiceName} providerId={providerId} />
+          {email && <EmailPracticeButton email={email} practiceName={practiceName} providerId={providerId} />}
         </>
       ) : (
         <ContactFields />

@@ -73,6 +73,7 @@ Column order:
 | AP | Custom Field 2 | |
 | AQ | Notes | Internal only |
 | AR | Demo/Example Listing | **New** — `Y` / `N`. For sales-demo practices only (showing a prospective client what a PDP/SEM page looks like without using a competitor or a page real traffic could land on). `Y` excludes the listing from SRP search results and the sitemap, and adds `noindex`/`nofollow` to its PDP — reachable only by whoever has the direct link. Use a dedicated Group ID like `example-practice-group` if you want several demo practices grouped for your own reference, but note Group ID's real purpose is cross-linking sibling locations on the PDP ("Other Locations") — don't group unrelated demo practices together or they'll cross-link each other on the page you're showing a client |
+| AS | Notification Email Public | **New 2026-10-13.** `Y` only when the practice publishes the Notification Email (K) on its own website. Then visitors in WA, NV or CT, or visiting a practice there, get an email button that shows it. Blank or `N` keeps it private: used only to forward contact form messages, never shown, and those visitors see phone and website instead. See `docs/practice-emails.md` |
 
 **Rows that disappear from this tab get deactivated.** Any active practice
 whose slug is no longer on the Providers tab (row deleted, or slug changed)
