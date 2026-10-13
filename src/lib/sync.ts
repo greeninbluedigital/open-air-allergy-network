@@ -811,6 +811,9 @@ export async function runSync(): Promise<SyncSummary> {
         ilitScheduleNotes: r.ilitScheduleNotes || null,
         showReviews: parseBool(r.showReviews),
         googlePlaceId: placeId,
+        // A new or changed Place ID gets its reviews at the next nightly
+        // refresh instead of waiting out the old ID's weekly interval.
+        ...(existing && existing.googlePlaceId !== placeId ? { googleReviewsFetchedAt: null } : {}),
         yelpEmbedCode1: r.yelpEmbedCode1 || null,
         yelpEmbedCode2: r.yelpEmbedCode2 || null,
         yelpEmbedCode3: r.yelpEmbedCode3 || null,
