@@ -692,6 +692,17 @@ export async function runSync(): Promise<SyncSummary> {
         }
       }
 
+      // Place IDs are pasted from Google, often with a trailing line break,
+      // and the column sometimes holds a note instead (e.g. why a location
+      // has no ID yet). Only a bare ID is sent to the Places API.
+      const placeIdCell = r.googlePlaceId.trim();
+      const placeId = /^[A-Za-z0-9_-]+$/.test(placeIdCell) ? placeIdCell : null;
+      if (placeIdCell && !placeId && parseBool(r.showReviews)) {
+        summary.warnings.push(
+          `${slug} (row ${sheetRow}) Google Place ID isn't a valid ID, so no Google reviews show. Clear the note or set Show Reviews to N.`,
+        );
+      }
+
       const geoExtension = parseBool(r.geoExtension);
       const active = parseBool(r.active);
       const sheetTier = parseTier(r.tier);
@@ -799,7 +810,7 @@ export async function runSync(): Promise<SyncSummary> {
         businessHours: r.businessHours || null,
         ilitScheduleNotes: r.ilitScheduleNotes || null,
         showReviews: parseBool(r.showReviews),
-        googlePlaceId: r.googlePlaceId || null,
+        googlePlaceId: placeId,
         yelpEmbedCode1: r.yelpEmbedCode1 || null,
         yelpEmbedCode2: r.yelpEmbedCode2 || null,
         yelpEmbedCode3: r.yelpEmbedCode3 || null,
