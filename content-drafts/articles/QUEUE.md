@@ -11,6 +11,11 @@ before or after it's drafted. The drafting run copies it to the draft's
 "Feature image" line. The main session checks the photo and its alt text
 before publishing.
 
+**Follow-up when publishing `traveling-for-ilit` (owner's reminder):** check
+that its links switched on (search page out-of-area line, "Why travel for
+ILIT?" on state pages and Providers by State), and bring up linking city
+pages to neighboring states.
+
 | # | Working title | Section | Slug | Publish by | Status | Draft file | Hero image |
 |---|---|---|---|---|---|---|---|
 | 1 | Ragweed Allergy: Season, Symptoms and Treatment | Learn | ragweed-allergy | ASAP (searches peak now) | published 2026-10-10 | ragweed-allergy.md |  |
