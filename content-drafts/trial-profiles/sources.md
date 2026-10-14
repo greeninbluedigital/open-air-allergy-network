@@ -70,3 +70,17 @@ Orlando #33) plus St. Louis #63 for its two pages; otherwise AAFA's regional
 findings (South: trees can pollinate as early as December or January; West:
 more pollen spikes and a longer grass and weed season in 2025). Chandler uses
 the allergens Aspire's own Chandler page lists.
+
+## Arizona update (2026-10-14)
+
+Aspire's central office (Adriana, Austin) confirmed by phone on 2026-10-14
+that in Arizona only the two Tucson offices offer ILIT (ExACT). Chandler was
+set inactive (its bios and FAQs stay in the sheet, unused), and Tucson Main
+(row 41) and Tucson Northwest (row 40) went on the trial with new bios and 7
+FAQs each (FAQs tab rows 353 to 366), Verification Date 10/14/2026. Pages
+read: aspireallergy.com/clinics/tucson-main and /clinics/tucson-northwest
+(address, providers, areas served, services) and Aspire's blog post
+"All You Need to Know About Allergies in Tucson, Arizona" (updated Oct. 17,
+2025) for the local allergen FAQs, attributed to Aspire. Same shared ExACT
+facts as the other Aspire offices. Left out: ages, insurance and payment,
+no-show fee, hours.
