@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { ProviderCard } from "@/components/srp/ProviderCard";
 import { ILIT_DEFINITION } from "@/lib/content";
+import { travelArticlePath } from "@/lib/articles";
 import { truncateForMeta } from "@/lib/metadata";
 import { metroAnchor, stateMetroGroups, statesWithProviders, type MetroGroup, type StateInfo } from "@/lib/statePages";
 
@@ -35,7 +36,7 @@ export async function stateMetadata(state: StateInfo): Promise<Metadata> {
  * the [slug] route when the slug is a state name.
  */
 export async function StatePage({ state, groups }: { state: StateInfo; groups: MetroGroup[] }) {
-  const allStates = await statesWithProviders();
+  const [allStates, travelPath] = await Promise.all([statesWithProviders(), travelArticlePath()]);
   const total = groups.reduce((n, g) => n + g.providers.length, 0);
   const path = `/find-an-ilit-provider/${state.slug}`;
 
@@ -86,6 +87,14 @@ export async function StatePage({ state, groups }: { state: StateInfo; groups: M
             Learn how it works and who it may suit →
           </Link>
         </p>
+        {travelPath && (
+          <p className="mt-2 max-w-2xl text-sm text-foreground/80">
+            No practice near you?{" "}
+            <Link href={travelPath} className="font-semibold text-sage hover:underline">
+              Why travel for ILIT? →
+            </Link>
+          </p>
+        )}
       </div>
 
       {groups.map((group) => (

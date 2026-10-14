@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { ILIT_DEFINITION } from "@/lib/content";
 import { allStateMetroGroups, metroAnchor } from "@/lib/statePages";
+import { travelArticlePath } from "@/lib/articles";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
@@ -22,7 +23,7 @@ export const dynamic = "force-dynamic";
  * page.
  */
 export default async function ProvidersByStatePage() {
-  const states = await allStateMetroGroups();
+  const [states, travelPath] = await Promise.all([allStateMetroGroups(), travelArticlePath()]);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -54,6 +55,14 @@ export default async function ProvidersByStatePage() {
             Search for providers near you →
           </Link>
         </p>
+        {travelPath && (
+          <p className="mt-2 max-w-2xl text-sm text-foreground/80">
+            No practice near you?{" "}
+            <Link href={travelPath} className="font-semibold text-sage hover:underline">
+              Why travel for ILIT? →
+            </Link>
+          </p>
+        )}
       </div>
 
       <div className="grid grid-cols-1 gap-x-10 gap-y-7 px-6 py-8 sm:grid-cols-2 sm:px-10 lg:grid-cols-3">

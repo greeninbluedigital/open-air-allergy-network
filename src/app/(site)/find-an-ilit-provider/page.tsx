@@ -7,6 +7,7 @@ import { ProviderMap } from "@/components/srp/ProviderMap";
 import { StateLinks } from "@/components/StatePage";
 import { lookupZip } from "@/lib/zip";
 import { statesWithProviders } from "@/lib/statePages";
+import { travelArticlePath } from "@/lib/articles";
 import { searchProviders } from "@/lib/srp";
 
 export const metadata: Metadata = {
@@ -36,9 +37,10 @@ export default async function FindAProviderPage({
   const view = params.view === "map" ? "map" : "list";
 
   const location = zip ? lookupZip(zip) : null;
-  const [result, states] = await Promise.all([
+  const [result, states, travelPath] = await Promise.all([
     location ? searchProviders(location.lat, location.lng, radius) : null,
     statesWithProviders(),
+    travelArticlePath(),
   ]);
   // One list, nearest first, whatever a practice's listing level: a
   // neutral consumer information site ranks by distance only (2026-10-09).
@@ -159,8 +161,14 @@ export default async function FindAProviderPage({
                       More ILIT practices farther away
                     </div>
                     <p className="mb-2 text-xs text-muted">
-                      Beyond your {result.effectiveRadius}-mile search. ILIT takes only a few visits, so some
-                      patients travel for it.
+                      Beyond your {result.effectiveRadius}-mile search.{" "}
+                      {travelPath ? (
+                        <Link href={travelPath} className="font-semibold text-sage hover:underline">
+                          ILIT takes only a few visits, so some patients travel for it.
+                        </Link>
+                      ) : (
+                        "ILIT takes only a few visits, so some patients travel for it."
+                      )}
                     </p>
                     <div className="space-y-3">
                       {result.outOfArea.map((p) => (
