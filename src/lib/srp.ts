@@ -1,5 +1,6 @@
 import { db } from "@/lib/db";
 import { Prisma } from "@/generated/prisma/client";
+import { streetName } from "@/lib/address";
 
 export type SrpProvider = {
   id: string;
@@ -19,6 +20,10 @@ export type SrpProvider = {
   pdpRemoteConsultBadge: boolean;
   customMessage: string | null;
   verificationDate: Date | null;
+  /** The office's street (e.g. "Central Ave"), set only when the same
+   * practice has another active office in the same city, so the two cards
+   * don't look identical. */
+  street: string | null;
   distanceMiles: number;
 };
 
@@ -84,13 +89,18 @@ async function queryWithinRadius(
   const radiusMeters = radiusMiles / MILES_PER_METER;
 
   const rows = await db.$queryRaw<
-    Array<Omit<SrpProvider, "distanceMiles"> & { distanceMeters: number }>
+    Array<Omit<SrpProvider, "distanceMiles" | "street"> & { distanceMeters: number; address: string; hasSibling: boolean }>
   >(
     Prisma.sql`
       SELECT
         "id", "slug", "practiceName", "city", "state",
         "latitude", "longitude", "tier", "foundingMember", "academic", "geoExtension", "travelNotes",
-        "photoUrl", "srpPhotoUrl", "pdpRemoteConsultBadge", "customMessage", "verificationDate",
+        "photoUrl", "srpPhotoUrl", "pdpRemoteConsultBadge", "customMessage", "verificationDate", "address",
+        EXISTS (
+          SELECT 1 FROM "Provider" s
+          WHERE s."active" = true AND s."isDemo" = false AND s."id" <> "Provider"."id"
+            AND s."practiceName" = "Provider"."practiceName" AND s."city" = "Provider"."city" AND s."state" = "Provider"."state"
+        ) AS "hasSibling",
         ST_Distance("geog", ST_SetSRID(ST_MakePoint(${lng}, ${lat}), 4326)::geography) AS "distanceMeters"
       FROM "Provider"
       WHERE "active" = true
@@ -107,9 +117,10 @@ async function queryWithinRadius(
     `,
   );
 
-  return rows.map((row) => ({
+  return rows.map(({ address, hasSibling, distanceMeters, ...row }) => ({
     ...row,
-    distanceMiles: row.distanceMeters * MILES_PER_METER,
+    street: hasSibling ? streetName(address) : null,
+    distanceMiles: distanceMeters * MILES_PER_METER,
   }));
 }
 

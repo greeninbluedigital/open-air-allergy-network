@@ -1,6 +1,7 @@
 import { db } from "@/lib/db";
 import { US_STATES } from "@/lib/states";
 import type { SrpProvider } from "@/lib/srp";
+import { streetName } from "@/lib/address";
 
 /**
  * State pages (/find-an-ilit-provider/texas): every active practice in a
@@ -162,6 +163,7 @@ const CARD_FIELDS = {
   pdpRemoteConsultBadge: true,
   customMessage: true,
   verificationDate: true,
+  address: true,
 } as const;
 
 type CardRow = Awaited<ReturnType<typeof cardRows>>[number];
@@ -193,10 +195,15 @@ function groupByMetro(code: string, rows: CardRow[]): MetroGroup[] {
   const metros = METROS[code] ?? [];
   const groups = new Map<string, MetroGroup>();
   const other: MetroGroup = { name: null, zip: null, providers: [] };
+  // Same practice, same city: show each office's street on its card.
+  const placeKey = (r: CardRow) => `${r.practiceName}|${r.city}`;
+  const perPlace = new Map<string, number>();
+  for (const r of rows) perPlace.set(placeKey(r), (perPlace.get(placeKey(r)) ?? 0) + 1);
 
-  for (const row of rows) {
+  for (const { address, ...row } of rows) {
+    const street = (perPlace.get(placeKey({ ...row, address })) ?? 0) > 1 ? streetName(address) : null;
     if (row.latitude == null || row.longitude == null) {
-      other.providers.push({ ...row, latitude: 0, longitude: 0, distanceMiles: 0 });
+      other.providers.push({ ...row, street, latitude: 0, longitude: 0, distanceMiles: 0 });
       continue;
     }
     const point = { lat: row.latitude, lng: row.longitude };
@@ -205,7 +212,7 @@ function groupByMetro(code: string, rows: CardRow[]): MetroGroup[] {
       const miles = milesBetween(point, metro);
       if (miles <= METRO_RADIUS_MILES && (!best || miles < best.miles)) best = { metro, miles };
     }
-    const card: SrpProvider = { ...row, latitude: row.latitude, longitude: row.longitude, distanceMiles: best?.miles ?? 0 };
+    const card: SrpProvider = { ...row, street, latitude: row.latitude, longitude: row.longitude, distanceMiles: best?.miles ?? 0 };
     if (!best) {
       other.providers.push(card);
       continue;

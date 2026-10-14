@@ -55,6 +55,7 @@ export function ProviderCard({
           )}
           <div className="truncate text-sm font-bold">{provider.practiceName}</div>
           <div className="truncate text-xs text-muted">
+            {provider.street && <>{provider.street}, </>}
             {provider.city}, {provider.state}
           </div>
         </div>

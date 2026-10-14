@@ -20,6 +20,7 @@ import { COMPARISON_ARTICLE_SLUG, ILIT_DEFINITION } from "@/lib/content";
 import { ProviderCard } from "@/components/srp/ProviderCard";
 import { StatePage, stateMetadata } from "@/components/StatePage";
 import { stateBySlug, stateMetroGroups, statePath } from "@/lib/statePages";
+import { streetName } from "@/lib/address";
 import {
   isFullProfilePlus as isFullProfileTier,
   isVerifiedPlus as isVerifiedTier,
@@ -85,8 +86,7 @@ async function sameCityStreet(p: {
     },
   });
   if (siblings === 0) return null;
-  // Drop the house number and a trailing period: "4200 4th St. N." -> "4th St. N".
-  return p.address.replace(/^\s*\d+[A-Za-z-]*\s+/, "").replace(/\.$/, "").trim() || null;
+  return streetName(p.address);
 }
 
 async function getProvider(slug: string) {
