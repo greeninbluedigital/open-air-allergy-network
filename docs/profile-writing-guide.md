@@ -10,6 +10,13 @@ banned words). Third person, platform voice: never "we" for the practice.
 1. **Every fact about the practice must be stated clearly on the practice's
    own website.** No inferring, no filling gaps. Keep the source pages in the
    draft's notes.
+   **Exception (2026-10-14): what the practice tells OAAN directly** by phone
+   or email counts too, and wins when it contradicts the website, since
+   practice sites often lag what the office actually does (e.g. Aspire's
+   Arizona offices, Bay Area's Central Ave office). Log who said what and
+   when in Verification Notes (column V), attribute it ("the practice says")
+   and keep the other rules: no days or hours, no prices.
+
 2. **No prices, payment or insurance, anywhere on the page** (bios and
    FAQs). That includes insurance accepted, self pay, direct pay or "direct
    care" labels, HSA/FSA, financing, payment plans and superbills. OAAN's job
