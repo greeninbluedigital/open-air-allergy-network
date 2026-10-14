@@ -19,7 +19,7 @@ import { visitorInHealthDataState } from "@/lib/visitorLocation";
 import { COMPARISON_ARTICLE_SLUG, ILIT_DEFINITION } from "@/lib/content";
 import { ProviderCard } from "@/components/srp/ProviderCard";
 import { StatePage, stateMetadata } from "@/components/StatePage";
-import { stateBySlug, stateMetroGroups } from "@/lib/statePages";
+import { stateBySlug, stateMetroGroups, statePath } from "@/lib/statePages";
 import {
   isFullProfilePlus as isFullProfileTier,
   isVerifiedPlus as isVerifiedTier,
@@ -168,6 +168,16 @@ export default async function ProviderDetailPage({
     const renamed = RENAMED_SLUGS[slug];
     if (renamed && (await db.provider.count({ where: { slug: renamed, active: true } }))) {
       permanentRedirect(`/find-an-ilit-provider/${renamed}`);
+    }
+    // A deactivated practice (e.g. one that stopped offering ILIT) sends old
+    // links to its state page, or to Providers by State when the state has
+    // no active practice left (owner, 2026-10-14). Reactivating it brings the
+    // page back. Demo listings still 404.
+    const inactive = await db.provider.findUnique({ where: { slug }, select: { state: true, isDemo: true } });
+    if (inactive && !inactive.isDemo) {
+      const statePage = statePath(inactive.state);
+      const stateLive = await db.provider.count({ where: { state: inactive.state, active: true, isDemo: false } });
+      permanentRedirect(statePage && stateLive > 0 ? statePage : "/find-an-ilit-provider/by-state");
     }
     notFound();
   }
