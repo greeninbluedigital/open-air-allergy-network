@@ -65,7 +65,7 @@ there's nothing to calibrate against before then. That's 3 custom rules
      IP and user agent of every visitor that ignored robots.txt. Block
      repeat offenders under **IP Blocking**.
 
-**AI bots.** Left on **Allow** on purpose. Vercel's AI Bots rule is
+**AI bots.** The site also serves `/llms.txt` (added 2026-10-14, `src/app/llms.txt/route.ts`), a Markdown summary for AI tools built from the database on each request: what OAAN and ILIT are, the Learn and Blog articles with descriptions, Find a Provider, Providers by State, each state page with its metros, and every active practice page. Left on **Allow** on purpose. Vercel's AI Bots rule is
 all-or-nothing, and blocking it would also shut out ChatGPT, Perplexity, and
 Claude search, which the GEO strategy depends on. A competitor wouldn't use
 those bots to scrape anyway. If training crawlers (GPTBot, ClaudeBot, CCBot,
