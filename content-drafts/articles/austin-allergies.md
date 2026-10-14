@@ -138,4 +138,4 @@ Read that result with its limits in mind. It was a small, one season study that 
 
 ## ILIT providers in the Austin area
 
-To see Austin area practices offering ILIT allergy treatment, [search for an ILIT provider near Austin](/find-an-ilit-provider?zip=78701), or browse [ILIT providers across Texas](/find-an-ilit-provider/texas) by metro area. For what each season brings beyond Austin, see [Seasonal Allergies by Season](/learn-about-ilit/seasonal-allergies-by-season), and if fall hits you hardest, our [ragweed allergy guide](/learn-about-ilit/ragweed-allergy) goes deeper.
+To see Austin area practices offering ILIT allergy treatment, [search for an ILIT provider near Austin](/find-an-ilit-provider?zip=78701), or see [ILIT providers in the Austin area](/find-an-ilit-provider/texas#austin) on our Texas page, which also covers the rest of the state by metro area. For what each season brings beyond Austin, see [Seasonal Allergies by Season](/learn-about-ilit/seasonal-allergies-by-season), and if fall hits you hardest, our [ragweed allergy guide](/learn-about-ilit/ragweed-allergy) goes deeper.
