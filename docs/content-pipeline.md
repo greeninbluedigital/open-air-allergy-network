@@ -141,7 +141,7 @@ KEY TAKEAWAYS
 
 FAQS
 Q: ...
-A: ... (6 to 9 FAQs, each a question people actually search: season, symptoms, the allergen's other names, related allergies, treatment timing. Each answer stands alone in 2 or 3 sentences with a linked source, and may restate a body fact in direct answer form. Never repeat another FAQ on this page or a question already used on another published article)
+A: ... (6 to 9 FAQs, each a question people actually search: season, symptoms, the allergen's other names, related allergies, treatment timing. Each answer stands alone in 2 or 3 sentences with a linked source, and may restate a body fact in direct answer form. Never repeat another FAQ on this page or a question already used on another published article. **Check every question against Google autocomplete** with WebFetch on `https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=us&q=<question words>`, try a few phrasings, and use the wording people actually type. Watch what the suggestions mean, e.g. "cedar fever drops" turned out to be store bought homeopathic products. Note in REVIEW NOTES which FAQs autocomplete confirmed; an unconfirmed FAQ can stay if it's useful)
 
 SOURCES (all linked in the article)
 - Source name, page title: the specific facts used from it

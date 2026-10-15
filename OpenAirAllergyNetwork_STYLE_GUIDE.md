@@ -76,7 +76,7 @@ by search engines — a redundant one wastes that placement.
 **Updated 2026-10-14 (owner's decision):** articles carry 6 to 9 FAQs, each a question people
 actually search, and an answer may restate a body fact when it answers that question directly in
 two or three sentences. What's still out: an answer that re-paraphrases a body paragraph at length,
-two FAQs that cover the same ground, and a question already used on another published article. The
+two FAQs that cover the same ground, and a question already used on another published article. Check each question against Google autocomplete and phrase it the way people type it. The
 example above fails because it tacks one fact onto a paraphrase, not because it repeats the body.
 
 ### 4. Nothing specific enough to stick

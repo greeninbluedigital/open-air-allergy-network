@@ -39,11 +39,14 @@ A: Yes. Mountain cedar is the common Texas name for Ashe juniper (Juniperus ashe
 Q: Why is cedar fever worse after a cold front?
 A: The dry wind and sudden pressure changes of a front make the trees' pollen cones burst open, the [Texas A&M Forest Service](https://stories.tamu.edu/news/2021/12/22/its-cedar-fever-season-in-texas/) explains, so pollen release peaks right before and after a front passes. A front in the winter forecast is a good cue to close windows and start your allergy medicine.
 
-Q: Can you get cedar fever outside Texas?
+Q: Is there cedar fever in Oklahoma or other places outside Texas?
 A: Yes. Ashe juniper also grows in the Arbuckle Mountains of Oklahoma, the Ozarks of Arkansas and Missouri, and northern Mexico, according to a [2017 PLoS One study](https://pmc.ncbi.nlm.nih.gov/articles/PMC5342239/), which also traced its pollen by DNA as far as Ontario, Canada. In East Texas, the eastern red cedar pollinates at the same time and can cause a similar reaction.
 
 Q: I'm allergic to Japanese cedar. Will mountain cedar bother me?
 A: It might. A [1999 study](https://doi.org/10.1016/s0091-6749(99)70331-3) found the main mountain cedar allergen closely resembles the main Japanese cedar allergen, and antibodies from people allergic to Japanese cedar recognized it. An allergist can test for mountain cedar before your first Texas winter.
+
+Q: Do cedar fever drops work?
+A: It depends on the drops. The cedar fever drops sold in Texas grocery stores are homeopathic products, and the [National Center for Complementary and Integrative Health](https://www.nccih.nih.gov/health/homeopathy) says there's little evidence homeopathy works for any specific health condition. Allergy drops from an allergist are made from allergen extract, but the [ACAAI](https://acaai.org/allergies/management-treatment/allergy-immunotherapy/immunotherapy-with-allergy-tablets/) notes they're used off label in the U.S., and the [AAAAI](https://www.aaaai.org/tools-for-the-public/conditions-library/allergies/allergy-tablets) says the only FDA approved under the tongue treatments are tablets for dust mite, grass and short ragweed, not cedar.
 
 Q: What is the fastest allergy treatment course for mountain cedar?
 A: For relief this week, allergy medicine is the fastest route. Immunotherapy changes how your immune system responds, and that takes time no matter which form you choose. In the [mountain cedar ILIT trial](https://clinicaltrials.gov/study/NCT03682965), injections started in late September 2018 so the course was done before the season. If a fast allergy treatment course like ILIT interests you, use [Find a Provider](/find-an-ilit-provider) to locate an allergist who offers it, and plan to talk with them well before December.
@@ -64,6 +67,10 @@ SOURCES (all linked in the article)
 - AAAAI, "Allergy Shots (Immunotherapy)": build-up once or twice a week for four to six months, maintenance every two to four weeks for three to five years.
 - Senti G, et al. PNAS 2008;105(46):17908-12 (abstract via PubMed, PMC2582048 linked): 165 grass pollen patients, 3 intralymphatic injections over 2 months vs 54 shots over 3 years.
 - Own arithmetic: 2,400 km is about 1,500 miles.
+- NCCIH, "Homeopathy: What You Need To Know" (updated April 2021), used in the drops FAQ: little evidence homeopathy is effective for any specific health condition. Store products checked on heb.com (2026-10-14): two "cedar fever" relief drops on sale are labeled homeopathic.
+- ACAAI, "Immunotherapy with allergy tablets" (SLIT): allergy drops are not FDA approved and are off label in the U.S.
+- AAAAI, "What do you need to know about allergy tablets?": the only FDA approved sublingual immunotherapy in the U.S. is tablets, for dust mite, grass pollen and short ragweed.
+- FAQ wording checked against Google autocomplete (2026-10-14): season, contagious, how long, mountain cedar vs juniper, cedar fever Oklahoma and cedar fever drops all appear as real searches. Indoors, cold front and Japanese cedar didn't, kept by the owner as useful.
 
 REVIEW NOTES
 - **Overlap with the Austin page.** The Austin guide already covers cedar basics (naming, season, symptoms, the 2020 ILIT trial). This page goes wider and deeper instead: the full range of Ashe juniper beyond Texas, why it feels like flu, a "cold, flu or cedar" section, how far the pollen travels, indoor exposure, related trees and cross reactivity. Some repetition is unavoidable (season months, the trial). The two pages link to each other's topics, so consider adding a link back from the Austin page to this one when it publishes.
