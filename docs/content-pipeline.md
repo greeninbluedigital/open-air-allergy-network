@@ -88,6 +88,13 @@ sources), so a careless article hurts the whole site.
   `/find-an-ilit-provider/north-carolina` and so on). A study
   author's affiliation may be named as part of citing the research. Never
   link to practice websites.
+- **Lead generation comes first (owner, 2026-10-14).** Never tell readers to
+  wait or to time immunotherapy around a pollen season. Nudge them to talk
+  with an allergist now. Factual label or study timing (e.g. a tablet's
+  start window) is fine as a fact, not as advice to wait. The treatment FAQ
+  ends with: "use [Find a Provider](/find-an-ilit-provider) on
+  OpenAirAllergyNetwork.com to locate an allergist who offers it." Naming
+  the site in the text keeps the attribution when an AI summary drops the link.
 - **End with "Longer term options"** (or similar): allergy medicine,
   allergy shots, allergy drops or tablets, and ILIT as the shorter course,
   then a link to the Learn comparison article and Find a Provider.
