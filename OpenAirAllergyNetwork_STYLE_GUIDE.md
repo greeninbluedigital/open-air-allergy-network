@@ -73,6 +73,12 @@ said in the body. **Fix:** an FAQ answer must lead with something not already st
 it should be cut. FAQs get read by people who skip straight to them, and get pulled out individually
 by search engines — a redundant one wastes that placement.
 
+**Updated 2026-10-14 (owner's decision):** articles carry 6 to 9 FAQs, each a question people
+actually search, and an answer may restate a body fact when it answers that question directly in
+two or three sentences. What's still out: an answer that re-paraphrases a body paragraph at length,
+two FAQs that cover the same ground, and a question already used on another published article. The
+example above fails because it tacks one fact onto a paraphrase, not because it repeats the body.
+
 ### 4. Nothing specific enough to stick
 
 No named guideline body (AAAAI, ACAAI), no cited study, no real number beyond broad ranges like
@@ -136,7 +142,7 @@ sign of AI-written text.
 - **Keep the existing page template.** Intro, mechanism, what to expect, comparison, FAQ, CTA is a
   clear, sensible structure for patient education. The fix here is at the sentence and paragraph
   level, not the page architecture — don't restructure pages to solve this problem.
-- **FAQs must be non-redundant** with the body, per the rule above.
+- **FAQs must be non-redundant** with each other and across articles, per the rule above (updated 2026-10-14).
 - **Keep bylines and "last reviewed" dates prominent.** That's a real trust signal for medical
   content and should stay exactly as-is.
 

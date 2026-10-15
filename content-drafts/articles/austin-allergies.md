@@ -85,6 +85,8 @@ Cedar fever symptoms look like a cold that won't end. The Forest Service lists t
 
 One number helps sort it out. A fever above 101.5 degrees likely isn't from pollen, according to the Forest Service. That points to an infection, and it's worth a call to your doctor.
 
+Our [cedar fever guide](/learn-about-ilit/cedar-fever-mountain-cedar-allergy) goes deeper on mountain cedar, from where it grows beyond Austin to how far its pollen travels.
+
 ## Oak season: February into spring
 
 Oaks are the next wave. Daphne Richards, the Travis County horticulturist for AgriLife Extension, told [AgriLife Today](https://agrilifetoday.tamu.edu/?p=307924) that oaks usually flower and release their pollen in March and April. Children's Health starts the Texas tree pollen season in February and runs it into June, since other trees overlap with the oaks.
