@@ -141,7 +141,7 @@ KEY TAKEAWAYS
 
 FAQS
 Q: ...
-A: ... (3 to 5 FAQs, each adds something the body doesn't, with a linked source)
+A: ... (6 to 9 FAQs, each a question people actually search: season, symptoms, the allergen's other names, related allergies, treatment timing. Each answer stands alone in 2 or 3 sentences with a linked source, and may restate a body fact in direct answer form. Never repeat another FAQ on this page or a question already used on another published article)
 
 SOURCES (all linked in the article)
 - Source name, page title: the specific facts used from it
