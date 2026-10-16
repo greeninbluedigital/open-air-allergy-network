@@ -27,6 +27,11 @@ const markdownComponents = {
   ul: (props: React.ComponentProps<"ul">) => <ul className="mb-4 list-disc space-y-1 pl-5" {...omitNode(props)} />,
   ol: (props: React.ComponentProps<"ol">) => <ol className="mb-4 list-decimal space-y-1 pl-5" {...omitNode(props)} />,
   strong: (props: React.ComponentProps<"strong">) => <strong className="font-semibold text-foreground" {...omitNode(props)} />,
+  // A "> " callout in the Markdown, e.g. a first hand account set apart
+  // from the sourced text.
+  blockquote: (props: React.ComponentProps<"blockquote">) => (
+    <blockquote className="my-5 rounded border-l-4 border-sage bg-bg-alt px-4 py-3 text-sm [&>p]:mb-0" {...omitNode(props)} />
+  ),
   a: ({ href, ...rest }: React.ComponentProps<"a">) => {
     // Internal links (e.g. a "find an ILIT provider" link to the SRP) should
     // navigate in the same tab like any other in-site link; only genuine
