@@ -34,12 +34,12 @@ Q: How long does an allergy skin test take?
 A: Plan on about 20 to 25 minutes for the test itself. The [ACAAI](https://acaai.org/allergies/testing-diagnosis/) says placing the allergens takes about 5 to 10 minutes and reading them takes about 15 more, and results come back at the same visit, unlike a blood test.
 
 Q: Is an allergy test on the back or the arm better?
-A: Both work. [Cleveland Clinic](https://my.clevelandclinic.org/health/diagnostics/21495-allergy-testing) says adults are usually tested on the inner forearm and children on the upper back, but adults can be tested on the back too, which fits a larger panel. In a [2005 comparison](https://doi.org/10.1016/j.jaci.2005.03.035), multi head devices produced larger reactions on the back and single devices larger reactions on the arm.
+A: Both work. [Cleveland Clinic](https://my.clevelandclinic.org/health/diagnostics/21495-allergy-testing) says adults are usually tested on the inner forearm and children on the upper back, but adults can be tested on the back too, which fits a larger panel. A [2005 comparison](https://doi.org/10.1016/j.jaci.2005.03.035) found that the small bumps showing a positive result came up a bit larger on the back with multi head devices, and a bit larger on the arm with single prick devices.
 
 SOURCES (all linked in the article)
 - See the article links.
 - Added 2026-10-15: AAAAI "Allergy Testing Defined" (relatively painless, reactions within about 15 minutes); Carr WW et al., "Comparison of test devices for skin prick testing," J Allergy Clin Immunol 2005;116(2):341-6, PMID 16108145 (AAAAI Immunotherapy Committee; 8 devices on arms and back; multiheaded devices more painful than single and larger reactions on the back); own arithmetic: 5 to 10 minutes plus about 15 is about 20 to 25 minutes.
-- Founder's account (owner, 2026-10-15): about 60 allergens on the back, 10 pricks per press, about 20 minutes, a light itch.
+- Cleveland Clinic, "Allergy Testing": most symptoms clear up in one to two hours after the test, redness or bumps may remain for several hours.
 - FAQ wording checked against Google autocomplete (2026-10-15): "does allergy skin testing hurt", "how long does an allergy skin test take", "allergy test on back vs arm".
 
 BODY
@@ -57,7 +57,7 @@ A skin prick test, also called a scratch test, places a tiny drop of each possib
 
 ### Back or arm?
 
-[Cleveland Clinic](https://my.clevelandclinic.org/health/diagnostics/21495-allergy-testing) says the test is usually done on the inner forearm for adults or the upper back for children, but adults can be tested on the back too, and it has room for a large panel. In a [2005 comparison of skin test devices](https://doi.org/10.1016/j.jaci.2005.03.035) by an AAAAI committee, devices that prick several spots at once produced larger reactions on the back than on the arm.
+[Cleveland Clinic](https://my.clevelandclinic.org/health/diagnostics/21495-allergy-testing) says the test is usually done on the inner forearm for adults or the upper back for children, but adults can be tested on the back too, and it has room for a large panel. A [2005 comparison of skin test devices](https://doi.org/10.1016/j.jaci.2005.03.035) by an AAAAI committee found that with devices that prick several spots at once, the small bumps that show a positive result came up a bit larger on the back than on the arm.
 
 ### Many allergens at once
 
@@ -65,11 +65,9 @@ One session can check dozens of allergens, and the exact panel varies by practic
 
 ### How long it takes and how it feels
 
-According to the [ACAAI](https://acaai.org/allergies/testing-diagnosis/), placing the allergens takes about 5 to 10 minutes. Then you wait about 15 minutes to see whether a small, itchy red bump appears where an allergen went in. So the whole test usually takes about 20 to 25 minutes, and you get results before you leave.
+According to the [ACAAI](https://acaai.org/allergies/testing-diagnosis/), placing the allergens takes about 5 to 10 minutes. Then you wait about 15 minutes to see whether a small, itchy red bump appears where an allergen went in. The itch doesn't last long. [Cleveland Clinic](https://my.clevelandclinic.org/health/diagnostics/21495-allergy-testing) says most symptoms clear up within one to two hours, though some redness or bumps can stay for several hours. So the whole test usually takes about 20 to 25 minutes, and you get results before you leave.
 
 The ACAAI says the pricks may hurt slightly, and any spot that reacts will itch. In the 2005 study, multi head devices were somewhat more painful than single pricks, so if you're nervous, ask which device the clinic uses.
-
-> **What it was like for our founder.** When Open Air Allergy Network's founder was tested before ILIT, the allergist checked about 60 allergens on the founder's back with a device that placed 10 pricks at a time. The whole test took about 20 minutes and felt like a light itch, not pain.
 
 If a skin prick allergy test comes back negative but your symptoms still point to a particular allergen, your allergist may try an intradermal test, where a small amount of the allergen goes just under the skin with a thin needle.
 
