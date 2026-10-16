@@ -101,7 +101,7 @@ Openers like "None of those visits can happen at home.", "Outside of trials, the
 worse.", "The three injections aren't the whole story." and "One more thing to keep in mind." make a
 page easy to skim, and any one of them is fine. Stacked paragraph after paragraph, they become a
 pattern readers recognize as machine written. **Fix:** let most paragraphs start with the fact, the
-source or the reader's situation, and fold the setup into the first real sentence ("The AAAAI says
+source or the reader's situation, and fold the setup into the opening sentence ("The AAAAI says
 shots belong in a health care setting…", "For travelers, though, AMA policy says…"). Keep a short
 lead-in only where it earns its place, and never use one just to announce what's coming.
 
