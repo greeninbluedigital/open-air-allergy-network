@@ -8,9 +8,9 @@ URL: /blog/traveling-for-ilit
 Meta description (150 chars): No ILIT provider nearby? A course is about three injections over two months, not dozens of allergy shot visits. What to ask a practice before you go.
 Target keywords: "travel for allergy treatment", "ilit near me", "alternative to allergy shots", "allergy shots how many visits" (as "how many visits for allergy shots", FAQ 1), "fast allergy treatment" (Longer term options section)
 Tags: ILIT, Comparisons
-Feature image: TBD (owner uploads)
+Feature image: https://res.cloudinary.com/qruprn0t/image/upload/v1792116297/travel-for-ilit-by-car-or-plane.jpg
 Image idea: A sunlit regional airport gate window with a carry on bag and a folded jacket on a seat in the foreground, a small jet on the tarmac outside under a bright blue sky, no people's faces.
-Image alt: A carry on bag beside an airport gate window with a plane outside, for a short trip to an allergist.
+Image alt: A car parked at an overlook above a city skyline at sunset, with a plane climbing overhead and flowering trees in the foreground.
 Credit: none (house article).
 
 KEY TAKEAWAYS
