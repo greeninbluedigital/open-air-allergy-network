@@ -95,6 +95,22 @@ flat, without a qualifier attached.
 
 ---
 
+### 6. The short lead-in sentence (added 2026-10-15)
+
+Openers like "None of those visits can happen at home.", "Outside of trials, the numbers look
+worse.", "The three injections aren't the whole story." and "One more thing to keep in mind." make a
+page easy to skim, and any one of them is fine. Stacked paragraph after paragraph, they become a
+pattern readers recognize as machine written. **Fix:** let most paragraphs start with the fact, the
+source or the reader's situation, and fold the setup into the first real sentence ("The AAAAI says
+shots belong in a health care setting…", "For travelers, though, AMA policy says…"). Keep a short
+lead-in only where it earns its place, and never use one just to announce what's coming.
+
+### 7. Pet words (added 2026-10-15)
+
+Some words aren't banned but show up too often in machine written copy, and readers notice:
+"real" (real tradeoff, real money, really), "tradeoff". Use each sparingly, at most once in an
+article, and only when no plainer word fits. Watch for new pet words the same way and add them here.
+
 ## Medical Sourcing and Claims
 
 - **Never invent a statistic, percentage, or study finding.** If a specific number is used (a
