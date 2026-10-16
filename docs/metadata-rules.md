@@ -79,7 +79,10 @@ cut mid-word and doesn't enforce the 155 ceiling if the max changes later.
 | Scraper trap (`/find-an-ilit-provider/quillmoor-allergy-sinus-center-wichita`) | Mirrors a PDP title (`absolute`) | Not set | None | `noindex, nofollow`, and disallowed in `robots.ts` (keep that disallow). Never in the sitemap. See `docs/anti-scraping.md` |
 
 Since launch (2026-10-02), `robots.ts` allows crawling of everything except
-the scraper trap, so these rules are live. The canonical host is
+the scraper trap and, since 2026-10-15, Next.js page data URLs (`/*?_rsc=`
+and `/*&_rsc=`). Google's Crawl stats showed about 65% of Googlebot's
+requests going to those prefetch files, which never get indexed, and only 8%
+to HTML pages. So these rules are live. The canonical host is
 `https://openairallergynetwork.com` (no www): `www` and the old
 `open-air-allergy-network.vercel.app` address both redirect there (Vercel
 Domains for www, `next.config.ts` for vercel.app, which leaves `/api/*` alone
