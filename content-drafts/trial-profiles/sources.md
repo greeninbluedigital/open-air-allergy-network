@@ -84,3 +84,18 @@ read: aspireallergy.com/clinics/tucson-main and /clinics/tucson-northwest
 2025) for the local allergen FAQs, attributed to Aspire. Same shared ExACT
 facts as the other Aspire offices. Left out: ages, insurance and payment,
 no-show fee, hours.
+
+## Elaria Allergy and Integrative Health, Tampa (2026-10-15)
+
+Added at row 113 (FAQs rows 367 to 374) after Dr. Donya Imanirad requested
+the pitch deck, then put on the trial through 6/1/2027 with Geo-Extension and
+Show Reviews (5.0 from 5 Google reviews at first fetch). Pages read:
+elariahealthmd.com home, /about, /meet-the-doctor, /services/elaria-rapid-allergy-therapy
+and the blog post "A Faster Path to Allergy Relief: What to Know About ILIT".
+Used: credentials and training, ILIT name, ultrasound into a superficial groin
+lymph node, three injections about four weeks apart, 20 to 60 minute visits
+with monitoring, allergens treated, who it suits, other services. Local
+allergy FAQ from the AAFA 2026 report (Tampa #29, Southeast pollen, Southern
+trees from December or January). Left out: membership and direct pay model,
+insurance, ages served (children, teens, adults), hours, efficacy claims.
+Not phone confirmed, so no Verification Date yet.
