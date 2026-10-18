@@ -23,7 +23,6 @@ const OAAN_DESCRIPTION =
 
 // WebSite.name is what Google uses for the site name in results. No email:
 // anything in page source gets scraped, so contact goes to the About form.
-// Add `logo` to the Organization once the designed logo exists.
 const SITE_JSON_LD = {
   "@context": "https://schema.org",
   "@graph": [
@@ -33,6 +32,8 @@ const SITE_JSON_LD = {
       name: "Open Air Allergy Network",
       url: SITE_URL,
       description: OAAN_DESCRIPTION,
+      // The square mark (512 px). Google needs a logo at least 112 px.
+      logo: `${SITE_URL}/logo-icon-512.png`,
       contactPoint: { "@type": "ContactPoint", contactType: "customer support", url: `${SITE_URL}/about#contact` },
     },
   ],

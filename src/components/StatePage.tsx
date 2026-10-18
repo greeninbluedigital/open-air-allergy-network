@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { ProviderCard } from "@/components/srp/ProviderCard";
 import { ILIT_DEFINITION } from "@/lib/content";
 import { travelArticlePath } from "@/lib/articles";
-import { truncateForMeta } from "@/lib/metadata";
+import { DEFAULT_OG_IMAGE, truncateForMeta } from "@/lib/metadata";
 import { metroAnchor, stateMetroGroups, statesWithProviders, type MetroGroup, type StateInfo } from "@/lib/statePages";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -25,7 +25,7 @@ export async function stateMetadata(state: StateInfo): Promise<Metadata> {
     title,
     description,
     alternates: { canonical: `/find-an-ilit-provider/${state.slug}` },
-    openGraph: { title, description },
+    openGraph: { title, description, images: [DEFAULT_OG_IMAGE] },
   };
 }
 

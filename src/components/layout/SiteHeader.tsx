@@ -5,8 +5,11 @@ import { DesktopNav } from "./DesktopNav";
 export function SiteHeader() {
   return (
     <header className="relative z-20 flex items-center justify-between border-b border-line bg-background px-6 py-4 sm:px-10">
-      <Link href="/" data-cta="nav_header_logo" className="text-lg font-bold">
-        Open Air Allergy Network
+      <Link href="/" data-cta="nav_header_logo" className="shrink-0">
+        {/* An SVG at a fixed height: crisp on every screen, and the alt text
+            keeps the name for screen readers and search engines. */}
+        {/* eslint-disable-next-line @next/next/no-img-element -- a small static SVG needs no image optimization */}
+        <img src="/logo.svg" alt="Open Air Allergy Network" width={1045} height={170} className="h-8 w-auto sm:h-9" />
       </Link>
 
       <DesktopNav />

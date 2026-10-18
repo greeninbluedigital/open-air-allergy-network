@@ -20,3 +20,13 @@ export function truncateForMeta(text: string, max: number = META_DESCRIPTION_MAX
   const lastSpace = window.lastIndexOf(" ");
   return `${window.slice(0, lastSpace > 0 ? lastSpace : max)}…`;
 }
+
+/** The site's logo share image (src/app/opengraph-image.png), for pages that
+ * set their own openGraph without a photo. Setting openGraph at all replaces
+ * the inherited one, so those pages would otherwise share with no image. */
+export const DEFAULT_OG_IMAGE = {
+  url: "/opengraph-image.png",
+  width: 1200,
+  height: 630,
+  alt: "Open Air Allergy Network logo: an open blue circle with a green smile beside the name",
+};

@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getArticleDetail } from "@/lib/articles";
 import { ArticleDetail } from "@/components/ArticleDetail";
 import { stripMarkdown } from "@/lib/markdown";
-import { truncateForMeta } from "@/lib/metadata";
+import { truncateForMeta, DEFAULT_OG_IMAGE } from "@/lib/metadata";
 
 async function getArticle(slug: string) {
   return getArticleDetail(slug, "LEARN");
@@ -29,7 +29,7 @@ export async function generateMetadata({
     openGraph: {
       title: article.title,
       description,
-      images: article.featureImageUrl ? [article.featureImageUrl] : undefined,
+      images: article.featureImageUrl ? [article.featureImageUrl] : [DEFAULT_OG_IMAGE],
       type: "article",
       publishedTime: article.publishedDate?.toISOString(),
     },

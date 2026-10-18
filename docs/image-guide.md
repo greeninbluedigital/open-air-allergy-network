@@ -145,3 +145,18 @@ early "ragweed" upload turned out to be goldenrod, the plant people wrongly
 blame for hay fever. In use (2026-10-09): two oaks, dust in a sunbeam, a
 grassy hillside, a ragweed field (AI generated, checked for accuracy) and a
 pine cone.
+
+## Brand logo (added 2026-10-18)
+
+Masters live in OneDrive (OPEN AIR ALLERGY NETWORK/logo): the v15 open blue
+circle (#0077D6) with a green smile (#008A4A), and a Corbel wordmark
+converted to outlines. In the site:
+
+| File | Used for |
+|---|---|
+| `public/logo.svg` | Site header and landing page header. The master SVG with its empty margins trimmed (viewBox only) |
+| `src/app/icon.svg`, `src/app/favicon.ico` (16, 32, 48 px, built from the 512 px icon) | Browser tab and Google's search result icon |
+| `src/app/apple-icon.png` (180 px, white background) | iPhone home screen |
+| `src/app/opengraph-image.png`, `twitter-image.png` (1200 x 630) | Default share image. Pages with their own photo (articles, practices) use it instead; pages that set their own share text use `DEFAULT_OG_IMAGE` (`src/lib/metadata.ts`) |
+| `public/logo-icon-512.png` | `logo` in the homepage's Organization structured data |
+| `public/logo-1200x240.png` | Spare PNG of the horizontal logo (emails, documents) |

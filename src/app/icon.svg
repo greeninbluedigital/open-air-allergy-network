@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">Open Air Allergy Network icon</title>
+  <desc id="desc">A padded, square icon with the open blue circle and green smile mark only.</desc>
+  <g transform="matrix(2.4 0 0 2.4 -92 -80)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 177.6 77.3 C 150.7 61.1 113.1 65.1 89.1 89.1 C 61 117.2 60.8 162.8 88.9 190.9 C 117 219 162.8 219 190.9 190.9 C 207.8 174 215.3 149.8 212.3 128.6" stroke="#0077D6" stroke-width="17"/>
+    <path d="M 92 146 C 114 187 166 187 188 146" stroke="#008A4A" stroke-width="17"/>
+  </g>
+</svg>

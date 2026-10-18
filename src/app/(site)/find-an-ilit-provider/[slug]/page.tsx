@@ -11,7 +11,7 @@ import { PatientReviews, getAggregateRatingSchema } from "@/components/PatientRe
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { PhotoGallery } from "@/components/pdp/PhotoGallery";
 import { OtherLocations } from "@/components/pdp/OtherLocations";
-import { truncateForMeta } from "@/lib/metadata";
+import { DEFAULT_OG_IMAGE, truncateForMeta } from "@/lib/metadata";
 import { parseFormError } from "@/lib/forms";
 import { nearbyProviders } from "@/lib/srp";
 import { stockPhotoFor } from "@/lib/stockPhotos";
@@ -135,7 +135,7 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      images: isVerifiedTier(provider.tier) && provider.photoUrl ? [provider.photoUrl] : undefined,
+      images: isVerifiedTier(provider.tier) && provider.photoUrl ? [provider.photoUrl] : [DEFAULT_OG_IMAGE],
     },
     twitter: {
       card: "summary",
