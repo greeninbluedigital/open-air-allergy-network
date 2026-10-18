@@ -9,7 +9,7 @@ export function SiteHeader() {
         {/* An SVG at a fixed height: crisp on every screen, and the alt text
             keeps the name for screen readers and search engines. */}
         {/* eslint-disable-next-line @next/next/no-img-element -- a small static SVG needs no image optimization */}
-        <img src="/logo.svg" alt="Open Air Allergy Network" width={1018} height={166} className="h-8 w-auto sm:h-9" />
+        <img src="/logo-stacked.svg" alt="Open Air Allergy Network" width={698} height={181} className="h-11 w-auto sm:h-12" />
       </Link>
 
       <DesktopNav />

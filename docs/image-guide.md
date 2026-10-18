@@ -154,7 +154,8 @@ converted to outlines. In the site:
 
 | File | Used for |
 |---|---|
-| `public/logo.svg` | Site header and landing page header. The master SVG with its empty margins trimmed (viewBox only, measured from the rendered artwork). When replacing it, check the master is valid XML: the 2026-10-18 update had an unclosed `<g>`, which browsers refuse to draw |
+| `public/logo-stacked.svg` | Site header (44 px tall on phones, 48 px from `sm`) and landing page header (40 px), since 2026-10-18. The stacked master with its margins trimmed (viewBox only, measured from the rendered artwork). Two lines give bigger letters in less width than the horizontal logo |
+| `public/logo.svg` | Spare horizontal logo, not used in the headers now. The master SVG with its empty margins trimmed (viewBox only, measured from the rendered artwork). When replacing it, check the master is valid XML: the 2026-10-18 update had an unclosed `<g>`, which browsers refuse to draw |
 | `src/app/icon.svg`, `src/app/favicon.ico` (16, 32, 48 px, built from the 512 px icon) | Browser tab and Google's search result icon |
 | `src/app/apple-icon.png` (180 px, white background) | iPhone home screen |
 | `src/app/opengraph-image.png`, `twitter-image.png` (1200 x 630) | Default share image. Pages with their own photo (articles, practices) use it instead; pages that set their own share text use `DEFAULT_OG_IMAGE` (`src/lib/metadata.ts`) |
