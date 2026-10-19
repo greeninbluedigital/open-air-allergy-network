@@ -11,6 +11,10 @@ before or after it's drafted. The drafting run copies it to the draft's
 "Feature image" line. The main session checks the photo and its alt text
 before publishing.
 
+**Published drafts** move to `published/` once the article is live, so this
+folder only holds drafts still waiting on review. Their Draft file entries
+below point there.
+
 **Follow-up when publishing `traveling-for-ilit` (owner's reminder):** check
 that its links switched on (search page out-of-area line, "Why travel for
 ILIT?" on state pages and Providers by State), and bring up linking city
@@ -18,13 +22,13 @@ pages to neighboring states.
 
 | # | Working title | Section | Slug | Publish by | Status | Draft file | Hero image |
 |---|---|---|---|---|---|---|---|
-| 1 | Ragweed Allergy: Season, Symptoms and Treatment | Learn | ragweed-allergy | ASAP (searches peak now) | published 2026-10-10 | ragweed-allergy.md |  |
-| 2 | How Long Do Cat Allergy Symptoms Last After Exposure? | Blog | how-long-do-cat-allergy-symptoms-last | any time | published 2026-10-12 | how-long-do-cat-allergy-symptoms-last.md |  |
-| 3 | Austin Allergies: Cedar Fever, Oak and Grass Season, and Treatment Options | Learn | austin-allergies | early November | published 2026-10-13 | austin-allergies.md | https://res.cloudinary.com/qruprn0t/image/upload/v1791850338/ashe-juniper-mountain-cedar-oak-texas.jpg |
-| 4 | Cedar Fever: Mountain Cedar Allergy in Texas | Learn | cedar-fever-mountain-cedar-allergy | mid November | published 2026-10-14 | cedar-fever-mountain-cedar-allergy.md | https://res.cloudinary.com/qruprn0t/image/upload/v1791849870/ashe-juniper-mountain-cedar-texas.jpg |
-| 5 | Traveling for ILIT: A Few Trips vs. Years of Allergy Shots | Blog | traveling-for-ilit | ASAP (supports search results) | published 2026-10-15 | traveling-for-ilit.md |  |
-| 6 | Allergies or a Cold? How to Tell the Difference | Blog | allergies-or-a-cold | any time | published 2026-10-18 | allergies-or-a-cold.md | https://res.cloudinary.com/qruprn0t/image/upload/v1791850725/allergy_in_pollen_field.jpg |
-| 7 | Dust Mite Allergy: Symptoms, Triggers and Treatment | Learn | dust-mite-allergy | any time | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1790817206/blog-hand-touching-dust-in-sunbeam.jpg |
+| 1 | Ragweed Allergy: Season, Symptoms and Treatment | Learn | ragweed-allergy | ASAP (searches peak now) | published 2026-10-10 | published/ragweed-allergy.md |  |
+| 2 | How Long Do Cat Allergy Symptoms Last After Exposure? | Blog | how-long-do-cat-allergy-symptoms-last | any time | published 2026-10-12 | published/how-long-do-cat-allergy-symptoms-last.md |  |
+| 3 | Austin Allergies: Cedar Fever, Oak and Grass Season, and Treatment Options | Learn | austin-allergies | early November | published 2026-10-13 | published/austin-allergies.md | https://res.cloudinary.com/qruprn0t/image/upload/v1791850338/ashe-juniper-mountain-cedar-oak-texas.jpg |
+| 4 | Cedar Fever: Mountain Cedar Allergy in Texas | Learn | cedar-fever-mountain-cedar-allergy | mid November | published 2026-10-14 | published/cedar-fever-mountain-cedar-allergy.md | https://res.cloudinary.com/qruprn0t/image/upload/v1791849870/ashe-juniper-mountain-cedar-texas.jpg |
+| 5 | Traveling for ILIT: A Few Trips vs. Years of Allergy Shots | Blog | traveling-for-ilit | ASAP (supports search results) | published 2026-10-15 | published/traveling-for-ilit.md |  |
+| 6 | Allergies or a Cold? How to Tell the Difference | Blog | allergies-or-a-cold | any time | published 2026-10-18 | published/allergies-or-a-cold.md | https://res.cloudinary.com/qruprn0t/image/upload/v1791850725/allergy_in_pollen_field.jpg |
+| 7 | Dust Mite Allergy: Symptoms, Triggers and Treatment | Learn | dust-mite-allergy | any time | drafted 2026-10-19 | dust-mite-allergy.md | https://res.cloudinary.com/qruprn0t/image/upload/v1790817206/blog-hand-touching-dust-in-sunbeam.jpg |
 | 8 | Dallas–Fort Worth Allergies (city page) | Learn | dallas-fort-worth-allergies | before February (oak) | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791851874/margaret-hunt-hill-bridge-dallas-texas.jpg |
 | 9 | Houston Allergies (city page) | Learn | houston-allergies | before February | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791852227/houston-texas-skyline-and-grassy-park.jpg |
 | 10 | Can Allergies Cause a Sore Throat? | Blog | can-allergies-cause-sore-throat | any time | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791852724/sore-throat-1.jpg |

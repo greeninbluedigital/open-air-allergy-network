@@ -49,8 +49,9 @@ sources), so a careless article hurts the whole site.
    an existing article and you know what to link to.
 4. `docs/metadata-rules.md`: title and meta description limits.
 5. One published draft for format reference, e.g.
-   `git show ab59a10^:content-drafts/how-often-do-you-get-allergy-shots.md`
-   (reading git history is fine, changing it isn't).
+   `content-drafts/articles/published/allergies-or-a-cold.md`. Every
+   published article's draft is in that folder, which also helps with the
+   repeated FAQ check. Read those files, never edit or move them.
 
 ## Writing rules (summary, the style guide has the detail)
 
@@ -179,3 +180,12 @@ BODY
 Reply with: the title and file name, word count, number of sources, the
 REVIEW NOTES items, and anything you skipped or couldn't verify. The owner
 reads this in the Claude app.
+
+## After publishing (main session only)
+
+Once `scripts/publish-article.ts` has published a draft, move the file into
+`content-drafts/articles/published/` with `git mv`, set its QUEUE.md status
+to `published YYYY-MM-DD` and point its Draft file entry at
+`published/<slug>.md`. The articles folder then only holds drafts still
+waiting on the owner (owner's request, 2026-10-19). The drafting run never
+moves files.
