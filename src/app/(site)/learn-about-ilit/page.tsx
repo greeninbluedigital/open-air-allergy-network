@@ -265,8 +265,13 @@ export default async function LearnAboutIlitPage() {
       </section>
 
       <section className="border-b border-line px-6 py-10 sm:px-10">
-        {/* All blog posts so far are house content, so this was empty while it
-            showed only provider-credited articles (2026-10-18). */}
+        {/* REVERT WHEN PROVIDER-CREDITED ARTICLES EXIST: this was "Recent Blog
+            Articles from Our Providers" with <ArticleFeed limit={3}
+            providerCreditedOnly emptyHidden />. Every blog post so far is
+            house content, so that version rendered an empty section and was
+            switched to the latest 3 blog posts on 2026-10-18. Once a few
+            provider-credited posts are published, restore the old heading
+            and props. Tracked in docs/blog-content-guide.md. */}
         <h2 className="mb-5 text-2xl font-bold">Recent Blog Articles</h2>
         <ArticleFeed limit={3} />
         <Link href="/blog" className="mt-5 inline-block text-sm font-semibold text-sage hover:underline">

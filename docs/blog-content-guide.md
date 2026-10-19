@@ -75,6 +75,12 @@ tags per article.
   prop). Nothing uses this right now: Learn About ILIT's old "Backed by
   Clinical Literature" section (which pulled `Clinical Research`) was
   replaced by "Recent Blog Articles from Our Providers" in 2026-09, which became plain "Recent Blog Articles" (latest 3 blog posts) on 2026-10-18 because no blog post is provider-credited.
+  **To revert once provider-credited blog posts exist:** in
+  `src/app/(site)/learn-about-ilit/page.tsx`, change the heading back to
+  "Recent Blog Articles from Our Providers" and the feed back to
+  `<ArticleFeed limit={3} providerCreditedOnly emptyHidden />`. The first
+  time an article is published with a provider credit, raise this with the
+  owner.
 - Displayed as badge chips at the top of each article page — decorative only
   today, not clickable from there.
 
