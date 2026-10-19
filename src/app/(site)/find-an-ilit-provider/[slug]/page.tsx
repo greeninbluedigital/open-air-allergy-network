@@ -115,7 +115,7 @@ export async function generateMetadata({
   // skip the root layout's " | Open Air Allergy Network" template — with a
   // real practice name + city + state, the 28-char suffix alone pushed every
   // PDP well past the 62-char budget (verified against all live providers).
-  const title = `${provider.practiceName} — ILIT Provider in ${provider.city}, ${provider.state}${street ? ` (${street})` : ""}`;
+  const title = `${provider.practiceName} | ILIT Provider in ${provider.city}, ${provider.state}${street ? ` (${street})` : ""}`;
   // shortBio is long-form ("About This Practice"-length) copy, not written
   // to meta-description length — truncateForMeta bounds it at a clean
   // sentence/word boundary instead of showing 200-500+ raw characters.
