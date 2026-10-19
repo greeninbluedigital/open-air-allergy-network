@@ -6,12 +6,18 @@
 // - academic: blue, academic medical centers (blue pin)
 // - geo: rose, "Sees Out-of-Area Patients" (badge only)
 // - consult: amber, remote consults (badge only)
+// - message: solid red, the practice's own custom message, Featured and trial
+//   practices only (turned back on 2026-10-19 as an option for practices
+//   that work with OAAN; it's their message, not an OAAN claim)
 // contrib/house are article tag colors, unrelated to practices.
+import type { Tier } from "@/generated/prisma/client";
+
 const VARIANTS = {
   verified: "bg-badge-verified-bg text-badge-verified-text",
   academic: "bg-badge-academic-bg text-badge-academic-text",
   geo: "bg-badge-geo-bg text-badge-geo-text",
   consult: "bg-badge-consult-bg text-badge-consult-text",
+  message: "bg-badge-message text-white",
   contrib: "bg-badge-contrib-bg text-badge-contrib-text",
   house: "bg-badge-house-bg text-badge-house-text",
 } as const;
@@ -31,18 +37,29 @@ export function seesOutOfArea(p: { geoExtension: boolean; travelNotes: string | 
   return p.geoExtension && !!p.travelNotes?.trim();
 }
 
-/** A practice's fact badges, in order. Pages add their own consult badges
- * after these (cards say "Remote Consults", provider pages say which kind). */
+/** The practice's custom message (sheet column Z): Featured only, which
+ * includes every active trial, since the sync stores trials as Featured. */
+export function customMessageText(p: { tier: Tier; customMessage: string | null }): string | null {
+  return p.tier === "FEATURED" && p.customMessage?.trim() ? p.customMessage.trim() : null;
+}
+
+/** A practice's badges, in order: the fact badges, then its custom message.
+ * Pages add their own consult badges after these (cards say "Remote
+ * Consults", provider pages say which kind). */
 export function practiceBadges(p: {
   academic: boolean;
   geoExtension: boolean;
   travelNotes: string | null;
   verificationDate: Date | null;
+  tier: Tier;
+  customMessage: string | null;
 }): { variant: BadgeVariant; label: string }[] {
+  const message = customMessageText(p);
   return [
     ...(p.verificationDate ? [{ variant: "verified" as const, label: "ILIT Confirmed" }] : []),
     ...(p.academic ? [{ variant: "academic" as const, label: "Academic" }] : []),
     ...(seesOutOfArea(p) ? [{ variant: "geo" as const, label: "Sees Out-of-Area Patients" }] : []),
+    ...(message ? [{ variant: "message" as const, label: message }] : []),
   ];
 }
 
@@ -52,6 +69,8 @@ export function cardBadges(p: {
   geoExtension: boolean;
   travelNotes: string | null;
   verificationDate: Date | null;
+  tier: Tier;
+  customMessage: string | null;
   pdpRemoteConsultBadge: boolean;
 }): { variant: BadgeVariant; label: string }[] {
   return [
