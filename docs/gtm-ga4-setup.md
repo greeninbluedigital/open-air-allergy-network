@@ -62,7 +62,7 @@ success page in the same browser session doesn't send the event again.
 | `nav_header_logo` | Site name/logo in the header |
 | `footer` | Footer links (Learn, Find a Provider, Blog, For Practices) |
 | `learn_hero` | Learn About ILIT, "Find a Provider" button in the hero |
-| `learn_right_for_me` | Learn About ILIT, "Find a Provider" button in "Is ILIT Right for Me" |
+| `learn_right_for_me` | Learn About ILIT, "Find a Provider" button in "Is ILIT right for me?" |
 | `learn_comparison_summary` | Learn About ILIT, "provider in your area" link under the comparison table |
 | `homepage_featured_see_all` | Homepage, "See all ILIT providers near {city}" |
 | `homepage_nearby_count` | Homepage, "{N} ILIT providers within 200 miles … See them" |
@@ -77,7 +77,7 @@ success page in the same browser session doesn't send the event again.
 | `srp_view_list`, `srp_view_map` | List/Map switch on phones |
 | `sem_header_logo` | Logo on an SEM landing page, the way out to the main site |
 | `sem_hero_send_message` | SEM landing page, "Send a Message" button in the hero |
-| `sem_right_for_me` | SEM landing page, "Send a Message" button in "Is ILIT Right for Me?" |
+| `sem_right_for_me` | SEM landing page, "Send a Message" button in "Is ILIT right for me?" |
 | `sem_comparison_summary` | SEM landing page, "Send a message" link under the comparison table |
 | `sem_sticky_send_message` | SEM landing page, the "Send a Message" bar pinned to the bottom of the screen on phones |
 

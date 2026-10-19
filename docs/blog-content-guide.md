@@ -74,7 +74,7 @@ tags per article.
 - Curating thematic `ArticleFeed` pulls elsewhere on the site (the `tag`
   prop). Nothing uses this right now: Learn About ILIT's old "Backed by
   Clinical Literature" section (which pulled `Clinical Research`) was
-  replaced by "Recent Blog Articles from Our Providers" in 2026-09.
+  replaced by "Recent Blog Articles from Our Providers" in 2026-09, which became plain "Recent Blog Articles" (latest 3 blog posts) on 2026-10-18 because no blog post is provider-credited.
 - Displayed as badge chips at the top of each article page — decorative only
   today, not clickable from there.
 

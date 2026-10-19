@@ -183,7 +183,7 @@ export default async function HomePage() {
       )}
 
       <section className="border-b border-line px-6 py-10 text-center sm:px-10">
-        <h2 className="mb-4 text-2xl font-bold">Does This Sound Familiar?</h2>
+        <h2 className="mb-4 text-2xl font-bold">Does this sound familiar?</h2>
         <ul className="mx-auto mb-5 flex max-w-4xl flex-wrap justify-center gap-x-6 gap-y-3 text-sm">
           {SYMPTOMS.map((s) => (
             <li key={s.label} className="flex items-center gap-2">

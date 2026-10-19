@@ -224,7 +224,7 @@ export default async function LearnAboutIlitPage() {
       </section>
 
       <section className="border-b border-line bg-bg-alt px-6 py-10 sm:px-10">
-        <h2 className="mb-5 text-2xl font-bold">Is ILIT Safe?</h2>
+        <h2 className="mb-5 text-2xl font-bold">Is ILIT safe?</h2>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
           {SAFETY_POINTS.map((point) => (
             <div key={point.title} className="flex flex-col rounded border border-t-4 border-line border-t-action bg-white p-5">
@@ -265,8 +265,10 @@ export default async function LearnAboutIlitPage() {
       </section>
 
       <section className="border-b border-line px-6 py-10 sm:px-10">
-        <h2 className="mb-5 text-2xl font-bold">Recent Blog Articles from Our Providers</h2>
-        <ArticleFeed limit={3} providerCreditedOnly emptyHidden />
+        {/* All blog posts so far are house content, so this was empty while it
+            showed only provider-credited articles (2026-10-18). */}
+        <h2 className="mb-5 text-2xl font-bold">Recent Blog Articles</h2>
+        <ArticleFeed limit={3} />
         <Link href="/blog" className="mt-5 inline-block text-sm font-semibold text-sage hover:underline">
           View all blog articles →
         </Link>
