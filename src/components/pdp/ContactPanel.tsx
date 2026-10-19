@@ -1,3 +1,4 @@
+import { Icon } from "@/components/Icon";
 import { PhoneLink } from "@/components/PhoneLink";
 import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { ContactForm } from "@/components/pdp/ContactForm";
@@ -97,8 +98,8 @@ export function ContactPanel({
       {(provider.phone || provider.website) && (
         <div className="mt-3.5 border-t border-line pt-3.5">
           {provider.phone && (
-            <div className="mb-2 text-sm">
-              📞{" "}
+            <div className="mb-2 flex items-center gap-2 text-sm">
+              <Icon name="phone" className="h-4 w-4 text-muted" />
               <PhoneLink
                 phone={provider.phone}
                 className="text-[#1c5ea8]"
@@ -108,8 +109,8 @@ export function ContactPanel({
             </div>
           )}
           {provider.website && (
-            <div className="text-sm">
-              🌐{" "}
+            <div className="flex items-center gap-2 text-sm">
+              <Icon name="globe" className="h-4 w-4 text-muted" />
               <TrackedLink
                 href={provider.website}
                 type="WEBSITE_CLICK"
@@ -124,8 +125,8 @@ export function ContactPanel({
         </div>
       )}
 
-      <div className="mt-3.5 border-t border-line pt-3.5 text-sm">
-        📍{" "}
+      <div className="mt-3.5 flex items-start gap-2 border-t border-line pt-3.5 text-sm">
+        <Icon name="map-pin" className="mt-0.5 h-4 w-4 text-muted" />
         <TrackedLink
           href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress)}`}
           type="ADDRESS_CLICK"

@@ -6,6 +6,7 @@ import { cloudinaryLimitWidth } from "@/lib/cloudinary";
 import { ILIT_DEFINITION, SYMPTOMS } from "@/lib/content";
 import { countProvidersNear, nearbyProviders } from "@/lib/srp";
 import { getVisitorLocation } from "@/lib/visitorLocation";
+import { Icon } from "@/components/Icon";
 import { ZipSearchForm } from "@/components/ZipSearchForm";
 import { ProviderCard } from "@/components/srp/ProviderCard";
 import { FindOrJoinRow } from "@/components/FindOrJoinRow";
@@ -186,9 +187,7 @@ export default async function HomePage() {
         <ul className="mx-auto mb-5 flex max-w-4xl flex-wrap justify-center gap-x-6 gap-y-3 text-sm">
           {SYMPTOMS.map((s) => (
             <li key={s.label} className="flex items-center gap-2">
-              <span aria-hidden="true" className="text-base">
-                {s.icon}
-              </span>
+              <Icon name={s.icon} className="h-5 w-5 text-action" />
               {s.label}
             </li>
           ))}

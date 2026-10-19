@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import { db } from "@/lib/db";
 import { Badge, practiceBadges } from "@/components/Badge";
+import { Icon } from "@/components/Icon";
 import { PhoneLink } from "@/components/PhoneLink";
 import { ContactPanel } from "@/components/pdp/ContactPanel";
 import { StickyContactBar } from "@/components/pdp/StickyContactBar";
@@ -119,8 +120,9 @@ export default async function SemLandingPage({
             Send a Message
           </a>
           {provider.phone && (
-            <span className="rounded border border-foreground px-5 py-2.5 text-sm font-semibold">
-              📞 <PhoneLink phone={provider.phone} providerId={provider.id} providerName={provider.practiceName} />
+            <span className="inline-flex items-center gap-2 rounded border border-foreground px-5 py-2.5 text-sm font-semibold">
+              <Icon name="phone" className="h-4 w-4" />
+              <PhoneLink phone={provider.phone} providerId={provider.id} providerName={provider.practiceName} />
             </span>
           )}
         </div>

@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Icon, type IconName } from "@/components/Icon";
 import {
   ILIT_DEFINITION,
   SYMPTOMS,
@@ -30,19 +31,19 @@ const STEPS = [
   },
 ];
 
-const TREATS = [
+const TREATS: { icon: IconName; title: string; text: string }[] = [
   {
-    icon: "🏡",
+    icon: "home",
     title: "Indoor Allergies",
     text: "Dust mites, pet dander, and indoor mold are common year-round triggers ILIT protocols can be built around.",
   },
   {
-    icon: "🌳",
+    icon: "flower",
     title: "Outdoor Allergies",
     text: "Tree, grass, and weed pollen driving seasonal symptoms are among the most common allergens ILIT treats.",
   },
   {
-    icon: "🫁",
+    icon: "lungs",
     title: "Allergy-Related Asthma",
     text: "For asthma triggered by an allergen ILIT is treating, addressing that allergen may help with breathing and flare-ups alongside your asthma care.",
   },
@@ -84,9 +85,7 @@ export function IsIlitRightForMe({ cta }: { cta: ReactNode }) {
           <ul className="space-y-2.5 text-sm">
             {SYMPTOMS.map((s) => (
               <li key={s.label} className="flex items-center gap-2.5">
-                <span aria-hidden="true" className="text-base">
-                  {s.icon}
-                </span>
+                <Icon name={s.icon} className="h-5 w-5 text-action" />
                 {s.label}
               </li>
             ))}
@@ -99,9 +98,7 @@ export function IsIlitRightForMe({ cta }: { cta: ReactNode }) {
           <ul className="flex flex-1 flex-col divide-y divide-line">
             {TREATS.map((t) => (
               <li key={t.title} className="flex flex-1 items-start gap-2.5 py-3 first:pt-0 last:pb-0">
-                <span aria-hidden="true" className="text-base leading-5">
-                  {t.icon}
-                </span>
+                <Icon name={t.icon} className="h-5 w-5 text-action" />
                 <div className="text-sm">
                   <h4 className="font-bold">{t.title}</h4>
                   <p className="text-foreground/80">{t.text}</p>

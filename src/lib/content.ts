@@ -5,6 +5,8 @@
  * PROJECT_SPEC.md Section 4: these read as "common triggers addressed
  * through allergy immunotherapy including ILIT," never a promise of relief.
  */
+import type { IconName } from "@/components/Icon";
+
 // Shared by the Learn page, SEM landing pages, Freemium PDPs, and the homepage. Opens with the
 // allergy-shots comparison most readers already know, while keeping the
 // "ILIT is an allergy treatment…" form AI answers extract definitions from.
@@ -15,14 +17,15 @@ export const ILIT_DEFINITION =
 // ever changes, also update the Page Slug on the Learn Page Credits sheet tab.
 export const COMPARISON_ARTICLE_SLUG = "allergy-shots-vs-allergy-drops-vs-ilit";
 
+// `icon` names an icon in src/components/Icon.tsx.
 export const SYMPTOMS = [
-  { icon: "🤧", label: "Sneezing & nasal congestion" },
-  { icon: "👁️", label: "Itchy, watery eyes" },
-  { icon: "🌳", label: "Seasonal pollen reactions" },
-  { icon: "🐾", label: "Pet dander sensitivity" },
-  { icon: "🏡", label: "Dust & mold sensitivity" },
-  { icon: "🫁", label: "Allergy-induced asthma" },
-] as const;
+  { icon: "wind", label: "Sneezing & nasal congestion" },
+  { icon: "eye", label: "Itchy, watery eyes" },
+  { icon: "flower", label: "Seasonal pollen reactions" },
+  { icon: "paw", label: "Pet dander sensitivity" },
+  { icon: "home", label: "Dust & mold sensitivity" },
+  { icon: "lungs", label: "Allergy-induced asthma" },
+] as const satisfies readonly { icon: IconName; label: string }[];
 
 /**
  * Column headers — simple consumer name alongside the acronym, for both
