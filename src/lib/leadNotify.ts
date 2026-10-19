@@ -28,7 +28,7 @@ export async function sendConfirmationEmail(lead: Lead, provider: LeadProvider) 
       <p>Thanks for reaching out to ${practice}.</p>
       <p>Please confirm this is really you so we can pass your message along:</p>
       <p><a href="${confirmUrl}">Confirm my inquiry</a></p>
-      <p>If you don't confirm within 60 minutes, we'll send it along anyway — but confirming helps ${practice} know it's a real inquiry.</p>
+      <p>If you don't confirm within 60 minutes, we'll send it along anyway, but confirming helps ${practice} know it's a real inquiry.</p>
     `,
   });
 }

@@ -51,7 +51,7 @@ export default async function ForPracticesPage({
           {sent ? (
             <p className="text-center text-sm font-semibold text-sage">
               <DataLayerEvent event="oaan_practice_lead_submit" />
-              Thanks for reaching out — we&apos;ll be in touch soon.
+              Thanks for reaching out! We&apos;ll be in touch soon.
             </p>
           ) : (
             <form action={submitPracticeLead}>

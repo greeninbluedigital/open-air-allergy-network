@@ -62,8 +62,11 @@ export function OtherLocations({
             href={`/find-an-ilit-provider/${o.slug}`}
             className="block rounded border border-line p-2.5 text-sm transition-colors hover:border-muted hover:shadow-sm"
           >
-            {o.practiceName} — {o.city}, {o.state}
-            {o.miles != null && <span className="text-muted"> · {Math.round(o.miles)} mi</span>}
+            <span className="block">{o.practiceName}</span>
+            <span className="block text-xs text-muted">
+              {o.city}, {o.state}
+              {o.miles != null && <> · {Math.round(o.miles)} mi</>}
+            </span>
           </Link>
         ))}
       </div>
@@ -84,7 +87,7 @@ export function OtherLocations({
                       <Link href={`/find-an-ilit-provider/${o.slug}`} className="font-semibold text-sage hover:underline">
                         {o.practiceName}
                       </Link>
-                      <span className="text-muted"> — {o.city}</span>
+                      <span className="text-muted"> · {o.city}</span>
                     </li>
                   ))}
                 </ul>

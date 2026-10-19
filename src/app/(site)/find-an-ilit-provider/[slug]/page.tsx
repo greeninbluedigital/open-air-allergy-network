@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { db } from "@/lib/db";
 import { RENAMED_SLUGS } from "@/lib/slugRedirects";
 import { Badge, practiceBadges, seesOutOfArea } from "@/components/Badge";
+import { Icon } from "@/components/Icon";
 import { ArticleFeed } from "@/components/ArticleFeed";
 import { ContactPanel, formatAddress } from "@/components/pdp/ContactPanel";
 import { PatientReviews, getAggregateRatingSchema } from "@/components/PatientReviews";
@@ -434,7 +435,10 @@ export default async function ProviderDetailPage({
 
           {seesOutOfArea(provider) && (
             <div>
-              <h3 className="mb-2 text-base font-bold">Getting Here — Fly In</h3>
+              <h3 className="mb-2 flex items-center gap-2 text-base font-bold">
+                <Icon name="plane" className="h-5 w-5 text-action" />
+                Getting Here
+              </h3>
               {/* Sheet column Q, written from the practice's own site; no
                   fallback text, since that would be our claim, not theirs.
                   whitespace-pre-line keeps line breaks typed in the cell. */}

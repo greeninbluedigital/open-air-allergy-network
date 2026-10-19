@@ -29,7 +29,7 @@ export default async function AboutPage({ searchParams }: PageProps<"/about">) {
         <h1 className="mb-2.5 text-3xl font-extrabold">About Open Air Allergy Network</h1>
         <p className="max-w-xl text-sm text-muted">
           Open Air Allergy Network connects people searching for ILIT with
-          the practices that offer it — and helps those practices reach
+          the practices that offer it, and helps those practices reach
           patients actively looking for this specific treatment.
         </p>
       </div>
@@ -60,7 +60,7 @@ export default async function AboutPage({ searchParams }: PageProps<"/about">) {
             {sent ? (
               <p className="text-sm font-semibold text-sage">
                 <DataLayerEvent event="oaan_general_inquiry_submit" />
-                Thanks for reaching out — we&apos;ll be in touch soon.
+                Thanks for reaching out! We&apos;ll be in touch soon.
               </p>
             ) : (
               <form action={submitGeneralInquiry}>

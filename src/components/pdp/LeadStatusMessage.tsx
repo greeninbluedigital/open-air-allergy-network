@@ -28,13 +28,13 @@ export function LeadStatusMessage({
   if (status === "confirmed") {
     return (
       <p className="text-sm font-semibold text-sage">
-        {leadEvent}✓ Thanks for confirming — your message to {practiceName} is on its way.
+        {leadEvent}✓ Thanks for confirming. Your message to {practiceName} is on its way.
       </p>
     );
   }
   return (
     <p className="text-sm font-semibold text-sage">
-      {leadEvent}Message sent! Check your email to confirm your inquiry — this helps {practiceName} know
+      {leadEvent}Message sent! Check your email to confirm your inquiry. This helps {practiceName} know
       it&apos;s really you.
     </p>
   );
@@ -57,7 +57,7 @@ export function LeadErrorMessage({
         LINKS_ERROR_MESSAGE
       ) : error === "invalid_email" ? (
         <>
-          That email address doesn&apos;t look right — please double-check it.
+          That email address doesn&apos;t look right. Please double-check it.
           {phone && (
             <>
               {" "}
