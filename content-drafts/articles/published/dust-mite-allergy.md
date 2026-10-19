@@ -89,9 +89,9 @@ Allergy symptoms that wake you at night or limit what you can do also deserve a 
 
 ## What are dust mites?
 
-Dust mites aren't insects. They're arachnids, members of the same group as ticks and related to spiders, according to [Britannica](https://www.britannica.com/animal/mite). Each one is about a quarter to a third of a millimeter long, the AAFA says, too small to see without magnification. They eat the flakes of skin that people and pets shed, as the [ACAAI](https://acaai.org/allergies/allergic-conditions/dust-allergies/) explains.
+Dust mites aren't insects. They're microscopic arachnids, related to spiders and ticks, according to [Britannica](https://www.britannica.com/animal/mite). Each one is about a quarter to a third of a millimeter long, the AAFA says, too small to see without magnification. They eat the flakes of skin that people and pets shed, as the [ACAAI](https://acaai.org/allergies/allergic-conditions/dust-allergies/) explains.
 
-They also depend on damp air. The ACAAI says mites do best at 75% to 80% humidity and die when it drops below 50%, which makes drier air one of the most useful changes you can make at home.
+They also depend on damp air to hydrate. The ACAAI says mites do best at 75% to 80% humidity and die when it drops below 50%, which makes drier air one of the most useful changes you can make at home.
 
 You don't react to the mites themselves. [Cleveland Clinic](https://my.clevelandclinic.org/health/diseases/17712-dust-mite-allergy) notes that they can't bite. The allergy is to proteins in their waste and dead bodies, and AAFA warns that this debris can keep causing symptoms for weeks or months after the mites die.
 

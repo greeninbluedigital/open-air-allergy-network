@@ -142,6 +142,12 @@ open in a new tab automatically (`src/components/ArticleDetail.tsx`).
   to 6 months of allergy-shot build-up and Cleveland Clinic gives 6 to 10.
   Showing the range tells readers that treatment regimens vary from practice
   to practice, which is true and more useful than picking one number.
+  **This applies to numbers and ranges, not to advice (2026-10-19).** When
+  sources disagree about what a reader should do (wash temperature, whether
+  a spray works), give the current major health source's advice with a
+  practical fallback and log the disagreement in REVIEW NOTES. Staging the
+  debate in the body made the dust mite article confusing. See "Practical
+  first" in `docs/content-pipeline.md`.
 - **The final decision is between the patient and their doctor.** Say so
   once, with a real reason attached (see the hedge-closer rules in
   `OpenAirAllergyNetwork_STYLE_GUIDE.md`), not as a reflex on every point.

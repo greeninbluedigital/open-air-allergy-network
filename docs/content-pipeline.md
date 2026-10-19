@@ -65,7 +65,7 @@ sources), so a careless article hurts the whole site.
 - **Cite every fact** to a named source, linked inline: AAFA, ACAAI, AAAAI
   and its National Allergy Bureau, CDC, NIH and MedlinePlus, FDA, USDA,
   university extension services, peer reviewed studies (PubMed, PMC). Where
-  sources differ, show both. Paraphrase. Never copy another site's wording
+  sources differ, follow "Practical first" below. Paraphrase. Never copy another site's wording
   or structure. Direct quotes stay under 15 words and are rare.
 - **Check every fact against the source page itself**, fetched during the
   run. Don't rely on memory for numbers, dates, months or study results.
@@ -165,6 +165,51 @@ BODY
 (Markdown article body: ## headings, short paragraphs, inline links)
 ```
 
+## Practical first (owner, 2026-10-19)
+
+Learned from the dust mite article, which took three rounds of review
+because it read like a literature review. Readers come for what to do, not
+for a debate between sources.
+
+- **Ranges are fine, debates aren't.** Two sources giving different numbers
+  for the same thing (4 to 6 months vs. 6 to 10) can still be shown as a
+  range, which tells readers regimens vary (`docs/blog-content-guide.md`).
+- **One clear recommendation per point.** When sources disagree about what
+  to do, give the advice from the most current major health source (Mayo Clinic, Cleveland
+  Clinic, AAFA, ACAAI, AAAAI, CDC, MedlinePlus) and stop. Don't stage the
+  disagreement in the body. Mention it only when it changes what the reader
+  should do, and then resolve it in the same breath with a fallback ("If
+  your hot water doesn't reach 130°F, run the bedding through a hot dryer
+  first"). Log the disagreement in REVIEW NOTES so the owner sees it.
+- **Current sources lead.** Prefer pages and studies from the last five
+  years. An older study or review (e.g. a Cochrane review whose search ended
+  in 2009, a 1992 lab study) is used only when nothing newer covers the
+  point, never to argue against current guidance, and its age is flagged in
+  REVIEW NOTES. Guidelines still in force (a 2013 practice parameter) are
+  fine for points current sources agree with.
+- **No sentence undercuts the one before it.** "No trial has shown it helps.
+  It's a reasonable fix." confuses readers. Either say what to do and why,
+  or cut the point.
+- **Answer the reader's next question.** For every instruction, ask whether
+  a normal household can actually do it, and give the fallback if not (water
+  heater not hot enough, no central air, renting). For every unfamiliar
+  thing, say what it is in plain words (a dust mite is an arachnid, not an
+  insect). For every product type, name it the way people search: plain
+  name, technical name and brand, e.g. "the dust mite allergy tablet
+  (sublingual immunotherapy, or SLIT), sold as ODACTRA".
+- **How-to sections are numbered steps.** Each step starts with a bold
+  action ("Cover the mattress and pillows.") followed by one or two
+  sentences of why or how. Key Takeaways are actions or facts a reader can
+  use, not summaries of research.
+- **Research belongs in the treatment section,** told plainly once: what
+  was studied, in whom, what happened. Home advice and symptoms come from
+  current health organization pages, not individual studies.
+- **Cover the basic searches in the FAQs first.** Before niche questions,
+  check autocomplete for "[topic] symptoms", "can [topic] cause ...",
+  "does [common fix] work" and "how to get rid of [topic]", and include the
+  ones people type. Side topics (e.g. shellfish cross reactions in a dust
+  mite article) go last or get cut.
+
 ## Quality check before saving
 
 - [ ] First paragraph answers the question.
@@ -174,6 +219,11 @@ BODY
 - [ ] Emergency section present if the topic needs one.
 - [ ] Ends with longer term options, ILIT hedged and accurate, Find a Provider linked.
 - [ ] No diagnosis, prices, practice endorsements or copied wording.
+- [ ] Read it as a consumer: every section ends with something to do or
+      know, no two sources argue in the body, and no fact is undercut by
+      the next sentence.
+- [ ] Every source older than five years is flagged in REVIEW NOTES, with
+      the reason nothing newer was used.
 
 ## End of run summary
 
