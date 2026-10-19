@@ -80,8 +80,15 @@ and desktops the map and list show side by side.
 ## What's excluded, and what isn't
 
 Excluded:
-- Visitors whose browser doesn't run JavaScript, which covers most search
-  engine crawlers.
+- Visitors whose browser doesn't run JavaScript, which covers many simple
+  scrapers.
+- Search engine crawlers and other tools that name themselves in their
+  user agent (Googlebot, Bingbot, Lighthouse, link previews, curl and so
+  on), dropped by `/api/events` since 2026-10-18. Googlebot runs page
+  JavaScript when it renders, so before then its renders were counted as
+  page views and impressions. Rows from before that date can't be
+  separated out, because the log doesn't store user agents.
+  robots.txt also disallows `/api/`.
 - Automated browsers that identify themselves as automated
   (`navigator.webdriver`).
 

@@ -6,6 +6,19 @@ const SINGLE_TYPES = new Set<AnalyticsEventType>(["PAGE_VIEW", "PHONE_CLICK", "W
 const IMPRESSION_TYPES = new Set<AnalyticsEventType>(["HOMEPAGE_IMPRESSION", "SRP_IMPRESSION", "PDP_NEARBY_IMPRESSION"]);
 const MAX_IMPRESSIONS = 50;
 
+// Crawlers and tools that announce themselves in their user agent. Googlebot
+// runs page JavaScript while rendering, so without this its renders logged
+// page views and impressions against practices (Search Console showed it
+// loading /api/events, 2026-10-17). Real browsers always send a user agent,
+// so a missing one is treated as a bot too.
+const BOT_UA =
+  /bot[\/\-;+)]|bot\.htm|crawl|spider|slurp|mediapartners|google-inspectiontool|google-read-aloud|lighthouse|pagespeed|headless|phantomjs|facebookexternalhit|embedly|preview|curl|wget|python|java\/|go-http|okhttp|axios|node-fetch|undici|httpclient/i;
+
+function isBot(request: Request) {
+  const ua = request.headers.get("user-agent") ?? "";
+  return !ua || BOT_UA.test(ua);
+}
+
 /**
  * Internal analytics log (PROJECT_SPEC.md's Analytics section) — public,
  * unauthenticated, fire-and-forget from src/lib/track.ts. Always responds
@@ -21,7 +34,7 @@ export async function POST(request: Request) {
   // Only the live site counts. Local dev and preview deployments share the
   // production database, so their test visits would otherwise land in the
   // per-practice numbers (same rule as GTM in src/app/layout.tsx).
-  if (process.env.VERCEL_ENV !== "production") {
+  if (process.env.VERCEL_ENV !== "production" || isBot(request)) {
     return new NextResponse(null, { status: 204 });
   }
   try {
