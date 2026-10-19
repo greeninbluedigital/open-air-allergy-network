@@ -9,7 +9,7 @@ export function StrippedHeader() {
     <header className="border-b border-line bg-bg-alt px-6 py-4 sm:px-10">
       <Link href="/" data-cta="sem_header_logo" className="inline-block">
         {/* eslint-disable-next-line @next/next/no-img-element -- a small static SVG needs no image optimization */}
-        <img src="/logo-stacked.svg" alt="Open Air Allergy Network" width={698} height={181} className="h-10 w-auto" />
+        <img src="/logo-stacked.svg" alt="Open Air Allergy Network" width={698} height={166} className="h-10 w-auto" />
       </Link>
     </header>
   );
