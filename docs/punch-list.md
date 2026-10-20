@@ -14,7 +14,10 @@ updated.
    HSA/FSA eligible").
 4. **Backlinks** (`docs/backlink-strategy.md`): Qwoted profile and LinkedIn
    company page done (10/20); practice links parked (practices not
-   interested yet). Next: Facebook, Pinterest and Crunchbase profiles, and
+   interested yet). Facebook Page done 10/20 (messaging auto reply, reviews
+   off, five article posts planned, dust mite post scheduled for about
+   11/10). Next: Pinterest and Crunchbase profiles, then send Claude all
+   profile URLs for the site's Organization sameAs list, and
    decide on the "Where to get ILIT" data page.
 5. **City pages linking to neighboring states** (on hold since 10/15,
    until search logs show more searches from areas with no nearby practice).

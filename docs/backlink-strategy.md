@@ -136,7 +136,8 @@ Needs code: a moderate job, mostly reusing the state page data.
 ## 5. Brand profiles (one afternoon, then stop)
 
 **Status 2026-10-20:** LinkedIn company page and the owner's LinkedIn
-position done. Next: Facebook, Pinterest, Crunchbase.
+position done; Facebook Page done 2026-10-20. Next: Pinterest, Crunchbase.
+When all are live, add their URLs to the homepage Organization `sameAs`.
 
 These rarely pass ranking value (most are nofollow), but they help Google
 connect the brand across the web and give searchers somewhere to check
