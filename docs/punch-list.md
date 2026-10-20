@@ -12,10 +12,10 @@ updated.
    pages). Readable but template looking. Light changes only, if any.
 3. **Hero stat strip** ("Typically 3 visits / Months, not years / Often
    HSA/FSA eligible").
-4. **Backlinks:** read `docs/backlink-strategy.md` and pick what to start.
-   Decisions inside: who is quoted for journalist requests (and whether to
-   mention your own ILIT treatment), and whether to build the practice badge
-   and the "Where to get ILIT" data page.
+4. **Backlinks** (`docs/backlink-strategy.md`): Qwoted profile and LinkedIn
+   company page done (10/20); practice links parked (practices not
+   interested yet). Next: Facebook, Pinterest and Crunchbase profiles, and
+   decide on the "Where to get ILIT" data page.
 5. **City pages linking to neighboring states** (on hold since 10/15,
    until search logs show more searches from areas with no nearby practice).
 6. **`docs/launch-checklist.md` is partly out of date.** It still lists a

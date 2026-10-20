@@ -7,8 +7,9 @@ relevance and editorial links count far more than volume.
 
 ## The short version
 
-1. **Get the listed practices to link to their own OAAN page.** Most
-   relevant links available, and we already have 50+ practices.
+1. ~~Get the listed practices to link to their own OAAN page.~~ **Parked
+   (2026-10-20):** practices aren't interested and most won't engage yet.
+   Revisit once OAAN sends them measurable patient inquiries.
 2. **Answer journalist requests** about allergies (free platforms), and
    **pitch local reporters** who cover new allergy treatments.
 3. **Build one data page reporters will cite:** where ILIT is available,
@@ -35,7 +36,12 @@ hosts, generic business directories). None relate to allergies or health,
 and his post ends by selling a service that builds 50 of them. A health
 directory gains nothing from a Zazzle profile. **Recommendation: skip it.**
 
-## 1. Practice links (start now)
+## 1. Practice links (parked 2026-10-20)
+
+**Status:** the owner reports practices aren't interested in linking, and
+most won't talk yet. They don't seem to see OAAN as a marketing tool when
+it's presented as a membership network. Revisit when OAAN can show a
+practice real inquiries it sent them. Original plan below.
 
 A link from an allergy practice's own website to its OAAN page is about as
 relevant as a link can be for us, and the practices benefit too (their
@@ -128,6 +134,9 @@ Needs code: a moderate job, mostly reusing the state page data.
   news" page.
 
 ## 5. Brand profiles (one afternoon, then stop)
+
+**Status 2026-10-20:** LinkedIn company page and the owner's LinkedIn
+position done. Next: Facebook, Pinterest, Crunchbase.
 
 These rarely pass ranking value (most are nofollow), but they help Google
 connect the brand across the web and give searchers somewhere to check
