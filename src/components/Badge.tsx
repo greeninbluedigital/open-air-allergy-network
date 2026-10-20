@@ -6,12 +6,11 @@
 // - academic: blue, academic medical centers (blue pin)
 // - geo: rose, "Sees Out-of-Area Patients" (badge only)
 // - consult: amber, remote consults (badge only)
-// - message: solid red, the practice's own custom message, Featured and trial
-//   practices only (turned back on 2026-10-19 as an option for practices
-//   that work with OAAN; it's their message, not an OAAN claim)
+// - message: solid red, the practice's own custom message, at any listing
+//   level whenever column Z is filled in (turned back on 2026-10-19 as an
+//   option for practices that keep in touch with OAAN; it's their message,
+//   not an OAAN claim)
 // contrib/house are article tag colors, unrelated to practices.
-import type { Tier } from "@/generated/prisma/client";
-
 const VARIANTS = {
   verified: "bg-badge-verified-bg text-badge-verified-text",
   academic: "bg-badge-academic-bg text-badge-academic-text",
@@ -37,10 +36,10 @@ export function seesOutOfArea(p: { geoExtension: boolean; travelNotes: string | 
   return p.geoExtension && !!p.travelNotes?.trim();
 }
 
-/** The practice's custom message (sheet column Z): Featured only, which
- * includes every active trial, since the sync stores trials as Featured. */
-export function customMessageText(p: { tier: Tier; customMessage: string | null }): string | null {
-  return p.tier === "FEATURED" && p.customMessage?.trim() ? p.customMessage.trim() : null;
+/** The practice's custom message (sheet column Z), at any tier. It's
+ * optional: blank shows nothing, so only practices that asked for one get it. */
+export function customMessageText(p: { customMessage: string | null }): string | null {
+  return p.customMessage?.trim() || null;
 }
 
 /** A practice's badges, in order: the fact badges, then its custom message.
@@ -51,7 +50,6 @@ export function practiceBadges(p: {
   geoExtension: boolean;
   travelNotes: string | null;
   verificationDate: Date | null;
-  tier: Tier;
   customMessage: string | null;
 }): { variant: BadgeVariant; label: string }[] {
   const message = customMessageText(p);
@@ -69,7 +67,6 @@ export function cardBadges(p: {
   geoExtension: boolean;
   travelNotes: string | null;
   verificationDate: Date | null;
-  tier: Tier;
   customMessage: string | null;
   pdpRemoteConsultBadge: boolean;
 }): { variant: BadgeVariant; label: string }[] {

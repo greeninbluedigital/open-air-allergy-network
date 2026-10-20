@@ -743,15 +743,9 @@ export async function runSync(): Promise<SyncSummary> {
           `${slug} (row ${sheetRow}) has Tier "${r.tier.trim()}", which isn't a recognized tier, so it was treated as Freemium. Use Freemium, Verified, Academic, Full Profile or Featured.`,
         );
       }
-      // The custom message badge shows on Featured listings only, which
-      // includes active trials (back on since 2026-10-19, after being off
-      // from 2026-10-09). Elsewhere a filled-in one is only a reminder.
+      // The custom message badge shows at any tier when filled in (back on
+      // since 2026-10-19, after being off from 2026-10-09).
       const message = r.customMessage.trim();
-      if (active && message && tier !== "FEATURED") {
-        summary.warnings.push(
-          `${slug} (row ${sheetRow}) has a Custom Message Badge, which only shows on Featured and trial listings. Clear it or change the tier.`,
-        );
-      }
       if (message.length > CUSTOM_MESSAGE_MAX) {
         summary.warnings.push(
           `${slug} (row ${sheetRow}) Custom Message Badge is ${message.length} characters (limit ${CUSTOM_MESSAGE_MAX}); badges are small, so shorten it.`,
