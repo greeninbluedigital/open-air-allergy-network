@@ -239,3 +239,8 @@ to `published YYYY-MM-DD` and point its Draft file entry at
 `published/<slug>.md`. The articles folder then only holds drafts still
 waiting on the owner (owner's request, 2026-10-19). The drafting run never
 moves files.
+
+Then offer the owner a Pinterest pin for the new article (2026-10-20): add a
+line to the PINS list in `OneDrive\Documents\OPEN AIR ALLERGY NETWORK\pinterest\make_pins.py`
+(file name, Cloudinary path after `/upload/`, title, subtitle), run it, and
+add the pin's copy to `pin-copy.md` in the same folder.
