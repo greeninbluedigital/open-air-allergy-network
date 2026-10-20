@@ -34,6 +34,11 @@ export const metadata: Metadata = {
   },
   description:
     "Find ILIT (intralymphatic immunotherapy) providers near you and learn about allergy treatment options.",
+  // Pinterest website claim (2026-10-20). A static label Pinterest's crawler
+  // reads; no script, no cookies, no visitor data. Removing it un-claims the site.
+  verification: {
+    other: { "p:domain_verify": "3bf29227c8029cbf6bfd289e13e061a9" },
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
