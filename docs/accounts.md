@@ -22,7 +22,7 @@ Google/email account you used for each signup unless you've told me.
 | **Cloudflare** | DNS + email routing for openairallergynetwork.com | ? | [dash.cloudflare.com](https://dash.cloudflare.com) |
 | **LinkedIn company page** | Brand profile (also in the homepage's Organization `sameAs`) | Owner's personal LinkedIn (page admin) | [linkedin.com/company/open-air-allergy-network](https://www.linkedin.com/company/open-air-allergy-network/) |
 | **Facebook page** | Brand profile (`sameAs`) | ? | [facebook.com/openairallergynetwork](https://www.facebook.com/openairallergynetwork) |
-| **Pinterest business account** | Brand profile and article pins (`sameAs`). Claim the website once Pinterest gives a verification code | ? | [pinterest.com/openairallergynetwork](https://www.pinterest.com/openairallergynetwork/) |
+| **Pinterest business account** | Brand profile and article pins (`sameAs`). Website claimed via the `p:domain_verify` meta tag in `src/app/layout.tsx` | ? | [pinterest.com/openairallergynetwork](https://www.pinterest.com/openairallergynetwork/) |
 | **Qwoted** | Journalist source requests (owner's personal profile, set up 2026-10-19) | Owner | [qwoted.com](https://www.qwoted.com) |
 | **Cloudinary** | Provider/article photo hosting | `greeninbluedigital@gmail.com` (created under this account while `openairallergynetwork@gmail.com` was frozen, 2026-09-16 to 2026-09-24) | [console.cloudinary.com](https://console.cloudinary.com) |
 
