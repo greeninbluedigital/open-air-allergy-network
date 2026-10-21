@@ -52,12 +52,16 @@ export async function queryBlogArticles({
   paf,
   page,
   pageSize,
+  offset = 0,
 }: {
   tag?: string;
   /** Provider Article Finder: filter by distance from a zip. */
   paf?: { lat: number; lng: number; radiusMiles: number };
   page: number;
   pageSize: number;
+  /** Articles to skip before paging starts, e.g. the ones already shown in
+   * the Blog's card grid, so the list below doesn't repeat them. */
+  offset?: number;
 }) {
   const tagWhere = tag ? { tags: { has: tag } } : {};
 
@@ -86,12 +90,12 @@ export async function queryBlogArticles({
     db.article.findMany({
       where,
       orderBy: { publishedDate: "desc" },
-      skip: (page - 1) * pageSize,
+      skip: offset + (page - 1) * pageSize,
       take: pageSize,
       include: { author: true },
     }),
     db.article.count({ where }),
   ]);
 
-  return { articles, totalCount };
+  return { articles, totalCount: Math.max(0, totalCount - offset) };
 }

@@ -46,7 +46,8 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
   const [tagCounts, gridResult, archiveResult] = await Promise.all([
     getTagCounts(),
     queryBlogArticles({ tag, paf, page: 1, pageSize: GRID_SIZE }),
-    queryBlogArticles({ tag, paf, page, pageSize: ARCHIVE_PAGE_SIZE }),
+    // Starts after the card grid's articles so the list doesn't repeat them.
+    queryBlogArticles({ tag, paf, page, pageSize: ARCHIVE_PAGE_SIZE, offset: GRID_SIZE }),
   ]);
 
   const totalPages = Math.max(1, Math.ceil(archiveResult.totalCount / ARCHIVE_PAGE_SIZE));
@@ -66,7 +67,10 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
           <div className="mb-3 text-xs font-semibold tracking-wide text-muted uppercase">
             Featured
           </div>
-          <ArticleFeed pinnedToSlot="blog_featured" limit={3} />
+          {/* Fixed picks: articles with pinnedTo = "blog_featured" in the
+              database (set 2026-10-20: Allergies or a Cold, Traveling for
+              ILIT, Cat Allergy). Any section can be pinned. */}
+          <ArticleFeed pinnedToSlot="blog_featured" limit={3} section="ALL" />
         </div>
       )}
 
@@ -139,48 +143,51 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
         )}
       </div>
 
-      <div className="px-6 py-8 sm:px-10">
-        <div className="mb-3 text-xs font-semibold tracking-wide text-muted uppercase">
-          All Articles
-        </div>
-        <div className="divide-y divide-line">
-          {archiveResult.articles.map((article) => (
-            <Link
-              key={article.id}
-              href={articlePath(article)}
-              className="group flex items-center justify-between gap-4 py-2.5 text-sm"
-            >
-              <span className="group-hover:underline">
-                {article.title}
-                {article.section === "LEARN" && (
-                  <span className="ml-2 inline-block text-[10px] font-bold tracking-wide text-sage uppercase">Learn</span>
-                )}
-              </span>
-              <span className="shrink-0 text-xs whitespace-nowrap text-muted">
-                {article.publishedDate?.toLocaleDateString("en-US", {
-                  month: "short",
-                  day: "numeric",
-                  year: "numeric",
-                })}
-              </span>
-            </Link>
-          ))}
-        </div>
-
-        {totalPages > 1 && (
-          <div className="mt-6 flex flex-wrap justify-center gap-2 text-sm">
-            {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+      {/* The rest of the articles, after the six cards above. */}
+      {archiveResult.articles.length > 0 && (
+        <div className="px-6 py-8 sm:px-10">
+          <div className="mb-3 text-xs font-semibold tracking-wide text-muted uppercase">
+            More Articles
+          </div>
+          <div className="divide-y divide-line">
+            {archiveResult.articles.map((article) => (
               <Link
-                key={p}
-                href={`/blog${buildQuery({ ...baseParams, page: String(p) })}`}
-                className={`rounded border px-3 py-1.5 ${p === page ? "border-foreground bg-foreground text-background" : "border-line hover:border-muted hover:bg-bg-alt"}`}
+                key={article.id}
+                href={articlePath(article)}
+                className="group flex items-center justify-between gap-4 py-2.5 text-sm"
               >
-                {p}
+                <span className="group-hover:underline">
+                  {article.title}
+                  {article.section === "LEARN" && (
+                    <span className="ml-2 inline-block text-[10px] font-bold tracking-wide text-sage uppercase">Learn</span>
+                  )}
+                </span>
+                <span className="shrink-0 text-xs whitespace-nowrap text-muted">
+                  {article.publishedDate?.toLocaleDateString("en-US", {
+                    month: "short",
+                    day: "numeric",
+                    year: "numeric",
+                  })}
+                </span>
               </Link>
             ))}
           </div>
-        )}
-      </div>
+
+          {totalPages > 1 && (
+            <div className="mt-6 flex flex-wrap justify-center gap-2 text-sm">
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+                <Link
+                  key={p}
+                  href={`/blog${buildQuery({ ...baseParams, page: String(p) })}`}
+                  className={`rounded border px-3 py-1.5 ${p === page ? "border-foreground bg-foreground text-background" : "border-line hover:border-muted hover:bg-bg-alt"}`}
+                >
+                  {p}
+                </Link>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
     </>
   );
 }
