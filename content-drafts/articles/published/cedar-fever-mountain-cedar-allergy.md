@@ -2,9 +2,9 @@
 DRAFT FOR REVIEW. Everything above the "BODY" line is page metadata, not
 article text. Source links in the body open in a new tab.
 
-Section: LEARN
+Section: BLOG
 Title (61 chars): Cedar Fever: Mountain Cedar Allergy Season, Symptoms and Care
-URL: /learn-about-ilit/cedar-fever-mountain-cedar-allergy
+URL: /blog/cedar-fever-mountain-cedar-allergy
 Meta description (150 chars): Cedar fever hits Texas from December to March. Why mountain cedar pollen feels like the flu, how to tell the difference, and the options that treat it.
 Target keywords: "cedar fever", "mountain cedar allergy", "cedar fever symptoms", "cedar fever season", "ashe juniper allergy" (secondary), "juniper pollen" (secondary), "fast allergy treatment" (FAQ 4)
 Tags: Allergens, Allergy Symptoms, Allergy Treatment Guides

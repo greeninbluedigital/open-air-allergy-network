@@ -85,7 +85,7 @@ Cedar fever symptoms look like a cold that won't end. The Forest Service lists t
 
 One number helps sort it out. A fever above 101.5 degrees likely isn't from pollen, according to the Forest Service. That points to an infection, and it's worth a call to your doctor.
 
-Our [cedar fever guide](/learn-about-ilit/cedar-fever-mountain-cedar-allergy) goes deeper on mountain cedar, from where it grows beyond Austin to how far its pollen travels.
+Our [cedar fever guide](/blog/cedar-fever-mountain-cedar-allergy) goes deeper on mountain cedar, from where it grows beyond Austin to how far its pollen travels.
 
 ## Oak season: February into spring
 
@@ -140,4 +140,4 @@ Read that result with its limits in mind. It was a small, one season study that 
 
 ## ILIT providers in the Austin area
 
-To see Austin area practices offering ILIT allergy treatment, [search for an ILIT provider near Austin](/find-an-ilit-provider?zip=78701), or see [ILIT providers in the Austin area](/find-an-ilit-provider/texas#austin) on our Texas page, which also covers the rest of the state by metro area. For what each season brings beyond Austin, see [Seasonal Allergies by Season](/learn-about-ilit/seasonal-allergies-by-season), and if fall hits you hardest, our [ragweed allergy guide](/learn-about-ilit/ragweed-allergy) goes deeper.
+To see Austin area practices offering ILIT allergy treatment, [search for an ILIT provider near Austin](/find-an-ilit-provider?zip=78701), or see [ILIT providers in the Austin area](/find-an-ilit-provider/texas#austin) on our Texas page, which also covers the rest of the state by metro area. For what each season brings beyond Austin, see [Seasonal Allergies by Season](/learn-about-ilit/seasonal-allergies-by-season), and if fall hits you hardest, our [ragweed allergy guide](/blog/ragweed-allergy) goes deeper.

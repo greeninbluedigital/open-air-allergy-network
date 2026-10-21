@@ -21,14 +21,16 @@ const nextConfig: NextConfig = {
         destination: "https://openairallergynetwork.com/:path",
         permanent: true,
       },
-      // Articles moved from Learn to the Blog after they'd been live long
-      // enough to be indexed. Learn is reserved for a few core ILIT topics
-      // (owner, 2026-10-20).
-      {
-        source: "/learn-about-ilit/austin-allergies",
-        destination: "/blog/austin-allergies",
-        permanent: true,
-      },
+      // Articles moved from Learn to the Blog (2026-10-20). Learn URLs are
+      // for the core ILIT topics; allergy guides live on the Blog and reach
+      // the Learn page through the "Allergy Treatment Guides" tag.
+      ...["austin-allergies", "ragweed-allergy", "cedar-fever-mountain-cedar-allergy", "dust-mite-allergy"].map(
+        (slug) => ({
+          source: `/learn-about-ilit/${slug}`,
+          destination: `/blog/${slug}`,
+          permanent: true,
+        }),
+      ),
     ];
   },
   // <meta name="robots"> only applies to HTML documents — API routes return

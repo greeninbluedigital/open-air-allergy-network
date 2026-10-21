@@ -2,9 +2,9 @@
 DRAFT FOR REVIEW. Everything above the "BODY" line is page metadata, not
 article text. Source links in the body open in a new tab.
 
-Section: LEARN
+Section: BLOG
 Title (47 chars): Ragweed Allergy: Season, Symptoms and Treatment
-URL: /learn-about-ilit/ragweed-allergy
+URL: /blog/ragweed-allergy
 Meta description (153 chars): Ragweed season runs from August to the first hard frost. Learn the symptoms, the foods that can cross react, and treatment from allergy medicine to ILIT.
 Target keywords: "ragweed allergy", "ragweed season", "ragweed allergy symptoms", "when does ragweed season end", "faster alternative to allergy shots" (Longer term options section)
 Tags: Allergy Symptoms, Allergens, Allergy Treatment Guides

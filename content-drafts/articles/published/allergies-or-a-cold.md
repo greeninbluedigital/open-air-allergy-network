@@ -58,7 +58,7 @@ SOURCES (all linked in the article)
 - Harvard Health, "Don't judge your mucus by its color" (Robert Shmerling, MD, Aug. 1, 2024): color can't tell infection from no infection; seasonal allergies can produce yellow, green or clear discharge; most sinus symptoms from viruses or allergies; antibiotics worth considering if symptoms last over 10 days or worsen after a week.
 - Case Western Reserve University news, "Med's Joao Lopes says people with allergies put a strain on their immune system" (April 9, 2025), a media mention summarizing Everyday Health: allergies make people more prone to respiratory infections; "you could have both allergies and a cold at the same time."
 - AAAAI, "Allergy Shots (Immunotherapy)": build up once or twice a week for four to six months; maintenance every two to four weeks for three to five years.
-- Internal: /learn-about-ilit (about three injections over about two months; FDA approved extracts given by an off label route; research smaller than for shots), /learn-about-ilit/allergy-shots-vs-allergy-drops-vs-ilit, /learn-about-ilit/seasonal-allergies-by-season, /learn-about-ilit/ragweed-allergy, /blog/allergy-skin-test-vs-blood-test, /find-an-ilit-provider.
+- Internal: /learn-about-ilit (about three injections over about two months; FDA approved extracts given by an off label route; research smaller than for shots), /learn-about-ilit/allergy-shots-vs-allergy-drops-vs-ilit, /learn-about-ilit/seasonal-allergies-by-season, /blog/ragweed-allergy, /blog/allergy-skin-test-vs-blood-test, /find-an-ilit-provider.
 
 REVIEW NOTES
 - **Sources disagree on two rows, and the table shows both.** Sore throat: NIH says "sometimes" with allergies, Mayo says "rarely." Fever with a cold: NIH says "rare," Mayo "sometimes," and the CDC lists a usually low grade fever. Cold onset: ACAAI says a day or two after exposure, MedlinePlus says 2 to 3 days (up to a week). I gave "a day to a few days" in the body with both cited.
@@ -122,7 +122,7 @@ So a "cold" that's still going strong in week three deserves a second look.
 
 ## The calendar can help identify allergies
 
-A cold can hit any time of year, the CDC says, though winter is the peak cold and flu season. Seasonal allergies follow the plants. The ACAAI says they show up in spring, summer and early fall, from tree, grass and weed pollen and mold spores. Our [seasonal allergies guide](/learn-about-ilit/seasonal-allergies-by-season) walks through what's in the air each season, and the [ragweed guide](/learn-about-ilit/ragweed-allergy) covers the biggest fall culprit.
+A cold can hit any time of year, the CDC says, though winter is the peak cold and flu season. Seasonal allergies follow the plants. The ACAAI says they show up in spring, summer and early fall, from tree, grass and weed pollen and mold spores. Our [seasonal allergies guide](/learn-about-ilit/seasonal-allergies-by-season) walks through what's in the air each season, and the [ragweed guide](/blog/ragweed-allergy) covers the biggest fall culprit.
 
 If you "catch a cold" every April or every September, Dr. Grayson's advice is to see an allergist and get tested. Symptoms that repeat on a schedule are one of the strongest hints that pollen, not a virus, is behind them.
 
