@@ -103,7 +103,7 @@ Every ILIT patient who started the 2008 trial got all three injections. In the a
 
 ## Which one fits you
 
-Allergy shots make sense if you want the treatment with the longest track record, live near an allergist who offers them, and can keep regular appointments for several years. ILIT may suit you if years of visits aren't realistic, if you've stopped allergy shots before, or if you'd travel a few times rather than commute weekly. Some people choose allergy drops or tablets instead, taken at home, and our [full comparison of allergy shots, allergy drops and ILIT](/learn-about-ilit/allergy-shots-vs-allergy-drops-vs-ilit) covers all three.
+Allergy shots make sense if you want the treatment with the longest track record, live near an allergist who offers them, and can keep regular appointments for several years. ILIT may suit you if years of visits aren't realistic, if you've stopped allergy shots before, or if you'd travel a few times rather than commute weekly. If the nearest practice is far away, our guide to [traveling for ILIT](/blog/traveling-for-ilit) walks through what a few trips involve compared with years of local appointments. Some people choose allergy drops or tablets instead, taken at home, and our [full comparison of allergy shots, allergy drops and ILIT](/learn-about-ilit/allergy-shots-vs-allergy-drops-vs-ilit) covers all three.
 
 Either way, start with allergy testing so treatment matches what you actually react to. Questions about cost and insurance are answered in the [Learn About ILIT FAQ](/learn-about-ilit#faq).
 
