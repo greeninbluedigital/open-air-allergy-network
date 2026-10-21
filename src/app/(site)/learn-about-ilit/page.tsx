@@ -5,6 +5,7 @@ import { db } from "@/lib/db";
 import { ZipSearchForm } from "@/components/ZipSearchForm";
 import { ArticleFeed } from "@/components/ArticleFeed";
 import { ArticleCard } from "@/components/ArticleCard";
+import { AllergyGuides } from "@/components/AllergyGuides";
 import { FaqJumpLink } from "@/components/FaqJumpLink";
 import { FaqHashOpener } from "@/components/FaqHashOpener";
 import { ComparingIlit, IsIlitRightForMe, WhatIsIlit } from "@/components/ilit/IlitModules";
@@ -240,10 +241,9 @@ export default async function LearnAboutIlitPage() {
 
       <section id="guides" className="scroll-mt-4 border-b border-line px-6 py-10 sm:px-10">
         <h2 className="mb-5 text-2xl font-bold">More Allergy Treatment Guides</h2>
-        {/* The /learn-about-ilit/[slug] cluster pages, minus the comparison
-            article already featured above. Promoting individual pages into
-            global nav is a later, traffic-data-driven decision. */}
-        <ArticleFeed section="LEARN" limit={6} emptyHidden oldestFirst excludeArticleId={comparisonArticle?.id} />
+        {/* Fixed core guides, the newest tagged guides, and a capped list
+            linking on to the tag's Blog filter (src/components/AllergyGuides.tsx). */}
+        <AllergyGuides />
       </section>
 
       <section id="faq" className="scroll-mt-4 border-b border-line bg-bg-alt px-6 py-10 sm:px-10">

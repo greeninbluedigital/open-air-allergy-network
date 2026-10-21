@@ -53,17 +53,16 @@ sources), so a careless article hurts the whole site.
    published article's draft is in that folder, which also helps with the
    repeated FAQ check. Read those files, never edit or move them.
 
-## Section: Blog unless agreed (owner, 2026-10-20)
+## Section: always Blog (owner, 2026-10-20)
 
-Every article publishes to the Blog (`/blog/<slug>`). The Learn About ILIT
-section (`/learn-about-ilit/<slug>`) is reserved for a small number of core
-ILIT topics plus big evergreen guides to a specific allergy (ragweed, cedar
-fever, dust mite; birch and grass agreed next), and an article goes there
-only when the owner has explicitly agreed to it. Regional and city articles
-are never Learn. Use the queue row's
-Section, and if it's anything other than an owner-approved Learn, write
-`Section: BLOG`. City pages are always blog posts. The main
-session also checks this before publishing and asks when a draft says LEARN.
+Every new article publishes to the Blog (`/blog/<slug>`): write
+`Section: BLOG`. The Learn About ILIT page doesn't take new articles as a
+section anymore. Instead, its "More Allergy Treatment Guides" area shows
+articles tagged **Allergy Treatment Guides** (from either section), and that
+tag's Blog filter lists every guide. Add the tag to a draft's Tags line only
+when the queue row's title says "(Learn page: Yes)", which only the owner sets
+(big evergreen guides to a specific allergy, never regional or city
+articles). The older Learn articles keep their `/learn-about-ilit/` URLs.
 Two city pages were first published to Learn by mistake (Austin, moved with
 a redirect; Dallas–Fort Worth, moved the same day).
 
@@ -147,7 +146,7 @@ metadata the publish script reads, so keep the labels exactly:
 DRAFT FOR REVIEW. Everything above the "BODY" line is page metadata, not
 article text. Source links in the body open in a new tab.
 
-Section: BLOG            (always BLOG unless the queue row says Learn; see below)
+Section: BLOG            (always BLOG; see "Section: always Blog" below)
 Title (NN chars): ...    (max 62 characters)
 URL: /blog/<slug>        (or /learn-about-ilit/<slug>)
 Meta description (NN chars): ...   (70 to 155 characters)

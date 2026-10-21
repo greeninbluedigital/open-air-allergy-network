@@ -17,6 +17,20 @@ export const ILIT_DEFINITION =
 // ever changes, also update the Page Slug on the Learn Page Credits sheet tab.
 export const COMPARISON_ARTICLE_SLUG = "allergy-shots-vs-allergy-drops-vs-ilit";
 
+/** Articles with this tag appear in Learn About ILIT's "More Allergy
+ * Treatment Guides" section, and the tag's Blog filter is the full list.
+ * New guides publish to the Blog with this tag; the section is never
+ * chosen at publish (owner, 2026-10-20). Only the owner decides which
+ * articles get it. */
+export const GUIDE_TAG = "Allergy Treatment Guides";
+
+/** The guides' fixed first row on Learn About ILIT, in display order. */
+export const CORE_GUIDE_SLUGS = [
+  "allergy-shots-and-allergy-immunotherapy",
+  "pet-cat-dog-allergy-treatment",
+  "seasonal-allergies-by-season",
+] as const;
+
 // `icon` names an icon in src/components/Icon.tsx.
 export const SYMPTOMS = [
   { icon: "wind", label: "Sneezing & nasal congestion" },

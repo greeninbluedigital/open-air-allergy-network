@@ -5,6 +5,7 @@ import { ZipSearchForm } from "@/components/ZipSearchForm";
 import { ArticleFeed } from "@/components/ArticleFeed";
 import { articlePath, getTagCounts, queryBlogArticles } from "@/lib/blog";
 import { lookupZip } from "@/lib/zip";
+import { GUIDE_TAG } from "@/lib/content";
 
 export async function generateMetadata({ searchParams }: PageProps<"/blog">): Promise<Metadata> {
   const sp = await searchParams;
@@ -14,7 +15,7 @@ export async function generateMetadata({ searchParams }: PageProps<"/blog">): Pr
   // separate near-duplicate URLs. `tag` does change the content meaningfully,
   // so it gets its own title/description and stays in the canonical.
   return {
-    title: tag ? `${tag} Articles` : "Blog",
+    title: tag ? (tag === GUIDE_TAG ? GUIDE_TAG : `${tag} Articles`) : "Blog",
     description: tag
       ? `ILIT articles tagged "${tag}" from Open Air Allergy Network.`
       : "Allergy articles and guides on symptoms, seasons and treatment, from allergy medicine and shots to ILIT, from Open Air Allergy Network.",
@@ -57,12 +58,17 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
         <h1 className="text-3xl font-extrabold">Blog</h1>
       </div>
 
-      <div className="border-b border-line px-6 py-8 sm:px-10">
-        <div className="mb-3 text-xs font-semibold tracking-wide text-muted uppercase">
-          Featured
+      {/* Hidden while a tag is selected, so a filtered view (e.g. the Learn
+          page's "See all allergy treatment guides" link) opens on matching
+          articles, not unrelated featured ones (2026-10-20). */}
+      {!tag && (
+        <div className="border-b border-line px-6 py-8 sm:px-10">
+          <div className="mb-3 text-xs font-semibold tracking-wide text-muted uppercase">
+            Featured
+          </div>
+          <ArticleFeed pinnedToSlot="blog_featured" limit={3} />
         </div>
-        <ArticleFeed pinnedToSlot="blog_featured" limit={3} />
-      </div>
+      )}
 
       <div className="border-b border-line px-6 py-6 sm:px-10">
         <div className="mb-3 text-xs font-semibold tracking-wide text-muted uppercase">

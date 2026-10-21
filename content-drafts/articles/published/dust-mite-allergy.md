@@ -7,7 +7,7 @@ Title (51 chars): Dust Mite Allergy: Symptoms, Triggers and Treatment
 URL: /learn-about-ilit/dust-mite-allergy
 Meta description (148 chars): Dust mite allergy causes year round sneezing and stuffiness. See the symptoms, what cuts mites at home, and treatment from allergy medicine to ILIT.
 Target keywords: "dust mite allergy", "dust mite allergy symptoms", "how to get rid of dust mites", "dust mite allergy treatment", "dust mite allergy shots", "dust mite allergy tablet", "sublingual immunotherapy", "faster alternative to allergy shots" (Longer term options section)
-Tags: Allergy Symptoms, Allergens
+Tags: Allergy Symptoms, Allergens, Allergy Treatment Guides
 Feature image: https://res.cloudinary.com/qruprn0t/image/upload/v1790817206/blog-hand-touching-dust-in-sunbeam.jpg
 Image alt: A hand running a fingertip through dust in a bright sunbeam, a reminder of the indoor dust that holds dust mite allergen.
 Credit: none (house article).

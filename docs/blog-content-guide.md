@@ -104,6 +104,14 @@ Topic — what it's actually about:
   mites, birch, mold, pets)
 - `Allergy Testing`
 
+Placement tag (2026-10-20):
+- `Allergy Treatment Guides`: puts an article in Learn About ILIT's "More
+  Allergy Treatment Guides" section (fixed core row, the three newest, then a
+  short list), and its Blog filter is the full list of guides. **Only the
+  owner decides which articles get it**, usually big evergreen guides to a
+  specific allergy. Never on regional or city articles. Constant:
+  `GUIDE_TAG` in `src/lib/content.ts`.
+
 A typical article gets one content-type tag plus one topic tag (e.g. the
 Avant Allergy comparison article is `["ILIT", "Comparisons"]`). Exact
 spelling/casing matters since matching is a literal string compare
