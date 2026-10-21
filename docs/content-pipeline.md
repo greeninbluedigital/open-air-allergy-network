@@ -57,10 +57,12 @@ sources), so a careless article hurts the whole site.
 
 Every article publishes to the Blog (`/blog/<slug>`). The Learn About ILIT
 section (`/learn-about-ilit/<slug>`) is reserved for a small number of core
-topics that apply to anyone learning about ILIT, and an article goes there
-only when the owner has explicitly agreed to it. Use the queue row's
+ILIT topics plus big evergreen guides to a specific allergy (ragweed, cedar
+fever, dust mite; birch and grass agreed next), and an article goes there
+only when the owner has explicitly agreed to it. Regional and city articles
+are never Learn. Use the queue row's
 Section, and if it's anything other than an owner-approved Learn, write
-`Section: BLOG`. City pages and allergen guides are blog posts. The main
+`Section: BLOG`. City pages are always blog posts. The main
 session also checks this before publishing and asks when a draft says LEARN.
 Two city pages were first published to Learn by mistake (Austin, moved with
 a redirect; Dallas–Fort Worth, moved the same day).

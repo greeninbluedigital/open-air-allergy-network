@@ -11,10 +11,12 @@ before or after it's drafted. The drafting run copies it to the draft's
 "Feature image" line. The main session checks the photo and its alt text
 before publishing.
 
-**Section: Blog by default (owner, 2026-10-20).** Learn is reserved for a
-few core topics that apply to anyone learning about ILIT. An item is Learn
-only when the owner has explicitly agreed to it, so never set Learn on your
-own, and never change a Blog row to Learn.
+**Section: Blog by default (owner, 2026-10-20).** Learn holds a few core
+ILIT topics plus big evergreen guides to a specific allergy (ragweed, dust
+mite, birch, grass). Regional and city articles are always Blog. An item is
+Learn only when the owner has explicitly agreed to it (birch and grass were
+agreed 2026-10-20), so never set Learn on your own, and never change a Blog
+row to Learn.
 
 **Published drafts** move to `published/` once the article is live, so this
 folder only holds drafts still waiting on review. Their Draft file entries
@@ -42,7 +44,7 @@ pages to neighboring states.
 | 13 | Can Allergies Cause Chest Tightness? | Blog | can-allergies-cause-chest-tightness | any time | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791854105/allergy-chest-tightness-2.jpg |
 | 14 | Oak Pollen Allergy | Blog | oak-pollen-allergy | February | next | |  |
 | 15 | Pine Pollen: Why the Yellow Dust Usually Isn't What's Making You Sneeze | Blog | pine-pollen-allergy | late February | next | |  |
-| 16 | Birch Pollen Allergy | Blog | birch-pollen-allergy | March | next | |  |
-| 17 | Grass Pollen Allergy | Blog | grass-pollen-allergy | April | next | |  |
+| 16 | Birch Pollen Allergy | Learn | birch-pollen-allergy | March | next | |  |
+| 17 | Grass Pollen Allergy | Learn | grass-pollen-allergy | April | next | |  |
 | 18 | Mold Allergy | Blog | mold-allergy | any time | next | |  |
 | 19 | Goldenrod or Ragweed? The Fall Allergy Mix-Up | Blog | goldenrod-vs-ragweed | mid August | hold | |  |
