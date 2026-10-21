@@ -162,10 +162,17 @@ Allergy (published 2026-10-10, dovepress.com) and a 2023 Chinese trial of
 cervical lymph node injections for dust mite (children only, so describe it
 neutrally, no advice about children). Explain ultrasound guidance, what the
 injection feels like (Senti pain data), and why practices pick one site
-over another, only as far as sources say. Image: the owner will create an
-AI illustration showing where the groin and neck lymph nodes are on the
-body, tasteful and clearly a diagram. Leave Feature image blank in the
-draft.
+over another, only as far as sources say. Two images (owner, 2026-10-20):
+a normal 1600 x 900 hero (Feature image, blank in the draft until the owner
+picks one), plus a separate in-article diagram placed in the body near the
+explanation of injection sites, as a Markdown image `![alt](url)` with a
+`[DIAGRAM HERE]` placeholder until the owner supplies it. The owner will make
+the diagram with AI: landscape 3:2 at 1500 x 1000, two panels (neck on the
+left, hip and groin on the right) with the lymph node marked, tasteful and
+clearly a diagram. Alt text example: "Diagram showing the lymph nodes in the
+neck and in the groin just below the waist, near the hip." Body images
+display at the article width (about 688 px on desktop) with no height cap,
+so avoid portrait images.
 
 **Kenalog shot for allergies (added 2026-10-20, queue item 9, Blog, no guide tag).**
 Search Console shows OAAN getting impressions for "how often can you get a
