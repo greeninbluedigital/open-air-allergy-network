@@ -140,7 +140,9 @@ seamless, comprehensive, "it's important to note," "in today's world."
 paragraph opener.
 
 **No hyphens, em dashes, or semicolons as a crutch for joining clauses.** Use a period or a
-conjunction instead.
+conjunction instead. The point is to avoid sounding machine written, so dashes that are part of a
+name or a normal compound are fine (owner, 2026-10-20): "Dallas–Fort Worth" (en dash, matching
+the Texas page heading), "Winston-Salem", "ultrasound-guided" in a quoted product name.
 
 **Vary sentence length aggressively.** A run of uniform medium-length sentences is the clearest
 sign of AI-written text.
