@@ -68,8 +68,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
             Featured
           </div>
           {/* Fixed picks: articles with pinnedTo = "blog_featured" in the
-              database (set 2026-10-20: Allergies or a Cold, Traveling for
-              ILIT, Cat Allergy). Any section can be pinned. */}
+              database, chosen by the owner. Any section can be pinned. */}
           <ArticleFeed pinnedToSlot="blog_featured" limit={3} section="ALL" />
         </div>
       )}
