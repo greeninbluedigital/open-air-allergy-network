@@ -53,6 +53,18 @@ sources), so a careless article hurts the whole site.
    published article's draft is in that folder, which also helps with the
    repeated FAQ check. Read those files, never edit or move them.
 
+## Section: Blog unless agreed (owner, 2026-10-20)
+
+Every article publishes to the Blog (`/blog/<slug>`). The Learn About ILIT
+section (`/learn-about-ilit/<slug>`) is reserved for a small number of core
+topics that apply to anyone learning about ILIT, and an article goes there
+only when the owner has explicitly agreed to it. Use the queue row's
+Section, and if it's anything other than an owner-approved Learn, write
+`Section: BLOG`. City pages and allergen guides are blog posts. The main
+session also checks this before publishing and asks when a draft says LEARN.
+Two city pages were first published to Learn by mistake (Austin, moved with
+a redirect; Dallas–Fort Worth, moved the same day).
+
 ## Writing rules (summary, the style guide has the detail)
 
 - **Lead with the answer.** The first paragraph answers the title's question
@@ -133,7 +145,7 @@ metadata the publish script reads, so keep the labels exactly:
 DRAFT FOR REVIEW. Everything above the "BODY" line is page metadata, not
 article text. Source links in the body open in a new tab.
 
-Section: BLOG            (or LEARN)
+Section: BLOG            (always BLOG unless the queue row says Learn; see below)
 Title (NN chars): ...    (max 62 characters)
 URL: /blog/<slug>        (or /learn-about-ilit/<slug>)
 Meta description (NN chars): ...   (70 to 155 characters)

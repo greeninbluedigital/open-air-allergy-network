@@ -11,6 +11,11 @@ before or after it's drafted. The drafting run copies it to the draft's
 "Feature image" line. The main session checks the photo and its alt text
 before publishing.
 
+**Section: Blog by default (owner, 2026-10-20).** Learn is reserved for a
+few core topics that apply to anyone learning about ILIT. An item is Learn
+only when the owner has explicitly agreed to it, so never set Learn on your
+own, and never change a Blog row to Learn.
+
 **Published drafts** move to `published/` once the article is live, so this
 folder only holds drafts still waiting on review. Their Draft file entries
 below point there.
@@ -24,7 +29,7 @@ pages to neighboring states.
 |---|---|---|---|---|---|---|---|
 | 1 | Ragweed Allergy: Season, Symptoms and Treatment | Learn | ragweed-allergy | ASAP (searches peak now) | published 2026-10-10 | published/ragweed-allergy.md |  |
 | 2 | How Long Do Cat Allergy Symptoms Last After Exposure? | Blog | how-long-do-cat-allergy-symptoms-last | any time | published 2026-10-12 | published/how-long-do-cat-allergy-symptoms-last.md |  |
-| 3 | Austin Allergies: Cedar Fever, Oak and Grass Season, and Treatment Options | Learn | austin-allergies | early November | published 2026-10-13 | published/austin-allergies.md | https://res.cloudinary.com/qruprn0t/image/upload/v1791850338/ashe-juniper-mountain-cedar-oak-texas.jpg |
+| 3 | Austin Allergies: Cedar Fever, Oak and Grass Season, and Treatment Options | Blog | austin-allergies | early November | published 2026-10-13 | published/austin-allergies.md | https://res.cloudinary.com/qruprn0t/image/upload/v1791850338/ashe-juniper-mountain-cedar-oak-texas.jpg |
 | 4 | Cedar Fever: Mountain Cedar Allergy in Texas | Learn | cedar-fever-mountain-cedar-allergy | mid November | published 2026-10-14 | published/cedar-fever-mountain-cedar-allergy.md | https://res.cloudinary.com/qruprn0t/image/upload/v1791849870/ashe-juniper-mountain-cedar-texas.jpg |
 | 5 | Traveling for ILIT: A Few Trips vs. Years of Allergy Shots | Blog | traveling-for-ilit | ASAP (supports search results) | published 2026-10-15 | published/traveling-for-ilit.md |  |
 | 6 | Allergies or a Cold? How to Tell the Difference | Blog | allergies-or-a-cold | any time | published 2026-10-18 | published/allergies-or-a-cold.md | https://res.cloudinary.com/qruprn0t/image/upload/v1791850725/allergy_in_pollen_field.jpg |
@@ -35,9 +40,9 @@ pages to neighboring states.
 | 11 | Denver Allergies (city page) | Blog | denver-allergies | before March | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791852967/denver-co-skyline.jpg |
 | 12 | Orlando Allergies (city page) | Blog | orlando-allergies | before January | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791853508/orlando-fl-lake-eola-park-and-linton-e-allen-memorial-fountain.jpg |
 | 13 | Can Allergies Cause Chest Tightness? | Blog | can-allergies-cause-chest-tightness | any time | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791854105/allergy-chest-tightness-2.jpg |
-| 14 | Oak Pollen Allergy | Learn | oak-pollen-allergy | February | next | |  |
+| 14 | Oak Pollen Allergy | Blog | oak-pollen-allergy | February | next | |  |
 | 15 | Pine Pollen: Why the Yellow Dust Usually Isn't What's Making You Sneeze | Blog | pine-pollen-allergy | late February | next | |  |
-| 16 | Birch Pollen Allergy | Learn | birch-pollen-allergy | March | next | |  |
-| 17 | Grass Pollen Allergy | Learn | grass-pollen-allergy | April | next | |  |
-| 18 | Mold Allergy | Learn | mold-allergy | any time | next | |  |
+| 16 | Birch Pollen Allergy | Blog | birch-pollen-allergy | March | next | |  |
+| 17 | Grass Pollen Allergy | Blog | grass-pollen-allergy | April | next | |  |
+| 18 | Mold Allergy | Blog | mold-allergy | any time | next | |  |
 | 19 | Goldenrod or Ragweed? The Fall Allergy Mix-Up | Blog | goldenrod-vs-ragweed | mid August | hold | |  |

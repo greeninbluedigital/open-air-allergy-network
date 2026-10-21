@@ -2,9 +2,9 @@
 DRAFT FOR REVIEW. Everything above the "BODY" line is page metadata, not
 article text. Source links in the body open in a new tab.
 
-Section: LEARN
+Section: BLOG
 Title (61 chars): Austin Allergies: Cedar Fever, Oak, Grass and Ragweed Seasons
-URL: /learn-about-ilit/austin-allergies
+URL: /blog/austin-allergies
 Meta description (151 chars): Austin allergy season runs nearly all year: cedar fever in winter, oak in spring, grass in summer, ragweed in fall. What to expect and how to treat it.
 Target keywords: "austin allergies", "austin allergy season", "cedar fever austin", "allergist austin", "mountain cedar", "ashe juniper allergy" (secondary), "juniper pollen" (secondary), "faster alternative to allergy shots" (Longer term options section)
 Tags: Allergens, Allergy Symptoms

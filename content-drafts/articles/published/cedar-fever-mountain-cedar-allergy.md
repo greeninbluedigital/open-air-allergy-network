@@ -190,4 +190,4 @@ Every form of immunotherapy takes time to build, so there's no reason to wait fo
 
 ## Find an ILIT provider in Texas
 
-To see practices offering ILIT in cedar country, [search for an ILIT provider near San Antonio](/find-an-ilit-provider?zip=78205), or browse [ILIT providers in Texas](/find-an-ilit-provider/texas) by metro area, including [Austin](/find-an-ilit-provider/texas#austin) and [San Antonio](/find-an-ilit-provider/texas#san-antonio). If you live in Austin, our [Austin allergies guide](/learn-about-ilit/austin-allergies) covers what follows cedar season, from oak in spring to ragweed in fall.
+To see practices offering ILIT in cedar country, [search for an ILIT provider near San Antonio](/find-an-ilit-provider?zip=78205), or browse [ILIT providers in Texas](/find-an-ilit-provider/texas) by metro area, including [Austin](/find-an-ilit-provider/texas#austin) and [San Antonio](/find-an-ilit-provider/texas#san-antonio). If you live in Austin, our [Austin allergies guide](/blog/austin-allergies) covers what follows cedar season, from oak in spring to ragweed in fall.
