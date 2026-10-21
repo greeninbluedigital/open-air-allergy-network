@@ -103,6 +103,7 @@ Topic — what it's actually about:
 - `Allergens` (allergen and season guides: ragweed, cedar, oak, grass, dust
   mites, birch, mold, pets)
 - `Allergy Testing`
+- `Allergy Medicine` (added 2026-10-21: medicines and steroid shots, e.g. Kenalog)
 
 Placement tag (2026-10-20):
 - `Allergy Treatment Guides`: puts an article in Learn About ILIT's "More

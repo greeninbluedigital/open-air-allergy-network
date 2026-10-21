@@ -37,7 +37,7 @@ pages to neighboring states.
 | 6 | Allergies or a Cold? How to Tell the Difference | Blog | allergies-or-a-cold | any time | published 2026-10-18 | published/allergies-or-a-cold.md | https://res.cloudinary.com/qruprn0t/image/upload/v1791850725/allergy_in_pollen_field.jpg |
 | 7 | Dust Mite Allergy: Symptoms, Triggers and Treatment | Blog | dust-mite-allergy | any time | published 2026-10-19 | published/dust-mite-allergy.md | https://res.cloudinary.com/qruprn0t/image/upload/v1790817206/blog-hand-touching-dust-in-sunbeam.jpg |
 | 8 | Dallas–Fort Worth Allergies (city page) | Blog | dallas-fort-worth-allergies | before February (oak) | published 2026-10-20 | published/dallas-fort-worth-allergies.md | https://res.cloudinary.com/qruprn0t/image/upload/v1791851874/margaret-hunt-hill-bridge-dallas-texas.jpg |
-| 9 | Kenalog Shot for Allergies: How Often, Side Effects and Alternatives | Blog | kenalog-shot-for-allergies | ASAP (already getting search impressions) | next | |  |
+| 9 | Kenalog Shot for Allergies: How Often, Side Effects and Alternatives | Blog | kenalog-shot-for-allergies | ASAP (already getting search impressions) | published 2026-10-21 | published/kenalog-shot-for-allergies.md |  |
 | 10 | Why People Quit Allergy Shots, and What the Research Shows | Blog | why-people-quit-allergy-shots | any time | next | |  |
 | 11 | Houston Allergies (city page) | Blog | houston-allergies | before February | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791852227/houston-texas-skyline-and-grassy-park.jpg |
 | 12 | Where Do ILIT Injections Go? Groin and Neck Lymph Nodes Explained | Blog | where-do-ilit-injections-go | any time | next | |  |

@@ -122,6 +122,16 @@ is the "drive traffic now" half of the SEO strategy.
   quickly against Aspire and the big health sites, but long-tail questions
   can rank within months and build toward the head term.
 
+**Allergy medicine series (owner idea, 2026-10-21; not yet in the queue).**
+A series of articles on individual allergy medicines for keyword targeting,
+tagged `Allergy Medicine`, starting from the Kenalog article. Candidates to
+check against search demand and autocomplete: steroid nasal sprays
+(Flonase, Nasacort), the common antihistamines (Zyrtec, Claritin, Allegra,
+Xyzal, Benadryl), montelukast (Singulair), prednisone for allergies, and
+decongestants. Each one: what it does, how long it takes and lasts, side
+effects, and where it stops helping, ending with immunotherapy and ILIT as
+the longer term option. Practical first rules; no dosing advice.
+
 **Why people quit allergy shots (added 2026-10-20, queue item 10, Blog).**
 The owner wants a piece citing as many studies as we can find on how many
 people stop allergy shots (SCIT) before finishing, and why, with ILIT as an
@@ -168,7 +178,7 @@ over another, only as far as sources say. Two images:
 - In-article diagram (owner's AI illustration, final 2026-10-21): use this
   cropped, compressed Cloudinary URL (2:3 portrait crop of the 2000 x 1342
   original, about 20 KB):
-  https://res.cloudinary.com/qruprn0t/image/upload/c_crop,ar_2:3,g_center/w_800,f_auto,q_auto/v1792607532/ilit-injection-sites-lymph-nodes-neck-groin-diagram.png.png
+  https://res.cloudinary.com/qruprn0t/image/upload/c_crop,ar_2:3,g_center/w_800,f_auto,q_auto/v1792607743/ilit-injection-sites-lymph-nodes-neck-groin-diagram.png
   Place it in the body next to the explanation of injection sites as
   `![Diagram of a person with dots marking the lymph nodes on both sides of the neck and in the groin, just below the waist near the hip.](URL)`
   followed on the next line by the caption in italics: *Most ILIT practices
