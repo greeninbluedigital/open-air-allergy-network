@@ -122,6 +122,35 @@ is the "drive traffic now" half of the SEO strategy.
   quickly against Aspire and the big health sites, but long-tail questions
   can rank within months and build toward the head term.
 
+**What do dust mites look like? (added 2026-10-21, queue item 11, Blog).**
+Found through Ahrefs: Avant Allergy's site ranks #5 for "what do dust mites
+look like" (2,300 searches a month), plus "dust bugs in house" and "dust
+bugs look like". Autocomplete adds: "what do dust mites look like to the
+human eye", "…on skin", "…on a bed", "…under a microscope", "can you see
+dust mites (with the naked eye, on your bed, moving)", "dust bugs",
+"tiny white bugs in dust", "little black bugs in dust".
+Angle: you can't see dust mites, so the article answers the visual question
+honestly and then helps people identify what they are seeing.
+- What they look like: AAFA says that under magnification they are white
+  bugs with eight legs, a quarter to a third of a millimeter long.
+  Cleveland Clinic says they are too small to see with your eyes. Britannica
+  says they are arachnids, in the same group as ticks.
+- The bugs people actually see in dust or bedding: likely candidates are
+  booklice (psocids), carpet beetle larvae and springtails. Use university
+  extension pages (pest identification) for each, with what they look like
+  and whether they cause allergies.
+- "Dust mite bites": mites don't bite (Cleveland Clinic). Itchy bumps come
+  from something else, and dust mite allergy can make eczema worse (ACAAI).
+- Signs your symptoms point to dust mite allergy, then a short link to the
+  dust mite guide (/blog/dust-mite-allergy) for the five-step plan and
+  treatment, ending with immunotherapy and ILIT. Don't repeat the guide's
+  FAQs.
+- Image: a real microscope photo of a dust mite is ideal. Look for a public
+  domain one (USDA ARS or CDC image libraries) and confirm the license, or
+  leave Feature image blank for the owner.
+- After publishing, add a link from the dust mite guide's "What are dust
+  mites, and what do they look like?" section to this article.
+
 **Allergy medicine series (owner idea, 2026-10-21; not yet in the queue).**
 A series of articles on individual allergy medicines for keyword targeting,
 tagged `Allergy Medicine`, starting from the Kenalog article. Candidates to

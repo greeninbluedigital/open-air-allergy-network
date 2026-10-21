@@ -87,9 +87,9 @@ Dust mites are a common asthma trigger. The [ACAAI](https://acaai.org/allergies/
 
 Allergy symptoms that wake you at night or limit what you can do also deserve a doctor's visit soon, even if they aren't an emergency.
 
-## What are dust mites?
+## What are dust mites, and what do they look like?
 
-Dust mites aren't insects. They're microscopic arachnids, related to spiders and ticks, according to [Britannica](https://www.britannica.com/animal/mite). Each one is about a quarter to a third of a millimeter long, the AAFA says, too small to see without magnification. They eat the flakes of skin that people and pets shed, as the [ACAAI](https://acaai.org/allergies/allergic-conditions/dust-allergies/) explains.
+Dust mites aren't insects. They're microscopic arachnids, related to spiders and ticks, according to [Britannica](https://www.britannica.com/animal/mite). Each one is about a quarter to a third of a millimeter long, the AAFA says, too small to see without magnification. Under a microscope, they look like tiny white bugs with eight legs, the AAFA explains. [Cleveland Clinic](https://my.clevelandclinic.org/health/diseases/17712-dust-mite-allergy) notes they're too small to see with your eyes alone, so if you can spot a bug moving in your dust or bedding, it isn't a dust mite. They eat the flakes of skin that people and pets shed, as the [ACAAI](https://acaai.org/allergies/allergic-conditions/dust-allergies/) explains.
 
 They also depend on damp air to hydrate. The ACAAI says mites do best at 75% to 80% humidity and die when it drops below 50%, which makes drier air one of the most useful changes you can make at home.
 
