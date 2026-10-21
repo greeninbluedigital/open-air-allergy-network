@@ -87,6 +87,11 @@ a redirect; Dallas–Fort Worth, moved the same day).
 - **Emergency symptoms first.** If the topic overlaps an emergency (chest
   tightness, trouble breathing, throat or tongue swelling, anaphylaxis),
   open with a short "When to get care right away" section before anything else.
+- **Where ILIT goes, in plain words (owner, 2026-10-20):** "a lymph node in
+  the groin (just below the waist, near the hip)" or "at the top of the
+  thigh, near the hip". Never "groin" alone, which some readers take to mean
+  the genitals. Some practices use a neck lymph node instead (e.g. Columbia
+  Allergy's A-ILIT).
 - **ILIT claims match the Learn page** (`/learn-about-ilit`): about three
   injections over about two months; FDA approved extracts given by an off
   label route; research is promising but smaller than for allergy shots. No

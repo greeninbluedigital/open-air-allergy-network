@@ -59,6 +59,12 @@ banned words). Third person, platform voice: never "we" for the practice.
      ("three injections over about eight weeks, instead of years of allergy
      shots").
 
+## Wording
+- **Where the injection goes:** "a lymph node in the groin (just below the
+  waist, near the hip)", never "groin" alone, which some readers take to
+  mean the genitals (owner, 2026-10-20). Use the practice's own location if
+  it differs (e.g. Columbia Allergy's A-ILIT uses the neck).
+
 ## FAQs
 - **Focus on ILIT and allergy treatment**, the questions of someone deciding
   whether to contact this practice for ILIT. Skip side topics (food allergy

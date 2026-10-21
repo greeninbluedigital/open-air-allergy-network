@@ -78,7 +78,7 @@ const FAQ_ITEMS = [
   {
     id: "faq-pain",
     q: "Is ILIT painful?",
-    a: "Most patients describe it as a brief pinch. ILIT injections go into a superficial lymph node, usually near the groin, an area with far fewer pain-sensing nerve endings than the skin or muscle tissue used for a standard allergy shot.",
+    a: "Most patients describe it as a brief pinch. ILIT injections go into a superficial lymph node, usually in the groin (just below the waist, near the hip), an area with far fewer pain-sensing nerve endings than the skin or muscle tissue used for a standard allergy shot.",
   },
   {
     id: "faq-pain-vs-shots",

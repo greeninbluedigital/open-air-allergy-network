@@ -176,7 +176,7 @@ Allergy medicine controls the symptoms while you take it. It doesn't change the 
 
 **Allergy drops or tablets (SLIT)** go under the tongue at home. Cleveland Clinic mentions an under the tongue option for cedar fever. Our [comparison of allergy shots, allergy drops and ILIT](/learn-about-ilit/allergy-shots-vs-allergy-drops-vs-ilit) lays out how they differ.
 
-**ILIT** is the shortest course, and for some people a faster alternative to allergy shots. An allergist injects FDA approved allergen extract into a lymph node, usually in the groin, using ultrasound to guide the needle. Giving the extract that way is an off label use. A course is typically about three injections over about two months. The [2008 trial that established ILIT](https://pmc.ncbi.nlm.nih.gov/articles/PMC2582048/) studied grass pollen and compared three injections over two months with 54 shots over three years.
+**ILIT** is the shortest course, and for some people a faster alternative to allergy shots. An allergist injects FDA approved allergen extract into a lymph node, usually in the groin (just below the waist, near the hip), using ultrasound to guide the needle. Giving the extract that way is an off label use. A course is typically about three injections over about two months. The [2008 trial that established ILIT](https://pmc.ncbi.nlm.nih.gov/articles/PMC2582048/) studied grass pollen and compared three injections over two months with 54 shots over three years.
 
 ### The mountain cedar ILIT trial
 
