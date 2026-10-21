@@ -37,14 +37,15 @@ pages to neighboring states.
 | 6 | Allergies or a Cold? How to Tell the Difference | Blog | allergies-or-a-cold | any time | published 2026-10-18 | published/allergies-or-a-cold.md | https://res.cloudinary.com/qruprn0t/image/upload/v1791850725/allergy_in_pollen_field.jpg |
 | 7 | Dust Mite Allergy: Symptoms, Triggers and Treatment | Blog | dust-mite-allergy | any time | published 2026-10-19 | published/dust-mite-allergy.md | https://res.cloudinary.com/qruprn0t/image/upload/v1790817206/blog-hand-touching-dust-in-sunbeam.jpg |
 | 8 | Dallas–Fort Worth Allergies (city page) | Blog | dallas-fort-worth-allergies | before February (oak) | published 2026-10-20 | published/dallas-fort-worth-allergies.md | https://res.cloudinary.com/qruprn0t/image/upload/v1791851874/margaret-hunt-hill-bridge-dallas-texas.jpg |
-| 9 | Houston Allergies (city page) | Blog | houston-allergies | before February | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791852227/houston-texas-skyline-and-grassy-park.jpg |
-| 10 | Can Allergies Cause a Sore Throat? | Blog | can-allergies-cause-sore-throat | any time | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791852724/sore-throat-1.jpg |
-| 11 | Denver Allergies (city page) | Blog | denver-allergies | before March | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791852967/denver-co-skyline.jpg |
-| 12 | Orlando Allergies (city page) | Blog | orlando-allergies | before January | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791853508/orlando-fl-lake-eola-park-and-linton-e-allen-memorial-fountain.jpg |
-| 13 | Can Allergies Cause Chest Tightness? | Blog | can-allergies-cause-chest-tightness | any time | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791854105/allergy-chest-tightness-2.jpg |
-| 14 | Oak Pollen Allergy | Blog | oak-pollen-allergy | February | next | |  |
-| 15 | Pine Pollen: Why the Yellow Dust Usually Isn't What's Making You Sneeze | Blog | pine-pollen-allergy | late February | next | |  |
-| 16 | Birch Pollen Allergy (Learn page: Yes) | Blog | birch-pollen-allergy | March | next | |  |
-| 17 | Grass Pollen Allergy (Learn page: Yes) | Blog | grass-pollen-allergy | April | next | |  |
-| 18 | Mold Allergy | Blog | mold-allergy | any time | next | |  |
-| 19 | Goldenrod or Ragweed? The Fall Allergy Mix-Up | Blog | goldenrod-vs-ragweed | mid August | hold | |  |
+| 9 | Kenalog Shot for Allergies: How Often, Side Effects and Alternatives | Blog | kenalog-shot-for-allergies | ASAP (already getting search impressions) | next | |  |
+| 10 | Houston Allergies (city page) | Blog | houston-allergies | before February | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791852227/houston-texas-skyline-and-grassy-park.jpg |
+| 11 | Can Allergies Cause a Sore Throat? | Blog | can-allergies-cause-sore-throat | any time | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791852724/sore-throat-1.jpg |
+| 12 | Denver Allergies (city page) | Blog | denver-allergies | before March | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791852967/denver-co-skyline.jpg |
+| 13 | Orlando Allergies (city page) | Blog | orlando-allergies | before January | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791853508/orlando-fl-lake-eola-park-and-linton-e-allen-memorial-fountain.jpg |
+| 14 | Can Allergies Cause Chest Tightness? | Blog | can-allergies-cause-chest-tightness | any time | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791854105/allergy-chest-tightness-2.jpg |
+| 15 | Oak Pollen Allergy | Blog | oak-pollen-allergy | February | next | |  |
+| 16 | Pine Pollen: Why the Yellow Dust Usually Isn't What's Making You Sneeze | Blog | pine-pollen-allergy | late February | next | |  |
+| 17 | Birch Pollen Allergy (Learn page: Yes) | Blog | birch-pollen-allergy | March | next | |  |
+| 18 | Grass Pollen Allergy (Learn page: Yes) | Blog | grass-pollen-allergy | April | next | |  |
+| 19 | Mold Allergy | Blog | mold-allergy | any time | next | |  |
+| 20 | Goldenrod or Ragweed? The Fall Allergy Mix-Up | Blog | goldenrod-vs-ragweed | mid August | hold | |  |

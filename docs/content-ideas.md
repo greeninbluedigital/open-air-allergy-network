@@ -122,6 +122,32 @@ is the "drive traffic now" half of the SEO strategy.
   quickly against Aspire and the big health sites, but long-tail questions
   can rank within months and build toward the head term.
 
+**Kenalog shot for allergies (added 2026-10-20, queue item 9, Blog, no guide tag).**
+Search Console shows OAAN getting impressions for "how often can you get a
+kenalog shot for allergies" (5 in the week to 2026-10-20) with no matching
+content. Google autocomplete has many variants: "kenalog shot for allergies
+side effects", "how often", "how long does a kenalog injection last for
+allergies", "dosage", "near me", "steroid shot for allergies side effects".
+Angle:
+- What Kenalog is: triamcinolone acetonide, a long acting injectable
+  corticosteroid. Check the FDA label on DailyMed for how it lists allergic
+  rhinitis (the label limits it to severe cases where usual treatment hasn't
+  worked).
+- How long it lasts and its side effects, from the label and major health
+  sources.
+- How often: answer honestly. If no allergy society gives an interval, say
+  so and that the prescriber decides. Never give dosing advice.
+- Why many allergists prefer other treatments for hay fever. Find AAAAI or
+  ACAAI statements. A 2013 Danish registry study (Aasbjerg et al.) linked
+  repeated depot steroid injections for hay fever to higher osteoporosis and
+  diabetes risk; verify it before citing.
+- How it differs from allergy shots: a steroid shot calms symptoms for a
+  while, while immunotherapy changes the allergy itself. ILIT is the
+  few-injection immunotherapy option.
+Tone: neutral and factual, never critical of doctors who give Kenalog.
+Follow the "Practical first" rules. This topic is close to medical advice,
+so every claim needs a current major source.
+
 **Order of work:**
 
 | # | Working title | Section | Target keywords | Angle and notes |
