@@ -8,9 +8,8 @@ URL: /blog/kenalog-shot-for-allergies
 Meta description (145 chars): How long a Kenalog shot lasts for hay fever, how often you can get one, its side effects, and longer lasting options like allergy shots and ILIT.
 Target keywords: "kenalog shot for allergies", "how often can you get a kenalog shot for allergies", "kenalog shot for allergies side effects", "how long does a kenalog injection last for allergies", "steroid shot for allergies", "steroid shot for allergies side effects", "alternative to kenalog injection for allergies" (FAQ 8), "fast allergy treatment" (Longer term options and FAQ 8)
 Tags: Allergy Medicine, Comparisons
-Feature image: TBD (owner uploads)
-Image idea: A sunlit spring meadow of tall grass going to seed, with a pharmacy paper bag and a box of tissues on a wooden porch railing in the foreground, saturated colors, no faces.
-Image alt: Tall seeding grass in a sunny field with a box of tissues on a porch rail in the foreground.
+Feature image: https://res.cloudinary.com/qruprn0t/image/upload/v1792622373/kenalog-shot-for-allergies-syringe-in-flower-field.jpg
+Image alt: A hand holding a syringe among purple flowers in a field.
 Credit: none (house article).
 
 KEY TAKEAWAYS
