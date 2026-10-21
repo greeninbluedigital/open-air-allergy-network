@@ -2,9 +2,9 @@
 DRAFT FOR REVIEW. Everything above the "BODY" line is page metadata, not
 article text. Source links in the body open in a new tab.
 
-Section: LEARN
+Section: BLOG
 Title (57 chars): Dallas and Fort Worth Allergies: DFW Allergy Season Guide
-URL: /learn-about-ilit/dallas-fort-worth-allergies
+URL: /blog/dallas-fort-worth-allergies
 Meta description (152 chars): DFW allergies barely take a break: cedar in winter, trees in spring, grass in summer, ragweed and cedar elm in fall. What to expect and how to treat it.
 Target keywords: "dallas allergies", "dfw allergies", "dallas allergy season", "fort worth allergies", "why are allergies so bad in dallas", "cedar fever dallas", "cedar elm allergy" (secondary), "alternative to weekly allergy shots" (FAQ), "faster alternative to allergy shots" (Longer term options section)
 Tags: Allergens, Allergy Symptoms
