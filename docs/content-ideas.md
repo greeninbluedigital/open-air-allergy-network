@@ -122,6 +122,51 @@ is the "drive traffic now" half of the SEO strategy.
   quickly against Aspire and the big health sites, but long-tail questions
   can rank within months and build toward the head term.
 
+**Why people quit allergy shots (added 2026-10-20, queue item 10, Blog).**
+The owner wants a piece citing as many studies as we can find on how many
+people stop allergy shots (SCIT) before finishing, and why, with ILIT as an
+option for people the schedule doesn't work for. Starting points found
+2026-10-20 (verify each against the paper before citing):
+- Park et al., systematic review of real world SCIT persistence and
+  adherence, International Forum of Allergy & Rhinology 2023 (doi
+  10.1002/alr.23078): 3 year persistence ranged from 16% to 87.3% across
+  studies; adherence depends on how it's defined.
+- Kiel et al., Dutch pharmacy database, 6,486 patients (PubMed 23651609):
+  18% reached the minimum 3 years (SCIT 23%, SLIT 7%); median SCIT
+  duration 1.7 years.
+- German prescription data analysis (Dove Press, Patient Preference and
+  Adherence): SCIT adherence about 60% at 2 years and 35% to 37.5% at 3
+  years.
+- IQVIA prescription data analysis, 2009 to 2018 starts (PMC10163374).
+- U.S. claims study of SCIT without out of pocket costs, Annals of Allergy,
+  Asthma & Immunology 2023: 60% reached maintenance, 34% still adherent at
+  3 years.
+- Real life SCIT adherence during COVID (PubMed 34122718).
+- Senti 2008 (PMC2582048): 32 of 54 who started SCIT finished 3 years; all
+  58 who started ILIT finished three injections.
+- Also look for studies on the reasons people stop (time, travel, cost,
+  reactions, feeling better).
+Tone (guardrail in src/lib/content.ts): factual and fair to allergy shots,
+which work when people finish them and are offered by most ILIT practices.
+Let the numbers make the case. No attacks on shots or the doctors who give
+them. Present ILIT as an option for people the schedule doesn't fit, with
+its smaller evidence base stated plainly. Practical first rules apply.
+
+**Where do ILIT injections go? (added 2026-10-20, queue item 12, Blog).**
+Most practices inject a lymph node in the groin (just below the waist, near
+the hip), as in the 2008 Senti trial (superficial inguinal node). Some use a
+neck (cervical) lymph node. Columbia Allergy in Fremont calls its version
+A-ILIT and says it uses neck lymph nodes (its FAQ is on its OAAN profile).
+Research to check: the cervical ILIT pilot in the Journal of Asthma and
+Allergy (published 2026-10-10, dovepress.com) and a 2023 Chinese trial of
+cervical lymph node injections for dust mite (children only, so describe it
+neutrally, no advice about children). Explain ultrasound guidance, what the
+injection feels like (Senti pain data), and why practices pick one site
+over another, only as far as sources say. Image: the owner will create an
+AI illustration showing where the groin and neck lymph nodes are on the
+body, tasteful and clearly a diagram. Leave Feature image blank in the
+draft.
+
 **Kenalog shot for allergies (added 2026-10-20, queue item 9, Blog, no guide tag).**
 Search Console shows OAAN getting impressions for "how often can you get a
 kenalog shot for allergies" (5 in the week to 2026-10-20) with no matching
