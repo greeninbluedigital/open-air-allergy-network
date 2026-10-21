@@ -16,10 +16,9 @@ updated.
    company page done (10/20); practice links parked (practices not
    interested yet). Facebook Page done 10/20 (messaging auto reply, reviews
    off, five article posts planned, dust mite post scheduled for about
-   11/10). Pinterest done 10/20. LinkedIn, Facebook and Pinterest are in
-   the homepage's Organization sameAs list. Still to do: **Crunchbase**
-   (company entry and founder profile, then add its URL to sameAs; Pinterest
-   website already claimed, tag in `src/app/layout.tsx`), and decide on the "Where to get ILIT" data page.
+   11/10). Pinterest and Crunchbase done 10/20. All four profiles are in
+   the homepage's Organization sameAs list. Still to decide: the "Where to
+   get ILIT" data page.
 5. **City pages linking to neighboring states** (on hold since 10/15,
    until search logs show more searches from areas with no nearby practice).
 6. **`docs/launch-checklist.md` is partly out of date.** It still lists a

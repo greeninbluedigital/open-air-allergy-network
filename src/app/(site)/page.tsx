@@ -37,11 +37,12 @@ const SITE_JSON_LD = {
       logo: `${SITE_URL}/logo-icon-512.png`,
       contactPoint: { "@type": "ContactPoint", contactType: "customer support", url: `${SITE_URL}/about#contact` },
       // OAAN's own brand profiles, so search engines and AI assistants tie
-      // them to the site (added 2026-10-20). Add Crunchbase once it exists.
+      // them to the site (added 2026-10-20).
       sameAs: [
         "https://www.linkedin.com/company/open-air-allergy-network/",
         "https://www.facebook.com/openairallergynetwork",
         "https://www.pinterest.com/openairallergynetwork/",
+        "https://www.crunchbase.com/organization/open-air-allergy-network",
       ],
     },
   ],
