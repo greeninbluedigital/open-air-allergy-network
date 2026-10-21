@@ -162,17 +162,23 @@ Allergy (published 2026-10-10, dovepress.com) and a 2023 Chinese trial of
 cervical lymph node injections for dust mite (children only, so describe it
 neutrally, no advice about children). Explain ultrasound guidance, what the
 injection feels like (Senti pain data), and why practices pick one site
-over another, only as far as sources say. Two images (owner, 2026-10-20):
-a normal 1600 x 900 hero (Feature image, blank in the draft until the owner
-picks one), plus a separate in-article diagram placed in the body near the
-explanation of injection sites, as a Markdown image `![alt](url)` with a
-`[DIAGRAM HERE]` placeholder until the owner supplies it. The owner will make
-the diagram with AI: landscape 3:2 at 1500 x 1000, two panels (neck on the
-left, hip and groin on the right) with the lymph node marked, tasteful and
-clearly a diagram. Alt text example: "Diagram showing the lymph nodes in the
-neck and in the groin just below the waist, near the hip." Body images
-display at the article width (about 688 px on desktop) with no height cap,
-so avoid portrait images.
+over another, only as far as sources say. Two images:
+- Hero: a normal 1600 x 900 Feature image, blank in the draft until the owner
+  picks one.
+- In-article diagram (owner's AI illustration, final 2026-10-21): use this
+  cropped, compressed Cloudinary URL (2:3 portrait crop of the 2000 x 1342
+  original, about 20 KB):
+  https://res.cloudinary.com/qruprn0t/image/upload/c_crop,ar_2:3,g_center/w_800,f_auto,q_auto/v1792607532/ilit-injection-sites-lymph-nodes-neck-groin-diagram.png.png
+  Place it in the body next to the explanation of injection sites as
+  `![Diagram of a person with dots marking the lymph nodes on both sides of the neck and in the groin, just below the waist near the hip.](URL)`
+  followed on the next line by the caption in italics: *Most ILIT practices
+  inject a lymph node in the groin, just below the waist near the hip (lower
+  dots). Some use a lymph node in the neck (upper dots).*
+- Layout: the owner wants the diagram narrow with text wrapping around it,
+  not full width. Body images are full width today, so build a float right
+  option for article images at publish time (about 40% of the article width
+  on desktop, centered and smaller on phones, caption under the image) and
+  check it in the browser.
 
 **Kenalog shot for allergies (added 2026-10-20, queue item 9, Blog, no guide tag).**
 Search Console shows OAAN getting impressions for "how often can you get a
