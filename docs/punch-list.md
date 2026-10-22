@@ -1,6 +1,6 @@
 # Punch list (owner's open items)
 
-Updated 2026-10-19. Things raised in recent sessions that are still open,
+Updated 2026-10-21. Things raised in recent sessions that are still open,
 newest decisions first. Cross items off or tell Claude, and this file gets
 updated.
 
@@ -12,15 +12,10 @@ updated.
    pages). Readable but template looking. Light changes only, if any.
 3. **Hero stat strip** ("Typically 3 visits / Months, not years / Often
    HSA/FSA eligible").
-4. **Backlinks** (`docs/backlink-strategy.md`): Qwoted profile and LinkedIn
-   company page done (10/20); practice links parked (practices not
-   interested yet). Facebook Page done 10/20 (messaging auto reply, reviews
-   off, five article posts planned, dust mite post scheduled for about
-   11/10). Pinterest and Crunchbase done 10/20. All four profiles are in
-   the homepage's Organization sameAs list. The "Where to get ILIT" data
-   page is on hold until most practices are phone verified (reminder
-   11/3). Aspire will take several calls over several days: its phone team's
-   bookable ILIT offices differ from its website.
+4. **Backlinks** (`docs/backlink-strategy.md`): profiles done (Qwoted,
+   LinkedIn, Facebook, Pinterest, Crunchbase, all in the site's sameAs);
+   practice links parked. The "Where to get ILIT" data page is on hold until
+   most practices are phone verified (reminder 11/3).
 5. **City pages linking to neighboring states** (on hold since 10/15,
    until search logs show more searches from areas with no nearby practice).
 6. **`docs/launch-checklist.md` is partly out of date.** It still lists a
@@ -39,8 +34,10 @@ updated.
    (waiting on Aspire HQ's list). Grand Rapids: doctor named on the ILIT
    page still unconfirmed.
 9. **Search Console:** resubmit the sitemap if not done since the 10/2 crawl
-   (Sitemaps → enter `sitemap.xml` → Submit). Request indexing for the dust
-   mite guide if you'd like (Bing was notified automatically).
+   (Sitemaps → enter `sitemap.xml` → Submit). Optional: request indexing for
+   new or moved pages (Kenalog, the refreshed ILIT vs. allergy shots, and the
+   blog addresses of ragweed, cedar fever, dust mite and Austin). Bing is
+   notified automatically.
 10. **Core Web Vitals check** on the live domain (PageSpeed Insights),
     pending since the 10/2 migration.
 11. **Vercel Firewall:** switch Bot Protection to Challenge mode (reminder
@@ -66,8 +63,11 @@ updated.
 
 ## Content
 
-20. **Tomorrow's article draft** is the first under the new "Practical
-    first" rules. Watch whether it needs fewer review rounds.
+20. **Upcoming drafts:** Why People Quit Allergy Shots (hero ready), then
+    What Do Dust Mites Look Like? (then link it from the dust mite guide),
+    Houston, and Where Do ILIT Injections Go? (diagram ready; build the
+    text wrap layout at publish). The "Practical first" rules seem to be
+    working: Kenalog needed only two comments.
 21. **Link the sore throat article and "Allergies or a Cold?" to each
     other** once the sore throat article publishes.
 22. **Learn page blog module:** switch back to provider-credited articles
@@ -76,14 +76,22 @@ updated.
     Allergy (2 offices) need addresses. Auni's Bowling Green office isn't in
     the sheet yet.
 
-## Done today (2026-10-19)
+## Recently done (2026-10-19 to 10-21)
 
-- Dayton Allergy & Asthma Care live (trial, ILIT confirmed by phone, Google
-  review showing, welcome email sent).
-- CRM corrected against the Providers sheet; new slim Pipeline tab.
-- Custom message badge back on, for any practice that asks for one.
-- Every visible em dash removed; "Getting Here" has a plane icon.
-- Dust mite allergy guide published; "Practical first" drafting rules added.
-- Published drafts moved into `content-drafts/articles/published/`.
-- Bot traffic no longer counted in practice stats; `/api/` blocked in
-  robots.txt.
+- Kenalog article published with hero and pin; "Allergy Medicine" tag and
+  a medicine article series idea added.
+- ILIT vs. Traditional Allergy Shots refreshed (sourced, guide tag).
+- New articles always publish to the Blog; the Learn page shows guides by
+  the "Allergy Treatment Guides" tag (fixed core row, newest three, short
+  list, "See all"). Austin, ragweed, cedar fever and dust mite moved to
+  /blog with redirects; Dallas moved without one.
+- Blog Featured row pinned (How Often, Traveling for ILIT, Cat Allergy);
+  the list under the cards no longer repeats them.
+- "Groin" now reads "in the groin (just below the waist, near the hip)"
+  across articles, the Learn FAQ, and 74 practice bios and FAQs.
+- Dust mite guide answers "what do they look like"; dedicated article
+  queued.
+- Monthly provider search moved to a local task that checks the Providers
+  sheet and CRM, writing to the CRM's Candidates tab; Richmond Allergy
+  noted as AllerPoint Henrico.
+- Dayton Allergy live; brand profiles done; Qwoted profile set up.
