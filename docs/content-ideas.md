@@ -138,6 +138,46 @@ each ending at immunotherapy, ILIT and Find a Provider (Practical first rules):
   ILIT link; say plainly that evidence on OAS improving is mixed. Also on
   their list: avocado, banana and latex fruit allergy (latex fruit
   syndrome), possible later posts.
+  **Competitor page to beat (owner, 2026-10-21):**
+  stlouisallergyasthma.com/oral-allergy-syndrome-foods-symptoms-how-to-treat/
+  (St. Louis Family Allergy, Dr. Sonia Cajigal, an OAAN trial listing; last
+  modified 2025-04-17, about 1,600 words). Its metadata:
+  - Title: "Oral Allergy Syndrome Food List". H1: "Oral Allergy Syndrome Foods,
+    Symptoms & How To Treat It".
+  - Description: food list, symptoms and treatment, plus its doctor and city.
+  - H2s: What is Oral Allergy Syndrome? / Oral Allergy Syndrome Food List /
+    Oral Allergy Syndrome Symptoms / Oral Allergy Syndrome Treatment. H3s
+    under the food list: Fruits, Vegetables, Nuts, Spices, each food tagged
+    with its pollen (birch tree, grass, ragweed, mugwort weed).
+  - Uses "oral allergy syndrome" about 34 times, names "pollen fruit
+    syndrome" as the other name, and mentions birch 20, mugwort 13, ragweed
+    7 and grass 5 times.
+  - Gaps to win on: no actual chart or table (yet it ranks #5 for "oral
+    allergy syndrome chart"), never says "pollen food allergy syndrome" (the
+    current medical name), and never mentions immunotherapy.
+  **Our metadata (owner: use the same keywords as much as possible):**
+  - Title (51): "Oral Allergy Syndrome Food List, Chart and Treatment"
+  - H1: "Oral Allergy Syndrome: Food List, Symptoms and How to Treat It"
+  - Description (about 155): "Oral allergy syndrome food list and chart by
+    pollen (birch, grass, ragweed, mugwort), plus symptoms, treatment and
+    whether allergy shots or ILIT can help."
+  - Keywords: "oral allergy syndrome" (lead, in the title, H1, first
+    sentence and most H2s), "oral allergy syndrome food list", "oral allergy
+    syndrome chart", "oral allergy syndrome foods", "oral allergy syndrome
+    symptoms", "oral allergy syndrome treatment", "oral allergy syndrome
+    fruits / vegetables / nuts / spices", "pollen food allergy syndrome",
+    "pollen fruit syndrome", "birch pollen food allergy", "fast allergy
+    treatment" (treatment section).
+  - H2s: What is oral allergy syndrome? / Oral allergy syndrome food list
+    (H3s Fruits, Vegetables, Nuts, Spices, each food with its pollen) / Oral
+    allergy syndrome chart (one table, foods grouped by pollen and season) /
+    Oral allergy syndrome symptoms (When to get care right away box at the
+    top: throat tightness, trouble breathing) / Oral allergy syndrome
+    treatment / Can allergy shots or ILIT help oral allergy syndrome? / FAQ.
+  - Same keywords and topic order are fine, but write our own text and
+    build the food list and chart from AAAAI, ACAAI and peer reviewed
+    sources, not from this page (some of its pairings may not hold up).
+    Never copy its wording.
 - **Is there a one-time allergy shot?** (queue): OSU's ILIT article ranks
   #8 for "one time allergy shot" (200). Answer honestly: no shot cures
   allergies in one go. A steroid shot (link the Kenalog article) calms
