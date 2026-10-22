@@ -63,12 +63,12 @@ updated.
 ## Content
 
 18. **Queued articles (not drafted yet; the weekday task drafts one each
-    morning):** What Do Dust Mites Look Like? (moved up 10/21; then link it
-    from the dust mite guide), Why People Quit Allergy Shots (hero ready),
-    Houston,
-    and Where Do ILIT Injections Go? (diagram ready; build the text wrap
-    layout at publish). The "Practical first" rules seem to be
-    working: Kenalog needed only two comments.
+    morning).** Reordered 10/21 by search volume, then season: Oral Allergy
+    Syndrome first, then sore throat, tree pollen and dust mites. Seasonal
+    items (Orlando, Houston, oak, pine, Denver, birch, grass, Ohio grass)
+    follow, then Why People Quit (hero ready) and Where Do ILIT Injections
+    Go? (diagram ready; build the text wrap layout at publish). After the
+    dust mites article, link it from the dust mite guide.
 19. **Link the sore throat article and "Allergies or a Cold?" to each
     other** once the sore throat article publishes.
 20. **Learn page blog module:** switch back to provider-credited articles
