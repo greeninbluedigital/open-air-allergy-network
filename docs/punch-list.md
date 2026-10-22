@@ -36,8 +36,8 @@ updated.
    notified automatically.
 8. **Core Web Vitals (parked 10/21):** mobile PageSpeed lab score is 79
     (LCP 5.5s), mainly because Google Tag Manager loads at the top of the
-    page. No changes until Search Console's Core Web Vitals report (real
-    visitors) flags mobile pages as Poor or Needs improvement. Ready fixes
+    page. Search Console has too little real-visitor data to report
+    (checked 10/21). No changes until its Core Web Vitals report flags mobile pages as Poor or Needs improvement. Ready fixes
     then: GTM at the standard Next.js timing, images served directly from
     Cloudinary.
 9. **Vercel Firewall:** switch Bot Protection to Challenge mode (reminder
@@ -63,10 +63,11 @@ updated.
 
 ## Content
 
-18. **Upcoming drafts:** Why People Quit Allergy Shots (hero ready), then
-    What Do Dust Mites Look Like? (then link it from the dust mite guide),
-    Houston, and Where Do ILIT Injections Go? (diagram ready; build the
-    text wrap layout at publish). The "Practical first" rules seem to be
+18. **Queued articles (not drafted yet; the weekday task drafts one each
+    morning):** Why People Quit Allergy Shots (hero ready), then What Do
+    Dust Mites Look Like? (then link it from the dust mite guide), Houston,
+    and Where Do ILIT Injections Go? (diagram ready; build the text wrap
+    layout at publish). The "Practical first" rules seem to be
     working: Kenalog needed only two comments.
 19. **Link the sore throat article and "Allergies or a Cold?" to each
     other** once the sore throat article publishes.
