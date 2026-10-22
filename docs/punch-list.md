@@ -34,9 +34,12 @@ updated.
    new or moved pages (Kenalog, the refreshed ILIT vs. allergy shots, and the
    blog addresses of ragweed, cedar fever, dust mite and Austin). Bing is
    notified automatically.
-8. **Core Web Vitals:** mobile PageSpeed is 79 (LCP 5.5s), held back mainly
-    by Google Tag Manager loading at the top of the page. Fix options under
-    discussion (10/21).
+8. **Core Web Vitals (parked 10/21):** mobile PageSpeed lab score is 79
+    (LCP 5.5s), mainly because Google Tag Manager loads at the top of the
+    page. No changes until Search Console's Core Web Vitals report (real
+    visitors) flags mobile pages as Poor or Needs improvement. Ready fixes
+    then: GTM at the standard Next.js timing, images served directly from
+    Cloudinary.
 9. **Vercel Firewall:** switch Bot Protection to Challenge mode (reminder
     fired 10/13; skip if done).
 10. **GTM and GA4 setup** (`docs/gtm-ga4-setup.md`), parked until after the
