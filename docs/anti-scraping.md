@@ -48,6 +48,8 @@ there's nothing to calibrate against before then. That's 3 custom rules
    crawlers are exempt automatically, so search rankings aren't affected.
    Once it's on Challenge, the hero-photo warm-up has to run through a real
    browser rather than command-line requests.
+   **Switched to Challenge 2026-10-21.** Command-line requests to site pages
+   now get a 429 challenge response, so check pages in a real browser.
 2. **Rate limit on provider pages** (custom rule, action "Rate Limit"):
    - If: Request Path starts with `/find-an-ilit-provider`
    - Fixed window, 60 seconds, 120 requests, keyed on IP
