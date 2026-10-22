@@ -67,7 +67,7 @@ async function pickHeroImage() {
 // Every claim here is already stated (and sourced) on Learn About ILIT.
 const FACTS = [
   { title: "Typically 3 visits", caption: "Spaced about a month apart" },
-  { title: "Months, not years", caption: "Compared with years of traditional allergy shots" },
+  { title: "A few months, start to finish", caption: "Compared with years of traditional allergy shots" },
   { title: "Often HSA/FSA eligible", caption: "How HSA and FSA funds work", href: "/learn-about-ilit#faq-hsa-fsa" },
 ];
 
@@ -113,7 +113,7 @@ export default async function HomePage() {
           id="find"
           className="relative z-10 mx-6 -mt-16 max-w-sm scroll-mt-4 rounded border border-line bg-white p-5 shadow-lg sm:absolute sm:bottom-6 sm:left-10 sm:mx-0 sm:mt-0"
         >
-          <h1 className="mb-1 text-lg font-bold">Allergy treatment in months, not years.</h1>
+          <h1 className="mb-1 text-lg font-bold">Most allergy treatment takes years. Yours could take months.</h1>
           <p className="mb-3.5 text-xs text-muted">Find an ILIT provider near you.</p>
           <ZipSearchForm origin="homepage_hero" />
           <p className="mt-3 text-xs text-muted">✓ Every practice listed is confirmed to offer ILIT.</p>
