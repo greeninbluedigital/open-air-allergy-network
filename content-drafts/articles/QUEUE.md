@@ -44,7 +44,7 @@ everything else. New items after this go wherever the owner places them.
 | 7 | Dust Mite Allergy: Symptoms, Triggers and Treatment | Blog | dust-mite-allergy | any time | published 2026-10-19 | published/dust-mite-allergy.md | https://res.cloudinary.com/qruprn0t/image/upload/v1790817206/blog-hand-touching-dust-in-sunbeam.jpg |
 | 8 | Dallas–Fort Worth Allergies (city page) | Blog | dallas-fort-worth-allergies | before February (oak) | published 2026-10-20 | published/dallas-fort-worth-allergies.md | https://res.cloudinary.com/qruprn0t/image/upload/v1791851874/margaret-hunt-hill-bridge-dallas-texas.jpg |
 | 9 | Kenalog Shot for Allergies: How Often, Side Effects and Alternatives | Blog | kenalog-shot-for-allergies | ASAP (already getting search impressions) | published 2026-10-21 | published/kenalog-shot-for-allergies.md |  |
-| 10 | Oral Allergy Syndrome Food List, Chart, Diet and Treatment | Blog | oral-allergy-syndrome | any time (22K searches a month) | next | |  |
+| 10 | Oral Allergy Syndrome Food List, Chart, Diet and Treatment | Blog | oral-allergy-syndrome | any time (22K searches a month) | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1792644170/oral-allergy-syndrome-fruits-farmers-market.jpg |
 | 11 | Can Allergies Cause a Sore Throat? | Blog | can-allergies-cause-sore-throat | any time | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791852724/sore-throat-1.jpg |
 | 12 | Tree Pollen Allergy: Symptoms, Season and Treatment | Blog | tree-pollen-allergy | before February | next | |  |
 | 13 | What Do Dust Mites Look Like? (And What Those Tiny Bugs in Your Dust Really Are) | Blog | what-do-dust-mites-look-like | ASAP (high search volume) | next | |  |
