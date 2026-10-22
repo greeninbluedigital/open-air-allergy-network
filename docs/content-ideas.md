@@ -122,6 +122,67 @@ is the "drive traffic now" half of the SEO strategy.
   quickly against Aspire and the big health sites, but long-tail questions
   can rank within months and build toward the head term.
 
+**Ahrefs competitor keyword research (owner, 2026-10-21).** The owner ran
+Ahrefs on listed practices' sites ("competitive keywords research" Google
+Sheet, id 1T9x5hoR8FomRyuqkAvclNtqJP2tRzDJUsGVWiNTd_Kk). Same lesson as the
+Aspire study: ILIT terms are tiny ("intralymphatic immunotherapy" 60 a month,
+OSU #1, WashU #8), and practices get their traffic from single-question
+posts. Skipped as off topic for ILIT: hives, MCAS, alpha-gal, adhesive
+allergy, sulfa and dairy allergy, and practice brand names. New queue items,
+each ending at immunotherapy, ILIT and Find a Provider (Practical first rules):
+- **Oral allergy syndrome** (queue): St. Louis Allergy & Asthma ranks #10
+  for "oral allergy syndrome" (22K) and #5 for "oral allergy syndrome chart"
+  (5.7K); its OAS page is its top page. Pollen-food cross reactions (birch:
+  apples, cherries; grass: melons, tomatoes; ragweed: bananas, melons), with
+  a sourced table rather than a copied chart. Pollen immunotherapy is the
+  ILIT link; say plainly that evidence on OAS improving is mixed. Also on
+  their list: avocado, banana and latex fruit allergy (latex fruit
+  syndrome), possible later posts.
+- **Is there a one-time allergy shot?** (queue): OSU's ILIT article ranks
+  #8 for "one time allergy shot" (200). Answer honestly: no shot cures
+  allergies in one go. A steroid shot (link the Kenalog article) calms
+  symptoms for weeks. Allergy shots take years. ILIT is the shortest
+  immunotherapy course, typically three injections. Also targets
+  "alternatives to allergy shots" (100) and "allergy shots how long" (40).
+- **Tree pollen allergy** (queue, before February): Bay Area Allergy ranks
+  #1 for "tree pollen allergy" (1.5K) and "tree pollen allergy symptoms"
+  (1.4K), plus "when is pollen season in florida" (#5, 300). A hub for the
+  oak, birch and pine posts already queued; link to them as they publish.
+- **Am I allergic to my dog?** (queue): Premier Allergy's "how can I tell if
+  I'm allergic to my dog" post gets about 690 visits a month, its second
+  page. Signs, testing, "hypoallergenic" dogs, then links the Learn pet
+  allergy guide. Covers the backlog idea "Can You Get Rid of a Dog Allergy?".
+- **Puffy eyes from allergies** (queue): Aspire's post gets about 1.2K
+  visits a month. When swelling needs care right away goes first.
+- **Allergy test results** (queue): AIR Care ranks for "allergy test
+  results" (200) and "back allergy test" (200). How to read skin test
+  results (wheal size, positive vs. allergic), what a back test is, and
+  how results guide immunotherapy. Links the skin test vs. blood test post.
+- **What's in allergy shots?** (queue): OSU ranks for "what are in allergy
+  shots" (90) and "long term side effects of allergy shots" (70), and its
+  treatment page for "allergy injections" (1K). Extracts, how doses build,
+  common and rare reactions, then the shorter ILIT course.
+- **Backlog, not queued:** "do air purifiers help allergies" (Auni's HEPA
+  post is its second page), "how to read a pollen count" (Richmond Allergy's
+  pollen count page is its top page, but live counts aren't something OAAN
+  can publish).
+
+**Ohio grass pollen season (owner, 2026-10-21, queue, publish by early
+April).** The owner heard Dr. Amber Patterson (Auni Allergy, Findlay OH) say
+in a webinar that Ohio's grass pollen season peaks in May and June. OAAN
+lists many Ohio practices (Premier's 13 offices, Ohio State, Auni, Dayton),
+so a dedicated page matters. A webinar remark can't be cited, so find
+published sources: AAAAI National Allergy Bureau counting stations in Ohio,
+the Southwest Ohio Air Quality Agency's Cincinnati pollen counts, Ohio State
+University Extension for the main grasses (Kentucky bluegrass, timothy,
+perennial ryegrass, orchardgrass, tall fescue), AAFA ranks for Columbus,
+Cleveland, Cincinnati, Dayton and Toledo. HCPLive has an article on grass
+allergy treatment quoting Dr. Patterson (from her Nationwide Children's
+days); check it for anything citable. Describe the season, symptoms and
+treatment; never tell readers to time ILIT around it. Link Find a Provider
+with an Ohio zip and the Ohio state page, no practice list. Publish after
+the general grass guide and link to it.
+
 **What do dust mites look like? (added 2026-10-21, queue item 11, Blog).**
 Found through Ahrefs: Avant Allergy's site ranks #5 for "what do dust mites
 look like" (2,300 searches a month), plus "dust bugs in house" and "dust

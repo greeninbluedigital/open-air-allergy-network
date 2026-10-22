@@ -46,9 +46,17 @@ pages to neighboring states.
 | 15 | Denver Allergies (city page) | Blog | denver-allergies | before March | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791852967/denver-co-skyline.jpg |
 | 16 | Orlando Allergies (city page) | Blog | orlando-allergies | before January | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791853508/orlando-fl-lake-eola-park-and-linton-e-allen-memorial-fountain.jpg |
 | 17 | Can Allergies Cause Chest Tightness? | Blog | can-allergies-cause-chest-tightness | any time | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791854105/allergy-chest-tightness-2.jpg |
-| 18 | Oak Pollen Allergy | Blog | oak-pollen-allergy | February | next | |  |
-| 19 | Pine Pollen: Why the Yellow Dust Usually Isn't What's Making You Sneeze | Blog | pine-pollen-allergy | late February | next | |  |
-| 20 | Birch Pollen Allergy (Learn page: Yes) | Blog | birch-pollen-allergy | March | next | |  |
-| 21 | Grass Pollen Allergy (Learn page: Yes) | Blog | grass-pollen-allergy | April | next | |  |
-| 22 | Mold Allergy | Blog | mold-allergy | any time | next | |  |
-| 23 | Goldenrod or Ragweed? The Fall Allergy Mix-Up | Blog | goldenrod-vs-ragweed | mid August | hold | |  |
+| 18 | Oral Allergy Syndrome: Pollen, Trigger Foods and Treatment | Blog | oral-allergy-syndrome | any time (22K searches a month) | next | |  |
+| 19 | Is There a One-Time Allergy Shot? | Blog | one-time-allergy-shot | any time | next | |  |
+| 20 | Tree Pollen Allergy: Symptoms, Season and Treatment | Blog | tree-pollen-allergy | before February | next | |  |
+| 21 | Am I Allergic to My Dog? Signs and What Helps | Blog | allergic-to-my-dog | any time | next | |  |
+| 22 | Puffy Eyes From Allergies: Causes and Relief | Blog | puffy-eyes-allergies | any time | next | |  |
+| 23 | Allergy Test Results: What Your Skin Test Means | Blog | allergy-test-results | any time | next | |  |
+| 24 | What's in Allergy Shots? Ingredients and Side Effects | Blog | whats-in-allergy-shots | any time | next | |  |
+| 25 | Oak Pollen Allergy | Blog | oak-pollen-allergy | February | next | |  |
+| 26 | Pine Pollen: Why the Yellow Dust Usually Isn't What's Making You Sneeze | Blog | pine-pollen-allergy | late February | next | |  |
+| 27 | Birch Pollen Allergy (Learn page: Yes) | Blog | birch-pollen-allergy | March | next | |  |
+| 28 | Grass Pollen Allergy (Learn page: Yes) | Blog | grass-pollen-allergy | April | next | |  |
+| 29 | Ohio Grass Pollen Season: When It Peaks and What Helps | Blog | ohio-grass-pollen-season | early April (peak May to June) | next | |  |
+| 30 | Mold Allergy | Blog | mold-allergy | any time | next | |  |
+| 31 | Goldenrod or Ragweed? The Fall Allergy Mix-Up | Blog | goldenrod-vs-ragweed | mid August | hold | |  |

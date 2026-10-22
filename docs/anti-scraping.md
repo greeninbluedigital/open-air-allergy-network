@@ -59,6 +59,10 @@ there's nothing to calibrate against before then. That's 3 custom rules
      traffic looks like in the Firewall overview before switching the
      action to **Challenge**, and adjust the limit if real visitors come
      close to it.
+   - **Stays on Log (owner, 2026-10-21).** Hobby's Firewall overview only
+     keeps 24 hours of history, and it showed no rate limit or trap hits,
+     so there's nothing to calibrate against. Revisit if a scraper shows up
+     (trap hit, Google Alert) or after a move to Pro.
 3. **Scraper trap rule** (custom rule):
    - If: Request Path equals
      `/find-an-ilit-provider/quillmoor-allergy-sinus-center-wichita`
