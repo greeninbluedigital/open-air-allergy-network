@@ -99,7 +99,12 @@ export default async function HomePage() {
             src={cloudinaryLimitWidth(hero.imageUrl, 2400)}
             alt={hero.altText}
             fill
-            preload
+            // The LCP element. Next 16 recommends fetchPriority over preload:
+            // with preload alone the image had default priority and waited
+            // behind JavaScript on slow mobile connections (PageSpeed mobile
+            // LCP 5.2s, 2026-10-21).
+            loading="eager"
+            fetchPriority="high"
             sizes="100vw"
             className="object-cover"
           />
