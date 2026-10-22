@@ -35,8 +35,8 @@ updated.
 8. **Core Web Vitals (parked 10/21):** mobile PageSpeed lab score is 79
     (LCP 5.5s), mainly because Google Tag Manager loads at the top of the
     page. Search Console has too little real-visitor data to report
-    (checked 10/21). No changes until its Core Web Vitals report flags mobile pages as Poor or Needs improvement. Ready fixes
-    then: GTM at the standard Next.js timing, images served directly from
+    (checked 10/21). No changes until its Core Web Vitals report flags
+    mobile pages as Poor or Needs improvement. Ready fixes then: GTM at the standard Next.js timing, images served directly from
     Cloudinary.
 9. **GTM and GA4 setup** (`docs/gtm-ga4-setup.md`), parked until after the
     legal question was settled. Includes linking Search Console to GA4.
@@ -64,7 +64,8 @@ updated.
 
 18. **Queued articles (not drafted yet; the weekday task drafts one each
     morning).** Reordered 10/21 by search volume, then season: Oral Allergy
-    Syndrome first, then sore throat, tree pollen and dust mites. Seasonal
+    Syndrome first (brief has the competitor's metadata and your Ahrefs,
+    SpyFu and People Also Ask keywords; hero set), then sore throat, tree pollen and dust mites. Seasonal
     items (Orlando, Houston, oak, pine, Denver, birch, grass, Ohio grass)
     follow, then Why People Quit (hero ready) and Where Do ILIT Injections
     Go? (diagram ready; build the text wrap layout at publish). After the
@@ -79,6 +80,11 @@ updated.
 
 ## Recently done (2026-10-19 to 10-21)
 
+- 8 articles queued from your Ahrefs research (oral allergy syndrome, one
+  time allergy shot, tree pollen, dog allergy, puffy eyes, test results,
+  what's in allergy shots, Ohio grass pollen). Queue reordered by volume,
+  then season. Rate limit stays on Log (Hobby keeps only 24 hours of
+  firewall history). Avant's Quick-LI history noted in the CRM.
 - Allergy Innovations (Kokomo and Westfield, IN) live on trial with bios
   and FAQs; Dr. Priya Bansal added to the CRM. Bot Protection on Challenge.
 - Homepage headline is now "Most allergy treatment takes years. Yours could
