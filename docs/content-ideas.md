@@ -155,25 +155,49 @@ each ending at immunotherapy, ILIT and Find a Provider (Practical first rules):
   - Gaps to win on: no actual chart or table (yet it ranks #5 for "oral
     allergy syndrome chart"), never says "pollen food allergy syndrome" (the
     current medical name), and never mentions immunotherapy.
+  **Keyword data for the competitor URL (owner, 2026-10-21):**
+  - Ahrefs (position, US volume): "oral allergy syndrome" #10, 22K; "oral
+    allergy syndrome chart" #5, 5.7K; "oas allergy" #1, 2.6K; "oral
+    allergy syndrome rash" #1, 900; "oral allergy syndrome foods" #2, 300.
+  - SpyFu (position, clicks a month): "oral allergy syndrome diet" #1, 75;
+    "oral allergy syndrome foods" #1, 30; "oral allergy syndrome chart" #6,
+    20; "birch pollen allergy" #9, 16; "oas allergy" #9, 12.
+  - Google "People also ask" for "oral allergy syndrome": Does oral allergy
+    syndrome ever go away? / What foods can trigger OAS? / What are signs of
+    food allergy? / Is oral allergy syndrome autoimmune?
   **Our metadata (owner: use the same keywords as much as possible):**
-  - Title (51): "Oral Allergy Syndrome Food List, Chart and Treatment"
+  - Title (58): "Oral Allergy Syndrome Food List, Chart, Diet and Treatment"
   - H1: "Oral Allergy Syndrome: Food List, Symptoms and How to Treat It"
-  - Description (about 155): "Oral allergy syndrome food list and chart by
-    pollen (birch, grass, ragweed, mugwort), plus symptoms, treatment and
-    whether allergy shots or ILIT can help."
-  - Keywords: "oral allergy syndrome" (lead, in the title, H1, first
-    sentence and most H2s), "oral allergy syndrome food list", "oral allergy
-    syndrome chart", "oral allergy syndrome foods", "oral allergy syndrome
+  - Description (about 155): "Oral allergy syndrome (OAS allergy) food
+    list and chart by pollen, plus symptoms like mouth itching or a rash,
+    diet tips, and whether allergy shots or ILIT help."
+  - Keywords: "oral allergy syndrome" (lead: title, H1, first sentence, most
+    H2s), "oas allergy" (write "OAS allergy" naturally in the first
+    paragraph and one heading), "oral allergy syndrome chart", "oral allergy
+    syndrome food list", "oral allergy syndrome foods", "oral allergy
+    syndrome diet", "oral allergy syndrome rash", "oral allergy syndrome
     symptoms", "oral allergy syndrome treatment", "oral allergy syndrome
     fruits / vegetables / nuts / spices", "pollen food allergy syndrome",
-    "pollen fruit syndrome", "birch pollen food allergy", "fast allergy
-    treatment" (treatment section).
-  - H2s: What is oral allergy syndrome? / Oral allergy syndrome food list
-    (H3s Fruits, Vegetables, Nuts, Spices, each food with its pollen) / Oral
-    allergy syndrome chart (one table, foods grouped by pollen and season) /
-    Oral allergy syndrome symptoms (When to get care right away box at the
-    top: throat tightness, trouble breathing) / Oral allergy syndrome
-    treatment / Can allergy shots or ILIT help oral allergy syndrome? / FAQ.
+    "pollen fruit syndrome", "birch pollen allergy" (link the birch guide
+    once it's live), "fast allergy treatment" (treatment section).
+  - H2s: What is oral allergy syndrome (OAS allergy)? / Oral allergy
+    syndrome food list (H3s Fruits, Vegetables, Nuts, Spices, each food with
+    its pollen) / Oral allergy syndrome chart (one table, foods grouped by
+    pollen and season) / Oral allergy syndrome symptoms, including rash
+    (When to get care right away box at the top: throat tightness, trouble
+    breathing; answer "rash" honestly with sources: symptoms usually stay in
+    the mouth and lips, and say when hives or a rash elsewhere point to a
+    true food allergy) / Oral allergy syndrome diet (which foods to skip,
+    and the sourced tips that often let people eat them: cooked, canned or
+    peeled versions; never tell readers to test foods on themselves) / Oral
+    allergy syndrome treatment / Can allergy shots or ILIT help oral allergy
+    syndrome? / FAQ.
+  - FAQs from "People also ask", each answered from sources and not
+    repeating the body: Does oral allergy syndrome ever go away? / What
+    foods can trigger OAS? (short, point to the chart) / Is it oral allergy
+    syndrome or a food allergy? (covers "signs of food allergy") / Is oral
+    allergy syndrome autoimmune? (no: it's an allergic cross reaction, cite
+    AAAAI or ACAAI) / plus the treatment FAQ ending with Find a Provider.
   - Same keywords and topic order are fine, but write our own text and
     build the food list and chart from AAAAI, ACAAI and peer reviewed
     sources, not from this page (some of its pairings may not hold up).
