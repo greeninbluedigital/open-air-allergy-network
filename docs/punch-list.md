@@ -16,53 +16,50 @@ updated.
    until search logs show more searches from areas with no nearby practice).
 4. **CRM simplification (parked 10/21).** The CRM is still too complex.
    Work through it together later; not now.
-5. **`docs/launch-checklist.md` is partly out of date.** It still lists a
-   Vercel Pro upgrade and attorney reviews, which the 10/9 decisions
-   replaced (stay on Hobby, no lawyer). Want it cleaned up?
 
 ## Your actions
 
-6. **CRM:** check the new Pipeline tab. Confirm AllerPoint's status (was
+5. **CRM:** check the new Pipeline tab. Confirm AllerPoint's status (was
    the mid-October note sent?) and send the OAAN note to Paullette at Bay
    Area. Once happy, tell Claude to delete the old tabs (Leads, Locations,
    Pipeline Summary, Definitions).
-7. **Phone confirmations still missing** (no Verification Date, so no ILIT
+6. **Phone confirmations still missing** (no Verification Date, so no ILIT
    Confirmed badge): Elaria, St. Louis Family Allergy (both offices),
    AllerPoint Arlington and Philadelphia, and about 20 Aspire offices
    (waiting on Aspire HQ's list). Grand Rapids: doctor named on the ILIT
    page still unconfirmed. Allergy Innovations (Kokomo and Westfield, IN,
    live on trial 10/21): confirm ILIT at both offices.
-8. **Core Web Vitals (parked 10/21):** mobile PageSpeed lab score is 79
+7. **Core Web Vitals (parked 10/21):** mobile PageSpeed lab score is 79
     (LCP 5.5s), mainly because Google Tag Manager loads at the top of the
     page. Search Console has too little real-visitor data to report
     (checked 10/21). No changes until its Core Web Vitals report flags
     mobile pages as Poor or Needs improvement. Ready fixes then: GTM at the standard Next.js timing, images served directly from
     Cloudinary.
-9. **GTM and GA4 setup** (`docs/gtm-ga4-setup.md`), parked until after the
+8. **GTM and GA4 setup** (`docs/gtm-ga4-setup.md`), parked until after the
     legal question was settled. Includes linking Search Console to GA4.
-10. **Account security:** two factor authentication everywhere, encrypt the
+9. **Account security:** two factor authentication everywhere, encrypt the
     laptop holding `.env`, and pick a retention period for patient
     inquiries (`docs/launch-checklist.md`).
-11. **Google Alerts** for "Quillmoor Allergy" and "555-0142" (scraper trap).
-12. **Logins to confirm** in `docs/accounts.md` (several still marked
+10. **Google Alerts** for "Quillmoor Allergy" and "555-0142" (scraper trap).
+11. **Logins to confirm** in `docs/accounts.md` (several still marked
     unknown).
 
 ## Waiting on others
 
-13. **Dr. Priya Bansal (Asthma and Allergy Wellness Center, St. Charles,
+12. **Dr. Priya Bansal (Asthma and Allergy Wellness Center, St. Charles,
     IL):** you emailed her 10/21 to ask about ILIT (a Reddit post says she
     offers it; her sites don't). List her only once she confirms.
-14. **Dayton Allergy (Dr. Azmeh):** edit form or reply. Gmail reminds you
+13. **Dayton Allergy (Dr. Azmeh):** edit form or reply. Gmail reminds you
     10/24.
-15. **Prairie Allergy (Dr. Everist):** asked about paid pricing. Next step
+14. **Prairie Allergy (Dr. Everist):** asked about paid pricing. Next step
     not set.
-16. **Elaria (Dr. Imanirad):** requested the pitch deck 10/15. Next step not
+15. **Elaria (Dr. Imanirad):** requested the pitch deck 10/15. Next step not
     set.
-17. **Aspire HQ:** list of offices that offer ILIT.
+16. **Aspire HQ:** list of offices that offer ILIT.
 
 ## Content
 
-18. **Queued articles (not drafted yet; the weekday task drafts one each
+17. **Queued articles (not drafted yet; the weekday task drafts one each
     morning).** Reordered 10/21 by search volume, then season: Oral Allergy
     Syndrome first (brief has the competitor's metadata and your Ahrefs,
     SpyFu and People Also Ask keywords; hero set), then sore throat, tree pollen and dust mites. Seasonal
@@ -70,16 +67,19 @@ updated.
     follow, then Why People Quit (hero ready) and Where Do ILIT Injections
     Go? (diagram ready; build the text wrap layout at publish). After the
     dust mites article, link it from the dust mite guide.
-19. **Link the sore throat article and "Allergies or a Cold?" to each
+18. **Link the sore throat article and "Allergies or a Cold?" to each
     other** once the sore throat article publishes.
-20. **Learn page blog module:** switch back to provider-credited articles
+19. **Learn page blog module:** switch back to provider-credited articles
     once a few exist.
-21. **Not yet listed:** Kara Wada, MD (Columbus) and LA Center for ENT and
+20. **Not yet listed:** Kara Wada, MD (Columbus) and LA Center for ENT and
     Allergy (2 offices) need addresses. Auni's Bowling Green office isn't in
     the sheet yet.
 
 ## Recently done (2026-10-19 to 10-21)
 
+- Launch checklist cleaned up for the 10/9 decisions (Hobby, no lawyer);
+  anything that needs charging practices or counsel moved to its own
+  section.
 - 8 articles queued from your Ahrefs research (oral allergy syndrome, one
   time allergy shot, tree pollen, dog allergy, puffy eyes, test results,
   what's in allergy shots, Ohio grass pollen). Queue reordered by volume,
