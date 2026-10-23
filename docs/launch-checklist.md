@@ -3,7 +3,7 @@
 The site has been live on openairallergynetwork.com since 2026-10-02. This
 file keeps what's still open from launch, the decisions that replaced the
 original plan, and a short record of what was done. Day to day open items
-live in [punch-list.md](punch-list.md). Last updated 2026-10-21.
+live in [punch-list.md](punch-list.md). Last updated 2026-10-22.
 
 **Decisions of 2026-10-09 that changed this list:** OAAN runs as a
 non-commercial consumer information site, so it **stays on Vercel's Hobby
@@ -30,8 +30,6 @@ last section below.
       GA4 event tag, then in GA4 custom dimensions, key events, 14-month
       data retention, internal traffic filter and the **Search Console
       link**.
-- [ ] **Google Alerts** for `"Quillmoor Allergy"` and `"555-0142"` (scraper
-      trap, [anti-scraping.md](anti-scraping.md)).
 
 ## Settled
 
@@ -53,6 +51,9 @@ last section below.
 - **Core Web Vitals:** lab scores were 89 to 96 at launch; the homepage's
   mobile score was 79 on 2026-10-21. No changes until Search Console's
   real-visitor report flags pages (punch list).
+- **Google Alerts** (2026-10-22) for `"Quillmoor"`, `"555-0142"` and
+  `"Tennyfield"`, the scraper trap's fingerprints
+  ([anti-scraping.md](anti-scraping.md)).
 - **Logo:** the site logo is in the header and the Organization structured
   data (`public/logo*.png`, `logo*.svg`).
 

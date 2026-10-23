@@ -40,26 +40,25 @@ updated.
 9. **Account security:** two factor authentication everywhere, encrypt the
     laptop holding `.env`, and pick a retention period for patient
     inquiries (`docs/launch-checklist.md`).
-10. **Google Alerts** for "Quillmoor Allergy" and "555-0142" (scraper trap).
-11. **Logins to confirm** in `docs/accounts.md` (several still marked
+10. **Logins to confirm** in `docs/accounts.md` (several still marked
     unknown).
 
 ## Waiting on others
 
-12. **Dr. Priya Bansal (Asthma and Allergy Wellness Center, St. Charles,
+11. **Dr. Priya Bansal (Asthma and Allergy Wellness Center, St. Charles,
     IL):** you emailed her 10/21 to ask about ILIT (a Reddit post says she
     offers it; her sites don't). List her only once she confirms.
-13. **Dayton Allergy (Dr. Azmeh):** edit form or reply. Gmail reminds you
+12. **Dayton Allergy (Dr. Azmeh):** edit form or reply. Gmail reminds you
     10/24.
-14. **Prairie Allergy (Dr. Everist):** asked about paid pricing. Next step
+13. **Prairie Allergy (Dr. Everist):** asked about paid pricing. Next step
     not set.
-15. **Elaria (Dr. Imanirad):** requested the pitch deck 10/15. Next step not
+14. **Elaria (Dr. Imanirad):** requested the pitch deck 10/15. Next step not
     set.
-16. **Aspire HQ:** list of offices that offer ILIT.
+15. **Aspire HQ:** list of offices that offer ILIT.
 
 ## Content
 
-17. **Queued articles (not drafted yet; the weekday task drafts one each
+16. **Queued articles (not drafted yet; the weekday task drafts one each
     morning).** Reordered 10/21 by search volume, then season: Oral Allergy
     Syndrome first (brief has the competitor's metadata and your Ahrefs,
     SpyFu and People Also Ask keywords; hero set), then sore throat, tree pollen and dust mites. Seasonal
@@ -67,16 +66,18 @@ updated.
     follow, then Why People Quit (hero ready) and Where Do ILIT Injections
     Go? (diagram ready; build the text wrap layout at publish). After the
     dust mites article, link it from the dust mite guide.
-18. **Link the sore throat article and "Allergies or a Cold?" to each
+17. **Link the sore throat article and "Allergies or a Cold?" to each
     other** once the sore throat article publishes.
-19. **Learn page blog module:** switch back to provider-credited articles
+18. **Learn page blog module:** switch back to provider-credited articles
     once a few exist.
-20. **Not yet listed:** Kara Wada, MD (Columbus) and LA Center for ENT and
+19. **Not yet listed:** Kara Wada, MD (Columbus) and LA Center for ENT and
     Allergy (2 offices) need addresses. Auni's Bowling Green office isn't in
     the sheet yet.
 
-## Recently done (2026-10-19 to 10-21)
+## Recently done (2026-10-19 to 10-22)
 
+- Google Alerts set up (10/22) for "Quillmoor", "555-0142" and
+  "Tennyfield" (scraper trap), daily, all results.
 - Launch checklist cleaned up for the 10/9 decisions (Hobby, no lawyer);
   anything that needs charging practices or counsel moved to its own
   section.

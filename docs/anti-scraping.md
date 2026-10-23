@@ -110,8 +110,11 @@ How it works:
 - The page looks like a Freemium listing, structured data included, so a
   scraper stores it like any real practice.
 
-**Watching for copies.** Set up Google Alerts for `"Quillmoor Allergy"` and
-`"555-0142"`, and search both now and then. "Quillmoor" returned no results
+**Watching for copies.** Google Alerts are set up (2026-10-22) for
+`"Quillmoor"` (catches a renamed copy too), `"555-0142"` and `"Tennyfield"`
+(the fake street), daily, "All results", delivered by email. Search them
+now and then too. A "555-0142" hit can be a false alarm, since 555 numbers
+appear in fiction, so check that the page is actually Quillmoor. "Quillmoor" returned no results
 anywhere when it was chosen (2026-09-29), so any hit is a copy of this site.
 Screenshot and save any copy you find, with the date, and take it to
 counsel.
