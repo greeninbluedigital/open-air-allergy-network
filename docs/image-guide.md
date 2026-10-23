@@ -39,7 +39,7 @@ page actually displays it. Last updated 2026-10-06.
 |---|---|---|---|
 | Homepage hero photo | "Homepage Hero Images" sheet tab | **2400 × 800** | 3:1 |
 | Blog and Learn article image | Article draft ("Feature image") | **1600 × 900** | 16:9 |
-| Photos inside an article | Article body | **1600 wide**, any height | Any |
+| Photos inside an article | Article body | **1600 wide**, any height (wrapped photos: **600 wide**, portrait) | Any (wrapped: 4:5 or 3:4) |
 | Provider main photo | Providers tab, Provider Photo URL (AC) | **1200 × 1500** | 4:5 (portrait) |
 | Provider secondary photos | Providers tab, Secondary Photo URLs (AD), up to 4 | **1600 × 1200** | 4:3 |
 | Search result card photo | Providers tab, SRP Card Photo URL (AE) | **400 × 400** | 1:1 (square) |
@@ -72,8 +72,18 @@ page actually displays it. Last updated 2026-10-06.
 ### Photos inside an article
 - Any shape, **at least 1600 wide**. They display at the full width of the
   article column.
-- Add them in the article body as `![description](Cloudinary URL)`. The
-  description becomes the alt text.
+- Add them in the article body as `![description](Cloudinary URL)`, on a
+  line of their own. The description becomes the alt text.
+- **Caption:** put it in quotes after the URL:
+  `![description](URL "Caption text")`.
+- **Wrapped photo (added 2026-10-24):** start the caption with `right:` and
+  the photo floats on the right with the text wrapping around it, instead of
+  a full-width break:
+  `![description](URL "right: Caption text")`. Best for **portrait** photos
+  and diagrams, **4:5 or 3:4, at least 600 wide**. On laptops it takes about
+  40% of the column (280px max); on phones it sits centered at a smaller
+  size. Put it on the line just before the paragraph it belongs beside. The
+  next `##` heading always starts below it.
 
 ### Provider main photo
 - **Portrait, 4:5, e.g. 1200 × 1500.** Shown beside the bio on the provider

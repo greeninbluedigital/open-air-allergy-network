@@ -4,7 +4,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Badge, practiceBadges } from "@/components/Badge";
 import { ArticleFeed } from "@/components/ArticleFeed";
-import { cloudinaryFaceCrop } from "@/lib/cloudinary";
+import { cloudinaryFaceCrop, cloudinaryLimitWidth } from "@/lib/cloudinary";
 import type { ArticleDetailData } from "@/lib/articles";
 import { isVerifiedPlus } from "@/lib/tiers";
 
@@ -19,11 +19,43 @@ function omitNode<P extends object>(props: P & { node?: unknown }): P {
   return rest as P;
 }
 
+type HastNode = { type: string; tagName?: string; value?: string; properties?: Record<string, unknown>; children?: HastNode[] };
+
+// The image's properties when a paragraph holds nothing but one image.
+function soloImage(node: unknown): Record<string, unknown> | null {
+  const kids = ((node as HastNode | undefined)?.children ?? []).filter((c) => !(c.type === "text" && !c.value?.trim()));
+  return kids.length === 1 && kids[0].tagName === "img" ? (kids[0].properties ?? {}) : null;
+}
+
+// An image on its own line in the Markdown becomes a figure, and its title
+// (`![alt](url "Caption")`) becomes the caption. A title starting "right:"
+// floats the figure right so the text wraps around it, for portrait photos
+// and diagrams that would otherwise break the article up. On phones it sits
+// centered at a smaller size instead, since a wrap column would be too narrow.
+function ArticleFigure({ src, alt, title }: { src: string; alt: string; title?: string }) {
+  const float = title?.startsWith("right:") ?? false;
+  const caption = float ? title!.slice("right:".length).trim() : title;
+  return (
+    <figure className={float ? "mx-auto my-5 w-3/5 max-w-[260px] sm:float-right sm:my-1 sm:ml-6 sm:w-2/5 sm:max-w-[280px]" : "my-4"}>
+      {/* eslint-disable-next-line @next/next/no-img-element -- Markdown body images have arbitrary author-pasted URLs, not known at build time. */}
+      <img src={float ? cloudinaryLimitWidth(src, 600) : src} alt={alt} className="w-full rounded" />
+      {caption && <figcaption className="mt-1.5 text-xs leading-snug text-muted">{caption}</figcaption>}
+    </figure>
+  );
+}
+
 const markdownComponents = {
   h1: (props: React.ComponentProps<"h1">) => <h2 className="mt-6 mb-2 text-xl font-bold" {...omitNode(props)} />,
-  h2: (props: React.ComponentProps<"h2">) => <h2 className="mt-6 mb-2 text-lg font-bold" {...omitNode(props)} />,
+  // clear-both: a section never starts beside the previous section's floated figure.
+  h2: (props: React.ComponentProps<"h2">) => <h2 className="mt-6 mb-2 clear-both text-lg font-bold" {...omitNode(props)} />,
   h3: (props: React.ComponentProps<"h3">) => <h3 className="mt-5 mb-2 text-base font-bold" {...omitNode(props)} />,
-  p: (props: React.ComponentProps<"p">) => <p className="mb-4" {...omitNode(props)} />,
+  p: (props: React.ComponentProps<"p"> & { node?: unknown }) => {
+    const img = soloImage(props.node);
+    if (img) {
+      return <ArticleFigure src={String(img.src ?? "")} alt={String(img.alt ?? "")} title={img.title ? String(img.title) : undefined} />;
+    }
+    return <p className="mb-4" {...omitNode(props)} />;
+  },
   ul: (props: React.ComponentProps<"ul">) => <ul className="mb-4 list-disc space-y-1 pl-5" {...omitNode(props)} />,
   ol: (props: React.ComponentProps<"ol">) => <ol className="mb-4 list-decimal space-y-1 pl-5" {...omitNode(props)} />,
   strong: (props: React.ComponentProps<"strong">) => <strong className="font-semibold text-foreground" {...omitNode(props)} />,
@@ -253,7 +285,8 @@ export function ArticleDetail({ article }: { article: ArticleDetailData }) {
         </div>
       )}
 
-      <div className="text-sm text-foreground/80">
+      {/* flow-root keeps a floated figure from hanging past the end of the body. */}
+      <div className="flow-root text-sm text-foreground/80">
         <ReactMarkdown remarkPlugins={[remarkGfm]} components={markdownComponents}>
           {article.body}
         </ReactMarkdown>
