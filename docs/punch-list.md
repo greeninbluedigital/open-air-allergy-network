@@ -75,6 +75,9 @@ updated.
 
 ## Recently done (2026-10-19 to 10-23)
 
+- Homepage stat strip: the first two callouts merged into "Typically 3
+  visits instead of 3 years of allergy shots" (10/23). Key Takeaways no
+  longer carry source tags.
 - Oral Allergy Syndrome published 10/23 (fact checked twice; new "vs. food
   allergy" section). Elaria photos live.
 - Google Alerts set up (10/22) for "Quillmoor", "555-0142" and
