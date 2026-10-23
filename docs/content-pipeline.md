@@ -243,10 +243,48 @@ for a debate between sources.
 - [ ] Every source older than five years is flagged in REVIEW NOTES, with
       the reason nothing newer was used.
 
+## Fact check pass (every run, after the draft is saved)
+
+Added 2026-10-23 after the Oral Allergy Syndrome article needed two rounds
+of fixes after review. A writer checking their own work misses things, so
+the check is done fresh, against the sources themselves, not the draft's
+SOURCES notes.
+
+**Who checks:** if the Agent tool is available, hand the saved draft to a
+fresh general-purpose agent with the instructions below, and tell it to
+edit only that draft file. If not, do the pass yourself after the draft is
+saved, re-fetching every source rather than working from memory.
+
+**Instructions for the checker:**
+1. Re-fetch every source linked in the draft. For each factual sentence in
+   the body, Key Takeaways and FAQs, find the supporting words on the source
+   page. Fix any sentence the source doesn't support, or remove it.
+2. **Wording strength:** the draft may not be firmer than the source.
+   "Usually", "often", "may", "most", "rarely" in the source stay that way.
+   Watch for "always", "never", "all", "only", "happens to people with".
+3. **Lists and tables:** compare every list and table cell by cell against
+   every source that has one, and against the source's own prose (the AAAAI
+   chart and the AAAAI page listed different melons). Missing or extra
+   items get fixed.
+4. **Names and terms:** every alternate name, brand or term must appear in
+   a cited source. Keywords from the brief or a competitor page are not
+   facts.
+5. **Disagreement:** where sources disagree, the article states both
+   briefly or follows the stronger, newer source. Note it in REVIEW NOTES.
+6. **Links:** every external link loads (status 200). Every internal link
+   and `#anchor` exists: check the anchor ids in `src/app/(site)/` (e.g.
+   `/learn-about-ilit#faq-fda` vs `#faq-safety`).
+7. **Takeaways:** each one is stated and sourced in the body, with no
+   source tags in parentheses.
+8. Add a **FACT CHECK** block to REVIEW NOTES: what was checked, every fix
+   made (old wording → new wording and the reason), and anything that
+   couldn't be verified. The end of run summary repeats the fixes.
+
 ## End of run summary
 
 Reply with: the title and file name, word count, number of sources, the
-REVIEW NOTES items, and anything you skipped or couldn't verify. The owner
+REVIEW NOTES items, the fact check pass's fixes (and whether a separate
+agent did it), and anything you skipped or couldn't verify. The owner
 reads this in the Claude app.
 
 ## After publishing (main session only)
