@@ -66,8 +66,7 @@ async function pickHeroImage() {
 
 // Every claim here is already stated (and sourced) on Learn About ILIT.
 const FACTS = [
-  { title: "Typically 3 visits", caption: "Spaced about a month apart" },
-  { title: "A few months, start to finish", caption: "Compared with years of traditional allergy shots" },
+  { title: "Typically 3 visits instead of 3 years of allergy shots", caption: "Spaced about a month apart" },
   { title: "Often HSA/FSA eligible", caption: "How HSA and FSA funds work", href: "/learn-about-ilit#faq-hsa-fsa" },
 ];
 
@@ -121,10 +120,10 @@ export default async function HomePage() {
       </section>
 
       <section className="border-b border-line px-6 py-8 sm:px-10">
-        <div className="grid grid-cols-1 gap-4 text-center sm:grid-cols-3">
+        <div className="mx-auto grid max-w-4xl grid-cols-1 gap-4 text-center sm:grid-cols-[3fr_2fr]">
           {FACTS.map((fact) => (
             <div key={fact.title}>
-              <div className="text-lg font-bold">{fact.title}</div>
+              <div className="text-lg font-bold text-balance">{fact.title}</div>
               {fact.href ? (
                 <Link href={fact.href} className="text-sm text-sage hover:underline">
                   {fact.caption} →
