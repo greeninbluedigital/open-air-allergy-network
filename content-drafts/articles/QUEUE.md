@@ -27,11 +27,16 @@ that its links switched on (search page out-of-area line, "Why travel for
 ILIT?" on state pages and Providers by State), and bring up linking city
 pages to neighboring states.
 
-**Order (one-time reprioritization, owner 2026-10-21):** pending items are
-sorted by search volume first (Ahrefs figures in `docs/content-ideas.md`;
-for puffy eyes, chest tightness and dog allergy the figure is a competitor's
-monthly traffic, a floor for volume), then seasonal items by deadline, then
-everything else. New items after this go wherever the owner places them.
+**Order (owner, 2026-10-24):** a weekly mix with at least one or two
+local stories (city pages, local rankings and how-tos) per week. Planned
+draft days, one per weekday: week of 10/26 Toledo (Mon), tree pollen, dust
+mites, Tampa Bay triggers (Thu), chest tightness; week of 11/2 dog allergy,
+Orlando, puffy eyes, Allergy Capitals ranking, pets ranked; week of 11/9
+test results, Houston, clean home hub, Tampa how-to, one-time shot; week of
+11/16 what's in shots, pollen count, oak, Denver, pine; week of 11/23
+birch, St. Louis and Kansas City, grass, Charlotte, Ohio grass; week of
+11/30 Los Angeles, why people quit, injection sites, Midwest ragweed, mold.
+Keep the mix when adding items.
 
 | # | Working title | Section | Slug | Publish by | Status | Draft file | Hero image |
 |---|---|---|---|---|---|---|---|
@@ -46,32 +51,34 @@ everything else. New items after this go wherever the owner places them.
 | 9 | Kenalog Shot for Allergies: How Often, Side Effects and Alternatives | Blog | kenalog-shot-for-allergies | ASAP (already getting search impressions) | published 2026-10-21 | published/kenalog-shot-for-allergies.md |  |
 | 10 | Oral Allergy Syndrome Food List, Chart, Diet and Treatment | Blog | oral-allergy-syndrome | any time (22K searches a month) | published 2026-10-23 | published/oral-allergy-syndrome.md | https://res.cloudinary.com/qruprn0t/image/upload/v1792644170/oral-allergy-syndrome-fruits-farmers-market.jpg |
 | 11 | Can Allergies Cause a Sore Throat? | Blog | can-allergies-cause-sore-throat | any time | published 2026-10-24 | published/can-allergies-cause-sore-throat.md | https://res.cloudinary.com/qruprn0t/image/upload/v1791852724/sore-throat-1.jpg |
-| 12 | Tree Pollen Allergy: Symptoms, Season and Treatment | Blog | tree-pollen-allergy | before February | next | |  |
-| 13 | What Do Dust Mites Look Like? (And What Those Tiny Bugs in Your Dust Really Are) | Blog | what-do-dust-mites-look-like | ASAP (high search volume) | next | |  |
-| 14 | Can Allergies Cause Chest Tightness? | Blog | can-allergies-cause-chest-tightness | any time | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791854105/allergy-chest-tightness-2.jpg |
-| 15 | Puffy Eyes From Allergies: Causes and Relief | Blog | puffy-eyes-allergies | any time | next | |  |
-| 16 | Am I Allergic to My Dog? Signs and What Helps | Blog | allergic-to-my-dog | any time | next | |  |
-| 17 | Allergy Test Results: What Your Skin Test Means | Blog | allergy-test-results | any time | next | |  |
-| 18 | Is There a One-Time Allergy Shot? | Blog | one-time-allergy-shot | any time | next | |  |
-| 19 | What's in Allergy Shots? Ingredients and Side Effects | Blog | whats-in-allergy-shots | any time | next | |  |
-| 20 | Orlando Allergies (city page) | Blog | orlando-allergies | before January | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791853508/orlando-fl-lake-eola-park-and-linton-e-allen-memorial-fountain.jpg |
-| 21 | Houston Allergies (city page) | Blog | houston-allergies | before February | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791852227/houston-texas-skyline-and-grassy-park.jpg |
-| 22 | Oak Pollen Allergy | Blog | oak-pollen-allergy | February | next | |  |
-| 23 | Pine Pollen: Why the Yellow Dust Usually Isn't What's Making You Sneeze | Blog | pine-pollen-allergy | late February | next | |  |
-| 24 | Denver Allergies (city page) | Blog | denver-allergies | before March | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791852967/denver-co-skyline.jpg |
-| 25 | Birch Pollen Allergy (Learn page: Yes) | Blog | birch-pollen-allergy | March | next | |  |
-| 26 | Grass Pollen Allergy (Learn page: Yes) | Blog | grass-pollen-allergy | April | next | |  |
-| 27 | Ohio Grass Pollen Season: When It Peaks and What Helps | Blog | ohio-grass-pollen-season | early April (peak May to June) | next | |  |
-| 28 | Allergy Capitals 2026: How ILIT Cities Rank (ranking) | Blog | allergy-capitals-2026-ilit-cities | before March (2027 report replaces it) | next | |  |
-| 29 | How to Clean Your Home to Reduce Allergies (how-to, national hub) | Blog | how-to-clean-home-reduce-allergies | any time | next | |  |
-| 30 | How to Allergy-Proof Your Home in Humid Tampa Bay (how-to, local) | Blog | allergy-proof-home-tampa-bay | any time | next | |  |
-| 31 | 5 Allergy Triggers in Tampa Bay (ranking or list, local) | Blog | tampa-bay-allergy-triggers | before January (oak season) | next | |  |
-| 32 | Los Angeles Allergies (city page) | Blog | los-angeles-allergies | before a second LA practice lists ILIT | next | |  |
-| 33 | How to Read a Pollen Count (how-to) | Blog | how-to-read-a-pollen-count | before February | next | |  |
-| 34 | Allergy Triggers in St. Louis and Kansas City (ranking or list, local) | Blog | st-louis-kansas-city-allergy-triggers | before March | next | |  |
+| 12 | Toledo Allergies: Why Northwest Ohio Ranks 17th, and What Triggers It (local) | Blog | toledo-allergies | Monday 2026-10-26 | next | |  |
+| 13 | Tree Pollen Allergy: Symptoms, Season and Treatment | Blog | tree-pollen-allergy | before February | next | |  |
+| 14 | What Do Dust Mites Look Like? (And What Those Tiny Bugs in Your Dust Really Are) | Blog | what-do-dust-mites-look-like | ASAP (high search volume) | next | |  |
+| 15 | 5 Allergy Triggers in Tampa Bay (ranking or list, local) | Blog | tampa-bay-allergy-triggers | before January (oak season) | next | |  |
+| 16 | Can Allergies Cause Chest Tightness? | Blog | can-allergies-cause-chest-tightness | any time | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791854105/allergy-chest-tightness-2.jpg |
+| 17 | Am I Allergic to My Dog? Signs and What Helps | Blog | allergic-to-my-dog | any time | next | |  |
+| 18 | Orlando Allergies (city page) | Blog | orlando-allergies | before January | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791853508/orlando-fl-lake-eola-park-and-linton-e-allen-memorial-fountain.jpg |
+| 19 | Puffy Eyes From Allergies: Causes and Relief | Blog | puffy-eyes-allergies | any time | next | |  |
+| 20 | Allergy Capitals 2026: How ILIT Cities Rank (ranking) | Blog | allergy-capitals-2026-ilit-cities | before March (2027 report replaces it) | next | |  |
+| 21 | Best and Worst Pets for Allergies, Ranked (ranking) | Blog | pets-ranked-by-allergies | any time | next | |  |
+| 22 | Allergy Test Results: What Your Skin Test Means | Blog | allergy-test-results | any time | next | |  |
+| 23 | Houston Allergies (city page) | Blog | houston-allergies | before February | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791852227/houston-texas-skyline-and-grassy-park.jpg |
+| 24 | How to Clean Your Home to Reduce Allergies (how-to, national hub) | Blog | how-to-clean-home-reduce-allergies | any time | next | |  |
+| 25 | How to Allergy-Proof Your Home in Humid Tampa Bay (how-to, local) | Blog | allergy-proof-home-tampa-bay | any time | next | |  |
+| 26 | Is There a One-Time Allergy Shot? | Blog | one-time-allergy-shot | any time | next | |  |
+| 27 | What's in Allergy Shots? Ingredients and Side Effects | Blog | whats-in-allergy-shots | any time | next | |  |
+| 28 | How to Read a Pollen Count (how-to) | Blog | how-to-read-a-pollen-count | before February | next | |  |
+| 29 | Oak Pollen Allergy | Blog | oak-pollen-allergy | February | next | |  |
+| 30 | Denver Allergies (city page) | Blog | denver-allergies | before March | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791852967/denver-co-skyline.jpg |
+| 31 | Pine Pollen: Why the Yellow Dust Usually Isn't What's Making You Sneeze | Blog | pine-pollen-allergy | late February | next | |  |
+| 32 | Birch Pollen Allergy (Learn page: Yes) | Blog | birch-pollen-allergy | March | next | |  |
+| 33 | Allergy Triggers in St. Louis and Kansas City (ranking or list, local) | Blog | st-louis-kansas-city-allergy-triggers | before March | next | |  |
+| 34 | Grass Pollen Allergy (Learn page: Yes) | Blog | grass-pollen-allergy | April | next | |  |
 | 35 | Allergy Season in Charlotte: Pine, Oak and Grass (how-to, local) | Blog | charlotte-allergy-season | before March | next | |  |
-| 36 | Ragweed Season in the Midwest: Indianapolis, Toledo, Dayton and Grand Rapids (ranking or list, local) | Blog | midwest-ragweed-season | July | next | |  |
-| 37 | Why People Quit Allergy Shots, and What the Research Shows | Blog | why-people-quit-allergy-shots | any time | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1792627574/why-people-quit-allergy-shots-waiting-room-watch.jpg |
-| 38 | Where Do ILIT Injections Go? Groin and Neck Lymph Nodes Explained | Blog | where-do-ilit-injections-go | any time | next | |  |
-| 39 | Mold Allergy | Blog | mold-allergy | any time | next | |  |
-| 40 | Goldenrod or Ragweed? The Fall Allergy Mix-Up | Blog | goldenrod-vs-ragweed | mid August | hold | |  |
+| 36 | Ohio Grass Pollen Season: When It Peaks and What Helps | Blog | ohio-grass-pollen-season | early April (peak May to June) | next | |  |
+| 37 | Los Angeles Allergies (city page) | Blog | los-angeles-allergies | before a second LA practice lists ILIT | next | |  |
+| 38 | Why People Quit Allergy Shots, and What the Research Shows | Blog | why-people-quit-allergy-shots | any time | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1792627574/why-people-quit-allergy-shots-waiting-room-watch.jpg |
+| 39 | Where Do ILIT Injections Go? Groin and Neck Lymph Nodes Explained | Blog | where-do-ilit-injections-go | any time | next | |  |
+| 40 | Ragweed Season in the Midwest: Indianapolis, Toledo, Dayton and Grand Rapids (ranking or list, local) | Blog | midwest-ragweed-season | July | next | |  |
+| 41 | Mold Allergy | Blog | mold-allergy | any time | next | |  |
+| 42 | Goldenrod or Ragweed? The Fall Allergy Mix-Up | Blog | goldenrod-vs-ragweed | mid August | hold | |  |

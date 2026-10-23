@@ -58,12 +58,12 @@ updated.
 
 ## Content
 
-16. **Queued articles (not drafted yet; the weekday task drafts one each
-    morning).** Reordered 10/21 by search volume, then season. Next: tree pollen and dust mites. Seasonal
-    items (Orlando, Houston, oak, pine, Denver, birch, grass, Ohio grass)
-    follow, then Why People Quit (hero ready) and Where Do ILIT Injections
-    Go? (diagram ready; the text wrap layout is built). After the
-    dust mites article, link it from the dust mite guide.
+16. **Queued articles (the weekday task drafts one each morning).** A
+    weekly mix with one or two local stories (owner, 10/24). Next week:
+    Toledo (Mon), tree pollen, dust mites, Tampa Bay triggers (Thu), chest
+    tightness. Full week by week plan at the top of the queue file.
+    Where Do ILIT Injections Go? has its diagram ready and the wrap layout
+    built. After the dust mites article, link it from the dust mite guide.
 17. **Learn page blog module:** switch back to provider-credited articles
     once a few exist.
 18. **Not yet listed:** Kara Wada, MD (Columbus) and LA Center for ENT and

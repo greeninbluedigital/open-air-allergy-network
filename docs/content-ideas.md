@@ -122,6 +122,36 @@ is the "drive traffic now" half of the SEO strategy.
   quickly against Aspire and the big health sites, but long-tail questions
   can rank within months and build toward the head term.
 
+**Toledo Allergies: Why Northwest Ohio Ranks 17th (owner, 2026-10-24,
+draft Monday 10/26, local city page).** Moved up by the owner. Hook: the
+AAFA 2026 Allergy Capitals report ranks Toledo 17th of the 100 largest
+metros (score 92.01), worse than any other city OAAN serves except Richmond.
+Read the report's legend before describing its markers. Cover Northwest
+Ohio's season (trees in spring, grass in late spring and summer, ragweed
+from August) from named sources: AAFA, Ohio State University Extension
+(Ohioline), and an AAAAI National Allergy Bureau station in the area if one
+exists. Include Findlay, where OAAN's local ILIT practice is (about 45 miles
+south, outside the Toledo metro): mention Findlay and Northwest Ohio by name
+for search, never the practice. Find a Provider with a Toledo zip (43604)
+and `/find-an-ilit-provider/ohio`. Links the ragweed guide; link the Ohio
+grass article once it's live. Same city page format as Austin and Dallas–
+Fort Worth.
+
+**Best and Worst Pets for Allergies, Ranked (owner, 2026-10-24, ranking).**
+People love animals and the topic catches searches OAAN already ranks near
+("cat allergy", "dog allergy", pet allergy treatment). Target "best pets for
+allergies", "hypoallergenic pets", "least allergenic pets", "pets for people
+with allergies", "are hypoallergenic dogs real". Ranking rule applies: no
+invented order. Rank in sourced tiers, most to least likely to cause
+symptoms: cats, then dogs (AAFA: cat allergies are about twice as common as
+dog allergies, verify); rodents and rabbits; horses; birds (feather dust and
+droppings); fish, reptiles and amphibians last (no dander or fur), each from
+AAFA, ACAAI, AAAAI or Mayo Clinic, and say where sources don't order
+animals within a tier. Bust the "hypoallergenic breed" myth with the
+ACAAI/AAFA position. Link the cat allergy article, the dog allergy article
+(queued the same week, draft it first), and the Learn pet allergy treatment
+guide, ending with immunotherapy and ILIT (pet dander is an ILIT allergen).
+
 **Ranking, how-to and local articles (owner, 2026-10-24; queue items after
 Ohio grass).** An SEO advisor recommended ranking and how-to formats (rules
 in `docs/content-pipeline.md`, "Ranking and how-to articles"), localized to
