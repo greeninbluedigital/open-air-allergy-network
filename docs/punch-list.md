@@ -63,7 +63,7 @@ updated.
     throat, tree pollen and dust mites. Seasonal
     items (Orlando, Houston, oak, pine, Denver, birch, grass, Ohio grass)
     follow, then Why People Quit (hero ready) and Where Do ILIT Injections
-    Go? (diagram ready; build the text wrap layout at publish). After the
+    Go? (diagram ready; the text wrap layout is built). After the
     dust mites article, link it from the dust mite guide.
 17. **Link the sore throat article and "Allergies or a Cold?" to each
     other** once the sore throat article publishes.

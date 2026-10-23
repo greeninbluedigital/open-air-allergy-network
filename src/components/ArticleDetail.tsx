@@ -28,13 +28,14 @@ function soloImage(node: unknown): Record<string, unknown> | null {
 }
 
 // An image on its own line in the Markdown becomes a figure, and its title
-// (`![alt](url "Caption")`) becomes the caption. A title starting "right:"
-// floats the figure right so the text wraps around it, for portrait photos
-// and diagrams that would otherwise break the article up. On phones it sits
+// (`![alt](url "Caption")`) becomes the caption. By default the figure floats
+// right and the text wraps around it, the owner's standard for article photos
+// (2026-10-24) so a photo doesn't break the article up. On phones it sits
 // centered at a smaller size instead, since a wrap column would be too narrow.
+// A title starting "full:" opts out, for a wide chart or diagram.
 function ArticleFigure({ src, alt, title }: { src: string; alt: string; title?: string }) {
-  const float = title?.startsWith("right:") ?? false;
-  const caption = float ? title!.slice("right:".length).trim() : title;
+  const float = !title?.startsWith("full:");
+  const caption = float ? title : title!.slice("full:".length).trim();
   return (
     <figure className={float ? "mx-auto my-5 w-3/5 max-w-[260px] sm:float-right sm:my-1 sm:ml-6 sm:w-2/5 sm:max-w-[280px]" : "my-4"}>
       {/* eslint-disable-next-line @next/next/no-img-element -- Markdown body images have arbitrary author-pasted URLs, not known at build time. */}

@@ -334,15 +334,11 @@ over another, only as far as sources say. Two images:
   original, about 20 KB):
   https://res.cloudinary.com/qruprn0t/image/upload/c_crop,ar_2:3,g_center/w_800,f_auto,q_auto/v1792607743/ilit-injection-sites-lymph-nodes-neck-groin-diagram.png
   Place it in the body next to the explanation of injection sites as
-  `![Diagram of a person with dots marking the lymph nodes on both sides of the neck and in the groin, just below the waist near the hip.](URL)`
-  followed on the next line by the caption in italics: *Most ILIT practices
-  inject a lymph node in the groin, just below the waist near the hip (lower
-  dots). Some use a lymph node in the neck (upper dots).*
-- Layout: the owner wants the diagram narrow with text wrapping around it,
-  not full width. Body images are full width today, so build a float right
-  option for article images at publish time (about 40% of the article width
-  on desktop, centered and smaller on phones, caption under the image) and
-  check it in the browser.
+  `![Diagram of a person with dots marking the lymph nodes on both sides of the neck and in the groin, just below the waist near the hip.](URL "Most ILIT practices inject a lymph node in the groin, just below the waist near the hip (lower dots). Some use a lymph node in the neck (upper dots).")`
+  (the quoted text becomes the caption).
+- Layout: built 2026-10-24. Article photos now wrap beside the text by
+  default (see `docs/image-guide.md`, "Photos inside an article"). Check it
+  in the browser after publishing.
 
 **Kenalog shot for allergies (added 2026-10-20, queue item 9, Blog, no guide tag).**
 Search Console shows OAAN getting impressions for "how often can you get a
