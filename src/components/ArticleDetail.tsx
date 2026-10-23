@@ -4,7 +4,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Badge, practiceBadges } from "@/components/Badge";
 import { ArticleFeed } from "@/components/ArticleFeed";
-import { cloudinaryFaceCrop, cloudinaryLimitWidth } from "@/lib/cloudinary";
+import { cloudinaryFaceCrop } from "@/lib/cloudinary";
 import type { ArticleDetailData } from "@/lib/articles";
 import { isVerifiedPlus } from "@/lib/tiers";
 
@@ -32,14 +32,15 @@ function soloImage(node: unknown): Record<string, unknown> | null {
 // right and the text wraps around it, the owner's standard for article photos
 // (2026-10-24) so a photo doesn't break the article up. On phones it sits
 // centered at a smaller size instead, since a wrap column would be too narrow.
-// A title starting "full:" opts out, for a wide chart or diagram.
+// A title starting "full:" opts out, for a wide chart or diagram. Cloudinary
+// resizes the photo and serves a modern format (author uploads can be large PNGs).
 function ArticleFigure({ src, alt, title }: { src: string; alt: string; title?: string }) {
   const float = !title?.startsWith("full:");
   const caption = float ? title : title!.slice("full:".length).trim();
   return (
     <figure className={float ? "mx-auto my-5 w-3/5 max-w-[260px] sm:float-right sm:my-1 sm:ml-6 sm:w-2/5 sm:max-w-[280px]" : "my-4"}>
       {/* eslint-disable-next-line @next/next/no-img-element -- Markdown body images have arbitrary author-pasted URLs, not known at build time. */}
-      <img src={float ? cloudinaryLimitWidth(src, 600) : src} alt={alt} className="w-full rounded" />
+      <img src={src.replace("/upload/", `/upload/c_limit,w_${float ? 600 : 1600},f_auto,q_auto/`)} alt={alt} className="w-full rounded" />
       {caption && <figcaption className="mt-1.5 text-xs leading-snug text-muted">{caption}</figcaption>}
     </figure>
   );

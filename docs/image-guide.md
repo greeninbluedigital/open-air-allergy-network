@@ -75,8 +75,9 @@ page actually displays it. Last updated 2026-10-06.
   makes a big full-width break.
 - **Size: 1200 × 1500 (4:5, portrait).** 3:4 also works. It shows at up to
   280px wide on laptops (about 40% of the column) and centered at a smaller
-  size on phones; 1200 wide keeps it sharp on high resolution screens and in
-  the click-to-enlarge view. Minimum 600 × 750.
+  size on phones; 1200 wide keeps it sharp on high resolution screens. Any
+  file size or format is fine: the page serves a resized, compressed copy.
+  Minimum 600 × 750.
 - Add it in the body on a line of its own, just before the paragraph it
   belongs beside: `![alt text](Cloudinary URL "Caption text")`. The caption
   in quotes is optional and shows under the photo. The next `##` heading

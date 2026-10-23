@@ -98,6 +98,8 @@ A throat that feels tight or is swelling is different from a sore throat. Call 9
 
 ## How allergies cause a sore throat
 
+![Two quart-size glass jars of water on a picnic table, showing how much mucus the nose and throat can make in a day](https://res.cloudinary.com/qruprn0t/image/upload/v1792778807/sore-throat-can-allergies-cause-quart-glass-water-jars.png "Up to two quarts: about how much mucus your nose and throat make in a day. You normally swallow it without noticing.")
+
 **Postnasal drip.** Your nose and throat make one to two quarts of mucus a day, and you normally swallow it without noticing, [Cleveland Clinic](https://my.clevelandclinic.org/health/symptoms/23082-postnasal-drip) explains. Allergies are one of the most common reasons that flow increases. When it does, you feel it: a sore throat, a lump in your throat, hoarseness and the urge to keep clearing your throat. ENT Health's [post-nasal drip page](https://www.enthealth.org/conditions/post-nasal-drip/) adds that the throat usually isn't infected, though the tonsils and nearby tissue can swell. Treating the drip usually clears up the throat.
 
 **Itching.** The American College of Allergy, Asthma and Immunology ([ACAAI](https://acaai.org/allergies/allergic-conditions/hay-fever/)) lists itching of the nose, mouth, eyes or throat as a hay fever symptom. That itchy, tickly feeling is one of the clearest signs your sore throat is allergic.
