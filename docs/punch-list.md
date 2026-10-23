@@ -59,22 +59,22 @@ updated.
 ## Content
 
 16. **Queued articles (not drafted yet; the weekday task drafts one each
-    morning).** Reordered 10/21 by search volume, then season. Next: sore
-    throat, tree pollen and dust mites. Seasonal
+    morning).** Reordered 10/21 by search volume, then season. Next: tree pollen and dust mites. Seasonal
     items (Orlando, Houston, oak, pine, Denver, birch, grass, Ohio grass)
     follow, then Why People Quit (hero ready) and Where Do ILIT Injections
     Go? (diagram ready; the text wrap layout is built). After the
     dust mites article, link it from the dust mite guide.
-17. **Link the sore throat article and "Allergies or a Cold?" to each
-    other** once the sore throat article publishes.
-18. **Learn page blog module:** switch back to provider-credited articles
+17. **Learn page blog module:** switch back to provider-credited articles
     once a few exist.
-19. **Not yet listed:** Kara Wada, MD (Columbus) and LA Center for ENT and
+18. **Not yet listed:** Kara Wada, MD (Columbus) and LA Center for ENT and
     Allergy (2 offices) need addresses. Auni's Bowling Green office isn't in
     the sheet yet.
 
-## Recently done (2026-10-19 to 10-23)
+## Recently done (2026-10-19 to 10-24)
 
+- Can Allergies Cause a Sore Throat? published 10/24 with the two-quarts
+  jar photo, the first article photo wrapped beside the text (now the
+  standard). Linked both ways with Allergies or a Cold?
 - Homepage stat strip: the first two callouts merged into "Typically 3
   visits instead of 3 years of allergy shots" (10/23). Key Takeaways no
   longer carry source tags.

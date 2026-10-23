@@ -95,7 +95,7 @@ This chart combines the [NIH's comparison](https://newsinhealth.nih.gov/2022/01/
 | Body aches | Slight | Never |
 | Runny or stuffy nose | Common | Common |
 | Sneezing | Usual | Usual, often in bursts |
-| Sore throat | Common | Sometimes (NIH) or rarely (Mayo) |
+| [Sore throat](/blog/can-allergies-cause-sore-throat) | Common | Sometimes (NIH) or rarely (Mayo) |
 | Cough | Common, often wet | Sometimes, often dry |
 | Mucus | Thicker, often yellowish | Thin, watery, clear |
 | Starts | A day to a few days after catching the virus | Right after exposure |
