@@ -122,6 +122,91 @@ is the "drive traffic now" half of the SEO strategy.
   quickly against Aspire and the big health sites, but long-tail questions
   can rank within months and build toward the head term.
 
+**Ranking, how-to and local articles (owner, 2026-10-24; queue items after
+Ohio grass).** An SEO advisor recommended ranking and how-to formats (rules
+in `docs/content-pipeline.md`, "Ranking and how-to articles"), localized to
+cities served by small single groups. The owner rejected nothing; two of
+his ideas changed after a data check: "top allergens in northern Florida"
+became Tampa Bay (no practices in northern Florida), and "top 10 cities by
+November pollen counts" became the AAFA ranking below (no free, citable
+month by city pollen data exists; NAB stations don't publish monthly
+rankings and app forecasts aren't citable).
+
+Active ILIT practice cities on OAAN (2026-10-24; small groups marked *):
+Tampa* and St. Petersburg*, Findlay OH* (near Toledo, not in its metro),
+Westfield IN* (Indianapolis metro) and Kokomo IN*, Prairie Village KS*
+(Kansas City metro), Grand Rapids*, Charlotte*, St. Louis* (two groups),
+Plano* (Dallas metro), Dayton*, Barboursville WV* (Huntington area), Los
+Angeles* (freemium listing; another LA allergist is expected to start ILIT,
+so the owner wants LA pages ready), Henrico (Richmond), Arlington VA
+(Washington DC metro) and Philadelphia (AllerPoint, borderline), West Des
+Moines (Allergenix, last), Fremont CA, Bolingbrook IL (Chicago metro),
+Columbus and Dublin OH, Orlando area (Sanford, Winter Park, Winter Garden),
+Wellington FL, and Aspire's Texas, Colorado, New Mexico and Arizona offices
+(Austin area, Dallas area, Houston area, San Antonio, Waco, Corpus Christi,
+Victoria, Midland, El Paso, Denver area, Colorado Springs, Albuquerque,
+Tucson). For a state page link use `/find-an-ilit-provider/<state-name>`
+(e.g. `/find-an-ilit-provider/florida`).
+
+AAFA 2026 Allergy Capitals overall ranks (of 100) already looked up:
+Richmond 14, Toledo 17, Lakeland 20, Tampa 29, Des Moines 31, Chicago 32,
+Orlando 33, Kansas City 42, Indianapolis 43, Grand Rapids 54, Charlotte 55,
+St. Louis 63, Dallas 64, Dayton 72, Cincinnati 73, Philadelphia 76,
+Columbus 79, Los Angeles 82, Washington DC 89. Each table row also shows a
+symbol after the rank and three symbols after the score: read the report's
+legend before describing them (not yet confirmed what they mean).
+Report: aafa.org/wp-content/uploads/2026/03/aafa-2026-allergy-capitals-report.pdf.
+
+- **Allergy Capitals 2026: How ILIT Cities Rank** (ranking): every AAFA
+  ranked metro with an active ILIT practice on OAAN, ordered by AAFA rank.
+  Table: rank, city, score, what drives it (from the report's markers, once
+  the legend is read). One short section per city with its main local
+  triggers from a named source and a Find a Provider link with a local zip.
+  Keep each city section short and specific; this is a ranking, not ten
+  city pages. Say plainly which listed cities AAFA doesn't rank (Findlay,
+  Kokomo, Barboursville, Waco and others). Update when the 2027 report comes
+  out (usually March).
+- **How to Clean Your Home to Reduce Allergies** (how-to, national hub):
+  room by room (bedroom, living areas, kitchen and bath mold, pets, air
+  filters: HEPA and MERV ratings), tools (HEPA vacuum, damp dusting), when
+  and who cleans (the allergic person wears a mask or leaves). Sources: AAFA,
+  EPA indoor air and mold pages (humidity targets), ACAAI, AAAAI. Link the
+  dust mite guide for bedding rather than repeating its five steps. Local
+  how-tos link here.
+- **How to Allergy-Proof Your Home in Humid Tampa Bay** (how-to, local):
+  built on Tampa's humidity (NOAA climate normals), dust mites and mold
+  thriving in humid air (AAFA, EPA humidity guidance), running AC and
+  dehumidifiers, mold after storms and water damage (EPA, CDC), Florida's
+  long pollen season (UF/IFAS Extension). Links the national hub.
+- **5 Allergy Triggers in Tampa Bay** (ranking only if a source orders
+  them, otherwise "5 Allergy Triggers to Know in Tampa Bay"): likely oak,
+  grasses (bahia), other trees, mold and dust mites; confirm with UF/IFAS
+  Extension (EDIS) pages on Florida's allergenic plants and AAFA (Tampa
+  29th). Each with its season and one tip.
+- **Los Angeles Allergies** (city page, same format as Austin and Dallas–
+  Fort Worth): AAFA rank 82, Southern California's long pollen season and
+  main trees, weeds and grasses (UC Cooperative Extension, county or AQMD
+  sources), any LA specific triggers a named source supports (e.g. wildfire
+  smoke as an irritant). Find a Provider with an LA zip and
+  `/find-an-ilit-provider/california`. No practice list (Avant's freemium
+  page shows up in Find a Provider on its own).
+- **How to Read a Pollen Count** (how-to): what the count measures (grains
+  per cubic meter, collected by AAAAI National Allergy Bureau stations),
+  what low, moderate, high and very high mean for trees, grasses and weeds
+  (NAB scales), count vs. forecast, and what to do on high days. Richmond
+  Allergy's pollen count page is its top traffic page, so demand is there.
+- **Allergy Triggers in St. Louis and Kansas City** (ranking or list):
+  shared Missouri and Kansas season, AAFA ranks (Kansas City 42, St. Louis
+  63), extension sources (University of Missouri, K-State).
+- **Allergy Season in Charlotte: Pine, Oak and Grass** (how-to, local):
+  NC State's pine pollen article (already in shared sources), AAFA 55th,
+  steps for spring pollen season.
+- **Ragweed Season in the Midwest** (ranking or list, publish by July):
+  Indianapolis, Toledo, Dayton and Grand Rapids in one article (they share a
+  season, so no separate city pages). Ohio State, Purdue and Michigan State
+  extension sources, AAFA weed pollen data. Links the ragweed guide and the
+  Ohio grass article.
+
 **Ahrefs competitor keyword research (owner, 2026-10-21).** The owner ran
 Ahrefs on listed practices' sites ("competitive keywords research" Google
 Sheet, id 1T9x5hoR8FomRyuqkAvclNtqJP2tRzDJUsGVWiNTd_Kk). Same lesson as the

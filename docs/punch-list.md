@@ -72,6 +72,9 @@ updated.
 
 ## Recently done (2026-10-19 to 10-24)
 
+- Ranking and how-to formats added to the drafting rules; 9 local and
+  how-to articles queued after the seasonal items (incl. Los Angeles, ready
+  for the second LA practice).
 - Can Allergies Cause a Sore Throat? published 10/24 with the two-quarts
   jar photo, the first article photo wrapped beside the text (now the
   standard). Linked both ways with Allergies or a Cold?

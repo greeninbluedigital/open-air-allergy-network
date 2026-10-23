@@ -62,7 +62,16 @@ everything else. New items after this go wherever the owner places them.
 | 25 | Birch Pollen Allergy (Learn page: Yes) | Blog | birch-pollen-allergy | March | next | |  |
 | 26 | Grass Pollen Allergy (Learn page: Yes) | Blog | grass-pollen-allergy | April | next | |  |
 | 27 | Ohio Grass Pollen Season: When It Peaks and What Helps | Blog | ohio-grass-pollen-season | early April (peak May to June) | next | |  |
-| 28 | Why People Quit Allergy Shots, and What the Research Shows | Blog | why-people-quit-allergy-shots | any time | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1792627574/why-people-quit-allergy-shots-waiting-room-watch.jpg |
-| 29 | Where Do ILIT Injections Go? Groin and Neck Lymph Nodes Explained | Blog | where-do-ilit-injections-go | any time | next | |  |
-| 30 | Mold Allergy | Blog | mold-allergy | any time | next | |  |
-| 31 | Goldenrod or Ragweed? The Fall Allergy Mix-Up | Blog | goldenrod-vs-ragweed | mid August | hold | |  |
+| 28 | Allergy Capitals 2026: How ILIT Cities Rank (ranking) | Blog | allergy-capitals-2026-ilit-cities | before March (2027 report replaces it) | next | |  |
+| 29 | How to Clean Your Home to Reduce Allergies (how-to, national hub) | Blog | how-to-clean-home-reduce-allergies | any time | next | |  |
+| 30 | How to Allergy-Proof Your Home in Humid Tampa Bay (how-to, local) | Blog | allergy-proof-home-tampa-bay | any time | next | |  |
+| 31 | 5 Allergy Triggers in Tampa Bay (ranking or list, local) | Blog | tampa-bay-allergy-triggers | before January (oak season) | next | |  |
+| 32 | Los Angeles Allergies (city page) | Blog | los-angeles-allergies | before a second LA practice lists ILIT | next | |  |
+| 33 | How to Read a Pollen Count (how-to) | Blog | how-to-read-a-pollen-count | before February | next | |  |
+| 34 | Allergy Triggers in St. Louis and Kansas City (ranking or list, local) | Blog | st-louis-kansas-city-allergy-triggers | before March | next | |  |
+| 35 | Allergy Season in Charlotte: Pine, Oak and Grass (how-to, local) | Blog | charlotte-allergy-season | before March | next | |  |
+| 36 | Ragweed Season in the Midwest: Indianapolis, Toledo, Dayton and Grand Rapids (ranking or list, local) | Blog | midwest-ragweed-season | July | next | |  |
+| 37 | Why People Quit Allergy Shots, and What the Research Shows | Blog | why-people-quit-allergy-shots | any time | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1792627574/why-people-quit-allergy-shots-waiting-room-watch.jpg |
+| 38 | Where Do ILIT Injections Go? Groin and Neck Lymph Nodes Explained | Blog | where-do-ilit-injections-go | any time | next | |  |
+| 39 | Mold Allergy | Blog | mold-allergy | any time | next | |  |
+| 40 | Goldenrod or Ragweed? The Fall Allergy Mix-Up | Blog | goldenrod-vs-ragweed | mid August | hold | |  |

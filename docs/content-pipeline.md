@@ -229,6 +229,69 @@ for a debate between sources.
   ones people type. Side topics (e.g. shellfish cross reactions in a dust
   mite article) go last or get cut.
 
+## Ranking and how-to articles (owner, 2026-10-24)
+
+An SEO advisor recommended ranking ("top 5") and how-to articles: AI
+answer engines and Google quote them readily because each one is a clean,
+structured answer. Many are localized to cities where OAAN lists ILIT
+practices. The queue says which format an item uses.
+
+**Ranking articles**
+- **Title:** a number and, when local, the place: "5 Biggest Allergy
+  Triggers in Tampa Bay". 62 characters or fewer, as always.
+- **"How we ranked" comes first,** right after the opening answer: one or
+  two sentences naming the data source and the measure (e.g. "Ranked by the
+  Asthma and Allergy Foundation of America's 2026 Allergy Capitals report,
+  which scores the 100 largest metro areas on pollen, allergy medicine use
+  and access to allergists"). Read the source's own legend or method before
+  describing it, and describe it in its words.
+- **Never invent an order.** Rank only when a source gives the order or a
+  measurable value to sort by (a rank, a count, a score). If no source ranks
+  the items, the article is a list, and the title says so ("5 Allergy
+  Triggers to Know in ..."), never "biggest", "worst" or "top".
+- **Summary table** right after "How we ranked": rank, item, season or
+  value, one line on why it matters. It's what gets quoted.
+- **One `##` section per item, numbered in the heading** ("1. Oak pollen"):
+  what it is, when it peaks locally, and one practical tip, each sourced.
+- Ties and missing data are said plainly ("Huntington isn't among the 100
+  metros AAFA ranks").
+
+**How-to articles**
+- **Title:** "How to [task]", plus the place when local: "How to
+  Allergy-Proof Your Home in Humid Tampa Bay".
+- **Opening answer** in two or three sentences: what to do and what it
+  achieves. Then **What you'll need** (a short list) and, if a source gives
+  it, how long it takes.
+- **Numbered steps, one `##` or bold-led step each,** starting with the
+  action ("Keep indoor humidity below 50%."), then one or two sourced
+  sentences of why and how, with a fallback when a normal household can't do
+  it (renting, no central air).
+- **Local version:** a "[City] tip" section, or local steps woven in, built
+  on real local data (humidity, the local pollen calendar, the AAFA rank). A
+  local how-to links the national how-to hub when that exists.
+
+**Localization rules (both formats)**
+- **Genuinely local or not at all.** Google penalizes near-identical city
+  pages. Write a local version only when the local data changes the advice
+  or the list (humid Gulf coast vs. Midwest ragweed vs. Texas cedar). Never
+  swap a city name into another article's text. Group nearby cities that
+  share a season into one article instead of writing one per city.
+- **City priority** (owner, 2026-10-24): cities served by small, single
+  groups (3 or fewer locations) first: Tampa and St. Petersburg, the Toledo
+  area (Findlay), the Indianapolis area (Westfield, Kokomo), Kansas City
+  (Prairie Village), Grand Rapids, Charlotte, St. Louis, Dallas and Plano,
+  Dayton, the Huntington, WV area (Barboursville), and Los Angeles (the
+  owner wants local pages ready before a second LA practice starts ILIT).
+  AllerPoint's cities (Richmond, Arlington/DC, Philadelphia) are borderline.
+  Des Moines comes last.
+- **Never list practices** (standing rule). End with Find a Provider with a
+  zip from that city filled in and the state page, e.g.
+  `/find-an-ilit-provider/florida`.
+
+Both formats keep every other rule in this brief: Practical first, sources
+on every fact, the emergency box where symptoms warrant it, longer term
+options, and the fact check pass.
+
 ## Quality check before saving
 
 - [ ] First paragraph answers the question.
