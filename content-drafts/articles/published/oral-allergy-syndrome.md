@@ -13,12 +13,12 @@ Image alt: Apricots, cherries, strawberries and peaches at a farmers market stan
 Credit: none (house article).
 
 KEY TAKEAWAYS
-- Oral allergy syndrome is an itchy or swollen mouth after eating certain raw fruits, vegetables or nuts, caused by food proteins that look like pollen to your immune system (AAAAI).
-- Up to 50% to 75% of adults with birch pollen allergy get it (AAAAI).
-- It's different from allergies to foods like shellfish, peanuts or wheat, which aren't tied to pollen and are more likely to cause severe reactions (ACAAI, MedlinePlus).
-- Cooking, microwaving, canning or peeling often lets people eat the fruits and vegetables that bother them raw. If nuts make your mouth itch, see an allergist instead (AAAAI, Cleveland Clinic).
-- Throat swelling, trouble breathing, hives beyond the mouth or vomiting after raw produce means a more serious reaction. Get care right away (Cleveland Clinic, AAAAI).
-- Allergy shots may ease oral allergy syndrome in some people, but a 2024 review found too little evidence to count on it, so the main reason to treat is the pollen allergy itself (AAAAI, Kallen et al. 2024).
+- Oral allergy syndrome is an itchy or swollen mouth after eating certain raw fruits, vegetables or nuts, caused by food proteins that look like pollen to your immune system.
+- Up to 50% to 75% of adults with birch pollen allergy get it.
+- It's different from allergies to foods like shellfish, peanuts or wheat, which aren't tied to pollen and are more likely to cause severe reactions.
+- Cooking, microwaving, canning or peeling often lets people eat the fruits and vegetables that bother them raw. If nuts make your mouth itch, see an allergist instead.
+- Throat swelling, trouble breathing, hives beyond the mouth or vomiting after raw produce means a more serious reaction. Get care right away.
+- Allergy shots may ease oral allergy syndrome in some people, but a 2024 review found too little evidence to count on it, so the main reason to treat is the pollen allergy itself.
 
 FAQS
 Q: Does oral allergy syndrome go away?

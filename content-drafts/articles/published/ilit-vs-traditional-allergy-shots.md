@@ -14,8 +14,8 @@ Image alt: Tall grass seed heads silhouetted against a purple and pink sky at du
 Credit: none (house article).
 
 KEY TAKEAWAYS
-- ILIT is usually about three injections over two months. Allergy shots take weekly or biweekly visits for months, then maintenance shots for three to five years (AAAAI).
-- In the main head to head trial, three ILIT injections improved grass pollen symptoms about as much as 54 allergy shots over three years (Senti, 2008).
+- ILIT is usually about three injections over two months. Allergy shots take weekly or biweekly visits for months, then maintenance shots for three to five years.
+- In the main head to head trial, three ILIT injections improved grass pollen symptoms about as much as 54 allergy shots over three years.
 - ILIT causes more mild injection site reactions than allergy shots but fewer whole body reactions, according to a 2025 review of reviews.
 - The research behind ILIT is much smaller than for allergy shots, and that review rated most of it low quality.
 - Allergy shots have the longest track record. ILIT may suit people who can't commit to years of appointments.

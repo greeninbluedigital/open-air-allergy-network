@@ -14,11 +14,11 @@ Image alt: A male Ashe juniper, the mountain cedar behind cedar fever, covered i
 Credit: none (house article).
 
 KEY TAKEAWAYS
-- Cedar fever is an allergy to the pollen of Ashe juniper, a tree Texans call mountain cedar that isn't a true cedar (Texas A&M AgriLife).
-- Cedar pollen usually starts in mid December, peaks in mid January and tapers off by early March (Texas A&M Forest Service).
-- Despite the name, most people with cedar fever don't run a fever, and a temperature above 101.5 degrees points to something else (Cleveland Clinic, Texas A&M Forest Service).
-- Mountain cedar pollen has been traced by DNA from Texas or Oklahoma to Ontario, Canada (PLoS One, 2017).
-- A small 2020 trial found three lymph node injections of mountain cedar extract eased symptoms compared with placebo (Annals of Allergy, Asthma & Immunology).
+- Cedar fever is an allergy to the pollen of Ashe juniper, a tree Texans call mountain cedar that isn't a true cedar.
+- Cedar pollen usually starts in mid December, peaks in mid January and tapers off by early March.
+- Despite the name, most people with cedar fever don't run a fever, and a temperature above 101.5 degrees points to something else.
+- Mountain cedar pollen has been traced by DNA from Texas or Oklahoma to Ontario, Canada.
+- A small 2020 trial found three lymph node injections of mountain cedar extract eased symptoms compared with placebo.
 
 FAQS
 Q: Is cedar fever contagious?

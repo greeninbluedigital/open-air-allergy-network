@@ -14,11 +14,11 @@ Image alt: A person in a red jacket holding a tissue to their nose in front of a
 Credit: none (house article).
 
 KEY TAKEAWAYS
-- Itchy eyes usually mean allergies, while fever and body aches point to a cold or flu (Mayo Clinic, NIH).
-- Cold symptoms start a day to a few days after you catch the virus. Allergy symptoms start right after you meet the allergen (ACAAI, MedlinePlus).
-- Most colds clear in about a week. Allergy symptoms last as long as you're exposed (CDC, NIH).
-- Allergies aren't contagious, and antibiotics don't help (ACAAI, CDC).
-- Allergic rhinitis, often called hay fever, affects 40 to 60 million Americans (ACAAI).
+- Itchy eyes usually mean allergies, while fever and body aches point to a cold or flu.
+- Cold symptoms start a day to a few days after you catch the virus. Allergy symptoms start right after you meet the allergen.
+- Most colds clear in about a week. Allergy symptoms last as long as you're exposed.
+- Allergies aren't contagious, and antibiotics don't help.
+- Allergic rhinitis, often called hay fever, affects 40 to 60 million Americans.
 
 FAQS
 Q: Can allergies cause a fever?

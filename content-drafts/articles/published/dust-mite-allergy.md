@@ -13,10 +13,10 @@ Image alt: A hand running a fingertip through dust in a bright sunbeam, a remind
 Credit: none (house article).
 
 KEY TAKEAWAYS
-- About 20 million people in the U.S. have a dust mite allergy, and symptoms tend to last all year (AAFA).
-- Start with the bed: zippered allergen proof covers on the mattress, box spring and pillows, and bedding washed every week (Mayo Clinic).
-- Wash bedding in water of at least 130°F. If your hot water doesn't get that hot, run the bedding through the dryer for 15 minutes above 130°F first, then wash it (Mayo Clinic).
-- Keep indoor humidity below 50% with a dehumidifier or air conditioner, and check it with an inexpensive hygrometer (Mayo Clinic).
+- About 20 million people in the U.S. have a dust mite allergy, and symptoms tend to last all year.
+- Start with the bed: zippered allergen proof covers on the mattress, box spring and pillows, and bedding washed every week.
+- Wash bedding in water of at least 130°F. If your hot water doesn't get that hot, run the bedding through the dryer for 15 minutes above 130°F first, then wash it.
+- Keep indoor humidity below 50% with a dehumidifier or air conditioner, and check it with an inexpensive hygrometer.
 - Allergy medicine eases symptoms. Allergy shots, the ODACTRA dust mite tablet and ILIT treat the allergy itself.
 
 FAQS

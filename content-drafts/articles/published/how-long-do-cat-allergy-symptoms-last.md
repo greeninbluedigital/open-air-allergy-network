@@ -14,11 +14,11 @@ Image alt: A white and orange cat asleep on a woven cushion on a sofa by a sunny
 Credit: none (house article).
 
 KEY TAKEAWAYS
-- Cat allergy symptoms can come in two waves: within minutes of exposure, then again 4 to 8 hours later (Skoner, J Allergy Clin Immunol 2001).
-- Cat allergen can keep causing symptoms for up to 6 months after a cat leaves a home (AAFA).
-- In a study of 15 homes, about half took 20 to 24 weeks after the cat left for allergen levels to fall to those of cat free homes (Wood et al. 1989).
-- Cat allergen turned up in 99.9% of U.S. homes in a national survey, though only about half had a cat (Arbes et al. 2004).
-- None of the four allergy tablets on the FDA's list is for cat allergy, so shots and ILIT are the immunotherapy options to ask your doctor about (FDA).
+- Cat allergy symptoms can come in two waves: within minutes of exposure, then again 4 to 8 hours later.
+- Cat allergen can keep causing symptoms for up to 6 months after a cat leaves a home.
+- In a study of 15 homes, about half took 20 to 24 weeks after the cat left for allergen levels to fall to those of cat free homes.
+- Cat allergen turned up in 99.9% of U.S. homes in a national survey, though only about half had a cat.
+- None of the four allergy tablets on the FDA's list is for cat allergy, so shots and ILIT are the immunotherapy options to ask your doctor about.
 
 FAQS
 Q: Are there hypoallergenic cats?

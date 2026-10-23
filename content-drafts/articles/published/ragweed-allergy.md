@@ -14,11 +14,11 @@ Image alt: Tall ragweed plants with spikes of small yellow-green flowers filling
 Credit: none (house article).
 
 KEY TAKEAWAYS
-- Ragweed season starts in August for most of the U.S. and ends with the first hard frost (AAFA, ACAAI).
-- About 1 in 7 people in the U.S. are allergic to ragweed pollen (AAFA).
-- A single ragweed plant can release up to 1 billion pollen grains (AAAAI).
-- Bright yellow goldenrod usually isn't the problem. Its pollen is too heavy to blow in the wind (University of Illinois Extension).
-- The ragweed allergy tablet has to be started at least 12 weeks before the season (FDA label via DailyMed).
+- Ragweed season starts in August for most of the U.S. and ends with the first hard frost.
+- About 1 in 7 people in the U.S. are allergic to ragweed pollen.
+- A single ragweed plant can release up to 1 billion pollen grains.
+- Bright yellow goldenrod usually isn't the problem. Its pollen is too heavy to blow in the wind.
+- The ragweed allergy tablet has to be started at least 12 weeks before the season.
 
 FAQS
 Q: When does ragweed season end?

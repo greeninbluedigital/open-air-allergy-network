@@ -163,7 +163,7 @@ Image alt: ...
 Credit: none (house article).
 
 KEY TAKEAWAYS
-- 4 or 5 one-line takeaways, each with its source in parentheses
+- 4 or 5 short, interesting one-line takeaways. No source tags in parentheses (owner, 2026-10-23): every takeaway must be stated and sourced in the body, so the box stays clean
 
 FAQS
 Q: ...

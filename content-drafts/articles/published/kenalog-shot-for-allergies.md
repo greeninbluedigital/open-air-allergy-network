@@ -13,11 +13,11 @@ Image alt: A hand holding a syringe among purple flowers in a field.
 Credit: none (house article).
 
 KEY TAKEAWAYS
-- A Kenalog shot is triamcinolone acetonide, a long acting steroid, and its label reserves it for severe hay fever that usual treatment hasn't controlled (FDA label, DailyMed).
-- One shot can calm hay fever for several weeks, and for some people a whole pollen season (FDA label, EAACI).
-- The label sets no repeat interval, and U.S. allergy guidelines recommend against depot steroid shots for hay fever (AAAAI/ACAAI Rhinitis 2020).
-- Tell any surgeon or dentist you've had one, since steroid shots can affect how your body handles stress for a while afterward (FDA label, MedlinePlus).
-- A steroid shot calms symptoms for a while. Immunotherapy changes how your immune system reacts, and ILIT is the shortest course (AAAAI, Learn About ILIT).
+- A Kenalog shot is triamcinolone acetonide, a long acting steroid, and its label reserves it for severe hay fever that usual treatment hasn't controlled.
+- One shot can calm hay fever for several weeks, and for some people a whole pollen season.
+- The label sets no repeat interval, and U.S. allergy guidelines recommend against depot steroid shots for hay fever.
+- Tell any surgeon or dentist you've had one, since steroid shots can affect how your body handles stress for a while afterward.
+- A steroid shot calms symptoms for a while. Immunotherapy changes how your immune system reacts, and ILIT is the shortest course.
 
 FAQS
 Q: How long does a Kenalog injection last for allergies?

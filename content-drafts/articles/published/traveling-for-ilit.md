@@ -14,11 +14,11 @@ Image alt: A car parked at an overlook above a city skyline at sunset, with a pl
 Credit: none (house article).
 
 KEY TAKEAWAYS
-- A full course of allergy shots on the AAAAI schedule comes to roughly 55 to more than 180 office visits over three to five years (AAAAI, our arithmetic).
-- In the 2008 trial that established ILIT, the ILIT group got three injections four weeks apart, and all 58 who started finished (Senti et al., PNAS 2008).
-- Many people quit allergy shots early: in a Dutch study of 2,796 patients, only 23% stayed on treatment for three years (J Allergy Clin Immunol, 2013).
-- AAAAI says allergy shots belong in a health care setting equipped to treat reactions, not at home, which is why every dose means a trip (AAAAI).
-- A video visit with an out of state allergist may not be allowed: AMA policy says doctors practicing telemedicine must be licensed where the patient receives care (AMA).
+- A full course of allergy shots on the AAAAI schedule comes to roughly 55 to more than 180 office visits over three to five years.
+- In the 2008 trial that established ILIT, the ILIT group got three injections four weeks apart, and all 58 who started finished.
+- Many people quit allergy shots early: in a Dutch study of 2,796 patients, only 23% stayed on treatment for three years.
+- AAAAI says allergy shots belong in a health care setting equipped to treat reactions, not at home, which is why every dose means a trip.
+- A video visit with an out of state allergist may not be allowed: AMA policy says doctors practicing telemedicine must be licensed where the patient receives care.
 
 FAQS
 Q: How many visits for allergy shots?

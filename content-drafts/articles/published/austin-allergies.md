@@ -14,11 +14,11 @@ Image alt: Bald cypress trees in fall color along a river below a wooded Texas H
 Credit: none (house article).
 
 KEY TAKEAWAYS
-- Austin has allergy pollen in the air for most of the year: mountain cedar in winter, oak in spring, grass in summer and ragweed in fall (Texas A&M Forest Service, Texas A&M AgriLife, Children's Health).
-- Mountain cedar is Ashe juniper, which is not a true cedar (Texas A&M AgriLife).
-- Cedar pollen usually starts in mid December, peaks in mid January and tapers off by early March (Texas A&M Forest Service).
-- Austin ranked 81st of 100 metro areas in AAFA's 2026 Allergy Capitals report, yet had one of the highest counts of high tree pollen days in 2025 (AAFA).
-- A small 2020 trial of ILIT for mountain cedar allergy, run in Austin, Grapevine and San Antonio, found fewer symptoms and less medicine use than placebo (Annals of Allergy, Asthma & Immunology).
+- Austin has allergy pollen in the air for most of the year: mountain cedar in winter, oak in spring, grass in summer and ragweed in fall.
+- Mountain cedar is Ashe juniper, which is not a true cedar.
+- Cedar pollen usually starts in mid December, peaks in mid January and tapers off by early March.
+- Austin ranked 81st of 100 metro areas in AAFA's 2026 Allergy Capitals report, yet had one of the highest counts of high tree pollen days in 2025.
+- A small 2020 trial of ILIT for mountain cedar allergy, run in Austin, Grapevine and San Antonio, found fewer symptoms and less medicine use than placebo.
 
 FAQS
 Q: Does local honey help with cedar fever?
