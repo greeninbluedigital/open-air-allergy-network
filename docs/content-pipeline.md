@@ -276,7 +276,15 @@ practices. The queue says which format an item uses.
   or the list (humid Gulf coast vs. Midwest ragweed vs. Texas cedar). Never
   swap a city name into another article's text. Group nearby cities that
   share a season into one article instead of writing one per city.
-- **City priority** (owner, 2026-10-24): cities served by small, single
+- **National authority, not a local network (owner, 2026-10-24).** OAAN
+  positions itself as the leading authority on ILIT in the U.S. Articles
+  never say or imply which cities, states or regions OAAN covers: no "cities
+  we serve", "ILIT cities", "our local practices", "where OAAN lists
+  providers", and no comparisons framed around OAAN's footprint. A local
+  article reads as the authority's guide to that place's allergies; a
+  ranking of cities is national. The city priority below is internal, for
+  choosing topics only, and never appears in an article.
+- **City priority (internal)** (owner, 2026-10-24): cities served by small, single
   groups (3 or fewer locations) first: Tampa and St. Petersburg, the Toledo
   area (Findlay), the Indianapolis area (Westfield, Kokomo), Kansas City
   (Prairie Village), Grand Rapids, Charlotte, St. Louis, Dallas and Plano,

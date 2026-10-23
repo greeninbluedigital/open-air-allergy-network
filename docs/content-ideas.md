@@ -123,19 +123,18 @@ is the "drive traffic now" half of the SEO strategy.
   can rank within months and build toward the head term.
 
 **Toledo Allergies: Why Northwest Ohio Ranks 17th (owner, 2026-10-24,
-draft Monday 10/26, local city page).** Moved up by the owner. Hook: the
-AAFA 2026 Allergy Capitals report ranks Toledo 17th of the 100 largest
-metros (score 92.01), worse than any other city OAAN serves except Richmond.
-Read the report's legend before describing its markers. Cover Northwest
-Ohio's season (trees in spring, grass in late spring and summer, ragweed
-from August) from named sources: AAFA, Ohio State University Extension
-(Ohioline), and an AAAAI National Allergy Bureau station in the area if one
-exists. Include Findlay, where OAAN's local ILIT practice is (about 45 miles
-south, outside the Toledo metro): mention Findlay and Northwest Ohio by name
-for search, never the practice. Find a Provider with a Toledo zip (43604)
-and `/find-an-ilit-provider/ohio`. Links the ragweed guide; link the Ohio
-grass article once it's live. Same city page format as Austin and Dallas–
-Fort Worth.
+draft Monday 10/26, local city page).** Moved up by the owner (internal
+reason: a small ILIT group serves Northwest Ohio; never say so in the
+article, see "National authority" in the drafting rules). Hook: the AAFA
+2026 Allergy Capitals report ranks Toledo 17th of the 100 largest U.S.
+metros (score 92.01). Read the report's legend before describing its
+markers. Cover Northwest Ohio's season (trees in spring, grass in late
+spring and summer, ragweed from August) from named sources: AAFA, Ohio
+State University Extension (Ohioline), and an AAAAI National Allergy Bureau
+station in the area if one exists. Find a Provider with a Toledo zip
+(43604) and `/find-an-ilit-provider/ohio`. Links the ragweed guide; link the
+Ohio grass article once it's live. Same city page format as Austin and
+Dallas–Fort Worth.
 
 **Best and Worst Pets for Allergies, Ranked (owner, 2026-10-24, ranking).**
 People love animals and the topic catches searches OAAN already ranks near
@@ -162,7 +161,7 @@ November pollen counts" became the AAFA ranking below (no free, citable
 month by city pollen data exists; NAB stations don't publish monthly
 rankings and app forecasts aren't citable).
 
-Active ILIT practice cities on OAAN (2026-10-24; small groups marked *):
+Active ILIT practice cities on OAAN (2026-10-24; small groups marked *). INTERNAL, for choosing topics only; never mention OAAN's coverage in an article:
 Tampa* and St. Petersburg*, Findlay OH* (near Toledo, not in its metro),
 Westfield IN* (Indianapolis metro) and Kokomo IN*, Prairie Village KS*
 (Kansas City metro), Grand Rapids*, Charlotte*, St. Louis* (two groups),
@@ -187,15 +186,17 @@ symbol after the rank and three symbols after the score: read the report's
 legend before describing them (not yet confirmed what they mean).
 Report: aafa.org/wp-content/uploads/2026/03/aafa-2026-allergy-capitals-report.pdf.
 
-- **Allergy Capitals 2026: How ILIT Cities Rank** (ranking): every AAFA
-  ranked metro with an active ILIT practice on OAAN, ordered by AAFA rank.
-  Table: rank, city, score, what drives it (from the report's markers, once
-  the legend is read). One short section per city with its main local
-  triggers from a named source and a Find a Provider link with a local zip.
-  Keep each city section short and specific; this is a ranking, not ten
-  city pages. Say plainly which listed cities AAFA doesn't rank (Findlay,
-  Kokomo, Barboursville, Waco and others). Update when the 2027 report comes
-  out (usually March).
+- **The Worst U.S. Cities for Allergies in 2026, Ranked** (ranking,
+  national; renamed 2026-10-24 from "How ILIT Cities Rank" so it doesn't
+  reflect OAAN's footprint). AAFA's 2026 Allergy Capitals top 20, ranked as
+  AAFA ranks them, with the report's own method in "How we ranked". Table:
+  rank, city, score, what drives it (from the report's markers, once the
+  legend is read). One short section per city: its main triggers from a
+  named source. Targets "worst cities for allergies", "allergy capitals
+  2026", "worst cities for allergies 2026", "allergy capital of the US".
+  Ends with longer term options and a plain Find a Provider link (no city
+  zips, no footprint). Update when the 2027 report comes out (usually
+  March).
 - **How to Clean Your Home to Reduce Allergies** (how-to, national hub):
   room by room (bedroom, living areas, kitchen and bath mold, pets, air
   filters: HEPA and MERV ratings), tools (HEPA vacuum, damp dusting), when

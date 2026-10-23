@@ -31,7 +31,7 @@ pages to neighboring states.
 local stories (city pages, local rankings and how-tos) per week. Planned
 draft days, one per weekday: week of 10/26 Toledo (Mon), tree pollen, dust
 mites, Tampa Bay triggers (Thu), chest tightness; week of 11/2 dog allergy,
-Orlando, puffy eyes, Allergy Capitals ranking, pets ranked; week of 11/9
+Orlando, puffy eyes, worst cities ranking, pets ranked; week of 11/9
 test results, Houston, clean home hub, Tampa how-to, one-time shot; week of
 11/16 what's in shots, pollen count, oak, Denver, pine; week of 11/23
 birch, St. Louis and Kansas City, grass, Charlotte, Ohio grass; week of
@@ -59,7 +59,7 @@ Keep the mix when adding items.
 | 17 | Am I Allergic to My Dog? Signs and What Helps | Blog | allergic-to-my-dog | any time | next | |  |
 | 18 | Orlando Allergies (city page) | Blog | orlando-allergies | before January | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791853508/orlando-fl-lake-eola-park-and-linton-e-allen-memorial-fountain.jpg |
 | 19 | Puffy Eyes From Allergies: Causes and Relief | Blog | puffy-eyes-allergies | any time | next | |  |
-| 20 | Allergy Capitals 2026: How ILIT Cities Rank (ranking) | Blog | allergy-capitals-2026-ilit-cities | before March (2027 report replaces it) | next | |  |
+| 20 | The Worst U.S. Cities for Allergies in 2026, Ranked (ranking, national) | Blog | worst-cities-for-allergies-2026 | before March (2027 report replaces it) | next | |  |
 | 21 | Best and Worst Pets for Allergies, Ranked (ranking) | Blog | pets-ranked-by-allergies | any time | next | |  |
 | 22 | Allergy Test Results: What Your Skin Test Means | Blog | allergy-test-results | any time | next | |  |
 | 23 | Houston Allergies (city page) | Blog | houston-allergies | before February | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791852227/houston-texas-skyline-and-grassy-park.jpg |
