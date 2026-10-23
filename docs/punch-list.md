@@ -59,9 +59,8 @@ updated.
 ## Content
 
 16. **Queued articles (not drafted yet; the weekday task drafts one each
-    morning).** Reordered 10/21 by search volume, then season: Oral Allergy
-    Syndrome first (brief has the competitor's metadata and your Ahrefs,
-    SpyFu and People Also Ask keywords; hero set), then sore throat, tree pollen and dust mites. Seasonal
+    morning).** Reordered 10/21 by search volume, then season. Next: sore
+    throat, tree pollen and dust mites. Seasonal
     items (Orlando, Houston, oak, pine, Denver, birch, grass, Ohio grass)
     follow, then Why People Quit (hero ready) and Where Do ILIT Injections
     Go? (diagram ready; build the text wrap layout at publish). After the
@@ -74,8 +73,10 @@ updated.
     Allergy (2 offices) need addresses. Auni's Bowling Green office isn't in
     the sheet yet.
 
-## Recently done (2026-10-19 to 10-22)
+## Recently done (2026-10-19 to 10-23)
 
+- Oral Allergy Syndrome published 10/23 (fact checked twice; new "vs. food
+  allergy" section). Elaria photos live.
 - Google Alerts set up (10/22) for "Quillmoor", "555-0142" and
   "Tennyfield" (scraper trap), daily, all results.
 - Launch checklist cleaned up for the 10/9 decisions (Hobby, no lawyer);
