@@ -31,6 +31,13 @@ the report and the main session makes the fixes.
 - Search Engine Roundtable: https://www.seroundtable.com/
 - Search Engine Land: https://searchengineland.com/ (blocks automated page reads; find its stories through web search instead)
 
+**Allergy guidelines to watch for**
+- Final publication of the 2026 AAAAI/ACAAI Allergen Immunotherapy Practice
+  Parameter (draft posted for review 2026-08-24; recommendations 98 and 99
+  cover ILIT). When it's published (likely JACI or Annals of Allergy, Asthma
+  & Immunology), flag it as a top fix: cite it on the Learn page and draft
+  the planned article (see docs/content-ideas.md).
+
 Add a source here when a report finds a better one.
 
 ## What OAAN already does (baseline, 2026-10-25)
