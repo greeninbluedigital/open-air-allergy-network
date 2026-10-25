@@ -70,8 +70,11 @@ updated.
     Allergy (2 offices) need addresses. Auni's Bowling Green office isn't in
     the sheet yet.
 
-## Recently done (2026-10-19 to 10-24)
+## Recently done (2026-10-19 to 10-25)
 
+- Pinterest: all three boards created and every article pinned, scheduled
+  through Nov 4. Facebook posts for all 18 articles being scheduled Oct 26
+  to Nov 12 (checklist artifact "OAAN Facebook Schedule").
 - Ranking and how-to formats added to the drafting rules; 9 local and
   how-to articles queued after the seasonal items (incl. Los Angeles, ready
   for the second LA practice).
