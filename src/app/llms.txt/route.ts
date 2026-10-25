@@ -43,7 +43,7 @@ export async function GET() {
     "",
     ILIT_DEFINITION,
     "",
-    "Open Air Allergy Network isn't affiliated with the practices it lists. Practice profiles summarize what each practice publishes or tells us directly, so details should be confirmed with the practice. Articles cite named sources (AAFA, ACAAI, AAAAI, FDA, peer reviewed studies) and aren't medical advice: treatment decisions belong to a patient and their doctor.",
+    "Every practice is checked before it's listed: OAAN confirms it offers ILIT, from the practice's own published information or by contacting the practice directly. Practices OAAN has confirmed directly carry an ‘ILIT Confirmed’ badge. Scheduling, costs and other practice details can change, so check those with the practice. Articles cite named sources (AAFA, ACAAI, AAAAI, FDA, peer reviewed studies) and aren't medical advice: treatment decisions belong to a patient and their doctor.",
     "",
     "## Learn about ILIT",
     "",

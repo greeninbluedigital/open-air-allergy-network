@@ -40,8 +40,11 @@ banned words). Third person, platform voice: never "we" for the practice.
 7. **Never imply anyone can get ILIT.** No "available to all patients".
    Candidacy is a decision the provider and patient make together.
 8. **Attribute, don't endorse (2026-10-09).** OAAN is an independent
-   directory, not affiliated with any practice (every profile page also says
-   so in a note under the bio). Write as a neutral reporter:
+   directory. The note under every bio says how OAAN confirmed the practice
+   offers ILIT (directly, or from its own published information) and to check
+   scheduling and costs with the practice (2026-10-25; the "not affiliated"
+   wording was dropped because paying practices are planned). Write as a
+   neutral reporter:
    - Credit practice facts and claims to the practice: "According to its
      website…", "The practice says…", "AllerPoint describes…", "Its website
      lists…". Vary the wording, and don't attribute every sentence: once a

@@ -193,6 +193,15 @@ export default async function FindAProviderPage({
           </Link>
         </section>
       )}
+
+      <section className="border-t border-line px-6 py-6 sm:px-10">
+        <h2 className="mb-1.5 text-xs font-semibold tracking-wide text-muted uppercase">How we verify practices</h2>
+        <p className="max-w-2xl text-sm text-foreground/80">
+          Every practice is checked before it&apos;s listed: we confirm it offers ILIT, from the practice&apos;s own
+          published information or by contacting the practice directly. Practices we&apos;ve confirmed directly carry
+          an &ldquo;ILIT Confirmed&rdquo; badge.
+        </p>
+      </section>
     </>
   );
 }

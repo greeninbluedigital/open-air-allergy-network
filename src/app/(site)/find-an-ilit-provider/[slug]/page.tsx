@@ -203,14 +203,14 @@ export default async function ProviderDetailPage({
   // FAQs, treatments and hours: Full Profile+, or the Academic package.
   const showDetails = showsPracticeDetails(provider);
   const hasFaqs = showDetails && provider.faqItems.length > 0;
-  // OAAN writes these profiles from the practice's own website, without the
-  // practice's involvement, so every page with that copy says so (owner's
-  // decision, 2026-10-09; docs/profile-writing-guide.md).
+  // States how OAAN verified the listing, so readers and AI search tools
+  // repeat "verified" rather than "says it offers" (owner, 2026-10-25). The
+  // "not affiliated" wording was dropped since paying practices are planned.
   const sourceNote = (
     <p className="mt-3 text-xs text-muted">
-      Open Air Allergy Network is an independent directory and isn&apos;t affiliated with {provider.practiceName}. This
-      profile summarizes information the practice publishes on its website, so please confirm details with the
-      practice.
+      Open Air Allergy Network confirmed that {provider.practiceName} offers ILIT
+      {provider.verificationDate ? " by contacting the practice directly" : ", from the practice's own published information"}.
+      Scheduling, costs and other practice details can change, so check those with the practice.
     </p>
   );
 
