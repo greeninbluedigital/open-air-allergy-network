@@ -122,6 +122,35 @@ is the "drive traffic now" half of the SEO strategy.
   quickly against Aspire and the big health sites, but long-tail questions
   can rank within months and build toward the head term.
 
+**2026 AAAAI/ACAAI Allergen Immunotherapy Practice Parameter (DRAFT,
+read 2026-10-25).** The Joint Task Force's 4th update, replacing 2011. Posted
+for ACAAI member review on 2026-08-24 (comments closed 08-31):
+college.acaai.org/wp-content/uploads/2026/08/2026-Allergen-Immunotherapy-Practice-Parameter-Update.pdf
+(190 pages). ChatGPT already cites it when asked about ILIT providers. ILIT
+is in "Other administration methods" (recommendations 98 and 99):
+- **#99 (Strong, moderate certainty):** ILIT should be given only by
+  specialists trained in ultrasound guided lymph node injections, in
+  settings prepared for anaphylaxis.
+- **#98 (Strong, low certainty):** tell patients when immunotherapy is off
+  label and document it in the consent.
+- Text: typically 3 injections into a superficial lymph node under
+  ultrasound, usually done within 8 weeks; symptom improvement within 12
+  weeks; benefits comparable to 3 years of allergy shots in studies; RCTs in
+  23 publications; U.S. clinical access emerged during COVID-19; systemic
+  reactions rare (two severe ones with non-adjuvant dust mite extract);
+  adherence high vs. allergy shots (~54% for 3+ years) and SLIT (~57%); in a
+  European training program only 58 of 156 injections hit the node, and hits
+  tracked with results, so training is crucial; a 2023 ILIT learning health
+  network trains and certifies allergists (Patterson, Auni). Dr. Amber
+  Patterson is on the writing panel.
+- **Use:** cite only after the final version is published (likely in JACI or
+  Annals), unless the owner OKs citing the draft labeled as a draft. Then
+  add it to the Learn page FAQs (safety, who should give ILIT), the "what to
+  ask a practice" parts of Traveling for ILIT, and a LinkedIn post. Strong
+  article idea: "What the New Allergy Immunotherapy Guidelines Say About
+  ILIT." No new ILIT practices are named in it (Nationwide Children's was a
+  2013 to 2016 research site only).
+
 **Toledo Allergies: Why Northwest Ohio Ranks 17th (owner, 2026-10-24,
 draft Monday 10/26, local city page).** Moved up by the owner (internal
 reason: a small ILIT group serves Northwest Ohio; never say so in the
