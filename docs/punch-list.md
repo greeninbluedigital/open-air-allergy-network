@@ -72,6 +72,10 @@ updated.
 
 ## Recently done (2026-10-19 to 10-25)
 
+- About page filled out (what you'll find, privacy, how we create our
+  content incl. AI disclosure, per Google's 10/1 AI content guidance);
+  "Content Correction" added to the contact form. Fact check pass now also
+  checks titles, descriptions and alt text.
 - Toledo Allergies published 10/25 (AAFA rank 17th; first local story).
 - Pinterest: all three boards created and every article pinned, scheduled
   through Nov 4. Facebook: all 18 articles scheduled, one a day
