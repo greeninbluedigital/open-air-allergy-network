@@ -72,6 +72,8 @@ updated.
 
 ## Recently done (2026-10-19 to 10-25)
 
+- Monthly search watch set up (3rd of each month): new Google, Bing and AI
+  search guidance plus a site audit, report in docs/search-watch/.
 - About page filled out (what you'll find, privacy, how we create our
   content incl. AI disclosure, per Google's 10/1 AI content guidance);
   "Content Correction" added to the contact form. Fact check pass now also
