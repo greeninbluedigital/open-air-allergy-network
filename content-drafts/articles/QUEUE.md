@@ -29,8 +29,8 @@ pages to neighboring states.
 
 **Order (owner, 2026-10-24):** a weekly mix with at least one or two
 local stories (city pages, local rankings and how-tos) per week. Planned
-draft days, one per weekday: week of 10/26 Toledo (Mon), tree pollen, dust
-mites, Tampa Bay triggers (Thu), chest tightness; week of 11/2 dog allergy,
+draft days, one per weekday: week of 10/26 Toledo (drafted early 10/25 and published), tree
+pollen (Mon), dust mites, chest tightness, Tampa Bay triggers (Thu); week of 11/2 dog allergy,
 Orlando, puffy eyes, worst cities ranking, pets ranked; week of 11/9
 test results, Houston, clean home hub, Tampa how-to, one-time shot; week of
 11/16 what's in shots, pollen count, oak, Denver, pine; week of 11/23
@@ -51,11 +51,11 @@ Keep the mix when adding items.
 | 9 | Kenalog Shot for Allergies: How Often, Side Effects and Alternatives | Blog | kenalog-shot-for-allergies | ASAP (already getting search impressions) | published 2026-10-21 | published/kenalog-shot-for-allergies.md |  |
 | 10 | Oral Allergy Syndrome Food List, Chart, Diet and Treatment | Blog | oral-allergy-syndrome | any time (22K searches a month) | published 2026-10-23 | published/oral-allergy-syndrome.md | https://res.cloudinary.com/qruprn0t/image/upload/v1792644170/oral-allergy-syndrome-fruits-farmers-market.jpg |
 | 11 | Can Allergies Cause a Sore Throat? | Blog | can-allergies-cause-sore-throat | any time | published 2026-10-24 | published/can-allergies-cause-sore-throat.md | https://res.cloudinary.com/qruprn0t/image/upload/v1791852724/sore-throat-1.jpg |
-| 12 | Toledo Allergies: Why Northwest Ohio Ranks 17th, and What Triggers It (local) | Blog | toledo-allergies | Monday 2026-10-26 | next | |  |
+| 12 | Toledo Allergies: Why Northwest Ohio Ranks 17th, and What Triggers It (local) | Blog | toledo-allergies | Monday 2026-10-26 | published 2026-10-25 | published/toledo-allergies.md | https://res.cloudinary.com/qruprn0t/image/upload/v1792795242/veterans-glass-city-skyway-toledo-ohio.jpg |
 | 13 | Tree Pollen Allergy: Symptoms, Season and Treatment | Blog | tree-pollen-allergy | before February | next | |  |
 | 14 | What Do Dust Mites Look Like? (And What Those Tiny Bugs in Your Dust Really Are) | Blog | what-do-dust-mites-look-like | ASAP (high search volume) | next | |  |
-| 15 | 5 Allergy Triggers in Tampa Bay (ranking or list, local) | Blog | tampa-bay-allergy-triggers | before January (oak season) | next | |  |
-| 16 | Can Allergies Cause Chest Tightness? | Blog | can-allergies-cause-chest-tightness | any time | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791854105/allergy-chest-tightness-2.jpg |
+| 15 | Can Allergies Cause Chest Tightness? | Blog | can-allergies-cause-chest-tightness | any time | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791854105/allergy-chest-tightness-2.jpg |
+| 16 | 5 Allergy Triggers in Tampa Bay (ranking or list, local) | Blog | tampa-bay-allergy-triggers | before January (oak season) | next | |  |
 | 17 | Am I Allergic to My Dog? Signs and What Helps | Blog | allergic-to-my-dog | any time | next | |  |
 | 18 | Orlando Allergies (city page) | Blog | orlando-allergies | before January | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791853508/orlando-fl-lake-eola-park-and-linton-e-allen-memorial-fountain.jpg |
 | 19 | Puffy Eyes From Allergies: Causes and Relief | Blog | puffy-eyes-allergies | any time | next | |  |

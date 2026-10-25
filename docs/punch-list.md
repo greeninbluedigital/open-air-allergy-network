@@ -60,8 +60,8 @@ updated.
 
 16. **Queued articles (the weekday task drafts one each morning).** A
     weekly mix with one or two local stories (owner, 10/24). Next week:
-    Toledo (Mon), tree pollen, dust mites, Tampa Bay triggers (Thu), chest
-    tightness. Full week by week plan at the top of the queue file.
+    tree pollen (Mon), dust mites, chest tightness, Tampa Bay triggers
+    (Thu), dog allergy. Full week by week plan at the top of the queue file.
     Where Do ILIT Injections Go? has its diagram ready and the wrap layout
     built. After the dust mites article, link it from the dust mite guide.
 17. **Learn page blog module:** switch back to provider-credited articles
@@ -72,6 +72,7 @@ updated.
 
 ## Recently done (2026-10-19 to 10-25)
 
+- Toledo Allergies published 10/25 (AAFA rank 17th; first local story).
 - Pinterest: all three boards created and every article pinned, scheduled
   through Nov 4. Facebook: all 18 articles scheduled, one a day
   through Nov 17.
