@@ -348,6 +348,11 @@ saved, re-fetching every source rather than working from memory.
    `/learn-about-ilit#faq-fda` vs `#faq-safety`).
 7. **Takeaways:** each one is stated and sourced in the body, with no
    source tags in parentheses.
+7b. **Metadata (Google, 2026-10-01):** Google's generative AI guidance says
+   to review metadata too, since it shows in search results. Check the
+   title, meta description and image alt text against the body and the
+   photo: no claim the body doesn't make, alt text describes what the photo
+   actually shows (look at it, don't guess from the file name).
 8. Add a **FACT CHECK** block to REVIEW NOTES: what was checked, every fix
    made (old wording → new wording and the reason), and anything that
    couldn't be verified. The end of run summary repeats the fixes.
