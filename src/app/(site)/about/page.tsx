@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { DataLayerEvent } from "@/components/analytics/DataLayerEvent";
 import { FindOrJoinRow } from "@/components/FindOrJoinRow";
 import { submitGeneralInquiry } from "@/lib/actions";
@@ -9,9 +10,30 @@ import { GENERAL_INQUIRY_REASONS } from "@/lib/generalInquiry";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Open Air Allergy Network connects people searching for ILIT with practices that offer it.",
+  description: "Open Air Allergy Network connects people searching for ILIT (intralymphatic immunotherapy) with the practices that offer it.",
   alternates: { canonical: "/about" },
 };
+
+const OFFERINGS = [
+  {
+    title: "A directory of ILIT providers",
+    text: "Search by zip code or browse by state to find allergists who offer ILIT, with practice details and a way to reach them.",
+    href: "/find-an-ilit-provider",
+    cta: "Find a Provider",
+  },
+  {
+    title: "Plain-language guides to ILIT",
+    text: "How intralymphatic immunotherapy (ILIT) works, what the research shows, and how it compares with allergy shots and allergy drops.",
+    href: "/learn-about-ilit",
+    cta: "Learn About ILIT",
+  },
+  {
+    title: "Allergy guides",
+    text: "Articles on allergens, symptoms, allergy seasons and treatment options, each fact linked to its source.",
+    href: "/blog",
+    cta: "Read the Blog",
+  },
+];
 
 export default async function AboutPage({ searchParams }: PageProps<"/about">) {
   const sp = await searchParams;
@@ -28,8 +50,8 @@ export default async function AboutPage({ searchParams }: PageProps<"/about">) {
       <div className="px-6 pt-8 sm:px-10">
         <h1 className="mb-2.5 text-3xl font-extrabold">About Open Air Allergy Network</h1>
         <p className="max-w-xl text-sm text-muted">
-          Open Air Allergy Network connects people searching for ILIT with
-          the practices that offer it, and helps those practices reach
+          Open Air Allergy Network connects people searching for ILIT
+          (intralymphatic immunotherapy) with the practices that offer it, and helps those practices reach
           patients actively looking for this specific treatment.
         </p>
       </div>
@@ -144,6 +166,84 @@ export default async function AboutPage({ searchParams }: PageProps<"/about">) {
                 </button>
               </form>
             )}
+          </div>
+        </div>
+      </div>
+
+      <div className="border-b border-line bg-bg-alt px-6 py-8 sm:px-10">
+        <h2 className="mb-4 text-xl font-bold">What You&apos;ll Find Here</h2>
+        <div className="grid max-w-4xl grid-cols-1 gap-6 sm:grid-cols-3">
+          {OFFERINGS.map((o) => (
+            <div key={o.title}>
+              <h3 className="mb-1.5 text-base font-bold">{o.title}</h3>
+              <p className="mb-2 text-sm text-foreground/80">{o.text}</p>
+              <Link href={o.href} className="text-sm font-semibold text-sage hover:underline">
+                {o.cta} →
+              </Link>
+            </div>
+          ))}
+        </div>
+        <p className="mt-6 max-w-2xl text-sm text-foreground/80">
+          Open Air Allergy Network is a directory, not a medical practice, so
+          we don&apos;t provide medical care or medical advice. Each practice
+          page shows how to reach the practice and what it offers, and an
+          &ldquo;ILIT Confirmed&rdquo; badge means we contacted the practice
+          directly to confirm it offers ILIT.
+        </p>
+      </div>
+
+      <div className="border-b border-line px-6 py-8 sm:px-10">
+        <h2 className="mb-3 text-xl font-bold">Your Privacy</h2>
+        <p className="max-w-2xl text-sm text-foreground/80">
+          We never sell visitor data. When you send a message to a practice
+          through this site, it goes to that practice so they can answer you,
+          and we don&apos;t send you marketing emails. The details are in our{" "}
+          <Link href="/legal/privacy-notice" className="font-semibold text-sage hover:underline">
+            Privacy Policy
+          </Link>
+          .
+        </p>
+      </div>
+
+      <div className="border-b border-line px-6 py-8 sm:px-10">
+        <h2 className="mb-4 text-xl font-bold">How We Create Our Content</h2>
+        <div className="grid max-w-4xl grid-cols-1 gap-5 sm:grid-cols-2">
+          <div>
+            <h3 className="mb-1 text-base font-bold">Every fact has a source</h3>
+            <p className="text-sm text-foreground/80">
+              Our articles link each fact to a named source, such as the AAAAI,
+              ACAAI, AAFA, CDC, MedlinePlus or a published study.
+            </p>
+          </div>
+          <div>
+            <h3 className="mb-1 text-base font-bold">Checked before publishing</h3>
+            <p className="text-sm text-foreground/80">
+              We use AI tools to help research and draft. Every article is then
+              checked against its sources and reviewed by an editor before it
+              goes live.
+            </p>
+          </div>
+          <div>
+            <h3 className="mb-1 text-base font-bold">Not medical advice</h3>
+            <p className="text-sm text-foreground/80">
+              Our content is general information. Talk with an allergist about
+              your own care, and see our{" "}
+              <Link href="/legal/medical-disclaimer" className="font-semibold text-sage hover:underline">
+                Medical Disclaimer
+              </Link>
+              .
+            </p>
+          </div>
+          <div>
+            <h3 className="mb-1 text-base font-bold">Spot an error?</h3>
+            <p className="text-sm text-foreground/80">
+              Tell us with the{" "}
+              <a href="#contact" className="font-semibold text-sage hover:underline">
+                contact form
+              </a>{" "}
+              above and choose &ldquo;Content Correction.&rdquo; We review every
+              report and update the article when we got something wrong.
+            </p>
           </div>
         </div>
       </div>

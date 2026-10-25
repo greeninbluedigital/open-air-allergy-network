@@ -5,6 +5,7 @@ export const GENERAL_INQUIRY_REASONS = [
   "Press / Media",
   "Partnership",
   "Accessibility",
+  "Content Correction",
   "Other",
 ] as const;
 
