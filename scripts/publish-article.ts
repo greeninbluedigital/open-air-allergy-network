@@ -56,6 +56,10 @@ async function main() {
     sortOrder: i,
   }));
 
+  // The brief's placeholder is "TBD (owner uploads)"; only a real URL counts,
+  // and the alt text is only kept alongside a real image.
+  const featureImageUrl = field(meta, "Feature image")?.match(/^https?:\/\/\S+$/)?.[0] ?? null;
+
   const data = {
     section,
     status: "PUBLISHED" as const,
@@ -64,9 +68,8 @@ async function main() {
     tags,
     summaryPoints,
     metaDescription: metaDescription ?? null,
-    // The brief's placeholder is "TBD (owner uploads)"; only a real URL counts.
-    featureImageUrl: field(meta, "Feature image")?.match(/^https?:\/\/\S+$/)?.[0] ?? null,
-    featureImageAlt: field(meta, "Image alt") ?? null,
+    featureImageUrl,
+    featureImageAlt: featureImageUrl ? (field(meta, "Image alt") ?? null) : null,
   } as const;
 
   console.log(`${section} /${section === "LEARN" ? "learn-about-ilit" : "blog"}/${slug}`);
