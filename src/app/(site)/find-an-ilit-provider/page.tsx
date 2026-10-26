@@ -196,7 +196,7 @@ export default async function FindAProviderPage({
 
       {states.length > 0 && (
         <section className="border-t border-line px-6 py-8 sm:px-10">
-          <h2 className="mb-3 text-xs font-semibold tracking-wide text-muted uppercase">Browse ILIT providers by state</h2>
+          <h2 className="mb-3 text-xs font-semibold tracking-wide text-muted uppercase">Browse ILIT allergy providers by state</h2>
           <StateLinks states={states} />
           <Link href="/find-an-ilit-provider/by-state" className="mt-3 inline-block text-sm font-semibold text-sage hover:underline">
             All states and metro areas →

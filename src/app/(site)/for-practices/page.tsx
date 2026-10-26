@@ -11,7 +11,7 @@ import { US_PHONE_PATTERN, US_PHONE_TITLE } from "@/lib/phone";
 
 export const metadata: Metadata = {
   title: "For Practices",
-  description: "Join a growing network of ILIT providers. Tell us about your practice and we'll follow up.",
+  description: "Join a growing network of ILIT allergy treatment providers. Tell us about your practice and we'll follow up.",
   alternates: { canonical: "/for-practices" },
 };
 
@@ -31,7 +31,7 @@ export default async function ForPracticesPage({
     <>
       <div className="bg-sand px-6 py-11 text-center sm:px-10">
         <h1 className="mb-2.5 text-3xl font-extrabold">
-          Join a Growing Network of ILIT Providers
+          Join a Growing Network of ILIT Allergy Providers
         </h1>
         <p className="mx-auto max-w-2xl text-sm text-foreground/80">
           Reach patients actively searching for ILIT, and connect with a

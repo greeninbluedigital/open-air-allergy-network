@@ -47,14 +47,21 @@ function freemiumSummary(
     : `${where} is listed as an ILIT (intralymphatic immunotherapy) provider.`;
 }
 
+// "ILIT" alone also means an irrevocable life insurance trust in search, so
+// the title and H1 say "ILIT Allergy Provider" unless the practice's own
+// name already says allergy (2026-10-25; keeps most titles within budget).
+function ilitLabel(practiceName: string) {
+  return /allerg/i.test(practiceName) ? "ILIT Provider" : "ILIT Allergy Provider";
+}
+
 const NEW_TO_ILIT_LINKS = [
   {
     label: "How does ILIT compare to allergy shots and allergy drops?",
     href: `/learn-about-ilit/${COMPARISON_ARTICLE_SLUG}`,
   },
-  { label: "Is ILIT safe?", href: "/learn-about-ilit#faq-safety" },
-  { label: "How do I know if I'm a candidate for ILIT?", href: "/learn-about-ilit#faq-candidate" },
-  { label: "Is ILIT covered by insurance?", href: "/learn-about-ilit#faq-insurance" },
+  { label: "Is ILIT allergy treatment safe?", href: "/learn-about-ilit#faq-safety" },
+  { label: "How do I know if I'm a candidate for ILIT allergy treatment?", href: "/learn-about-ilit#faq-candidate" },
+  { label: "Is ILIT allergy treatment covered by insurance?", href: "/learn-about-ilit#faq-insurance" },
 ];
 
 /**
@@ -116,7 +123,7 @@ export async function generateMetadata({
   // skip the root layout's " | Open Air Allergy Network" template — with a
   // real practice name + city + state, the 28-char suffix alone pushed every
   // PDP well past the 62-char budget (verified against all live providers).
-  const title = `${provider.practiceName} | ILIT Provider in ${provider.city}, ${provider.state}${street ? ` (${street})` : ""}`;
+  const title = `${provider.practiceName} | ${ilitLabel(provider.practiceName)} in ${provider.city}, ${provider.state}${street ? ` (${street})` : ""}`;
   // shortBio is long-form ("About This Practice"-length) copy, not written
   // to meta-description length — truncateForMeta bounds it at a clean
   // sentence/word boundary instead of showing 200-500+ raw characters.
@@ -314,7 +321,7 @@ export default async function ProviderDetailPage({
         </div>
         {nearby.length > 0 && (
           <section className="mt-12 border-t border-line pt-8">
-            <h2 className="mb-1 text-lg font-bold">Other ILIT Providers Near {provider.city}</h2>
+            <h2 className="mb-1 text-lg font-bold">Other ILIT Allergy Providers Near {provider.city}</h2>
             <p className="mb-4 text-xs text-muted">Distances are from {provider.practiceName}.</p>
             <div className="space-y-3">
               {nearby.map((p) => (
@@ -327,7 +334,7 @@ export default async function ProviderDetailPage({
             they point visitors to the Learn content. Paid PDPs never link
             away like this. */}
         <section className="mt-10 rounded border border-line bg-bg-alt p-5">
-          <h2 className="mb-2 text-lg font-bold">New to ILIT?</h2>
+          <h2 className="mb-2 text-lg font-bold">New to ILIT Allergy Treatment?</h2>
           <p className="mb-4 text-sm text-foreground/80">{ILIT_DEFINITION}</p>
           <ul className="mb-4 space-y-2 text-sm">
             {NEW_TO_ILIT_LINKS.map((link) => (
@@ -398,7 +405,7 @@ export default async function ProviderDetailPage({
                 search-result title reinforce the same keywords, without
                 the practice name losing visual top billing. */}
             <span className="mt-0.5 block text-sm font-normal text-muted">
-              ILIT Provider in {provider.city}, {provider.state}
+              {ilitLabel(provider.practiceName)} in {provider.city}, {provider.state}
               {street && ` (${street})`}
             </span>
           </h1>

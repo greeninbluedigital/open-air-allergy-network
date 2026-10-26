@@ -16,13 +16,13 @@ export const metadata: Metadata = {
 
 const OFFERINGS = [
   {
-    title: "A directory of ILIT providers",
+    title: "A directory of ILIT allergy providers",
     text: "Search by zip code or browse by state to find allergists who offer ILIT, with practice details and a way to reach them.",
     href: "/find-an-ilit-provider",
     cta: "Find a Provider",
   },
   {
-    title: "Plain-language guides to ILIT",
+    title: "Plain-language guides to ILIT allergy treatment",
     text: "How intralymphatic immunotherapy (ILIT) works, what the research shows, and how it compares with allergy shots and allergy drops.",
     href: "/learn-about-ilit",
     cta: "Learn About ILIT",

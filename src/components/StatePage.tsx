@@ -52,7 +52,7 @@ export async function StatePage({ state, groups }: { state: StateInfo; groups: M
     {
       "@context": "https://schema.org",
       "@type": "ItemList",
-      name: `ILIT Providers in ${state.name}`,
+      name: `ILIT Allergy Treatment Providers in ${state.name}`,
       numberOfItems: total,
       itemListElement: groups
         .flatMap((g) => g.providers)
@@ -76,7 +76,7 @@ export async function StatePage({ state, groups }: { state: StateInfo; groups: M
           </Link>{" "}
           / <span>{state.name}</span>
         </nav>
-        <h1 className="mb-3 text-3xl font-extrabold">ILIT Providers in {state.name}</h1>
+        <h1 className="mb-3 text-3xl font-extrabold">ILIT Allergy Treatment Providers in {state.name}</h1>
         <p className="max-w-2xl text-sm text-foreground/80">
           Open Air Allergy Network lists the practices in {state.name} that offer ILIT, grouped by metro area below.{" "}
           {ILIT_DEFINITION}
@@ -125,7 +125,7 @@ export async function StatePage({ state, groups }: { state: StateInfo; groups: M
 
       {allStates.length > 1 && (
         <section className="px-6 py-8 sm:px-10">
-          <h2 className="mb-3 text-xs font-semibold tracking-wide text-muted uppercase">ILIT providers in other states</h2>
+          <h2 className="mb-3 text-xs font-semibold tracking-wide text-muted uppercase">ILIT allergy providers in other states</h2>
           <StateLinks states={allStates.filter((s) => s.code !== state.code)} />
         </section>
       )}

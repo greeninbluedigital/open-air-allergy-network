@@ -54,7 +54,7 @@ const COMPARISON_COLUMNS = ["ilit", "scit", "slit", "medicine"] as const;
 export function WhatIsIlit() {
   return (
     <>
-      <h2 className="mb-3 text-2xl font-bold">What is ILIT?</h2>
+      <h2 className="mb-3 text-2xl font-bold">What is ILIT (Intralymphatic Immunotherapy)?</h2>
       <p className="max-w-3xl text-base text-foreground">{ILIT_DEFINITION}</p>
       <ol className="mt-7 grid grid-cols-1 gap-4 sm:grid-cols-3">
         {STEPS.map((step, i) => (
@@ -77,7 +77,7 @@ export function WhatIsIlit() {
 export function IsIlitRightForMe({ cta }: { cta: ReactNode }) {
   return (
     <>
-      <h2 className="mb-5 text-2xl font-bold">Is ILIT right for me?</h2>
+      <h2 className="mb-5 text-2xl font-bold">Is ILIT Allergy Treatment Right for Me?</h2>
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         <div className="flex flex-col rounded border border-line bg-white p-5">
           <h3 className="text-lg font-bold">Does this sound familiar?</h3>
@@ -93,7 +93,7 @@ export function IsIlitRightForMe({ cta }: { cta: ReactNode }) {
           <div className="mt-auto border-t border-line pt-4">{cta}</div>
         </div>
         <div className="flex flex-col rounded border border-line bg-white p-5">
-          <h3 className="text-lg font-bold">What can ILIT treat?</h3>
+          <h3 className="text-lg font-bold">Which allergies can ILIT treat?</h3>
           <p className="mb-4 text-sm text-muted">Allergens &amp; Conditions ILIT Can Address</p>
           <ul className="flex flex-1 flex-col divide-y divide-line">
             {TREATS.map((t) => (

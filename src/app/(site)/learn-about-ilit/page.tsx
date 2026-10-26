@@ -52,7 +52,7 @@ const SAFETY_POINTS = [
 const FAQ_ITEMS = [
   {
     id: "faq-candidate",
-    q: "How do I know if I'm a candidate for ILIT?",
+    q: "How do I know if I'm a candidate for ILIT allergy treatment?",
     a: "Good candidates typically have confirmed allergies to a defined set of common triggers, things like pollen, dust mites, or pet dander, identified through a skin or blood allergy test. A broader or more complex allergy profile may be better suited to SCIT or SLIT instead. An allergist can review your test results and history to tell you directly whether ILIT is a fit.",
   },
   {
@@ -75,7 +75,7 @@ const FAQ_ITEMS = [
   },
   {
     id: "faq-asthma",
-    q: "Can ILIT help with my asthma?",
+    q: "Can ILIT allergy treatment help with my asthma?",
     a: "It may, if the asthma is triggered by an allergen ILIT is treating. Reducing your body's reaction to that allergen can mean easier breathing and fewer flare-ups for some patients. Asthma needs its own management plan though, so this is worth raising with your allergist alongside whatever your asthma treatment already includes.",
   },
   {
@@ -85,7 +85,7 @@ const FAQ_ITEMS = [
   },
   {
     id: "faq-pain",
-    q: "Is ILIT painful?",
+    q: "Is ILIT allergy treatment painful?",
     a: "Most patients describe it as a brief pinch. ILIT injections go into a superficial lymph node, usually in the groin (just below the waist, near the hip), an area with far fewer pain-sensing nerve endings than the skin or muscle tissue used for a standard allergy shot.",
   },
   {
@@ -95,32 +95,32 @@ const FAQ_ITEMS = [
   },
   {
     id: "faq-ultrasound",
-    q: "Why is ultrasound used for ILIT injections?",
+    q: "Why is ultrasound used for ILIT allergy injections?",
     a: "A lymph node is a small, specific target just under the skin, and ultrasound lets your allergist see exactly where it is before injecting instead of relying on touch alone. It's the same core technology used to monitor a pregnancy. High-frequency sound waves build a live image with no radiation involved, which makes it safe for routine, repeated use.",
   },
   {
     id: "faq-safety",
-    q: "Is ILIT safe?",
+    q: "Is ILIT allergy treatment safe?",
     a: "Current research supports it. ILIT goes into a lymph node rather than fatty tissue, an area with far fewer of the cells that trigger allergic reactions. In the randomized controlled trial that established ILIT, patients had significantly fewer adverse reactions than with standard allergy shots, with an equivalent long-term result. Mild reactions are still possible with any immunotherapy, which is why every appointment includes an in-office monitoring period.",
   },
   {
     id: "faq-fda",
-    q: "Is ILIT FDA-approved?",
+    q: "Is ILIT allergy treatment FDA-approved?",
     a: "The allergen extracts are. ILIT providers in the U.S. use FDA-approved allergen extracts, but injecting them into a lymph node isn't an FDA-approved route, so ILIT is an off-label use of an approved product. The FDA defines off-label use as using an approved drug in an unapproved way, including by a different route, and says doctors generally may prescribe it when they judge it medically appropriate for their patient. Off-label use is common in medicine, and your allergist should explain what it means for you at your consultation. Allergy drops are in a similar spot: a few allergy tablets have been FDA-approved since 2014, while liquid drops are used off-label.",
   },
   {
     id: "faq-cost",
-    q: "How much does ILIT typically cost?",
+    q: "How much does ILIT allergy treatment typically cost?",
     a: "Cost varies by provider and treatment plan. Because ILIT is typically self-pay, ask any practice you're considering for their current pricing directly.",
   },
   {
     id: "faq-insurance",
-    q: "Is ILIT covered by insurance?",
+    q: "Is ILIT allergy treatment covered by insurance?",
     a: "ILIT is typically self-pay and not covered by most insurance plans, unlike SCIT (allergy shots), which is often covered. Covered allergy shots still carry a copay or deductible at each visit, though, and a full course means dozens of visits over several years, so those costs add up. Work with your plan administrator and allergy treatment provider to confirm what's covered and estimate costs.",
   },
   {
     id: "faq-hsa-fsa",
-    q: "Can I pay for ILIT with my HSA or FSA?",
+    q: "Can I pay for ILIT allergy treatment with my HSA or FSA?",
     a: "Generally, yes. Health savings account (HSA) and flexible spending account (FSA) funds can usually be used for out-of-pocket medical treatment, which can include ILIT since insurance typically doesn't cover it. Ask the practice for an itemized receipt, which your plan may need for reimbursement or your records.",
   },
 ];
@@ -249,7 +249,7 @@ export default async function LearnAboutIlitPage() {
       </section>
 
       <section className="border-b border-line bg-bg-alt px-6 py-10 sm:px-10">
-        <h2 className="mb-5 text-2xl font-bold">Is ILIT safe?</h2>
+        <h2 className="mb-5 text-2xl font-bold">Is ILIT Allergy Treatment Safe?</h2>
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
           {SAFETY_POINTS.map((point) => (
             <div key={point.title} className="flex flex-col rounded border border-t-4 border-line border-t-action bg-white p-5">

@@ -137,7 +137,7 @@ export default async function HomePage() {
       </section>
 
       <section className="border-b border-line bg-bg-alt px-6 py-10 sm:px-10">
-        <h2 className="mb-3 text-2xl font-bold">What is ILIT?</h2>
+        <h2 className="mb-3 text-2xl font-bold">What is ILIT (Intralymphatic Immunotherapy)?</h2>
         <p className="max-w-3xl text-base text-foreground">{ILIT_DEFINITION}</p>
         <Link href="/learn-about-ilit" data-cta="homepage_what_is_ilit" className="mt-4 inline-block text-sm font-semibold text-sage hover:underline">
           Learn more about ILIT →
@@ -205,7 +205,7 @@ export default async function HomePage() {
           ))}
         </ul>
         <Link href="/learn-about-ilit#is-ilit-right-for-me" data-cta="homepage_symptoms" className="text-sm font-semibold text-sage hover:underline">
-          Is ILIT right for me? →
+          Is ILIT allergy treatment right for me? →
         </Link>
       </section>
 

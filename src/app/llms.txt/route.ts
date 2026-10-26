@@ -57,7 +57,7 @@ export async function GET() {
     ...states.map(({ state, groups }) => {
       const metros = groups.filter((g) => g.name).map((g) => g.name);
       return line(
-        `ILIT Providers in ${state.name}`,
+        `ILIT Allergy Treatment Providers in ${state.name}`,
         `/find-an-ilit-provider/${state.slug}`,
         metros.length > 0 ? `Practices by metro area: ${metros.join(", ")}.` : null,
       );

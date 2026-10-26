@@ -17,11 +17,10 @@ updated.
 4. **CRM simplification (parked 10/21).** The CRM is still too complex.
    Work through it together later; not now.
 
-5. **"ILIT" in page titles (10/25).** Google sometimes reads "ILIT" as an
-   irrevocable life insurance trust. Practice page titles say "ILIT Provider
-   in {city}" with no allergy word. Option: "ILIT Allergy Treatment in
-   {city}" (length budget permitting). Providers by State already ranks #2,
-   so leave that one alone.
+5. **Practice FAQ questions in the sync sheet** use "ILIT" alone in about 45
+   questions across 24 practices (e.g. "Does Aspire's Plano office offer
+   ILIT?"). Google sometimes reads "ILIT" as a life insurance trust. Rewrite
+   when convenient; templates were fixed 10/25.
 
 ## Your actions
 
@@ -78,6 +77,8 @@ updated.
 
 ## Recently done (2026-10-19 to 10-25)
 
+- "ILIT" now paired with allergy or intralymphatic immunotherapy in page
+  templates: state pages, practice titles and H1s, Learn FAQs, headings.
 - Monthly search watch set up (3rd of each month): new Google, Bing and AI
   search guidance plus a site audit, report in docs/search-watch/.
 - About page filled out (what you'll find, privacy, how we create our
