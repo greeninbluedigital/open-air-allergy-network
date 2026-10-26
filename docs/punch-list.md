@@ -17,56 +17,62 @@ updated.
 4. **CRM simplification (parked 10/21).** The CRM is still too complex.
    Work through it together later; not now.
 
+5. **"ILIT" in page titles (10/25).** Google sometimes reads "ILIT" as an
+   irrevocable life insurance trust. Practice page titles say "ILIT Provider
+   in {city}" with no allergy word. Option: "ILIT Allergy Treatment in
+   {city}" (length budget permitting). Providers by State already ranks #2,
+   so leave that one alone.
+
 ## Your actions
 
-5. **CRM:** check the new Pipeline tab. Confirm AllerPoint's status (was
+6. **CRM:** check the new Pipeline tab. Confirm AllerPoint's status (was
    the mid-October note sent?) and send the OAAN note to Paullette at Bay
    Area. Once happy, tell Claude to delete the old tabs (Leads, Locations,
    Pipeline Summary, Definitions).
-6. **Phone confirmations still missing** (no Verification Date, so no ILIT
+7. **Phone confirmations still missing** (no Verification Date, so no ILIT
    Confirmed badge): Elaria, St. Louis Family Allergy (both offices),
    AllerPoint Arlington and Philadelphia, and about 20 Aspire offices
    (waiting on Aspire HQ's list). Grand Rapids: doctor named on the ILIT
    page still unconfirmed. Allergy Innovations (Kokomo and Westfield, IN,
    live on trial 10/21): confirm ILIT at both offices.
-7. **Core Web Vitals (parked 10/21):** mobile PageSpeed lab score is 79
+8. **Core Web Vitals (parked 10/21):** mobile PageSpeed lab score is 79
     (LCP 5.5s), mainly because Google Tag Manager loads at the top of the
     page. Search Console has too little real-visitor data to report
     (checked 10/21). No changes until its Core Web Vitals report flags
     mobile pages as Poor or Needs improvement. Ready fixes then: GTM at the standard Next.js timing, images served directly from
     Cloudinary.
-8. **GTM and GA4 setup** (`docs/gtm-ga4-setup.md`), parked until after the
+9. **GTM and GA4 setup** (`docs/gtm-ga4-setup.md`), parked until after the
     legal question was settled. Includes linking Search Console to GA4.
-9. **Account security:** two factor authentication everywhere, encrypt the
+10. **Account security:** two factor authentication everywhere, encrypt the
     laptop holding `.env`, and pick a retention period for patient
     inquiries (`docs/launch-checklist.md`).
-10. **Logins to confirm** in `docs/accounts.md` (several still marked
+11. **Logins to confirm** in `docs/accounts.md` (several still marked
     unknown).
 
 ## Waiting on others
 
-11. **Dr. Priya Bansal (Asthma and Allergy Wellness Center, St. Charles,
+12. **Dr. Priya Bansal (Asthma and Allergy Wellness Center, St. Charles,
     IL):** you emailed her 10/21 to ask about ILIT (a Reddit post says she
     offers it; her sites don't). List her only once she confirms.
-12. **Dayton Allergy (Dr. Azmeh):** edit form or reply. Gmail reminds you
+13. **Dayton Allergy (Dr. Azmeh):** edit form or reply. Gmail reminds you
     10/24.
-13. **Prairie Allergy (Dr. Everist):** asked about paid pricing. Next step
+14. **Prairie Allergy (Dr. Everist):** asked about paid pricing. Next step
     not set.
-14. **Elaria (Dr. Imanirad):** requested the pitch deck 10/15. Next step not
+15. **Elaria (Dr. Imanirad):** requested the pitch deck 10/15. Next step not
     set.
-15. **Aspire HQ:** list of offices that offer ILIT.
+16. **Aspire HQ:** list of offices that offer ILIT.
 
 ## Content
 
-16. **Queued articles (the weekday task drafts one each morning).** A
+17. **Queued articles (the weekday task drafts one each morning).** A
     weekly mix with one or two local stories (owner, 10/24). Next week:
     tree pollen (Mon), dust mites, chest tightness, Tampa Bay triggers
     (Thu), dog allergy. Full week by week plan at the top of the queue file.
     Where Do ILIT Injections Go? has its diagram ready and the wrap layout
     built. After the dust mites article, link it from the dust mite guide.
-17. **Learn page blog module:** switch back to provider-credited articles
+18. **Learn page blog module:** switch back to provider-credited articles
     once a few exist.
-18. **Not yet listed:** Kara Wada, MD (Columbus) and LA Center for ENT and
+19. **Not yet listed:** Kara Wada, MD (Columbus) and LA Center for ENT and
     Allergy (2 offices) need addresses. Auni's Bowling Green office isn't in
     the sheet yet.
 
