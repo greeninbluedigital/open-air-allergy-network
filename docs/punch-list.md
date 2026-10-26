@@ -24,7 +24,7 @@ updated.
    Area. Once happy, tell Claude to delete the old tabs (Leads, Locations,
    Pipeline Summary, Definitions).
 6. **Phone confirmations still missing** (no Verification Date, so no ILIT
-   Confirmed badge): Elaria, St. Louis Family Allergy (both offices),
+   Confirmed badge): St. Louis Family Allergy (both offices),
    AllerPoint Arlington and Philadelphia, and about 20 Aspire offices
    (waiting on Aspire HQ's list). Grand Rapids: doctor named on the ILIT
    page still unconfirmed. Allergy Innovations (Kokomo and Westfield, IN,
