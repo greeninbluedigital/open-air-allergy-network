@@ -8,9 +8,9 @@ URL: /blog/tree-pollen-allergy
 Meta description (152 chars): Tree pollen season peaks February through April in most of the U.S. Learn the symptoms, the trees behind them, foods to watch and longer term treatment.
 Target keywords: "tree pollen allergy", "tree pollen allergy symptoms", "tree pollen season", "tree pollen allergy treatment", "what trees cause the most allergies", "when is tree pollen season in florida" (FAQ), "tree pollen allergy shots" (FAQ), "faster alternative to allergy shots" (Longer term options section)
 Tags: Allergens, Allergy Symptoms
-Feature image: TBD (owner uploads)
+Feature image: https://res.cloudinary.com/qruprn0t/image/upload/v1793039190/tree-pollen-allergy-olive-grove.jpg
 Image idea: A close view of a birch or oak branch in early spring, hung with long yellow green catkins against a bright blue sky, sharp and saturated, no people.
-Image alt: TBD (write once the photo is chosen; describe what it actually shows)
+Image alt: Olive trees with gnarled trunks spread across a grassy hillside grove at sunset, with rolling hills in the distance
 Credit: none (house article).
 
 KEY TAKEAWAYS
