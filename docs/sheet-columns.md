@@ -34,7 +34,7 @@ Column order:
 | A | Provider Slug | Required, unique, url-safe (e.g. `example-ilit-center`) — this is the matching key and the PDP's URL. **Treat it as permanent once a practice is created.** If it's a formula built from the practice name, paste it as a value after creating the row: changing a slug makes the sync create a brand-new practice (and deactivate the old one, see below), which also changes the PDP URL and breaks anything keyed to the old slug (FAQs, SEM Landing Pages, Learn Page Credits) |
 | B | Group ID | Optional — same value across sibling locations. No required format; suggested convention: `<brand-slug>-group` (e.g. `example-ilit-group`) |
 | C | Practice Name | |
-| D | Address | Street address only |
+| D | Address | Street address only. Leave blank for a practice that publishes no street address (e.g. home visits only): the sync places it at the Zip's center and its page shows "City, ST area" with no map link. City, State and Zip are still required |
 | E | Address Line 2 | Optional — suite/floor/unit, e.g. `Suite 200`. Kept separate so the geocoder only ever sees the street line |
 | F | City | |
 | G | State | Two-letter code |

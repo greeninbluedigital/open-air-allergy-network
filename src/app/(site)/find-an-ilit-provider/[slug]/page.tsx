@@ -7,7 +7,7 @@ import { RENAMED_SLUGS } from "@/lib/slugRedirects";
 import { Badge, practiceBadges, seesOutOfArea } from "@/components/Badge";
 import { Icon } from "@/components/Icon";
 import { ArticleFeed } from "@/components/ArticleFeed";
-import { ContactPanel, formatAddress } from "@/components/pdp/ContactPanel";
+import { ContactPanel } from "@/components/pdp/ContactPanel";
 import { PatientReviews, getAggregateRatingSchema } from "@/components/PatientReviews";
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { PhotoGallery } from "@/components/pdp/PhotoGallery";
@@ -21,7 +21,7 @@ import { COMPARISON_ARTICLE_SLUG, ILIT_DEFINITION } from "@/lib/content";
 import { ProviderCard } from "@/components/srp/ProviderCard";
 import { StatePage, stateMetadata } from "@/components/StatePage";
 import { stateBySlug, stateMetroGroups, statePath } from "@/lib/statePages";
-import { streetName } from "@/lib/address";
+import { displayAddress, hasStreetAddress, streetName } from "@/lib/address";
 import {
   isFullProfilePlus as isFullProfileTier,
   isVerifiedPlus as isVerifiedTier,
@@ -248,7 +248,11 @@ export default async function ProviderDetailPage({
     name: provider.practiceName,
     address: {
       "@type": "PostalAddress",
-      streetAddress: provider.addressLine2 ? `${provider.address}, ${provider.addressLine2}` : provider.address,
+      streetAddress: !hasStreetAddress(provider)
+        ? undefined
+        : provider.addressLine2
+          ? `${provider.address}, ${provider.addressLine2}`
+          : provider.address,
       addressLocality: provider.city,
       addressRegion: provider.state,
       postalCode: provider.zip,
@@ -311,7 +315,7 @@ export default async function ProviderDetailPage({
           <div className="text-center sm:text-left">
             <h1 className="mb-2 text-2xl font-extrabold">{provider.practiceName}</h1>
             <p className="mb-3 text-sm text-muted">
-              {formatAddress(provider)}, {provider.city}, {provider.state} {provider.zip}
+              {displayAddress(provider)}
             </p>
             <p className="mb-6 text-sm text-foreground/80">{freemiumSummary(provider, street)}</p>
             <Link href="/for-practices" data-cta="freemium_claim_listing" className="text-sm font-semibold text-sage hover:underline">

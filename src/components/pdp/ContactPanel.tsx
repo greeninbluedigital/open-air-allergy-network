@@ -4,18 +4,16 @@ import { TrackedLink } from "@/components/analytics/TrackedLink";
 import { ContactForm } from "@/components/pdp/ContactForm";
 import { EmailPracticeButton } from "@/components/pdp/EmailPracticeButton";
 import { LeadStatusMessage, LeadErrorMessage } from "@/components/pdp/LeadStatusMessage";
+import { displayAddress, hasStreetAddress } from "@/lib/address";
 import type { FormError } from "@/lib/forms";
 import type { ContactMode } from "@/lib/tiers";
-
-export function formatAddress(provider: { address: string; addressLine2: string | null }): string {
-  return provider.addressLine2 ? `${provider.address}, ${provider.addressLine2}` : provider.address;
-}
 
 /**
  * "Contact {practice}" panel shared by the provider page and SEM landing
  * pages, so the two stay identical: the contact form (or its success
  * message) or the email button, per contactMode (src/lib/tiers.ts), then
- * phone and website, then the address linking to Google Maps. Every lead
+ * phone and website, then the address linking to Google Maps (just the area,
+ * unlinked, for a practice with no public street address). Every lead
  * action is tracked (docs/analytics.md).
  */
 export function ContactPanel({
@@ -56,7 +54,7 @@ export function ContactPanel({
   /** Extra classes, e.g. the provider page's sticky positioning. */
   className?: string;
 }) {
-  const fullAddress = `${formatAddress(provider)}, ${provider.city}, ${provider.state} ${provider.zip}`;
+  const fullAddress = displayAddress(provider);
 
   return (
     <div className={`rounded border border-line border-t-4 border-t-action bg-background p-4.5 ${className}`}>
@@ -127,15 +125,19 @@ export function ContactPanel({
 
       <div className="mt-3.5 flex items-start gap-2 border-t border-line pt-3.5 text-sm">
         <Icon name="map-pin" className="mt-0.5 h-4 w-4 text-muted" />
-        <TrackedLink
-          href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress)}`}
-          type="ADDRESS_CLICK"
-          providerId={provider.id}
-          providerName={provider.practiceName}
-          className="text-[#1c5ea8] hover:underline"
-        >
-          {fullAddress}
-        </TrackedLink>
+        {hasStreetAddress(provider) ? (
+          <TrackedLink
+            href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(fullAddress)}`}
+            type="ADDRESS_CLICK"
+            providerId={provider.id}
+            providerName={provider.practiceName}
+            className="text-[#1c5ea8] hover:underline"
+          >
+            {fullAddress}
+          </TrackedLink>
+        ) : (
+          <span>{fullAddress}</span>
+        )}
       </div>
     </div>
   );

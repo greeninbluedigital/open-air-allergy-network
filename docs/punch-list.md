@@ -66,8 +66,8 @@ updated.
     built. After the dust mites article, link it from the dust mite guide.
 17. **Learn page blog module:** switch back to provider-credited articles
     once a few exist.
-18. **Not yet listed:** Kara Wada, MD (Columbus) and LA Center for ENT and
-    Allergy (2 offices) need addresses. Auni's Bowling Green office isn't in
+18. **Not yet listed:** LA Center for ENT and Allergy (2 offices) needs
+    addresses. (Kara Wada, MD was added 10/25 as a trial, by zip only.) Auni's Bowling Green office isn't in
     the sheet yet.
 
 ## Recently done (2026-10-19 to 10-25)

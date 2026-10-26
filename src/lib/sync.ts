@@ -1,6 +1,7 @@
 import { db } from "@/lib/db";
 import { fetchSheetRows } from "@/lib/googleSheets";
 import { geocodeAddress } from "@/lib/geocode";
+import { lookupZip } from "@/lib/zip";
 import { refreshContentDates } from "@/lib/contentDates";
 
 // Column order for the "Providers" sheet tab, starting at row 2 (row 1 is
@@ -685,7 +686,11 @@ export async function runSync(): Promise<SyncSummary> {
       let latitude = existing?.latitude ?? null;
       let longitude = existing?.longitude ?? null;
       if (addressChanged) {
-        const geo = await geocodeAddress(r.address, r.city, r.state, r.zip);
+        // A blank Address means the practice publishes no street address
+        // (e.g. home visits only): place it at its zip's centroid instead.
+        const geo = r.address.trim()
+          ? await geocodeAddress(r.address, r.city, r.state, r.zip)
+          : lookupZip(r.zip);
         if (geo) {
           latitude = geo.lat;
           longitude = geo.lng;
