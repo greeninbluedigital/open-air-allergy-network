@@ -113,10 +113,10 @@ for the cron jobs).
   shared via `ArticleDetail.tsx`.
 - Homepage: the hero headline (`"Most allergy treatment takes years.
   Yours could take months."`) is the `<h1>`.
-- SRP: no visible headline fits the compact search-bar header without a
-  redesign, so it uses a `sr-only` `<h1>` ("Find an ILIT Allergy Treatment
-  Provider Near You"). Before a search (no zip), a visible `<h2>` and a
-  short description say what the directory is (2026-10-25). Title "Find an
+- SRP: a visible `<h1>` "Find an ILIT Allergy Treatment Provider Near You"
+  with a one-line "enter your zip code" instruction above the search bar,
+  on every view (2026-10-25; was `sr-only`). Before a search (no zip), a
+  short description says what the directory is. Title "Find an
   ILIT Allergy Provider" + suffix. Returning visitors with a saved zip
   cookie are redirected to their results by `src/proxy.ts`, so they don't
   see that intro; Google and first-time visitors do.

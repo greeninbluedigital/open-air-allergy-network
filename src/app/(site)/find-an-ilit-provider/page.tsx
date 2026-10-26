@@ -55,12 +55,16 @@ export default async function FindAProviderPage({
 
   return (
     <>
-      {/* No natural spot for a visible headline in this compact,
-          form-first header bar (and the user doesn't want its look
-          changed) — sr-only keeps a real H1 in the DOM for SEO/a11y
-          without touching the visual design. */}
-      <h1 className="sr-only">Find an ILIT Allergy Treatment Provider Near You</h1>
-      <div className="flex flex-wrap items-center gap-2.5 border-b border-line bg-bg-alt px-6 py-4 sm:px-10">
+      {/* Visible H1 on every view (owner, 2026-10-25): people landing here
+          from elsewhere should see what the page is and what to do. Kept
+          compact so the results stay near the top. */}
+      <div className="bg-bg-alt px-6 pt-5 sm:px-10">
+        <h1 className="text-xl font-extrabold text-balance sm:text-2xl">Find an ILIT Allergy Treatment Provider Near You</h1>
+        <p className="mt-1 text-sm text-foreground/80">
+          Enter your zip code to see allergists near you who offer ILIT (intralymphatic immunotherapy).
+        </p>
+      </div>
+      <div className="flex flex-wrap items-center gap-2.5 border-b border-line bg-bg-alt px-6 pt-3 pb-4 sm:px-10">
         <div className="flex-1">
           <ZipSearchForm action="/find-an-ilit-provider" origin="srp_header" showRadius defaultRadius={radius} defaultZip={zip ?? ""} />
         </div>
@@ -89,14 +93,13 @@ export default async function FindAProviderPage({
       </div>
 
       {!zip && (
-        // Visible description before a search, so the page says plainly what
-        // it is (Google's AI answers cite pages that do, 2026-10-25).
-        <div className="px-6 py-12 sm:px-10">
-          <h2 className="mb-3 text-2xl font-extrabold text-balance">Find an ILIT allergy treatment provider near you</h2>
+        // Description before a search, so the page says plainly what it is
+        // (Google's AI answers cite pages that do, 2026-10-25).
+        <div className="px-6 py-10 sm:px-10">
           <p className="max-w-2xl text-sm text-foreground/80">
-            Search Open Air Allergy Network&apos;s directory of allergists who offer ILIT (intralymphatic
-            immunotherapy), an allergy treatment that typically takes about three injections over a few months
-            instead of years of allergy shots. Enter a zip code above, or browse providers by state below.
+            Open Air Allergy Network&apos;s directory lists allergists who offer ILIT, an allergy treatment that
+            typically takes about three injections over a few months instead of years of allergy shots. Search by zip
+            code above, or browse providers by state below.
           </p>
         </div>
       )}
