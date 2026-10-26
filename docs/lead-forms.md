@@ -128,3 +128,14 @@ happened, never sends a duplicate.
   rate, phone clicks), built on the existing `ContactSubmission` and
   `AnalyticsEvent` tables. This would also make lead quality something
   practices can see for themselves.
+
+## Counting leads
+
+`npx tsx scripts/lead-report.ts` prints, by month: practice page views,
+leads (phone taps, email button clicks, contact form submissions) and
+contacts (website and address clicks), plus contact form leads by
+confirmation status. Demo listings are excluded. It only reads the
+database. The SQL inside can be pasted into Neon's SQL editor as is.
+
+A monthly reminder (`oaan-monthly-lead-check`, the 2nd at 9 AM) runs it and
+says whether the pending-lead job should go back to every 15 minutes.

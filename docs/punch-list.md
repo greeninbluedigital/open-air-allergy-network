@@ -20,6 +20,7 @@ updated.
    contact form leads. Slowed to hourly 10/26 because each run wakes the
    Neon database and the 15-minute schedule used most of the free compute
    allowance. One line in `.github/workflows/process-pending-leads.yml`.
+   A monthly reminder (the 2nd) reports lead volume and says when.
 
 ## Your actions
 
