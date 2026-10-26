@@ -2,7 +2,7 @@
 
 Added 2026-10-25 at the owner's request. Written straight into the OAAN data sync sheet (Providers row `kara-wada-md-columbus-oh`, 8 FAQs) as a Featured trial through 6/1/2027. Not phone confirmed.
 
-**No street address, on purpose.** Her site publishes none ("Located in Central Ohio"; ILIT is given "At Your Home or Office with Dr. Kara"). The address on Auni's ILIT provider map (Wickliffe Rd) appears to be her home, so it must never be published. The Address cell is blank: the sync places the listing at zip 43221's center and the page shows "Columbus, OH area" with no map link (docs/sheet-columns.md, column D). Her contact page publishes 740-954-6278 and contact@drkarawada.com, both left off at the owner's request so the page sends people to her website only.
+**No street address, on purpose.** Her site publishes none ("Located in Central Ohio"; ILIT is given "At Your Home or Office with Dr. Kara"). The address on Auni's ILIT provider map (Wickliffe Rd) appears to be her home, so it must never be published. The Address cell is blank: the sync places the listing at zip 43221's center and the page shows "Columbus, OH area" with no map link (docs/sheet-columns.md, column D). Her contact page publishes 740-954-6278 and contact@drkarawada.com, so the owner added both (Notification Email Public = Y).
 
 Sources (read 2026-10-25):
 - drkarawada.com/immunotherapy: ILIT "designed to retrain your immune system", "three injections over eight weeks", "At Your Home or Office with Dr. Kara", "considered off-label from the FDA", application and pre-assessment for ILIT. Also SCIT and SLIT. No lymph node location given, so the copy says "a lymph node" only.
