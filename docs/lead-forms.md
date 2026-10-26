@@ -91,10 +91,12 @@ following up is the practice's job once it has the lead (decided
    confirm link.
 4. **Patient confirms:** the lead is forwarded to the practice right away,
    tagged **[Verified]**.
-5. **Patient doesn't confirm:** a background job (GitHub Actions, every 15
-   minutes) forwards any lead still unconfirmed after 60 minutes, tagged
-   **[Unverified]**. In practice this lands 60 to 75 minutes after
-   submission.
+5. **Patient doesn't confirm:** a background job (GitHub Actions, hourly)
+   forwards any lead still unconfirmed after 60 minutes, tagged
+   **[Unverified]**. In practice this lands 1 to 2 hours after submission.
+   It ran every 15 minutes until 2026-10-26, when it was slowed to save
+   Neon compute (each run wakes the database). Switch back once lead volume
+   justifies it.
 6. **Delivery failures retry.** A lead is only marked as forwarded after the
    email actually sends. If a send fails (bad practice email, email provider
    outage), the next run of the background job tries again.
