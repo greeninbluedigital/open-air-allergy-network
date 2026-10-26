@@ -11,9 +11,9 @@ import { travelArticlePath } from "@/lib/articles";
 import { searchProviders } from "@/lib/srp";
 
 export const metadata: Metadata = {
-  title: "Find an ILIT Provider",
+  title: "Find an ILIT Allergy Provider",
   description:
-    "Search ILIT (intralymphatic immunotherapy) providers near you by zip code. Every listed practice is confirmed to offer ILIT.",
+    "Search allergists who offer ILIT (intralymphatic immunotherapy) allergy treatment by zip code or by state. Every practice is checked before it's listed.",
   alternates: { canonical: "/find-an-ilit-provider" },
 };
 

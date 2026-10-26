@@ -111,11 +111,15 @@ for the cron jobs).
   splitting across two different ones.
 - Blog article / Learn About ILIT cluster page: the article's own title,
   shared via `ArticleDetail.tsx`.
-- Homepage: the hero headline (`"Allergy treatment in months, not
-  years."`) is the `<h1>`.
+- Homepage: the hero headline (`"Most allergy treatment takes years.
+  Yours could take months."`) is the `<h1>`.
 - SRP: no visible headline fits the compact search-bar header without a
-  redesign — uses a `sr-only` `<h1>` ("Find an ILIT Provider Near You") so
-  there's still a real H1 in the DOM without changing the visual design.
+  redesign, so it uses a `sr-only` `<h1>` ("Find an ILIT Allergy Treatment
+  Provider Near You"). Before a search (no zip), a visible `<h2>` and a
+  short description say what the directory is (2026-10-25). Title "Find an
+  ILIT Allergy Provider" + suffix. Returning visitors with a saved zip
+  cookie are redirected to their results by `src/proxy.ts`, so they don't
+  see that intro; Google and first-time visitors do.
 - Everywhere else: a plain, visible `<h1>` matching the page's purpose
   (e.g. "Learn About ILIT", the article's own headline).
 

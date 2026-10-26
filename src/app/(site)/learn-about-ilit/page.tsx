@@ -60,6 +60,7 @@ const FAQ_ITEMS = [
     // irrevocable life insurance trust, and searches mix the two (owner, 2026-10-25).
     id: "faq-find-provider",
     q: "How do I find an ILIT allergy treatment provider near me?",
+    link: { text: "Find a Provider", href: "/find-an-ilit-provider" },
     a: "Use Find a Provider on OpenAirAllergyNetwork.com to search for allergists who offer ILIT (intralymphatic immunotherapy) by zip code, or browse providers by state. Every practice is checked before it's listed, from its own published information or by contacting the practice directly. When you call a practice, ask who performs the injections and how they use ultrasound to guide them, since each injection has to be placed precisely in a lymph node.",
   },
   {
@@ -123,6 +124,22 @@ const FAQ_ITEMS = [
     a: "Generally, yes. Health savings account (HSA) and flexible spending account (FSA) funds can usually be used for out-of-pocket medical treatment, which can include ILIT since insurance typically doesn't cover it. Ask the practice for an itemized receipt, which your plan may need for reimbursement or your records.",
   },
 ];
+
+// An answer can link one phrase (its first occurrence) to a page. The
+// FAQPage JSON-LD keeps the plain text.
+function FaqAnswer({ item }: { item: { a: string; link?: { text: string; href: string } } }) {
+  const i = item.link ? item.a.indexOf(item.link.text) : -1;
+  if (!item.link || i < 0) return item.a;
+  return (
+    <>
+      {item.a.slice(0, i)}
+      <Link href={item.link.href} className="font-semibold text-sage hover:underline">
+        {item.link.text}
+      </Link>
+      {item.a.slice(i + item.link.text.length)}
+    </>
+  );
+}
 
 export default async function LearnAboutIlitPage() {
   const comparisonArticle = await db.article.findFirst({
@@ -265,7 +282,9 @@ export default async function LearnAboutIlitPage() {
                 {item.q}
                 <span className="text-xl leading-none text-muted transition-transform group-open:rotate-45">+</span>
               </summary>
-              <p className="mt-2 text-sm text-foreground/80">{item.a}</p>
+              <p className="mt-2 text-sm text-foreground/80">
+                <FaqAnswer item={item} />
+              </p>
             </details>
           ))}
         </div>
