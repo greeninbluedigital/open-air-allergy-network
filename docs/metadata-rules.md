@@ -127,3 +127,11 @@ fix and `truncateForMeta()` rollout. Re-check whenever provider or article
 volume grows meaningfully, since these are per-record and a new practice
 name/city combination or a new headline could exceed budget even though the
 current set doesn't.
+
+## "ILIT" needs allergy context (2026-10-25)
+
+Google often reads "ILIT" alone as an irrevocable life insurance trust. In
+titles, H1s, meta descriptions and FAQ questions, pair "ILIT" with "allergy"
+or "allergy treatment", or include "intralymphatic immunotherapy" nearby.
+Existing templates that say only "ILIT Provider in {city}" (practice pages)
+are a candidate to revisit; see the punch list.

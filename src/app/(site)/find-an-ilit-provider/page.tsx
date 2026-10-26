@@ -59,7 +59,7 @@ export default async function FindAProviderPage({
           form-first header bar (and the user doesn't want its look
           changed) — sr-only keeps a real H1 in the DOM for SEO/a11y
           without touching the visual design. */}
-      <h1 className="sr-only">Find an ILIT Provider Near You</h1>
+      <h1 className="sr-only">Find an ILIT Allergy Treatment Provider Near You</h1>
       <div className="flex flex-wrap items-center gap-2.5 border-b border-line bg-bg-alt px-6 py-4 sm:px-10">
         <div className="flex-1">
           <ZipSearchForm action="/find-an-ilit-provider" origin="srp_header" showRadius defaultRadius={radius} defaultZip={zip ?? ""} />
@@ -89,8 +89,15 @@ export default async function FindAProviderPage({
       </div>
 
       {!zip && (
-        <div className="px-6 py-16 text-center text-muted sm:px-10">
-          Enter a zip code above to find ILIT providers near you.
+        // Visible description before a search, so the page says plainly what
+        // it is (Google's AI answers cite pages that do, 2026-10-25).
+        <div className="px-6 py-12 sm:px-10">
+          <h2 className="mb-3 text-2xl font-extrabold text-balance">Find an ILIT allergy treatment provider near you</h2>
+          <p className="max-w-2xl text-sm text-foreground/80">
+            Search Open Air Allergy Network&apos;s directory of allergists who offer ILIT (intralymphatic
+            immunotherapy), an allergy treatment that typically takes about three injections over a few months
+            instead of years of allergy shots. Enter a zip code above, or browse providers by state below.
+          </p>
         </div>
       )}
 

@@ -229,6 +229,14 @@ for a debate between sources.
   ones people type. Side topics (e.g. shellfish cross reactions in a dust
   mite article) go last or get cut.
 
+## "ILIT" is ambiguous in search (owner, 2026-10-25)
+
+Google often reads "ILIT" as an irrevocable life insurance trust. Never use
+"ILIT" alone in a title, H1, meta description or FAQ question: pair it with
+"allergy" or "allergy treatment", or spell out "intralymphatic
+immunotherapy" nearby (e.g. "How do I find an ILIT allergy treatment
+provider near me?").
+
 ## Ranking and how-to articles (owner, 2026-10-24)
 
 An SEO advisor recommended ranking ("top 5") and how-to articles: AI

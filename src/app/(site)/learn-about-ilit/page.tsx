@@ -56,6 +56,13 @@ const FAQ_ITEMS = [
     a: "Good candidates typically have confirmed allergies to a defined set of common triggers, things like pollen, dust mites, or pet dander, identified through a skin or blood allergy test. A broader or more complex allergy profile may be better suited to SCIT or SLIT instead. An allergist can review your test results and history to tell you directly whether ILIT is a fit.",
   },
   {
+    // Worded with "allergy treatment" because "ILIT" alone also means an
+    // irrevocable life insurance trust, and searches mix the two (owner, 2026-10-25).
+    id: "faq-find-provider",
+    q: "How do I find an ILIT allergy treatment provider near me?",
+    a: "Use Find a Provider on OpenAirAllergyNetwork.com to search for allergists who offer ILIT (intralymphatic immunotherapy) by zip code, or browse providers by state. Every practice is checked before it's listed, from its own published information or by contacting the practice directly. When you call a practice, ask who performs the injections and how they use ultrasound to guide them, since each injection has to be placed precisely in a lymph node.",
+  },
+  {
     id: "faq-allergens",
     q: "What allergens can ILIT treat?",
     a: "Most ILIT protocols target up to about six allergens at once, which makes it a strong fit for common triggers like tree and grass pollen, dust mites, and pet dander. A broader or more complex allergy profile may be better suited to SCIT or SLIT instead, since those approaches aren't limited the same way.",
