@@ -142,6 +142,6 @@ Applied 2026-10-25 across templates: practice page titles and H1 sublines
 H1s ("ILIT Allergy Treatment Providers in {State}"; titles keep the brand
 suffix, which already says "Allergy"), Learn page FAQ questions, the "What
 is ILIT (Intralymphatic Immunotherapy)?" headings, For Practices, About and
-Find a Provider. Providers by State was left as is (ranks #2). Practice FAQ
-questions in the sync sheet and some article subheadings still use "ILIT"
-alone (lower priority).
+Find a Provider, plus 36 practice FAQ questions in the sync sheet. Providers
+by State was left as is (ranks #2). Some article subheadings still use
+"ILIT" alone (lower priority; the articles define it).
