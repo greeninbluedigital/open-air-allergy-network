@@ -580,6 +580,11 @@ link it from these and from the cat allergy Blog post above rather than
 writing another.
 
 ## Also pending
+- **Per-article FAQ headings (skipped 2026-10-27):** e.g. "Frequently
+  Asked Questions About Ragweed Allergy" instead of the plain heading.
+  Needs an `Article.faqHeading` column; judged not worth a migration on its
+  own. Fold it into the next database change (likely blog category pages,
+  around 40 articles).
 - **Comparison article revisit:** add written content about allergy medicine
   to `/learn-about-ilit/allergy-shots-vs-allergy-drops-vs-ilit`. No
   headline or keyword changes.
