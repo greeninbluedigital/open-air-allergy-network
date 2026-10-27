@@ -9,20 +9,36 @@ import { metroAnchor, stateMetroGroups, statesWithProviders, type MetroGroup, ty
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 function groupHeading(group: MetroGroup, state: StateInfo): string {
-  return group.name ? `${group.name} area` : `Other ${state.name} locations`;
+  if (!group.name) return `Other ${state.name} locations`;
+  // "San Francisco Bay Area" already ends in "Area".
+  return /\barea$/i.test(group.name) ? `${group.name} allergists` : `${group.name} area allergists`;
+}
+
+// "Austin, Houston and Dallas–Fort Worth"
+function listMetros(names: string[]): string {
+  return names.length < 2 ? names.join("") : `${names.slice(0, -1).join(", ")} and ${names[names.length - 1]}`;
+}
+
+// Mirrors the Find a Provider description. Names as many metros (up to 4) as
+// fit in 155 characters, since local searches name the city.
+function stateDescription(state: StateInfo, metros: string[]): string {
+  const verified = "Every practice is verified before it's listed.";
+  for (let n = Math.min(metros.length, 4); n > 0; n--) {
+    const text = `Find allergists who offer ILIT allergy treatment in ${state.name}, including ${listMetros(metros.slice(0, n))}. ${verified}`;
+    if (text.length <= 155) return text;
+  }
+  return `Find allergists who offer ILIT allergy treatment in ${state.name}. ${verified}`;
 }
 
 export async function stateMetadata(state: StateInfo): Promise<Metadata> {
   const groups = await stateMetroGroups(state.code);
   const metros = groups.filter((g) => g.name).map((g) => g.name!);
-  const title = `ILIT Providers in ${state.name}`;
-  const description = truncateForMeta(
-    metros.length > 0
-      ? `Find ILIT (intralymphatic immunotherapy) providers in ${state.name} by metro area: ${metros.slice(0, 4).join(", ")}.`
-      : `Find ILIT (intralymphatic immunotherapy) providers in ${state.name}, listed on Open Air Allergy Network.`,
-  );
+  // Matches the H1. No brand suffix, like practice pages: with it, the
+  // longest state name would run past 62 characters (docs/metadata-rules.md).
+  const title = `ILIT Allergy Treatment Providers in ${state.name}`;
+  const description = truncateForMeta(stateDescription(state, metros));
   return {
-    title,
+    title: { absolute: title },
     description,
     alternates: { canonical: `/find-an-ilit-provider/${state.slug}` },
     openGraph: { title, description, images: [DEFAULT_OG_IMAGE] },

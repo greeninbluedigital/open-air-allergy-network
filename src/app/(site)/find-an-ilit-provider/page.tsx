@@ -13,7 +13,7 @@ import { searchProviders } from "@/lib/srp";
 export const metadata: Metadata = {
   title: "Find an ILIT Allergy Provider",
   description:
-    "Search allergists who offer ILIT (intralymphatic immunotherapy) allergy treatment by zip code or by state. Every practice is checked before it's listed.",
+    "Search allergists who offer ILIT (intralymphatic immunotherapy) allergy treatment by zip code or by state. Every practice is verified before it's listed.",
   alternates: { canonical: "/find-an-ilit-provider" },
 };
 

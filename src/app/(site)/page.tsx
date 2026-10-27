@@ -148,7 +148,7 @@ export default async function HomePage() {
       </section>
 
       <section className="border-b border-line px-6 py-10 sm:px-10">
-        <h2 className="mb-2 text-2xl font-bold">How It Works</h2>
+        <h2 className="mb-2 text-2xl font-bold">How to Find an ILIT Provider for Faster Allergy Treatment</h2>
         <p className="mb-5 max-w-3xl text-base text-foreground/80">{OAAN_DESCRIPTION}</p>
         <ol className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           {HOW_IT_WORKS.map((step, i) => (
@@ -170,7 +170,7 @@ export default async function HomePage() {
         // crawler location), so keep it out of search result snippets.
         <section data-nosnippet className="border-b border-line bg-bg-alt px-6 py-10 sm:px-10">
           <div className="mb-5 flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
-            <h2 className="text-2xl font-bold">ILIT Providers Near {visitor.city}</h2>
+            <h2 className="text-2xl font-bold">ILIT Allergy Providers Near {visitor.city}</h2>
             <Link href="#find" data-cta="homepage_change_location" className="text-sm text-muted hover:underline">
               Not near {visitor.city}? Change location
             </Link>
@@ -198,7 +198,7 @@ export default async function HomePage() {
       )}
 
       <section className="border-b border-line px-6 py-10 text-center sm:px-10">
-        <h2 className="mb-4 text-2xl font-bold">Does this sound familiar?</h2>
+        <h2 className="mb-4 text-2xl font-bold">Do These Allergy Symptoms Sound Familiar?</h2>
         <ul className="mx-auto mb-5 flex max-w-4xl flex-wrap justify-center gap-x-6 gap-y-3 text-sm">
           {SYMPTOMS.map((s) => (
             <li key={s.label} className="flex items-center gap-2">

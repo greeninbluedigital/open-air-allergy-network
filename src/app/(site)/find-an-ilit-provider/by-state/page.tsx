@@ -7,7 +7,7 @@ import { travelArticlePath } from "@/lib/articles";
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
 export const metadata: Metadata = {
-  title: "ILIT Providers by State",
+  title: "ILIT Allergy Providers by State",
   description:
     "Browse ILIT (intralymphatic immunotherapy) providers by state and metro area across the U.S., with practice details and search by zip code.",
   alternates: { canonical: "/find-an-ilit-provider/by-state" },
@@ -45,7 +45,7 @@ export default async function ProvidersByStatePage() {
           </Link>{" "}
           / <span>By State</span>
         </nav>
-        <h1 className="mb-3 text-3xl font-extrabold">ILIT Providers by State</h1>
+        <h1 className="mb-3 text-3xl font-extrabold">ILIT Allergy Providers by State</h1>
         <p className="max-w-2xl text-sm text-foreground/80">
           Choose a state to see the practices there that offer ILIT, grouped by metro area. {ILIT_DEFINITION}
         </p>
@@ -72,7 +72,7 @@ export default async function ProvidersByStatePage() {
             <section key={state.code}>
               <h2 className="mb-1.5 text-base font-bold">
                 <Link href={`/find-an-ilit-provider/${state.slug}`} className="hover:underline">
-                  ILIT providers in {state.name}
+                  ILIT allergy providers in {state.name}
                 </Link>
               </h2>
               {metros.length > 0 && (
