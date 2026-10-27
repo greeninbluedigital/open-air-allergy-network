@@ -50,33 +50,9 @@ export function reviewsWouldShow(provider: ReviewsProvider): boolean {
   return hasYelp || hasGoogleContent(provider);
 }
 
-/**
- * aggregateRating schema (Section 6) — prefers Google's cached aggregate
- * when available, falls back to the manually-entered Yelp figures. Reads
- * straight off the provider row (populated by /api/reviews/refresh, weekly per practice
- * cron), no live API call at request time.
- */
-export function getAggregateRatingSchema(provider: ReviewsProvider) {
-  if (provider.tier !== "FEATURED" || !provider.showReviews) return null;
-
-  if (provider.googleRating != null) {
-    return {
-      "@type": "AggregateRating",
-      ratingValue: provider.googleRating,
-      reviewCount: provider.googleReviewCount ?? undefined,
-    };
-  }
-
-  if (provider.yelpRating != null) {
-    return {
-      "@type": "AggregateRating",
-      ratingValue: provider.yelpRating,
-      reviewCount: provider.yelpReviewCount ?? undefined,
-    };
-  }
-
-  return null;
-}
+// No AggregateRating structured data (removed 2026-10-27): Google's review
+// snippet guidelines say not to mark up ratings aggregated from other sites,
+// and these come from Google and Yelp. The visible reviews stay.
 
 /**
  * Patient Reviews module — Featured tier only, shared verbatim between the

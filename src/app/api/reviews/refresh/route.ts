@@ -11,7 +11,7 @@ import { getYelpBusiness } from "@/lib/yelpReviews";
  * than a week old or were never fetched (2026-10-09: weekly per practice to
  * keep Google calls down as every practice goes on a trial, while a newly
  * added Place ID still shows reviews the next morning), oldest first, at
- * most REFRESH_LIMIT per run — PatientReviews and getAggregateRatingSchema read straight
+ * most REFRESH_LIMIT per run — PatientReviews reads straight
  * off the cached columns this writes. The Yelp branch is a no-op today
  * (getYelpBusiness returns empty without a key) — it exists so turning that
  * on later is just setting the env var, not new code. Same shared-secret

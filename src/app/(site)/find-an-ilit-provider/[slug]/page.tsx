@@ -8,7 +8,7 @@ import { Badge, practiceBadges, seesOutOfArea } from "@/components/Badge";
 import { Icon } from "@/components/Icon";
 import { ArticleFeed } from "@/components/ArticleFeed";
 import { ContactPanel } from "@/components/pdp/ContactPanel";
-import { PatientReviews, getAggregateRatingSchema, reviewsWouldShow } from "@/components/PatientReviews";
+import { PatientReviews, reviewsWouldShow } from "@/components/PatientReviews";
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { PhotoGallery } from "@/components/pdp/PhotoGallery";
 import { OtherLocations } from "@/components/pdp/OtherLocations";
@@ -253,8 +253,6 @@ export default async function ProviderDetailPage({
     db.article.count({ where: { providerCreditedId: provider.id, status: "PUBLISHED" } }),
   ]);
 
-  const aggregateRating = isVerifiedPlus ? await getAggregateRatingSchema(provider) : null;
-
   // Structured data only describes what the page shows: Freemium pages show
   // name + address, so that's all their markup claims.
   const businessJsonLd = {
@@ -291,7 +289,6 @@ export default async function ProviderDetailPage({
         ...(seesOutOfArea(provider)
           ? { areaServed: { "@type": "GeoCircle", geoMidpoint: { "@type": "GeoCoordinates", latitude: provider.latitude, longitude: provider.longitude }, geoRadius: "600 mi" } }
           : {}),
-        ...(aggregateRating ? { aggregateRating } : {}),
       }
     : businessJsonLd;
 

@@ -109,6 +109,8 @@ for the cron jobs).
 
 Practice page section headings are H2s (2026-10-27): "About {Practice}", "Getting Here", "Patient Reviews for {Practice}", "FAQs About ILIT Allergy Treatment at {Practice}", "Other Locations", "Contact {Practice}".
 
+Practice page structured data never includes `AggregateRating` (removed 2026-10-27): Google's review snippet guidelines don't allow marking up ratings aggregated from other sites, and ours come from Google and Yelp. The visible reviews are fine. Star ratings in search results would need OAAN's own first-party reviews.
+
 - PDP (all tiers, Freemium since 2026-10-27): practice name as the dominant line, with a smaller "ILIT Provider in
   {City}, {State}" subline inside the same `<h1>` — matches the `<title>`
   tag's wording so both signals reinforce the same phrase instead of
