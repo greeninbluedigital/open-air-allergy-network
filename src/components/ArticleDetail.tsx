@@ -34,6 +34,39 @@ function soloImage(node: unknown): Record<string, unknown> | null {
 // centered at a smaller size instead, since a wrap column would be too narrow.
 // A title starting "full:" opts out, for a wide chart or diagram. Cloudinary
 // resizes the photo and serves a modern format (author uploads can be large PNGs).
+// Two or more images on consecutive lines (one Markdown paragraph) become a
+// gallery row instead: side by side from tablet width up, stacked on phones,
+// each cropped to the same 4:3 frame so the row lines up. The title is the
+// caption, which is where a photo credit goes (2026-10-27).
+function imageGroup(node: unknown): Record<string, unknown>[] | null {
+  const kids = ((node as HastNode | undefined)?.children ?? []).filter((c) => !(c.type === "text" && !c.value?.trim()));
+  return kids.length >= 2 && kids.every((c) => c.tagName === "img") ? kids.map((c) => c.properties ?? {}) : null;
+}
+
+const GALLERY_COLUMNS: Record<number, string> = { 2: "sm:grid-cols-2", 3: "sm:grid-cols-3" };
+
+function ArticleGallery({ images }: { images: Record<string, unknown>[] }) {
+  return (
+    <div className={`clear-both my-6 grid grid-cols-1 gap-4 ${GALLERY_COLUMNS[images.length] ?? "sm:grid-cols-3"}`}>
+      {images.map((img) => {
+        const src = String(img.src ?? "");
+        return (
+          <figure key={src}>
+            {/* eslint-disable-next-line @next/next/no-img-element -- Markdown body images have arbitrary author-pasted URLs, not known at build time. */}
+            <img
+              src={src.replace("/upload/", "/upload/c_limit,w_800,f_auto,q_auto/")}
+              alt={String(img.alt ?? "")}
+              loading="lazy"
+              className="aspect-[4/3] w-full rounded object-cover"
+            />
+            {Boolean(img.title) && <figcaption className="mt-1.5 text-xs leading-snug text-muted">{String(img.title)}</figcaption>}
+          </figure>
+        );
+      })}
+    </div>
+  );
+}
+
 function ArticleFigure({ src, alt, title }: { src: string; alt: string; title?: string }) {
   const float = !title?.startsWith("full:");
   const caption = float ? title : title!.slice("full:".length).trim();
@@ -56,6 +89,8 @@ const markdownComponents = {
     if (img) {
       return <ArticleFigure src={String(img.src ?? "")} alt={String(img.alt ?? "")} title={img.title ? String(img.title) : undefined} />;
     }
+    const group = imageGroup(props.node);
+    if (group) return <ArticleGallery images={group} />;
     return <p className="mb-4" {...omitNode(props)} />;
   },
   ul: (props: React.ComponentProps<"ul">) => <ul className="mb-4 list-disc space-y-1 pl-5" {...omitNode(props)} />,
