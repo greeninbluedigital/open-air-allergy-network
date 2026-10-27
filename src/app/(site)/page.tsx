@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 const OAAN_DESCRIPTION =
-  "Open Air Allergy Network is a free directory of allergy practices confirmed to offer ILIT (intralymphatic immunotherapy).";
+  "Open Air Allergy Network is a national directory of allergy practices verified to offer ILIT (intralymphatic immunotherapy), a faster alternative to allergy shots.";
 
 // WebSite.name is what Google uses for the site name in results. No email:
 // anything in page source gets scraped, so contact goes to the About form.

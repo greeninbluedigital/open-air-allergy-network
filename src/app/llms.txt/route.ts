@@ -39,7 +39,7 @@ export async function GET() {
   const body = [
     "# Open Air Allergy Network",
     "",
-    "> A free, independent U.S. directory of allergy practices that offer ILIT (intralymphatic immunotherapy), with plain language articles on allergies and allergy treatment.",
+    "> A national, independent U.S. directory of allergy practices that offer ILIT (intralymphatic immunotherapy), with plain language articles on allergies and allergy treatment.",
     "",
     ILIT_DEFINITION,
     "",

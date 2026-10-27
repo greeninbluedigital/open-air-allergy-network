@@ -34,6 +34,10 @@ export const metadata: Metadata = {
   },
   description:
     "Find ILIT (intralymphatic immunotherapy) providers near you and learn about allergy treatment options.",
+  // Explicit default for every page that doesn't set its own robots (noindexed
+  // pages do, and replace this whole object). max-image-preview:large lets
+  // Google show our images at full size in results and Discover.
+  robots: { index: true, follow: true, "max-image-preview": "large" },
   // Pinterest website claim (2026-10-20). A static label Pinterest's crawler
   // reads; no script, no cookies, no visitor data. Removing it un-claims the site.
   verification: {

@@ -15,7 +15,7 @@ scattered across each `generateMetadata`.
 3. **Self-referencing canonical** on every indexable page. Not added to
    noindexed pages (legal, SEM landing pages) — moot since they're excluded
    from the index regardless.
-4. **Robots**: default indexable. `noindex` for anything that shouldn't rank
+4. **Robots**: default indexable, set explicitly in the root layout as `index, follow, max-image-preview:large` (2026-10-26; the large image preview lets Google show our images at full size in results and Discover). A page that sets its own `robots` replaces the whole default. 404 pages carry both Next's automatic `noindex` and the default; harmless, since the 404 status keeps them out of the index. `noindex` for anything that shouldn't rank
    on its own (legal boilerplate, demo/sales listings, SEM paid-traffic
    pages). `X-Robots-Tag` HTTP header (not a meta tag) for non-HTML routes
    like `/api/*`, since `<meta name="robots">` only applies to HTML
