@@ -141,6 +141,15 @@ a redirect; Dallas–Fort Worth, moved the same day).
   area (only states with practices exist; check the page loads before linking)
 - Any article in content-ideas' "Published" table added since this list
 
+**Related guide card (owner, 2026-10-27):** when an article cross-promotes
+another of our articles (usually the main guide on the same subject, e.g.
+the dust mite allergy guide from "What Do Dust Mites Look Like?"), feature
+it with a card, not only a text link: a link titled `card` on its own line,
+`[Dust mite allergy guide](/blog/dust-mite-allergy "card")`. It shows that
+article's thumbnail, title and description. Put it right after the intro,
+one card per article (two at most), and only for a published article.
+Ordinary in-text links stay as they are. Format: docs/image-guide.md.
+
 ## Keywords and focus (owner, 2026-10-27)
 
 Added after the dust mite draft, which aimed at a narrow phrase, missed the
