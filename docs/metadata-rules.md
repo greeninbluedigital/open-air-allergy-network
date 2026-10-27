@@ -112,7 +112,11 @@ for the cron jobs).
 - Blog article / Learn About ILIT cluster page: the article's own title,
   shared via `ArticleDetail.tsx`.
 - Homepage: the hero headline (`"Most allergy treatment takes years.
-  Yours could take months."`) is the `<h1>`.
+  Yours could take months."`) plus a smaller keyword line under it ("Find
+  an ILIT allergy treatment provider near you."), both inside one `<h1>`
+  (2026-10-26), the same pattern as practice pages. The H2s carry search
+  words too ("How to Find an ILIT Provider for Faster Allergy Treatment",
+  "Do These Allergy Symptoms Sound Familiar?").
 - SRP: a visible `<h1>` "Find an ILIT Allergy Treatment Provider Near You"
   with a one-line "enter your zip code" instruction above the search bar,
   on every view (2026-10-25; was `sr-only`). Before a search (no zip), a

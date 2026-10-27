@@ -115,8 +115,13 @@ export default async function HomePage() {
           id="find"
           className="relative z-10 mx-6 -mt-16 max-w-sm scroll-mt-4 rounded border border-line bg-white p-5 shadow-lg sm:absolute sm:bottom-6 sm:left-10 sm:mx-0 sm:mt-0"
         >
-          <h1 className="mb-1 text-lg font-bold">Most allergy treatment takes years. Yours could take months.</h1>
-          <p className="mb-3.5 text-xs text-muted">Find an ILIT provider near you.</p>
+          {/* The keyword line sits inside the H1 so search engines read it
+              with the headline, the same pattern as practice pages; it
+              looks the same as a separate line would. */}
+          <h1 className="mb-3.5">
+            <span className="mb-1 block text-lg font-bold">Most allergy treatment takes years. Yours could take months.</span>
+            <span className="block text-xs font-normal text-muted">Find an ILIT allergy treatment provider near you.</span>
+          </h1>
           <ZipSearchForm origin="homepage_hero" />
           <p className="mt-3 text-xs text-muted">✓ Every practice listed is confirmed to offer ILIT.</p>
         </div>
