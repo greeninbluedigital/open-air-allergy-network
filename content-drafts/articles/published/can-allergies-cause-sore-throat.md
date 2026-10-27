@@ -90,11 +90,14 @@ REVIEW NOTES
 
 BODY
 -->
+
 Yes, allergies can cause a sore throat. It usually comes from postnasal drip, the extra mucus that allergies send down the back of your throat, and [Cleveland Clinic](https://my.clevelandclinic.org/health/diseases/8274-sore-throat-pharyngitis) says that mucus irritates the throat. An allergy sore throat tends to feel irritated or itchy, and it shows up alongside sneezing, a runny nose or itchy eyes. It doesn't come with a fever. If your throat hurts and you're running a fever, an infection such as a cold or strep throat is the more likely cause.
 
 ## When to get care right away
 
 A throat that feels tight or is swelling is different from a sore throat. Call 911 if you have trouble breathing or swallowing, swelling of your tongue or face, or a voice that turns very hoarse or whispery. [MedlinePlus](https://medlineplus.gov/ency/article/000844.htm) lists these as signs of anaphylaxis, a severe allergic reaction, and says to use epinephrine right away if you have it. Swallowing that hurts so much you drool, or a muffled voice, also needs emergency care, according to the American Academy of Otolaryngology's [ENT Health](https://www.enthealth.org/conditions/sore-throats/) site.
+
+[Allergies or a Cold? How to Tell the Difference](/blog/allergies-or-a-cold "card")
 
 ## How allergies cause a sore throat
 

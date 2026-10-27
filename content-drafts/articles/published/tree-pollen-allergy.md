@@ -107,6 +107,8 @@ The AAFA notes tree pollen can trigger asthma, with shortness of breath, coughin
 
 Food is the other risk. Some people with tree pollen allergy react to raw fruits and nuts, and the [AAAAI](https://www.aaaai.org/tools-for-the-public/conditions-library/allergies/oral-allergy-syndrome-%28oas%29) says those reactions rarely cause severe throat swelling or a whole body reaction. Throat swelling or trouble swallowing or breathing after eating means calling 911.
 
+[Oral Allergy Syndrome Food List, Chart, Diet and Treatment](/blog/oral-allergy-syndrome "card")
+
 ## Why tree pollen causes allergies
 
 The trees that cause allergies release pollen the wind can carry. AAFA's [2026 Allergy Capitals report](https://aafa.org/wp-content/uploads/2026/03/aafa-2026-allergy-capitals-report.pdf) explains that their pollen is small, light and easily carried, which lets it reach your eyes, nose, mouth and airways.

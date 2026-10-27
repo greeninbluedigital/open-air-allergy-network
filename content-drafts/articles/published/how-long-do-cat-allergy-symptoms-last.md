@@ -69,6 +69,8 @@ The [Asthma and Allergy Foundation of America](https://aafa.org/allergies/types-
 
 Cat allergen is a common asthma trigger. The AAFA notes that an asthma episode can begin within 15 to 30 minutes of breathing in an allergen. If you have chest tightness, wheezing or trouble breathing around a cat and your rescue inhaler isn't helping, get emergency care. Throat swelling or trouble swallowing calls for 911.
 
+[Pet Allergy Treatment: Cat & Dog Allergy Shots](/learn-about-ilit/pet-cat-dog-allergy-treatment "card")
+
 ## Why cat allergy symptoms come back hours later
 
 Allergic reactions often arrive in two waves. A [review in the Journal of Allergy and Clinical Immunology](https://pubmed.ncbi.nlm.nih.gov/11449200/) describes an early phase within minutes of exposure, with sneezing, itching and a clear runny nose. Then comes a late phase, 4 to 8 hours later, which brings congestion, tiredness and a general run down feeling.

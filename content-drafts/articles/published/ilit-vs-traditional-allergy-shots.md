@@ -60,6 +60,8 @@ ILIT (intralymphatic immunotherapy) and traditional allergy shots work the same 
 
 That shorter course is what draws people to ILIT. What you give up is a much smaller body of research and fewer practices that offer it.
 
+[Allergy Shots vs. Allergy Drops vs. ILIT: Full Comparison](/learn-about-ilit/allergy-shots-vs-allergy-drops-vs-ilit "card")
+
 ## ILIT vs. allergy shots at a glance
 
 | | ILIT | Allergy shots (SCIT) |

@@ -82,6 +82,8 @@ Dallas–Fort Worth allergies run almost all year. Mountain cedar pollen drifts 
 
 Allergy medicine handles the symptoms while you take it. If you're tired of reaching for it every season, allergy shots, allergy drops or tablets, and ILIT (intralymphatic immunotherapy) treat the allergy itself. More on those below.
 
+[Cedar Fever: Mountain Cedar Allergy Season, Symptoms and Care](/blog/cedar-fever-mountain-cedar-allergy "card")
+
 ## Dallas allergy season by month
 
 Children's Health, the Dallas pediatric hospital system, publishes a [North Texas allergy calendar](https://www.childrens.com/health-wellness/dallas-named-one-worst-cities-allergies) that gives a good picture of the year.

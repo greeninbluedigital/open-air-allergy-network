@@ -79,6 +79,8 @@ A Kenalog shot is an injection of triamcinolone acetonide, a long acting cortico
 
 Like any drug, a Kenalog shot can cause an allergic reaction, and the label lists anaphylaxis among its rare adverse reactions. [MedlinePlus](https://medlineplus.gov/druginfo/meds/a625028.html) says to get help right away for swelling of the lips, face, tongue or throat, or trouble breathing or swallowing. Call 911 for any of those.
 
+[Allergy Shots vs. Allergy Drops vs. ILIT: Full Comparison](/learn-about-ilit/allergy-shots-vs-allergy-drops-vs-ilit "card")
+
 ## What a Kenalog shot is
 
 Kenalog is a brand of triamcinolone acetonide, sold as Kenalog-40 and Kenalog-80. It's a steroid that calms inflammation throughout the body, which is why it eases a stuffy, itchy, runny nose. It's also what doctors call a depot steroid: a long acting injection that keeps working for weeks instead of hours, which the label reflects when it says one injection's effect may last several weeks. Another depot steroid you may see when searching is Depo-Medrol, a brand of methylprednisolone. The brand name simply drops the t. For allergies it's given as a deep injection into the buttock muscle, and the label warns against the upper arm because a dent from thinning fat and skin is much more likely there.

@@ -114,6 +114,8 @@ Toledo allergies are rougher than those in most large U.S. metros, at least by o
 
 The pollen year itself follows a familiar order: tree pollen in early spring, grass in late spring and early summer, and ragweed from August until the first hard freeze. Allergy medicine handles the symptoms while you take it. Immunotherapy, including the short ILIT course, treats the allergy itself. More on that below.
 
+[Ragweed Allergy: Season, Symptoms and Treatment](/blog/ragweed-allergy "card")
+
 ## How the AAFA ranks Toledo
 
 The AAFA scores the 100 most populated metro areas in the lower 48 states on tree, grass and weed pollen, over the counter allergy medicine use, and the number of board certified allergists. The factors aren't weighted equally. Pollen scores count how many days in 2025 a metro's automated sensors recorded "high" or "very high" levels. Each factor then gets a marker of worse than average, average or better than average, set at half a standard deviation from the average.

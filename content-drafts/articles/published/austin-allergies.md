@@ -65,6 +65,8 @@ Austin allergies don't really take a season off. Mountain cedar pollen fills the
 
 Allergy medicine handles symptoms while you take it. If you're tired of a new prescription every January, allergy shots, allergy drops and ILIT (intralymphatic immunotherapy) all work on the allergy itself, and one study of ILIT for mountain cedar was run in Central Texas. More on treatment below.
 
+[Cedar Fever: Mountain Cedar Allergy Season, Symptoms and Care](/blog/cedar-fever-mountain-cedar-allergy "card")
+
 ## Cedar fever: Austin's winter allergy
 
 ### Mountain cedar is Ashe juniper

@@ -73,6 +73,8 @@ BODY
 
 If there's no ILIT provider near you, traveling to one can still mean far fewer trips than allergy shots at a clinic down the road. A typical ILIT course is about three injections over about two months. A full course of allergy shots runs to dozens of office visits, and often more than a hundred, spread over three to five years. Whether the trip makes sense for you depends on your allergies, your schedule and what an allergist recommends after looking at your history.
 
+[ILIT vs. Traditional Allergy Shots: What a Few Months Buys You](/blog/ilit-vs-traditional-allergy-shots "card")
+
 ## How many visits allergy shots take
 
 Because allergy shots build tolerance slowly, the [American Academy of Allergy, Asthma and Immunology](https://www.aaaai.org/tools-for-the-public/conditions-library/allergies/allergy-shots-%28immunotherapy%29) (AAAAI) describes a long schedule, starting with a build up phase of shots once or twice a week for four to six months. Then come maintenance shots every two to four weeks for three to five years.

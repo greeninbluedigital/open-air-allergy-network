@@ -84,6 +84,8 @@ If your eyes and nose itch, it's more likely allergies. If you have a fever or b
 
 Trouble breathing is never just a cold or allergies to wait out. The [CDC](https://www.cdc.gov/common-cold/treatment/index.html) lists trouble breathing or fast breathing as a reason to get medical care for a cold. For people with allergic asthma, pollen or pet dander can bring on chest tightness, which the [NIH](https://newsinhealth.nih.gov/2022/01/it-flu-covid-19-allergies-or-cold) notes is otherwise rare with allergies. If you're wheezing or struggling to breathe and your rescue inhaler isn't helping, get emergency care.
 
+[Seasonal Allergies: Spring, Summer, Fall & Winter Guide](/learn-about-ilit/seasonal-allergies-by-season "card")
+
 ## Cold vs. allergies: a side by side symptom chart
 
 This chart combines the [NIH's comparison](https://newsinhealth.nih.gov/2022/01/it-flu-covid-19-allergies-or-cold) with a similar one from [Mayo Clinic](https://www.mayoclinic.org/diseases-conditions/common-cold/expert-answers/common-cold/faq-20057857). Where the two disagree, both answers are shown.

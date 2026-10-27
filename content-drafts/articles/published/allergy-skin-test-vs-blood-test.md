@@ -51,6 +51,8 @@ Skin testing is usually where allergists start. It's fast, and the [American Col
 
 Allergy testing also comes before any kind of immunotherapy. Allergy shots, allergy drops, and ILIT all target specific allergens, so your results tell your doctor which allergens to include in the extract for ILIT or allergy shots, or which drops or tablets to prescribe for treatment at home.
 
+[Allergy Shots vs. Allergy Drops vs. ILIT: Full Comparison](/learn-about-ilit/allergy-shots-vs-allergy-drops-vs-ilit "card")
+
 ## How a skin prick allergy test works
 
 A skin prick test, also called a scratch test, places a tiny drop of each possible allergen on your skin and pricks or scratches it into the surface. The [American Academy of Allergy, Asthma & Immunology](https://www.aaaai.org/tools-for-the-public/allergy,-asthma-immunology-glossary/allergy-testing-defined) (AAAAI) calls skin testing the most common, reliable and relatively painless form of allergy testing.

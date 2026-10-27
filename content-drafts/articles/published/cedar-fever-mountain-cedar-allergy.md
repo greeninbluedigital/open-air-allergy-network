@@ -98,6 +98,8 @@ For most people cedar fever means a stuffy nose and a rough few weeks. Asthma ch
 
 Call 911 or go to the emergency room for extreme trouble breathing, severe shortness of breath while resting, or lips or a face turning bluish. [MedlinePlus](https://medlineplus.gov/ency/article/000141.htm) also lists confusion or drowsiness and severe chest pain. If a cough or breathlessness keeps getting worse, the [ACAAI](https://acaai.org/asthma/symptoms/asthma-attack/) says to get medical treatment right away.
 
+[Allergies or a Cold? How to Tell the Difference](/blog/allergies-or-a-cold "card")
+
 ## What mountain cedar really is
 
 Mountain cedar is Ashe juniper, *Juniperus ashei*. [Texas A&M AgriLife](https://rangeplants.tamu.edu/plant/ashe-juniper-blueberry-juniper/) is plain about it: the tree is often called cedar but isn't a true cedar. It's in the cypress family. "Cedar" stuck as the local name, which is why the illness is cedar fever and not juniper fever. If you search for an Ashe juniper allergy or juniper pollen allergy, you're looking at the same thing.

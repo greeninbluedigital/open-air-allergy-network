@@ -76,11 +76,14 @@ REVIEW NOTES (revision 2, 2026-10-22, after the owner's comments)
 
 BODY
 -->
+
 Oral allergy syndrome (OAS) is an itchy, tingly or slightly swollen mouth right after eating certain raw fruits, vegetables or nuts. It mostly happens to people with pollen allergies, because some proteins in those foods look like pollen proteins to the immune system. OAS allergy is also called pollen food allergy syndrome. It's common: the [American Academy of Allergy, Asthma & Immunology](https://www.aaaai.org/tools-for-the-public/conditions-library/allergies/oral-allergy-syndrome-%28oas%29) (AAAAI) says it affects up to 50% to 75% of adults with birch pollen allergy. The foods involved depend on which pollen you're allergic to, and cooked versions are usually fine. It's also just one kind of food reaction, separate from allergies to foods like shellfish or peanuts, as explained below.
 
 ## When to get care right away
 
 Most OAS reactions are mild and stay in the mouth. Rarely, they don't. [Cleveland Clinic](https://my.clevelandclinic.org/health/diseases/23996-oral-allergy-syndrome) says to call 911 or go to the ER for swelling of the face, tongue or throat, trouble breathing or swallowing, or weakness and dizziness after eating. If you've been prescribed an epinephrine auto injector, use it right away, even before calling 911, as [MedlinePlus](https://medlineplus.gov/ency/article/000817.htm) advises.
+
+[Tree Pollen Allergy: Symptoms, Season and Treatment](/blog/tree-pollen-allergy "card")
 
 ## What is oral allergy syndrome (OAS allergy)?
 

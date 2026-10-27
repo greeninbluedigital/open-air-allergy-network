@@ -74,6 +74,8 @@ Ragweed usually causes hay fever, not an emergency. Two situations are different
 
 The second is food. Some people with ragweed allergy react to certain raw fruits (more on that below). The [AAAAI](https://www.aaaai.org/tools-for-the-public/conditions-library/allergies/oral-allergy-syndrome-%28oas%29) says those reactions are usually mild and stay in the mouth. Throat swelling or trouble swallowing or breathing after eating is a different story. Call 911.
 
+[Seasonal Allergies: Spring, Summer, Fall & Winter Guide](/learn-about-ilit/seasonal-allergies-by-season "card")
+
 ## What ragweed is and why it causes so much trouble
 
 Ragweed spreads its pollen by wind, not insects. That one fact explains most of its reputation. Wind pollinated plants make huge amounts of small, light pollen, and ragweed makes more than most. The [American Academy of Allergy, Asthma & Immunology](https://www.aaaai.org/tools-for-the-public/conditions-library/allergies/ragweed) (AAAAI) says a single plant can release up to 1 billion grains.
