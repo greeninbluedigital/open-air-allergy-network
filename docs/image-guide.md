@@ -85,6 +85,13 @@ page actually displays it. Last updated 2026-10-06.
 - **Exception, full width:** start the caption with `full:` for a wide chart
   or diagram that needs the whole column, e.g.
   `![alt](URL "full: Caption")`. Size 1600 wide, any height.
+- **Gallery row (2026-10-27):** two or three images on consecutive lines
+  (no blank line between them) show side by side, each cropped to 4:3 with
+  its caption underneath, stacked on phones. Landscape, about 1600 wide.
+  Put each photo's credit in its caption, and for any image whose license
+  asks for a link (Creative Commons), add an italic "Image credits" line at
+  the end of the article with the source and license links. First used for
+  the dust mite micrographs in "What Do Dust Mites Look Like?".
 
 ### Provider main photo
 - **Portrait, 4:5, e.g. 1200 × 1500.** Shown beside the bio on the provider
