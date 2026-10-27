@@ -44,8 +44,8 @@ sources), so a careless article hurts the whole site.
    punctuation, formatting. It wins over anything here if they conflict.
 2. `docs/blog-content-guide.md`: research and citation rules.
 3. `docs/content-ideas.md`: the topic's row and detail sections (angle,
-   keywords, timing, shared sources such as the NC State pollen article and
-   Anderegg et al. 2021). Also its "Published" table, so you don't repeat
+   keywords and any keyword data, timing, shared sources such as the NC
+   State pollen article and Anderegg et al. 2021). Also its "Published" table, so you don't repeat
    an existing article and you know what to link to.
 4. `docs/metadata-rules.md`: title and meta description limits.
 5. One published draft for format reference, e.g.
@@ -141,6 +141,35 @@ a redirect; Dallas–Fort Worth, moved the same day).
   area (only states with practices exist; check the page loads before linking)
 - Any article in content-ideas' "Published" table added since this list
 
+## Keywords and focus (owner, 2026-10-27)
+
+Added after the dust mite draft, which aimed at a narrow phrase, missed the
+topic's two biggest searches ("dust mites", "dust mite bites") and spent
+three FAQs on household pests.
+
+1. **Plan the keywords before writing.** Find the topic's head term (the
+   shortest, broadest search, e.g. "dust mites") and its biggest variants:
+   check autocomplete for the head term on its own and with common
+   follow-ons (bites, pictures, symptoms, treatment, vs.), and use any
+   keyword data the owner put in content-ideas or the queue row (often a
+   Mangools list with monthly searches and difficulty). Put the head term
+   in the title, the first paragraph and at least one H2. The largest
+   question search gets its own H2.
+2. **One page per keyword.** Read the Target keywords line of every
+   published draft on the same subject (`content-drafts/articles/published/`).
+   Don't target a keyword another article already targets. In REVIEW NOTES,
+   say which nearby keywords belong to which existing article, and suggest
+   an addition to that article instead of competing with it.
+3. **Stay on the allergy angle.** Every section and FAQ has to help someone
+   with an allergy question: is it an allergy, what's triggering it, or how
+   to treat it. Side topics (pests, home repair, products) can get a short
+   mention in the body where readers need it, never a FAQ, even when
+   autocomplete confirms the question. Test each FAQ: would its answer help
+   a reader decide about their allergy or its treatment? If not, cut it.
+4. **Product searches** ("dust mite spray", "mattress cover") are for
+   shoppers. Don't chase them in an allergy article. Note them in REVIEW
+   NOTES as a possible "do they work?" article instead.
+
 ## Draft file format
 
 Save as `content-drafts/articles/<slug>.md`. Everything above `BODY` is
@@ -168,7 +197,7 @@ KEY TAKEAWAYS
 
 FAQS
 Q: ...
-A: ... (6 to 9 FAQs, each a question people actually search: season, symptoms, the allergen's other names, related allergies, treatment timing. Each answer stands alone in 2 or 3 sentences with a linked source, and may restate a body fact in direct answer form. Never repeat another FAQ on this page or a question already used on another published article. **Check every question against Google autocomplete** with WebFetch on `https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=us&q=<question words>`, try a few phrasings, and use the wording people actually type. Watch what the suggestions mean, e.g. "cedar fever drops" turned out to be store bought homeopathic products. Note in REVIEW NOTES which FAQs autocomplete confirmed; an unconfirmed FAQ can stay if it's useful)
+A: ... (6 to 9 FAQs, each a question people actually search and each on the allergy angle (see "Keywords and focus"): season, symptoms, the allergen's other names, related allergies, treatment timing. Each answer stands alone in 2 or 3 sentences with a linked source, and may restate a body fact in direct answer form. Never repeat another FAQ on this page or a question already used on another published article. **Check every question against Google autocomplete** with WebFetch on `https://suggestqueries.google.com/complete/search?client=firefox&hl=en&gl=us&q=<question words>`, try a few phrasings, and use the wording people actually type. Watch what the suggestions mean, e.g. "cedar fever drops" turned out to be store bought homeopathic products. Note in REVIEW NOTES which FAQs autocomplete confirmed; an unconfirmed FAQ can stay if it's useful)
 
 SOURCES (all linked in the article)
 - Source name, page title: the specific facts used from it
