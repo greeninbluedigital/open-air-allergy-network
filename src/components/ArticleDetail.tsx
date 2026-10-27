@@ -7,6 +7,7 @@ import { ArticleFeed } from "@/components/ArticleFeed";
 import { cloudinaryFaceCrop } from "@/lib/cloudinary";
 import type { ArticleDetailData } from "@/lib/articles";
 import { isVerifiedPlus } from "@/lib/tiers";
+import { InlineArticleCard } from "@/components/InlineArticleCard";
 
 // Maps rendered Markdown elements to the site's existing type scale, rather
 // than pulling in a Tailwind Typography plugin whose opinionated defaults
@@ -41,6 +42,14 @@ function soloImage(node: unknown): Record<string, unknown> | null {
 function imageGroup(node: unknown): Record<string, unknown>[] | null {
   const kids = ((node as HastNode | undefined)?.children ?? []).filter((c) => !(c.type === "text" && !c.value?.trim()));
   return kids.length >= 2 && kids.every((c) => c.tagName === "img") ? kids.map((c) => c.properties ?? {}) : null;
+}
+
+// A paragraph that's only an internal article link titled "card" becomes a
+// related-article card (InlineArticleCard).
+function cardLink(node: unknown): string | null {
+  const kids = ((node as HastNode | undefined)?.children ?? []).filter((c) => !(c.type === "text" && !c.value?.trim()));
+  const a = kids.length === 1 && kids[0].tagName === "a" ? kids[0].properties ?? {} : null;
+  return a && a.title === "card" && typeof a.href === "string" && a.href.startsWith("/") ? a.href : null;
 }
 
 const GALLERY_COLUMNS: Record<number, string> = { 2: "sm:grid-cols-2", 3: "sm:grid-cols-3" };
@@ -91,6 +100,8 @@ const markdownComponents = {
     }
     const group = imageGroup(props.node);
     if (group) return <ArticleGallery images={group} />;
+    const card = cardLink(props.node);
+    if (card) return <InlineArticleCard href={card} />;
     return <p className="mb-4" {...omitNode(props)} />;
   },
   ul: (props: React.ComponentProps<"ul">) => <ul className="mb-4 list-disc space-y-1 pl-5" {...omitNode(props)} />,

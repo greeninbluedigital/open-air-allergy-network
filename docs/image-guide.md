@@ -92,6 +92,13 @@ page actually displays it. Last updated 2026-10-06.
   asks for a link (Creative Commons), add an italic "Image credits" line at
   the end of the article with the source and license links. First used for
   the dust mite micrographs in "What Do Dust Mites Look Like?".
+- **Related-article card (2026-10-27):** to feature another of our
+  articles with its hero thumbnail, title and description, put a link with
+  the title `card` on its own line:
+  `[Dust mite allergy guide](/blog/dust-mite-allergy "card")`. Works for
+  `/blog/` and `/learn-about-ilit/` articles and shows nothing if that
+  article isn't published. Use it for the one guide a reader most needs,
+  near the top, not as a list.
 
 ### Provider main photo
 - **Portrait, 4:5, e.g. 1200 × 1500.** Shown beside the bio on the provider
