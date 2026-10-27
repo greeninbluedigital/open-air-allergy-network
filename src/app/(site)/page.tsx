@@ -10,11 +10,14 @@ import { Icon } from "@/components/Icon";
 import { ZipSearchForm } from "@/components/ZipSearchForm";
 import { ProviderCard } from "@/components/srp/ProviderCard";
 import { FindOrJoinRow } from "@/components/FindOrJoinRow";
-// Owner-chosen title, 63 characters: one over the usual 62 budget
-// (docs/metadata-rules.md), accepted since any truncation only trims the
-// brand at the end. Description inherits the root layout default.
+// Owner-approved 2026-10-26 (docs/metadata-rules.md). No brand suffix: Google
+// shows the site name separately (WebSite JSON-LD below), so the title spends
+// its 62 characters on "ILIT allergy treatment" plus the allergy shots
+// comparison for people who haven't heard of ILIT.
 export const metadata: Metadata = {
-  title: { absolute: "Find ILIT Allergy Treatment Near You | Open Air Allergy Network" },
+  title: { absolute: "ILIT Allergy Treatment Near You: Faster Than Allergy Shots" },
+  description:
+    "Allergy shots take 3 to 5 years. ILIT (intralymphatic immunotherapy) is typically 3 injections over 2 months. Find a provider and read reviews.",
   alternates: { canonical: "/" },
 };
 
