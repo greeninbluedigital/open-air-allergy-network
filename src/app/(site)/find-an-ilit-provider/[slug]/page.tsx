@@ -8,7 +8,7 @@ import { Badge, practiceBadges, seesOutOfArea } from "@/components/Badge";
 import { Icon } from "@/components/Icon";
 import { ArticleFeed } from "@/components/ArticleFeed";
 import { ContactPanel } from "@/components/pdp/ContactPanel";
-import { PatientReviews, getAggregateRatingSchema } from "@/components/PatientReviews";
+import { PatientReviews, getAggregateRatingSchema, reviewsWouldShow } from "@/components/PatientReviews";
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { PhotoGallery } from "@/components/pdp/PhotoGallery";
 import { OtherLocations } from "@/components/pdp/OtherLocations";
@@ -129,12 +129,27 @@ export async function generateMetadata({
   // sentence/word boundary instead of showing 200-500+ raw characters.
   // Freemium pages don't display the short bio or photo (even if they're
   // stored), so the description and share image don't use them either.
-  const description = truncateForMeta(
-    !isVerifiedTier(provider.tier)
-      ? `${freemiumSummary(provider, street)} Listed on Open Air Allergy Network.`
-      : (provider.shortBio ??
-          `${provider.practiceName} is a verified ILIT (intralymphatic immunotherapy) provider in ${provider.city}, ${provider.state}, listed on Open Air Allergy Network.`),
-  );
+  const baseDescription = !isVerifiedTier(provider.tier)
+    ? `${freemiumSummary(provider, street)} Listed on Open Air Allergy Network.`
+    : (provider.shortBio ??
+        `${provider.practiceName} is a verified ILIT (intralymphatic immunotherapy) provider in ${provider.city}, ${provider.state}, listed on Open Air Allergy Network.`);
+  // "Read patient reviews." only when the page actually shows reviews
+  // (Featured with Show Reviews on, and reviews on file), so it follows the
+  // sheet setting with nothing to maintain (owner, 2026-10-27). It never
+  // makes a description worse: added when it fits after the trimmed text, or
+  // when the text is cut mid-sentence anyway (trimmed a bit more, still
+  // ending on a word), and skipped when it would cut a complete sentence.
+  const reviewsLine = " Read patient reviews.";
+  const trimmed = truncateForMeta(baseDescription);
+  // One less for the "…" truncateForMeta adds after a word cut.
+  const shorter = truncateForMeta(baseDescription, 155 - reviewsLine.length - 1);
+  const description = !reviewsWouldShow(provider)
+    ? trimmed
+    : trimmed.length + reviewsLine.length <= 155
+      ? trimmed + reviewsLine
+      : trimmed.endsWith("…") && shorter.endsWith("…")
+        ? shorter + reviewsLine
+        : trimmed;
 
   return {
     title: { absolute: title },
@@ -313,7 +328,14 @@ export default async function ProviderDetailPage({
             <Image src={stockPhoto.url} alt={stockPhoto.alt} fill sizes="176px" className="object-cover" />
           </div>
           <div className="text-center sm:text-left">
-            <h1 className="mb-2 text-2xl font-extrabold">{provider.practiceName}</h1>
+            {/* Same keyword line as the paid layout's H1, matching the <title>. */}
+            <h1 className="mb-2 text-2xl font-extrabold">
+              {provider.practiceName}
+              <span className="mt-0.5 block text-sm font-normal text-muted">
+                {ilitLabel(provider.practiceName)} in {provider.city}, {provider.state}
+                {street && ` (${street})`}
+              </span>
+            </h1>
             <p className="mb-3 text-sm text-muted">
               {displayAddress(provider)}
             </p>
@@ -438,7 +460,7 @@ export default async function ProviderDetailPage({
         <div className="flex-2 space-y-6.5">
           {isFullProfilePlus && provider.extendedBio && (
             <div>
-              <h3 className="mb-2 text-base font-bold">About This Practice</h3>
+              <h2 className="mb-2 text-base font-bold">About {provider.practiceName}</h2>
               <p className="text-sm whitespace-pre-line text-foreground/80">{provider.extendedBio}</p>
               {sourceNote}
             </div>
@@ -446,10 +468,10 @@ export default async function ProviderDetailPage({
 
           {seesOutOfArea(provider) && (
             <div>
-              <h3 className="mb-2 flex items-center gap-2 text-base font-bold">
+              <h2 className="mb-2 flex items-center gap-2 text-base font-bold">
                 <Icon name="plane" className="h-5 w-5 text-action" />
                 Getting Here
-              </h3>
+              </h2>
               {/* Sheet column Q, written from the practice's own site; no
                   fallback text, since that would be our claim, not theirs.
                   whitespace-pre-line keeps line breaks typed in the cell. */}
@@ -463,7 +485,7 @@ export default async function ProviderDetailPage({
 
           {showDetails && provider.faqItems.length > 0 && (
             <div>
-              <h3 className="mb-2 text-base font-bold">Frequently Asked Questions</h3>
+              <h2 className="mb-2 text-base font-bold">FAQs About ILIT Allergy Treatment at {provider.practiceName}</h2>
               {provider.faqItems.length > FAQ_ACCORDION_THRESHOLD
                 ? // 5+ FAQs: collapsed by default (each independent — no
                   // `name` attribute, so opening one doesn't close another),

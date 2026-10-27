@@ -25,9 +25,12 @@ const HERO_IMAGE =
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Learn About ILIT",
+  // Owner-approved 2026-10-27 (SEO audit): leads with the "what is ILIT"
+  // search and pairs ILIT with "allergy treatment"; no brand suffix, which
+  // would push it past 62 characters (docs/metadata-rules.md).
+  title: { absolute: "What Is ILIT Allergy Treatment? Intralymphatic Immunotherapy" },
   description:
-    "What is ILIT (intralymphatic immunotherapy)? How it compares to SCIT and SLIT, allergy symptoms it addresses, and frequently asked questions.",
+    "What is ILIT? Intralymphatic immunotherapy is an allergy treatment that typically takes 3 injections over 2 months instead of years of allergy shots.",
   alternates: { canonical: "/learn-about-ilit" },
 };
 
@@ -184,7 +187,7 @@ export default async function LearnAboutIlitPage() {
         <div className="absolute inset-0 -z-10 bg-black/30" />
         <div className="max-w-2xl px-6 py-14 text-white sm:px-10 sm:py-20">
           <h1 className="text-3xl font-extrabold sm:text-4xl">
-            Learn About ILIT (Intralymphatic Immunotherapy)
+            Learn About ILIT (Intralymphatic Immunotherapy) Allergy Treatment
           </h1>
           <p className="mt-5 text-lg font-semibold">Imagine...</p>
           <ul className="mt-1 space-y-1 text-base sm:text-lg">
@@ -271,7 +274,7 @@ export default async function LearnAboutIlitPage() {
       </section>
 
       <section id="faq" className="scroll-mt-4 border-b border-line bg-bg-alt px-6 py-10 sm:px-10">
-        <h2 className="mb-4 text-2xl font-bold">Frequently Asked Questions</h2>
+        <h2 className="mb-4 text-2xl font-bold">Frequently Asked Questions About ILIT and Allergies</h2>
         <FaqHashOpener />
         {/* Native <details> so the full answer text stays in the initial HTML
             (crawlable, and mirrored in the FAQPage JSON-LD above). */}
@@ -297,8 +300,8 @@ export default async function LearnAboutIlitPage() {
             house content, so that version rendered an empty section and was
             switched to the latest 3 blog posts on 2026-10-18. Once a few
             provider-credited posts are published, restore the old heading
-            and props. Tracked in docs/blog-content-guide.md. */}
-        <h2 className="mb-5 text-2xl font-bold">Recent Blog Articles</h2>
+            and props (the interim heading has search words since 2026-10-27). Tracked in docs/blog-content-guide.md. */}
+        <h2 className="mb-5 text-2xl font-bold">Recent Articles on Allergies and Allergy Treatment</h2>
         <ArticleFeed limit={3} />
         <Link href="/blog" className="mt-5 inline-block text-sm font-semibold text-sage hover:underline">
           View all blog articles →

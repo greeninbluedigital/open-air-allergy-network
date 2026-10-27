@@ -7,6 +7,14 @@ import { articlePath, getTagCounts, queryBlogArticles } from "@/lib/blog";
 import { lookupZip } from "@/lib/zip";
 import { GUIDE_TAG } from "@/lib/content";
 
+// Owner-approved 2026-10-27 (SEO audit): "Blog" alone carried no search
+// words. Used as both the title (no brand suffix, 54 characters) and the H1.
+const BLOG_HEADING = "Allergy Blog: Symptoms, Triggers and Treatment Options";
+
+function tagHeading(tag: string) {
+  return tag === GUIDE_TAG ? GUIDE_TAG : `${tag} Articles`;
+}
+
 export async function generateMetadata({ searchParams }: PageProps<"/blog">): Promise<Metadata> {
   const sp = await searchParams;
   const tag = typeof sp.tag === "string" ? sp.tag : undefined;
@@ -15,9 +23,9 @@ export async function generateMetadata({ searchParams }: PageProps<"/blog">): Pr
   // separate near-duplicate URLs. `tag` does change the content meaningfully,
   // so it gets its own title/description and stays in the canonical.
   return {
-    title: tag ? (tag === GUIDE_TAG ? GUIDE_TAG : `${tag} Articles`) : "Blog",
+    title: tag ? tagHeading(tag) : { absolute: BLOG_HEADING },
     description: tag
-      ? `ILIT articles tagged "${tag}" from Open Air Allergy Network.`
+      ? `Allergy articles tagged "${tag}" from Open Air Allergy Network.`
       : "Allergy articles and guides on symptoms, seasons and treatment, from allergy medicine and shots to ILIT, from Open Air Allergy Network.",
     alternates: { canonical: tag ? `/blog?tag=${encodeURIComponent(tag)}` : "/blog" },
   };
@@ -56,7 +64,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
   return (
     <>
       <div className="px-6 pt-8 sm:px-10">
-        <h1 className="text-3xl font-extrabold">Blog</h1>
+        <h1 className="text-3xl font-extrabold">{tag ? tagHeading(tag) : BLOG_HEADING}</h1>
       </div>
 
       {/* Hidden while a tag is selected, so a filtered view (e.g. the Learn

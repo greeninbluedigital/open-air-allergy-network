@@ -10,7 +10,10 @@ import { GENERAL_INQUIRY_REASONS } from "@/lib/generalInquiry";
 
 export const metadata: Metadata = {
   title: "About",
-  description: "Open Air Allergy Network connects people searching for ILIT (intralymphatic immunotherapy) with the practices that offer it.",
+  // The same definition as the homepage's Organization description, so search
+  // engines and AI tools get one consistent answer to "what is OAAN?" (2026-10-27).
+  description:
+    "Open Air Allergy Network: a national directory of allergists verified to offer ILIT (intralymphatic immunotherapy), a faster alternative to allergy shots.",
   alternates: { canonical: "/about" },
 };
 
@@ -50,9 +53,11 @@ export default async function AboutPage({ searchParams }: PageProps<"/about">) {
       <div className="px-6 pt-8 sm:px-10">
         <h1 className="mb-2.5 text-3xl font-extrabold">About Open Air Allergy Network</h1>
         <p className="max-w-xl text-sm text-muted">
-          Open Air Allergy Network connects people searching for ILIT
-          (intralymphatic immunotherapy) with the practices that offer it, and helps those practices reach
-          patients actively looking for this specific treatment.
+          Open Air Allergy Network is a national directory of allergy
+          practices verified to offer ILIT (intralymphatic immunotherapy), a
+          faster alternative to allergy shots. It&apos;s an independent
+          directory, not a medical practice, and doesn&apos;t provide medical
+          care.
         </p>
       </div>
 
@@ -64,7 +69,7 @@ export default async function AboutPage({ searchParams }: PageProps<"/about">) {
           offering it to reach the patients specifically looking for it.
           Open Air Allergy Network exists to close that gap: a directory
           built around this one treatment, with every listed practice
-          confirmed to offer ILIT, so patients can find real options and
+          verified to offer ILIT, so patients can find real options and
           practices can reach the patients already searching for what they
           offer.
         </p>

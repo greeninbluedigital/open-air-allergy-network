@@ -10,8 +10,11 @@ import { US_STATES } from "@/lib/states";
 import { US_PHONE_PATTERN, US_PHONE_TITLE } from "@/lib/phone";
 
 export const metadata: Metadata = {
-  title: "For Practices",
-  description: "Join a growing network of ILIT allergy treatment providers. Tell us about your practice and we'll follow up.",
+  // Owner, 2026-10-27: no "join the network" framing (allergists are wary of
+  // membership networks). The message is making sure the practice is listed.
+  title: "List Your ILIT Allergy Practice",
+  description:
+    "Make sure your allergy practice is listed in the national directory of allergists who offer ILIT. Check or claim your listing, or ask us to add it.",
   alternates: { canonical: "/for-practices" },
 };
 
@@ -31,12 +34,13 @@ export default async function ForPracticesPage({
     <>
       <div className="bg-sand px-6 py-11 text-center sm:px-10">
         <h1 className="mb-2.5 text-3xl font-extrabold">
-          Join a Growing Network of ILIT Allergy Providers
+          Make Sure Your Practice Is Listed in the National ILIT Allergy Directory
         </h1>
         <p className="mx-auto max-w-2xl text-sm text-foreground/80">
-          Reach patients actively searching for ILIT, and connect with a
-          network built around this treatment specifically. Tell us a bit
-          about your practice and we&apos;ll follow up.
+          People looking for ILIT allergy treatment use Open Air Allergy
+          Network to find the allergists who offer it. Check that your
+          practice is listed and its details are right, claim your listing,
+          or ask us to add your practice.
         </p>
       </div>
 
@@ -55,7 +59,7 @@ export default async function ForPracticesPage({
             </p>
           ) : (
             <form action={submitPracticeLead}>
-              <h2 className="mb-4 text-lg font-bold">Providers use this form to contact us</h2>
+              <h2 className="mb-4 text-lg font-bold">Check, claim or add your practice listing</h2>
               {error && (
                 <p className="mb-3.5 rounded border border-warning-bg bg-warning-bg/40 px-3 py-2 text-xs text-warning-text">
                   {FORM_ERROR_MESSAGES[error]}

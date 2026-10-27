@@ -53,7 +53,7 @@ export function OtherLocations({
 
   return (
     <div>
-      <h3 className="mb-2 text-base font-bold">Other Locations</h3>
+      <h2 className="mb-2 text-base font-bold">Other Locations</h2>
       {offices.length > NEAREST && <p className="mb-2 text-xs text-muted">Nearest to this office</p>}
       <div className="space-y-2">
         {nearest.map((o) => (

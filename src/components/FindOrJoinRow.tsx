@@ -10,7 +10,7 @@ export function FindOrJoinRow({ searchHeading, origin }: { searchHeading: string
         <ZipSearchForm origin={origin} />
       </div>
       <div className="flex flex-col items-start justify-between gap-4 rounded border border-line bg-bg-alt p-6">
-        <div className="text-base font-semibold">Are you a provider? Join the network.</div>
+        <div className="text-base font-semibold">Are you a provider? Make sure your practice is listed.</div>
         <Link
           href="/for-practices"
           data-cta={`${origin}_for_practices`}

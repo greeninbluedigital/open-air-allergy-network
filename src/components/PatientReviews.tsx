@@ -104,7 +104,7 @@ export function PatientReviews({ provider }: { provider: ReviewsProvider }) {
 
   return (
     <div>
-      <h3 className="mb-2 text-base font-bold">Patient Reviews for {provider.practiceName}</h3>
+      <h2 className="mb-2 text-base font-bold">Patient Reviews for {provider.practiceName}</h2>
 
       {hasGoogle && provider.googleRating != null && (
         <div className="mb-2 text-sm text-muted">

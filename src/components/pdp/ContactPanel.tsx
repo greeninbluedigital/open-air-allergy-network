@@ -58,7 +58,7 @@ export function ContactPanel({
 
   return (
     <div className={`rounded border border-line border-t-4 border-t-action bg-background p-4.5 ${className}`}>
-      <h3 className="mb-3 text-base font-bold">Contact {provider.practiceName}</h3>
+      <h2 className="mb-3 text-base font-bold">Contact {provider.practiceName}</h2>
 
       {sent || confirmed ? (
         <LeadStatusMessage
