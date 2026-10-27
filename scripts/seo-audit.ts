@@ -43,11 +43,11 @@ function pageType(path: string): string {
 
 async function audit(path: string, type: string) {
   const html = await (await fetch(BASE + path)).text();
-  const title = text(html.match(/<title>(.*?)<\/title>/s)?.[1] ?? "");
+  const title = text(html.match(/<title>([\s\S]*?)<\/title>/)?.[1] ?? "");
   const description = text(html.match(/<meta name="description" content="([^"]*)"/)?.[1] ?? "");
   const main = html.split("<main")[1] ?? html;
-  const h1s = [...main.matchAll(/<h1[^>]*>(.*?)<\/h1>/gs)].map((m) => text(m[1]));
-  const h2s = [...main.matchAll(/<h2[^>]*>(.*?)<\/h2>/gs)].map((m) => text(m[1])).filter(Boolean);
+  const h1s = [...main.matchAll(/<h1[^>]*>([\s\S]*?)<\/h1>/g)].map((m) => text(m[1]));
+  const h2s = [...main.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>/g)].map((m) => text(m[1])).filter(Boolean);
 
   const flags: string[] = [];
   if (title.length > 62) flags.push(`Title over 62 (${title.length})`);
