@@ -1,3 +1,4 @@
+import { standardTreatmentName } from "@/lib/treatments";
 import { db } from "@/lib/db";
 import { fetchSheetRows } from "@/lib/googleSheets";
 import { geocodeAddress } from "@/lib/geocode";
@@ -848,7 +849,18 @@ export async function runSync(): Promise<SyncSummary> {
         update: data,
       });
 
-      await syncTreatments(provider.id, parseList(r.treatmentsOffered));
+      // Standard names (src/lib/treatments.ts), so a service reads the same
+      // way on every page; unknown names still sync as typed, with a warning.
+      const treatmentNames = parseList(r.treatmentsOffered).map((raw) => {
+        const name = standardTreatmentName(raw);
+        if (!name) {
+          summary.warnings.push(
+            `${slug} (row ${sheetRow}) Treatments Offered "${raw}" isn't on the standard list (src/lib/treatments.ts, copied on the Treatments tab), so it shows as typed. Use a listed name or ask to add it.`,
+          );
+        }
+        return name ?? raw;
+      });
+      await syncTreatments(provider.id, [...new Set(treatmentNames)]);
 
       if (existing) {
         summary.updated++;

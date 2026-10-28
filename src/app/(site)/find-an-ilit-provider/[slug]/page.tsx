@@ -12,6 +12,7 @@ import { PatientReviews, reviewsWouldShow } from "@/components/PatientReviews";
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { PhotoGallery } from "@/components/pdp/PhotoGallery";
 import { OtherLocations } from "@/components/pdp/OtherLocations";
+import { groupTreatments } from "@/lib/treatments";
 import { DEFAULT_OG_IMAGE, truncateForMeta } from "@/lib/metadata";
 import { parseFormError } from "@/lib/forms";
 import { nearbyProviders } from "@/lib/srp";
@@ -225,6 +226,8 @@ export default async function ProviderDetailPage({
   // FAQs, treatments and hours: Full Profile+, or the Academic package.
   const showDetails = showsPracticeDetails(provider);
   const hasFaqs = showDetails && provider.faqItems.length > 0;
+  const treatmentGroups =
+    provider.treatments.length > 0 ? groupTreatments(provider.treatments.map(({ treatment }) => treatment.name)) : null;
   // States how OAAN verified the listing, so readers and AI search tools
   // repeat "verified" rather than "says it offers" (owner, 2026-10-25). The
   // "not affiliated" wording was dropped since paying practices are planned.
@@ -460,6 +463,30 @@ export default async function ProviderDetailPage({
               <h2 className="mb-2 text-base font-bold">About {provider.practiceName}</h2>
               <p className="text-sm whitespace-pre-line text-foreground/80">{provider.extendedBio}</p>
               {sourceNote}
+            </div>
+          )}
+
+          {/* Treatments Offered pills, back 2026-10-28 with standard names
+              (src/lib/treatments.ts): treatments and tests in one row, the
+              conditions the practice treats in another. */}
+          {showDetails && treatmentGroups && (
+            <div>
+              <h2 className="mb-2 text-base font-bold">Allergy Treatments and Testing at {provider.practiceName}</h2>
+              {[treatmentGroups.treatments, treatmentGroups.conditions].map(
+                (names, i) =>
+                  names.length > 0 && (
+                    <div key={i} className={i === 1 ? "mt-3" : undefined}>
+                      {i === 1 && <div className="mb-1.5 text-xs font-semibold text-muted">Conditions treated</div>}
+                      <ul className="flex flex-wrap gap-2">
+                        {names.map((name) => (
+                          <li key={name} className="rounded-full border border-line bg-bg-alt px-3 py-1 text-xs">
+                            {name}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ),
+              )}
             </div>
           )}
 
