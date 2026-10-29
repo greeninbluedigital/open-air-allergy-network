@@ -62,6 +62,26 @@ banned words). Third person, platform voice: never "we" for the practice.
      ("three injections over about eight weeks, instead of years of allergy
      shots").
 
+## Practice voice, for practices with a signed agreement (owner, 2026-10-28)
+Once a practice signs OAAN's agreement (a $0 contract counts), its Short Bio
+and Extended Bio can be written as the practice speaking to the reader
+("we", "our office", "you"), with a marketing slant that helps the page
+convert. First used on the Dayton demo (Providers row 8). What changes and
+what doesn't:
+- **Changes:** no "the practice says" attribution, a direct opening hook
+  ("Don't want to spend years getting allergy shots?"), and a call to action
+  ("Send us a message on this page or call…"). The practice's phone number
+  can appear in the Extended Bio.
+- **Still applies:** every fact comes from the practice's site or what it
+  told OAAN; no prices, payment or insurance; no hours (Business Hours
+  column only); no "only" claims; never imply anyone can get ILIT (the
+  provider and patient decide together); describe ILIT accurately ("a course
+  typically takes three injections about a month apart", never a promise of
+  results); the style guide's punctuation and banned words.
+- **FAQs and the OAAN note under the bio stay in OAAN's neutral voice.**
+- Until the agreement is signed, a page in practice voice stays a demo
+  (Demo/Example Listing = Y).
+
 ## Wording
 - **Where the injection goes:** "a lymph node in the groin (just below the
   waist, near the hip)", never "groin" alone, which some readers take to
