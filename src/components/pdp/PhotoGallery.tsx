@@ -64,7 +64,8 @@ export function PhotoGallery({
                 className="relative aspect-4/3 flex-1 cursor-zoom-in overflow-hidden rounded bg-bg-alt"
                 aria-label={`${alt}: view photo ${i + 2} of ${allPhotos.length} full size`}
               >
-                <Image src={url} alt="" fill className="object-cover" />
+                {/* Thumbnails show at about a quarter of the content width. */}
+                <Image src={url} alt="" fill sizes="(min-width: 768px) 180px, 25vw" className="object-cover" />
               </button>
             ))}
           </div>
