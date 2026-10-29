@@ -4,7 +4,7 @@ import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { Badge, practiceBadges } from "@/components/Badge";
 import { ArticleFeed } from "@/components/ArticleFeed";
-import { cloudinaryFaceCrop } from "@/lib/cloudinary";
+import { cloudinaryFaceCrop, withCloudinaryTransform } from "@/lib/cloudinary";
 import type { ArticleDetailData } from "@/lib/articles";
 import { isVerifiedPlus } from "@/lib/tiers";
 import { practiceSchemaId } from "@/lib/metadata";
@@ -65,7 +65,7 @@ function ArticleGallery({ images }: { images: Record<string, unknown>[] }) {
           <figure key={src}>
             {/* eslint-disable-next-line @next/next/no-img-element -- Markdown body images have arbitrary author-pasted URLs, not known at build time. */}
             <img
-              src={src.replace("/upload/", "/upload/c_limit,w_800,f_auto,q_auto/")}
+              src={withCloudinaryTransform(src, "c_limit,w_800,f_auto,q_auto")}
               alt={String(img.alt ?? "")}
               loading="lazy"
               className="aspect-[4/3] w-full rounded object-cover"
@@ -84,7 +84,7 @@ function ArticleFigure({ src, alt, title }: { src: string; alt: string; title?: 
   return (
     <figure className={float ? "mx-auto my-5 w-3/5 max-w-[260px] sm:float-right sm:my-1 sm:ml-6 sm:w-2/5 sm:max-w-[280px]" : "my-4"}>
       {/* eslint-disable-next-line @next/next/no-img-element -- Markdown body images have arbitrary author-pasted URLs, not known at build time. */}
-      <img src={src.replace("/upload/", `/upload/c_limit,w_${float ? 600 : 1600},f_auto,q_auto/`)} alt={alt} className="w-full rounded" />
+      <img src={withCloudinaryTransform(src, `c_limit,w_${float ? 600 : 1600},f_auto,q_auto`)} alt={alt} className="w-full rounded" />
       {caption && <figcaption className="mt-1.5 text-xs leading-snug text-muted">{caption}</figcaption>}
     </figure>
   );
