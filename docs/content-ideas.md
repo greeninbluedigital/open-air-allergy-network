@@ -244,6 +244,19 @@ Report: aafa.org/wp-content/uploads/2026/03/aafa-2026-allergy-capitals-report.pd
   grasses (bahia), other trees, mold and dust mites; confirm with UF/IFAS
   Extension (EDIS) pages on Florida's allergenic plants and AAFA (Tampa
   29th). Each with its season and one tip.
+  **Images (owner, 2026-10-28):** hero is Plant Hall's minarets at the
+  University of Tampa (in the queue row; alt along the lines of "The silver
+  minarets of Plant Hall at the University of Tampa against a pink evening
+  sky"). Also place this in-article photo, floated beside the cypress
+  trigger's paragraph, captioned as a bald cypress at Lettuce Lake Park:
+  `![A bald cypress with a wide buttressed trunk and cypress knees rising from still water at Lettuce Lake Park in Tampa](https://res.cloudinary.com/qruprn0t/image/upload/c_crop,w_720,h_900,x_450,y_0/v1793248473/the-tampa-bay-estuary-program-m5DJTA8v7dA-unsplash_-_cypress_tree_in_lettuce_lake_park.jpg "Caption")`
+  (Unsplash photo, no credit required). Owner wants cypress as one of the
+  triggers if sources support it: UF/IFAS Gardening Solutions lists bald
+  cypress among Florida's highly allergenic tree pollens
+  (gardeningsolutions.ifas.ufl.edu/?p=24975) and UF/IFAS Northwest District
+  rates it 8 of 10. Sources disagree on its season (spring vs. winter), so
+  confirm the timing from UF/IFAS or a pollen count source before the
+  caption or body states it. Commercial allergy sites don't count.
 - **Los Angeles Allergies** (city page, same format as Austin and Dallas–
   Fort Worth): AAFA rank 82, Southern California's long pollen season and
   main trees, weeds and grasses (UC Cooperative Extension, county or AQMD
