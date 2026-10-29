@@ -29,8 +29,7 @@ updated.
    Area. Once happy, tell Claude to delete the old tabs (Leads, Locations,
    Pipeline Summary, Definitions).
 7. **Phone confirmations still missing** (no Verification Date, so no ILIT
-   Confirmed badge): St. Louis Family Allergy (both offices),
-   AllerPoint Arlington and Philadelphia, and about 20 Aspire offices
+   Confirmed badge): St. Louis Family Allergy (both offices) and about 20 Aspire offices
    (waiting on Aspire HQ's list). Grand Rapids: doctor named on the ILIT
    page still unconfirmed. Allergy Innovations (Kokomo and Westfield, IN,
    live on trial 10/21): confirm ILIT at both offices.
@@ -60,6 +59,13 @@ updated.
 15. **Elaria (Dr. Imanirad):** requested the pitch deck 10/15. Next step not
     set.
 16. **Aspire HQ:** list of offices that offer ILIT.
+16a. **AllerPoint (Dr. Patel):** confirmed ILIT at all locations by phone.
+    Follow-up email asks for photo permission (headshot, logo, Isra Smith
+    procedure illustrations), a larger headshot, office photos and red badge
+    wording. Once he says yes, log it in Notes (AR) and set up the photos
+    (`docs/image-guide.md`). Held for a later email, after the photos are
+    live: a link from his Locations page or footer to the Henrico page, and
+    the article credit offer.
 
 ## Content
 
