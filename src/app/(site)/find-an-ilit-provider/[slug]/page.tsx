@@ -451,8 +451,8 @@ export default async function ProviderDetailPage({
           mainPhoto={provider.photoUrl ?? stockPhoto.url}
           secondaryPhotos={isFullProfilePlus ? provider.secondaryPhotoUrls : []}
           shortBio={provider.shortBio}
-          alt={provider.practiceName}
-          mainAlt={provider.photoUrl ? provider.practiceName : stockPhoto.alt}
+          alt={`${provider.practiceName} in ${provider.city}, ${provider.state}`}
+          mainAlt={provider.photoUrl ? `${provider.practiceName} in ${provider.city}, ${provider.state}` : stockPhoto.alt}
         />
       )}
 

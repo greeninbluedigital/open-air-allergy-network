@@ -8,6 +8,11 @@ import Image from "next/image";
  * (wide right column), PDP-only (Full Profile+, Section 3). Owns the whole
  * two-column block, not just the images, so a click on any photo — main or
  * secondary — opens the same lightbox with prev/next through all of them.
+ *
+ * Each photo button is named by its image's alt text (practice name, city
+ * and photo number), plus "view full size" for screen readers only. Native
+ * alt text rather than an aria-label on the button, so search engines read
+ * the photos too (2026-10-28).
  */
 export function PhotoGallery({
   mainPhoto,
@@ -45,9 +50,9 @@ export function PhotoGallery({
             type="button"
             onClick={() => setOpenIndex(0)}
             className="absolute inset-0 cursor-zoom-in"
-            aria-label={`${mainAlt}: view photo 1 of ${allPhotos.length} full size`}
           >
             <Image src={mainPhoto} alt={mainAlt} fill sizes="(min-width: 768px) 208px, 100vw" className="object-cover" />
+            <span className="sr-only">View photo 1 of {allPhotos.length} full size</span>
           </button>
         )}
       </div>
@@ -62,10 +67,16 @@ export function PhotoGallery({
                 type="button"
                 onClick={() => setOpenIndex(i + 1)}
                 className="relative aspect-4/3 flex-1 cursor-zoom-in overflow-hidden rounded bg-bg-alt"
-                aria-label={`${alt}: view photo ${i + 2} of ${allPhotos.length} full size`}
               >
                 {/* Thumbnails show at about a quarter of the content width. */}
-                <Image src={url} alt="" fill sizes="(min-width: 768px) 180px, 25vw" className="object-cover" />
+                <Image
+                  src={url}
+                  alt={`${alt}, photo ${i + 2} of ${allPhotos.length}`}
+                  fill
+                  sizes="(min-width: 768px) 180px, 25vw"
+                  className="object-cover"
+                />
+                <span className="sr-only">View full size</span>
               </button>
             ))}
           </div>
@@ -112,7 +123,12 @@ export function PhotoGallery({
             </>
           )}
           <div className="relative h-full max-h-[85vh] w-full max-w-3xl" onClick={(e) => e.stopPropagation()}>
-            <Image src={allPhotos[openIndex]} alt={openIndex === 0 ? mainAlt : alt} fill className="object-contain" />
+            <Image
+              src={allPhotos[openIndex]}
+              alt={openIndex === 0 ? mainAlt : `${alt}, photo ${openIndex + 1} of ${allPhotos.length}`}
+              fill
+              className="object-contain"
+            />
           </div>
         </div>
       )}

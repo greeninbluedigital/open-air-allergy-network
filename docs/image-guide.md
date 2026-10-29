@@ -153,10 +153,12 @@ row 8).
 5. **Card photo (AE): a logo or a face.** A logo goes centered on a white
    square with a little margin (Elaria, Dayton). A face crop works too
    (Prairie). Check it at 64 pixels, the size it shows in search results.
-6. **Alt text:** the main photo's alt text is the practice name. The extra
-   photos' thumbnails are buttons labeled for screen readers ("…view photo 2
-   of 5 full size"), so their empty alt text is intentional. The sheet has
-   no alt text column.
+6. **Alt text is automatic (2026-10-28):** every photo gets the practice
+   name and city, and the extra photos add their number, e.g. "Dayton
+   Allergy & Asthma Care in Dayton, OH, photo 2 of 5". That alt text also
+   names each photo's button for screen readers (plus a hidden "view full
+   size"), and it gives Google Images something to read. The sheet has no
+   alt text column, so there's nothing to fill in.
 7. **Files:** keep the edited copies in OneDrive
    `provider images for site\<slug>\`, named `<slug>-srp-400.jpg`,
    `<person>-<slug>-main.jpg` and `<person>-<slug>-author-400.jpg`. Several
