@@ -7,6 +7,7 @@ import { ArticleFeed } from "@/components/ArticleFeed";
 import { cloudinaryFaceCrop } from "@/lib/cloudinary";
 import type { ArticleDetailData } from "@/lib/articles";
 import { isVerifiedPlus } from "@/lib/tiers";
+import { practiceSchemaId } from "@/lib/metadata";
 import { InlineArticleCard } from "@/components/InlineArticleCard";
 
 // Maps rendered Markdown elements to the site's existing type scale, rather
@@ -189,6 +190,26 @@ export function ArticleDetail({ article }: { article: ArticleDetailData }) {
   const backLabel = isLearn ? "← Back to Learn About ILIT" : "← Back to Blog";
   const creditLabel = isLearn ? "Medically reviewed by" : "Contributed by";
 
+  // The credited practitioner, tied to their practice: its OAAN page (by the
+  // id its own markup uses) and its website, so search engines can connect
+  // the article, the practice page and the practice site (2026-10-28).
+  const credited = showCredit && article.author && article.providerCredited ? article.providerCredited : null;
+  const creditedPerson = credited
+    ? {
+        "@type": "Person",
+        name: article.author!.name,
+        image: article.author!.photoUrl ?? undefined,
+        worksFor: {
+          "@type": "MedicalClinic",
+          "@id": practiceSchemaId(credited.slug),
+          name: credited.practiceName,
+          url: credited.website ?? undefined,
+          sameAs: credited.active ? [`${SITE_URL}/find-an-ilit-provider/${credited.slug}`] : undefined,
+        },
+      }
+    : null;
+  const pageUrl = `${SITE_URL}/${isLearn ? "learn-about-ilit" : "blog"}/${article.slug}`;
+
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -197,16 +218,29 @@ export function ArticleDetail({ article }: { article: ArticleDetailData }) {
     dateModified: article.lastUpdated.toISOString(),
     // Structured data mirrors what's actually visible — an unapproved LEARN
     // credit doesn't get claimed here either, even if authorId is staged.
+    // A Learn credit is a medical review, not authorship: OAAN stays the
+    // author and the reviewer goes in the page's reviewedBy (below).
     author:
-      article.author && showCredit
-        ? { "@type": "Person", name: article.author.name }
-        : { "@type": "Organization", name: "Open Air Allergy Network" },
+      creditedPerson && !isLearn ? creditedPerson : { "@type": "Organization", name: "Open Air Allergy Network" },
     image: article.featureImageUrl ?? undefined,
     // Legitimate schema.org property, distinct from the FAQPage block below
     // — no dedicated structured-data type exists for a "key takeaways"
     // bullet list, so this is the closest real fit for it.
     abstract: article.summaryPoints.length > 0 ? article.summaryPoints.join(" ") : undefined,
   };
+
+  // "Medically reviewed by" on a Learn page: schema.org puts the reviewer on
+  // the web page (reviewedBy), with the date the page shows as Last reviewed.
+  const reviewJsonLd =
+    isLearn && creditedPerson
+      ? {
+          "@context": "https://schema.org",
+          "@type": "MedicalWebPage",
+          url: pageUrl,
+          reviewedBy: creditedPerson,
+          lastReviewed: article.lastUpdated.toISOString().slice(0, 10),
+        }
+      : null;
 
   const faqJsonLd =
     article.faqItems.length > 0
@@ -224,6 +258,9 @@ export function ArticleDetail({ article }: { article: ArticleDetailData }) {
   return (
     <div className="mx-auto max-w-3xl px-6 py-8 sm:px-10">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      {reviewJsonLd && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewJsonLd) }} />
+      )}
       {faqJsonLd && (
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       )}

@@ -30,3 +30,11 @@ export const DEFAULT_OG_IMAGE = {
   height: 630,
   alt: "Open Air Allergy Network logo: an open blue circle with a green smile beside the name",
 };
+
+const SCHEMA_SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
+
+/** The structured data id of a practice's MedicalClinic node on its own page
+ * (/find-an-ilit-provider/{slug}), shared so other pages can refer to it. */
+export function practiceSchemaId(slug: string): string {
+  return `${SCHEMA_SITE_URL}/find-an-ilit-provider/${slug}#practice`;
+}

@@ -109,6 +109,8 @@ for the cron jobs).
 
 Practice page section headings are H2s (2026-10-27): "About {Practice}", "Getting Here", "Patient Reviews for {Practice}", "FAQs About ILIT Allergy Treatment at {Practice}", "Other Locations", "Contact {Practice}".
 
+Credited articles (2026-10-28): a Blog "Contributed by" credit makes the practitioner the Article's `author` (a Person), and a Learn "Medically reviewed by" credit keeps OAAN as the author and adds a `MedicalWebPage` with `reviewedBy` and `lastReviewed`. Either way the Person has `worksFor` the practice: its name, website (`url`), OAAN page (`sameAs`) and the `@id` that the practice page's own MedicalClinic markup uses (`{page URL}#practice`, `practiceSchemaId()` in `src/lib/metadata.ts`). That's what ties the article, the practice page and the practice's website together for search engines.
+
 Practice page structured data never includes `AggregateRating` (removed 2026-10-27): Google's review snippet guidelines don't allow marking up ratings aggregated from other sites, and ours come from Google and Yelp. The visible reviews are fine. Star ratings in search results would need OAAN's own first-party reviews.
 
 - PDP (all tiers, Freemium since 2026-10-27): practice name as the dominant line, with a smaller "ILIT Provider in

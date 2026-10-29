@@ -12,6 +12,7 @@ import { PatientReviews, reviewsWouldShow } from "@/components/PatientReviews";
 import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { PhotoGallery } from "@/components/pdp/PhotoGallery";
 import { OtherLocations } from "@/components/pdp/OtherLocations";
+import { practiceSchemaId } from "@/lib/metadata";
 import { groupTreatments } from "@/lib/treatments";
 import { DEFAULT_OG_IMAGE, truncateForMeta } from "@/lib/metadata";
 import { parseFormError } from "@/lib/forms";
@@ -261,6 +262,9 @@ export default async function ProviderDetailPage({
   const businessJsonLd = {
     "@context": "https://schema.org",
     "@type": "MedicalClinic",
+    // A stable id, so a credited article's author markup can point at this
+    // practice (ArticleDetail.tsx, practiceSchemaId).
+    "@id": practiceSchemaId(provider.slug),
     name: provider.practiceName,
     address: {
       "@type": "PostalAddress",
