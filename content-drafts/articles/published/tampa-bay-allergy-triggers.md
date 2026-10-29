@@ -181,7 +181,9 @@ Mold is easy to miss because it isn't pollen. The [AAFA](https://aafa.org/wp-con
 
 Dust mites keep allergies going after the pollen settles. The [AAFA](https://aafa.org/allergies/types-of-allergies/insect-allergy/dust-mite-allergy/) says they thrive in temperatures around 70°F and above, with humidity over 50%. Tampa's normal average temperature stays above 70°F every month from April through October, according to the [National Weather Service](https://www.weather.gov/media/tbw/climate/normals/TPADailyTable.pdf), so conditions suit them for much of the year.
 
-**Tip:** Start in the bedroom, where the AAFA says there are usually more mites than anywhere else in the home. Use zippered allergen barrier covers on the mattress and pillows, wash bedding weekly in water at least 130°F, and run the air conditioner or a dehumidifier to keep humidity between 30% and 50%. Our [dust mite allergy guide](/blog/dust-mite-allergy) has the full steps.
+**Tip:** Start in the bedroom, where the AAFA says there are usually more mites than anywhere else in the home. Use zippered allergen barrier covers on the mattress and pillows, wash bedding weekly in water at least 130°F, and run the air conditioner or a dehumidifier to keep humidity between 30% and 50%.
+
+[Dust Mite Allergy: Symptoms, Triggers and Treatment](/blog/dust-mite-allergy "card")
 
 ## What probably isn't to blame
 
