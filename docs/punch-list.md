@@ -24,9 +24,8 @@ updated.
 
 ## Your actions
 
-6. **CRM:** check the new Pipeline tab. Confirm AllerPoint's status (was
-   the mid-October note sent?) and send the OAAN note to Paullette at Bay
-   Area. Once happy, tell Claude to delete the old tabs (Leads, Locations,
+6. **CRM:** check the new Pipeline tab and send the OAAN note to Paullette
+   at Bay Area. Once happy, tell Claude to delete the old tabs (Leads, Locations,
    Pipeline Summary, Definitions).
 7. **Phone confirmations still missing** (no Verification Date, so no ILIT
    Confirmed badge): St. Louis Family Allergy (both offices) and about 20 Aspire offices
