@@ -38,7 +38,7 @@ Specs and limits live in [tiers-and-pricing.md](tiers-and-pricing.md)
       street before the state, e.g. `bay-area-allergy-asthma-st-petersburg-central-ave-fl`
       Office named after a nearby community (not a whole metro): put that
       name before the address city, e.g. `aspire-allergy-sinus-lakeway-bee-cave-tx`
-- [ ] Upload photos to Cloudinary, paste the URLs (AC, AD, AE)
+- [ ] Upload photos to Cloudinary, paste the URLs (AC, AD, AE). Log photo permission in V or AR, use originals and crop links (docs/image-guide.md, "Practice photos")
 - [ ] Fill the row: Notification Email (K), and Public (L) `Y` only if
       their own site lists it. Tier (M), add-ons (N, O, P), bios (AA, AB),
       hours (AF, AG), treatments (AH), consults (W to Y), message (Z),

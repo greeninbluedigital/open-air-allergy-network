@@ -121,6 +121,49 @@ page actually displays it. Last updated 2026-10-06.
 - Only shown for Full Profile and Featured practices. Blank shows no photo,
   not a placeholder.
 
+### Practice photos: how to set them up (2026-10-28)
+Learned from the two practices with their own photos so far, Prairie
+Allergy (Providers row 29) and Dayton Allergy & Asthma Care (row 114, demo
+row 8).
+
+1. **Permission first.** Use only photos the practice owns and has said we
+   can use, and log who said so and when in Verification Notes (V) or Notes
+   (AR). Practice sites often use stock images (Wix and Unsplash photos,
+   e.g. alt text "Image by …" or file names starting `nsplsh_`). Those
+   aren't the practice's photos: skip them. Our own stock photos are the
+   right filler.
+2. **Get the original file, not the resized copy the page shows.** Dayton's
+   headshot displayed at 398 × 498 but the original was 2400 × 3000.
+   - Wix (`static.wixstatic.com/media/…`): drop everything from `/v1/` on.
+   - WordPress: drop the size suffix (`-2048x1366`, `-scaled`) from the
+     file name.
+3. **Crop with the Cloudinary link (preferred) or before uploading.**
+   Prairie's way: upload the original once and add the crop to each link, so
+   the shapes can be changed later without re-uploading.
+   - Main photo (AC): `…/upload/c_fill,g_face,ar_4:5,w_1200/v…/file.jpg`
+   - Extra photos (AD): `…/upload/c_fill,g_auto,ar_4:3,w_1600/v…/file.jpg`
+     (`g_face` when a person is the subject)
+   - Card photo (AE): `…/upload/c_fill,g_face,ar_1:1,w_400/v…/file.jpg`
+   Dayton's way: crop and resize on the computer, then upload. Fine too, but
+   a new crop means a new upload.
+4. **Extra photos need to be large enough for the full-size view.** Clicking
+   a thumbnail opens the photo full size, so aim for at least 1200 wide (1600
+   is better). Dayton's two building photos (1000 and 800 wide) work as
+   thumbnails but look soft when opened.
+5. **Card photo (AE): a logo or a face.** A logo goes centered on a white
+   square with a little margin (Elaria, Dayton). A face crop works too
+   (Prairie). Check it at 64 pixels, the size it shows in search results.
+6. **Alt text:** the main photo's alt text is the practice name. The extra
+   photos' thumbnails are buttons labeled for screen readers ("…view photo 2
+   of 5 full size"), so their empty alt text is intentional. The sheet has
+   no alt text column.
+7. **Files:** keep the edited copies in OneDrive
+   `provider images for site\<slug>\`, named `<slug>-srp-400.jpg`,
+   `<person>-<slug>-main.jpg` and `<person>-<slug>-author-400.jpg`. Several
+   AD links are separated by semicolons, and line breaks between them are fine.
+8. **Reviews on a new Featured or trial row** appear after the weekly review
+   fetch. Ask Claude to run it early if a page needs them right away.
+
 ### Article author photo
 - **Square, 400 × 400**, with the face roughly centered. The site finds the
   face automatically and crops it into a small circle beside the "Contributed
