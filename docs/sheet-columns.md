@@ -145,23 +145,24 @@ whatever's currently saved in the sheet at that moment, blank rows and all
 (a row missing a Question or Answer is just skipped, not treated as
 "delete everything").
 
-## Fourth tab: "Learn Page Credits"
+## Fourth tab: "Article Credits"
 
-Tab name must be exactly **"Learn Page Credits"**. Manages the
-"Medically reviewed by" credit on `/learn-about-ilit/[slug]` cluster pages
-(the keyword-targeted comparison/education content — see
-`docs/blog-content-guide.md`). This tab does **not** manage page content
-(title/body/tags) — those pages are database-authored the same way blog
-articles are; this tab only assigns and approves who gets credited. Row 1 is
-headers, row 2 onward is data.
+Tab name: **"Article Credits"** (it was "Learn Page Credits" until
+2026-10-28; the sync still reads the old name if the tab hasn't been
+renamed). Credits a practitioner on any article, Blog or Learn, either as
+the contributor or as the medical reviewer. This tab does **not** manage
+page content (title/body/tags); it only assigns and approves who gets
+credited. Row 1 is headers, row 2 onward is data.
 
 | # | Column | Notes |
 |---|--------|-------|
-| A | Page Slug | Must match an existing `/learn-about-ilit/[slug]` article's slug — the article has to already exist (create it first, same as any Blog article). **If an article's slug is ever renamed, update this cell to the new slug too**, or the next sync logs an error for the old slug and clears the credit on the renamed article |
-| B | Provider Slug | Must match an existing row's Provider Slug on the Providers tab. That provider also needs at least one linked practitioner on the **Practitioners** tab (below) — same requirement as a Blog contribution |
-| C | Practitioner Slug | Optional. Only needed if the provider has more than one practitioner on the Practitioners tab — picks which one gets credited. Leave blank and the sync uses whichever practitioner is linked (fine for the common case of exactly one) |
-| D | Approved | `Y` / `N` — the actual on/off switch. The "Medically reviewed by" box only renders when this is `Y`, regardless of whether the author/provider links are set. Set to `N` (or delete the row) to pull the credit immediately on the next sync — e.g. a Featured subscription lapses |
-| E | Notes | Internal only — your own record of how/when you got documented approval. Not used by the sync logic |
+| A | Page Slug | The article's slug, from its URL (`/blog/{slug}` or `/learn-about-ilit/{slug}`). The article has to be published already. **If an article's slug is ever renamed, update this cell too**, or the next sync logs an error for the old slug and clears the credit on the renamed article |
+| B | Provider Slug | Must match a row's Provider Slug on the Providers tab. That provider also needs at least one linked practitioner on the **Practitioners** tab |
+| C | Practitioner Slug | Optional. Only needed if the provider has more than one practitioner on the Practitioners tab: picks which one gets credited. Leave blank and the sync uses whichever practitioner is linked |
+| D | Approved | `Y` / `N`, the on/off switch for every credit, Blog included. The credit only shows when this is `Y`. Set it to `N` (or delete the row) to pull the credit on the next sync |
+| E | Notes | Internal only: your record of how and when you got the practitioner's approval. Not read by the sync |
+| F | Keyword Targets | Internal only: your keyword notes for the page. Not read by the sync |
+| G | Credit Type | **New (2026-10-28).** `Contributed by` (the practitioner wrote or co-wrote it: they're shown and marked up as the author) or `Medically reviewed by` (they reviewed an article OAAN wrote: OAAN stays the author and they're marked up as the reviewer). Blank uses the section's default: Blog `Contributed by`, Learn `Medically reviewed by`. Only give "Contributed by" for an article the practitioner actually wrote or helped write |
 
 Behavior notes:
 - A page's credit only updates when something in the row actually changed

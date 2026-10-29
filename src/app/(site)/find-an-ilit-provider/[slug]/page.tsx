@@ -13,6 +13,7 @@ import { PageViewTracker } from "@/components/analytics/PageViewTracker";
 import { PhotoGallery } from "@/components/pdp/PhotoGallery";
 import { OtherLocations } from "@/components/pdp/OtherLocations";
 import { practiceSchemaId } from "@/lib/metadata";
+import { SHOWN_CREDIT } from "@/lib/credits";
 import { groupTreatments } from "@/lib/treatments";
 import { DEFAULT_OG_IMAGE, truncateForMeta } from "@/lib/metadata";
 import { parseFormError } from "@/lib/forms";
@@ -254,7 +255,7 @@ export default async function ProviderDetailPage({
           select: { slug: true, practiceName: true, city: true, state: true, latitude: true, longitude: true },
         })
       : Promise.resolve([]),
-    db.article.count({ where: { providerCreditedId: provider.id, status: "PUBLISHED" } }),
+    db.article.count({ where: { providerCreditedId: provider.id, status: "PUBLISHED", ...SHOWN_CREDIT } }),
   ]);
 
   // Structured data only describes what the page shows: Freemium pages show

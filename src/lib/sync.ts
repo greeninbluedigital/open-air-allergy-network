@@ -1,3 +1,4 @@
+import type { ArticleCreditType } from "@/generated/prisma/client";
 import { standardTreatmentName } from "@/lib/treatments";
 import { db } from "@/lib/db";
 import { fetchSheetRows } from "@/lib/googleSheets";
@@ -457,15 +458,36 @@ async function syncFaqs(): Promise<FaqSyncSummary> {
   return summary;
 }
 
-// Fourth sheet tab — assigns/approves the "Medically reviewed by" credit on
-// /learn-about-ilit/[slug] cluster pages (Article.section = LEARN). Deliberately
-// separate from the Blog's "Contributed by" (Article.authorId/providerCreditedId
-// set directly, ungated) — this credit only renders when Approved is TRUE,
+// Fourth sheet tab, "Article Credits" (was "Learn Page Credits" until
+// 2026-10-28): assigns and approves a practitioner's credit on any article,
+// Blog or Learn, as "Contributed by" or "Medically reviewed by" (Credit
+// Type, src/lib/credits.ts). A credit only renders when Approved is TRUE,
 // so a page can be staged before there's documented sign-off, and pulled
-// instantly (next sync) if a Featured subscription lapses, without deleting
-// the underlying links. See docs/blog-content-guide.md.
-const LEARN_CREDIT_COLUMNS = ["pageSlug", "providerSlug", "practitionerSlug", "approved", "notes"] as const;
-const LEARN_CREDIT_SHEET_RANGE = "Learn Page Credits!A2:E";
+// instantly (next sync) without deleting the underlying links. Column F
+// (Keyword Targets) is the owner's notes, not read. See
+// docs/blog-content-guide.md.
+const LEARN_CREDIT_COLUMNS = [
+  "pageSlug",
+  "providerSlug",
+  "practitionerSlug",
+  "approved",
+  "notes",
+  "keywordTargets",
+  "creditType",
+] as const;
+const ARTICLE_CREDIT_SHEET_RANGE = "Article Credits!A2:G";
+// Read if the tab hasn't been renamed yet.
+const LEGACY_CREDIT_SHEET_RANGE = "Learn Page Credits!A2:G";
+
+// "Contributed by" or "Medically reviewed by" (a few short forms accepted);
+// blank means the section's default. Undefined for anything else.
+function parseCreditType(cell: string): ArticleCreditType | null | undefined {
+  const v = cell.trim().toLowerCase();
+  if (!v) return null;
+  if (v.startsWith("contribut") || v === "author") return "CONTRIBUTED";
+  if (v.includes("review")) return "MEDICALLY_REVIEWED";
+  return undefined;
+}
 
 function parseLearnCreditRow(row: string[]): Record<(typeof LEARN_CREDIT_COLUMNS)[number], string> {
   const record = {} as Record<(typeof LEARN_CREDIT_COLUMNS)[number], string>;
@@ -487,7 +509,12 @@ async function syncLearnPageCredits(): Promise<LearnCreditSyncSummary> {
   const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
   if (!spreadsheetId) throw new Error("GOOGLE_SHEETS_SPREADSHEET_ID is not set");
 
-  const rawRows = await fetchSheetRows(spreadsheetId, LEARN_CREDIT_SHEET_RANGE);
+  let rawRows: string[][];
+  try {
+    rawRows = await fetchSheetRows(spreadsheetId, ARTICLE_CREDIT_SHEET_RANGE);
+  } catch {
+    rawRows = await fetchSheetRows(spreadsheetId, LEGACY_CREDIT_SHEET_RANGE);
+  }
   const summary: LearnCreditSyncSummary = { updated: 0, unchanged: 0, cleared: 0, skipped: 0, errors: [] };
   const mentionedPageSlugs = new Set<string>();
 
@@ -502,9 +529,14 @@ async function syncLearnPageCredits(): Promise<LearnCreditSyncSummary> {
     mentionedPageSlugs.add(pageSlug);
 
     try {
-      const article = await db.article.findUnique({ where: { slug: pageSlug, section: "LEARN" } });
+      const article = await db.article.findUnique({ where: { slug: pageSlug } });
       if (!article) {
-        summary.errors.push(`${pageSlug}: no LEARN-section article with this slug (create it first)`);
+        summary.errors.push(`${pageSlug}: no article with this slug (publish it first)`);
+        continue;
+      }
+      const creditType = parseCreditType(r.creditType);
+      if (creditType === undefined) {
+        summary.errors.push(`${pageSlug}: Credit Type "${r.creditType.trim()}" should be "Contributed by" or "Medically reviewed by" (or blank)`);
         continue;
       }
 
@@ -538,7 +570,8 @@ async function syncLearnPageCredits(): Promise<LearnCreditSyncSummary> {
       const changed =
         article.authorId !== authorLink.authorId ||
         article.providerCreditedId !== provider.id ||
-        article.reviewApproved !== approved;
+        article.reviewApproved !== approved ||
+        article.creditType !== creditType;
 
       if (changed) {
         // Only touch the row when something real changed — lastUpdated is
@@ -547,7 +580,7 @@ async function syncLearnPageCredits(): Promise<LearnCreditSyncSummary> {
         // even when nothing was actually reviewed.
         await db.article.update({
           where: { id: article.id },
-          data: { authorId: authorLink.authorId, providerCreditedId: provider.id, reviewApproved: approved },
+          data: { authorId: authorLink.authorId, providerCreditedId: provider.id, reviewApproved: approved, creditType },
         });
         summary.updated++;
       } else {
@@ -558,13 +591,13 @@ async function syncLearnPageCredits(): Promise<LearnCreditSyncSummary> {
     }
   }
 
-  // Any LEARN article not mentioned in this sync pass loses its approval —
+  // Any article not mentioned in this sync pass loses its approval —
   // deleting/blanking a sheet row is how a credit gets turned off (e.g. a
   // Featured subscription lapses), same intuitive edit/delete behavior as
   // the other secondary tabs, without destroying the staged author/provider
   // links in case the same practice gets re-approved later.
   const toClear = await db.article.findMany({
-    where: { section: "LEARN", reviewApproved: true, slug: { notIn: [...mentionedPageSlugs] } },
+    where: { reviewApproved: true, slug: { notIn: [...mentionedPageSlugs] } },
     select: { id: true },
   });
   for (const { id } of toClear) {
@@ -929,7 +962,7 @@ export async function runSync(): Promise<SyncSummary> {
   }
 
   // Must run before learnCredits — it resolves practitioner links that a
-  // newly-added row on the Learn Page Credits tab may depend on this run.
+  // newly-added row on the Article Credits tab may depend on this run.
   try {
     summary.practitioners = await syncPractitioners();
   } catch (err) {

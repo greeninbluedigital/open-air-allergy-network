@@ -38,6 +38,11 @@ enum ArticleSection {
   LEARN
 }
 
+enum ArticleCreditType {
+  CONTRIBUTED
+  MEDICALLY_REVIEWED
+}
+
 enum ArticleStatus {
   DRAFT
   IN_REVIEW
@@ -381,6 +386,13 @@ model Article {
   // Not used by BLOG-section articles (their "Contributed by" credit stays
   // ungated, unchanged from before this field existed).
   reviewApproved Boolean @default(false)
+
+  // Which credit the practitioner gets (2026-10-28): CONTRIBUTED shows
+  // "Contributed by" and makes them the author; MEDICALLY_REVIEWED shows
+  // "Medically reviewed by" and makes them the page's reviewer, with OAAN
+  // the author. Set on the sheet's Article Credits tab. Blank keeps each
+  // section's default: Blog contributed, Learn reviewed.
+  creditType ArticleCreditType?
 
   // Freeform, counted/sorted by frequency for the Blog's tag filter — a plain
   // array rather than a normalized Tag table, since tags are intentionally

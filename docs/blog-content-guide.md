@@ -298,47 +298,33 @@ meta-analysis (483 participants).
 | 2026-09-28 | Jiang S, Xie S, Tang Q, et al. "Evaluation of Intralymphatic Immunotherapy in Allergic Rhinitis Patients: A Systematic Review and Meta-analysis." *Mediators of Inflammation*. 2023;2023:9377518. doi:10.1155/2023/9377518. PMID: 37197570. [PMC10185423](https://pmc.ncbi.nlm.nih.gov/articles/PMC10185423/) | Declined | **Data-quality red flags:** the quality-of-life result is printed with a confidence interval that can't match its p-value (minus signs missing, in both abstract and results); the authors' conclusion ("validated the safety and effectiveness") is stronger than their own stated limitations (substantial heterogeneity and risk of bias, selective-reporting risk unclear in 62% of trials); the booster-injection finding rests on a 2-trial subgroup; the nasal-score interval subgroup uses a scale direction the paper doesn't explain; the paper says ILIT was "favored" for injection-site swelling when swelling was more common with ILIT. Summarizing it honestly would mean explaining away the paper's own errors. **Funding disclosure:** funded by the National Natural Science Foundation of China and the Hunan Provincial Natural Science Foundation. The playbook requires disclosing funding, and the owner judged that disclosure could be a sensitive topic for some US readers. Mixed results otherwise (13 RCTs, 454 participants): symptom/medication scores and quality of life improved vs. placebo; nasal symptom scores and skin-prick tests showed no significant difference; local swelling/redness more common with ILIT, no severe adverse events reported. |
 | 2026-09-28 | Ramchandani R, Lucyshyn R, Linton S, Ellis AK. "Breaking the mold: nontraditional approaches to allergen immunotherapy for environmental allergens." *Immunotherapy*. 2024;16(18-19):1153-1169. doi:10.1080/1750743X.2024.2408216. PMID: 39382452. [PMC11633400](https://pmc.ncbi.nlm.nih.gov/articles/PMC11633400/) | Declined | **Misreports its sources:** narrative review whose ILIT section cites the Jiang 2023 meta-analysis (declined above) inaccurately: gives Jiang's symptom-medication result as SMD -0.51 (95% CI -1.31 to 0.28) and calls it significant, when Jiang reported -0.85 (-1.58 to -0.11); says Jiang found the booster significantly improved nasal (VAS) scores, when Jiang's VAS booster subgroup showed no difference (p = 0.60); copies Jiang's misprinted quality-of-life interval; gives Jiang's n as 452 (Jiang: 454). **Secondary source:** a summary would be a summary of a summary, and ILIT is one short section of seven approaches. **Conflicts of interest (disclosed):** senior author AK Ellis lists advisory, speaker, grant, or consulting ties to more than a dozen companies, including ALK-Abelló and Stallergenes Greer (major SCIT/SLIT product makers), and was president of the Canadian Society of Allergy and Clinical Immunology at submission. No funding statement found. Otherwise measured on ILIT: "the efficacy and safety of ILIT are not yet fully established, and no ILIT products have been approved for use"; mostly local, mild side effects; fewer reactions than SCIT; little pediatric data. |
 
-## Crediting a guest article to a practice (BLOG)
+## Crediting a practitioner on an article (Blog or Learn)
 
-Practitioners (the `Author` record — name/title as it should appear in a
-byline, bio, which provider(s) they're affiliated with) are managed on the
-**"Practitioners"** sheet tab now, not Prisma Studio — see
-`docs/sheet-columns.md`. Create the practitioner there first if they're new.
+Since 2026-10-28 every credit, Blog or Learn, is set on the **"Article
+Credits"** sheet tab (`docs/sheet-columns.md`), not by a direct database
+write, and every credit needs Approved = `Y` before it shows.
 
-Then set two fields on the Article (still a direct DB write, not
-sheet-synced):
-- `Article.authorId` → that `Author` record's id. The credit box's headshot
-  comes from the practitioner's Thumbnail URL on the Practitioners tab
-  (column E), so it's the same on every article they're credited on. Only
-  use a photo of that specific person; confirm with the provider, don't
-  assume for multi-doctor practices.
-- `Article.providerCreditedId` → the credited `Provider`'s id.
+1. Create the practitioner on the **Practitioners** tab if they're new
+   (name as it should appear, headshot in column E, linked practice). Only
+   use a photo of that specific person.
+2. Add a row on Article Credits: Page Slug, Provider Slug, Practitioner Slug
+   (only if the practice has more than one), Approved, and Credit Type:
+   - **Contributed by**: the practitioner wrote or co-wrote the article
+     (including a draft OAAN wrote for them and they edited and approved).
+     The byline says "By {name}", and the markup makes them the author.
+   - **Medically reviewed by**: they reviewed and approved an article OAAN
+     wrote. The byline says "Medically reviewed by {name}", OAAN stays the
+     author, and the markup names them as the page's reviewer.
+   - Blank: Blog defaults to Contributed by, Learn to Medically reviewed by.
+3. Run the sync.
 
-This drives three things automatically: the "Contributed by" byline box on
-the article page, the "contrib" (vs. "house") badge color on its tags, and
-the PDP's "Articles From This Practice" module for that provider. Unlike
-LEARN's credit (below), this is ungated — it shows as soon as both fields
-are set, no separate approval flag.
-
-## Crediting a LEARN cluster page ("Medically reviewed by")
-
-Different mechanism, and deliberately not a straight copy of the BLOG one:
-this credit is a paid perk (rolled into the Featured provider package), so
-it needs to reflect actual documented approval from the credited practice,
-not just a nameplate — and needs to be pullable in one step if a Featured
-subscription lapses.
-
-Managed via the **"Learn Page Credits"** sheet tab (see
-`docs/sheet-columns.md`), not a direct DB write: Page Slug, Provider Slug,
-Practitioner Slug (optional — only needed if the provider has more than one
-practitioner on the Practitioners tab), Approved (Y/N), Notes. Under the
-hood this sets the same `authorId` / `providerCreditedId` fields as a BLOG
-credit, plus `Article.reviewApproved` — the box only renders when that's
-`true`. This means a credit can be staged (author + provider linked) before
-there's documented sign-off, and turned off in one sync run — set `Approved`
-to `N` or delete the row — without losing the underlying links if the same
-practice gets re-approved later. See the schema comment on
-`Article.reviewApproved` for the full reasoning.
+An approved credit drives: the credit box on the article (headshot, name,
+practice, link to the practice page while it's an active paid listing), the
+"contrib" tag color, the byline and article cards, the practice page's
+"Articles From This Practice" module, and the structured data tying the
+practitioner to their practice page and website (`docs/metadata-rules.md`).
+A staged row with Approved = `N` shows none of it. Setting `N` or deleting
+the row turns it all off on the next sync without losing the links.
 
 Practical flow: get the practice's actual sign-off on the page content
 first (even a quick approve/edit pass — the point is a real doctor actually

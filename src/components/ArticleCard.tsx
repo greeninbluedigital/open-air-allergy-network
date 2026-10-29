@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { creditKind, creditShows } from "@/lib/credits";
 import type { Prisma } from "@/generated/prisma/client";
 
 export type ArticleCardData = Prisma.ArticleGetPayload<{ include: { author: true } }>;
@@ -7,10 +8,10 @@ export type ArticleCardData = Prisma.ArticleGetPayload<{ include: { author: true
 export function ArticleCard({ article }: { article: ArticleCardData }) {
   const isLearn = article.section === "LEARN";
   // Same gating as the article page itself (ArticleDetail.tsx) — a
-  // staged-but-unapproved LEARN credit shouldn't show the author name here
+  // staged-but-unapproved credit shouldn't show the practitioner's name here
   // either, even though this component doesn't render the full credit box.
-  const isContribution = Boolean(article.authorId && article.providerCreditedId);
-  const showCredit = isLearn ? isContribution && article.reviewApproved : isContribution;
+  const showCredit = creditShows(article);
+  const isReview = creditKind(article) === "MEDICALLY_REVIEWED";
   return (
     <Link
       href={`/${isLearn ? "learn-about-ilit" : "blog"}/${article.slug}`}
@@ -37,7 +38,11 @@ export function ArticleCard({ article }: { article: ArticleCardData }) {
           showCredit && <div className="text-xs text-muted">{article.author!.name}</div>
         ) : (
           <div className="text-xs text-muted">
-            {article.author && <>By {article.author.name} · </>}
+            {showCredit && article.author && (
+              <>
+                {isReview ? "Reviewed by" : "By"} {article.author.name} ·{" "}
+              </>
+            )}
             {article.publishedDate?.toLocaleDateString("en-US", { month: "short", year: "numeric" })}
           </div>
         )}

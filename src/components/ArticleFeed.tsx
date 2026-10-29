@@ -1,3 +1,4 @@
+import { SHOWN_CREDIT } from "@/lib/credits";
 import { db } from "@/lib/db";
 import { ArticleCard } from "@/components/ArticleCard";
 import type { ArticleSection } from "@/generated/prisma/client";
@@ -57,8 +58,10 @@ export async function ArticleFeed({
     status: "PUBLISHED" as const,
     ...(section !== "ALL" ? { section } : {}),
     ...(tag ? { tags: { has: tag } } : {}),
-    ...(providerCreditedId ? { providerCreditedId } : {}),
-    ...(providerCreditedOnly ? { providerCreditedId: { not: null } } : {}),
+    // "From this practice" only counts credits that actually show (approved
+    // on the Article Credits tab), never staged ones.
+    ...(providerCreditedId ? { providerCreditedId, ...SHOWN_CREDIT } : {}),
+    ...(providerCreditedOnly ? { providerCreditedId: { not: null }, ...SHOWN_CREDIT } : {}),
   };
 
   // Always excluded, on top of whichever slot's own already-picked IDs — kept

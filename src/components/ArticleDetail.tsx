@@ -8,6 +8,7 @@ import { cloudinaryFaceCrop } from "@/lib/cloudinary";
 import type { ArticleDetailData } from "@/lib/articles";
 import { isVerifiedPlus } from "@/lib/tiers";
 import { practiceSchemaId } from "@/lib/metadata";
+import { CREDIT_LABEL, creditKind, creditShows } from "@/lib/credits";
 import { InlineArticleCard } from "@/components/InlineArticleCard";
 
 // Maps rendered Markdown elements to the site's existing type scale, rather
@@ -180,15 +181,15 @@ function faqAnswerForSchema(answer: string) {
  */
 export function ArticleDetail({ article }: { article: ArticleDetailData }) {
   const isLearn = article.section === "LEARN";
-  const isContribution = Boolean(article.authorId && article.providerCredited);
-  // LEARN's credit is gated on documented approval (see Article.reviewApproved)
-  // — staged authorId/providerCreditedId links can exist without the credit
-  // showing. BLOG's "Contributed by" is unchanged, ungated behavior.
-  const showCredit = isLearn ? isContribution && article.reviewApproved : isContribution;
+  // Any credit, Blog or Learn, shows only once approved on the Article
+  // Credits tab (src/lib/credits.ts), so staged links never show early.
+  const showCredit = creditShows(article) && Boolean(article.author && article.providerCredited);
+  const credit = creditKind(article);
+  const isReview = credit === "MEDICALLY_REVIEWED";
 
   const backHref = isLearn ? "/learn-about-ilit" : "/blog";
   const backLabel = isLearn ? "← Back to Learn About ILIT" : "← Back to Blog";
-  const creditLabel = isLearn ? "Medically reviewed by" : "Contributed by";
+  const creditLabel = CREDIT_LABEL[credit];
 
   // The credited practitioner, tied to their practice: its OAAN page (by the
   // id its own markup uses) and its website, so search engines can connect
@@ -216,12 +217,12 @@ export function ArticleDetail({ article }: { article: ArticleDetailData }) {
     headline: article.title,
     datePublished: article.publishedDate?.toISOString(),
     dateModified: article.lastUpdated.toISOString(),
-    // Structured data mirrors what's actually visible — an unapproved LEARN
+    // Structured data mirrors what's actually visible — an unapproved
     // credit doesn't get claimed here either, even if authorId is staged.
-    // A Learn credit is a medical review, not authorship: OAAN stays the
-    // author and the reviewer goes in the page's reviewedBy (below).
+    // A review credit isn't authorship: OAAN stays the author and the
+    // reviewer goes in the page's reviewedBy (below).
     author:
-      creditedPerson && !isLearn ? creditedPerson : { "@type": "Organization", name: "Open Air Allergy Network" },
+      creditedPerson && !isReview ? creditedPerson : { "@type": "Organization", name: "Open Air Allergy Network" },
     image: article.featureImageUrl ?? undefined,
     // Legitimate schema.org property, distinct from the FAQPage block below
     // — no dedicated structured-data type exists for a "key takeaways"
@@ -229,16 +230,16 @@ export function ArticleDetail({ article }: { article: ArticleDetailData }) {
     abstract: article.summaryPoints.length > 0 ? article.summaryPoints.join(" ") : undefined,
   };
 
-  // "Medically reviewed by" on a Learn page: schema.org puts the reviewer on
-  // the web page (reviewedBy), with the date the page shows as Last reviewed.
+  // A "Medically reviewed by" credit: schema.org puts the reviewer on the
+  // web page (reviewedBy). Learn pages also show the review date.
   const reviewJsonLd =
-    isLearn && creditedPerson
+    isReview && creditedPerson
       ? {
           "@context": "https://schema.org",
           "@type": "MedicalWebPage",
           url: pageUrl,
           reviewedBy: creditedPerson,
-          lastReviewed: article.lastUpdated.toISOString().slice(0, 10),
+          ...(isLearn ? { lastReviewed: article.lastUpdated.toISOString().slice(0, 10) } : {}),
         }
       : null;
 
@@ -284,19 +285,16 @@ export function ArticleDetail({ article }: { article: ArticleDetailData }) {
 
       <h1 className="text-3xl font-extrabold">{article.title}</h1>
       <div className="mt-2 mb-6 text-xs text-muted">
-        {/* House/unapproved content shows no name at all, just the date.
-            LEARN's approved credit says "Medically reviewed by", matching
-            the credit box below, instead of a generic "By" — that's the
-            actual claim being made, and gating on showCredit (not just
-            article.author) means a staged-but-unapproved author never
-            leaks here either, same as the box below. */}
-        {isLearn
-          ? showCredit && (
-              <>
-                Medically reviewed by {article.author!.name} ·{" "}
-              </>
-            )
-          : article.author && <>By {article.author.name} · </>}
+        {/* House/unapproved content shows no name at all, just the date. An
+            approved credit names the practitioner with the same wording as
+            the credit box below ("By" for a contribution, "Medically
+            reviewed by" for a review), never just because an author is
+            staged. */}
+        {showCredit && (
+          <>
+            {isReview ? "Medically reviewed by" : "By"} {article.author!.name} ·{" "}
+          </>
+        )}
         {isLearn ? (
           <>
             Last reviewed{" "}
@@ -397,7 +395,7 @@ export function ArticleDetail({ article }: { article: ArticleDetailData }) {
         <h2 className="mb-3 text-lg font-bold">{isLearn ? "More Allergy Treatment Guides" : "More from the Blog"}</h2>
         <ArticleFeed
           section={isLearn ? "LEARN" : "BLOG"}
-          sameAuthorId={!isLearn && showCredit ? (article.authorId ?? undefined) : undefined}
+          sameAuthorId={!isLearn && showCredit && !isReview ? (article.authorId ?? undefined) : undefined}
           excludeArticleId={article.id}
           limit={3}
           emptyHidden={isLearn}
