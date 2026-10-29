@@ -65,6 +65,9 @@ updated.
     (`docs/image-guide.md`). Held for a later email, after the photos are
     live: a link from his Locations page or footer to the Henrico page, and
     the article credit offer.
+16b. **Grand Rapids Allergy (Jeni Davis, social media):** thanked us 10/29
+    and offered physician photos. You replied with the edit form and asked
+    for physician and office photos. Waiting on photos and the form.
 
 ## Content
 
