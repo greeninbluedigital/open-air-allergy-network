@@ -249,7 +249,7 @@ Report: aafa.org/wp-content/uploads/2026/03/aafa-2026-allergy-capitals-report.pd
   minarets of Plant Hall at the University of Tampa against a pink evening
   sky"). Also place this in-article photo, floated beside the cypress
   trigger's paragraph, captioned as a bald cypress at Lettuce Lake Park:
-  `![A bald cypress with a wide buttressed trunk and cypress knees rising from still water at Lettuce Lake Park in Tampa](https://res.cloudinary.com/qruprn0t/image/upload/c_crop,w_720,h_900,x_450,y_0/v1793248473/the-tampa-bay-estuary-program-m5DJTA8v7dA-unsplash_-_cypress_tree_in_lettuce_lake_park.jpg "Caption")`
+  `![A bald cypress with a wide buttressed trunk and cypress knees rising from still water at Lettuce Lake Park in Tampa](https://res.cloudinary.com/qruprn0t/image/upload/c_crop,w_720,h_900,x_450,y_0/v1793248720/tampa-bay-allergies-bald-cypress-lettuce-lake-park.jpg "Caption")`
   (Unsplash photo, no credit required). Owner wants cypress as one of the
   triggers if sources support it: UF/IFAS Gardening Solutions lists bald
   cypress among Florida's highly allergenic tree pollens
