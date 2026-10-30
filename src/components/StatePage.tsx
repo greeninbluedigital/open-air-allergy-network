@@ -4,7 +4,8 @@ import { ProviderCard } from "@/components/srp/ProviderCard";
 import { ILIT_DEFINITION } from "@/lib/content";
 import { travelArticlePath } from "@/lib/articles";
 import { DEFAULT_OG_IMAGE, truncateForMeta } from "@/lib/metadata";
-import { metroAnchor, stateMetroGroups, statesWithProviders, type MetroGroup, type StateInfo } from "@/lib/statePages";
+import { metroAnchor, stateHasClinic, stateMetroGroups, statesWithProviders, type MetroGroup, type StateInfo } from "@/lib/statePages";
+import { stateHeading } from "@/lib/practiceType";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
@@ -21,22 +22,23 @@ function listMetros(names: string[]): string {
 
 // Mirrors the Find a Provider description. Names as many metros (up to 4) as
 // fit in 155 characters, since local searches name the city.
-function stateDescription(state: StateInfo, metros: string[]): string {
+function stateDescription(state: StateInfo, metros: string[], hasClinic: boolean): string {
   const verified = "Every practice is verified before it's listed.";
+  const who = hasClinic ? "allergists and allergy clinics that offer" : "allergists who offer";
   for (let n = Math.min(metros.length, 4); n > 0; n--) {
-    const text = `Find allergists who offer ILIT allergy treatment in ${state.name}, including ${listMetros(metros.slice(0, n))}. ${verified}`;
+    const text = `Find ${who} ILIT allergy treatment in ${state.name}, including ${listMetros(metros.slice(0, n))}. ${verified}`;
     if (text.length <= 155) return text;
   }
-  return `Find allergists who offer ILIT allergy treatment in ${state.name}. ${verified}`;
+  return `Find ${who} ILIT allergy treatment in ${state.name}. ${verified}`;
 }
 
 export async function stateMetadata(state: StateInfo): Promise<Metadata> {
-  const groups = await stateMetroGroups(state.code);
+  const [groups, hasClinic] = await Promise.all([stateMetroGroups(state.code), stateHasClinic(state.code)]);
   const metros = groups.filter((g) => g.name).map((g) => g.name!);
   // Matches the H1. No brand suffix, like practice pages: with it, the
   // longest state name would run past 62 characters (docs/metadata-rules.md).
-  const title = `ILIT Allergy Treatment Providers in ${state.name}`;
-  const description = truncateForMeta(stateDescription(state, metros));
+  const title = stateHeading(state.name, hasClinic);
+  const description = truncateForMeta(stateDescription(state, metros, hasClinic));
   return {
     title: { absolute: title },
     description,
@@ -52,7 +54,12 @@ export async function stateMetadata(state: StateInfo): Promise<Metadata> {
  * the [slug] route when the slug is a state name.
  */
 export async function StatePage({ state, groups }: { state: StateInfo; groups: MetroGroup[] }) {
-  const [allStates, travelPath] = await Promise.all([statesWithProviders(), travelArticlePath()]);
+  const [allStates, travelPath, hasClinic] = await Promise.all([
+    statesWithProviders(),
+    travelArticlePath(),
+    stateHasClinic(state.code),
+  ]);
+  const heading = stateHeading(state.name, hasClinic);
   const total = groups.reduce((n, g) => n + g.providers.length, 0);
   const path = `/find-an-ilit-provider/${state.slug}`;
 
@@ -68,7 +75,7 @@ export async function StatePage({ state, groups }: { state: StateInfo; groups: M
     {
       "@context": "https://schema.org",
       "@type": "ItemList",
-      name: `ILIT Allergy Treatment Providers in ${state.name}`,
+      name: heading,
       numberOfItems: total,
       itemListElement: groups
         .flatMap((g) => g.providers)
@@ -92,7 +99,7 @@ export async function StatePage({ state, groups }: { state: StateInfo; groups: M
           </Link>{" "}
           / <span>{state.name}</span>
         </nav>
-        <h1 className="mb-3 text-3xl font-extrabold">ILIT Allergy Treatment Providers in {state.name}</h1>
+        <h1 className="mb-3 text-3xl font-extrabold">{heading}</h1>
         <p className="max-w-2xl text-sm text-foreground/80">
           Open Air Allergy Network lists the practices in {state.name} that offer ILIT, grouped by metro area below.{" "}
           {ILIT_DEFINITION}

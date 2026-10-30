@@ -7,7 +7,7 @@ import { TRAP_PRACTICE as P } from "@/lib/scraperTrap";
 // It deliberately looks like a Freemium listing, markup included, so a
 // scraper stores it like any other practice.
 export const metadata: Metadata = {
-  title: { absolute: `${P.name} | ILIT Provider in ${P.city}, ${P.state}` },
+  title: { absolute: `ILIT Allergist in ${P.city}, ${P.state} | ${P.name}` },
   robots: { index: false, follow: false },
 };
 

@@ -20,3 +20,32 @@ export function parsePracticeType(raw: string | undefined): PracticeType | null 
 export function practiceTypeLabel(stored: string | null): PracticeType {
   return stored === "Allergy Clinic" ? "Allergy Clinic" : "Allergist";
 }
+
+const TITLE_MAX = 62;
+
+/**
+ * Practice page title, keyword first (2026-10-30): searchers type
+ * "allergist sugar land tx", and "ILIT Allergist" keeps ILIT in front of
+ * them too. "ILIT" next to "Allergist" also can't be read as the life
+ * insurance trust. An office suffix that only repeats the city is dropped
+ * ("Aspire Allergy & Sinus - Sugar Land" in Sugar Land); one that names a
+ * different place ("- The Woodlands") stays, since people search it. Past 62
+ * characters "ILIT" comes off; past that Google trims the practice name end.
+ */
+export function practiceTitle(p: { practiceName: string; practiceType: string | null }, where: string, city: string) {
+  const [brand, office] = p.practiceName.split(" - ");
+  const name = office && office.toLowerCase() === city.toLowerCase() ? brand : p.practiceName;
+  const type = practiceTypeLabel(p.practiceType);
+  const full = `ILIT ${type} in ${where} | ${name}`;
+  return full.length <= TITLE_MAX ? full : `${type} in ${where} | ${name}`;
+}
+
+/** The small line under the practice name in the H1, e.g. "ILIT Allergist in Henrico, VA". */
+export function practiceHeadingLine(p: { practiceType: string | null }, where: string) {
+  return `ILIT ${practiceTypeLabel(p.practiceType)} in ${where}`;
+}
+
+/** State page title and H1: "& Allergy Clinics" only where the state has one. */
+export function stateHeading(stateName: string, hasClinic: boolean) {
+  return `ILIT Allergists${hasClinic ? " & Allergy Clinics" : ""} in ${stateName}`;
+}

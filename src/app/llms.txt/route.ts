@@ -1,6 +1,7 @@
 import { readDb } from "@/lib/cache";
 import { ILIT_DEFINITION } from "@/lib/content";
 import { allStateMetroGroups } from "@/lib/statePages";
+import { stateHeading } from "@/lib/practiceType";
 import { streetName } from "@/lib/address";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -26,11 +27,12 @@ export async function GET() {
     allStateMetroGroups(),
     readDb.provider.findMany({
       where: { active: true, isDemo: false },
-      select: { slug: true, practiceName: true, city: true, state: true, address: true },
+      select: { id: true, slug: true, practiceName: true, city: true, state: true, address: true, practiceType: true },
       orderBy: [{ state: "asc" }, { city: "asc" }, { practiceName: "asc" }],
     }),
   ]);
 
+  const clinicIds = new Set(providers.filter((p) => p.practiceType === "Allergy Clinic").map((p) => p.id));
   const describe = (a: (typeof articles)[number]) => a.metaDescription ?? a.summaryPoints[0] ?? null;
   const learn = articles.filter((a) => a.section === "LEARN");
   const blog = articles.filter((a) => a.section === "BLOG");
@@ -55,8 +57,9 @@ export async function GET() {
     line("ILIT Providers by State", "/find-an-ilit-provider/by-state", "Every state with an ILIT practice, with its metro areas."),
     ...states.map(({ state, groups }) => {
       const metros = groups.filter((g) => g.name).map((g) => g.name);
+      const hasClinic = groups.some((g) => g.providers.some((p) => clinicIds.has(p.id)));
       return line(
-        `ILIT Allergy Treatment Providers in ${state.name}`,
+        stateHeading(state.name, hasClinic),
         `/find-an-ilit-provider/${state.slug}`,
         metros.length > 0 ? `Practices by metro area: ${metros.join(", ")}.` : null,
       );

@@ -15,6 +15,7 @@ import { OtherLocations } from "@/components/pdp/OtherLocations";
 import { practiceSchemaId } from "@/lib/metadata";
 import { SHOWN_CREDIT } from "@/lib/credits";
 import { groupTreatments } from "@/lib/treatments";
+import { practiceHeadingLine, practiceTitle, practiceTypeLabel } from "@/lib/practiceType";
 import { DEFAULT_OG_IMAGE, truncateForMeta } from "@/lib/metadata";
 import { parseFormError } from "@/lib/forms";
 import { nearbyProviders } from "@/lib/srp";
@@ -50,11 +51,23 @@ function freemiumSummary(
     : `${where} is listed as an ILIT (intralymphatic immunotherapy) provider.`;
 }
 
-// "ILIT" alone also means an irrevocable life insurance trust in search, so
-// the title and H1 say "ILIT Allergy Provider" unless the practice's own
-// name already says allergy (2026-10-25; keeps most titles within budget).
-function ilitLabel(practiceName: string) {
-  return /allerg/i.test(practiceName) ? "ILIT Provider" : "ILIT Allergy Provider";
+// Basic listings' search description: "{Practice} is an allergist in
+// {City}, {ST} confirmed to offer allergy testing and ILIT…". The optional
+// parts drop out, longest first, to stay within 155 characters.
+function freemiumDescription(
+  p: { practiceName: string; practiceType: string | null; verificationDate: Date | null },
+  where: string,
+  testing: boolean,
+) {
+  const a = practiceTypeLabel(p.practiceType) === "Allergist" ? "an allergist" : "an allergy clinic";
+  const lead = `${p.practiceName} is ${a} in ${where} ${p.verificationDate ? "confirmed to offer" : "listed as offering"}`;
+  const options = [
+    `${lead} ${testing ? "allergy testing and " : ""}ILIT (intralymphatic immunotherapy), a faster alternative to years of allergy shots.`,
+    `${lead} ILIT (intralymphatic immunotherapy), a faster alternative to years of allergy shots.`,
+    `${lead} ${testing ? "allergy testing and " : ""}ILIT, a faster alternative to years of allergy shots.`,
+    `${lead} ILIT, a faster alternative to years of allergy shots.`,
+  ];
+  return options.find((d) => d.length <= 155) ?? `${lead} ILIT, a faster alternative to allergy shots.`;
 }
 
 const NEW_TO_ILIT_LINKS = [
@@ -122,18 +135,18 @@ export async function generateMetadata({
   if (!provider) return {};
   const street = await sameCityStreet(provider);
 
-  // Keyword-rich for search ("ILIT provider in {city}"). Uses `absolute` to
-  // skip the root layout's " | Open Air Allergy Network" template — with a
-  // real practice name + city + state, the 28-char suffix alone pushed every
-  // PDP well past the 62-char budget (verified against all live providers).
-  const title = `${provider.practiceName} | ${ilitLabel(provider.practiceName)} in ${provider.city}, ${provider.state}${street ? ` (${street})` : ""}`;
+  // Keyword first ("ILIT Allergist in {city}", practiceTitle). Uses
+  // `absolute` to skip the root layout's " | Open Air Allergy Network"
+  // template: the 28-char suffix alone pushed every PDP past the 62-char budget.
+  const where = `${provider.city}, ${provider.state}${street ? ` (${street})` : ""}`;
+  const title = practiceTitle(provider, where, provider.city);
   // shortBio is long-form ("About This Practice"-length) copy, not written
   // to meta-description length — truncateForMeta bounds it at a clean
   // sentence/word boundary instead of showing 200-500+ raw characters.
   // Freemium pages don't display the short bio or photo (even if they're
   // stored), so the description and share image don't use them either.
   const baseDescription = !isVerifiedTier(provider.tier)
-    ? `${freemiumSummary(provider, street)} Listed on Open Air Allergy Network.`
+    ? freemiumDescription(provider, where, provider.treatments.some(({ treatment }) => treatment.name === "Allergy Testing"))
     : (provider.shortBio ??
         `${provider.practiceName} is a verified ILIT (intralymphatic immunotherapy) provider in ${provider.city}, ${provider.state}, listed on Open Air Allergy Network.`);
   // "Read patient reviews." only when the page actually shows reviews
@@ -337,8 +350,7 @@ export default async function ProviderDetailPage({
             <h1 className="mb-2 text-2xl font-extrabold">
               {provider.practiceName}
               <span className="mt-0.5 block text-sm font-normal text-muted">
-                {ilitLabel(provider.practiceName)} in {provider.city}, {provider.state}
-                {street && ` (${street})`}
+                {practiceHeadingLine(provider, `${provider.city}, ${provider.state}${street ? ` (${street})` : ""}`)}
               </span>
             </h1>
             <p className="mb-3 text-sm text-muted">
@@ -436,8 +448,7 @@ export default async function ProviderDetailPage({
                 search-result title reinforce the same keywords, without
                 the practice name losing visual top billing. */}
             <span className="mt-0.5 block text-sm font-normal text-muted">
-              {ilitLabel(provider.practiceName)} in {provider.city}, {provider.state}
-              {street && ` (${street})`}
+              {practiceHeadingLine(provider, `${provider.city}, ${provider.state}${street ? ` (${street})` : ""}`)}
             </span>
           </h1>
         </div>

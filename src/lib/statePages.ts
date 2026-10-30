@@ -172,6 +172,12 @@ function cardRows(where: { state?: string }) {
   return readDb.provider.findMany({ where: { ...LIVE, ...where }, select: CARD_FIELDS });
 }
 
+/** Whether any live listing in the state is an "Allergy Clinic" (Practice
+ * Type), so its title and H1 say "ILIT Allergists & Allergy Clinics". */
+export async function stateHasClinic(code: string): Promise<boolean> {
+  return (await readDb.provider.count({ where: { ...LIVE, state: code, practiceType: "Allergy Clinic" } })) > 0;
+}
+
 /** The state's practices grouped by metro: biggest metros first, then
  * "Other", each group sorted by city then name. Empty when the state has
  * no active practices (the page then 404s). */

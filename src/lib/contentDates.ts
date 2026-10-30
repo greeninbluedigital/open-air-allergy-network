@@ -34,7 +34,7 @@ export async function refreshContentDates(): Promise<IndexNowResult & { changed:
       tier: p.tier, foundingMember: p.foundingMember, geoExtension: p.geoExtension, academic: p.academic,
       active: p.active, isDemo: p.isDemo, customMessage: p.customMessage, travelNotes: p.travelNotes,
       offersVideoConsult: p.offersVideoConsult, offersPhoneConsult: p.offersPhoneConsult,
-      pdpRemoteConsultBadge: p.pdpRemoteConsultBadge, shortBio: p.shortBio, extendedBio: p.extendedBio,
+      pdpRemoteConsultBadge: p.pdpRemoteConsultBadge, practiceType: p.practiceType, shortBio: p.shortBio, extendedBio: p.extendedBio,
       photoUrl: p.photoUrl, secondaryPhotoUrls: p.secondaryPhotoUrls, srpPhotoUrl: p.srpPhotoUrl,
       businessHours: p.businessHours, ilitScheduleNotes: p.ilitScheduleNotes, showReviews: p.showReviews,
       googlePlaceId: p.googlePlaceId, yelpEmbedCode1: p.yelpEmbedCode1, yelpEmbedCode2: p.yelpEmbedCode2,
