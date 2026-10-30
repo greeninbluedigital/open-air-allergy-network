@@ -101,6 +101,18 @@ what doesn't:
   location (address and nearby areas, no hours); children only per rule 3.
 - Each answer leads with something specific to this practice, never a
   restatement of the Learn pages.
+- **Questions say "ILIT allergy treatment" (2026-10-30).** Whenever a
+  question uses "ILIT", "allergy treatment" (or "intralymphatic
+  immunotherapy") goes right next to it: "Is ILIT allergy treatment faster
+  than allergy shots?", not "Is ILIT a faster alternative to allergy shots?".
+  Answers can say plain "ILIT" once the question has set it up.
+- **A practice's brand name for ILIT (QUICK-LI, ExACT Immunoplasty, AAT,
+  Elaria Rapid Allergy Therapy) goes in one question at most,** because few
+  people search it. Make that one "Are {Brand} and ILIT allergy treatment the
+  same thing?", placed second, unless another answer already explains that
+  the brand is the practice's name for ILIT. Every other question says "ILIT
+  allergy treatment"; answers can still use the brand where the practice's
+  wording calls for it.
 
 ## Keywords
 Work in what people search, naturally: "allergist in [city]", "allergy doctor
