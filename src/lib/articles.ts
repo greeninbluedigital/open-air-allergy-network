@@ -1,8 +1,8 @@
-import { db } from "@/lib/db";
+import { readDb } from "@/lib/cache";
 import type { ArticleSection } from "@/generated/prisma/client";
 
 export function getArticleDetail(slug: string, section: ArticleSection) {
-  return db.article.findUnique({
+  return readDb.article.findUnique({
     where: { slug, status: "PUBLISHED", section },
     include: {
       author: { include: { providers: { include: { provider: true } } } },
@@ -22,7 +22,7 @@ export const TRAVEL_ARTICLE_SLUG = "traveling-for-ilit";
  * switch on by themselves at publish and never point at a missing page.
  * Its section is read too, in case it's ever moved to Learn. */
 export async function travelArticlePath(): Promise<string | null> {
-  const article = await db.article.findUnique({
+  const article = await readDb.article.findUnique({
     where: { slug: TRAVEL_ARTICLE_SLUG, status: "PUBLISHED" },
     select: { section: true },
   });

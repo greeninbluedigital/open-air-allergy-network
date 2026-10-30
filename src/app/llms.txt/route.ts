@@ -1,4 +1,4 @@
-import { db } from "@/lib/db";
+import { readDb } from "@/lib/cache";
 import { ILIT_DEFINITION } from "@/lib/content";
 import { allStateMetroGroups } from "@/lib/statePages";
 import { streetName } from "@/lib/address";
@@ -13,19 +13,18 @@ function line(title: string, path: string, description?: string | null): string 
 
 /**
  * /llms.txt (llmstxt.org): a Markdown summary of the site for AI tools,
- * built from the database on each request (route handlers aren't cached),
- * so new articles, practices and states appear right after a publish or
- * sync. Same pages as the sitemap, with a description for each.
+ * built on each request from cached data (src/lib/cache.ts), so new
+ * articles, practices and states appear right after a publish or sync. Same pages as the sitemap, with a description for each.
  */
 export async function GET() {
   const [articles, states, providers] = await Promise.all([
-    db.article.findMany({
+    readDb.article.findMany({
       where: { status: "PUBLISHED" },
       select: { slug: true, section: true, title: true, metaDescription: true, summaryPoints: true },
       orderBy: { publishedDate: "desc" },
     }),
     allStateMetroGroups(),
-    db.provider.findMany({
+    readDb.provider.findMany({
       where: { active: true, isDemo: false },
       select: { slug: true, practiceName: true, city: true, state: true, address: true },
       orderBy: [{ state: "asc" }, { city: "asc" }, { practiceName: "asc" }],

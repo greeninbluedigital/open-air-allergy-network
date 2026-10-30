@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { db } from "@/lib/db";
+import { readDb } from "@/lib/cache";
 import { statesWithProviders } from "@/lib/statePages";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
@@ -14,10 +14,11 @@ const STATIC_PATHS = [
   "/about",
 ];
 
-// Without this the sitemap is built once at deploy time and keeps listing
-// whatever the database held then (it kept the example practices after the
-// launch sync hid them). Same fix as the Learn About ILIT index.
-export const dynamic = "force-dynamic";
+// Cached (src/lib/cache.ts) and rebuilt whenever a sync or publish clears
+// the cache. A sitemap built only at deploy time kept listing whatever the
+// database held then (it kept the example practices after the launch sync
+// hid them), so it must never be fully static.
+export const revalidate = 86400;
 
 /**
  * Listed in robots.txt and submitted in Search Console. Built from the
@@ -26,11 +27,11 @@ export const dynamic = "force-dynamic";
  */
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [providers, articles, states] = await Promise.all([
-    db.provider.findMany({
+    readDb.provider.findMany({
       where: { active: true, isDemo: false },
       select: { slug: true, updatedAt: true, contentUpdatedAt: true },
     }),
-    db.article.findMany({
+    readDb.article.findMany({
       where: { status: "PUBLISHED" },
       select: { slug: true, section: true, publishedDate: true, lastUpdated: true },
     }),

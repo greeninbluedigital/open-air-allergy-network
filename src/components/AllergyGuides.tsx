@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { db } from "@/lib/db";
+import { readDb } from "@/lib/cache";
 import { ArticleCard } from "@/components/ArticleCard";
 import { articlePath } from "@/lib/blog";
 import { COMPARISON_ARTICLE_SLUG, CORE_GUIDE_SLUGS, GUIDE_TAG } from "@/lib/content";
@@ -16,11 +16,11 @@ const LIST_MAX = 6;
  */
 export async function AllergyGuides() {
   const [core, rest] = await Promise.all([
-    db.article.findMany({
+    readDb.article.findMany({
       where: { slug: { in: [...CORE_GUIDE_SLUGS] }, status: "PUBLISHED" },
       include: { author: true },
     }),
-    db.article.findMany({
+    readDb.article.findMany({
       where: {
         status: "PUBLISHED",
         tags: { has: GUIDE_TAG },

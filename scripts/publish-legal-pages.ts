@@ -13,6 +13,7 @@ import "dotenv/config";
 import { readFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { db } from "@/lib/db";
+import { refreshLiveSite } from "@/lib/liveCache";
 
 const TITLES: Record<string, string> = {
   "privacy-notice": "Privacy Policy",
@@ -38,6 +39,7 @@ async function main() {
     await db.legalPage.upsert({ where: { slug }, update: { title, bodyHtml }, create: { slug, title, bodyHtml } });
     console.log(`published ${slug} (${bodyHtml.length} chars)`);
   }
+  console.log(`Live site cache: ${await refreshLiveSite()}`);
 }
 
 main().finally(() => db.$disconnect());

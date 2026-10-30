@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { db } from "@/lib/db";
+import { readDb } from "@/lib/cache";
 
 /**
  * A related-article card inside an article body (owner, 2026-10-27): the
@@ -16,7 +16,7 @@ import { db } from "@/lib/db";
 export async function InlineArticleCard({ href }: { href: string }) {
   const match = href.match(/^\/(blog|learn-about-ilit)\/([a-z0-9-]+)$/);
   if (!match) return null;
-  const article = await db.article.findFirst({
+  const article = await readDb.article.findFirst({
     where: { slug: match[2], section: match[1] === "blog" ? "BLOG" : "LEARN", status: "PUBLISHED" },
     select: { title: true, metaDescription: true, featureImageUrl: true, featureImageAlt: true },
   });

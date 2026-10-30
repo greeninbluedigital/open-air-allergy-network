@@ -1,5 +1,5 @@
 import { Prisma } from "@/generated/prisma/client";
-import { db } from "@/lib/db";
+import { cachedQuery, readDb } from "@/lib/cache";
 
 export type TagCount = { tag: string; count: number };
 
@@ -14,7 +14,7 @@ export function articlePath(a: { section: string; slug: string }): string {
 
 /** Auto-sorted by article count descending (Section 4 — Blog tag filter). */
 export async function getTagCounts(): Promise<TagCount[]> {
-  const articles = await db.article.findMany({
+  const articles = await readDb.article.findMany({
     where: { status: "PUBLISHED", section: { in: BLOG_FEED_SECTIONS } },
     select: { tags: true },
   });
@@ -37,12 +37,14 @@ const MILES_PER_METER = 1 / 1609.344;
  * credited articles for the PAF module. */
 async function providerIdsWithinRadius(lat: number, lng: number, radiusMiles: number): Promise<string[]> {
   const radiusMeters = radiusMiles / MILES_PER_METER;
-  const rows = await db.$queryRaw<{ id: string }[]>(
-    Prisma.sql`
-      SELECT "id" FROM "Provider"
-      WHERE "geog" IS NOT NULL
-        AND ST_DWithin("geog", ST_SetSRID(ST_MakePoint(${lng}, ${lat}), 4326)::geography, ${radiusMeters})
-    `,
+  const rows = await cachedQuery(["blog-paf-radius", String(lat), String(lng), String(radiusMiles)], () =>
+    readDb.$queryRaw<{ id: string }[]>(
+      Prisma.sql`
+        SELECT "id" FROM "Provider"
+        WHERE "geog" IS NOT NULL
+          AND ST_DWithin("geog", ST_SetSRID(ST_MakePoint(${lng}, ${lat}), 4326)::geography, ${radiusMeters})
+      `,
+    ),
   );
   return rows.map((r) => r.id);
 }
@@ -68,7 +70,7 @@ export async function queryBlogArticles({
   let pafWhere: Prisma.ArticleWhereInput = {};
   if (paf) {
     const eligibleIds = await providerIdsWithinRadius(paf.lat, paf.lng, paf.radiusMiles);
-    const settings = await db.siteSetting.findUnique({ where: { id: 1 } });
+    const settings = await readDb.siteSetting.findUnique({ where: { id: 1 } });
     const excludeHouse = settings?.excludeHouseArticlesWhenPafActive ?? false;
 
     pafWhere = {
@@ -87,14 +89,14 @@ export async function queryBlogArticles({
   };
 
   const [articles, totalCount] = await Promise.all([
-    db.article.findMany({
+    readDb.article.findMany({
       where,
       orderBy: { publishedDate: "desc" },
       skip: offset + (page - 1) * pageSize,
       take: pageSize,
       include: { author: true },
     }),
-    db.article.count({ where }),
+    readDb.article.count({ where }),
   ]);
 
   return { articles, totalCount: Math.max(0, totalCount - offset) };

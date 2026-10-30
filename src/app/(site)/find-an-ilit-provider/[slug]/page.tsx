@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
-import { db } from "@/lib/db";
+import { readDb } from "@/lib/cache";
 import { RENAMED_SLUGS } from "@/lib/slugRedirects";
 import { Badge, practiceBadges, seesOutOfArea } from "@/components/Badge";
 import { Icon } from "@/components/Icon";
@@ -85,7 +85,7 @@ async function sameCityStreet(p: {
   isDemo: boolean;
 }) {
   if (!p.groupId || p.isDemo) return null;
-  const siblings = await db.provider.count({
+  const siblings = await readDb.provider.count({
     where: {
       groupId: p.groupId,
       practiceName: p.practiceName,
@@ -101,7 +101,7 @@ async function sameCityStreet(p: {
 }
 
 async function getProvider(slug: string) {
-  return db.provider.findUnique({
+  return readDb.provider.findUnique({
     where: { slug, active: true },
     include: {
       treatments: { include: { treatment: true } },
@@ -192,17 +192,17 @@ export default async function ProviderDetailPage({
     // Only redirect to a page that's live. A renamed practice that was
     // later deactivated should read as gone, not redirect to a 404.
     const renamed = RENAMED_SLUGS[slug];
-    if (renamed && (await db.provider.count({ where: { slug: renamed, active: true } }))) {
+    if (renamed && (await readDb.provider.count({ where: { slug: renamed, active: true } }))) {
       permanentRedirect(`/find-an-ilit-provider/${renamed}`);
     }
     // A deactivated practice (e.g. one that stopped offering ILIT) sends old
     // links to its state page, or to Providers by State when the state has
     // no active practice left (owner, 2026-10-14). Reactivating it brings the
     // page back. Demo listings still 404.
-    const inactive = await db.provider.findUnique({ where: { slug }, select: { state: true, isDemo: true } });
+    const inactive = await readDb.provider.findUnique({ where: { slug }, select: { state: true, isDemo: true } });
     if (inactive && !inactive.isDemo) {
       const statePage = statePath(inactive.state);
-      const stateLive = await db.provider.count({ where: { state: inactive.state, active: true, isDemo: false } });
+      const stateLive = await readDb.provider.count({ where: { state: inactive.state, active: true, isDemo: false } });
       permanentRedirect(statePage && stateLive > 0 ? statePage : "/find-an-ilit-provider/by-state");
     }
     notFound();
@@ -243,7 +243,7 @@ export default async function ProviderDetailPage({
 
   const [siblings, articleCount] = await Promise.all([
     isVerifiedPlus && provider.groupId
-      ? db.provider.findMany({
+      ? readDb.provider.findMany({
           // Live offices only: an inactive one's page is a 404. Demo pages
           // list their fellow demos; real pages never list a demo.
           where: {
@@ -255,7 +255,7 @@ export default async function ProviderDetailPage({
           select: { slug: true, practiceName: true, city: true, state: true, latitude: true, longitude: true },
         })
       : Promise.resolve([]),
-    db.article.count({ where: { providerCreditedId: provider.id, status: "PUBLISHED", ...SHOWN_CREDIT } }),
+    readDb.article.count({ where: { providerCreditedId: provider.id, status: "PUBLISHED", ...SHOWN_CREDIT } }),
   ]);
 
   // Structured data only describes what the page shows: Freemium pages show

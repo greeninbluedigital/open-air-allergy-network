@@ -1,11 +1,18 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { db } from "@/lib/db";
+import { readDb } from "@/lib/cache";
 import { PRIVACY_CHOICES_PATH } from "@/lib/consent";
 import { PrivacyChoicesPanel } from "@/components/consent/PrivacyChoicesPanel";
 
+// Cached page (src/lib/cache.ts): built on its first visit, then served from
+// Vercel's cache until a sync or publish clears it (or a day passes).
+export const revalidate = 86400;
+export function generateStaticParams() {
+  return [];
+}
+
 async function getLegalPage(slug: string) {
-  return db.legalPage.findUnique({ where: { slug } });
+  return readDb.legalPage.findUnique({ where: { slug } });
 }
 
 export async function generateMetadata({

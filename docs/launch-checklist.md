@@ -67,7 +67,9 @@ first payment.
       to a Vercel cron (Hobby only allows daily crons), which also removes
       the dependency on GitHub's runners (they failed for hours on
       2026-10-05).
-- [ ] **Upgrade Neon to a paid plan**, then set the lead-forwarding job
+- [ ] ~~Upgrade Neon to a paid plan~~ (done 2026-10-30, after the free
+      compute allowance ran out; page data caching added the same day, see
+      architecture-notes.md). Still to do: set the lead-forwarding job
       back to every 15 minutes (hourly since 2026-10-26 to stay inside the
       free compute allowance). Paying practices should get unconfirmed
       leads within about an hour, not two. Once this is done, retire the

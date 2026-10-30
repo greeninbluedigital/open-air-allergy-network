@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { db } from "@/lib/db";
 import { getGoogleReviews } from "@/lib/googleReviews";
 import { getYelpBusiness } from "@/lib/yelpReviews";
+import { refreshSiteCache } from "@/lib/cache";
 
 /**
  * Refreshes cached review data (Section 4/6) for every Featured provider
@@ -81,6 +82,8 @@ export async function GET(request: Request) {
     }
   }
 
+  // Practice pages read cached data (src/lib/cache.ts); show the new reviews.
+  if (refreshed > 0) refreshSiteCache();
   return NextResponse.json({ refreshed, total: providers.length, errors });
 }
 

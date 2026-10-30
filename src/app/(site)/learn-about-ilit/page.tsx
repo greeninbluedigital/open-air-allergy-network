@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
-import { db } from "@/lib/db";
+import { readDb } from "@/lib/cache";
 import { ZipSearchForm } from "@/components/ZipSearchForm";
 import { ArticleFeed } from "@/components/ArticleFeed";
 import { ArticleCard } from "@/components/ArticleCard";
@@ -145,7 +145,7 @@ function FaqAnswer({ item }: { item: { a: string; link?: { text: string; href: s
 }
 
 export default async function LearnAboutIlitPage() {
-  const comparisonArticle = await db.article.findFirst({
+  const comparisonArticle = await readDb.article.findFirst({
     where: { slug: COMPARISON_ARTICLE_SLUG, status: "PUBLISHED" },
     include: { author: true },
   });

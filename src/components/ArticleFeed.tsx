@@ -1,5 +1,5 @@
 import { SHOWN_CREDIT } from "@/lib/credits";
-import { db } from "@/lib/db";
+import { readDb } from "@/lib/cache";
 import { ArticleCard } from "@/components/ArticleCard";
 import type { ArticleSection } from "@/generated/prisma/client";
 
@@ -70,7 +70,7 @@ export async function ArticleFeed({
   const alwaysExcluded = excludeArticleId ? [excludeArticleId] : [];
 
   const pinned = pinnedToSlot
-    ? await db.article.findMany({
+    ? await readDb.article.findMany({
         where: { ...baseWhere, pinnedTo: pinnedToSlot, id: { notIn: alwaysExcluded } },
         orderBy,
         take: limit,
@@ -81,7 +81,7 @@ export async function ArticleFeed({
   const afterPinned = limit - pinned.length;
   const sameAuthor =
     sameAuthorId && afterPinned > 0
-      ? await db.article.findMany({
+      ? await readDb.article.findMany({
           where: {
             ...baseWhere,
             authorId: sameAuthorId,
@@ -96,7 +96,7 @@ export async function ArticleFeed({
   const remaining = limit - pinned.length - sameAuthor.length;
   const fallback =
     remaining > 0
-      ? await db.article.findMany({
+      ? await readDb.article.findMany({
           where: {
             ...baseWhere,
             id: { notIn: [...alwaysExcluded, ...pinned.map((a) => a.id), ...sameAuthor.map((a) => a.id)] },

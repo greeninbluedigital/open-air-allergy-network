@@ -5,6 +5,13 @@ import { ArticleDetail } from "@/components/ArticleDetail";
 import { stripMarkdown } from "@/lib/markdown";
 import { truncateForMeta, DEFAULT_OG_IMAGE } from "@/lib/metadata";
 
+// Cached page (src/lib/cache.ts): built on its first visit, then served from
+// Vercel's cache until a sync or publish clears it (or a day passes).
+export const revalidate = 86400;
+export function generateStaticParams() {
+  return [];
+}
+
 async function getArticle(slug: string) {
   return getArticleDetail(slug, "BLOG");
 }

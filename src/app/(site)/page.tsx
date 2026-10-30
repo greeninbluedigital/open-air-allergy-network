@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
-import { db } from "@/lib/db";
+import { readDb } from "@/lib/cache";
 import { cloudinaryLimitWidth } from "@/lib/cloudinary";
 import { ILIT_DEFINITION, SYMPTOMS } from "@/lib/content";
 import { countProvidersNear, nearbyProviders } from "@/lib/srp";
@@ -63,7 +63,7 @@ const FALLBACK_HERO = {
 };
 
 async function pickHeroImage() {
-  const images = await db.homepageHeroImage.findMany();
+  const images = await readDb.homepageHeroImage.findMany();
   return images.length > 0 ? images[Math.floor(Math.random() * images.length)] : FALLBACK_HERO;
 }
 

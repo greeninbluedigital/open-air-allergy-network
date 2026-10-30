@@ -13,8 +13,9 @@ export const metadata: Metadata = {
   alternates: { canonical: "/find-an-ilit-provider/by-state" },
 };
 
-// Built from the database on each request, like the state pages it links.
-export const dynamic = "force-dynamic";
+// Cached page (src/lib/cache.ts): rebuilt after a sync clears the cache, so
+// it stays in step with the state pages it links.
+export const revalidate = 86400;
 
 /**
  * Every state with an ILIT practice, with its metro areas linking to their

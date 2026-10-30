@@ -1,5 +1,26 @@
 # Engineering notes: built-but-unused, and how to build what's not there yet
 
+## Page data caching (2026-10-30)
+
+Pages read the database through `readDb` (`src/lib/cache.ts`), which caches
+every model read in Vercel's data cache; raw SQL goes through
+`cachedQuery`. Article, Learn, legal, Providers by State and sitemap pages
+are also cached whole. Pages that depend on the visitor (homepage nearby
+practices, zip search, practice pages' contact form for WA, NV and CT
+visitors) still render per visit, but from cached data. Before this, every
+visit and crawl woke Neon and used up the free compute allowance.
+
+- **What clears it:** `refreshSiteCache()` runs after every sync and after a
+  review refresh that changed something. The publish scripts call
+  `/api/revalidate` (CRON_SECRET) through `src/lib/liveCache.ts`. The next
+  visit to each page then reads fresh data. A one day expiry is the backstop.
+- **Anything new that writes data the site shows** (a new script, an admin
+  tool, a direct SQL fix) must clear the cache the same way, or the change
+  waits up to a day.
+- **Keep `db` for writes and live reads:** the sync, the lead form (`actions.ts`),
+  API routes and scripts. `readDb` only works inside the Next.js server.
+- Cached results keep Dates as Dates (`pack`/`unpack` in cache.ts).
+
 ## Future upgrades list
 
 Not scheduled. Details for some are in the sections below.

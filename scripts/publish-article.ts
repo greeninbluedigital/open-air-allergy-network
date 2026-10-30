@@ -12,6 +12,7 @@ import "dotenv/config";
 import { readFileSync } from "node:fs";
 import { db } from "@/lib/db";
 import { notifyIndexNow } from "@/lib/indexNow";
+import { refreshLiveSite } from "@/lib/liveCache";
 
 function field(meta: string, label: string): string | undefined {
   const m = meta.match(new RegExp(`^${label}(?: \\([^)]*\\))?:\\s*(.+)$`, "m"));
@@ -89,6 +90,9 @@ async function main() {
     await db.articleFaqItem.createMany({ data: faqItems.map((f) => ({ ...f, articleId: article.id })) });
   }
   console.log(existing ? "updated" : "published");
+
+  // Pages read cached data, so clear it before crawlers come for the new page.
+  console.log(`  Live site cache: ${await refreshLiveSite()}`);
 
   // The article and the index page that lists it.
   const index = section === "LEARN" ? "/learn-about-ilit" : "/blog";

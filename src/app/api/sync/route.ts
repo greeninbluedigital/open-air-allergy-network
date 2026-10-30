@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { runSync } from "@/lib/sync";
+import { refreshSiteCache } from "@/lib/cache";
 
 /**
  * Protected sync endpoint — covers both the daily scheduled sync and the
@@ -22,6 +23,8 @@ export async function GET(request: Request) {
   }
   try {
     const summary = await runSync();
+    // Pages read cached data (src/lib/cache.ts), so clear it for the new rows.
+    refreshSiteCache();
     return NextResponse.json(summary);
   } catch (err) {
     // e.g. the Providers header check failing; the message says which

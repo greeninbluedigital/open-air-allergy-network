@@ -1,4 +1,4 @@
-import { db } from "@/lib/db";
+import { readDb } from "@/lib/cache";
 import { US_STATES } from "@/lib/states";
 import type { SrpProvider } from "@/lib/srp";
 import { streetName } from "@/lib/address";
@@ -169,7 +169,7 @@ const CARD_FIELDS = {
 type CardRow = Awaited<ReturnType<typeof cardRows>>[number];
 
 function cardRows(where: { state?: string }) {
-  return db.provider.findMany({ where: { ...LIVE, ...where }, select: CARD_FIELDS });
+  return readDb.provider.findMany({ where: { ...LIVE, ...where }, select: CARD_FIELDS });
 }
 
 /** The state's practices grouped by metro: biggest metros first, then
@@ -232,7 +232,7 @@ function groupByMetro(code: string, rows: CardRow[]): MetroGroup[] {
 /** States with at least one active practice, with counts, A to Z. For the
  * "Browse by state" links and the sitemap. */
 export async function statesWithProviders(): Promise<(StateInfo & { count: number })[]> {
-  const rows = await db.provider.groupBy({ by: ["state"], where: LIVE, _count: true });
+  const rows = await readDb.provider.groupBy({ by: ["state"], where: LIVE, _count: true });
   return rows
     .map((r) => {
       const state = stateByCode(r.state);

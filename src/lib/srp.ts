@@ -1,4 +1,4 @@
-import { db } from "@/lib/db";
+import { cachedQuery, readDb } from "@/lib/cache";
 import { Prisma } from "@/generated/prisma/client";
 import { streetName } from "@/lib/address";
 
@@ -88,7 +88,9 @@ async function queryWithinRadius(
 ): Promise<SrpProvider[]> {
   const radiusMeters = radiusMiles / MILES_PER_METER;
 
-  const rows = await db.$queryRaw<
+  // Cached per search point: everyone searching the same zip shares one result.
+  const key = ["srp-radius", String(lat), String(lng), String(radiusMiles), String(geoExtensionOnly), String(ignoreOwnCap)];
+  const rows = await cachedQuery(key, () => readDb.$queryRaw<
     Array<Omit<SrpProvider, "distanceMiles" | "street"> & { distanceMeters: number; address: string; hasSibling: boolean }>
   >(
     Prisma.sql`
@@ -115,7 +117,7 @@ async function queryWithinRadius(
         }
       ORDER BY "distanceMeters" ASC
     `,
-  );
+  ));
 
   return rows.map(({ address, hasSibling, distanceMeters, ...row }) => ({
     ...row,

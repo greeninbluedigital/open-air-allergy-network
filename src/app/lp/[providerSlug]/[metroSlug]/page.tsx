@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import { db } from "@/lib/db";
+import { readDb } from "@/lib/cache";
 import { Badge, practiceBadges } from "@/components/Badge";
 import { Icon } from "@/components/Icon";
 import { PhoneLink } from "@/components/PhoneLink";
@@ -17,10 +17,10 @@ import { visitorInHealthDataState } from "@/lib/visitorLocation";
 
 
 async function getLandingPage(providerSlug: string, metroSlug: string) {
-  const provider = await db.provider.findUnique({ where: { slug: providerSlug, active: true } });
+  const provider = await readDb.provider.findUnique({ where: { slug: providerSlug, active: true } });
   if (!provider) return null;
 
-  const lp = await db.semLandingPage.findUnique({
+  const lp = await readDb.semLandingPage.findUnique({
     where: { providerId_urlSlug: { providerId: provider.id, urlSlug: metroSlug }, active: true },
   });
   if (!lp) return null;
@@ -72,7 +72,7 @@ export default async function SemLandingPage({
     campaign: typeof sp.utm_campaign === "string" ? sp.utm_campaign : undefined,
   };
 
-  const settings = await db.siteSetting.findUnique({ where: { id: 1 } });
+  const settings = await readDb.siteSetting.findUnique({ where: { id: 1 } });
   const whyIlitBlurb = settings?.semHeroBlurb || "";
 
   const { offersVideoConsult, offersPhoneConsult } = provider;

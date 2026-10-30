@@ -21,6 +21,8 @@ updated.
    Neon database and the 15-minute schedule used most of the free compute
    allowance. One line in `.github/workflows/process-pending-leads.yml`.
    A monthly reminder (the 2nd) reports lead volume and says when.
+   Neon is on a paid plan since 10/30, so this now costs a little money
+   rather than risking an outage.
 
 ## Your actions
 
