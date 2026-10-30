@@ -1,5 +1,6 @@
 import type { ArticleCreditType } from "@/generated/prisma/client";
 import { standardTreatmentName } from "@/lib/treatments";
+import { parsePracticeType } from "@/lib/practiceType";
 import { db } from "@/lib/db";
 import { fetchSheetRows } from "@/lib/googleSheets";
 import { geocodeAddress } from "@/lib/geocode";
@@ -53,7 +54,7 @@ const PROVIDER_COLUMNS = [
   ["yelpEmbedCode3", "Yelp Embed Code 3"],
   ["yelpBusinessId", "Yelp Business ID"],
   ["yelpRatingBadgeEmbed", "Yelp Rating Badge Embed"],
-  ["customField1", "Custom Field 1"],
+  ["practiceType", "Practice Type"],
   ["customField2", "Custom Field 2"],
   ["notes", "Notes"],
   ["isDemo", "Demo/Example Listing"],
@@ -782,6 +783,17 @@ export async function runSync(): Promise<SyncSummary> {
           `${slug} (row ${sheetRow}) has Tier "${r.tier.trim()}", which isn't a recognized tier, so it was treated as Freemium. Use Freemium, Verified, Academic, Full Profile or Featured.`,
         );
       }
+      // Practice Type drives "Allergist" or "Allergy Clinic" in the page
+      // title and H1 (src/lib/practiceType.ts). A blank shows "Allergist".
+      if (r.practiceType.trim() && !parsePracticeType(r.practiceType)) {
+        summary.warnings.push(
+          `${slug} (row ${sheetRow}) Practice Type "${r.practiceType.trim()}" isn't recognized, so the page says "Allergist". Use Allergist or Allergy Clinic.`,
+        );
+      } else if (active && !parseBool(r.isDemo) && !r.practiceType.trim()) {
+        summary.warnings.push(
+          `${slug} (row ${sheetRow}) has no Practice Type, so the page says "Allergist". Check the practice's site and enter Allergist or Allergy Clinic.`,
+        );
+      }
       // The custom message badge shows at any tier when filled in (back on
       // since 2026-10-19, after being off from 2026-10-09).
       const message = r.customMessage.trim();
@@ -861,7 +873,7 @@ export async function runSync(): Promise<SyncSummary> {
         // not sheet inputs (see PROJECT_SPEC.md Section 4).
         yelpBusinessId: r.yelpBusinessId || null,
         yelpRatingBadgeEmbed: r.yelpRatingBadgeEmbed || null,
-        customField1: r.customField1 || null,
+        practiceType: parsePracticeType(r.practiceType),
         customField2: r.customField2 || null,
         internalNotes: r.notes || null,
         // Sales-demo listing (Section on the SRP/PDP/SEM demo-content
