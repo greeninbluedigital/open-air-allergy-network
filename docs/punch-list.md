@@ -24,6 +24,13 @@ updated.
    Neon is on a paid plan since 10/30, so this now costs a little money
    rather than risking an outage.
 
+6a. **Allergist titles check (around 11/27).** Practice and state page
+   titles switched to "ILIT Allergist in {City}" / "ILIT Allergy Clinic in
+   {City}" on 10/30 (Practice Type, sheet column AP). Before that, the top
+   pages sat at positions 38 to 75 with no clicks (Sugar Land 449
+   impressions). In Search Console, compare clicks, CTR and position for
+   "allergist {city}" queries before and after 10/30.
+
 ## Your actions
 
 6. **CRM:** check the new Pipeline tab and send the OAAN note to Paullette
