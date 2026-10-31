@@ -1,5 +1,5 @@
 import { SHOWN_CREDIT } from "@/lib/credits";
-import { readDb } from "@/lib/cache";
+import { creditReadDb, readDb } from "@/lib/cache";
 import { ArticleCard } from "@/components/ArticleCard";
 import type { ArticleSection } from "@/generated/prisma/client";
 
@@ -53,6 +53,9 @@ export async function ArticleFeed({
    * otherwise a recent BLOG article. */
   providerCreditedOnly?: boolean;
 }) {
+  // A practice page's own feed is only cleared by a full refresh, so an
+  // article publish doesn't make every practice page reread the database.
+  const articleDb = providerCreditedId ? creditReadDb : readDb;
   const orderBy = { publishedDate: oldestFirst ? ("asc" as const) : ("desc" as const) };
   const baseWhere = {
     status: "PUBLISHED" as const,
@@ -70,7 +73,7 @@ export async function ArticleFeed({
   const alwaysExcluded = excludeArticleId ? [excludeArticleId] : [];
 
   const pinned = pinnedToSlot
-    ? await readDb.article.findMany({
+    ? await articleDb.article.findMany({
         where: { ...baseWhere, pinnedTo: pinnedToSlot, id: { notIn: alwaysExcluded } },
         orderBy,
         take: limit,
@@ -81,7 +84,7 @@ export async function ArticleFeed({
   const afterPinned = limit - pinned.length;
   const sameAuthor =
     sameAuthorId && afterPinned > 0
-      ? await readDb.article.findMany({
+      ? await articleDb.article.findMany({
           where: {
             ...baseWhere,
             authorId: sameAuthorId,
@@ -96,7 +99,7 @@ export async function ArticleFeed({
   const remaining = limit - pinned.length - sameAuthor.length;
   const fallback =
     remaining > 0
-      ? await readDb.article.findMany({
+      ? await articleDb.article.findMany({
           where: {
             ...baseWhere,
             id: { notIn: [...alwaysExcluded, ...pinned.map((a) => a.id), ...sameAuthor.map((a) => a.id)] },

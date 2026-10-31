@@ -92,7 +92,7 @@ async function main() {
   console.log(existing ? "updated" : "published");
 
   // Pages read cached data, so clear it before crawlers come for the new page.
-  console.log(`  Live site cache: ${await refreshLiveSite()}`);
+  console.log(`  Live site cache: ${await refreshLiveSite("articles")}`);
 
   // The article and the index page that lists it.
   const index = section === "LEARN" ? "/learn-about-ilit" : "/blog";

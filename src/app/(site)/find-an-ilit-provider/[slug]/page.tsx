@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { notFound, permanentRedirect } from "next/navigation";
 import type { Metadata } from "next";
-import { readDb } from "@/lib/cache";
+import { creditReadDb, readDb } from "@/lib/cache";
 import { RENAMED_SLUGS } from "@/lib/slugRedirects";
 import { Badge, practiceBadges, seesOutOfArea } from "@/components/Badge";
 import { Icon } from "@/components/Icon";
@@ -268,7 +268,7 @@ export default async function ProviderDetailPage({
           select: { slug: true, practiceName: true, city: true, state: true, latitude: true, longitude: true },
         })
       : Promise.resolve([]),
-    readDb.article.count({ where: { providerCreditedId: provider.id, status: "PUBLISHED", ...SHOWN_CREDIT } }),
+    creditReadDb.article.count({ where: { providerCreditedId: provider.id, status: "PUBLISHED", ...SHOWN_CREDIT } }),
   ]);
 
   // Structured data only describes what the page shows: Freemium pages show
