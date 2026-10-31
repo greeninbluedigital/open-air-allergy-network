@@ -1,10 +1,16 @@
 # Punch list (owner's open items)
 
-Updated 2026-10-21. Things raised in recent sessions that are still open,
+Updated 2026-10-30. Things raised in recent sessions that are still open,
 newest decisions first. Cross items off or tell Claude, and this file gets
 updated.
 
 ## To discuss or decide
+
+0. **Neon plan on Nov 1.** Back to the free plan (100 CU-hours a month)
+   only if Oct 31, the first full day after the compute fixes, came in
+   under about 3 CU-hours and the Monitoring chart shows long sleep
+   stretches. Otherwise stay on the paid plan (about $0.50 a day) a few
+   more days and check again.
 
 1. **Numbered "How It Works" cards** (homepage, Learn page, ad landing
    pages). Readable but template looking. Light changes only, if any.
@@ -76,23 +82,44 @@ updated.
     the article credit offer.
 16b. **Grand Rapids Allergy (Jeni Davis, social media):** thanked us 10/29
     and offered physician photos. You replied with the edit form and asked
-    for physician and office photos. Waiting on photos and the form.
+    for physician and office photos. Demo page built 10/30
+    (`demo-provider-example-page`); your follow-up with the demo link, the
+    $0 agreement, footer link and article credit offer is drafted (send it
+    if you haven't). Waiting on photos, the form and an email address for
+    patient messages (the live page has no contact form until then).
 
 ## Content
 
 17. **Queued articles (the weekday task drafts one each morning).** A
-    weekly mix with one or two local stories (owner, 10/24). Next week:
-    tree pollen (Mon), dust mites, chest tightness, Tampa Bay triggers
-    (Thu), dog allergy. Full week by week plan at the top of the queue file.
-    Where Do ILIT Injections Go? has its diagram ready and the wrap layout
-    built. After the dust mites article, link it from the dust mite guide.
+    weekly mix with one or two local stories (owner, 10/24). Week of 11/2:
+    Orlando, puffy eyes, worst cities ranking, pets ranked. Full week by
+    week plan at the top of the queue file. Where Do ILIT Injections Go?
+    has its diagram ready and the wrap layout built. Pins and Facebook posts
+    for tree pollen, dust mites, chest tightness, Tampa and dog allergy are
+    in the schedule artifacts for you to post (pins Nov 6 to 10, Facebook
+    Nov 19 to 23).
 18. **Learn page blog module:** switch back to provider-credited articles
     once a few exist.
 19. **Not yet listed:** LA Center for ENT and Allergy (2 offices) needs
     addresses. (Kara Wada, MD was added 10/25 as a trial, by zip only.) Auni's Bowling Green office isn't in
     the sheet yet.
 
-## Recently done (2026-10-19 to 10-25)
+## Recently done (2026-10-26 to 10-30)
+
+- Published tree pollen, what dust mites look like, chest tightness, Tampa
+  Bay triggers and dog allergy; related guide cards on every article.
+- Neon ran out of free compute 10/29: upgraded to paid; page data caching,
+  cache clears only on real sheet changes, distances computed in code,
+  weekly reviews refresh (capped at 190, Google's free allowance), article
+  publishes refresh only Blog and Learn (docs/architecture-notes.md).
+- Practice Type column (AP): titles now "ILIT Allergist in {City}" or "ILIT
+  Allergy Clinic in {City}"; state pages "ILIT Allergists in {State}".
+- FAQ questions everywhere pair ILIT with "allergy treatment"; brand names
+  (ExACT, Quick-LI, AAT) in one question at most.
+- AllerPoint confirmed by phone; Grand Rapids demo page, pills and FAQs;
+  three new standard conditions (insect sting, latex, anaphylaxis).
+
+## Earlier (2026-10-19 to 10-25)
 
 - "ILIT" now paired with allergy or intralymphatic immunotherapy in page
   templates (state pages, practice titles and H1s, Learn FAQs, headings)
