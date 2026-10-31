@@ -66,7 +66,7 @@ Column order:
 | AG | ILIT Schedule Notes | One short line promoting the practice's ILIT course, shown in the hours box under Business Hours (same tiers). Pattern: `[Brand name]: [number] injections over [time], instead of years of allergy shots.` Facts from the practice's site, no prices or payment, no hours (those go in AF). Originally meant for ILIT clinic days; repurposed 2026-10-09 because it's prime space to sell ILIT |
 | AH | Treatments Offered | **Shown as pills again (2026-10-28)** on Full Profile, Featured and trial pages (and Academic Verified): treatments and testing in one row, "Conditions treated" in a second, under "Allergy Treatments and Testing at {Practice}". Not in the page's structured data. Semicolon-separated, using the **standard names** in `src/lib/treatments.ts` (copied on the sheet's Treatments tab), e.g. `Intralymphatic Immunotherapy (ILIT); Allergy Shots (SCIT); Allergy Testing; Asthma`. The sync changes common variants ("ILIT", "Allergy Skin Testing", "Hives") to the standard name, and warns about any name it doesn't know, which then shows as typed at the end of the treatments row. Pills follow the list's order, whatever order the cell uses |
 | AI | Show Reviews | **Renamed** from "Show Google Reviews" — `Y` / `N`, one master toggle for the whole Patient Reviews module (Featured tier only regardless of this flag). Which platform(s) actually render depends on whether Google Place ID / any Yelp field below is filled in |
-| AJ | Google Place ID | The practice's Google Place ID (starts with `ChIJ`). Sync trims spaces and line breaks from a pasted ID. Anything that isn't a bare ID, such as a note explaining why a location has no ID yet, is ignored (with a sync warning if Show Reviews is `Y`). Reviews are fetched overnight (also after the ID changes), then refreshed weekly per practice; a Google error is retried the next night. |
+| AJ | Google Place ID | The practice's Google Place ID (starts with `ChIJ`). Sync trims spaces and line breaks from a pasted ID. Anything that isn't a bare ID, such as a note explaining why a location has no ID yet, is ignored (with a sync warning if Show Reviews is `Y`). Reviews are fetched and refreshed in one weekly run, Monday mornings (since 2026-10-31; it ran nightly before), so a new or changed ID shows reviews after the next Monday run, or sooner if Claude runs the refresh by hand. A Google error is retried the next Monday. |
 | AK | Yelp Embed Code 1 | **New** — paste from Yelp's own free "Embed Review" feature (the "···" menu on any review on Yelp's site). Not the Fusion API |
 | AL | Yelp Embed Code 2 | **New** — same as above |
 | AM | Yelp Embed Code 3 | **New** — same as above. Exactly 3 slots, no more |
@@ -94,7 +94,7 @@ longest-running premium practices.
   `Y`), never a manual input.
 - Lat/Long — computed by the sync job via Mapbox geocoding; never enter these
   yourself.
-- Google review *content* and rating — pulled by `/api/reviews/refresh` (runs daily, refreshes each practice once a week; a new Place ID is fetched the next morning)
+- Google review *content* and rating — pulled by `/api/reviews/refresh` (runs weekly on Mondays and refreshes every practice; a new Place ID is fetched at the next Monday run)
   cron via the Places API, not sheet-entered at all.
 - Yelp rating/review count — cron-managed once `YELP_API_KEY` is set (Yelp's
   Fusion API is a paid product, not turned on yet). Until then, the Yelp Rating Badge Embed (AO)

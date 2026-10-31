@@ -11,15 +11,16 @@ import { db } from "@/lib/db";
  *
  * Freshness comes from `refreshSiteCache()`, which the sync, the review
  * refresh and the publish scripts (via /api/revalidate) call after they
- * write. ONE_DAY is only a backstop for a write that skips it, e.g. a manual
- * SQL edit.
+ * write. SEVEN_DAYS is only a backstop for a write that skips it, e.g. a
+ * manual SQL edit (was one day until 2026-10-31: daily expiry kept crawlers
+ * waking the database all day as pages refilled).
  *
  * Writes, the lead form, the sync and scripts keep using `db` directly:
  * they need live data, and next/cache only works inside the Next.js server.
  */
 
 export const SITE_DATA_TAG = "site-data";
-const ONE_DAY = 86400;
+const SEVEN_DAYS = 604800;
 
 // The data cache stores JSON, which would turn Prisma's Date objects into
 // strings. Wrap them on the way in and turn them back into Dates on the way
@@ -39,11 +40,11 @@ function unpack<T>(json: string): T {
   ) as T;
 }
 
-/** Runs `run` once per `key` until the next refreshSiteCache() (or a day). */
+/** Runs `run` once per `key` until the next refreshSiteCache() (or a week). */
 export async function cachedQuery<T>(key: string[], run: () => Promise<T>): Promise<T> {
   const json = await unstable_cache(async () => pack(await run()), key, {
     tags: [SITE_DATA_TAG],
-    revalidate: ONE_DAY,
+    revalidate: SEVEN_DAYS,
   })();
   return unpack<T>(json);
 }

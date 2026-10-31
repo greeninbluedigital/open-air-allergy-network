@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 // Cached page (src/lib/cache.ts): rebuilt after a sync clears the cache, so
 // it stays in step with the state pages it links.
-export const revalidate = 86400;
+export const revalidate = 604800;
 
 /**
  * Every state with an ILIT practice, with its metro areas linking to their

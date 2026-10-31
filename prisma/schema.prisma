@@ -505,6 +505,10 @@ model SiteSetting {
   // PAF config flag (Section 4): house articles (no location) stay included when
   // a PAF radius filter is active, unless this is flipped on later.
   excludeHouseArticlesWhenPafActive Boolean @default(false)
+
+  // Fingerprint of the sheet data the last sync read (src/lib/sync.ts
+  // sheetChanged): the page cache is only cleared when it changes.
+  syncFingerprint String @default("")
 }
 
 /// PDP "tracked contact form" submissions (Full Profile+ only). Logs Provider

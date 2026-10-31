@@ -23,8 +23,10 @@ export async function GET(request: Request) {
   }
   try {
     const summary = await runSync();
-    // Pages read cached data (src/lib/cache.ts), so clear it for the new rows.
-    refreshSiteCache();
+    // Pages read cached data (src/lib/cache.ts). Clear it only when the sheet
+    // changed: a clear makes every page reread the database on its next
+    // visit, and crawlers spread those visits across the whole day.
+    if (summary.sheetChanged) refreshSiteCache();
     return NextResponse.json(summary);
   } catch (err) {
     // e.g. the Providers header check failing; the message says which

@@ -7,18 +7,23 @@ import { refreshSiteCache } from "@/lib/cache";
 /**
  * Refreshes cached review data (Section 4/6) for every Featured provider
  * with reviews on. Both APIs are billed per call (Google always; Yelp once
- * YELP_API_KEY is eventually set), so this runs once a day rather than live
- * per-request, and each run only refreshes practices whose reviews are more
- * than a week old or were never fetched (2026-10-09: weekly per practice to
- * keep Google calls down as every practice goes on a trial, while a newly
- * added Place ID still shows reviews the next morning), oldest first, at
- * most REFRESH_LIMIT per run — PatientReviews reads straight
+ * YELP_API_KEY is eventually set), so this runs once a week (Mondays,
+ * vercel.json) rather than live per-request. Each run refreshes practices
+ * whose reviews are at least six days old or were never fetched, so every
+ * practice comes up each week: once a week per practice keeps Google calls
+ * down (2026-10-09). It ran daily, a few practices at a time, until
+ * 2026-10-31, but each run clears the page cache (src/lib/cache.ts), and
+ * daily clears kept the database awake. A newly added Place ID now waits
+ * for the next Monday, unless the refresh is run by hand. Oldest first, at
+ * most REFRESH_LIMIT per run (51 practices on 2026-10-31) — PatientReviews reads straight
  * off the cached columns this writes. The Yelp branch is a no-op today
  * (getYelpBusiness returns empty without a key) — it exists so turning that
  * on later is just setting the env var, not new code. Same shared-secret
  * auth pattern as /api/sync and /api/leads/process-pending.
  */
-const REFRESH_INTERVAL_DAYS = 7;
+// Six, not seven: last week's run finished a few seconds after this week's
+// cutoff, so a seven day cutoff would skip every practice every other week.
+const REFRESH_INTERVAL_DAYS = 6;
 const REFRESH_LIMIT = 60;
 
 export const maxDuration = 60;

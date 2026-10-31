@@ -18,7 +18,7 @@ const STATIC_PATHS = [
 // the cache. A sitemap built only at deploy time kept listing whatever the
 // database held then (it kept the example practices after the launch sync
 // hid them), so it must never be fully static.
-export const revalidate = 86400;
+export const revalidate = 604800;
 
 /**
  * Listed in robots.txt and submitted in Search Console. Built from the

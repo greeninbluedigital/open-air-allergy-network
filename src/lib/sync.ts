@@ -1,3 +1,5 @@
+import { AsyncLocalStorage } from "node:async_hooks";
+import { createHash } from "node:crypto";
 import type { ArticleCreditType } from "@/generated/prisma/client";
 import { standardTreatmentName } from "@/lib/treatments";
 import { parsePracticeType } from "@/lib/practiceType";
@@ -62,6 +64,44 @@ const PROVIDER_COLUMNS = [
 
 const COLUMNS = PROVIDER_COLUMNS.map(([key]) => key);
 
+// Everything one sync run reads from the sheet, for its fingerprint (see
+// sheetChanged). Per run, so overlapping syncs can't mix their reads.
+const sheetReads = new AsyncLocalStorage<string[]>();
+
+async function readSheet(spreadsheetId: string, range: string): Promise<string[][]> {
+  const rows = await fetchSheetRows(spreadsheetId, range);
+  sheetReads.getStore()?.push(`${range}\n${JSON.stringify(rows)}`);
+  return rows;
+}
+
+/**
+ * True when this run's sheet data (plus the deployed code version, since a
+ * code change can change what the same sheet produces) differs from the last
+ * run's, and records the new fingerprint. The sync route only clears the
+ * page cache when it's true (2026-10-31): clearing it on every daily sync
+ * made crawlers wake the database all day as pages refilled. Any failure,
+ * such as the column not migrated yet, counts as changed, so the cache still
+ * gets cleared.
+ */
+async function sheetChanged(reads: string[]): Promise<boolean> {
+  const fingerprint = createHash("sha256")
+    .update(process.env.VERCEL_GIT_COMMIT_SHA ?? "local")
+    .update(reads.join("\n"))
+    .digest("hex");
+  try {
+    const setting = await db.siteSetting.findUnique({ where: { id: 1 }, select: { syncFingerprint: true } });
+    if (setting?.syncFingerprint === fingerprint) return false;
+    await db.siteSetting.upsert({
+      where: { id: 1 },
+      update: { syncFingerprint: fingerprint },
+      create: { id: 1, syncFingerprint: fingerprint },
+    });
+  } catch (err) {
+    console.warn("Sync fingerprint check failed, treating the sheet as changed:", err);
+  }
+  return true;
+}
+
 // Positional, so the sheet's header row is checked first (verifyProviderHeaders):
 // a column inserted, removed, or renamed on the sheet stops the whole sync
 // with a clear error instead of shifting every value into the wrong field.
@@ -73,7 +113,7 @@ function columnLetter(i: number): string {
 }
 
 async function verifyProviderHeaders(spreadsheetId: string) {
-  const [headers = []] = await fetchSheetRows(spreadsheetId, HEADER_RANGE);
+  const [headers = []] = await readSheet(spreadsheetId, HEADER_RANGE);
   const normalize = (h: string | undefined) => (h ?? "").trim().toLowerCase();
   const problems = PROVIDER_COLUMNS.flatMap(([, expected], i) =>
     normalize(headers[i]) === normalize(expected)
@@ -220,7 +260,7 @@ async function syncSemLandingPages(): Promise<LandingPageSyncSummary> {
   const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
   if (!spreadsheetId) throw new Error("GOOGLE_SHEETS_SPREADSHEET_ID is not set");
 
-  const rawRows = await fetchSheetRows(spreadsheetId, SEM_LP_SHEET_RANGE);
+  const rawRows = await readSheet(spreadsheetId, SEM_LP_SHEET_RANGE);
   const summary: LandingPageSyncSummary = { created: 0, updated: 0, skipped: 0, errors: [] };
 
   for (const row of rawRows) {
@@ -308,7 +348,7 @@ async function syncPractitioners(): Promise<PractitionerSyncSummary> {
   const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
   if (!spreadsheetId) throw new Error("GOOGLE_SHEETS_SPREADSHEET_ID is not set");
 
-  const rawRows = await fetchSheetRows(spreadsheetId, PRACTITIONER_SHEET_RANGE);
+  const rawRows = await readSheet(spreadsheetId, PRACTITIONER_SHEET_RANGE);
   const summary: PractitionerSyncSummary = { created: 0, updated: 0, skipped: 0, errors: [] };
 
   for (const row of rawRows) {
@@ -402,7 +442,7 @@ async function syncFaqs(): Promise<FaqSyncSummary> {
   const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
   if (!spreadsheetId) throw new Error("GOOGLE_SHEETS_SPREADSHEET_ID is not set");
 
-  const rawRows = await fetchSheetRows(spreadsheetId, FAQ_SHEET_RANGE);
+  const rawRows = await readSheet(spreadsheetId, FAQ_SHEET_RANGE);
   const summary: FaqSyncSummary = { providersUpdated: 0, itemsSynced: 0, skipped: 0, errors: [] };
 
   // Group by provider slug first — sheet row order is the fallback sort
@@ -512,9 +552,9 @@ async function syncLearnPageCredits(): Promise<LearnCreditSyncSummary> {
 
   let rawRows: string[][];
   try {
-    rawRows = await fetchSheetRows(spreadsheetId, ARTICLE_CREDIT_SHEET_RANGE);
+    rawRows = await readSheet(spreadsheetId, ARTICLE_CREDIT_SHEET_RANGE);
   } catch {
-    rawRows = await fetchSheetRows(spreadsheetId, LEGACY_CREDIT_SHEET_RANGE);
+    rawRows = await readSheet(spreadsheetId, LEGACY_CREDIT_SHEET_RANGE);
   }
   const summary: LearnCreditSyncSummary = { updated: 0, unchanged: 0, cleared: 0, skipped: 0, errors: [] };
   const mentionedPageSlugs = new Set<string>();
@@ -621,7 +661,7 @@ async function syncHomepageHeroImages(): Promise<HeroImageSyncSummary> {
   const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
   if (!spreadsheetId) throw new Error("GOOGLE_SHEETS_SPREADSHEET_ID is not set");
 
-  const rawRows = await fetchSheetRows(spreadsheetId, HERO_SHEET_RANGE);
+  const rawRows = await readSheet(spreadsheetId, HERO_SHEET_RANGE);
   const summary: HeroImageSyncSummary = { synced: 0, skipped: 0, errors: [] };
 
   const images: { imageUrl: string; altText: string; sortOrder: number }[] = [];
@@ -670,14 +710,24 @@ export type SyncSummary = {
   heroImages: HeroImageSyncSummary;
   /** Practice pages whose visible content changed, and the IndexNow result. */
   indexing: { changed: number; submitted: number; status: string };
+  /** False when the sheet held exactly what the last sync saw, so the page
+   * cache was left alone (src/app/api/sync/route.ts). */
+  sheetChanged: boolean;
 };
 
 export async function runSync(): Promise<SyncSummary> {
+  const reads: string[] = [];
+  const summary = await sheetReads.run(reads, syncSheet);
+  summary.sheetChanged = await sheetChanged(reads);
+  return summary;
+}
+
+async function syncSheet(): Promise<SyncSummary> {
   const spreadsheetId = process.env.GOOGLE_SHEETS_SPREADSHEET_ID;
   if (!spreadsheetId) throw new Error("GOOGLE_SHEETS_SPREADSHEET_ID is not set");
 
   await verifyProviderHeaders(spreadsheetId);
-  const rawRows = await fetchSheetRows(spreadsheetId, SHEET_RANGE);
+  const rawRows = await readSheet(spreadsheetId, SHEET_RANGE);
   const summary: SyncSummary = {
     created: 0,
     updated: 0,
@@ -692,6 +742,7 @@ export async function runSync(): Promise<SyncSummary> {
     learnCredits: { updated: 0, unchanged: 0, cleared: 0, skipped: 0, errors: [] },
     heroImages: { synced: 0, skipped: 0, errors: [] },
     indexing: { changed: 0, submitted: 0, status: "not run" },
+    sheetChanged: true,
   };
 
   // For the rename and Group ID warnings (see SyncSummary.warnings).

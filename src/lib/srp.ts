@@ -1,5 +1,5 @@
-import { cachedQuery, readDb } from "@/lib/cache";
-import { Prisma } from "@/generated/prisma/client";
+import { cachedQuery } from "@/lib/cache";
+import { db } from "@/lib/db";
 import { streetName } from "@/lib/address";
 
 export type SrpProvider = {
@@ -52,8 +52,6 @@ export const RADIUS_OPTIONS = [20, 30, 40, 50, 75, 100, 150, 200] as const;
 // Auto-expand fallback steps when the chosen radius returns nothing.
 const AUTO_EXPAND_STEPS = [10, 20, 30, 40, 50, 75, 100, 150, 200];
 
-const MILES_PER_METER = 1 / 1609.344;
-
 function bucketize(rows: SrpProvider[]): Record<SrpBucket, SrpProvider[]> {
   const buckets: Record<SrpBucket, SrpProvider[]> = {
     premium: [],
@@ -76,6 +74,46 @@ function bucketize(rows: SrpProvider[]): Record<SrpBucket, SrpProvider[]> {
   return buckets;
 }
 
+/** Miles between two points (haversine on a mean-radius Earth; within about
+ * 0.5% of PostGIS's spheroid distance, which is plenty for search radii). */
+export function milesBetween(lat1: number, lng1: number, lat2: number, lng2: number): number {
+  const rad = Math.PI / 180;
+  const dLat = (lat2 - lat1) * rad;
+  const dLng = (lng2 - lng1) * rad;
+  const a = Math.sin(dLat / 2) ** 2 + Math.cos(lat1 * rad) * Math.cos(lat2 * rad) * Math.sin(dLng / 2) ** 2;
+  return 2 * 3958.7613 * Math.asin(Math.sqrt(a));
+}
+
+type LiveProvider = Omit<SrpProvider, "distanceMiles"> & { searchRadiusMiles: number };
+
+/**
+ * Every live listing with a location, as one cached list (src/lib/cache.ts).
+ * Search, the homepage's nearby practices and practice pages' nearby box all
+ * measure distances from this in code (2026-10-31), so a visitor's location
+ * or a new zip never reaches the database. About 120 rows, so it's instant.
+ */
+function liveProviders(): Promise<LiveProvider[]> {
+  return cachedQuery(["srp-live-providers"], async () => {
+    const rows = await db.provider.findMany({
+      where: { active: true, isDemo: false, latitude: { not: null }, longitude: { not: null } },
+      select: {
+        id: true, slug: true, practiceName: true, city: true, state: true, address: true,
+        latitude: true, longitude: true, tier: true, foundingMember: true, academic: true,
+        geoExtension: true, travelNotes: true, photoUrl: true, srpPhotoUrl: true,
+        pdpRemoteConsultBadge: true, customMessage: true, verificationDate: true, searchRadiusMiles: true,
+      },
+    });
+    return rows.map(({ address, latitude, longitude, ...p }) => {
+      // Another live office with the same name in the same city, so the two
+      // cards don't look identical.
+      const hasSibling = rows.some(
+        (o) => o.id !== p.id && o.practiceName === p.practiceName && o.city === p.city && o.state === p.state,
+      );
+      return { ...p, latitude: latitude!, longitude: longitude!, street: hasSibling ? streetName(address) : null };
+    });
+  });
+}
+
 /** Every active provider within `radiusMiles`, respecting each provider's own
  * searchRadiusMiles eligibility ceiling (200 normally, 600 for Geo-Extension) —
  * unless `ignoreOwnCap` is set, the fallback-only exception used once we've
@@ -86,44 +124,15 @@ async function queryWithinRadius(
   radiusMiles: number,
   { geoExtensionOnly = false, ignoreOwnCap = false } = {},
 ): Promise<SrpProvider[]> {
-  const radiusMeters = radiusMiles / MILES_PER_METER;
-
-  // Cached per search point: everyone searching the same zip shares one result.
-  const key = ["srp-radius", String(lat), String(lng), String(radiusMiles), String(geoExtensionOnly), String(ignoreOwnCap)];
-  const rows = await cachedQuery(key, () => readDb.$queryRaw<
-    Array<Omit<SrpProvider, "distanceMiles" | "street"> & { distanceMeters: number; address: string; hasSibling: boolean }>
-  >(
-    Prisma.sql`
-      SELECT
-        "id", "slug", "practiceName", "city", "state",
-        "latitude", "longitude", "tier", "foundingMember", "academic", "geoExtension", "travelNotes",
-        "photoUrl", "srpPhotoUrl", "pdpRemoteConsultBadge", "customMessage", "verificationDate", "address",
-        EXISTS (
-          SELECT 1 FROM "Provider" s
-          WHERE s."active" = true AND s."isDemo" = false AND s."id" <> "Provider"."id"
-            AND s."practiceName" = "Provider"."practiceName" AND s."city" = "Provider"."city" AND s."state" = "Provider"."state"
-        ) AS "hasSibling",
-        ST_Distance("geog", ST_SetSRID(ST_MakePoint(${lng}, ${lat}), 4326)::geography) AS "distanceMeters"
-      FROM "Provider"
-      WHERE "active" = true
-        AND "isDemo" = false
-        AND "geog" IS NOT NULL
-        AND ST_DWithin("geog", ST_SetSRID(ST_MakePoint(${lng}, ${lat}), 4326)::geography, ${radiusMeters})
-        ${geoExtensionOnly ? Prisma.sql`AND "geoExtension" = true` : Prisma.empty}
-        ${
-          ignoreOwnCap
-            ? Prisma.empty
-            : Prisma.sql`AND ST_DWithin("geog", ST_SetSRID(ST_MakePoint(${lng}, ${lat}), 4326)::geography, "searchRadiusMiles" * 1609.344)`
-        }
-      ORDER BY "distanceMeters" ASC
-    `,
-  ));
-
-  return rows.map(({ address, hasSibling, distanceMeters, ...row }) => ({
-    ...row,
-    street: hasSibling ? streetName(address) : null,
-    distanceMiles: distanceMeters * MILES_PER_METER,
-  }));
+  const rows: SrpProvider[] = [];
+  for (const { searchRadiusMiles, ...p } of await liveProviders()) {
+    const distanceMiles = milesBetween(lat, lng, p.latitude, p.longitude);
+    if (distanceMiles > radiusMiles) continue;
+    if (geoExtensionOnly && !p.geoExtension) continue;
+    if (!ignoreOwnCap && distanceMiles > searchRadiusMiles) continue;
+    rows.push({ ...p, distanceMiles });
+  }
+  return rows.sort((a, b) => a.distanceMiles - b.distanceMiles);
 }
 
 /**

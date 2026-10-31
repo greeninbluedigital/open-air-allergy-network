@@ -5,8 +5,8 @@ import { PRIVACY_CHOICES_PATH } from "@/lib/consent";
 import { PrivacyChoicesPanel } from "@/components/consent/PrivacyChoicesPanel";
 
 // Cached page (src/lib/cache.ts): built on its first visit, then served from
-// Vercel's cache until a sync or publish clears it (or a day passes).
-export const revalidate = 86400;
+// Vercel's cache until a sync or publish clears it (or a week passes).
+export const revalidate = 604800;
 export function generateStaticParams() {
   return [];
 }

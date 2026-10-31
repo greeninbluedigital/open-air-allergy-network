@@ -10,10 +10,23 @@ practices, zip search, practice pages' contact form for WA, NV and CT
 visitors) still render per visit, but from cached data. Before this, every
 visit and crawl woke Neon and used up the free compute allowance.
 
-- **What clears it:** `refreshSiteCache()` runs after every sync and after a
-  review refresh that changed something. The publish scripts call
+- **What clears it:** `refreshSiteCache()` runs after a sync whose sheet
+  data changed (a fingerprint of everything it read, stored in
+  `SiteSetting.syncFingerprint`, plus the deployed commit) and after the
+  weekly review refresh (Mondays). The publish scripts call
   `/api/revalidate` (CRON_SECRET) through `src/lib/liveCache.ts`. The next
-  visit to each page then reads fresh data. A one day expiry is the backstop.
+  visit to each page then reads fresh data. A seven day expiry is the
+  backstop. To force a clear by hand, POST to `/api/revalidate`.
+- **Why so few clears (2026-10-31):** every clear makes each page reread the
+  database on its next visit, and crawlers spread those visits across the
+  whole day, so the database never got to sleep. Daily syncs and daily review
+  runs used to clear everything; now a quiet day clears nothing.
+- **Distances are computed in code,** not PostGIS: search, the homepage's
+  nearby practices, practice pages' nearby box and the Blog's zip filter all
+  measure from one cached list of practices (`liveProviders()` in
+  `src/lib/srp.ts`), so a new zip or a visitor's location never reaches the
+  database. Checked against the old PostGIS query on 2026-10-31: same
+  results, distances within 0.4%.
 - **Anything new that writes data the site shows** (a new script, an admin
   tool, a direct SQL fix) must clear the cache the same way, or the change
   waits up to a day.
