@@ -23,12 +23,19 @@ updated.
 4. **CRM simplification (parked 10/21).** The CRM is still too complex.
    Work through it together later; not now.
 5. **Lead check back to every 15 minutes** once the site gets steady
-   contact form leads. Slowed to hourly 10/26 because each run wakes the
-   Neon database and the 15-minute schedule used most of the free compute
-   allowance. One line in `.github/workflows/process-pending-leads.yml`.
-   A monthly reminder (the 2nd) reports lead volume and says when.
-   Neon is on a paid plan since 10/30, so this now costs a little money
-   rather than risking an outage.
+   contact form leads, **but only on Neon's paid plan.** Each run wakes the
+   database for about 5 minutes. Hourly (since 10/26) is about 0.6
+   CU-hours a day, roughly 18 a month, and shows on Neon's chart as the
+   regular spikes every 40 to 80 minutes (GitHub starts scheduled jobs late,
+   so the gaps wander). Every 15 minutes would be about 70 CU-hours a month
+   from the lead check alone, too tight for the free plan's 100. So switch
+   back to paid first, then change the one line in
+   `.github/workflows/process-pending-leads.yml`. A monthly reminder (the
+   2nd) reports lead volume and says when. If polling ever needs to go
+   away entirely: have each lead schedule its own check an hour after it's
+   submitted (e.g. Upstash QStash, free tier), so the database only wakes
+   when there's a lead. Not worth another service at 18 CU-hours a month
+   (10/31).
 
 6a. **Allergist titles check (around 11/27).** Practice and state page
    titles switched to "ILIT Allergist in {City}" / "ILIT Allergy Clinic in
