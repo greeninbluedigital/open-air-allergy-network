@@ -87,6 +87,18 @@ what doesn't:
   waist, near the hip)", never "groin" alone, which some readers take to
   mean the genitals (owner, 2026-10-20). Use the practice's own location if
   it differs (e.g. Columbia Allergy's A-ILIT uses the neck).
+- **No sales language (2026-11-02):** nestled, in the heart of, renowned,
+  stunning, state of the art, world class, a commitment to, a rich history
+  of, a diverse array of. Say what the practice is and does. This is where
+  bios slip most easily into ad copy, including in practice voice.
+- **No inflated significance:** "a pivotal step," "plays a key role,"
+  "setting the stage for," "the future looks bright." Keep the fact and end
+  on it.
+- **Use "is" and "has":** "The practice has three board certified
+  allergists," not "boasts," "features," "serves as" or "stands as."
+- No tacked-on "-ing" phrases ("..., ensuring the best possible care") and
+  no "not just X, but Y" contrasts. The full list of AI tells is in the
+  humanized-writing-dg-custom skill.
 
 ## FAQs
 - **Focus on ILIT and allergy treatment**, the questions of someone deciding
