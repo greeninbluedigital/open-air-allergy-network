@@ -98,7 +98,7 @@ flat, without a qualifier attached.
 ### 6. The short lead-in sentence (added 2026-10-15)
 
 Openers like "None of those visits can happen at home.", "Outside of trials, the numbers look
-worse.", "The three injections aren't the whole story." and "One more thing to keep in mind." make a
+worse." and "The three injections aren't the whole story." make a
 page easy to skim, and any one of them is fine. Stacked paragraph after paragraph, they become a
 pattern readers recognize as machine written. **Fix:** let most paragraphs start with the fact, the
 source or the reader's situation, and fold the setup into the opening sentence ("The AAAAI says
@@ -153,7 +153,8 @@ sign of AI-written text.
 
 **No stock framing phrases** (owner, 2026-11-02): "The question I keep coming back to," "What I
 keep thinking about," "The real question is," "Here's the thing," "Here's my take," "That's the
-part I'll be watching," "It's worth asking." They perform reflection instead of making the point,
+part I'll be watching," "It's worth asking," "One more thing to keep in mind" (owner, 2026-11-02:
+too chatty for this site even once). They perform reflection instead of making the point,
 and read as AI on sight. State the point directly.
 
 ---
