@@ -2,7 +2,7 @@
 
 Rules for the Short Bio, Extended Bio, FAQs and other copy OAAN writes for a
 practice's page, e.g. trial profiles. Set by the owner 2026-10-08. Also apply
-`OpenAirAllergyNetwork_STYLE_GUIDE.md` and the humanized-writing-dg_custom skill's rules (lede
+`OpenAirAllergyNetwork_STYLE_GUIDE.md` and the humanized-writing-dg-custom skill's rules (lede
 first, varied sentence length, no dashes or semicolons joining clauses, no
 banned words). Third person, platform voice: never "we" for the practice.
 
