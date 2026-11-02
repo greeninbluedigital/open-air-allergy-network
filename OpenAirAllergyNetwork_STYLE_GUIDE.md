@@ -151,6 +151,11 @@ sign of AI-written text.
 
 **No throat-clearing opener and no tidy summary-paragraph closer.**
 
+**No stock framing phrases** (owner, 2026-11-02): "The question I keep coming back to," "What I
+keep thinking about," "The real question is," "Here's the thing," "Here's my take," "That's the
+part I'll be watching," "It's worth asking." They perform reflection instead of making the point,
+and read as AI on sight. State the point directly.
+
 ---
 
 ## Structure Rules
