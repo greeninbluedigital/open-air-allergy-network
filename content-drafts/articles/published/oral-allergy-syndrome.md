@@ -191,7 +191,7 @@ Diagnosis starts with your history. The AAAAI says there's no single test for OA
 
 Some people need an emergency plan. The ACAAI says an allergist may prescribe an epinephrine auto injector if you've had significant throat discomfort or trouble swallowing, a reaction beyond your mouth, symptoms from cooked foods, or a reaction to peanuts or tree nuts.
 
-## Can allergy shots or ILIT help oral allergy syndrome?
+## Can allergy shots or ILIT (intralymphatic immunotherapy) help oral allergy syndrome?
 
 They may, but that's not the main reason to try them. The AAAAI says some studies have shown allergy shots can improve OAS symptoms. A [2024 systematic review](https://www.frontiersin.org/journals/allergy/articles/10.3389/falgy.2024.1360073/full) of birch pollen immunotherapy (10 studies, 475 patients) found the research too limited and uneven for firm conclusions about food symptoms. So treat the pollen allergy for its own sake, for the sneezing and itchy eyes, and count any change in your mouth symptoms as a possible bonus.
 

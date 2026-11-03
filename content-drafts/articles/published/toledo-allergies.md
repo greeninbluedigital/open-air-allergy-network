@@ -206,6 +206,6 @@ Allergy medicine controls symptoms while you take it, but it doesn't change the 
 
 ILIT research is promising but smaller than the research behind allergy shots, and results vary from person to person. The [ILIT FDA FAQ](/learn-about-ilit#faq-fda) covers the off label question in more detail.
 
-## Finding ILIT near Toledo
+## Finding ILIT allergy treatment near Toledo
 
 To see allergists who offer ILIT, [search near Toledo](/find-an-ilit-provider?zip=43604) or browse our [Ohio providers page](/find-an-ilit-provider/ohio). For a season by season look at allergies across the country, see [Seasonal Allergies by Season](/learn-about-ilit/seasonal-allergies-by-season).

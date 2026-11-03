@@ -220,7 +220,7 @@ Allergy medicine controls symptoms while you take it, but it doesn't change the 
 
 ILIT research is promising but smaller than the research behind allergy shots, and results vary from person to person. The [ILIT FDA FAQ](/learn-about-ilit#faq-fda) covers the off label question in more detail.
 
-## Finding ILIT near Tampa
+## Finding ILIT allergy treatment near Tampa
 
 To see allergists who offer ILIT, [search near Tampa](/find-an-ilit-provider?zip=33602) or browse our [Florida providers page](/find-an-ilit-provider/florida). For a look at allergies through the year anywhere in the country, see [Seasonal Allergies by Season](/learn-about-ilit/seasonal-allergies-by-season).
 

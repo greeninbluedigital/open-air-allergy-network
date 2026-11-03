@@ -96,7 +96,7 @@ Studies that asked people why they stopped keep turning up the same reasons:
 - **Progress that's hard to see.** Allergy shots build tolerance gradually, over years. In a [2018 study](https://doi.org/10.1002/alr.22190), about a quarter of the people who quit said the treatment didn't seem to be working.
 - **Costs that keep adding up.** Copays for injections and payments for the allergen extract were the top reason in the U.S. study, cited by 40% of the people who stopped. Add gas, parking and time away from work for every visit, and even a well covered course of shots can feel like a constant drain.
 
-## How many visits ILIT takes
+## How many visits ILIT allergy treatment takes
 
 In that same trial, the ILIT group got three injections into a lymph node in the groin (typically just below the waist, around the hip area): one at the start, one at four weeks and one at eight weeks. All 58 people who started ILIT finished it. The authors wrote that the short course "enhanced patient compliance."
 
@@ -104,7 +104,7 @@ That schedule is where the usual description comes from: about three injections 
 
 With ILIT, a long drive or a short flight three times over two months means you have a clear finish line that you can plan around. With traditional allergy shots, you'd likely face dozens of office visits, often more than a hundred, spread over three to five years, putting a standing commitment on your calendar that has to fit around everything else in your life.
 
-## What a trip for ILIT usually involves
+## What a trip for ILIT allergy treatment usually involves
 
 Before any immunotherapy, including the three ILIT injections, an allergist needs to confirm what you're allergic to and whether treatment fits you.
 

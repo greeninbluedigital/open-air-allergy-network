@@ -165,6 +165,6 @@ Mountain cedar has its own ILIT study with a DFW connection. A [2020 trial](http
 
 ILIT research overall is promising but smaller than the research behind allergy shots, and results vary from person to person. The [ILIT safety FAQ](/learn-about-ilit#faq-safety) covers the FDA question in more detail.
 
-## Finding ILIT in Dallas–Fort Worth
+## Finding ILIT allergy treatment in Dallas–Fort Worth
 
 To see practices offering ILIT allergy treatment near you, [search near Dallas](/find-an-ilit-provider?zip=75201) or [search near Fort Worth](/find-an-ilit-provider?zip=76102), or browse the [Dallas–Fort Worth area](/find-an-ilit-provider/texas#dallas-fort-worth) on our Texas page. For more on each season, see [Seasonal Allergies by Season](/learn-about-ilit/seasonal-allergies-by-season).

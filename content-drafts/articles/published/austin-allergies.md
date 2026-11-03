@@ -140,6 +140,6 @@ Mountain cedar has its own ILIT study. In a [2020 trial](https://doi.org/10.1016
 
 Read that result with its limits in mind. It was a small, one season study that the authors called a proof of concept. The investigators were from an Austin allergy practice, and the paper lists Aspire Allergy & Sinus as their affiliation. Aspire's offices are listed on Open Air Allergy Network. Research on ILIT overall is promising but smaller than for allergy shots, and results vary from person to person. The [ILIT safety FAQ](/learn-about-ilit#faq-safety) covers the FDA question in more detail.
 
-## ILIT providers in the Austin area
+## ILIT allergy treatment providers in the Austin area
 
 To see Austin area practices offering ILIT allergy treatment, [search for an ILIT provider near Austin](/find-an-ilit-provider?zip=78701), or see [ILIT providers in the Austin area](/find-an-ilit-provider/texas#austin) on our Texas page, which also covers the rest of the state by metro area. For what each season brings beyond Austin, see [Seasonal Allergies by Season](/learn-about-ilit/seasonal-allergies-by-season), and if fall hits you hardest, our [ragweed allergy guide](/blog/ragweed-allergy) goes deeper.

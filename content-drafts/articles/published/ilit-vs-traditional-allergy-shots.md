@@ -62,7 +62,7 @@ That shorter course is what draws people to ILIT. What you give up is a much sma
 
 [Allergy Shots vs. Allergy Drops vs. ILIT: Full Comparison](/learn-about-ilit/allergy-shots-vs-allergy-drops-vs-ilit "card")
 
-## ILIT vs. allergy shots at a glance
+## ILIT allergy treatment vs. allergy shots at a glance
 
 | | ILIT | Allergy shots (SCIT) |
 |---|---|---|
@@ -79,7 +79,7 @@ The [AAAAI](https://www.aaaai.org/tools-for-the-public/conditions-library/allerg
 
 ILIT is far shorter. In the [2008 trial](https://pmc.ncbi.nlm.nih.gov/articles/PMC2582048/) that compared the two directly, ILIT patients got three injections, at the start, week 4 and week 8. The allergy shot group got 54 injections over three years.
 
-## Why ILIT needs so few injections
+## Why ILIT allergy treatment needs so few injections
 
 ILIT puts the allergen where the immune system processes it. The 2008 trial's authors explain that only a small fraction of an injection under the skin ever reaches the lymph nodes, while an injection into a node delivers the whole dose there. The doses were tiny by comparison too. Across the whole course, ILIT patients received less than a thousandth of the total allergen the allergy shot group did.
 

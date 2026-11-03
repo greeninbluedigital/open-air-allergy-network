@@ -180,7 +180,7 @@ Allergy medicine controls the symptoms while you take it. It doesn't change the 
 
 **ILIT** is the shortest course, and for some people a faster alternative to allergy shots. An allergist injects FDA approved allergen extract into a lymph node, usually in the groin (just below the waist, near the hip), using ultrasound to guide the needle. Giving the extract that way is an off label use. A course is typically about three injections over about two months. The [2008 trial that established ILIT](https://pmc.ncbi.nlm.nih.gov/articles/PMC2582048/) studied grass pollen and compared three injections over two months with 54 shots over three years.
 
-### The mountain cedar ILIT trial
+### The mountain cedar trial of ILIT allergy treatment
 
 Mountain cedar has its own ILIT study. In a [2020 trial](https://doi.org/10.1016/j.anai.2020.04.030) in the *Annals of Allergy, Asthma & Immunology*, 21 people with cedar allergy received three monthly lymph node injections of either FDA approved mountain cedar extract or a placebo, before the 2018 to 2019 season. The [trial registry](https://clinicaltrials.gov/study/NCT03682965) lists sites in Austin, Grapevine and San Antonio.
 
@@ -190,6 +190,6 @@ It was a small, single season study, and the authors called it a proof of concep
 
 Every form of immunotherapy takes time to build, so there's no reason to wait for next season to talk with an allergist.
 
-## Find an ILIT provider in Texas
+## Find an ILIT allergy treatment provider in Texas
 
 To see practices offering ILIT in cedar country, [search for an ILIT provider near San Antonio](/find-an-ilit-provider?zip=78205), or browse [ILIT providers in Texas](/find-an-ilit-provider/texas) by metro area, including [Austin](/find-an-ilit-provider/texas#austin) and [San Antonio](/find-an-ilit-provider/texas#san-antonio). If you live in Austin, our [Austin allergies guide](/blog/austin-allergies) covers what follows cedar season, from oak in spring to ragweed in fall.
