@@ -27,7 +27,7 @@ Checked 2026-10-30. Rule (docs/sheet-columns.md, column AP): `Allergist` when th
 | Grand Rapids demo (row 9) | Allergist | As Grand Rapids Allergy |
 | Allergy Innovations | Allergist | Dr. Neha Yakhmi, board certified in allergy and immunology |
 | Kara Wada, MD | Allergist | Board certified in allergy and immunology |
-| Los Angeles Center for Ear, Nose, Throat and Allergy (Hawthorne, row 120) | Allergy Clinic | Checked 2026-11-03: laent.com's Hawthorne page lists no providers, and its team pages show ENT surgeons, PAs and NPs with no allergy and immunology board certification. The CRM names Dr. Sukhkarn Bains (board certified allergist per PIH Health), but laent.com doesn't list him. Switch to Allergist if the practice's site shows him or another allergist at Hawthorne |
+| Los Angeles Center for Ear, Nose, Throat and Allergy (Hawthorne, row 120) | Allergy Clinic | Checked 2026-11-03: laent.com's Hawthorne page lists no providers, and its team pages show ENT surgeons, PAs and NPs with no allergy and immunology board certification. Switch to Allergist if the practice's site shows a board certified allergist at Hawthorne |
 | Example practices (rows 2 to 7) | Allergist | Fictional sales examples |
 
 ## Aspire Allergy & Sinus (office by office)
