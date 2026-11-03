@@ -138,6 +138,8 @@ takes effect. Row 1 is headers, row 2 onward is data.
 | C | Answer | |
 | D | Sort Order | Optional — a number controlling display order. Leave blank and the sheet's own row order is used instead |
 
+Column E is the owner's: a formula on every row checks that column A's slug exists on the Providers tab ("OK" or "ERROR", with a count in E1). The sync never reads it. When adding FAQ rows, write only A to D of the next empty rows; don't append or insert rows, which leaves the new rows without the formula.
+
 Practical implication of the full-replace behavior: don't leave a practice's
 FAQ rows half-edited mid-session if you can help it — a sync running while
 you're only partway through editing will recreate that practice's FAQs from
