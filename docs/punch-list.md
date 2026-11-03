@@ -6,12 +6,6 @@ updated.
 
 ## To discuss or decide
 
-0. **Neon plan on Nov 1.** Back to the free plan (100 CU-hours a month)
-   only if Oct 31, the first full day after the compute fixes, came in
-   under about 3 CU-hours and the Monitoring chart shows long sleep
-   stretches. Otherwise stay on the paid plan (about $0.50 a day) a few
-   more days and check again.
-
 1. **Numbered "How It Works" cards** (homepage, Learn page, ad landing
    pages). Readable but template looking. Light changes only, if any.
 2. **Backlinks** (`docs/backlink-strategy.md`): profiles done (Qwoted,
@@ -111,7 +105,13 @@ updated.
     addresses. (Kara Wada, MD was added 10/25 as a trial, by zip only.) Auni's Bowling Green office isn't in
     the sheet yet.
 
-## Recently done (2026-10-26 to 10-30)
+## Recently done (2026-10-26 to 11-03)
+
+- Neon back on the free plan 11/3: about 1 CU-hour a day after the
+  caching fixes (2.47 CU-hours from 11/1 to 11/3, mostly the hourly lead
+  check), database 19 MB of the 0.5 GB allowed.
+- Orlando published; ILIT now paired with "allergy treatment" in every
+  heading (rule extended to H2s and H3s, 8 older articles fixed).
 
 - Published tree pollen, what dust mites look like, chest tightness, Tampa
   Bay triggers and dog allergy; related guide cards on every article.
