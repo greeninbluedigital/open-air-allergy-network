@@ -62,6 +62,7 @@ SOURCES (all linked in the article)
 - Senti G, et al. PNAS 2008 (PMC2582048): grass pollen; three injections at day 0, week 4 and week 8 into a superficial inguinal lymph node under ultrasound; nasal tolerance up within 4 months; at 3 years not significantly different from 3 years of shots; fewer allergic side effects in the first 4 months.
 
 REVIEW NOTES
+- **Second pass (2026-11-02, owner approved):** "An allergist in Orlando" in the testing section and "Orlando allergist" in the closing line (allergist search strategy); the Seasonal Allergies by Season link moved up under the season table so the article ends on Find a Provider; the "why" section no longer restates the 33rd ranking, it opens with the 2025 to 2026 change.
 - **Owner review (2026-11-02, main session):** live oak photo added to the spring section (Unsplash; Southern live oaks with resurrection fern and Spanish moss over palmettos; owner's caption, "~80%" written as "about 80%", fact from UF/IFAS Gardening Solutions as in the body). Last H2 "Finding ILIT near Orlando" → "Finding ILIT allergy treatment near Orlando" (ILIT pairing rule, now extended to all headings). Style pass against the updated writing rules: cut the intro's "Here's what's in the air each season, why Orlando ranks where it does, and what helps." (staged run-up plus a triad) and three stacked lead-ins ("Part of the answer is the calendar.", "The AAFA's ranking adds another piece.", "Oak is the big one."), folding the ranking into the next sentence.
 - **Orlando's story differs from Tampa's.** In the 2026 AAFA table, Tampa's pollen scored worse than average. Orlando's pollen scored average, and what pushed it to 33rd (beside an "overall worse than average" marker) was over the counter allergy medicine sales, which scored worse than average. The article says this plainly and adds the AAFA's own caveat that the medicine category includes decongestants people may buy for colds. I didn't say the medicine score "caused" the rank, since the AAFA weights factors unequally and doesn't publish the weights.
 - **The AAFA ranks the Orlando metro area (MSA).** The article says "Orlando" and "Central Florida" and doesn't claim Kissimmee, Sanford or other cities rank on their own. Lakeland (20th) and Palm Bay (24th) are separate AAFA metros and aren't mentioned, to keep the page about Orlando.
@@ -121,13 +122,13 @@ For the long term, immunotherapy treats the allergy itself, and ILIT is a fast a
 
 Sources: [UF/IFAS Gardening Solutions](https://gardeningsolutions.ifas.ufl.edu/?p=24975), the [UF/IFAS Mid-Florida Research and Education Center](https://mrec.ifas.ufl.edu/resources/weedsbyflowercolor/green/ambrosiaartemisiifolia/), the [AAFA 2026 report](https://aafa.org/wp-content/uploads/2026/03/aafa-2026-allergy-capitals-report.pdf) and the AAFA's [dust mite page](https://aafa.org/allergies/types-of-allergies/insect-allergy/dust-mite-allergy/).
 
-Match your worst weeks to the table, then take that list to an allergist. It's a quick way to narrow down what to test for.
+Match your worst weeks to the table, then take that list to an allergist. It's a quick way to narrow down what to test for. For how allergy seasons play out across the country, see [Seasonal Allergies by Season](/learn-about-ilit/seasonal-allergies-by-season).
 
 ## Why are my allergies so bad in Orlando?
 
 Trees produce about 80% of the airborne pollen in Florida, according to [UF/IFAS Gardening Solutions](https://gardeningsolutions.ifas.ufl.edu/?p=24975), and the AAFA notes that warmer, more humid climates in the Southeast support pollen production. Something is in the air for much of the year.
 
-Orlando placed 33rd in the AAFA's 2026 ranking and 34th in its [2025 report](https://aafa.org/wp-content/uploads/2025/03/aafa-2025-allergy-capitals-report.pdf). The 2026 score blends three things: pollen, sales of over the counter allergy medicine and the number of allergists. Orlando's pollen came in average for the year. Its over the counter allergy medicine sales, measured against the estimated number of people with allergies, scored worse than average. The AAFA points out one limit: that medicine category includes decongestants, which some people buy for colds.
+Orlando's rank barely moved, from 34th in the AAFA's [2025 report](https://aafa.org/wp-content/uploads/2025/03/aafa-2025-allergy-capitals-report.pdf) to 33rd. The 2026 score blends three things: pollen, sales of over the counter allergy medicine and the number of allergists. Orlando's pollen came in average for the year. Its over the counter allergy medicine sales, measured against the estimated number of people with allergies, scored worse than average. The AAFA points out one limit: that medicine category includes decongestants, which some people buy for colds.
 
 ## Spring: oak season in Orlando's drier months
 
@@ -179,7 +180,7 @@ These steps come from the [AAFA](https://aafa.org/wp-content/uploads/2026/03/aaf
 
 ## Allergy testing in Orlando
 
-Oak, grass, ragweed, mold and dust mites can all cause the same sneezing, stuffy nose and itchy eyes, so symptoms alone won't tell you which one is the problem. A skin test or blood test can show what you react to, and that's the first step toward immunotherapy, which is matched to your allergens. Our guide to [allergy skin tests vs. blood tests](/blog/allergy-skin-test-vs-blood-test) explains both. If you're not sure it's allergies at all, [Allergies or a Cold?](/blog/allergies-or-a-cold) walks through the signs.
+Oak, grass, ragweed, mold and dust mites can all cause the same sneezing, stuffy nose and itchy eyes, so symptoms alone won't tell you which one is the problem. An allergist in Orlando can use a skin test or blood test to show what you react to, and that's the first step toward immunotherapy, which is matched to your allergens. Our guide to [allergy skin tests vs. blood tests](/blog/allergy-skin-test-vs-blood-test) explains both. If you're not sure it's allergies at all, [Allergies or a Cold?](/blog/allergies-or-a-cold) walks through the signs.
 
 For more on Florida's oak, cypress and grass seasons on the Gulf coast, see our [Tampa Bay allergy guide](/blog/tampa-bay-allergy-triggers).
 
@@ -197,4 +198,4 @@ ILIT research is promising but smaller than the research behind allergy shots, a
 
 ## Finding ILIT allergy treatment near Orlando
 
-To see allergists who offer ILIT, [search near Orlando](/find-an-ilit-provider?zip=32801) or browse our [Florida providers page](/find-an-ilit-provider/florida). For a look at allergies through the year anywhere in the country, see [Seasonal Allergies by Season](/learn-about-ilit/seasonal-allergies-by-season).
+To find an Orlando allergist who offers ILIT allergy treatment, [search near Orlando](/find-an-ilit-provider?zip=32801) or browse our [Florida providers page](/find-an-ilit-provider/florida).
