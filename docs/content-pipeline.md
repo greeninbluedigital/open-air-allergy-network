@@ -197,7 +197,7 @@ Meta description (NN chars): ...   (70 to 155 characters)
 Target keywords: "...", "..."
 Tags: ...                (comma separated, from the tags already in use: Allergy Symptoms, Allergens, Allergy Testing, Comparisons, ILIT, SCIT, SLIT; propose a new tag only in REVIEW NOTES)
 Feature image: TBD (owner uploads)   (or the URL from the queue row's Hero image column, if filled)
-Image idea: one sentence describing a realistic, saturated, real setting photo (no faces, no clinic interiors)
+Image idea: the queue row's Image idea column, if filled; otherwise one sentence describing a realistic, saturated, real setting photo (no faces, no clinic interiors)
 (Photos inside the body are optional. They wrap beside the text and are portrait, 1200 × 1500: `![alt](URL "Caption")` on its own line, see docs/image-guide.md.)
 Image alt: ...
 Credit: none (house article).
