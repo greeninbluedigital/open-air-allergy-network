@@ -71,7 +71,8 @@ a redirect; Dallas–Fort Worth, moved the same day).
 - **Lead with the answer.** The first paragraph answers the title's question
   plainly. Journalism style, most important first, no warm up.
 - **Human, plain voice.** No em dashes, no hyphens or semicolons joining
-  clauses. Vary sentence length. No banned words (delve, landscape, robust,
+  clauses. Hyphens in conventional compound words (build-up, follow-up,
+  X-ray, over-the-counter) are fine. Vary sentence length. No banned words (delve, landscape, robust,
   leverage, unlock, elevate, navigate, tapestry, "it's important to note").
   No "Moreover", "Furthermore", "Additionally", "In conclusion". No tidy
   summary paragraph at the end. Contractions are fine.

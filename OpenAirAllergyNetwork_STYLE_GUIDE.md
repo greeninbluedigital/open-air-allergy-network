@@ -143,6 +143,8 @@ paragraph opener.
 conjunction instead. The point is to avoid sounding machine written, so dashes that are part of a
 name or a normal compound are fine (owner, 2026-10-20): "Dallas–Fort Worth" (en dash, matching
 the Texas page heading), "Winston-Salem", "ultrasound-guided" in a quoted product name.
+Conventional compound words keep their hyphens (owner, 2026-11-02): build-up, follow-up, X-ray,
+long-term relief, over-the-counter medicine. Only the dash used to join clauses is out.
 
 **Vary sentence length aggressively.** A run of uniform medium-length sentences is the clearest
 sign of AI-written text.
