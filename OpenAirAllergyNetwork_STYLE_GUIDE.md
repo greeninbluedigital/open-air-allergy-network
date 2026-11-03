@@ -161,6 +161,11 @@ and read as AI on sight. State the point directly.
 
 ## Structure Rules
 
+- **"ILIT" never stands alone in a title, heading, meta description or FAQ
+  question.** Write "ILIT allergy treatment" (or "ILIT (intralymphatic
+  immunotherapy)"), because Google often reads bare "ILIT" as an irrevocable
+  life insurance trust. This includes every H2 and H3 (owner, 2026-11-02).
+
 - **Lead with the point.** The first sentence of an article, and of each section, should answer the
   question the heading implies, before adding supporting detail.
 - **Keep the existing page template.** Intro, mechanism, what to expect, comparison, FAQ, CTA is a

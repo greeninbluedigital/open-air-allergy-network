@@ -270,10 +270,13 @@ for a debate between sources.
 ## "ILIT" is ambiguous in search (owner, 2026-10-25)
 
 Google often reads "ILIT" as an irrevocable life insurance trust. Never use
-"ILIT" alone in a title, H1, meta description or FAQ question: pair it with
-"allergy" or "allergy treatment", or spell out "intralymphatic
-immunotherapy" nearby (e.g. "How do I find an ILIT allergy treatment
-provider near me?").
+"ILIT" alone in a title, H1, meta description, FAQ question **or any H2 or H3
+subheading** (added 2026-11-02, after "Finding ILIT near Orlando" slipped
+through): put "allergy treatment" right after it, or spell out
+"intralymphatic immunotherapy" next to it. "How do I find an ILIT allergy
+treatment provider near me?", "Finding ILIT allergy treatment near Orlando".
+"Allergy" elsewhere in the heading ("ILIT vs. allergy shots") isn't enough.
+Body text can say plain "ILIT" once a heading or sentence has set it up.
 
 ## Ranking and how-to articles (owner, 2026-10-24)
 

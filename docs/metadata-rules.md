@@ -147,8 +147,9 @@ current set doesn't.
 ## "ILIT" needs allergy context (2026-10-25)
 
 Google often reads "ILIT" alone as an irrevocable life insurance trust. In
-titles, H1s, meta descriptions and FAQ questions, pair "ILIT" with "allergy"
-or "allergy treatment", or include "intralymphatic immunotherapy" nearby.
+titles, H1s, meta descriptions, FAQ questions and every H2 or H3 subheading
+(subheadings added 2026-11-02), put "allergy treatment" right after "ILIT",
+or "intralymphatic immunotherapy" next to it (docs/content-pipeline.md).
 Applied 2026-10-25 across templates: practice page titles and H1 sublines
 ("ILIT Allergy Provider" when the practice name lacks "allergy"), state page
 H1s ("ILIT Allergy Treatment Providers in {State}"; titles keep the brand
