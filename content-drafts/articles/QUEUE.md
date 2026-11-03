@@ -57,7 +57,7 @@ Keep the mix when adding items.
 | 15 | Can Allergies Cause Chest Tightness? | Blog | can-allergies-cause-chest-tightness | any time | published 2026-10-28 | published/can-allergies-cause-chest-tightness.md | https://res.cloudinary.com/qruprn0t/image/upload/v1791854105/allergy-chest-tightness-2.jpg |
 | 16 | 5 Allergy Triggers in Tampa Bay (ranking or list, local) | Blog | tampa-bay-allergy-triggers | before January (oak season) | published 2026-10-29 | published/tampa-bay-allergy-triggers.md | https://res.cloudinary.com/qruprn0t/image/upload/v1793248720/tampa-bay-allergies-plant-hall-university-of-tampa.jpg |
 | 17 | Am I Allergic to My Dog? Signs and What Helps | Blog | allergic-to-my-dog | any time | published 2026-10-30 | published/allergic-to-my-dog.md | https://res.cloudinary.com/qruprn0t/image/upload/allergic-to-my-dog-on-couch.jpg |
-| 18 | Orlando Allergies (city page) | Blog | orlando-allergies | before January | next | | https://res.cloudinary.com/qruprn0t/image/upload/v1791853508/orlando-fl-lake-eola-park-and-linton-e-allen-memorial-fountain.jpg |
+| 18 | Orlando Allergies (city page) | Blog | orlando-allergies | before January | published 2026-11-02 | published/orlando-allergies.md | https://res.cloudinary.com/qruprn0t/image/upload/v1791853508/orlando-fl-lake-eola-park-and-linton-e-allen-memorial-fountain.jpg |
 | 19 | Puffy Eyes From Allergies: Causes and Relief | Blog | puffy-eyes-allergies | any time | next | |  |
 | 20 | The Worst U.S. Cities for Allergies in 2026, Ranked (ranking, national) | Blog | worst-cities-for-allergies-2026 | before March (2027 report replaces it) | next | |  |
 | 21 | Best and Worst Pets for Allergies, Ranked (ranking) | Blog | pets-ranked-by-allergies | any time | next | |  |
