@@ -37,6 +37,11 @@ banned words). Third person, platform voice: never "we" for the practice.
    anything else that changes often.
 6. No outbound links on paid or trial pages (the practice page is the
    endpoint).
+6a. **Evergreen only (owner, 2026-11-03).** Leave out facts that go stale
+   when the practice grows: "the only office offering ILIT so far", office
+   counts ("19 offices"), launch dates ("began offering ILIT in October").
+   Keep them in Verification Notes or Notes instead, so nothing on the page
+   needs updating when ILIT spreads to more offices.
 7. **Never imply anyone can get ILIT.** No "available to all patients".
    Candidacy is a decision the provider and patient make together.
 8. **Attribute, don't endorse (2026-10-09).** OAAN is an independent
@@ -118,6 +123,13 @@ what doesn't:
   immunotherapy") goes right next to it: "Is ILIT allergy treatment faster
   than allergy shots?", not "Is ILIT a faster alternative to allergy shots?".
   Answers can say plain "ILIT" once the question has set it up.
+- **Name the practice in practice-specific questions (owner, 2026-11-03).**
+  "Does Los Angeles Center for Ear, Nose, Throat and Allergy offer allergy
+  testing in Hawthorne?", not "Can I get allergy testing in Hawthorne?" or
+  "Where is the office?". AI answers and search snippets pull a single FAQ
+  out of the page, so the question has to make sense without it. General
+  ILIT questions ("Is ILIT allergy treatment FDA approved?") stay as they
+  are.
 - **A practice's brand name for ILIT (QUICK-LI, ExACT Immunoplasty, AAT,
   Elaria Rapid Allergy Therapy) goes in one question at most,** because few
   people search it. Make that one "Are {Brand} and ILIT allergy treatment the
