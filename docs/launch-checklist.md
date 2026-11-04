@@ -67,13 +67,14 @@ first payment.
       to a Vercel cron (Hobby only allows daily crons), which also removes
       the dependency on GitHub's runners (they failed for hours on
       2026-10-05).
-- [ ] ~~Upgrade Neon to a paid plan~~ (done 2026-10-30, after the free
-      compute allowance ran out; page data caching added the same day, see
-      architecture-notes.md). Still to do: set the lead-forwarding job
-      back to every 15 minutes (hourly since 2026-10-26 to stay inside the
-      free compute allowance). Paying practices should get unconfirmed
-      leads within about an hour, not two. Once this is done, retire the
-      monthly lead check reminder (`oaan-monthly-lead-check`).
+- [ ] **Neon plan and lead check frequency.** Neon went paid 2026-10-30
+      after the free compute allowance ran out, then back to the free plan
+      2026-11-03 once page data caching and other fixes cut usage (see
+      architecture-notes.md). The lead-forwarding job stays hourly (since
+      2026-10-26) until there's a meaningful number of contact form leads.
+      At that point, upgrade Neon to paid first, then set the job back to
+      every 15 minutes and retire the monthly lead check reminder
+      (`oaan-monthly-lead-check`).
 - [ ] **Practice agreement:** minimum terms, no lead or traffic guarantees,
       SEM at OAAN's discretion, cancellation, custom message responsibility
       ([legal-facts.md](legal-facts.md) questions 10 and 15).
