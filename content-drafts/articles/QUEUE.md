@@ -39,6 +39,7 @@ test results, Houston, clean home hub, Tampa how-to, one-time shot; week of
 birch, St. Louis and Kansas City, grass, Charlotte, Ohio grass; week of
 11/30 Los Angeles, why people quit, injection sites, Midwest ragweed, mold.
 Keep the mix when adding items.
+**Reordered (owner, 2026-11-05):** Houston and Los Angeles are the next two drafts, ahead of the plan above (backlink plan: one real local page for the Sugar Land and Humble searches, and LA now has a second ILIT practice).
 
 | # | Working title | Section | Slug | Publish by | Status | Draft file | Image idea | Hero image |
 |---|---|---|---|---|---|---|---|---|
@@ -63,22 +64,22 @@ Keep the mix when adding items.
 | 19 | Puffy Eyes From Allergies: Causes and Relief | Blog | puffy-eyes-allergies | any time | published 2026-11-03 | published/puffy-eyes-allergies.md |  | https://res.cloudinary.com/qruprn0t/image/upload/puffy-eyes-allergies-cold-washcloth-on-eyes.jpg |
 | 20 | The Worst U.S. Cities for Allergies in 2026, Ranked (ranking, national) | Blog | worst-cities-for-allergies-2026 | before March (2027 report replaces it) | published 2026-11-03 | published/worst-cities-for-allergies-2026.md | Car windshield coated in yellow-green pollen on a tree-lined street, a finger streak through the dust. No recognizable skyline. Search "pollen on car", "pollen windshield". File: worst-cities-for-allergies-2026-pollen-on-windshield.jpg | https://res.cloudinary.com/qruprn0t/image/upload/v1793677334/worst-cities-for-allergies-2026-pollen-on-windshield.jpg |
 | 21 | Best and Worst Pets for Allergies, Ranked (ranking) | Blog | pets-ranked-by-allergies | any time | published 2026-11-04 | published/pets-ranked-by-allergies.md | Cat asleep on a windowsill beside a goldfish bowl (both ends of the ranking). Or a dog, cat and rabbit on a rug. Search "cat and fish bowl". File: pets-ranked-by-allergies-cat-and-goldfish.jpg | https://res.cloudinary.com/qruprn0t/image/upload/v1793818748/pets-ranked-by-allergies-cat-and-goldfish.jpg |
-| 22 | Allergy Test Results: What Your Skin Test Means | Blog | allergy-test-results | any time | next | | Close-up of a forearm skin prick test grid: pen labels, a few raised red bumps, a plastic ruler measuring one. Search "allergy skin prick test". If AI: "realistic, natural skin, no blood" (mark pin AI modified). File: allergy-test-results-skin-prick-test-forearm.jpg |  |
+| 22 | Allergy Test Results: What Your Skin Test Means | Blog | allergy-test-results | any time | drafted 2026-11-05 | allergy-test-results.md | Close-up of a forearm skin prick test grid: pen labels, a few raised red bumps, a plastic ruler measuring one. Search "allergy skin prick test". If AI: "realistic, natural skin, no blood" (mark pin AI modified). File: allergy-test-results-skin-prick-test-forearm.jpg |  |
 | 23 | Houston Allergies (city page) | Blog | houston-allergies | before February | next | |  | https://res.cloudinary.com/qruprn0t/image/upload/v1791852227/houston-texas-skyline-and-grassy-park.jpg |
-| 24 | How to Clean Your Home to Reduce Allergies (how-to, national hub) | Blog | how-to-clean-home-reduce-allergies | any time | next | | Hands loading white sheets and pillowcases into a front-loading washer, bright laundry room. Or a vacuum on a sunlit rug. Search "washing bedding". File: how-to-clean-home-reduce-allergies-washing-sheets.jpg |  |
-| 25 | How to Allergy-Proof Your Home in Humid Tampa Bay (how-to, local) | Blog | allergy-proof-home-tampa-bay | any time | next | | Condensation beading on a window, palm trees blurred outside. Or a dehumidifier on a tile floor, palms through a sliding door. Search "window condensation palm". File: allergy-proof-home-tampa-bay-window-condensation-palms.jpg |  |
-| 26 | Is There a One-Time Allergy Shot? | Blog | one-time-allergy-shot | any time | next | | Wall calendar or paper planner with one date circled in red, a pen resting on it, warm desk light. Search "calendar circled date". File: one-time-allergy-shot-circled-calendar-date.jpg |  |
-| 27 | What's in Allergy Shots? Ingredients and Side Effects | Blog | whats-in-allergy-shots | any time | next | | Rows of small glass vials with colored caps in a tray, a syringe beside them, shallow depth of field. Search "medicine vials tray". File: whats-in-allergy-shots-extract-vials-tray.jpg |  |
-| 28 | How to Read a Pollen Count (how-to) | Blog | how-to-read-a-pollen-count | before February | next | |  |  |
-| 29 | Oak Pollen Allergy | Blog | oak-pollen-allergy | February | next | |  |  |
-| 30 | Denver Allergies (city page) | Blog | denver-allergies | before March | next | |  | https://res.cloudinary.com/qruprn0t/image/upload/v1791852967/denver-co-skyline.jpg |
-| 31 | Pine Pollen: Why the Yellow Dust Usually Isn't What's Making You Sneeze | Blog | pine-pollen-allergy | late February | next | |  |  |
-| 32 | Birch Pollen Allergy (Learn page: Yes) | Blog | birch-pollen-allergy | March | next | |  |  |
-| 33 | Allergy Triggers in St. Louis and Kansas City (ranking or list, local) | Blog | st-louis-kansas-city-allergy-triggers | before March | next | |  |  |
-| 34 | Grass Pollen Allergy (Learn page: Yes) | Blog | grass-pollen-allergy | April | next | |  |  |
-| 35 | Allergy Season in Charlotte: Pine, Oak and Grass (how-to, local) | Blog | charlotte-allergy-season | before March | next | |  |  |
-| 36 | Ohio Grass Pollen Season: When It Peaks and What Helps | Blog | ohio-grass-pollen-season | early April (peak May to June) | next | |  |  |
-| 37 | Los Angeles Allergies (city page) | Blog | los-angeles-allergies | before a second LA practice lists ILIT | next | |  |  |
+| 24 | Los Angeles Allergies (city page) | Blog | los-angeles-allergies | ASAP (second LA practice listed 2026-11-03) | next | |  |  |
+| 25 | How to Clean Your Home to Reduce Allergies (how-to, national hub) | Blog | how-to-clean-home-reduce-allergies | any time | next | | Hands loading white sheets and pillowcases into a front-loading washer, bright laundry room. Or a vacuum on a sunlit rug. Search "washing bedding". File: how-to-clean-home-reduce-allergies-washing-sheets.jpg |  |
+| 26 | How to Allergy-Proof Your Home in Humid Tampa Bay (how-to, local) | Blog | allergy-proof-home-tampa-bay | any time | next | | Condensation beading on a window, palm trees blurred outside. Or a dehumidifier on a tile floor, palms through a sliding door. Search "window condensation palm". File: allergy-proof-home-tampa-bay-window-condensation-palms.jpg |  |
+| 27 | Is There a One-Time Allergy Shot? | Blog | one-time-allergy-shot | any time | next | | Wall calendar or paper planner with one date circled in red, a pen resting on it, warm desk light. Search "calendar circled date". File: one-time-allergy-shot-circled-calendar-date.jpg |  |
+| 28 | What's in Allergy Shots? Ingredients and Side Effects | Blog | whats-in-allergy-shots | any time | next | | Rows of small glass vials with colored caps in a tray, a syringe beside them, shallow depth of field. Search "medicine vials tray". File: whats-in-allergy-shots-extract-vials-tray.jpg |  |
+| 29 | How to Read a Pollen Count (how-to) | Blog | how-to-read-a-pollen-count | before February | next | |  |  |
+| 30 | Oak Pollen Allergy | Blog | oak-pollen-allergy | February | next | |  |  |
+| 31 | Denver Allergies (city page) | Blog | denver-allergies | before March | next | |  | https://res.cloudinary.com/qruprn0t/image/upload/v1791852967/denver-co-skyline.jpg |
+| 32 | Pine Pollen: Why the Yellow Dust Usually Isn't What's Making You Sneeze | Blog | pine-pollen-allergy | late February | next | |  |  |
+| 33 | Birch Pollen Allergy (Learn page: Yes) | Blog | birch-pollen-allergy | March | next | |  |  |
+| 34 | Allergy Triggers in St. Louis and Kansas City (ranking or list, local) | Blog | st-louis-kansas-city-allergy-triggers | before March | next | |  |  |
+| 35 | Grass Pollen Allergy (Learn page: Yes) | Blog | grass-pollen-allergy | April | next | |  |  |
+| 36 | Allergy Season in Charlotte: Pine, Oak and Grass (how-to, local) | Blog | charlotte-allergy-season | before March | next | |  |  |
+| 37 | Ohio Grass Pollen Season: When It Peaks and What Helps | Blog | ohio-grass-pollen-season | early April (peak May to June) | next | |  |  |
 | 38 | Why People Quit Allergy Shots, and What the Research Shows | Blog | why-people-quit-allergy-shots | any time | next | |  | https://res.cloudinary.com/qruprn0t/image/upload/v1792627574/why-people-quit-allergy-shots-waiting-room-watch.jpg |
 | 39 | Where Do ILIT Injections Go? Groin and Neck Lymph Nodes Explained | Blog | where-do-ilit-injections-go | any time | next | |  |  |
 | 40 | Ragweed Season in the Midwest: Indianapolis, Toledo, Dayton and Grand Rapids (ranking or list, local) | Blog | midwest-ragweed-season | July | next | |  |  |

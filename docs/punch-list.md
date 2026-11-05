@@ -1,8 +1,16 @@
 # Punch list (owner's open items)
 
-Updated 2026-10-30. Things raised in recent sessions that are still open,
+Updated 2026-11-05. Things raised in recent sessions that are still open,
 newest decisions first. Cross items off or tell Claude, and this file gets
 updated.
+
+## High priority
+
+- **"Where to get ILIT" data page** (`docs/backlink-strategy.md` section 3).
+  The main linkable asset in the backlink plan (owner, 2026-11-05: higher
+  priority, but don't ship with partial verified counts yet). Still waits
+  on phone verification of most practices. Next after the allergy shot
+  visit calculator.
 
 ## To discuss or decide
 
