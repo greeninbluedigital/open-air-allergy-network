@@ -130,8 +130,9 @@ Mockup: <https://claude.ai/artifact/YVRv4E7JHmNmR4hgiKHg9G> (private).
   - Step 2 hint: "High deductible? Choose Self-pay until you meet it."
   - Step 4: "How far is your allergy shot office?" (miles each way, default
     5). The Travel grid echoes it instead of asking twice.
-  - Under the hours bar, a one-click "Count your time at the U.S. average
-    wage" link (toggles off with "Remove").
+  - ~~"Count your time" link under the hours bar~~: tried in mockup v8 and
+    cut (owner: visual clutter, hard to understand). Value of your time
+    stays only in its Fine-tune panel.
   - With Fly on and no flight cost entered, the ILIT card says "Flights not
     added yet" and the Travel panel prompts for flights and hotel.
   - **No per-year cost for shots.** A smaller yearly number invites
