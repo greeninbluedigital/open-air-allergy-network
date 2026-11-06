@@ -93,8 +93,13 @@ Mockup: <https://claude.ai/artifact/YVRv4E7JHmNmR4hgiKHg9G> (private).
   for allergy shots and one for ILIT, then "Other ILIT travel costs (e.g.,
   flights, hotel, rides)" as one total for the course.
 - Office time defaults: 45 minutes per shot visit (including the wait
-  after the shot) and 60 per ILIT visit (owner's experience; some practice
-  sites say 90). Each time box shows "Includes about N min of driving" so
+  after the shot) and 90 per ILIT visit (owner, 2026-11-05: some practice
+  sites say 90; the owner's own visits ran about 60). Time sits below
+  Travel.
+- Step 3 shows the fuel price it uses, editable: gas $/gallon and MPG for
+  Gas, or home charging cents/kWh for Electric (EIA state price). A typical
+  EV's efficiency stays fixed in the background, sourced from EPA fuel
+  economy data (verify the figure; the mockup uses 3.3 miles per kWh). Each time box shows "Includes about N min of driving" so
   the total explains itself.
 - ILIT price is labeled only "Estimated self-pay price. Insurance rarely
   covers ILIT." The page never says it comes from a survey of practices
