@@ -139,6 +139,24 @@ Mockup: <https://claude.ai/artifact/YVRv4E7JHmNmR4hgiKHg9G> (private).
     payment shopping instead of total cost (owner). Totals only.
   - "Already on shots? What's left vs. switching" goes in the "Switching
     From Allergy Shots to ILIT" article, not the calculator.
+- **Shareable results (owner, 2026-11-06).** The year question and buttons
+  sit above the results. Everything below them is one framed share card
+  that explains itself in a screenshot: title "Allergy shots vs. ILIT:
+  out-of-pocket cost", a context line (state, how they pay, years of shots,
+  miles each way or "Flying to ILIT"), both totals, the hours bars, the
+  honest note, and a footer crediting Open Air Allergy Network with the
+  calculator's address. Under the card: Copy link, Download image, Email,
+  Share (the phone's share menu, `navigator.share`).
+  - The share link stores the settings in the query string, so whoever
+    opens it sees the same comparison. **No zip code in the link**: GA4
+    records full page URLs, and a zip next to allergy treatment is
+    health-adjacent data. The link carries the resolved numbers (state,
+    miles, fuel price, costs) instead.
+  - One image route (e.g. `/api/calculator-card?...`, Next's
+    `ImageResponse`) renders the card as a PNG for both Download image and
+    the link's `og:image`, so a shared link previews as the card on
+    Facebook, LinkedIn and texts. No database use.
+  - Email opens a `mailto:` with a two-line summary and the link.
 - ILIT price is labeled only "Estimated self-pay price. Insurance rarely
   covers ILIT." The page never says it comes from a survey of practices
   (owner, 2026-11-05). The internal list stays on the CRM Locations tab.
