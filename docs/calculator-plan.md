@@ -91,7 +91,7 @@ verify). ILIT: typically three injection visits, per the Learn page.
 | Allergy testing, out of pocket | Shared by both paths | Medicare rate for the visitor's area (below); Allergenix's published $450 environmental allergy evaluation is a cash cross-check |
 | Allergy shots, per visit out of pocket | Insured: copay. Self-pay: estimated cash price | KFF copay; Medicare rate times the CBO ratio (below). Help text: "Include everything you pay per visit: the injection fee, your share of the serum (the allergen extract), and any copay. An injection-only visit may cost less than a doctor visit." |
 | ILIT, total out of pocket | Average of published self-pay prices | OAAN's internal price list (below) |
-| Value of your time per hour | $0, with a one-click button | FRED: CES0500000003 (U.S.) or the state average hourly earnings series. Label it "average hourly earnings" (it's a mean, not a median) |
+| Value of your time per hour | $0, with a one-click button | FRED: CES0500000003, average hourly earnings, total private (U.S.; state series possible later). Label it "average hourly earnings" (it's a mean, not a median) |
 
 ### Gas price mapping
 
@@ -172,12 +172,35 @@ maintenance. Use these to sanity check the Medicare based estimates.
 
 ## Data refresh job
 
-A monthly GitHub Actions workflow pulls EIA gas and electricity prices and
-FRED wages, writes one data file in the repo (e.g.
-`src/data/calculator-defaults.json` with an "as of" date per series), and
-commits it, which redeploys the site. CMS rates change yearly, so they're
-refreshed by hand each January. The owner creates free EIA and FRED API
-keys; they go in GitHub secrets.
+**Source: the owner's macro data spreadsheet** (2026-11-05),
+<https://docs.google.com/spreadsheets/d/15ouSHSSKELAAu3V8LFJgBXKA87_-wr7jpz-HL-mxY74/edit>.
+Its Apps Script already ingests the data from EIA and FRED, so OAAN needs
+no API keys of its own.
+
+- **`Fuel_Prices_Monthly`**: one row per month from 2000-01 (column A is
+  the month), one column per series. Rows 1 to 5 are headers: name, EIA
+  series ID, level (U.S., PADD, PADD subregion, State, City), units and
+  geography. Columns B to AD are the 29 regular gasoline series ($/gallon,
+  monthly averages of EIA's weekly prices), AE to CD residential
+  electricity for the U.S. and every state plus DC (cents per kWh). Gas
+  updates on the 3rd of each month, electricity on the 28th. Electricity
+  runs about two months behind gas (on 2026-11-05: gas through October,
+  electricity through August), so each value carries its own "as of" month.
+- **`FRED_Monthly`** column AG: CES0500000003, average hourly earnings,
+  total private, U.S. National only for now. For "average hourly earnings
+  in {state}", the owner could add FRED's state series
+  (SMU{state FIPS}000000500000003) to the sheet later.
+
+**How the site gets it:** the site already reads the sync sheet with a
+Google service account (`src/lib/googleSheets.ts`). The owner shares the
+macro data sheet with that service account's email as a Viewer. A monthly
+GitHub Actions workflow (around the 4th, after the gas update) reads the
+latest non-empty value of each column, writes
+`src/data/calculator-defaults.json` (value plus "as of" month per series),
+and commits it, which redeploys the site. The calculator maps the visitor's
+state to a gas column with the owner's PADD table (state series, then PADD
+1 subregion, then PADD, with West Coast less California for AK, AZ, HI, NV
+and OR). CMS rates change yearly and are refreshed by hand each January.
 
 ## Neon compute
 
