@@ -101,6 +101,17 @@ Mockup: <https://claude.ai/artifact/YVRv4E7JHmNmR4hgiKHg9G> (private).
   EV's efficiency stays fixed in the background, sourced from EPA fuel
   economy data (verify the figure; the mockup uses 3.3 miles per kWh). Each time box shows "Includes about N min of driving" so
   the total explains itself.
+- **Drive / Fly for ILIT** (Travel panel). Fly hides ILIT miles and
+  parking ("Flying"), swaps the travel cost box for "Flights, hotel and
+  rides, per trip" (times 3) and the time box for "ILIT time away per trip,
+  door to door" (default 8 hours, cost default $0). When the nearest
+  provider is over 250 miles each way, step 1 adds "That's a long drive.
+  Flying?" as a link that switches to Fly. ILIT results say "3 trips,
+  about N hours each" when flying or when a trip passes 8 hours.
+- Drive time defaults use 35 mph for local trips and 55 mph past 50 miles
+  each way (assumptions, not sourced; visitors can edit the minutes).
+- Electric shows "Charging cost per mile is based on a typical EV." under
+  the home charging price.
 - ILIT price is labeled only "Estimated self-pay price. Insurance rarely
   covers ILIT." The page never says it comes from a survey of practices
   (owner, 2026-11-05). The internal list stays on the CRM Locations tab.
