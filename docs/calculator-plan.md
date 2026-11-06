@@ -195,12 +195,25 @@ no API keys of its own.
 Google service account (`src/lib/googleSheets.ts`). The owner shares the
 macro data sheet with that service account's email as a Viewer. A monthly
 GitHub Actions workflow (around the 4th, after the gas update) reads the
-latest non-empty value of each column, writes
+latest non-empty value of each series, writes
 `src/data/calculator-defaults.json` (value plus "as of" month per series),
 and commits it, which redeploys the site. The calculator maps the visitor's
 state to a gas column with the owner's PADD table (state series, then PADD
 1 subregion, then PADD, with West Coast less California for AK, AZ, HI, NV
 and OR). CMS rates change yearly and are refreshed by hand each January.
+
+**Find columns by series ID, never by letter (owner, 2026-11-05).**
+Columns can shift when the owner adds series. The job reads the whole
+header block, finds each series by its ID in row 2 (`EMM_EPMR_PTE_SCA_DPG`,
+`electricity: CA / RES`, `CES0500000003`), and checks that the same column's
+row 4 units match what the calculator expects ($/gallon, ¢/kWh). If an
+expected ID is missing, appears twice, or has the wrong units, or a value
+is outside a sane range (gas $1 to $10 a gallon, electricity 5 to 60 cents,
+wages $10 to $100 an hour), the job fails without committing, so the site
+keeps last month's numbers, and the failure shows in GitHub's Actions tab
+and email. It also fails if the newest month is more than about 3 months
+old (gas) or 5 months old (electricity), which would mean the sheet's own
+updates stopped. The service account has View access (owner, 2026-11-05).
 
 ## Neon compute
 
