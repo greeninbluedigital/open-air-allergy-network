@@ -126,6 +126,18 @@ Mockup: <https://claude.ai/artifact/YVRv4E7JHmNmR4hgiKHg9G> (private).
   - Font sizes follow the site's scale (12, 14, 16px).
   - Every number input sets `inputmode="decimal"` (zip uses `numeric`) so
     phones show the number keyboard.
+- Persona review, owner decisions 2026-11-06:
+  - Step 2 hint: "High deductible? Choose Self-pay until you meet it."
+  - Step 4: "How far is your allergy shot office?" (miles each way, default
+    5). The Travel grid echoes it instead of asking twice.
+  - Under the hours bar, a one-click "Count your time at the U.S. average
+    wage" link (toggles off with "Remove").
+  - With Fly on and no flight cost entered, the ILIT card says "Flights not
+    added yet" and the Travel panel prompts for flights and hotel.
+  - **No per-year cost for shots.** A smaller yearly number invites
+    payment shopping instead of total cost (owner). Totals only.
+  - "Already on shots? What's left vs. switching" goes in the "Switching
+    From Allergy Shots to ILIT" article, not the calculator.
 - ILIT price is labeled only "Estimated self-pay price. Insurance rarely
   covers ILIT." The page never says it comes from a survey of practices
   (owner, 2026-11-05). The internal list stays on the CRM Locations tab.
