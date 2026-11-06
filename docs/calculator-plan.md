@@ -66,11 +66,36 @@ site's `/api/events` log.
 
 ## Allergy shot scenarios (AAAAI schedule, verify)
 
-| Scenario | Build-up | Maintenance | Visits (rough) |
+Owner, 2026-11-05: no source names a "typical" course, so the switch is
+**3 years / 4 years / 5 years** of total treatment (matching the Learn
+comparison page's 3 to 5 years), **defaulting to 3 years** so the
+comparison never overstates shots. Build-up is inside the total.
+
+| Option | Build-up | Then | Visits (rough) |
 |---|---|---|---|
-| Low | once a week, about 4 months | every 4 weeks, 3 years | about 55 |
-| Typical | once a week, about 6 months | every 3 weeks, 4 years | about 95 |
-| High | twice a week, about 6 months | every 2 weeks, 5 years | about 180 |
+| 3 years | once a week, about 4 months | every 4 weeks | about 52 |
+| 4 years | once a week, about 5 months | every 3 weeks | about 84 |
+| 5 years | once a week, about 6 months | every 2 weeks | about 143 |
+
+## Mockup decisions (owner review, 2026-11-05)
+
+Mockup: <https://claude.ai/artifact/YVRv4E7JHmNmR4hgiKHg9G> (private).
+- Three numbered steps (zip, Insurance / Self-pay, Gas / Electric), then
+  the estimate, then closed "Fine-tune your numbers" panels. One narrow
+  column so phones get the same layout. As few words as possible.
+- Miles are asked **each way** (round trips confused readers). Allergy
+  shot office defaults to 5 miles each way; ILIT fills from the zip.
+- No average speed input. "Time spent per visit" (travel and office
+  appointment time) pre-fills from distance and office time until the
+  visitor edits it.
+- No EV efficiency input: Electric uses a typical EV's miles per kWh.
+- "Other ILIT travel, like flights or a hotel" box (total for the course).
+- Heading "What you pay the provider out of pocket", with a disclaimer
+  naming the source of the estimates and pointing to the insurance company
+  or provider for actual costs. No "placeholder" labels on the live page.
+- Color coding: allergy shot inputs, labels and results in blue, ILIT in
+  the site's green, shared inputs (zip, testing, parking, wage, MPG) in
+  the standard gray.
 
 Cleveland Clinic's longer build-up (6 to 10 months) can be an advanced
 setting. Each visit adds the post-shot wait (AAAAI, about 30 minutes,
