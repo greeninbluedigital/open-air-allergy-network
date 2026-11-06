@@ -143,16 +143,32 @@ Price Includes, Price Source, Price Checked), repeated on every row of a
 group. Only the average and the range appear on the site, never a practice
 name. Recheck quarterly and when a new practice is added.
 
-As of 2026-11-05:
+As of 2026-11-05 (every listed practice's site checked; 8 publish a
+price, the rest are marked "no price published" on the tab):
 
 | Practice | Price | Notes |
 |---|---|---|
-| Avant Allergy | $4,000 flat | The owner's own treatment (direct information) |
-| Allergenix | $3,500 flat | Includes consult, mapping, boosters where indicated, follow-ups. Testing separate |
-| AllerPoint | $3,900 ($1,300 per injection x 3) | Boosters within a year free. Consult required, billing not stated |
+| Aspire Allergy & Sinus | $2,500 | ExACT Immunoplasty, 3 injections; excludes the initial allergy test |
+| St. Louis Family Allergy | $3,300 | Serums, vials and procedure, 3 monthly injections |
+| Grand Rapids Allergy | $3,300 ($1,100 x 3) | Extract, vials, ultrasound guided injections |
+| Allergenix | $3,500 flat | Consult, mapping, boosters where indicated, follow-ups. Testing separate |
+| AllerPoint | $3,900 ($1,300 x 3) | Boosters within a year free. Consult required, billing not stated |
+| Prairie Allergy | $3,900 | 3-injection series, follow-ups included |
+| Avant Allergy | $4,000 flat | The owner's own treatment (direct information; the site publishes no amount) |
+| Kara Wada, MD | $5,000 | Package with pre-treatment evaluation and follow-up consult |
 
-Average $3,800, range $3,500 to $4,000 (three practices). Check the rest of
-the listed practices' sites before launch.
+Mean $3,675, median $3,700, range $2,500 to $5,000 (8 practices). What's
+included varies (testing, consults, boosters), so the calculator's ILIT
+input says the price may or may not include testing and the consult, and
+testing stays a separate line shared by both paths. Use the median as the
+default.
+
+**Cash price cross-checks for other defaults** (internal, never shown by
+practice name): allergy testing runs $300 to $695 self-pay (Prairie $300
+for 50 allergens plus a $300 consult; Elaria $300 plus a $280 consult;
+Allergenix $450 evaluation; Aspire $695 adult). Prairie lists allergy
+shots (SCIT) at $200 a month during build-up and $125 a month in
+maintenance. Use these to sanity check the Medicare based estimates.
 
 ## Data refresh job
 
