@@ -89,7 +89,18 @@ Mockup: <https://claude.ai/artifact/YVRv4E7JHmNmR4hgiKHg9G> (private).
   appointment time) pre-fills from distance and office time until the
   visitor edits it.
 - No EV efficiency input: Electric uses a typical EV's miles per kWh.
-- "Other ILIT travel, like flights or a hotel" box (total for the course).
+- Travel is a small grid: miles each way and parking per visit, one column
+  for allergy shots and one for ILIT, then "Other ILIT travel costs (e.g.,
+  flights, hotel, rides)" as one total for the course.
+- Office time defaults: 45 minutes per shot visit (including the wait
+  after the shot) and 60 per ILIT visit (owner's experience; some practice
+  sites say 90). Each time box shows "Includes about N min of driving" so
+  the total explains itself.
+- ILIT price is labeled only "Estimated self-pay price. Insurance rarely
+  covers ILIT." The page never says it comes from a survey of practices
+  (owner, 2026-11-05). The internal list stays on the CRM Locations tab.
+- Value of your time opens with "Factor the value of your time into the
+  cost comparison. Enter an hourly value, or use the U.S. average."
 - Heading "What you pay the provider out of pocket", with a disclaimer
   naming the source of the estimates and pointing to the insurance company
   or provider for actual costs. No "placeholder" labels on the live page.
