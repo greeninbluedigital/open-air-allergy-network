@@ -112,6 +112,20 @@ Mockup: <https://claude.ai/artifact/YVRv4E7JHmNmR4hgiKHg9G> (private).
   each way (assumptions, not sourced; visitors can edit the minutes).
 - Electric shows "Charging cost per mile is based on a typical EV." under
   the home charging price.
+- Owner review 2026-11-06:
+  - The page's H1 and intro text (written for SEO) define ILIT and allergy
+    shots and say how to use the calculator. The calculator itself
+    doesn't repeat definitions.
+  - Results heading: "Your Out-of-Pocket Cost Estimate", with "How long
+    would your allergy shots last?" over the 3 / 4 / 5 year buttons, which
+    sit on the left over the shots card and use the shots blue.
+  - Shared steps (zip, pay, drive) use a neutral dark gray, not ILIT
+    green. Drive / Fly buttons are green, year buttons blue.
+  - "What do you drive?" has a third button, "I don't drive" (no fuel
+    cost; trips and time still count).
+  - Font sizes follow the site's scale (12, 14, 16px).
+  - Every number input sets `inputmode="decimal"` (zip uses `numeric`) so
+    phones show the number keyboard.
 - ILIT price is labeled only "Estimated self-pay price. Insurance rarely
   covers ILIT." The page never says it comes from a survey of practices
   (owner, 2026-11-05). The internal list stays on the CRM Locations tab.
