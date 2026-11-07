@@ -153,6 +153,42 @@ link:
 Google Business Profile isn't an option: it's for businesses that serve
 customers in person, and OAAN is online only.
 
+## 6. Sacramento local profiles (owner, 2026-11-07)
+
+OAAN's business address is in Sacramento (listed in the site terms), so
+sites that feature Sacramento companies are legitimate places for a
+profile. Never list OAAN in another city's local directories (it isn't an
+LA business). Work list, best first. Log each one in the CRM when done.
+
+**Free profiles**
+- [ ] **Built In Sacramento**: free company profile on a large, real site.
+  <https://builtin.com/tech-hubs/sacramento>
+- [ ] **StartupSac**: local nonprofit covering Sacramento startups (news,
+  events, resources). No listing form found; introduce OAAN and ask to be
+  featured.
+- [ ] **Greater Sacramento Economic Council (GSEC)**: runs the region's
+  startup alliance (SEGA) and keeps a page of entrepreneurship resources.
+  No submission form found; email and ask how local startups get included.
+  <https://www.greatersacramento.com>
+- [ ] **Engine, "Startups Everywhere"**: national startup advocacy group
+  that profiles founders by city, with a Sacramento edition. Ask whether
+  they take new profiles. <https://engine.is/news/startupseverywhere-sacramento-california>
+
+**Editorial pitches (the strongest links)**
+- [ ] **Comstock's** (Sacramento region business magazine): a Sacramento
+  company built the national directory for a fast allergy treatment most
+  people haven't heard of.
+- [ ] **Sacramento Business Journal** and **Inside Sacramento**: same local
+  founder angle. Sacramento ranked 75th in the AAFA's 2026 report.
+- Decide first: these want a named founder. Being quoted off-site doesn't
+  break the no-founder-persona rule (site content only); whether to
+  mention the owner's own ILIT treatment is the owner's call.
+
+**Skip:** chamber member directories (Sacramento Metro, East Sacramento:
+paid membership), generic directories (Loca.us, D&B, Regional Directory:
+low-quality links Google ignores), SacBlackBiz (Black-owned businesses
+only).
+
 ## Don't
 
 - Buy links, link packages or "guest posts with a dofollow link" (Google

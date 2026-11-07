@@ -12,6 +12,11 @@ updated.
   on phone verification of most practices. Next after the allergy shot
   visit calculator.
 
+- **Sacramento local profiles** (`docs/backlink-strategy.md` section 6):
+  Built In Sacramento, StartupSac, GSEC, Engine's Startups Everywhere, then
+  pitches to Comstock's, the Sacramento Business Journal and Inside
+  Sacramento. Reminder set for Monday 11/9.
+
 ## To discuss or decide
 
 1. **Numbered "How It Works" cards** (homepage, Learn page, ad landing
