@@ -105,6 +105,17 @@ source or the reader's situation, and fold the setup into the opening sentence (
 shots belong in a health care setting…", "For travelers, though, AMA policy says…"). Keep a short
 lead-in only where it earns its place, and never use one just to announce what's coming.
 
+**The article's opening (owner, 2026-11-09).** Don't open an article with a
+short declarative slogan ("Los Angeles allergies run most of the year.").
+The first sentence is longer and introductory: it sets up the topic for the
+reader and carries the head term ("For people who live with them, Los
+Angeles allergies can last most of the year, because..."). The second
+paragraph is a transition into the rest of the article, not a jump to a new
+topic: it picks up from the first ("Whichever of these triggers gets to
+you..."), names the treatments with their search terms (allergy shots,
+allergy drops, ILIT as a faster alternative to allergy shots), and says what
+the reader will find below.
+
 ### 7. Pet words (added 2026-10-15)
 
 Some words aren't banned but show up too often in machine written copy, and readers notice:
