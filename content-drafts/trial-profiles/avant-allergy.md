@@ -19,3 +19,16 @@ observation at each visit); /book-online. Not used on purpose: the FAQ's
 claims), prices. Local allergen FAQ: UCLA Health (tree pollen January to
 May) and the Cedars-Sinai Southern California pollen guide, as in the LA
 city article.
+
+
+## Rebuilt from scratch 2026-11-09 (owner)
+
+The owner asked for all new content built only from a fresh read of the
+practice's website; the only prior information kept is the ILIT
+verification (Verification Date and Notes). Trial on (expires 6/1/2027),
+Geo-Extension Y, Show Reviews Y. Notification Email set to the address the
+site publishes, with Notification Email Public = Y. Bios, hours, ILIT
+schedule notes, Treatments Offered and the eight FAQs (FAQs tab) all
+rewritten. Left out on purpose: success rates, safety percentages, "only" or
+"one of few" claims, prices and payment.
+Pages read: home, /meet-dr-ho, /services-4 (ILIT), /post/frequently-asked-questions, /allergy-testing, /allergy-shots-allergen-immunotherapy, /allergy-drops-sublingual-immunotherapy, /book-online. Public email: info@avantallergy.com (footer and contact block on every page; the sheet previously had avant@avantallergy.com, which isn't on the site). Local FAQ: UCLA Health (tree pollen January to May) and the AAFA 2026 report (Los Angeles 82nd).

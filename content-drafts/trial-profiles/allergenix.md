@@ -95,3 +95,16 @@ Dropped from the October draft: "first clinic in the region" (the site says
 is legal and common" (unsourced), the brand name in more than one FAQ
 question, prices. New: the site says it does not offer allergy shots. Local
 FAQ adds the AAFA's 2026 rank (Des Moines 31st) and ragweed timing.
+
+
+## Rebuilt from scratch 2026-11-09 (owner)
+
+The owner asked for all new content built only from a fresh read of the
+practice's website; the only prior information kept is the ILIT
+verification (Verification Date and Notes). Trial on (expires 6/1/2027),
+Geo-Extension Y, Show Reviews Y. Notification Email set to the address the
+site publishes, with Notification Email Public = Y. Bios, hours, ILIT
+schedule notes, Treatments Offered and the eight FAQs (FAQs tab) all
+rewritten. Left out on purpose: success rates, safety percentages, "only" or
+"one of few" claims, prices and payment.
+Pages read: home, /about, /about/dr-sean-stanga, /immunotherapy/rapimmune, /immunotherapy/rapimmune-vs-allergy-shots, /allergy-care, /new-patients, /contact. Public email: info@allergenix.com (footer and contact page). Local FAQ: AAFA 2026 report (ragweed timing, Des Moines 31st).
