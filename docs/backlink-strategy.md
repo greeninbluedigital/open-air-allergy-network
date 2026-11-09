@@ -161,8 +161,9 @@ profile. Never list OAAN in another city's local directories (it isn't an
 LA business). Work list, best first. Log each one in the CRM when done.
 
 **Free profiles**
-- [ ] **Built In Sacramento**: free company profile on a large, real site.
-  <https://builtin.com/tech-hubs/sacramento>
+- [x] **Built In Sacramento**: done 2026-11-09, <https://builtin.com/company/open-air-allergy-network>.
+  Links to the homepage with `utm_source=BuiltIn` (shows as a referral
+  source in GA4). Added to the homepage Organization `sameAs`.
 - [ ] **StartupSac**: local nonprofit covering Sacramento startups (news,
   events, resources). No listing form found; introduce OAAN and ask to be
   featured.

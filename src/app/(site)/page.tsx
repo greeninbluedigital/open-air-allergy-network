@@ -46,6 +46,7 @@ const SITE_JSON_LD = {
         "https://www.facebook.com/openairallergynetwork",
         "https://www.pinterest.com/openairallergynetwork/",
         "https://www.crunchbase.com/organization/open-air-allergy-network",
+        "https://builtin.com/company/open-air-allergy-network",
       ],
     },
   ],
