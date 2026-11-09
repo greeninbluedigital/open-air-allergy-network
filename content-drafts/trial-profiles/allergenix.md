@@ -77,3 +77,21 @@ Skin test results are read during your visit, and you leave with a written treat
 
 **8. Where is Allergenix located?**
 The clinic is at 595 S 60th St, Suite 160, in West Des Moines, close to Clive, Waukee and Urbandale, and it sees patients from across Iowa.
+
+---
+
+## Superseded 2026-11-09
+
+Rewritten to the current profile rules and pushed to the sheet (Providers
+row 11: Short Bio, Extended Bio, Business Hours, ILIT Schedule Notes, Show
+Reviews Y, Geo-Extension Y; FAQs tab rows 457 to 464). Allergenix declined
+any affiliation (10/9/26); the owner approved a trial page built only from
+public information (2026-11-09). Re-read allergenix.com 2026-11-09: home,
+/immunotherapy/rapimmune (upper thigh near the hip crease, three sessions
+over about two months, mapping, environmental allergens only, FDA wording,
+who isn't a fit), /about/dr-sean-stanga, /allergy-care, /new-patients.
+Dropped from the October draft: "first clinic in the region" (the site says
+"only clinic in Iowa", an "only" claim the guide rules out), "off-label use
+is legal and common" (unsourced), the brand name in more than one FAQ
+question, prices. New: the site says it does not offer allergy shots. Local
+FAQ adds the AAFA's 2026 rank (Des Moines 31st) and ragweed timing.
