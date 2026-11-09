@@ -24,6 +24,7 @@ Google/email account you used for each signup unless you've told me.
 | **Facebook page** | Brand profile (`sameAs`) | ? | [facebook.com/openairallergynetwork](https://www.facebook.com/openairallergynetwork) |
 | **Pinterest business account** | Brand profile and article pins (`sameAs`). Website claimed via the `p:domain_verify` meta tag in `src/app/layout.tsx` | ? | [pinterest.com/openairallergynetwork](https://www.pinterest.com/openairallergynetwork/) |
 | **Crunchbase** | Company entry and founder profile (`sameAs`), set up 2026-10-20 | Owner | [crunchbase.com/organization/open-air-allergy-network](https://www.crunchbase.com/organization/open-air-allergy-network) |
+| **Built In** | Sacramento company profile (backlink, `sameAs`), set up 2026-11-09 | openairallergynetwork@gmail.com | [builtin.com/company/open-air-allergy-network](https://builtin.com/company/open-air-allergy-network) |
 | **Qwoted** | Journalist source requests (owner's personal profile, set up 2026-10-19) | Owner | [qwoted.com](https://www.qwoted.com) |
 | **Cloudinary** | Provider/article photo hosting | `greeninbluedigital@gmail.com` (created under this account while `openairallergynetwork@gmail.com` was frozen, 2026-09-16 to 2026-09-24) | [console.cloudinary.com](https://console.cloudinary.com) |
 
