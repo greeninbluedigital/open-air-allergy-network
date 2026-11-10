@@ -109,7 +109,7 @@ Since mites live indoors year round, the [AAAAI](https://www.aaaai.org/tools-for
 
 Making the bed, dusting and vacuuming all stir allergen into the air you breathe. That's why [Mayo Clinic](https://www.mayoclinic.org/diseases-conditions/dust-mites/diagnosis-treatment/drc-20352178) suggests dusting with a damp cloth or mop instead of a dry one.
 
-Air filters can catch some of that allergen while it's in the air. For homes with central heating and air conditioning, [Mayo Clinic](https://www.mayoclinic.org/diseases-conditions/dust-mites/diagnosis-treatment/drc-20352178) suggests a furnace filter rated MERV 11 or 12, changed every three months, with the fan left on so it filters the whole house. A freestanding HEPA air purifier only cleans the air in one room, the [AAFA](https://aafa.org/allergies/types-of-allergies/insect-allergy/dust-mite-allergy/) notes, so the bedroom is the place for one. The AAFA also says to avoid air cleaners that use heat, ions or ozone.
+Air filters can catch some of that allergen while it's in the air. For homes with central heating and air conditioning, the [EPA](https://www.epa.gov/indoor-air-quality-iaq/guide-air-cleaners-home) recommends a furnace filter rated at least MERV 13, or the highest rating your system can take, changed as the maker recommends, typically every 60 to 90 days. A central filter only cleans the air while the system is running. A freestanding HEPA air purifier only cleans the air in one room, the [AAFA](https://aafa.org/allergies/types-of-allergies/insect-allergy/dust-mite-allergy/) notes, so the bedroom is the place for one. The AAFA also says to avoid air cleaners that use heat, ions or ozone.
 
 ## Dust mite allergy symptoms
 
