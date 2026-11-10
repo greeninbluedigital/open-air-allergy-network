@@ -19,6 +19,14 @@ updated.
 
 ## To discuss or decide
 
+- **LLC site and OAAN (later, not urgent; 11/10).** greeninbluedigital.com is
+  a placeholder. A link from it won't help rankings, but a real page that
+  describes and links OAAN helps trust (who runs this health site). When
+  there's time: build a short LLC page naming OAAN with the Sacramento
+  address; add "operated by Green in Blue Digital LLC" with a link on OAAN's
+  About page; add `parentOrganization` to the homepage Organization JSON-LD.
+
+
 1. **Numbered "How It Works" cards** (homepage, Learn page, ad landing
    pages). Readable but template looking. Light changes only, if any.
 2. **Backlinks** (`docs/backlink-strategy.md`): profiles done (Qwoted,
