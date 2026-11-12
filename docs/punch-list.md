@@ -19,6 +19,14 @@ updated.
 
 ## To discuss or decide
 
+- **Vary "ILIT allergy treatment" in existing FAQs (owner, 11/12: not today).**
+  The pairing rule now rotates phrasings (style guide, "Vary the pairing").
+  Review the Learn page FAQ (most questions use the exact phrase) and the
+  practice FAQs on the sync sheet's FAQs tab, and swap some questions to
+  "ILIT allergy shots", "ILIT allergy injections" or "intralymphatic
+  immunotherapy". Sheet edits are A:D only; check each question against
+  autocomplete.
+
 - **Affiliate links (owner idea 11/11).** Start with a hygrometer roundup (row in docs/content-ideas.md) linked from the Tampa allergy-proofing article. Needs: an affiliate program account, an FTC disclosure on the page and a line in the terms/privacy pages, and a sourcing approach that fits the no-invented-rankings rule.
 
 - **LLC site and OAAN (later, not urgent; 11/10).** greeninbluedigital.com is

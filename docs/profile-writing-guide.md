@@ -123,6 +123,11 @@ what doesn't:
   immunotherapy") goes right next to it: "Is ILIT allergy treatment faster
   than allergy shots?", not "Is ILIT a faster alternative to allergy shots?".
   Answers can say plain "ILIT" once the question has set it up.
+  **Vary the pairing (owner, 2026-11-12):** across one practice's FAQs, mix
+  "ILIT allergy treatment" with "ILIT allergy shots", "ILIT allergy
+  injections" and "intralymphatic immunotherapy" so no single phrase carries
+  more than two or three questions (OpenAirAllergyNetwork_STYLE_GUIDE.md).
+  Existing practice FAQs get reviewed for this later (docs/punch-list.md).
 - **Name the practice in practice-specific questions (owner, 2026-11-03).**
   "Does Los Angeles Center for Ear, Nose, Throat and Allergy offer allergy
   testing in Hawthorne?", not "Can I get allergy testing in Hawthorne?" or

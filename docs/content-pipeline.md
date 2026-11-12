@@ -279,6 +279,17 @@ treatment provider near me?", "Finding ILIT allergy treatment near Orlando".
 "Allergy" elsewhere in the heading ("ILIT vs. allergy shots") isn't enough.
 Body text can say plain "ILIT" once a heading or sentence has set it up.
 
+**Vary the pairing (owner, 2026-11-12).** Repeating "ILIT allergy treatment"
+in every heading and FAQ question reads as templated and only targets one
+search. Use that exact phrase in the title or H1 and about once more per
+article. For the other headings and FAQ questions, rotate: "ILIT allergy
+shots" (Google's top ILIT autocomplete), "ILIT allergy injections", "ILIT
+(intralymphatic immunotherapy)", or "intralymphatic immunotherapy" or "lymph
+node allergy shots" with no "ILIT" at all (autocomplete has "intralymphatic
+immunotherapy" + cost, side effects, near me, reviews). In a FAQ block, no
+single pairing carries more than two or three questions. The quality check
+counts them.
+
 ## Ranking and how-to articles (owner, 2026-10-24)
 
 An SEO advisor recommended ranking ("top 5") and how-to articles: AI

@@ -175,9 +175,18 @@ and read as AI on sight. State the point directly.
 ## Structure Rules
 
 - **"ILIT" never stands alone in a title, heading, meta description or FAQ
-  question.** Write "ILIT allergy treatment" (or "ILIT (intralymphatic
-  immunotherapy)"), because Google often reads bare "ILIT" as an irrevocable
-  life insurance trust. This includes every H2 and H3 (owner, 2026-11-02).
+  question.** Google often reads bare "ILIT" as an irrevocable life insurance
+  trust, so an allergy term goes right next to it. This includes every H2 and
+  H3 (owner, 2026-11-02).
+- **Vary the pairing (owner, 2026-11-12).** "ILIT allergy treatment" is the
+  phrase to own, but using it in every heading and FAQ question reads as
+  templated and only targets one search. Use the exact phrase in the title or
+  H1 and about once more per page. Elsewhere, rotate the other pairings
+  people search: "ILIT allergy shots" (Google's top ILIT autocomplete), "ILIT
+  allergy injections", "ILIT (intralymphatic immunotherapy)", or
+  "intralymphatic immunotherapy" or "lymph node allergy shots" on their own.
+  Within a FAQ block, no single pairing should carry more than two or three
+  questions.
 
 - **Lead with the point.** The first sentence of an article, and of each section, should answer the
   question the heading implies, before adding supporting detail.
