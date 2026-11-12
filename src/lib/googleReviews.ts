@@ -22,7 +22,7 @@ const EMPTY: GooglePlaceReviews = { reviews: [], aggregateRating: null, aggregat
  * which catches them per practice.
  */
 type PlaceDetails = {
-  reviews?: { author_name: string; rating: number; text: string }[];
+  reviews?: { author_name: string; author_url?: string; rating: number; text: string }[];
   rating?: number;
   user_ratings_total?: number;
 };
@@ -66,17 +66,24 @@ export async function getGoogleReviews(placeId: string, pinnedAuthor?: string | 
   const relevant = await placeDetails(id, apiKey, "most_relevant");
   let list = relevant.reviews ?? [];
 
-  // "Name" or "Name | words from the review". The phrase tells apart two
-  // reviewers with the same name; a bare name that matches more than one
-  // review pins nothing rather than guessing.
-  const [pinName, pinPhrase] = (pinnedAuthor ?? "").split("|").map((s) => s.trim().toLowerCase());
-  if (pinName) {
+  // Three forms: the reviewer's Google profile link (".../maps/contrib/<id>",
+  // unique to that person), "Name", or "Name | words from the review". The
+  // phrase tells apart two reviewers with the same name; a bare name that
+  // matches more than one review pins nothing rather than guessing.
+  const pinValue = (pinnedAuthor ?? "").trim();
+  const contribId = pinValue.match(/\/contrib\/(\d+)/)?.[1];
+  const [pinName, pinPhrase] = contribId ? [] : pinValue.split("|").map((s) => s.trim().toLowerCase());
+  if (contribId || pinName) {
     const newest = (await placeDetails(id, apiKey, "newest")).reviews ?? [];
     const same = (a: { author_name: string; text: string }, b: { author_name: string; text: string }) =>
       a.author_name === b.author_name && a.text === b.text;
     const candidates = [...list, ...newest]
       .filter((r, i, all) => all.findIndex((o) => same(o, r)) === i)
-      .filter((r) => r.author_name.trim().toLowerCase() === pinName && (!pinPhrase || r.text.toLowerCase().includes(pinPhrase)));
+      .filter((r) =>
+        contribId
+          ? (r.author_url ?? "").includes(`/contrib/${contribId}/`)
+          : r.author_name.trim().toLowerCase() === pinName && (!pinPhrase || r.text.toLowerCase().includes(pinPhrase)),
+      );
     if (candidates.length === 1) {
       const pinned = candidates[0];
       list = [pinned, ...list.filter((r) => !same(r, pinned))];
