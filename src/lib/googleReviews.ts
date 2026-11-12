@@ -46,7 +46,8 @@ async function placeDetails(id: string, apiKey: string, sort: "most_relevant" | 
 
 /**
  * Every practice shows Google's three "most relevant" reviews. A practice can
- * also name one reviewer in the sheet's Pinned Google Review column (owner,
+ * also name one reviewer in the sheet's Pinned Google Review column, optionally
+ * followed by "| words from the review" (owner,
  * 2026-11-11, first for Grand Rapids Allergy's ILIT review): that practice
  * gets a second call for Google's five newest reviews, and the named
  * reviewer's review goes first, followed by the most relevant ones. Google's
@@ -65,11 +66,21 @@ export async function getGoogleReviews(placeId: string, pinnedAuthor?: string | 
   const relevant = await placeDetails(id, apiKey, "most_relevant");
   let list = relevant.reviews ?? [];
 
-  const pinName = pinnedAuthor?.trim().toLowerCase();
+  // "Name" or "Name | words from the review". The phrase tells apart two
+  // reviewers with the same name; a bare name that matches more than one
+  // review pins nothing rather than guessing.
+  const [pinName, pinPhrase] = (pinnedAuthor ?? "").split("|").map((s) => s.trim().toLowerCase());
   if (pinName) {
     const newest = (await placeDetails(id, apiKey, "newest")).reviews ?? [];
-    const pinned = [...list, ...newest].find((r) => r.author_name.trim().toLowerCase() === pinName);
-    if (pinned) list = [pinned, ...list.filter((r) => r.author_name.trim().toLowerCase() !== pinName)];
+    const same = (a: { author_name: string; text: string }, b: { author_name: string; text: string }) =>
+      a.author_name === b.author_name && a.text === b.text;
+    const candidates = [...list, ...newest]
+      .filter((r, i, all) => all.findIndex((o) => same(o, r)) === i)
+      .filter((r) => r.author_name.trim().toLowerCase() === pinName && (!pinPhrase || r.text.toLowerCase().includes(pinPhrase)));
+    if (candidates.length === 1) {
+      const pinned = candidates[0];
+      list = [pinned, ...list.filter((r) => !same(r, pinned))];
+    }
   }
 
   return {
