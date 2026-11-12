@@ -57,7 +57,8 @@ const PROVIDER_COLUMNS = [
   ["yelpBusinessId", "Yelp Business ID"],
   ["yelpRatingBadgeEmbed", "Yelp Rating Badge Embed"],
   ["practiceType", "Practice Type"],
-  ["customField2", "Custom Field 2"],
+  // Was "Custom Field 2" (unused) until 2026-11-11; both names are accepted.
+  ["customField2", "Pinned Google Review"],
   ["notes", "Notes"],
   ["isDemo", "Demo/Example Listing"],
 ] as const;
@@ -112,11 +113,15 @@ function columnLetter(i: number): string {
   return (i < 26 ? "" : String.fromCharCode(64 + Math.floor(i / 26))) + String.fromCharCode(65 + (i % 26));
 }
 
+// Older header names still accepted, so renaming a column on the sheet and
+// deploying the code that expects the new name can happen in either order.
+const HEADER_ALIASES: Record<string, string[]> = { "Pinned Google Review": ["Custom Field 2"] };
+
 async function verifyProviderHeaders(spreadsheetId: string) {
   const [headers = []] = await readSheet(spreadsheetId, HEADER_RANGE);
   const normalize = (h: string | undefined) => (h ?? "").trim().toLowerCase();
   const problems = PROVIDER_COLUMNS.flatMap(([, expected], i) =>
-    normalize(headers[i]) === normalize(expected)
+    normalize(headers[i]) === normalize(expected) || (HEADER_ALIASES[expected] ?? []).some((a) => normalize(a) === normalize(headers[i]))
       ? []
       : [`column ${columnLetter(i)} should be "${expected}" but is "${headers[i] ?? ""}"`],
   );

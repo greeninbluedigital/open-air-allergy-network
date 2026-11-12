@@ -53,6 +53,9 @@ export async function GET(request: Request) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
+  // ?slug=<provider slug> refreshes that one practice now, however recently it
+  // was fetched (e.g. right after setting its Pinned Google Review).
+  const slug = new URL(request.url).searchParams.get("slug");
   const staleBefore = new Date(Date.now() - REFRESH_INTERVAL_DAYS * 24 * 60 * 60 * 1000);
   const providers = await db.provider.findMany({
     where: {
@@ -60,12 +63,15 @@ export async function GET(request: Request) {
       showReviews: true,
       AND: [
         { OR: [{ googlePlaceId: { not: null } }, { yelpBusinessId: { not: null } }] },
-        { OR: [{ googleReviewsFetchedAt: null }, { googleReviewsFetchedAt: { lt: staleBefore } }] },
+        slug
+          ? { slug }
+          : { OR: [{ googleReviewsFetchedAt: null }, { googleReviewsFetchedAt: { lt: staleBefore } }] },
       ],
     },
     orderBy: { googleReviewsFetchedAt: { sort: "asc", nulls: "first" } },
     take: REFRESH_LIMIT,
-    select: { id: true, googlePlaceId: true, yelpBusinessId: true },
+    // customField2 is the sheet's "Pinned Google Review" column (AQ).
+    select: { id: true, googlePlaceId: true, yelpBusinessId: true, customField2: true },
   });
 
   let refreshed = 0;
@@ -76,7 +82,7 @@ export async function GET(request: Request) {
       const updates: Record<string, unknown> = {};
 
       if (provider.googlePlaceId) {
-        const { reviews, aggregateRating, aggregateCount } = await getGoogleReviews(provider.googlePlaceId);
+        const { reviews, aggregateRating, aggregateCount } = await getGoogleReviews(provider.googlePlaceId, provider.customField2);
         updates.googleReviewsJson = reviews;
         updates.googleRating = aggregateRating;
         updates.googleReviewCount = aggregateCount;
