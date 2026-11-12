@@ -8,9 +8,9 @@ URL: /blog/allergy-proof-home-tampa-bay
 Meta description (153 chars): How to allergy-proof your home in Tampa Bay: keep indoor humidity under 50%, run the AC right, stop mold after storms and keep dust mites and pollen out.
 Target keywords: "allergy proof your home" (head term, autocomplete), "how to allergy proof your home", "allergy proofing your home", "humidity and allergies" (autocomplete), "tampa humidity by month" (table H2, autocomplete), "indoor humidity florida" (autocomplete), "how to prevent mold in florida homes" (H2 and FAQ, autocomplete), "what humidity should my house be in florida" (FAQ, autocomplete), "does humidity make allergies worse" (FAQ, autocomplete), "does air conditioning help allergies" (FAQ, autocomplete), "can ac make allergies worse" (FAQ, autocomplete), "should i run a dehumidifier in florida" (FAQ, autocomplete), "tampa allergies" (supporting only; owned by the Tampa triggers article), "faster alternative to allergy shots" (intro), "fast allergy treatment" (FAQ 7)
 Tags: Allergens, Allergy Symptoms
-Feature image: TBD (owner uploads)
+Feature image: https://res.cloudinary.com/qruprn0t/image/upload/v1794447739/allergy-proof-home-tampa-bay-window-condensation-palms.jpg
 Image idea: Condensation beading on a window, palm trees blurred outside. Or a dehumidifier on a tile floor, palms through a sliding door. Search "window condensation palm". File: allergy-proof-home-tampa-bay-window-condensation-palms.jpg
-Image alt: TBD (write from the photo once chosen; e.g. "Condensation beading on the inside of a window with palm trees blurred outside")
+Image alt: Condensation droplets covering a window, with green palm fronds pressed against the glass outside
 Credit: none (house article).
 
 KEY TAKEAWAYS
@@ -18,7 +18,7 @@ KEY TAKEAWAYS
 - Keep indoor humidity between 30% and 50%. Mold thrives above 50%, and dust mites like humidity above 50% too.
 - In Florida, the air conditioner is also a dehumidifier, and a properly working one should keep humidity in check at a thermostat setting around 78°F.
 - After a flood or leak, dry everything within 24 to 48 hours, and if you have a mold allergy, let someone else do the cleanup.
-- Keep windows closed during pollen season and dry laundry indoors.
+- If symptoms continue once the house is dry, immunotherapy treats the allergy itself, and ILIT is the shortest course, typically about three injections over about two months.
 
 FAQS
 Q: What humidity should my house be in Florida?
@@ -60,6 +60,7 @@ SOURCES (all linked in the article)
 - Internal: /learn-about-ilit (FDA approved extracts, off label route, research smaller than for shots); /blog/how-to-clean-house-for-allergies (national hub, filters and room by room cleaning); /blog/tampa-bay-allergy-triggers; /blog/dust-mite-allergy.
 
 REVIEW NOTES
+- **Main session final pass (2026-11-11, owner asked for a judgment call without another read):** takeaway 5 swapped from a generic windows and laundry tip (already covered in the body) to the treatment takeaway, matching the Houston pattern; humidity section's opening lead-in ("the two big indoor allergens, love damp air", "two big" unsourced) cut so it starts with the AAFA fact, now linked; pollen H2 now "How to keep pollen out of your home in Tampa Bay"; hero and alt text set from the photo. FAQs left as written: each leads with its answer, has a linked source and was confirmed in autocomplete.
 - **Owner review edits (2026-11-11):** second paragraph rewritten from a keyword list into a useful transition (cost of a humidity meter from the EPA, what the work involves, then testing and the three immunotherapy options). Humidity table: the "above the 50% line" paragraph moved before the table, plus an explanation of why afternoon readings are lower, sourced to the NWS Louisville humidity page ("highest in the early morning when the air temperature is coolest and lowest in the afternoon when the air temperature is highest", with the same moisture; "air will have a HIGHER relative humidity if the air is cooler"). The evening rise is stated as following from that cooling principle. Every Tampa average in the table is 51% or higher, so "above 50% at both times of day in every month" holds. "What you'll need" H2 renamed. The owner's hygrometer affiliate article idea is logged in docs/content-ideas.md and the punch list (needs an affiliate program, disclosure and a sourcing approach first); link it from this article once it exists.
 - **Keywords.** "Allergy proof home" autocompletes to "allergy proof your home" and "allergy proofing your home", but nothing local ("allergy proof home florida", "allergy proof home tampa" return no suggestions). The local searches people actually type are about humidity and mold: "indoor humidity florida", "what humidity should my house be in florida", "how to prevent mold in florida homes", "tampa humidity by month". So the title keeps the queue's wording, and the H2s and FAQs carry the humidity and mold phrases. No keyword volumes were available.
 - **One page per keyword.** The national hub (how-to-clean-house-for-allergies) owns cleaning, air filters ("what air filter is best for allergies"), air purifiers and duct cleaning, so this article links it with a card and only covers AC maintenance from the humidity angle. The dust mite guide owns "does a dehumidifier help with dust mites", so the dehumidifier FAQ here asks the Florida question instead. The Tampa triggers article owns "tampa allergies", "are dust mites common in florida" and the pollen trigger list; this one links it and doesn't repeat the triggers. The Orlando article owns "does rain help allergies or make them worse", so storms are a body section here, not a FAQ. "Mold allergy symptoms" and "what is mold allergy season" were left for the queued mold allergy article (#41).
@@ -104,7 +105,7 @@ People with asthma or a mold allergy may have severe reactions to mold, the [CDC
 
 ## Why humidity and allergies go together in Tampa Bay
 
-Dust mites and mold, the two big indoor allergens, love damp air. The AAFA says dust mites thrive at around 70°F and above and like humidity over 50%, and that in a warm, humid house they can survive all year. Tampa's normal monthly average temperature stays above 70°F from April through October, according to the [National Weather Service](https://www.weather.gov/media/tbw/climate/normals/TPADailyTable.pdf).
+The [AAFA](https://aafa.org/allergies/types-of-allergies/insect-allergy/dust-mite-allergy/) says dust mites thrive at around 70°F and above and like humidity over 50%, and that in a warm, humid house they can survive all year. Tampa's normal monthly average temperature stays above 70°F from April through October, according to the [National Weather Service](https://www.weather.gov/media/tbw/climate/normals/TPADailyTable.pdf).
 
 Indoor and outdoor mold levels tend to be highest in the Southeast because of its warm, humid climate, the AAFA's [2026 Allergy Capitals report](https://aafa.org/wp-content/uploads/2026/03/aafa-2026-allergy-capitals-report.pdf) says, and that report ranked Tampa 29th of the 100 most populous metro areas for pollen allergies. The AAFA's [mold allergy page](https://aafa.org/allergies/types-of-allergies/mold-allergy/) adds that air cleaners and filters can't reduce mold spores in a home that's too humid, so humidity comes first.
 
@@ -159,7 +160,7 @@ Moisture control is the key to mold control, the [EPA](https://www.epa.gov/mold/
 
 Renters should report leaks and moisture problems to the landlord or building manager right away, the EPA says.
 
-## Keep Tampa Bay pollen outside
+## How to keep pollen out of your home in Tampa Bay
 
 Florida's pollen season peaks from January to June, and a Hillsborough County extension agent puts the height in March and April, [UF/IFAS](https://blogs.ifas.ufl.edu/news/2026/03/17/the-unwelcome-dust-that-wont-quit-pollen-season-hits-with-full-force/) reports. A Polk County extension agent suggests drying clothes indoors, which she calls crucial with Florida's humidity, and showering, washing your hair and changing clothes when you get home. Our guide to [Tampa Bay's allergy triggers](/blog/tampa-bay-allergy-triggers) covers which trees, grasses and weeds are in the air each season.
 
