@@ -19,6 +19,8 @@ updated.
 
 ## To discuss or decide
 
+- **Affiliate links (owner idea 11/11).** Start with a hygrometer roundup (row in docs/content-ideas.md) linked from the Tampa allergy-proofing article. Needs: an affiliate program account, an FTC disclosure on the page and a line in the terms/privacy pages, and a sourcing approach that fits the no-invented-rankings rule.
+
 - **LLC site and OAAN (later, not urgent; 11/10).** greeninbluedigital.com is
   a placeholder. A link from it won't help rankings, but a real page that
   describes and links OAAN helps trust (who runs this health site). When
