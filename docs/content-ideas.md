@@ -593,6 +593,42 @@ Pet allergies already have a Learn guide (`pet-cat-dog-allergy-treatment`);
 link it from these and from the cat allergy Blog post above rather than
 writing another.
 
+## Idea detail: Michigan articles (owner, 2026-11-13, queue #44 to #46)
+
+Three Michigan articles to build search traffic in Michigan, where Grand
+Rapids Allergy (engaged, on trial, the only Michigan listing) is the
+practice a reader reaches from the state page. Same local rules as every
+article: never name or list practices in the body, never imply which cities
+OAAN covers; end at immunotherapy, ILIT and Find a Provider, linking the
+Michigan state page (/find-an-ilit-provider/michigan) and Find a Provider
+with a Grand Rapids zip (49546). Sources to try first: Michigan State
+University Extension, Michigan Department of Health and Human Services
+(MDHHS), the EPA mold guide, AAFA (Grand Rapids 54th in the Allergy
+Capitals report), and a National Allergy Bureau counting station in
+Michigan if one publishes data. Check autocomplete for each.
+
+- **#44 Michigan Allergy Season by Month.** When tree, grass, ragweed and
+  mold peak across the state, with the timing West Michigan sees (lake
+  effect, a later spring than southern states). A month by month table is
+  the core. Owns "michigan allergy season", "michigan allergies", "allergy
+  season michigan", "grand rapids allergies" (supporting). Links the tree
+  pollen, grass, ragweed and mold guides; leaves the Midwest ragweed list
+  (#40, July) its own ranking angle.
+- **#45 Cottonwood Fluff and Allergies: Is It the Cotton?** Why the June
+  fluff gets blamed for symptoms that usually come from grass and other
+  pollen in the air at the same time. Owns "cottonwood allergy",
+  "cottonwood fluff allergy", "is cottonwood fluff an allergen". Michigan
+  framing in the intro and examples, written so it works nationally too.
+  Pairs with the pine pollen article (#32, same "it isn't the visible
+  stuff" angle): link each other once both are live.
+- **#46 Wet Basements and Mold Allergy: A Michigan Homeowner's Guide.**
+  Where basement mold comes from (seepage, spring thaw, humid summers),
+  how it affects allergies, keeping humidity down (dehumidifier settings,
+  sump and gutters), cleanup limits from EPA. Owns "basement mold
+  allergy", "mold in basement symptoms", "basement humidity level". The
+  general mold allergy article (#41) keeps "mold allergy symptoms" and
+  links here once both are live. Links the clean house hub with a card.
+
 ## Also pending
 - **Per-article FAQ headings (skipped 2026-10-27):** e.g. "Frequently
   Asked Questions About Ragweed Allergy" instead of the plain heading.
