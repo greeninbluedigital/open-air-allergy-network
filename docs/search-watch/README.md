@@ -74,3 +74,9 @@ Add a source here when a report finds a better one.
    pages, and effort (small, medium, large).
 4. **Carried over:** fixes from earlier reports not yet done.
 5. **Articles audited this month** (so the next run rotates to others).
+6. **Agentic impressions (owner pulls from Search Console):** the run can't
+   open Search Console, so it copies last month's table forward as the
+   baseline, leaves an empty column for this month, and reminds David to
+   paste the report's Top pages list (owner, 2026-11-12). When he does, the
+   main session fills the column and notes which pages rose or fell, and
+   whether city articles still lead.
