@@ -629,6 +629,40 @@ Michigan if one publishes data. Check autocomplete for each.
   general mold allergy article (#41) keeps "mold allergy symptoms" and
   links here once both are live. Links the clean house hub with a card.
 
+## Idea detail: How Are Allergy Shots Made? (owner, 2026-11-15, queue #47)
+
+Came out of the What's in Allergy Shots review: its draft mentioned that
+one maker grows dust mites on a yeast and pork medium, and the owner cut it
+there as a tangent that raises a worry without context. This article gives
+it the room it needs, inside a broader "how they're made" story so it
+isn't framed as a warning.
+
+- **Keywords (autocomplete, 2026-11-15):** "how are allergy shots made",
+  "how is allergy serum made", "how long is allergy serum good for", "are
+  allergy shots natural", "allergy shot serum ingredients". Nothing
+  autocompletes for "allergy shots pork" or "allergy shots halal", so pork
+  is a section inside the article, never the title or an H2 of its own.
+  "What are allergy shots made of" and the ingredient table belong to
+  What's in Allergy Shots (link it with a card).
+- **Outline:** where extracts come from (pollen collected from plants,
+  mites grown in culture, molds, pet dander, insect venom); standardized vs.
+  non-standardized extracts; how an allergist mixes your vial from test
+  results; dilutions and build-up; storage and how long a vial is good for;
+  what's in the growth media and why so little carries over; who should tell
+  their allergist (dietary or religious restrictions, severe food
+  allergies); then immunotherapy, ILIT and Find a Provider.
+- **Leads to verify (from a Gemini answer the owner pasted; not sources
+  until checked):** an FDA mite extract label on DailyMed (setid
+  3b19e1e4-1a28-4515-ac20-cc4a9b2d45e6) for the yeast and pork medium and
+  more than 99% removed; HollisterStier's mite information sheet
+  (hsallergy.com/wp-content/uploads/2018/03/Mite-Information-Sheet.pdf) for
+  a brine shrimp egg and wheat germ medium; Cleveland Clinic's dust mite
+  allergen extract injection page for telling the allergist about food
+  allergies. The ALK-Abelló mite label (setid cbe1d24d-df77-4940-baf8-623993fa731b)
+  already confirms yeast and pork with under 1% left. Read each one before
+  using it, and don't claim that patients can request a pork free extract
+  unless a source says so.
+
 ## Also pending
 - **Per-article FAQ headings (skipped 2026-10-27):** e.g. "Frequently
   Asked Questions About Ragweed Allergy" instead of the plain heading.
