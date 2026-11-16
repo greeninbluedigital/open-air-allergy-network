@@ -707,6 +707,42 @@ as "our guide to allergy shots". Rewrite it in place.
 - **ILIT pairing:** the exact phrase "ILIT allergy treatment" about twice;
   rotate "ILIT allergy shots", "intralymphatic immunotherapy" elsewhere.
 
+## Idea detail: Learn guide rewrites: pet and seasonal (owner, 2026-11-16, queue #49 and #50)
+
+Same problem the allergy shots guide had (#48, rewritten 2026-11-16): these
+two core Learn guides, the second and third cards in the Learn page's guide
+row, are short (351 and 456 words) with no outside sources. Rewrite each in
+place, using the published #48 guide as the model: `Section: LEARN`, same
+slug, same title, keep the current tags, keep the hero and write alt text,
+1,600 to 2,200 words, 6 to 9 FAQs, emergency box where the topic calls for
+it, every fact sourced, and a hub role (answer briefly, link the article that
+owns the detail, never repeat another article's FAQ question).
+
+- **#49 Pet Allergy Treatment: Cat & Dog Allergy Shots**
+  (/learn-about-ilit/pet-cat-dog-allergy-treatment). Current H2s: what causes
+  pet allergies, symptoms, managing exposure, treatment options, ILIT. Owns
+  "pet allergy treatment", "cat allergy shots", "allergy shots for cat
+  allergies" (people allergic to pets, not veterinary shots), "pet dander
+  allergy". Links and leaves to them: Am I Allergic to My Dog
+  (allergic-to-my-dog), How Long Do Cat Allergy Symptoms Last, Pets Ranked by
+  Allergies (hypoallergenic pets), the clean house hub (pet dander cleaning),
+  and the allergy shots guide. Treatment section: shots for cat and dog
+  dander (Mayo lists pet dander), tablets don't cover pets (the U.S. tablets
+  are grass, ragweed, dust mite, tree and Japanese cedar), and ILIT, stating
+  plainly what the research shows for cat and dog allergy (the dog article's
+  Park 2021 caveat applies; don't claim more than the studies support).
+- **#50 Seasonal Allergies: Spring, Summer, Fall & Winter Guide**
+  (/learn-about-ilit/seasonal-allergies-by-season). Current H2s: spring,
+  summer, fall and winter causes, symptoms, when to see an allergist,
+  treatment. National, never regional (no city or state framing). Owns
+  "seasonal allergies", "seasonal allergies symptoms", "when is allergy
+  season", "spring/summer/fall/winter allergies". A season by season table
+  (trees, grasses, weeds, mold, indoor allergens in winter, per ACAAI's winter
+  indoor allergies release) is the core. Links and leaves to them: tree
+  pollen, ragweed, mold allergy (once live), how to read a pollen count (once
+  live), allergies or a cold, worst cities for allergies, and the allergy
+  shots guide. City and state pages are not linked from here.
+
 ## Also pending
 - **Per-article FAQ headings (skipped 2026-10-27):** e.g. "Frequently
   Asked Questions About Ragweed Allergy" instead of the plain heading.
