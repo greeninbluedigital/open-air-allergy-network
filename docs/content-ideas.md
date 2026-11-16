@@ -663,6 +663,50 @@ isn't framed as a warning.
   using it, and don't claim that patients can request a pork free extract
   unless a source says so.
 
+## Idea detail: Allergy shots guide rewrite (owner, 2026-11-16, queue #48)
+
+The Learn guide /learn-about-ilit/allergy-shots-and-allergy-immunotherapy
+("Allergy Shots & Allergy Immunotherapy: A Full Guide") is 385 words with no
+sources, and the owner says it doesn't deliver on "A Full Guide". It is the
+first card in the Learn page's guide row and the page other articles link
+as "our guide to allergy shots". Rewrite it in place.
+
+- **Format:** `Section: LEARN` (the one exception to Section: always Blog),
+  same slug, title "Allergy Shots and Allergy Immunotherapy: A Full Guide",
+  tags SCIT, ILIT, Allergy Treatment Guides (already on the live article;
+  keep them). Learn guide length, 1,800 to 2,200 words. 6 to 9 FAQs. Keep
+  the current hero (feature image URL in the queue row) and write alt text.
+  Read the live page first; replace it entirely.
+- **Role: the hub.** Each section answers its question in a paragraph or
+  two and links the article that owns the detail, without repeating it:
+  How Often Do You Get Allergy Shots (schedules, cluster and rush, visit
+  counts), What's in Allergy Shots (ingredients, side effects, reaction
+  timing), Is There a One-Time Allergy Shot (how long to work, does it last
+  a lifetime), Kenalog (steroid shots), the Learn comparison of shots, drops
+  and ILIT, and Allergy Test Results / Skin vs. Blood Test. No FAQ question
+  may repeat one on those articles.
+- **Outline:** what allergy shots (SCIT) are and how immunotherapy differs
+  from medicine; who they're for and testing first; what they treat
+  (pollens, dust mites, mold, pet dander, stinging insect venom; not food
+  allergy); the two phases (build-up, maintenance) with the AAAAI and Mayo
+  ranges; what a visit is like (upper arm, 30 minute wait); when they start
+  working and whether results last; side effects and safety (local
+  reactions, rare systemic reactions, asthma and beta blockers); missed
+  doses and stopping; children; how shots compare with tablets and drops
+  and with ILIT; then Find a Provider.
+- **Fix in the rewrite:** the old text's unsourced claims ("the only
+  category...", "used for decades", "Many providers offer both"), the
+  insurance and self-pay line (no prices, payment or insurance), the "ask
+  your allergist whether transitioning mid-course" closer (the style
+  guide's own bad example), and the old summary points, which repeat it.
+- **Sources already verified on recent articles:** Mayo Clinic "Allergy
+  shots" (2024), AAAAI "Allergy Shots (Immunotherapy)", Cleveland Clinic
+  "Allergy Shots" and "Reactions to Allergy Shots", the ALK, Nelco and
+  Center-Al FDA labels, Epstein 2021 surveillance study, Senti 2008 (PNAS),
+  the 2025 Frontiers ILIT review. Re-read each before citing.
+- **ILIT pairing:** the exact phrase "ILIT allergy treatment" about twice;
+  rotate "ILIT allergy shots", "intralymphatic immunotherapy" elsewhere.
+
 ## Also pending
 - **Per-article FAQ headings (skipped 2026-10-27):** e.g. "Frequently
   Asked Questions About Ragweed Allergy" instead of the plain heading.
