@@ -129,9 +129,10 @@ A University of Michigan team describing the state's pollen in a [2025 study](ht
 
 ## Spring allergies in Michigan: tree pollen
 
+![White-barked birch trees in spring leaf above a carpet of purple bluebells](https://res.cloudinary.com/qruprn0t/image/upload/v1794855958/michigan-allergy-season-birch-trees-bluebells.jpg "Birch is on the AAFA's list of trees that cause the most allergy symptoms in the U.S.")
+
 [Blue Cross Blue Shield of Michigan](https://www.bcbsm.mibluedaily.com/stories/prevention/when-is-allergy-season) says trees can start releasing pollen as early as February and keep going through late spring, depending on the species, and calls trees the top allergy culprit in Michigan. Michigan's start is later than parts of the South, where the [AAFA](https://aafa.org/wp-content/uploads/2026/03/aafa-2026-allergy-capitals-report.pdf) says trees can release pollen as early as December or January. Near Lake Michigan, the lake itself can hold spring back: the [Detroit Free Press](https://www.freep.com/story/news/local/michigan/2022/01/30/climate-change-michigan-fruit-crop-cherries-apples-grapes/6636203001/) reported that westerly winds crossing the cold water as winter turns to spring keep fruit trees just east of the lake dormant a little longer, because the lake takes so much energy to warm.
 
-![White-barked birch trees in spring leaf above a carpet of purple bluebells](https://res.cloudinary.com/qruprn0t/image/upload/v1794855958/michigan-allergy-season-birch-trees-bluebells.jpg "Birch is on the AAFA's list of trees that cause the most allergy symptoms in the U.S.")
 
 Maple, oak, birch, ash, elm, box elder and cottonwood are all on the AAFA's list of trees that cause the most allergy symptoms in the U.S. The pollen that makes you sneeze is too small to see. The AAFA explains that the yellow dust you see coating outdoor surfaces is heavy and falls near the tree, while the light pollen that rides the wind is what most people react to.
 
