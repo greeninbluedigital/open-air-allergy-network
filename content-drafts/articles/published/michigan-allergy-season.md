@@ -152,7 +152,7 @@ The AAFA puts the ragweed peak at mid September in most areas. The [AAAAI](https
 
 ## Mold and winter allergies in Michigan
 
-Outdoor mold follows the weather: the AAFA says airborne mold spores climb before, during and after storms, and that research shows the Midwest is seeing shifts in how long and how intense mold season is. Milder winters may also mean more days with mold in the air. In fall, the AAFA suggests clearing leaves and piles of dead plants as soon as you can.
+Outdoor mold follows the weather: the AAFA says airborne mold spores climb before, during and after storms, and that research shows the Midwest is seeing shifts in how long and how intense mold season is. Milder winters may also mean more days with mold in the air. In fall, the AAFA suggests clearing leaves and piles of dead plants as soon as you can. Our [mold allergy guide](/blog/mold-allergy) covers symptoms, testing and treatment.
 
 Once the frost ends pollen season, symptoms that hang on may have another cause. The AAFA says the same nose allergy can come from mold, dust mites and animal dander. Those indoor triggers are around all year, but the [American College of Allergy, Asthma and Immunology](https://acaai.org/news/do-you-have-the-winter-sniffles-5-ways-you-can-manage-indoor-winter-allergies/) says you notice them more in winter because you spend more time at home with the doors and windows shut, sealing allergens in, while the heating system recirculates indoor air and any allergy triggers in it. Our guide to [cleaning your home to reduce allergies](/blog/how-to-clean-house-for-allergies) covers those triggers room by room.
 
