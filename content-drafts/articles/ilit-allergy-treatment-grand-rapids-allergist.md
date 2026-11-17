@@ -6,7 +6,7 @@ page metadata. Publishes Wed 11/18 about 6:30 AM (scheduled task
 oaan-publish-uekert-ilit), then the credit is set (Article Credits row 6).
 
 Section: BLOG
-Title (56 chars): ILIT Allergy Treatment: An Allergist Explains the Basics
+Title (57 chars): ILIT Allergy Treatment: A Grand Rapids Allergist Explains
 URL: /blog/ilit-allergy-treatment-grand-rapids-allergist
 Meta description (153 chars): Grand Rapids allergist Sara J. Uekert, MD, explains ILIT allergy treatment, a faster alternative to allergy shots: how it works, safety and who it suits.
 Target keywords: "ILIT allergy treatment", "intralymphatic immunotherapy", "faster alternative to allergy shots", "allergist Grand Rapids" (from Article Credits row 6)
