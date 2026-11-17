@@ -32,7 +32,7 @@ Checked 2026-10-30. Rule (docs/sheet-columns.md, column AP): `Allergist` when th
 
 ## Aspire Allergy & Sinus (office by office)
 
-Aspire's allergists, from aspireallergy.com/doctors (certifications and clinic locations on each doctor's page): Miriam Anand (Mesa, Chandler, Tempe), George Makol (Tucson Northwest and Main), Richard Wachs (Albuquerque), William Storms (Colorado Springs Main), Kirk Waibel (San Antonio Loop 1604 and Alamo Heights), Bruce G. Martin (Westover Hills), Stacy Silvers and Bob Lanier (Central Austin; Silvers also Westlake), Madiha Huq (McKinney, Rockwall, Frisco), Robert E. Harvey (Victoria). Not allergists: Cody Aull, Paul Fulmer, Chris Thompson and Lily Love (ENT surgeons), Haley Overstreet and Paul John (family medicine).
+Aspire's allergists, from aspireallergy.com/doctors (certifications and clinic locations on each doctor's page): Miriam Anand (Mesa, Chandler, Tempe), George Makol (Tucson Northwest and Main), Richard Wachs (Albuquerque), William Storms (Colorado Springs Main), Kirk Waibel (San Antonio Loop 1604 and Alamo Heights), Bruce G. Martin (Westover Hills), Stacy Silvers and Bob Lanier (Central Austin; Silvers also Westlake), Madiha Huq (McKinney, Rockwall, Frisco), Robert E. Harvey (Victoria), Margaret A. Adair (Coppell) and Angela Fadahunsi (Wylie, fellowship trained). Not allergists: Cody Aull, Paul Fulmer, Chris Thompson and Lily Love (ENT surgeons), Haley Overstreet and Paul John (family medicine).
 
 | Row | Office | Live | Type |
 |---|---|---|---|
@@ -96,3 +96,5 @@ Aspire's allergists, from aspireallergy.com/doctors (certifications and clinic l
 | 95 | wellington-fl | Y | Allergy Clinic |
 | 96 | winter-garden-fl | Y | Allergy Clinic |
 | 97 | winter-park-fl | Y | Allergy Clinic |
+| 121 | coppell-tx | Y | Allergist (added 2026-11-17: Dr. Margaret A. Adair, ABAI and American Board of Pediatrics, aspireallergy.com/doctors/margaret-a-adair-md) |
+| 122 | wylie-tx | Y | Allergist (added 2026-11-17: Dr. Angela Fadahunsi, allergy/immunology fellowship at UTHSC Memphis, aspireallergy.com/doctors/angela-fadahunsi-md) |
