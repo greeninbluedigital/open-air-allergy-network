@@ -24,6 +24,12 @@ export const COMPARISON_ARTICLE_SLUG = "allergy-shots-vs-allergy-drops-vs-ilit";
  * articles get it. */
 export const GUIDE_TAG = "Allergy Treatment Guides";
 
+/** Blog tag for articles a provider wrote and submitted (owner, 2026-11-17;
+ * first one: Dr. Uekert of Grand Rapids Allergy). A source label on
+ * purpose, not a credential one, so it doesn't imply anything about the
+ * house articles. Added by hand in the draft's Tags line. */
+export const PROVIDER_TAG = "Provider Perspectives";
+
 /** The guides' fixed first row on Learn About ILIT, in display order. */
 export const CORE_GUIDE_SLUGS = [
   "allergy-shots-and-allergy-immunotherapy",

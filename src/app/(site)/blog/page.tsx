@@ -5,14 +5,16 @@ import { ZipSearchForm } from "@/components/ZipSearchForm";
 import { ArticleFeed } from "@/components/ArticleFeed";
 import { articlePath, getTagCounts, queryBlogArticles } from "@/lib/blog";
 import { lookupZip } from "@/lib/zip";
-import { GUIDE_TAG } from "@/lib/content";
+import { GUIDE_TAG, PROVIDER_TAG } from "@/lib/content";
 
 // Owner-approved 2026-10-27 (SEO audit): "Blog" alone carried no search
 // words. Used as both the title (no brand suffix, 54 characters) and the H1.
 const BLOG_HEADING = "Allergy Blog: Symptoms, Triggers and Treatment Options";
 
+// Tags that already read as a heading are used as is ("Provider Perspectives
+// Articles" would read awkwardly); every other tag gets "Articles" added.
 function tagHeading(tag: string) {
-  return tag === GUIDE_TAG ? GUIDE_TAG : `${tag} Articles`;
+  return tag === GUIDE_TAG || tag === PROVIDER_TAG ? tag : `${tag} Articles`;
 }
 
 export async function generateMetadata({ searchParams }: PageProps<"/blog">): Promise<Metadata> {

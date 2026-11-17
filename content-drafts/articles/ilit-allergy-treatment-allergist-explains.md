@@ -10,9 +10,9 @@ Title (56 chars): ILIT Allergy Treatment: An Allergist Explains the Basics
 URL: /blog/ilit-allergy-treatment-allergist-explains
 Meta description (153 chars): Grand Rapids allergist Sara J. Uekert, MD, explains ILIT allergy treatment, a faster alternative to allergy shots: how it works, safety and who it suits.
 Target keywords: "ILIT allergy treatment", "intralymphatic immunotherapy", "faster alternative to allergy shots", "allergist Grand Rapids" (from Article Credits row 6)
-Tags: ILIT, SCIT
+Tags: Provider Perspectives, ILIT, SCIT
 Feature image: TBD (owner uploads)
-Image alt: TBD
+Image alt: The bright blue Blue Bridge crossing the Grand River in downtown Grand Rapids, Michigan, with glass towers and brick buildings behind it
 Credit: Contributed by Sara J. Uekert, MD, Grand Rapids Allergy (Article Credits row 6, Approved Y). Byline "By Sara J. Uekert, MD" renders automatically once the credit is set.
 
 KEY TAKEAWAYS
