@@ -195,8 +195,9 @@ on an existing row just updates it. Row 1 is headers, row 2 onward is data.
 | C | Display Name | Required — the exact text shown in bylines, e.g. `Dr. Sandra Ho, MD`. Include whatever title/credentials you want displayed; there's no separate title field, this is the whole string |
 | D | Bio | Optional — shown under the credit box on Blog/Learn pages when set |
 | E | Practitioner Thumbnail URL | Optional. A Cloudinary headshot of this specific person (400 × 400, face centered), shown in a small circle in the Blog/Learn credit box. Blank shows a generic silhouette. Any non-Cloudinary link is left blank and reported as a sync error |
+| F | Profile URLs | **New (2026-11-17).** Optional. Other pages about this same person, semicolon-separated: their bio on the practice site, a hospital or health system profile, a professional profile. Never shown as links on the site: they go only into the credited article's Person markup (`sameAs`) so search engines can tie the author to those pages. Full `https://` links only; anything else is skipped and reported as a sync error |
 
-Columns after E (e.g. a slug check formula) are yours; the sync never reads them.
+Columns after F (e.g. the slug check formula, now in G) are yours; the sync never reads them.
 
 Used by both the Blog's "Contributed by" credit (set via direct DB write,
 see `docs/blog-content-guide.md`) and the Learn Page Credits tab above —

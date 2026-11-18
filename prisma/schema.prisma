@@ -345,6 +345,9 @@ model Author {
   // Headshot for the Blog/Learn credit box (Practitioners column E).
   photoUrl String?
   bio      String?
+  // Other pages about this same person (practice bio, hospital profile),
+  // for the Person markup's sameAs (Practitioners column F, 2026-11-17).
+  sameAs   String[] @default([])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

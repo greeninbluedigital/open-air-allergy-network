@@ -201,6 +201,10 @@ export function ArticleDetail({ article }: { article: ArticleDetailData }) {
         "@type": "Person",
         name: article.author!.name,
         image: article.author!.photoUrl ?? undefined,
+        description: article.author!.bio ?? undefined,
+        // The same person on other sites (practice bio, hospital profile),
+        // from Practitioners column F (2026-11-17).
+        sameAs: article.author!.sameAs.length > 0 ? article.author!.sameAs : undefined,
         worksFor: {
           "@type": "MedicalClinic",
           "@id": practiceSchemaId(credited.slug),

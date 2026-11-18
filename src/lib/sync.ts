@@ -330,9 +330,10 @@ async function syncSemLandingPages(): Promise<LandingPageSyncSummary> {
 // reconciled to exactly match the sheet on every sync (add newly-listed
 // affiliations, remove ones no longer listed), same edit/delete-friendly
 // intent as the other tabs, without touching the Author record itself.
-// Column F onward is the sheet editor's own (e.g. a slug check) and is never read.
-const PRACTITIONER_COLUMNS = ["practitionerSlug", "providerSlugs", "displayName", "bio", "photoUrl"] as const;
-const PRACTITIONER_SHEET_RANGE = "Practitioners!A2:E";
+// Column F (Profile URLs, 2026-11-17) feeds the Person markup's sameAs.
+// Column G onward is the sheet editor's own (e.g. a slug check) and is never read.
+const PRACTITIONER_COLUMNS = ["practitionerSlug", "providerSlugs", "displayName", "bio", "photoUrl", "profileUrls"] as const;
+const PRACTITIONER_SHEET_RANGE = "Practitioners!A2:F";
 
 function parsePractitionerRow(row: string[]): Record<(typeof PRACTITIONER_COLUMNS)[number], string> {
   const record = {} as Record<(typeof PRACTITIONER_COLUMNS)[number], string>;
@@ -374,13 +375,21 @@ async function syncPractitioners(): Promise<PractitionerSyncSummary> {
       photoUrl = null;
     }
 
+    // Other pages about this same person, for search engines only (never
+    // shown as links). Anything that isn't a full https link is dropped.
+    const sameAs: string[] = [];
+    for (const url of parseList(r.profileUrls)) {
+      if (/^https:\/\/[^\s]+$/.test(url)) sameAs.push(url);
+      else summary.errors.push(`${slug}: Profile URL "${url}" isn't a full https:// link (skipped)`);
+    }
+
     try {
       const existing = await db.author.findUnique({ where: { slug } });
 
       const author = await db.author.upsert({
         where: { slug },
-        create: { slug, name: displayName, bio: r.bio || null, photoUrl },
-        update: { name: displayName, bio: r.bio || null, photoUrl },
+        create: { slug, name: displayName, bio: r.bio || null, photoUrl, sameAs },
+        update: { name: displayName, bio: r.bio || null, photoUrl, sameAs },
       });
 
       const matchedProviderIds: string[] = [];
