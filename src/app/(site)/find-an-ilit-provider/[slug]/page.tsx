@@ -523,6 +523,23 @@ export default async function ProviderDetailPage({
 
           <PatientReviews provider={provider} />
 
+          {/* Above the FAQs (owner, 2026-11-17). The newest 3 show here; past
+              3, a text link opens the Blog filtered to this practice. */}
+          {articleCount > 0 && (
+            <div>
+              <h2 className="mb-2 text-base font-bold">Articles From This Practice</h2>
+              <ArticleFeed providerCreditedId={provider.id} section="ALL" limit={3} emptyHidden />
+              {articleCount > 3 && (
+                <Link
+                  href={`/blog?practice=${encodeURIComponent(provider.slug)}`}
+                  className="mt-3 inline-block text-sm font-semibold text-sage hover:underline"
+                >
+                  See more articles from {provider.practiceName} →
+                </Link>
+              )}
+            </div>
+          )}
+
           {showDetails && provider.faqItems.length > 0 && (
             <div>
               <h2 className="mb-2 text-base font-bold">FAQs About ILIT Allergy Treatment at {provider.practiceName}</h2>
@@ -558,19 +575,12 @@ export default async function ProviderDetailPage({
           {/* No extended bio to sit under: the note goes here instead. */}
           {!(isFullProfilePlus && provider.extendedBio) && (provider.shortBio || hasFaqs) && sourceNote}
 
-          {articleCount > 0 && (
-            <div>
-              <h3 className="mb-2 text-base font-bold">Articles From This Practice</h3>
-              <ArticleFeed providerCreditedId={provider.id} section="ALL" limit={3} emptyHidden />
-            </div>
-          )}
-
           <OtherLocations from={provider} offices={siblings} />
         </div>
 
         {/* order-first: on mobile, the lead form appears right after the
             intro instead of at the very bottom of a long page (About,
-            Treatments, Hours, Reviews, FAQ, Articles, Other Locations all
+            Treatments, Hours, Reviews, Articles, FAQ, Other Locations all
             come before it in the DOM) — reset to normal order at md+, where
             it's already visible in the sidebar. md:sticky keeps it in view
             while scrolling through the long content column on desktop. */}

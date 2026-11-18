@@ -6,6 +6,7 @@ import { ArticleFeed } from "@/components/ArticleFeed";
 import { articlePath, getTagCounts, queryBlogArticles } from "@/lib/blog";
 import { lookupZip } from "@/lib/zip";
 import { GUIDE_TAG, PROVIDER_TAG } from "@/lib/content";
+import { readDb } from "@/lib/cache";
 
 // Owner-approved 2026-10-27 (SEO audit): "Blog" alone carried no search
 // words. Used as both the title (no brand suffix, 54 characters) and the H1.
@@ -17,9 +18,31 @@ function tagHeading(tag: string) {
   return tag === GUIDE_TAG || tag === PROVIDER_TAG ? tag : `${tag} Articles`;
 }
 
+/** The practice behind a ?practice= link (the PDP's "See more articles
+ * from …", 2026-11-17). Unknown or inactive slugs are ignored. */
+async function practiceFilter(slug: string | undefined) {
+  if (!slug) return null;
+  const practice = await readDb.provider.findUnique({
+    where: { slug },
+    select: { id: true, slug: true, practiceName: true, active: true },
+  });
+  return practice?.active ? practice : null;
+}
+
 export async function generateMetadata({ searchParams }: PageProps<"/blog">): Promise<Metadata> {
   const sp = await searchParams;
   const tag = typeof sp.tag === "string" ? sp.tag : undefined;
+  const practice = await practiceFilter(typeof sp.practice === "string" ? sp.practice : undefined);
+  // A practice's article list repeats articles indexed elsewhere, so it's
+  // kept out of search results (links on it are still followed).
+  if (practice) {
+    return {
+      title: `Articles From ${practice.practiceName}`,
+      description: `Allergy articles contributed by ${practice.practiceName}, on Open Air Allergy Network.`,
+      alternates: { canonical: "/blog" },
+      robots: { index: false, follow: true },
+    };
+  }
   // zip/radius/page are personalization/pagination, not distinct content —
   // canonical always drops them so those combinations don't get indexed as
   // separate near-duplicate URLs. `tag` does change the content meaningfully,
@@ -31,6 +54,17 @@ export async function generateMetadata({ searchParams }: PageProps<"/blog">): Pr
       : "Allergy articles and guides on symptoms, seasons and treatment, from allergy medicine and shots to ILIT, from Open Air Allergy Network.",
     alternates: { canonical: tag ? `/blog?tag=${encodeURIComponent(tag)}` : "/blog" },
   };
+}
+
+// Provider Perspectives stands out in purple, the site's color for
+// practice-contributed content (the "Contributed by" box), 2026-11-17.
+function tagChipClass(chipTag: string, selected: boolean) {
+  if (chipTag === PROVIDER_TAG) {
+    return selected
+      ? "bg-badge-contrib-text text-white"
+      : "bg-badge-contrib-bg text-badge-contrib-text hover:brightness-95";
+  }
+  return selected ? "bg-foreground text-background" : "bg-bg-alt hover:bg-line";
 }
 
 const ARCHIVE_PAGE_SIZE = 20;
@@ -46,6 +80,7 @@ function buildQuery(params: Record<string, string | undefined>) {
 export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">) {
   const sp = await searchParams;
   const tag = typeof sp.tag === "string" ? sp.tag : undefined;
+  const practice = await practiceFilter(typeof sp.practice === "string" ? sp.practice : undefined);
   const zip = typeof sp.zip === "string" ? sp.zip : undefined;
   const radius = typeof sp.radius === "string" ? parseInt(sp.radius, 10) || 50 : 50;
   const page = typeof sp.page === "string" ? Math.max(1, parseInt(sp.page, 10) || 1) : 1;
@@ -55,24 +90,30 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
 
   const [tagCounts, gridResult, archiveResult] = await Promise.all([
     getTagCounts(),
-    queryBlogArticles({ tag, paf, page: 1, pageSize: GRID_SIZE }),
+    queryBlogArticles({ tag, practiceId: practice?.id, paf, page: 1, pageSize: GRID_SIZE }),
     // Starts after the card grid's articles so the list doesn't repeat them.
-    queryBlogArticles({ tag, paf, page, pageSize: ARCHIVE_PAGE_SIZE, offset: GRID_SIZE }),
+    queryBlogArticles({ tag, practiceId: practice?.id, paf, page, pageSize: ARCHIVE_PAGE_SIZE, offset: GRID_SIZE }),
   ]);
 
   const totalPages = Math.max(1, Math.ceil(archiveResult.totalCount / ARCHIVE_PAGE_SIZE));
-  const baseParams = { tag, zip, radius: zip ? String(radius) : undefined };
+  const baseParams = { tag, practice: practice?.slug, zip, radius: zip ? String(radius) : undefined };
+  const filtered = Boolean(tag || zip || practice);
+  const heading = practice
+    ? `Articles From ${practice.practiceName}`
+    : tag
+      ? tagHeading(tag)
+      : BLOG_HEADING;
 
   return (
     <>
       <div className="px-6 pt-8 sm:px-10">
-        <h1 className="text-3xl font-extrabold">{tag ? tagHeading(tag) : BLOG_HEADING}</h1>
+        <h1 className="text-3xl font-extrabold">{heading}</h1>
       </div>
 
       {/* Hidden while a tag is selected, so a filtered view (e.g. the Learn
           page's "See all allergy treatment guides" link) opens on matching
           articles, not unrelated featured ones (2026-10-20). */}
-      {!tag && (
+      {!tag && !practice && (
         <div className="border-b border-line px-6 py-8 sm:px-10">
           <div className="mb-3 text-xs font-semibold tracking-wide text-muted uppercase">
             Featured
@@ -90,7 +131,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
         <div className="flex flex-wrap gap-2">
           <Link
             href={`/blog${buildQuery({ zip, radius: baseParams.radius })}`}
-            className={`rounded px-3 py-1 text-xs font-bold uppercase ${!tag ? "bg-foreground text-background" : "bg-bg-alt hover:bg-line"}`}
+            className={`rounded px-3 py-1 text-xs font-bold uppercase ${!tag && !practice ? "bg-foreground text-background" : "bg-bg-alt hover:bg-line"}`}
           >
             All
           </Link>
@@ -98,7 +139,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
             <Link
               key={t.tag}
               href={`/blog${buildQuery({ ...baseParams, tag: t.tag })}`}
-              className={`rounded px-3 py-1 text-xs font-bold uppercase ${tag === t.tag ? "bg-foreground text-background" : "bg-bg-alt hover:bg-line"}`}
+              className={`rounded px-3 py-1 text-xs font-bold uppercase ${tagChipClass(t.tag, tag === t.tag)}`}
             >
               {t.tag} ({t.count})
             </Link>
@@ -110,8 +151,10 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
         <div className="mb-3 text-xs font-semibold tracking-wide text-muted uppercase">
           Find articles from providers near you
         </div>
-        <ZipSearchForm action="/blog" showRadius defaultRadius={radius} buttonLabel="Filter" />
-        {(tag || zip) && (
+        {/* Pre-filled with the zip in the URL, else the visitor's saved zip
+            (or approximate location), like the provider search boxes. */}
+        <ZipSearchForm action="/blog" showRadius defaultRadius={radius} defaultZip={zip} prefillKnownZip buttonLabel="Filter" />
+        {filtered && (
           <Link href="/blog" className="mt-2.5 inline-block text-xs text-muted hover:underline">
             Clear Filters
           </Link>
@@ -120,7 +163,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
 
       <div className="border-b border-line px-6 py-8 sm:px-10">
         <div className="mb-3 text-xs font-semibold tracking-wide text-muted uppercase">
-          {tag || zip ? "Filtered Results" : "Recent Articles"}
+          {filtered ? "Filtered Results" : "Recent Articles"}
         </div>
         {gridResult.articles.length === 0 ? (
           <p className="text-sm text-muted">No articles match these filters yet.</p>

@@ -28,6 +28,7 @@ export async function ZipSearchForm({
   buttonLabel = "Find a Provider",
   variant = "light",
   origin,
+  prefillKnownZip = false,
 }: {
   action?: string;
   showRadius?: boolean;
@@ -38,9 +39,12 @@ export async function ZipSearchForm({
   variant?: "light" | "dark";
   /** Where this search box sits, sent to GA4 with each provider search (docs/gtm-ga4-setup.md). */
   origin?: string;
+  /** Pre-fill the saved or approximate zip on a box that isn't a provider
+   * search (the Blog's article filter, 2026-11-17). */
+  prefillKnownZip?: boolean;
 }) {
   const isDark = variant === "dark";
-  const zipValue = defaultZip ?? (action === PROVIDER_SEARCH ? await knownZip() : "");
+  const zipValue = defaultZip ?? (action === PROVIDER_SEARCH || prefillKnownZip ? await knownZip() : "");
 
   return (
     <form

@@ -9,11 +9,15 @@ const ONE_YEAR_SECONDS = 60 * 60 * 24 * 365;
  * visit with no zip but a saved one is redirected to that search. Only a
  * zip the visitor typed is used here, never IP location: that can be wrong,
  * and crawlers (which carry no cookies) always get the plain page.
+ *
+ * The Blog's article filter saves a typed zip too (2026-11-17), but a Blog
+ * visit is never redirected: the full Blog stays the default view.
  */
 export function proxy(request: NextRequest) {
   const zip = request.nextUrl.searchParams.get("zip")?.trim();
 
   if (!zip) {
+    if (request.nextUrl.pathname !== "/find-an-ilit-provider") return NextResponse.next();
     const saved = request.cookies.get(ZIP_COOKIE)?.value;
     if (saved && lookupZip(saved)) {
       const url = request.nextUrl.clone();
@@ -37,5 +41,5 @@ export function proxy(request: NextRequest) {
 }
 
 export const config = {
-  matcher: "/find-an-ilit-provider",
+  matcher: ["/find-an-ilit-provider", "/blog"],
 };

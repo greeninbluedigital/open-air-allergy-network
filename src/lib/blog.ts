@@ -2,6 +2,7 @@ import { Prisma } from "@/generated/prisma/client";
 import { cachedQuery, readDb } from "@/lib/cache";
 import { db } from "@/lib/db";
 import { milesBetween } from "@/lib/srp";
+import { SHOWN_CREDIT } from "@/lib/credits";
 
 export type TagCount = { tag: string; count: number };
 
@@ -48,12 +49,16 @@ async function providerIdsWithinRadius(lat: number, lng: number, radiusMiles: nu
 
 export async function queryBlogArticles({
   tag,
+  practiceId,
   paf,
   page,
   pageSize,
   offset = 0,
 }: {
   tag?: string;
+  /** Only articles credited to this practice (the PDP's "See more articles
+   * from …" link), counting only credits that actually show. */
+  practiceId?: string;
   /** Provider Article Finder: filter by distance from a zip. */
   paf?: { lat: number; lng: number; radiusMiles: number };
   page: number;
@@ -83,6 +88,7 @@ export async function queryBlogArticles({
     section: { in: BLOG_FEED_SECTIONS },
     ...tagWhere,
     ...pafWhere,
+    ...(practiceId ? { providerCreditedId: practiceId, ...SHOWN_CREDIT } : {}),
   };
 
   const [articles, totalCount] = await Promise.all([
