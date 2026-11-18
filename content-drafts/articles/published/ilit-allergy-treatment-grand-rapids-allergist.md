@@ -45,15 +45,14 @@ A: It's newer than allergy shots, with research growing over the last 20 years. 
 
 REVIEW NOTES
 - **Text is GRA's approved final.** Changes from the docx, all typographic: garbled apostrophes restored; ranges written "3 to 5" and "30 to 60" (her intro already uses "3 to 5"); "procedure, however most patients" split into two sentences; "less visits" to "fewer visits"; the garbled dash after "Distance from an allergy office" became a colon; "vs" to "vs.".
-- **Card added after the intro** (OAAN module, not GRA copy): ILIT vs. Traditional Allergy Shots. Title matches the live article.
+- **No related guide card** (owner, 11/17): guest articles don't send readers elsewhere from the top of the page.
+- **Headings edited by OAAN (owner, 11/17)**, no wording change to her text: "What does treatment involve?" to "What does ILIT treatment involve?", "Does it work?" to "Does ILIT work for allergies?", "Is it safe?" to "Is ILIT a safe allergy treatment?".
 - **Key takeaways** are drawn from her text only. FAQs are hers, unchanged apart from apostrophes.
-- **No author thumbnail yet** on the Practitioners tab (row 6, column E), so the credit box shows an empty circle until one is added.
+- **Author thumbnail** added 11/17 (Practitioners row 6, column E).
 
 BODY
 -->
 If seasonal allergies like hay fever make you miserable every spring or summer, you may have heard of "allergy shots." They work well, but they take a big commitment: routine injections (weekly to monthly) over 3 to 5 years. A newer approach called intralymphatic immunotherapy (ILIT) aims to get a similar result with far fewer injections.
-
-[ILIT vs. Traditional Allergy Shots: What a Few Months Buys You](/blog/ilit-vs-traditional-allergy-shots "card")
 
 ## What is ILIT allergy treatment?
 
@@ -61,20 +60,20 @@ Immunotherapy works by retraining your immune system. By exposing your immune sy
 
 The difference with ILIT is where the dose goes. Instead of going under the skin (allergy shots) or under the tongue (allergy tablets or drops), the allergen is injected directly into a lymph node, usually in the groin (just below the waist, near the hip). Lymph nodes are where your immune system "learns" what to respond to. Delivering the allergen directly into the lymph node trains the immune system more efficiently and rapidly.
 
-## What does treatment involve?
+## What does ILIT treatment involve?
 
 - Usually just 3 injections, each given about a month apart.
 - The provider uses an ultrasound to guide a very fine needle into a small lymph node just under the skin.
 - Most people say it feels like a quick pinch, often less painful than a blood draw or traditional allergy shots.
 
-## Does it work?
+## Does ILIT work for allergies?
 
 Research on ILIT has been growing over the last 20 years. The results so far are encouraging:
 
 - Fewer symptoms, less medicine.
 - Similar long-term response as a standard 3 to 5 year allergy injection program.
 
-## Is it safe?
+## Is ILIT a safe allergy treatment?
 
 - The most common side effect is mild swelling, redness, or itching at the injection site.
 - Serious allergic reactions have been rare in studies. Overall, ILIT has caused fewer side effects than standard allergy shots.

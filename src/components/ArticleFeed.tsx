@@ -19,6 +19,7 @@ export async function ArticleFeed({
   section = "BLOG",
   providerCreditedId,
   sameAuthorId,
+  pickSlugs,
   excludeArticleId,
   limit,
   emptyHidden = false,
@@ -37,6 +38,9 @@ export async function ArticleFeed({
   providerCreditedId?: string;
   /** Slot 1 priority for contribution articles' "More from the Blog". */
   sameAuthorId?: string;
+  /** Fixed picks by slug (RELATED_ARTICLE_PICKS), shown after the
+   * same-author articles and before the newest posts. */
+  pickSlugs?: string[];
   /** Never show the article this feed is rendered on. */
   excludeArticleId?: string;
   limit: number;
@@ -96,13 +100,37 @@ export async function ArticleFeed({
         })
       : [];
 
-  const remaining = limit - pinned.length - sameAuthor.length;
+  const afterAuthor = limit - pinned.length - sameAuthor.length;
+  const pickedRows =
+    pickSlugs && pickSlugs.length > 0 && afterAuthor > 0
+      ? await articleDb.article.findMany({
+          where: {
+            ...baseWhere,
+            slug: { in: pickSlugs },
+            id: { notIn: [...alwaysExcluded, ...pinned.map((a) => a.id), ...sameAuthor.map((a) => a.id)] },
+          },
+          include: { author: true },
+        })
+      : [];
+  // Keep the picks in the order they're listed, not the database's order.
+  const picked = pickedRows
+    .sort((a, b) => pickSlugs!.indexOf(a.slug) - pickSlugs!.indexOf(b.slug))
+    .slice(0, afterAuthor);
+
+  const remaining = afterAuthor - picked.length;
   const fallback =
     remaining > 0
       ? await articleDb.article.findMany({
           where: {
             ...baseWhere,
-            id: { notIn: [...alwaysExcluded, ...pinned.map((a) => a.id), ...sameAuthor.map((a) => a.id)] },
+            id: {
+              notIn: [
+                ...alwaysExcluded,
+                ...pinned.map((a) => a.id),
+                ...sameAuthor.map((a) => a.id),
+                ...picked.map((a) => a.id),
+              ],
+            },
           },
           orderBy,
           take: remaining,
@@ -110,7 +138,7 @@ export async function ArticleFeed({
         })
       : [];
 
-  const articles = [...pinned, ...sameAuthor, ...fallback];
+  const articles = [...pinned, ...sameAuthor, ...picked, ...fallback];
 
   if (articles.length === 0 && emptyHidden) return null;
 

@@ -30,6 +30,14 @@ export const GUIDE_TAG = "Allergy Treatment Guides";
  * house articles. Added by hand in the draft's Tags line. */
 export const PROVIDER_TAG = "Provider Perspectives";
 
+/** Fixed picks for an article's "More from the Blog" row, by article slug,
+ * in display order. They come after the credited author's other articles
+ * and before the newest posts, which fill any slots left (owner,
+ * 2026-11-17: keep the Michigan article on Dr. Uekert's article). */
+export const RELATED_ARTICLE_PICKS: Record<string, string[]> = {
+  "ilit-allergy-treatment-grand-rapids-allergist": ["michigan-allergy-season"],
+};
+
 /** The guides' fixed first row on Learn About ILIT, in display order. */
 export const CORE_GUIDE_SLUGS = [
   "allergy-shots-and-allergy-immunotherapy",

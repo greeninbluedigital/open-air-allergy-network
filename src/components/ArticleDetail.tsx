@@ -8,6 +8,7 @@ import { cloudinaryFaceCrop, withCloudinaryTransform } from "@/lib/cloudinary";
 import type { ArticleDetailData } from "@/lib/articles";
 import { isVerifiedPlus } from "@/lib/tiers";
 import { practiceSchemaId } from "@/lib/metadata";
+import { RELATED_ARTICLE_PICKS } from "@/lib/content";
 import { CREDIT_LABEL, creditKind, creditShows } from "@/lib/credits";
 import { InlineArticleCard } from "@/components/InlineArticleCard";
 
@@ -396,6 +397,7 @@ export function ArticleDetail({ article }: { article: ArticleDetailData }) {
         <ArticleFeed
           section={isLearn ? "LEARN" : "BLOG"}
           sameAuthorId={!isLearn && showCredit && !isReview ? (article.authorId ?? undefined) : undefined}
+          pickSlugs={RELATED_ARTICLE_PICKS[article.slug]}
           excludeArticleId={article.id}
           limit={3}
           emptyHidden={isLearn}
