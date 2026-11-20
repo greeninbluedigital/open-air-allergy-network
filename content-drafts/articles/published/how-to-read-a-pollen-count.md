@@ -8,9 +8,9 @@ URL: /blog/how-to-read-a-pollen-count
 Meta description (155 chars): A pollen count is the grains of pollen in a cubic meter of air. See what low, moderate, high and very high mean for trees, grass and weeds, and what to do.
 Target keywords: "pollen count", "how to read a pollen count", "pollen count levels", "pollen count scale" / "pollen count chart" (levels table), "what is a high pollen count" / "what is considered a high pollen count" (FAQ), "what does pollen count mean", "how is pollen count measured" (FAQ), "pollen count vs pollen forecast", "does rain lower pollen count" (FAQ), "most accurate pollen count" (FAQ), "pollen index" (FAQ), "mold count" / "what is a high mold count" (FAQ), "allergies when pollen count is low" (body and FAQ), "pollen allergy shots" (FAQ), "faster alternative to allergy shots" (Longer term options section)
 Tags: Allergens, Allergy Symptoms
-Feature image: TBD (owner uploads)
+Feature image: https://res.cloudinary.com/qruprn0t/image/upload/v1795200539/how-to-read-a-pollen-count-grass-in-flower.jpg
 Image idea: Backlit grass seed heads in a summer meadow at golden hour, with a faint haze of pollen catching the low sun, saturated greens and gold, no people. Search "grass pollen backlit" or "meadow pollen sunlight". File: how-to-read-a-pollen-count-grass-pollen-backlit.jpg
-Image alt: TBD (describe the chosen photo)
+Image alt: A grass stem in flower, with tiny yellow anthers hanging from its green seed heads against a soft, warm background
 Credit: none (house article).
 
 KEY TAKEAWAYS
@@ -63,6 +63,7 @@ SOURCES (all linked in the article)
 - Own arithmetic: the "50 grains" example in step 3 is read off the NAB table (50 is moderate for trees, high for grasses, and the first number in the high range for weeds).
 
 REVIEW NOTES
+- **Owner edits and comments applied (2026-11-20):** table ranges written with " - " and "+" (owner's own edit, kept); mold column added from St. Louis County's table (Low 0 - 6,499, Moderate 6,500 - 12,999, High 13,000 - 49,999, Very high 50,000+, re-read on the live page 11/20), with the table intro saying the mold numbers are St. Louis County's; italic footnote under the table defines a count (AAAAI glossary, already linked); the mold sentence now just explains the bigger scale. Forecast section rewritten per the owner's note: a count looks back (previous 24 hours, NC DEQ, cited earlier), a forecast predicts (AAAAI glossary), with a light weather report comparison. Low count section now says counts only measure outdoor air (rooftop samplers, AAAAI, cited earlier) and indoor allergens (pet dander, dust mites, indoor mold) don't show up in them, plus a card to the room by room cleaning guide. H2 "Use past counts to time your allergy medicine" became "When to start taking allergy medicine" (the search wording; no other article targets it). "Hay fever medicines" became "Allergy medicine for pollen allergy" (AAAAI's hay fever page; hay fever is pollen allergy). Added "look back at last year's counts" to tie the section to the article (MedlinePlus: counts help time the first dose). Hero set: grass in flower (owner's stock photo, cropped and color adjusted by the owner), alt written from the photo.
 - **Second main session review (2026-11-19, owner hadn't read it yet):** cut the "When to get care right away" section that opened the article. It sat ahead of the answer on a how-to page, and the related tree pollen, cottonwood and Michigan articles have no emergency section; MedlinePlus is still cited for the rest. Cut the roadmap sentence ("Below is how the count is measured ..."). Untangled the double "so" sentence about NC DEQ's 9 a.m. to 9 a.m. samples. Added the new cottonwood article to the seasons links. Tried the NAB map legend again in a browser: the app loads its shell only, so the scale still rests on the St. Louis County and Forsyth County pages (both say they use the NAB ranges). Hero still TBD.
 - **Main session pass (2026-11-16):** card title fixed to the live title ("Seasonal Allergies: Spring, Summer, Fall & Winter Guide"); injection site changed from "top of the thigh, near the hip" to the house wording (groin, just below the waist, near the hip); takeaway 5 now ends on treatment (ILIT); short lead-ins and closers folded ("One detail changes how you read the number.", "A count is a look back, not a prediction." now reads as the 9 a.m. to 9 a.m. consequence, "A low count isn't a promise."); the treatment section's unsourced "an allergist can talk with you" opener now carries the AAAAI line on when an allergist may recommend shots. Hero still TBD.
 - **NAB scale sourced from two government pages, not the NAB site itself.** pollen.aaaai.org is a JavaScript app that didn't load as text this run, so the table comes from St. Louis County and Forsyth County, NC, which both publish the same numbers and say they're based on the NAB scale. Worth a glance at the NAB map legend before publishing.
@@ -105,16 +106,18 @@ At North Carolina's state station, each sample runs from 9 a.m. to 9 a.m. and de
 
 ## Pollen count levels: what low, moderate, high and very high mean
 
-Each pollen type has its own scale. Below are the National Allergy Bureau ranges, as published by counting programs in [St. Louis County](https://pollenandmold.stlouisco.com/html/PollenLevels.html) and [Forsyth County, North Carolina](https://www.forsyth.cc/eap/air_quality/pollen.aspx), in grains per cubic meter of air:
+Each pollen type has its own scale, and mold has one too. Below are the National Allergy Bureau ranges, as published by counting programs in [St. Louis County](https://pollenandmold.stlouisco.com/html/PollenLevels.html) and [Forsyth County, North Carolina](https://www.forsyth.cc/eap/air_quality/pollen.aspx). The mold ranges are from St. Louis County's table.
 
-| Level | Trees | Grasses | Weeds |
-|---|---|---|---|
-| Low | 0 to 14 | 0 to 4 | 0 to 9 |
-| Moderate | 15 to 89 | 5 to 19 | 10 to 49 |
-| High | 90 to 1,499 | 20 to 199 | 50 to 499 |
-| Very high | 1,500 or more | 200 or more | 500 or more |
+| Level | Trees | Grasses | Weeds | Mold |
+|---|---|---|---|---|
+| Low | 0 - 14 | 0 - 4 | 0 - 9 | 0 - 6,499 |
+| Moderate | 15 - 89 | 5 - 19 | 10 - 49 | 6,500 - 12,999 |
+| High | 90 - 1,499 | 20 - 199 | 50 - 499 | 13,000 - 49,999 |
+| Very high | 1,500+ | 200+ | 500+ | 50,000+ |
 
-Mold is counted in spores and runs on a much bigger scale: 13,000 to 49,999 spores per cubic meter is high in St. Louis County's table.
+*Count = the number of pollen grains or mold spores in a cubic meter of air.*
+
+Mold spores run on a much bigger scale than pollen, so a mold count in the thousands can still be low.
 
 The levels aren't set by how much pollen it takes to make a person sneeze. St. Louis County explains that the NAB builds them from counts reported by all its stations, using percentiles, so "high" grass means high compared with typical grass days. That's why the grass line looks so low next to the tree line.
 
@@ -135,15 +138,21 @@ What each level means for people with allergies, per St. Louis County:
 
 ## Pollen count vs. pollen forecast
 
-Many weather apps show a pollen forecast, not a count. The [AAAAI](https://www.aaaai.org/tools-for-the-public/allergy,-asthma-immunology-glossary/pollen-counts-defined) says forecasts are mostly built from earlier years' pollen data and the general weather forecast, while NAB counts come from samples of the actual air. Use the forecast to plan today, and the station count to see what actually happened.
+Many weather apps show a pollen forecast, and the two numbers answer different questions. A count tells you what was in the air: most stations report the previous 24 hours, so by the time you read it, the wind may have shifted. A forecast is a prediction. The [AAAAI](https://www.aaaai.org/tools-for-the-public/allergy,-asthma-immunology-glossary/pollen-counts-defined) says forecasts are mostly built from earlier years' pollen data and the general weather forecast, while NAB counts come from samples of the actual air.
+
+Think of the count as yesterday's weather report: accurate, but about a day you've already sneezed through. The forecast is tomorrow's: handy for planning, and about as reliable as the one that promised sunshine on the day you got soaked. Check the forecast to plan your day, and the count to see what actually happened.
 
 ## Why allergies can flare on a low count day
 
-The ACAAI notes you can still end up around a pollen that sets you off on a low count day. The [AAAAI](https://www.aaaai.org/tools-for-the-public/conditions-library/allergies/outdoor-allergens-ttr) adds that symptoms can be affected by more than the day's number, including recent contact with other allergens and how sensitive you are. Pets and dust don't show up in a pollen or mold count at all.
+The ACAAI notes you can still end up around a pollen that sets you off on a low count day. The [AAAAI](https://www.aaaai.org/tools-for-the-public/conditions-library/allergies/outdoor-allergens-ttr) adds that symptoms can be affected by more than the day's number, including recent contact with other allergens and how sensitive you are.
 
-## Use past counts to time your allergy medicine
+Pollen and mold counts also only measure outdoor air, usually sampled on rooftops. Allergens inside your home, like pet dander, dust mites and indoor mold, never show up in them, so a low count day can still be a bad day indoors.
 
-Hay fever medicines work best when they're started before symptoms develop, the [AAAAI](https://www.aaaai.org/tools-for-the-public/conditions-library/allergies/hay-fever-and-pollen-counts) says. The ACAAI's example: if your symptoms are usually worst in mid-April, start your medicine at the end of March. [MedlinePlus](https://magazine.medlineplus.gov/article/what-triggers-seasonal-allergies) says checking pollen counts can help you time that first dose. Our [tree pollen](/blog/tree-pollen-allergy), [cottonwood](/blog/cottonwood-fluff-allergies) and [ragweed](/blog/ragweed-allergy) guides cover the typical seasons.
+[How to Clean Your House for Allergies, Room by Room](/blog/how-to-clean-house-for-allergies "card")
+
+## When to start taking allergy medicine
+
+Allergy medicine for pollen allergy works best when you start it before symptoms develop, the [AAAAI](https://www.aaaai.org/tools-for-the-public/conditions-library/allergies/hay-fever-and-pollen-counts) says. The ACAAI's example: if your symptoms are usually worst in mid-April, start your medicine at the end of March. [MedlinePlus](https://magazine.medlineplus.gov/article/what-triggers-seasonal-allergies) says checking pollen counts can help you time that first dose, so look back at last year's counts for when your pollen started climbing. Our [tree pollen](/blog/tree-pollen-allergy), [cottonwood](/blog/cottonwood-fluff-allergies) and [ragweed](/blog/ragweed-allergy) guides cover the typical seasons.
 
 ## Longer term options for pollen allergy
 
