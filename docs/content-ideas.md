@@ -743,6 +743,54 @@ owns the detail, never repeat another article's FAQ question).
   live), allergies or a cold, worst cities for allergies, and the allergy
   shots guide. City and state pages are not linked from here.
 
+## Idea detail: Allergy blood test results (owner, 2026-11-19, queue #52)
+
+**Why:** Search Console's agentic (AI answer) impressions jumped on
+11/16 to 11/17, and in one 24 hour window Allergy Test Results Explained
+(published 11/5) drew 59 of 110. It answers narrow "what does this number
+mean" questions with a scale table. Its blood test section is only two
+paragraphs plus one FAQ ("what does 0.10 mean on allergy test"), so blood
+results get their own article in the same format.
+
+**Slug and title:** `allergy-blood-test-results`, working title "Allergy
+Blood Test Results Explained: IgE Numbers and Classes" (keep under 62
+characters; the drafting run picks the final wording from autocomplete).
+Tags: Allergy Testing. Blog.
+
+**Keywords this article owns:** "allergy blood test results", "allergy
+blood test results explained", "how to read allergy blood test results",
+"IgE allergy test results", "allergy blood test results chart" / "classes"
+/ "ranges", "what does 0.10 mean on allergy test", "is 0.35 positive",
+"what does class 2 mean", "total IgE vs specific IgE", "normal IgE level".
+Confirm with autocomplete, like every draft.
+
+**Keyword ownership:** Allergy Test Results Explained keeps the skin test
+terms ("allergy test results", wheal size, 1+ to 5+, histamine control).
+Allergy Skin Test vs. Blood Test keeps the comparison terms. At publish, the
+main session trims the skin article's blood section to a short summary that
+links here (or a card), drops the blood terms from its keyword line, and
+points its FAQ 6 to this article so the two don't compete.
+
+**Cover:** what the numbers are (specific IgE in kilounits per liter, the
+0.1 to 100 range the AAFA gives), the class 0 to 6 table where a lab uses
+one (source it to a lab or test maker's published table and say scoring
+varies by brand, per Cleveland Clinic), total IgE vs. specific IgE, what a
+positive result means (sensitization, not proof of allergy; Cleveland
+Clinic's 50% to 60% false positive figure), why a higher number doesn't
+mean a worse reaction, results with no symptoms, component testing in one
+short paragraph (food), and how results shape treatment, ending on
+immunotherapy and ILIT like the skin article.
+
+**Rules:** cite every fact (AAFA, Cleveland Clinic, AAAAI, ACAAI,
+MedlinePlus; a lab or test maker only for the class table, named as such).
+No prices or insurance. Card after the intro: Allergy Test Results
+Explained. Link Allergy Skin Test vs. Blood Test once. Ends at Find a
+Provider.
+
+**Image idea:** blood collection tubes in a lab rack beside a printed lab
+report, bright clinical light. Search "blood test tubes lab". File:
+allergy-blood-test-results-lab-tubes.jpg.
+
 ## Also pending
 - **Per-article FAQ headings (skipped 2026-10-27):** e.g. "Frequently
   Asked Questions About Ragweed Allergy" instead of the plain heading.
