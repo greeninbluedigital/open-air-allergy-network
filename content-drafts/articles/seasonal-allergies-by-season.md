@@ -66,6 +66,7 @@ SOURCES (all linked in the article)
 - Own arithmetic: none. "About one in four" restates the CDC's 25.7% (MedlinePlus Magazine uses the same "nearly 1 in 4").
 
 REVIEW NOTES
+- **Main session review (2026-11-23):** cut paragraph 2's roadmap sentence ("Below are the triggers season by season ..."); it still names allergy shots, allergy drops and tablets, and ILIT. Folded stacked short lead-ins: "Not every plant is a problem.", "Some people are more likely to get seasonal allergies.", "Mold builds through the same months.", "Timing helps.", "Medicine has limits, though.", "An allergist can test for the cause." Kept "Some people react in every column." (one short line that points back at the table). "Our ranking ... ranks" became "Our list ... ranks". Kept: the emergency box (pollen triggers asthma, same as the pet guide), the current hero, and the unsourced house hedge that ILIT research is smaller than allergy shot research (the fact check flagged it; the same wording runs in other published articles).
 - **This replaces the live Learn guide in place.** Section LEARN, same slug, same title (with "&", as the brief says "same title"). Tags kept exactly as live: Allergy Symptoms, Allergens, Allergy Treatment Guides. The live page's related guide card (Allergies or a Cold) stays. Every old sentence, takeaway and FAQ is replaced, including the unsourced or overstated lines: "Oak, birch, and cedar are common culprits" (cedar dropped; MedlinePlus names birch, oak, elm and maple), "that pattern often responds better to immunotherapy than to escalating your OTC routine", "ILIT ... can build tolerance over a handful of visits", and the old ILIT FAQ ("one of the more common reasons people look into it", "both can potentially be addressed together"), none of which had a source. Old FAQs "Why do my allergies change from season to season?", "How can I tell if it's allergies or a cold?" (owned by the cold article) and "What can an allergist do..." are gone.
 - **Keyword plan.** No Mangools data in the queue row. Autocomplete for "seasonal allergies": icd 10, symptoms, in dogs, in fall, right now, medicine, vs cold. "When is allergy season": in california, over, the worst, 2026, in florida, in texas. "Allergy season": 2026, right now, symptoms, fall. "Spring/summer/fall/winter allergies" each autocomplete with symptoms, causes, medicine and "vs cold". Head term "seasonal allergies" is in the title, first paragraph and several H2s. The biggest question search, "when is allergy season", has its own H2 with the season table.
 - **Keywords left to other articles.** "Seasonal allergies vs cold" / "allergies or a cold": Allergies or a Cold (card after the intro, linked again in symptoms). "Allergy shots for seasonal allergies": the allergy shots guide (its H2). "One time seasonal allergy shot" / "seasonal allergy shot name": One-Time Allergy Shot. "Is there a fast allergy treatment for seasonal allergies?" is already a FAQ on a published article, so this guide's ILIT FAQ asks "Can intralymphatic immunotherapy treat seasonal allergies?" instead. "Pollen count" terms: How to Read a Pollen Count. "Worst cities/why are allergies getting worse every year": worst cities article. State and city "when is allergy season in ..." searches are left to the city and state articles and are not linked from here, per the brief.
@@ -91,7 +92,7 @@ BODY
 
 Seasonal allergies are the sneezing, stuffy nose and itchy eyes that show up at the same times each year, when pollen and mold spores fill the air, and they're common: in a [CDC survey](https://www.cdc.gov/nchs/products/databriefs/db460.htm), 25.7% of U.S. adults had a diagnosed seasonal allergy in 2021. What sets them off depends on the season. Trees usually lead in spring, grasses follow, weeds take over in late summer and fall, and winter symptoms tend to come from allergens inside your home.
 
-Whichever season gets to you, the options run from allergy medicine for the worst weeks to treatments that change the allergy itself: allergy shots, allergy drops and tablets, and ILIT (intralymphatic immunotherapy), a faster alternative to allergy shots. Below are the triggers season by season, the symptoms, what helps at home and how those longer term treatments compare.
+Whichever season gets to you, the options run from allergy medicine for the worst weeks to treatments that change the allergy itself: allergy shots, allergy drops and tablets, and ILIT (intralymphatic immunotherapy), a faster alternative to allergy shots.
 
 [Allergies or a Cold? How to Tell the Difference](/blog/allergies-or-a-cold "card")
 
@@ -103,9 +104,9 @@ Pollen can trigger asthma, causing shortness of breath, wheezing and coughing, a
 
 A seasonal allergy is your immune system treating a harmless pollen or mold spore as an invader. The [AAAAI](https://www.aaaai.org/tools-for-the-public/conditions-library/allergies/outdoor-allergens-ttr) (American Academy of Allergy, Asthma & Immunology) explains that the body makes antibodies called IgE against it, and those antibodies set off the release of chemicals that cause the symptoms. [Mayo Clinic](https://www.mayoclinic.org/diseases-conditions/hay-fever/symptoms-causes/syc-20373039) names histamine as one of them.
 
-Not every plant is a problem. The AAAAI says showy flowers such as roses usually don't cause allergies, because insects carry their pollen. The trouble comes from plants whose flowers make powdery pollen that spreads easily on the wind.
+The AAAAI says showy flowers such as roses usually don't cause allergies, because insects carry their pollen. The trouble comes from plants whose flowers make powdery pollen that spreads easily on the wind.
 
-Some people are more likely to get seasonal allergies. Mayo Clinic lists having other allergies or asthma, having eczema, and having a parent or sibling with allergies or asthma among the risk factors.
+Mayo Clinic lists having other allergies or asthma, having eczema, and having a parent or sibling with allergies or asthma among the risk factors for seasonal allergies.
 
 ## When is allergy season?
 
@@ -130,7 +131,7 @@ Tree pollen is a leading cause of spring allergies, and it starts early. The AAA
 
 Grass pollen is a main summer allergy trigger. Mayo Clinic says it's common in late spring and summer, and the AAAAI says it often causes symptoms in late spring and early summer.
 
-Mold builds through the same months. Outdoor mold spores increase as temperatures rise in spring, and in warmer states they reach their peak in July, according to the [AAAAI](https://www.aaaai.org/tools-for-the-public/conditions-library/allergies/outdoor-allergens-ttr). Pollen tends to travel more on hot, dry, windy days, which can make symptoms worse, while rainy, cloudy or still days often bring milder symptoms.
+Outdoor mold spores build through the same months: they increase as temperatures rise in spring, and in warmer states they reach their peak in July, according to the [AAAAI](https://www.aaaai.org/tools-for-the-public/conditions-library/allergies/outdoor-allergens-ttr). Pollen tends to travel more on hot, dry, windy days, which can make symptoms worse, while rainy, cloudy or still days often bring milder symptoms.
 
 ## Fall allergies: ragweed and outdoor mold
 
@@ -144,7 +145,7 @@ The fixes are indoor ones: mite-proof covers and weekly hot water washes for bed
 
 ## Why allergy seasons are getting longer
 
-Pollen seasons in North America have stretched out over the last few decades. A [2021 study in PNAS](https://pubmed.ncbi.nlm.nih.gov/33558232/) used pollen counts from 60 stations between 1990 and 2018 and found seasons that started about 20 days earlier and ran about 8 days longer, with pollen concentrations up 21%. The authors tied the trend closely to warming and estimated that human-caused climate change accounted for about half of the trend in pollen seasons. [MedlinePlus](https://magazine.medlineplus.gov/article/what-triggers-seasonal-allergies) adds that rising carbon dioxide may make pollen more potent. Our ranking of the [worst cities for allergies](/blog/worst-cities-for-allergies-2026) ranks the metro areas where allergy season hits hardest.
+Pollen seasons in North America have stretched out over the last few decades. A [2021 study in PNAS](https://pubmed.ncbi.nlm.nih.gov/33558232/) used pollen counts from 60 stations between 1990 and 2018 and found seasons that started about 20 days earlier and ran about 8 days longer, with pollen concentrations up 21%. The authors tied the trend closely to warming and estimated that human-caused climate change accounted for about half of the trend in pollen seasons. [MedlinePlus](https://magazine.medlineplus.gov/article/what-triggers-seasonal-allergies) adds that rising carbon dioxide may make pollen more potent. Our list of the [worst cities for allergies](/blog/worst-cities-for-allergies-2026) ranks the metro areas where allergy season hits hardest.
 
 ## Seasonal allergies symptoms
 
@@ -177,15 +178,15 @@ These steps come from the AAAAI, the ACAAI and MedlinePlus:
 
 Allergy medicine treats the symptoms while the season runs. The [ACAAI](https://acaai.org/allergies/allergic-conditions/hay-fever/) calls steroid nasal sprays (intranasal corticosteroids) the single most effective class of drug for allergic rhinitis, easing congestion, sneezing, itching and a runny nose. Antihistamines are also commonly used, sold as tablets, syrups, eye drops and nasal sprays. [MedlinePlus](https://magazine.medlineplus.gov/article/what-triggers-seasonal-allergies) adds saline rinses for congestion and says decongestants, which some antihistamines include, aren't for everyone.
 
-Timing helps. The [AAAAI](https://www.aaaai.org/tools-for-the-public/conditions-library/allergies/outdoor-allergens-ttr) says most hay fever medicines work best if you start them before a pollen season begins, and MedlinePlus says checking pollen counts can help you time the first dose.
+The [AAAAI](https://www.aaaai.org/tools-for-the-public/conditions-library/allergies/outdoor-allergens-ttr) says most hay fever medicines work best if you start them before a pollen season begins, and MedlinePlus says checking pollen counts can help you time the first dose.
 
-Medicine has limits, though. An allergist quoted by the ACAAI says most over-the-counter medicines are designed for milder allergies and rarely do enough for moderate to severe ones. The ACAAI also notes that some people find an antihistamine becomes less effective as the allergy season worsens.
+An allergist quoted by the ACAAI says most over-the-counter medicines are designed for milder allergies and rarely do enough for moderate to severe ones. The ACAAI also notes that some people find an antihistamine becomes less effective as the allergy season worsens.
 
 ## When to see an allergist
 
 [Mayo Clinic](https://www.mayoclinic.org/diseases-conditions/hay-fever/symptoms-causes/syc-20373039) suggests seeing a health care professional when you can't find relief, when allergy medicines don't help or cause side effects, or when you have another condition that makes hay fever worse, such as asthma, nasal polyps or frequent sinus infections. It also notes that many people, especially children, get so used to the symptoms that they might not seek treatment until they're severe.
 
-An allergist can test for the cause. [MedlinePlus](https://magazine.medlineplus.gov/article/what-triggers-seasonal-allergies) says a skin test or an allergen specific blood test can often help confirm which pollen you react to, and the AAAAI says knowing your triggers forms the basis of a treatment plan. Our comparison of [allergy skin tests and blood tests](/blog/allergy-skin-test-vs-blood-test) explains both.
+[MedlinePlus](https://magazine.medlineplus.gov/article/what-triggers-seasonal-allergies) says a skin test or an allergen specific blood test can often help confirm which pollen you react to, and the AAAAI says knowing your triggers forms the basis of a treatment plan. Our comparison of [allergy skin tests and blood tests](/blog/allergy-skin-test-vs-blood-test) explains both.
 
 ## Longer term options for seasonal allergies
 
