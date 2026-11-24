@@ -363,7 +363,7 @@ options, and the fact check pass.
 
 ## Quality check before saving
 
-- [ ] First paragraph answers the question.
+- [ ] First paragraph answers the question, and the article's first sentence opens with its subject and verb (no introductory clause; style guide, "The article's opening").
 - [ ] Every number, month and claim has a linked source you opened this run.
 - [ ] No em dashes, no semicolons joining clauses, no banned words.
 - [ ] No paragraph opens with a preview sentence (a short general line that only sets up the next fact; style guide section 6).

@@ -116,8 +116,14 @@ Keep a short opener only when it states something no other sentence in the parag
 **The article's opening (owner, 2026-11-09).** Don't open an article with a
 short declarative slogan ("Los Angeles allergies run most of the year.").
 The first sentence is longer and introductory: it sets up the topic for the
-reader and carries the head term ("For people who live with them, Los
-Angeles allergies can last most of the year, because..."). The second
+reader and carries the head term. **It opens with its subject and verb, the
+way a front page news story does (owner, 2026-11-24).** No introductory
+phrase or clause before the subject, so not "Before an allergist recommends
+treatment, they need to know..." and not "For people who live with them,
+Los Angeles allergies can last..." Write "An allergist needs to know which
+allergens are behind your symptoms before recommending treatment..." and
+"Los Angeles allergies can last most of the year for people who live with
+them, because..." Later sentences may open with a clause. The second
 paragraph is a transition into the rest of the article, not a jump to a new
 topic: it picks up from the first ("Whichever of these triggers gets to
 you..."), names the treatments with their search terms (allergy shots,
