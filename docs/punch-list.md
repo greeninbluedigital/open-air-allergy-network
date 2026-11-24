@@ -1,6 +1,6 @@
 # Punch list (owner's open items)
 
-Updated 2026-11-05. Things raised in recent sessions that are still open,
+Updated 2026-11-23. Things raised in recent sessions that are still open,
 newest decisions first. Cross items off or tell Claude, and this file gets
 updated.
 
@@ -47,15 +47,24 @@ updated.
    until search logs show more searches from areas with no nearby practice).
 4. **CRM simplification (parked 10/21).** The CRM is still too complex.
    Work through it together later; not now.
-5. **Finish the QStash lead forward (started 11/23).** Each lead now asks
-   Upstash QStash to forward it an hour later if it's still unconfirmed,
-   because GitHub ran the "hourly" poll only about 3 times a day (the
-   11/21 lead waited over 5 hours). Code is pushed. Still to do: add
-   `QSTASH_TOKEN`, `QSTASH_CURRENT_SIGNING_KEY`, `QSTASH_NEXT_SIGNING_KEY`
-   (and `QSTASH_URL` if shown) to Vercel, redeploy, and test with a lead
-   to a practice whose notification email is ours. Until the keys are in,
-   leads fall back to the GitHub poll. The poll stays as a backup; don't
-   make it more frequent (each run wakes Neon). See docs/lead-forms.md.
+5. **QStash lead forward: confirm the unconfirmed test (11/23).** Each
+   lead now asks Upstash QStash to forward it an hour later if it's still
+   unconfirmed (GitHub ran the "hourly" poll only about 3 times a day, so
+   the 11/21 lead waited over 5 hours). Keys are in Vercel and the branded
+   lead email is live. Two test leads went to the LA example practice on
+   11/23: the confirmed one arrived at hello@ within seconds; check that
+   the unconfirmed one arrives about an hour after it was sent. The GitHub
+   poll stays as a backup; don't make it more frequent (each run wakes
+   Neon). See docs/lead-forms.md.
+
+5a. **Make the "thanks for confirming" message obvious (owner, 11/23).**
+   The confirmation link opens the practice page with `?confirmed=1`, and
+   the only feedback is one line of small green text where the contact
+   form was (`src/components/pdp/LeadStatusMessage.tsx`): "Thanks for
+   confirming. Your message to {practice} is on its way." It's easy to
+   miss, and on a phone the contact panel is below the fold. Options: a
+   banner at the top of the page, scrolling to the panel, or a small
+   confirmation page of its own that links to the practice page.
 
 6a. **Allergist titles check (around 11/27).** Practice and state page
    titles switched to "ILIT Allergist in {City}" / "ILIT Allergy Clinic in
