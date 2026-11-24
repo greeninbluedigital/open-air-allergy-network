@@ -47,15 +47,11 @@ updated.
    until search logs show more searches from areas with no nearby practice).
 4. **CRM simplification (parked 10/21).** The CRM is still too complex.
    Work through it together later; not now.
-5. **QStash lead forward: confirm the unconfirmed test (11/23).** Each
-   lead now asks Upstash QStash to forward it an hour later if it's still
-   unconfirmed (GitHub ran the "hourly" poll only about 3 times a day, so
-   the 11/21 lead waited over 5 hours). Keys are in Vercel and the branded
-   lead email is live. Two test leads went to the LA example practice on
-   11/23: the confirmed one arrived at hello@ within seconds; check that
-   the unconfirmed one arrives about an hour after it was sent. The GitHub
-   poll stays as a backup; don't make it more frequent (each run wakes
-   Neon). See docs/lead-forms.md.
+5. **QStash lead forward: done (11/24).** Both 11/23 test leads to the
+   LA example practice arrived at hello@: the confirmed one within seconds,
+   the unconfirmed one about an hour later. The GitHub poll stays as a
+   backup; don't make it more frequent (each run wakes Neon). See
+   docs/lead-forms.md.
 
 5a. **Make the "thanks for confirming" message obvious (owner, 11/23).**
    The confirmation link opens the practice page with `?confirmed=1`, and
