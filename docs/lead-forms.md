@@ -16,10 +16,11 @@ Last updated 2026-11-23.
 >   number as a fallback).
 > - **Patients confirm their own inquiry.** Each patient gets a
 >   confirmation email right away. Leads they confirm reach you marked
->   **Verified**, so you know a real person is waiting to hear back.
+>   **Email confirmed: Yes**, so you know a real person is waiting to hear
+>   back.
 > - **No lead is ever lost.** If a patient doesn't click the confirmation
->   link, their message still reaches you about an hour later, marked
->   **Unverified**. If an email ever fails to send, the system keeps
+>   link, their message still reaches you about an hour later. If an
+>   email ever fails to send, the system keeps
 >   retrying until it goes through.
 > - **Spam bots are filtered out before they reach you.** A hidden trap
 >   field catches automated submissions, which are discarded silently.
@@ -39,9 +40,9 @@ Last updated 2026-11-23.
 > - These checks stop bots and bad addresses, not a real person sending a
 >   low-quality message.
 > - Disposable email services (like Mailinator) can still pass the email
->   check, since their domains do receive mail. Those leads usually show
->   up as Unverified.
-> - Unverified means the patient didn't click the link, not that the
+>   check, since their domains do receive mail. Those leads usually arrive
+>   unconfirmed.
+> - An unconfirmed lead means the patient didn't click the link, not that the
 >   lead is fake. Many real patients never open confirmation emails.
 > - There's no per-practice lead report yet. Leads and phone-number clicks
 >   are logged, but a reporting view for practices isn't built.
@@ -50,7 +51,7 @@ Last updated 2026-11-23.
 
 | Form | Where | Who receives it | Email subject |
 |---|---|---|---|
-| Patient contact form | Provider pages (Verified tier and up, since 2026-10-01) and SEM landing pages | The practice's `notificationEmail` (set on the sheet) | `New inquiry from {name} \| referral from Open Air Allergy Network` (Verified or Unverified is the first line of the body, with a one-sentence explanation, since 2026-11-23) |
+| Patient contact form | Provider pages (Verified tier and up, since 2026-10-01) and SEM landing pages | The practice's `notificationEmail` (set on the sheet) | `New patient inquiry from {name} via Open Air Allergy Network`. Branded body (logo, intro, office, contact details, message, submitted time, provider page); confirmed leads show "Email confirmed: Yes", unconfirmed leads show no status (2026-11-23). Code: `buildLeadEmail` in `src/lib/leadNotify.ts` |
 | For Practices | `/for-practices` | leads@openairallergynetwork.com | `[Practice]: {reason}, {practice name}` |
 | About page contact | `/about#contact` | leads@openairallergynetwork.com | `[About Page]: {reason}, {name}` |
 
@@ -90,11 +91,15 @@ following up is the practice's job once it has the lead (decided
 3. **Confirmation email** goes to the patient immediately with a one-click
    confirm link.
 4. **Patient confirms:** the lead is forwarded to the practice right away,
-   marked **Verified**.
+   marked **Email confirmed: Yes**.
 5. **Patient doesn't confirm:** when the lead is saved, the site asks
    Upstash QStash to call `/api/leads/forward-due` 60 minutes later for that
-   one lead. If it's still unconfirmed then, it goes to the practice marked
-   **Unverified**. The database only wakes when there's a lead (since
+   one lead. If it's still unconfirmed then, it goes to the practice with
+   no status line ("Unverified" read as spam to front desks, owner
+   11/23). Every lead email shows when the patient wrote, with "Arrived
+   later than this? Ask us why at the email address below." (hello@, in
+   the footer) to start a conversation about the wait. No mailto link;
+   they work badly in many email clients. The database only wakes when there's a lead (since
    2026-11-23). Before that a GitHub Actions poll did this job. It was
    scheduled hourly, but GitHub only ran it about 3 times a day, so an
    unconfirmed lead could wait 5 hours or more.

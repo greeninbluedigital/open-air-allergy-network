@@ -27,11 +27,11 @@ type SubmissionForForward = {
   confirmationStatus: "PENDING" | "CONFIRMED" | "UNVERIFIED_FORWARDED";
   forwardedAt: Date | null;
   createdAt: Date;
-  provider: { practiceName: string; phone: string | null; notificationEmail: string | null };
+  provider: { slug: string; city: string; state: string; practiceName: string; phone: string | null; notificationEmail: string | null };
 };
 
 export const FORWARD_INCLUDE = {
-  provider: { select: { practiceName: true, phone: true, notificationEmail: true } },
+  provider: { select: { slug: true, city: true, state: true, practiceName: true, phone: true, notificationEmail: true } },
 } as const;
 
 export type ForwardResult = "sent" | "already-forwarded" | "not-due" | "no-email";

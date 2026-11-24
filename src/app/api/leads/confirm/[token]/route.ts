@@ -20,7 +20,7 @@ export async function GET(
 
   const submission = await db.contactSubmission.findUnique({
     where: { confirmationToken: token },
-    include: { provider: { select: { slug: true, practiceName: true, phone: true, notificationEmail: true } } },
+    include: { provider: { select: { slug: true, city: true, state: true, practiceName: true, phone: true, notificationEmail: true } } },
   });
 
   if (!submission) {

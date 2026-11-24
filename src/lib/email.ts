@@ -24,11 +24,14 @@ export async function sendEmail({
   subject,
   html,
   replyTo,
+  text,
 }: {
   to: string;
   subject: string;
   html: string;
   replyTo?: string;
+  /** Plain-text copy; helps with strict mail filters (medical offices). */
+  text?: string;
 }): Promise<void> {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
@@ -48,6 +51,7 @@ export async function sendEmail({
       subject,
       html,
       ...(replyTo ? { reply_to: replyTo } : {}),
+      ...(text ? { text } : {}),
     }),
   });
 
