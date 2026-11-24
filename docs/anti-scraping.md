@@ -34,11 +34,12 @@ there's nothing to calibrate against before then. That's 3 custom rules
    above the others):
    - If: Request Path starts with `/api/`
    - Then: **Bypass**
-   - Why: four jobs call the site without a browser, and Bot Protection's
+   - Why: five jobs call the site without a browser, and Bot Protection's
      Challenge mode would block them. They are Vercel's daily sheet sync
      (`/api/sync`), the Google reviews refresh (`/api/reviews/refresh`),
-     the GitHub Actions job that forwards unconfirmed leads every 15 minutes
-     (`/api/leads/process-pending`), and the sheet's sync button
+     the GitHub Actions job that forwards unconfirmed leads
+     (`/api/leads/process-pending`), QStash's per-lead forward
+     (`/api/leads/forward-due`, signed by Upstash), and the sheet's sync button
      (`/api/sync`). Every `/api/` route checks `CRON_SECRET`, needs a
      one-time token (the lead confirmation link), or only records analytics
      events, so skipping bot checks there is safe.

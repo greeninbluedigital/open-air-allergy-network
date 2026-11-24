@@ -33,14 +33,29 @@ export async function sendConfirmationEmail(lead: Lead, provider: LeadProvider) 
   });
 }
 
-/** Stage 2, steps 3/4 — tagged [Verified] on confirm-click, [Unverified] if
- * the ~60-minute window elapses first. Never silently dropped either way. */
-export async function forwardLeadToPractice(lead: Lead, provider: LeadProvider, tag: "Verified" | "Unverified") {
+/** What the practice is told about each status, at the top of the email. */
+const STATUS_NOTE = {
+  Verified:
+    "<strong>✓ Verified:</strong> they clicked the confirmation link we emailed them, so this email address is theirs.",
+  Unverified:
+    "<strong>Unverified:</strong> we emailed them a confirmation link and they hadn't clicked it after an hour. Their email domain accepts mail, but we couldn't confirm the address is theirs. Many real people never open confirmation emails.",
+} as const;
+
+/** Stage 2, steps 3/4: Verified on the confirm click, Unverified if the
+ * ~60-minute window passes first. The status sits in the body with a short
+ * explanation, not in the subject (owner, 2026-11-23). Returns false, and
+ * sends nothing, when the practice has no notificationEmail, so callers
+ * don't mark the lead forwarded. */
+export async function forwardLeadToPractice(
+  lead: Lead,
+  provider: LeadProvider,
+  tag: "Verified" | "Unverified",
+): Promise<boolean> {
   if (!provider.notificationEmail) {
     console.warn(
       `Lead for "${provider.practiceName}" has no notificationEmail set — cannot forward. Lead is still recorded in ContactSubmission.`,
     );
-    return;
+    return false;
   }
 
   // Everything below is patient-typed, so it's escaped: markup shows as
@@ -51,9 +66,9 @@ export async function forwardLeadToPractice(lead: Lead, provider: LeadProvider, 
     // So the practice can just hit Reply and land in the patient's own
     // inbox, instead of replying to the shared sending address.
     replyTo: lead.email,
-    subject: `[${tag}] New inquiry from ${`${lead.firstName} ${lead.lastName}`.replace(/\s+/g, " ").trim()}`,
+    subject: `New inquiry from ${`${lead.firstName} ${lead.lastName}`.replace(/\s+/g, " ").trim()}`,
     html: `
-      <p><strong>${tag === "Verified" ? "✓ Verified" : "Unverified"} lead</strong></p>
+      <p>${STATUS_NOTE[tag]}</p>
       <p><strong>Name:</strong> ${name}</p>
       <p><strong>Email:</strong> ${escapeHtml(lead.email)}</p>
       ${lead.phone ? `<p><strong>Phone:</strong> ${escapeHtml(lead.phone)}</p>` : ""}
@@ -61,4 +76,5 @@ export async function forwardLeadToPractice(lead: Lead, provider: LeadProvider, 
       <p>${escapeHtml(lead.message).replace(/\n/g, "<br>")}</p>
     `,
   });
+  return true;
 }

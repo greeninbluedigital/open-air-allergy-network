@@ -2,7 +2,7 @@
 
 Internal reference for every public form on the site: what each one checks,
 where submissions go, and what's worth telling practices about lead quality.
-Last updated 2026-09-25.
+Last updated 2026-11-23.
 
 > ## Lead quality: selling points for practices
 >
@@ -15,11 +15,11 @@ Last updated 2026-09-25.
 >   on the spot, and the patient is asked to fix them (and shown your phone
 >   number as a fallback).
 > - **Patients confirm their own inquiry.** Each patient gets a
->   confirmation email right away. Leads they confirm reach you tagged
->   **[Verified]**, so you know a real person is waiting to hear back.
+>   confirmation email right away. Leads they confirm reach you marked
+>   **Verified**, so you know a real person is waiting to hear back.
 > - **No lead is ever lost.** If a patient doesn't click the confirmation
->   link, their message still reaches you after about an hour, tagged
->   **[Unverified]**. If an email ever fails to send, the system keeps
+>   link, their message still reaches you about an hour later, marked
+>   **Unverified**. If an email ever fails to send, the system keeps
 >   retrying until it goes through.
 > - **Spam bots are filtered out before they reach you.** A hidden trap
 >   field catches automated submissions, which are discarded silently.
@@ -40,8 +40,8 @@ Last updated 2026-09-25.
 >   low-quality message.
 > - Disposable email services (like Mailinator) can still pass the email
 >   check, since their domains do receive mail. Those leads usually show
->   up as [Unverified].
-> - [Unverified] means the patient didn't click the link, not that the
+>   up as Unverified.
+> - Unverified means the patient didn't click the link, not that the
 >   lead is fake. Many real patients never open confirmation emails.
 > - There's no per-practice lead report yet. Leads and phone-number clicks
 >   are logged, but a reporting view for practices isn't built.
@@ -50,7 +50,7 @@ Last updated 2026-09-25.
 
 | Form | Where | Who receives it | Email subject |
 |---|---|---|---|
-| Patient contact form | Provider pages (Verified tier and up, since 2026-10-01) and SEM landing pages | The practice's `notificationEmail` (set on the sheet) | `[Verified] New inquiry from {name}` or `[Unverified] ...` |
+| Patient contact form | Provider pages (Verified tier and up, since 2026-10-01) and SEM landing pages | The practice's `notificationEmail` (set on the sheet) | `New inquiry from {name}` (Verified or Unverified is the first line of the body, with a one-sentence explanation, since 2026-11-23) |
 | For Practices | `/for-practices` | leads@openairallergynetwork.com | `[Practice]: {reason}, {practice name}` |
 | About page contact | `/about#contact` | leads@openairallergynetwork.com | `[About Page]: {reason}, {name}` |
 
@@ -90,16 +90,22 @@ following up is the practice's job once it has the lead (decided
 3. **Confirmation email** goes to the patient immediately with a one-click
    confirm link.
 4. **Patient confirms:** the lead is forwarded to the practice right away,
-   tagged **[Verified]**.
-5. **Patient doesn't confirm:** a background job (GitHub Actions, hourly)
-   forwards any lead still unconfirmed after 60 minutes, tagged
-   **[Unverified]**. In practice this lands 1 to 2 hours after submission.
-   It ran every 15 minutes until 2026-10-26, when it was slowed to save
-   Neon compute (each run wakes the database). Switch back once lead volume
-   justifies it.
-6. **Delivery failures retry.** A lead is only marked as forwarded after the
-   email actually sends. If a send fails (bad practice email, email provider
-   outage), the next run of the background job tries again.
+   marked **Verified**.
+5. **Patient doesn't confirm:** when the lead is saved, the site asks
+   Upstash QStash to call `/api/leads/forward-due` 60 minutes later for that
+   one lead. If it's still unconfirmed then, it goes to the practice marked
+   **Unverified**. The database only wakes when there's a lead (since
+   2026-11-23). Before that a GitHub Actions poll did this job. It was
+   scheduled hourly, but GitHub only ran it about 3 times a day, so an
+   unconfirmed lead could wait 5 hours or more.
+6. **Backup poll.** The GitHub Actions job (`/api/leads/process-pending`)
+   still runs and forwards anything QStash missed, plus confirmed leads
+   whose forward failed.
+7. **Delivery failures retry.** A lead is only marked as forwarded after the
+   email actually sends. If a send fails, QStash retries the call, and the
+   backup poll tries again after that. A practice with no notification
+   email leaves the lead unforwarded (it forwards once one is set). The
+   form only shows for practices that have one, so this shouldn't happen.
 
 Clicking the confirmation link twice, or after the auto-forward already
 happened, never sends a duplicate.
@@ -114,10 +120,16 @@ happened, never sends a duplicate.
 | Phone validation | `src/lib/phone.ts` |
 | Patient confirmation + practice forwarding emails | `src/lib/leadNotify.ts` |
 | Confirm link | `src/app/api/leads/confirm/[token]/route.ts` |
-| 60-minute auto-forward + retries | `src/app/api/leads/process-pending/route.ts`, `.github/workflows/process-pending-leads.yml` |
+| 60-minute auto-forward (QStash) + shared forward logic | `src/lib/leadForwarding.ts`, `src/app/api/leads/forward-due/route.ts` |
+| Backup poll + retries | `src/app/api/leads/process-pending/route.ts`, `.github/workflows/process-pending-leads.yml` |
 | For Practices email | `src/lib/practiceLead.ts` |
 | About page email | `src/lib/generalInquiry.ts` |
 | Email sending (Resend) + HTML escaping | `src/lib/email.ts` |
+
+QStash needs `QSTASH_TOKEN`, `QSTASH_CURRENT_SIGNING_KEY` and
+`QSTASH_NEXT_SIGNING_KEY` (plus `QSTASH_URL` if the Upstash console shows
+one) in Vercel's environment variables. Without them, leads fall back to
+the backup poll.
 
 ## Possible next steps
 

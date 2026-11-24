@@ -9,6 +9,7 @@ import { isHealthDataState } from "@/lib/healthDataStates";
 import { visitorRegion } from "@/lib/visitorLocation";
 import { domainCanReceiveMail } from "@/lib/emailDomainCheck";
 import { sendConfirmationEmail } from "@/lib/leadNotify";
+import { scheduleLeadForward } from "@/lib/leadForwarding";
 import { normalizeUsPhone } from "@/lib/phone";
 import { MESSAGE_MAX_LENGTH, containsLink, isHoneypotFilled } from "@/lib/forms";
 import { PRACTICE_LEAD_REASONS, normalizeWebsite, notifyPracticeLead } from "@/lib/practiceLead";
@@ -61,7 +62,7 @@ async function leadAttribution(formData: FormData) {
  * undeliverable address is rejected inline, never stored. Stage 2 (double
  * opt-in, 60-minute auto-forward) starts once the row is created; see
  * src/app/api/leads/confirm/[token]/route.ts for the confirm side and
- * src/app/api/leads/process-pending/route.ts for the auto-forward side.
+ * src/lib/leadForwarding.ts for the auto-forward side.
  */
 export async function submitContactMessage(formData: FormData) {
   const providerId = String(formData.get("providerId") || "");
@@ -141,6 +142,10 @@ export async function submitContactMessage(formData: FormData) {
   } catch (err) {
     console.error("Failed to send lead confirmation email:", err);
   }
+
+  // The Unverified forward an hour from now, if the patient doesn't confirm
+  // first (QStash; never throws, and the backup poll covers a failure).
+  await scheduleLeadForward(submission.id);
 
   redirect(`${returnPath}?sent=1`);
 }

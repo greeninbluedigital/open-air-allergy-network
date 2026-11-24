@@ -34,11 +34,13 @@ export async function GET(
     });
 
     try {
-      await forwardLeadToPractice(submission, submission.provider, "Verified");
-      await db.contactSubmission.update({
-        where: { id: submission.id },
-        data: { forwardedAt: new Date() },
-      });
+      const sent = await forwardLeadToPractice(submission, submission.provider, "Verified");
+      if (sent) {
+        await db.contactSubmission.update({
+          where: { id: submission.id },
+          data: { forwardedAt: new Date() },
+        });
+      }
     } catch (err) {
       console.error("Failed to forward confirmed lead — will retry via process-pending:", err);
     }

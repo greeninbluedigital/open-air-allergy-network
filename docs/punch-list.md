@@ -47,20 +47,15 @@ updated.
    until search logs show more searches from areas with no nearby practice).
 4. **CRM simplification (parked 10/21).** The CRM is still too complex.
    Work through it together later; not now.
-5. **Lead check back to every 15 minutes** once the site gets steady
-   contact form leads, **but only on Neon's paid plan.** Each run wakes the
-   database for about 5 minutes. Hourly (since 10/26) is about 0.6
-   CU-hours a day, roughly 18 a month, and shows on Neon's chart as the
-   regular spikes every 40 to 80 minutes (GitHub starts scheduled jobs late,
-   so the gaps wander). Every 15 minutes would be about 70 CU-hours a month
-   from the lead check alone, too tight for the free plan's 100. So switch
-   back to paid first, then change the one line in
-   `.github/workflows/process-pending-leads.yml`. A monthly reminder (the
-   2nd) reports lead volume and says when. If polling ever needs to go
-   away entirely: have each lead schedule its own check an hour after it's
-   submitted (e.g. Upstash QStash, free tier), so the database only wakes
-   when there's a lead. Not worth another service at 18 CU-hours a month
-   (10/31).
+5. **Finish the QStash lead forward (started 11/23).** Each lead now asks
+   Upstash QStash to forward it an hour later if it's still unconfirmed,
+   because GitHub ran the "hourly" poll only about 3 times a day (the
+   11/21 lead waited over 5 hours). Code is pushed. Still to do: add
+   `QSTASH_TOKEN`, `QSTASH_CURRENT_SIGNING_KEY`, `QSTASH_NEXT_SIGNING_KEY`
+   (and `QSTASH_URL` if shown) to Vercel, redeploy, and test with a lead
+   to a practice whose notification email is ours. Until the keys are in,
+   leads fall back to the GitHub poll. The poll stays as a backup; don't
+   make it more frequent (each run wakes Neon). See docs/lead-forms.md.
 
 6a. **Allergist titles check (around 11/27).** Practice and state page
    titles switched to "ILIT Allergist in {City}" / "ILIT Allergy Clinic in
