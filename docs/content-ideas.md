@@ -20,8 +20,8 @@ Nothing in progress. The owner picks the next article from the ideas below.
 |---|---|---|---|
 | Fall Allergies Are Here: What's Next for Winter, Region by Region | "fall allergies", "ragweed season", "winter allergies", "cedar fever" | Allergy Symptoms | **Timely: best in October.** Details below the tables |
 | How to Find an ILIT Provider, and What to Ask | "ilit near me", "intralymphatic immunotherapy near me", "ilit provider", "questions to ask an allergist about immunotherapy" | ILIT | Highest intent. Links straight to Find a Provider |
-| What to Expect at Your First ILIT Appointment | "ilit procedure", "intralymphatic immunotherapy procedure", "lymph node allergy injection" | ILIT | First-visit prep: what happens, questions to ask. Replaces the old placeholder "5 Things to Know Before Starting ILIT". **Testing and the first visit now belong to queue #37 (2026-11-23).** If this is written later, keep it to the injection visits and link #37 for testing |
-| Why Isn't ILIT Covered by Insurance? | "is ilit covered by insurance", "intralymphatic immunotherapy insurance", "allergy immunotherapy hsa eligible" | ILIT | Owner idea 2026-10-08, replaced "How Much Does ILIT Cost?", which came back as queue #38 on 2026-11-23 and now owns "ilit cost". Explain why: FDA-approved extracts given by an off-label route (link the Learn FDA FAQ), how insurers classify it (cite real payer medical policies, e.g. ones calling it investigational, not hearsay), what HSA/FSA rules say (IRS Pub 502), and what to ask the practice. General education only, no practice names or prices; practice pages still never discuss payment (`docs/profile-writing-guide.md` rule 2). Goal: answer the cost objection before it stops a lead, then point to Find a Provider |
+| What to Expect at Your First ILIT Appointment | "ilit procedure", "intralymphatic immunotherapy procedure", "lymph node allergy injection" | ILIT | First-visit prep: what happens, questions to ask. Replaces the old placeholder "5 Things to Know Before Starting ILIT". **Testing and the first visit now belong to queue #39 (2026-11-23).** If this is written later, keep it to the injection visits and link #39 for testing |
+| Why Isn't ILIT Covered by Insurance? | "is ilit covered by insurance", "intralymphatic immunotherapy insurance", "allergy immunotherapy hsa eligible" | ILIT | Owner idea 2026-10-08, replaced "How Much Does ILIT Cost?", which came back as queue #40 on 2026-11-23 and now owns "ilit cost". Explain why: FDA-approved extracts given by an off-label route (link the Learn FDA FAQ), how insurers classify it (cite real payer medical policies, e.g. ones calling it investigational, not hearsay), what HSA/FSA rules say (IRS Pub 502), and what to ask the practice. General education only, no practice names or prices; practice pages still never discuss payment (`docs/profile-writing-guide.md` rule 2). Goal: answer the cost objection before it stops a lead, then point to Find a Provider |
 | What to Bring to Your First Allergist Appointment | "what to bring to allergist appointment", "first allergist appointment", "what to expect at an allergist" | Allergy Testing | Checklist-style prep article. Inspired by the "what to bring" list on United Allergy Services' allergist listing pages (e.g. unitedallergyservices.com/allergists/california/los-angeles/sandra-ho-1659680411/): symptom history and suspected triggers, current and past allergy medicines, prior test records, insurance and ID, questions to ask. Write our own version, don't reuse their wording. Our angles: which antihistamines to pause before skin testing (link the skin test article), a symptom diary or photos of reactions, and ILIT as one of the questions to ask. Broader than "What to Expect at Your First ILIT Appointment" (that one is ILIT-specific), and its questions section overlaps "How to Find an ILIT Provider, and What to Ask", so keep the question lists distinct or link between them |
 | Switching From Allergy Shots to ILIT | "switch from allergy shots to ilit", "alternative to allergy shots", "stop allergy shots" | Comparisons | For people tired of years of shots. The Learn FAQ only touches on it. **Owner, 2026-11-06:** cover the "already on shots" math here, not in the calculator: how many months a reader has done, what's left (visits, hours, dollars) vs. switching to ILIT now. Link the allergy shot cost calculator (`docs/calculator-plan.md`) |
 | Traveling for ILIT: A Few Trips vs. Years of Allergy Shots (queued 2026-10-13, slug `traveling-for-ilit`) | "travel for allergy treatment", "ilit near me", "alternative to allergy shots", "fast allergy treatment", "allergy shots how many visits" | ILIT, Comparisons | **Why now:** early search logs show many visitors live where no ILIT practice is nearby (searches widened to 200 miles). This article backs the search page's "farther away" results. **Angle:** a few trips vs. years of visits. Count visits honestly from sources: allergy shots per the AAAAI schedule (build-up once or twice a week for 4 to 6 months, maintenance every 2 to 4 weeks for 3 to 5 years; show the visit range as your own arithmetic, and link How Often Do You Get Allergy Shots?), ILIT about three injections over about two months (Learn page; Senti 2008). Be candid that a course also involves a consult and allergy testing, which some practices may do by video or with prior test results, and that timing matters before a pollen season. **What to ask a practice before traveling:** whether it sees out-of-area patients, which visits must be in person, whether it accepts outside test results, scheduling the three visits, and follow-up after. Practical costs of travel in general terms (time off, flights, a hotel) without prices. **Rules:** never imply anyone qualifies for ILIT or that a given practice takes travelers; name no practices; the decision is between the reader and their doctor. End with Find a Provider and the Providers by State page (`/find-an-ilit-provider/by-state`). Once published, the search page's out-of-area section and "nothing nearby" message link to it |
@@ -593,7 +593,7 @@ Pet allergies already have a Learn guide (`pet-cat-dog-allergy-treatment`);
 link it from these and from the cat allergy Blog post above rather than
 writing another.
 
-## Idea detail: Michigan articles (owner, 2026-11-13, queue #29, #32 and #33)
+## Idea detail: Michigan articles (owner, 2026-11-13, queue #29, #33 and #34)
 
 Three Michigan articles to build search traffic in Michigan, where Grand
 Rapids Allergy (engaged, on trial, the only Michigan listing) is the
@@ -614,19 +614,19 @@ Michigan if one publishes data. Check autocomplete for each.
   season michigan", "grand rapids allergies" (supporting). Links the tree
   pollen, grass, ragweed and mold guides; leaves the Midwest ragweed list
   (#51, July) its own ranking angle.
-- **#32 Cottonwood Fluff and Allergies: Is It the Cotton?** Why the June
+- **#33 Cottonwood Fluff and Allergies: Is It the Cotton?** Why the June
   fluff gets blamed for symptoms that usually come from grass and other
   pollen in the air at the same time. Owns "cottonwood allergy",
   "cottonwood fluff allergy", "is cottonwood fluff an allergen". Michigan
   framing in the intro and examples, written so it works nationally too.
   Pairs with the pine pollen article (#43, same "it isn't the visible
   stuff" angle): link each other once both are live.
-- **#33 Wet Basements and Mold Allergy: A Michigan Homeowner's Guide.**
+- **#34 Wet Basements and Mold Allergy: A Michigan Homeowner's Guide.**
   Where basement mold comes from (seepage, spring thaw, humid summers),
   how it affects allergies, keeping humidity down (dehumidifier settings,
   sump and gutters), cleanup limits from EPA. Owns "basement mold
   allergy", "mold in basement symptoms", "basement humidity level". The
-  general mold allergy article (#30) keeps "mold allergy symptoms" and
+  general mold allergy article (#31) keeps "mold allergy symptoms" and
   links here once both are live. Links the clean house hub with a card.
 
 ## Idea detail: How Are Allergy Shots Made? (owner, 2026-11-15, queue #54)
@@ -663,7 +663,7 @@ isn't framed as a warning.
   using it, and don't claim that patients can request a pork free extract
   unless a source says so.
 
-## Idea detail: Allergy shots guide rewrite (owner, 2026-11-16, queue #31)
+## Idea detail: Allergy shots guide rewrite (owner, 2026-11-16, queue #30)
 
 The Learn guide /learn-about-ilit/allergy-shots-and-allergy-immunotherapy
 ("Allergy Shots & Allergy Immunotherapy: A Full Guide") is 385 words with no
@@ -707,18 +707,18 @@ as "our guide to allergy shots". Rewrite it in place.
 - **ILIT pairing:** the exact phrase "ILIT allergy treatment" about twice;
   rotate "ILIT allergy shots", "intralymphatic immunotherapy" elsewhere.
 
-## Idea detail: Learn guide rewrites: pet and seasonal (owner, 2026-11-16, queue #34 and #35)
+## Idea detail: Learn guide rewrites: pet and seasonal (owner, 2026-11-16, queue #36 and #37)
 
-Same problem the allergy shots guide had (#31, rewritten 2026-11-16): these
+Same problem the allergy shots guide had (#30, rewritten 2026-11-16): these
 two core Learn guides, the second and third cards in the Learn page's guide
 row, are short (351 and 456 words) with no outside sources. Rewrite each in
-place, using the published #31 guide as the model: `Section: LEARN`, same
+place, using the published #30 guide as the model: `Section: LEARN`, same
 slug, same title, keep the current tags, keep the hero and write alt text,
 1,600 to 2,200 words, 6 to 9 FAQs, emergency box where the topic calls for
 it, every fact sourced, and a hub role (answer briefly, link the article that
 owns the detail, never repeat another article's FAQ question).
 
-- **#34 Pet Allergy Treatment: Cat & Dog Allergy Shots**
+- **#36 Pet Allergy Treatment: Cat & Dog Allergy Shots**
   (/learn-about-ilit/pet-cat-dog-allergy-treatment). Current H2s: what causes
   pet allergies, symptoms, managing exposure, treatment options, ILIT. Owns
   "pet allergy treatment", "cat allergy shots", "allergy shots for cat
@@ -731,7 +731,7 @@ owns the detail, never repeat another article's FAQ question).
   are grass, ragweed, dust mite, tree and Japanese cedar), and ILIT, stating
   plainly what the research shows for cat and dog allergy (the dog article's
   Park 2021 caveat applies; don't claim more than the studies support).
-- **#35 Seasonal Allergies: Spring, Summer, Fall & Winter Guide**
+- **#37 Seasonal Allergies: Spring, Summer, Fall & Winter Guide**
   (/learn-about-ilit/seasonal-allergies-by-season). Current H2s: spring,
   summer, fall and winter causes, symptoms, when to see an allergist,
   treatment. National, never regional (no city or state framing). Owns
@@ -743,7 +743,7 @@ owns the detail, never repeat another article's FAQ question).
   live), allergies or a cold, worst cities for allergies, and the allergy
   shots guide. City and state pages are not linked from here.
 
-## Idea detail: Allergy blood test results (owner, 2026-11-19, queue #36)
+## Idea detail: Allergy blood test results (owner, 2026-11-19, queue #38)
 
 **Why:** Search Console's agentic (AI answer) impressions jumped on
 11/16 to 11/17, and in one 24 hour window Allergy Test Results Explained
@@ -791,7 +791,7 @@ Provider.
 report, bright clinical light. Search "blood test tubes lab". File:
 allergy-blood-test-results-lab-tubes.jpg.
 
-## Idea detail: Questions from practice contact form leads (owner, 2026-11-23, queue #37 and #38)
+## Idea detail: Questions from practice contact form leads (owner, 2026-11-23, queue #39 and #40)
 
 The first real contact form lead (11/23) asked two things a practice would
 hear before booking: whether an allergy panel has to be done in advance or
@@ -799,7 +799,7 @@ happens as part of the ILIT assessment, and what ILIT is expected to cost.
 The owner wants lead questions mined for topics (themes only, never anyone's
 personal details).
 
-**#37 Do You Need Allergy Testing Before ILIT?** Slug
+**#39 Do You Need Allergy Testing Before ILIT?** Slug
 `allergy-testing-before-ilit`, Blog, tags ILIT and Allergy Testing. Owns
 "allergy test before ilit", "do i need allergy testing before ilit", "ilit
 assessment", "ilit first appointment" / "ilit consultation", "can i use old
@@ -817,7 +817,7 @@ out-of-area visits. This takes over the testing and first visit part of the
 "What to Expect at Your First ILIT Appointment" idea. Ends at Find a
 Provider. Image idea: a forearm skin prick test with a nurse's gloved hand.
 
-**#38 How Much Does ILIT Cost?** Slug `how-much-does-ilit-cost`, Blog, tag
+**#40 How Much Does ILIT Cost?** Slug `how-much-does-ilit-cost`, Blog, tag
 ILIT. Owns "ilit cost", "how much does ilit cost", "intralymphatic
 immunotherapy cost", "ilit price". **Can't go live until the allergy shot
 cost calculator (`docs/calculator-plan.md`, not built yet) is finished and
