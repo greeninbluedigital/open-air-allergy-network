@@ -105,6 +105,14 @@ source or the reader's situation, and fold the setup into the opening sentence (
 shots belong in a health care setting…", "For travelers, though, AMA policy says…"). Keep a short
 lead-in only where it earns its place, and never use one just to announce what's coming.
 
+**No preview sentences (owner, 2026-11-24).** A stricter version of the rule above: never open a
+paragraph with a short general sentence that only sets up the fact in the next sentence. The owner
+flagged these in the allergy blood test draft as reading like AI, even one at a time: "The same
+number can land in different places.", "Whatever shows up on your report later shapes treatment.",
+"A skin test covers the same ground in one visit.", "Labs don't share one class scale." **Fix:**
+start with the fact ("A dust mite result of 3.50 kU/L is class 2 at ARUP and class 3 at Labcorp…").
+Keep a short opener only when it states something no other sentence in the paragraph says.
+
 **The article's opening (owner, 2026-11-09).** Don't open an article with a
 short declarative slogan ("Los Angeles allergies run most of the year.").
 The first sentence is longer and introductory: it sets up the topic for the
