@@ -50,7 +50,7 @@ Last updated 2026-11-23.
 
 | Form | Where | Who receives it | Email subject |
 |---|---|---|---|
-| Patient contact form | Provider pages (Verified tier and up, since 2026-10-01) and SEM landing pages | The practice's `notificationEmail` (set on the sheet) | `New inquiry from {name}` (Verified or Unverified is the first line of the body, with a one-sentence explanation, since 2026-11-23) |
+| Patient contact form | Provider pages (Verified tier and up, since 2026-10-01) and SEM landing pages | The practice's `notificationEmail` (set on the sheet) | `New inquiry from {name} | referral from Open Air Allergy Network` (Verified or Unverified is the first line of the body, with a one-sentence explanation, since 2026-11-23) |
 | For Practices | `/for-practices` | leads@openairallergynetwork.com | `[Practice]: {reason}, {practice name}` |
 | About page contact | `/about#contact` | leads@openairallergynetwork.com | `[About Page]: {reason}, {name}` |
 
