@@ -8,10 +8,10 @@ URL: /blog/allergy-blood-test-results
 Meta description (153 chars): How to read allergy blood test results: what kU/L numbers, IgE classes 0 to 6 and total IgE mean, and why a positive result needs your symptoms to count.
 Target keywords: "allergy blood test results" (head term: title, first paragraph, H2s), "allergy blood test results explained" (title), "how to read allergy blood test results" (H2), "allergy blood test results chart" / "allergy blood test classes" / "allergy blood test results scale" (chart H2 and table), "IgE allergy test results" (body), "how does an allergy blood test work" / "how long do allergy blood test results take" (steps H2, FAQ), "what does ku/l mean in allergy testing" (FAQ 1), "what does 0.35 ku/l mean on allergy test" (FAQ 2), "class 2 allergy meaning" (FAQ 3), "total IgE vs specific IgE" (body, FAQ 4), "high IgE but no allergies" (FAQ 5), "can you have allergies with normal IgE" (FAQ 6), "how accurate are allergy blood tests" (FAQ 7), "positive allergy blood test" (body), "allergy blood test negative but still have symptoms" (H2), "component allergy testing" (H3), "fast allergy treatment" (Longer term options), "faster alternative to allergy shots" (intro)
 Tags: Allergy Testing
-Feature image: TBD (owner uploads)
+Feature image: https://res.cloudinary.com/qruprn0t/image/upload/v1795547101/allergy-blood-test-results-lab-tubes.jpg
 Image idea: Blood collection tubes in a lab rack beside a printed lab report, bright clinical light. Search "blood test tubes lab". File: allergy-blood-test-results-lab-tubes.jpg
 (Photos inside the body are optional. They wrap beside the text and are portrait, 1200 × 1500: `![alt](URL "Caption")` on its own line, see docs/image-guide.md.)
-Image alt: TBD (write from the chosen photo)
+Image alt: Gloved hands holding a metal rack of labeled blood sample tubes with purple caps
 Credit: none (house article).
 
 KEY TAKEAWAYS
@@ -61,9 +61,14 @@ SOURCES (all linked in the article)
 - ACAAI, "Allergy Testing" Q&A resource (dated February 24, 2021): tests confirm what the health history tells the allergist (dust mite example); when an allergist recommends immunotherapy, they'll want to retest to confirm your allergens and that the plan is appropriate; peanut component test, Ara h 1, 2 and 3 carry more risk, helps decide on an oral food challenge; people without identifiable triggers could have nonallergic nasal conditions.
 - AAAAI, "Allergy Testing" (conditions library, 6/18/2026): IgE blood tests are generally used when skin tests might be unsafe or won't work; IgG testing for food allergy listed among methods that aren't useful.
 - AAAAI, "What Do Patients and Caregivers Need to Know About Oral Food Challenges?" (5/12/2026): the food is eaten slowly, in gradually increasing amounts, under medical supervision; usually done when history and skin and blood tests are inconclusive.
+- Siles RI, Hsieh FH, "Allergy blood testing: A practical guide for clinicians," Cleveland Clinic Journal of Medicine 2011;78(9):585-592, doi 10.3949/ccjm.78a.11023 (full text PDF read): "The likelihood of an IgE-mediated clinical reaction often increases with the level of specific IgE, but these levels do not predict severity or guarantee a reaction will occur." Class I and II often a low likelihood of a clinical reaction; classes V and VI generally correlate with IgE-mediated clinical reactions upon exposure.
+- Bodtger U et al., J Allergy Clin Immunol 2003;111(1):149-54, doi 10.1067/mai.2003.37, PMID 12532111 (abstract via NCBI E-utilities): 15 asymptomatic adults with positive birch skin prick tests followed 3 birch seasons; 60% (n = 9) developed clinical allergy; specific IgE CAP class 2 or higher was 87.5% predictive.
+- Bodtger U et al., Int Arch Allergy Immunol 2011;155(3):289-96, doi 10.1159/000320758, PMID 21293149: 52 asymptomatically sensitized (grass or birch) subjects from population screening, "well-characterised young population", 2-year follow-up; annual incidence of symptom onset 5%; those developing symptoms had higher specific IgE; positive predictive values low (14-27%).
+- Michigan Medicine Laboratories, "Immunoglobulin E Quantitation" (total IgE): reference range <2 to 150 kU/L, no age bands; "Normal IgE levels do not rule out the presence of allergic disease."
 - AAAAI, "Allergy Shots (Immunotherapy)": build-up once or twice a week for four to six months; maintenance every two to four weeks for three to five years.
 
 REVIEW NOTES
+- **Owner's second round (2026-11-24):** new active first sentence (allergists need to know your allergens before treatment; skin or blood test is how they find out); second intro paragraph now says results are one piece of the picture and an allergist interprets them with your history (ACAAI), replacing the generic "Whatever shows up on your report later shapes treatment"; cut the generic lead-ins "A skin test covers the same ground in one visit" and "The same number can land in different places"; age paragraph cut to the owner's line ("None of the three scales has separate class cutoffs for children and adults", worded to what the three tables show), with total IgE age and lab ranges moved to the total IgE paragraph so it has context; added what a higher number does mean (Cleveland Clinic Journal of Medicine clinician guide, 2011, the clearest source found; older than five years, flagged); H2 now "Positive allergy blood test: what it can and can't tell you" for the keyword; owner asked whether a positive test can come ahead of symptoms (the owner's own peanut result came years before symptoms; not used as an anecdote): two Danish pollen studies (Bodtger 2003, 2011) say yes, with a wide range of risk, so the article reports both and notes neither covered foods. Both are older than five years; no newer prospective study was found in a quick search.
 - **Owner review and rewrite (2026-11-24).** The owner's comments asked for: a stronger intro listing what a blood test can check; the steps and timeline (order, lab draw, days of waiting, a results visit) compared with an in-office skin test; more labs in the class chart to show the differences readers will see, plus an age note; the "does a higher number mean a worse allergy" answer right under the chart, with the labels explained there ("very high" reads like severity); the total IgE and positive result sections combined and led with the point (results alone don't diagnose); the takeaway that an allergist will retest before treatment, stated plainly; the challenge test explained (how the allergen is taken); whether skin tests show severity (they don't, AAFA); "uncommon with allergy blood tests"; the "weighing the two tests" sentence replaced with a card (doctors choose the test); and component testing tied into the article instead of standing apart. All done. The owner's personal blood test story (several visits and bills) isn't used as an anecdote (no founder persona); the steps list and the AAFA/ACAAI time and cost lines carry the same facts. Component testing is now an H3 under "What your results can and can't tell you", next to the oral food challenge.
 - **Lab chart sources.** ARUP (sample report PDF), Labcorp (2022 quick reference guide PDF, text extracted locally) and Michigan Medicine Laboratories (a Mayo Clinic Laboratories sendout listing). Mayo's own catalog, Quest's test directory and Quest's 2017 test list all failed to load (403, JavaScript shell, TLS error). A web search snippet of Mayo's catalog shows a newer Mayo table with a 0/1 band (0.10 to 0.34, borderline) and "Reference values apply to all ages", but it couldn't be opened, so it isn't used. The chart says "none of the three prints separate class cutoffs by age", which is what the three tables show; it doesn't claim more.
 - **Antihistamines and the blood test:** ACAAI says medicine doesn't interfere with blood test results, MedlinePlus says you may need to stop antihistamines. Both stated once, with one practical step (follow the lab order's instructions).
@@ -78,11 +83,11 @@ REVIEW NOTES
 BODY
 -->
 
-When your allergy blood test results come back, each allergen you were tested for gets a number in kilounits per liter (kU/L), and most labs add a class from 0 to 6. A higher number means your body is more likely to recognize that allergen, not that the allergy is worse, according to the [Asthma and Allergy Foundation of America](https://aafa.org/allergies/allergy-diagnosis/) (AAFA). A positive result counts as an allergy only when it matches the symptoms you get around that allergen.
+Before an allergist recommends treatment, they need to know which allergens are behind your symptoms, and an allergy skin test or blood test is how they usually find out. When your allergy blood test results come back, each allergen you were tested for gets a number in kilounits per liter (kU/L), and most labs add a class from 0 to 6. A higher number means your body is more likely to recognize that allergen, not that the allergy is worse, according to the [Asthma and Allergy Foundation of America](https://aafa.org/allergies/allergy-diagnosis/) (AAFA). A positive result counts as an allergy only when it matches the symptoms you get around that allergen.
 
 An allergy blood test looks for the same allergens a skin test does. The [American College of Allergy, Asthma and Immunology](https://acaai.org/allergies/testing-diagnosis/) (ACAAI) says both can detect sensitivity to inhalants like pollen and dust mites, and to medicines, certain foods, latex and insect venom. [Cleveland Clinic's](https://my.clevelandclinic.org/health/treatments/22345-allergy-blood-test) list for the blood test also includes molds and pet dander. These IgE allergy tests aren't the IgG "food sensitivity" tests sold online, which the AAFA and the [American Academy of Allergy, Asthma & Immunology](https://www.aaaai.org/tools-for-the-public/conditions-library/allergies/allergy-testing) (AAAAI) don't recommend.
 
-Whatever shows up on your report later shapes treatment. Allergy shots, allergy drops and ILIT (intralymphatic immunotherapy), which some people choose as a faster alternative to allergy shots, all work on the specific allergens you react to.
+The ACAAI says allergists choose tests based on your symptoms, exposures, age and even hobbies, then interpret every result in the context of your medical history, so your results are one piece of the picture. That judgment decides treatment too: allergy shots, allergy drops and ILIT (intralymphatic immunotherapy), which some people choose as a faster alternative to allergy shots, all target the specific allergens an allergist confirms.
 
 [Allergy Test Results Explained: How to Read Your Skin Test](/blog/allergy-test-results "card")
 
@@ -93,7 +98,7 @@ Whatever shows up on your report later shapes treatment. Allergy shots, allergy 
 3. **The wait.** Cleveland Clinic says results usually take a few days, though it can be more or less.
 4. **The results review.** Your provider compares the numbers with your symptoms and history, which the ACAAI says is how every result should be read.
 
-A skin test covers the same ground in one visit. The AAFA says skin testing is done in the office with results in 15 to 20 minutes, and the ACAAI says blood tests cost more than skin tests. A blood test is generally used when skin testing might be unsafe or won't work, according to the AAAAI, and the AAFA names two common reasons: a skin condition, or medicines that interfere with skin testing.
+A skin test takes one office visit: the AAFA says results come in 15 to 20 minutes, and the ACAAI says blood tests cost more than skin tests. A blood test is generally used when skin testing might be unsafe or won't work, according to the AAAAI, and the AAFA names two common reasons: a skin condition, or medicines that interfere with skin testing.
 
 The ACAAI says medicine doesn't interfere with blood test results, though MedlinePlus says you may be asked to stop antihistamines before the draw. Follow the instructions that come with your lab order.
 
@@ -109,7 +114,7 @@ A typical report lists each allergen tested, a number beside it and the lab's no
 
 ## Allergy blood test results chart: classes 0 to 6
 
-Labs don't share one class scale. Here's how three U.S. labs class specific IgE results, all in kU/L: the ARUP sample report, a [Labcorp report guide](https://www.labcorp.com/content/dam/labcorp/files/allergy-launch/225004-0822_DX_QRG_Allergy%20Report_Final.pdf) and [Michigan Medicine's lab](https://mlabs.umich.edu/tests/cherry-ige), which sends these tests to Mayo Clinic Laboratories.
+Three U.S. labs class the same specific IgE results differently, all in kU/L: the ARUP sample report, a [Labcorp report guide](https://www.labcorp.com/content/dam/labcorp/files/allergy-launch/225004-0822_DX_QRG_Allergy%20Report_Final.pdf) and [Michigan Medicine's lab](https://mlabs.umich.edu/tests/cherry-ige), which sends these tests to Mayo Clinic Laboratories.
 
 | Class | ARUP Laboratories | Labcorp | Michigan Medicine (Mayo Clinic Laboratories) |
 |---|---|---|---|
@@ -122,25 +127,29 @@ Labs don't share one class scale. Here's how three U.S. labs class specific IgE 
 | 5 | 50.01 to 100.00: very high | 19.01 to 100.00: very high | 50.0 to 99.9: strongly positive |
 | 6 | More than 100.00: very high | More than 100.00: very high | 100 or more: strongly positive |
 
-The same number can land in different places. A dust mite result of 3.50 kU/L is class 2, moderate, at ARUP, class 3, high, at Labcorp and class 3, positive, at Michigan Medicine. Cleveland Clinic explains that labs use different brands of allergy blood tests, so scoring varies. Go by the class and range printed on your own report.
+A dust mite result of 3.50 kU/L is class 2, moderate, at ARUP, class 3, high, at Labcorp and class 3, positive, at Michigan Medicine. Cleveland Clinic explains that labs use different brands of allergy blood tests, so scoring varies. Go by the class and range printed on your own report.
 
-None of the three labs prints separate class cutoffs by age. Age matters for total IgE instead: Thermo Fisher says the normal range for total IgE depends on age, so read yours against the range your lab prints for your age.
+None of the three scales has separate class cutoffs for children and adults.
 
 ### Does "very high" mean a severe allergy?
 
 No. Labels like high and very high describe how much IgE is in your blood, not how bad your reactions are. The AAFA says the score and class don't reflect how severe an allergy is, and that no skin or blood test can tell how severe it is. That includes skin tests: the AAFA says a positive skin test doesn't predict how severe a reaction will be, and a bigger bump doesn't always mean more symptoms. ARUP's report adds that higher levels may not match how strongly you react to the allergen.
 
+What a higher number does tell your allergist is how likely the allergen is to cause a reaction. A [practical guide for clinicians in the Cleveland Clinic Journal of Medicine](https://www.ccjm.org/content/78/9/585) says the chance of an allergic reaction often rises with the level of specific IgE, though the level doesn't predict severity or guarantee a reaction. The same guide says classes I and II often go with a low likelihood of a reaction, while classes V and VI generally go with reactions when you're exposed.
+
 According to the AAFA, the only test that can show how severe an allergy may be is a challenge test. In the doctor's office, you breathe in or swallow a tiny amount of the allergen, and the dose slowly goes up while a physician, usually an allergist, watches for symptoms. It's mostly used for possible food and medicine allergies.
 
-## What your results can and can't tell you
+## Positive allergy blood test: what it can and can't tell you
 
 Blood test results alone don't diagnose an allergy. The [ACAAI](https://acaai.org/allergies/testing-diagnosis/) says blood and skin test results have to be read with your medical history, and when results are unclear or don't fit, allergists rely on the history and an exam to make the final call.
 
 A positive allergy blood test means your immune system has made IgE to that allergen, but the AAFA says that doesn't necessarily mean the allergen caused your symptoms. Cleveland Clinic says about 50% to 60% of positive results don't turn out to be an allergy, which is why it says these tests should be ordered based on your signs and symptoms. The ACAAI agrees that allergy tests shouldn't be ordered at random.
 
-Total IgE, the overall amount of IgE in your blood, tells you even less than the numbers for each allergen. Cleveland Clinic says it doesn't show what you're allergic to and that many people with subtle allergies may have a normal total. A high total can also come from smoking or a parasitic infection, according to MedlinePlus.
+Some positive results come years before symptoms do. In a [Danish study](https://pubmed.ncbi.nlm.nih.gov/12532111/) that followed 15 adults with a positive birch pollen test but no symptoms, 9 developed birch pollen allergy within three years, and a specific IgE of class 2 or higher was a strong predictor. A [larger follow-up](https://pubmed.ncbi.nlm.nih.gov/21293149/) of 52 young people sensitized to grass or birch pollen found a lower risk, about 5% a year, and those who did develop symptoms had higher IgE levels. Both studies looked at pollen, not foods. If a result doesn't match your symptoms today, it's worth keeping the report and mentioning it if symptoms show up later.
 
-Before allergy shots or ILIT, expect more testing. When an allergist recommends immunotherapy, the ACAAI's Q&A says they'll want to retest you to confirm your allergens and that the treatment plan fits, and the ACAAI calls skin testing the method allergists prefer.
+Total IgE, the overall amount of IgE in your blood, tells you even less than the numbers for each allergen. Cleveland Clinic says it doesn't show what you're allergic to and that many people with subtle allergies may have a normal total. A high total can also come from smoking or a parasitic infection, according to MedlinePlus. Its normal range depends on age, Thermo Fisher says, and on the lab: the ARUP sample patient's range ran up to 214 kU/L, while [Michigan Medicine's lab](https://mlabs.umich.edu/tests/immunoglobulin-e-quantitation) lists 2 to 150 kU/L.
+
+Before immunotherapy like allergy shots or ILIT, the ACAAI's Q&A says your allergist will want to retest you to confirm your allergens and that the treatment plan fits, and the ACAAI calls skin testing the method allergists prefer.
 
 ### Component testing for food allergies
 
@@ -158,7 +167,7 @@ Your allergist may order a skin test, which the ACAAI calls the preferred and us
 
 ## Longer term options
 
-Your test results become a list of allergens to treat. Thermo Fisher's guide suggests ranking them from highest to lowest, cutting exposure to the highest ones first and focusing on indoor allergens, since those may be easier to control. Allergy medicine eases symptoms day to day. Immunotherapy goes after the allergy itself, and the ACAAI says shots contain a tiny but increasing amount of the allergen you're sensitive to.
+Thermo Fisher's guide suggests ranking your results from highest to lowest, cutting exposure to the highest ones first and focusing on indoor allergens, since those may be easier to control. Allergy medicine eases symptoms day to day. Immunotherapy goes after the allergy itself, and the ACAAI says shots contain a tiny but increasing amount of the allergen you're sensitive to.
 
 **Allergy shots (SCIT)** start with a build-up phase of shots once or twice a week for four to six months, then maintenance shots every two to four weeks for three to five years, according to the [AAAAI](https://www.aaaai.org/tools-for-the-public/conditions-library/allergies/allergy-shots-%28immunotherapy%29).
 
