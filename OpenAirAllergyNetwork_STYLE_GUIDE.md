@@ -79,6 +79,29 @@ two or three sentences. What's still out: an answer that re-paraphrases a body p
 two FAQs that cover the same ground, and a question already used on another published article. Check each question against Google autocomplete and phrase it the way people type it. The
 example above fails because it tacks one fact onto a paraphrase, not because it repeats the body.
 
+**FAQs as standalone answers (owner, 2026-11-24, from the allergy blood test review).** Search
+engines and AI summaries lift a single FAQ answer and show it with none of the article around it.
+Read every answer as a patient who sees only that question and answer:
+
+- **Answer first, in plain words.** The first sentence answers the question as asked ("Usually a
+  few days."; "Yes, especially if only total IgE was measured."). No preview sentence before it.
+- **Make it stand alone.** Define any term the answer depends on (kU/L, total IgE, class 2) and name
+  the source in the answer itself. Never lean on "above", "below", "the chart" or "this article" for
+  meaning. When the article has a table or chart the reader needs, link to the article by name ("the
+  chart comparing three labs in our allergy blood test results guide").
+- **End with a next step.** A fact without a "so what" is vague. Close with what the reader can do:
+  check the key on their own report, ask the provider who ordered the test a specific question, take
+  results to an allergist, or (in the treatment FAQ) use Find a Provider. Vary the wording; don't end
+  every answer with "talk to your doctor".
+- **Give every case when the answer varies.** If labs, ages or situations differ, give the main
+  versions briefly (all three labs' class 2 ranges) and tell the reader which one applies to them.
+- **Order by what readers ask most.** Practical questions people have right after a test or diagnosis
+  (how accurate is it, how long does it take, can it lead to treatment) go first. Technical and
+  definition questions go last.
+- **Combine near-duplicates.** Two narrow questions that share most of an answer become one ("What
+  does kU/L mean?" and "What does 0.35 kU/L mean?" became one FAQ whose answer opens by defining
+  kU/L, so it still matches both searches).
+
 ### 4. Nothing specific enough to stick
 
 No named guideline body (AAAAI, ACAAI), no cited study, no real number beyond broad ranges like

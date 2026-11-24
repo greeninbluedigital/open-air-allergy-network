@@ -366,6 +366,7 @@ options, and the fact check pass.
 - [ ] First paragraph answers the question, and the article's first sentence opens with its subject and verb (no introductory clause; style guide, "The article's opening").
 - [ ] Every number, month and claim has a linked source you opened this run.
 - [ ] No em dashes, no semicolons joining clauses, no banned words.
+- [ ] Each FAQ answer stands alone for an AI summary: answers first, defines its terms, names its source, ends with a next step; practical FAQs first, technical last, near-duplicates combined (style guide section 3, "FAQs as standalone answers").
 - [ ] No paragraph opens with a preview sentence (a short general line that only sets up the next fact; style guide section 6).
 - [ ] Title 62 characters or fewer, meta description 70 to 155.
 - [ ] Emergency section present if the topic needs one.
