@@ -150,8 +150,9 @@ them, because..." Later sentences may open with a clause. The second
 paragraph is a transition into the rest of the article, not a jump to a new
 topic: it picks up from the first ("Whichever of these triggers gets to
 you..."), names the treatments with their search terms (allergy shots,
-allergy drops, ILIT as a faster alternative to allergy shots), and says what
-the reader will find below.
+allergy drops, ILIT as a faster alternative to allergy shots). **No roadmap
+sentence** ("This guide covers...", "Below are..."): the owner has cut it from
+every recent draft (updated 2026-11-24). Let the H2s show what's ahead.
 
 ### 7. Pet words (added 2026-10-15)
 
