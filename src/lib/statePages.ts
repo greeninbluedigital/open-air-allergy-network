@@ -100,6 +100,7 @@ const METROS: Record<string, Metro[]> = {
     { name: "Columbus", lat: 39.9612, lng: -82.9988, zip: "43215" },
     { name: "Cleveland", lat: 41.4993, lng: -81.6944, zip: "44113" },
     { name: "Cincinnati", lat: 39.1031, lng: -84.512, zip: "45202" },
+    { name: "Dayton", lat: 39.7589, lng: -84.1916, zip: "45402" },
   ],
   PA: [
     { name: "Philadelphia", lat: 39.9526, lng: -75.1652, zip: "19103" },
@@ -134,6 +135,18 @@ function milesBetween(a: { lat: number; lng: number }, b: { lat: number; lng: nu
   const dLng = toRad(b.lng - a.lng);
   const h = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(a.lat)) * Math.cos(toRad(b.lat)) * Math.sin(dLng / 2) ** 2;
   return 3958.8 * 2 * Math.asin(Math.sqrt(h));
+}
+
+/** The metro area a practice belongs to (nearest listed metro within
+ * METRO_RADIUS_MILES), or null. Same rule the state pages group by. */
+export function metroNameFor(state: string, lat: number | null, lng: number | null): string | null {
+  if (lat == null || lng == null) return null;
+  let best: { name: string; miles: number } | null = null;
+  for (const metro of METROS[state] ?? []) {
+    const miles = milesBetween({ lat, lng }, metro);
+    if (miles <= METRO_RADIUS_MILES && (!best || miles < best.miles)) best = { name: metro.name, miles };
+  }
+  return best?.name ?? null;
 }
 
 export type MetroGroup = {

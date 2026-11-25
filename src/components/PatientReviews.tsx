@@ -117,6 +117,22 @@ export function PatientReviews({ provider }: { provider: ReviewsProvider }) {
         </div>
       ))}
 
+      {hasGoogle && provider.googlePlaceId && (
+        // Owner, 2026-11-25: invite patients to add their own review. Google's
+        // write-review link for the practice's place; opens in a new tab.
+        <p className="mb-3 text-sm text-muted">
+          Been to {provider.practiceName}?{" "}
+          <a
+            href={`https://search.google.com/local/writereview?placeid=${encodeURIComponent(provider.googlePlaceId)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-semibold text-sage hover:underline"
+          >
+            Write a review on Google →<span className="sr-only"> (opens in a new tab)</span>
+          </a>
+        </p>
+      )}
+
       {yelpEmbeds.map((embed, i) => (
         // Trusted admin-entered embed HTML from Yelp's own "Embed Review"
         // feature (same trust boundary as photoUrl/extendedBio), not

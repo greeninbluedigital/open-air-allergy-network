@@ -15,7 +15,7 @@ import { OtherLocations } from "@/components/pdp/OtherLocations";
 import { practiceSchemaId } from "@/lib/metadata";
 import { SHOWN_CREDIT } from "@/lib/credits";
 import { groupTreatments } from "@/lib/treatments";
-import { practiceHeadingLine, practiceTitle, practiceTypeLabel } from "@/lib/practiceType";
+import { metroSuffix, practiceHeadingLine, practiceTitle, practiceTypeLabel } from "@/lib/practiceType";
 import { DEFAULT_OG_IMAGE, truncateForMeta } from "@/lib/metadata";
 import { parseFormError } from "@/lib/forms";
 import { nearbyProviders } from "@/lib/srp";
@@ -24,7 +24,7 @@ import { visitorInHealthDataState } from "@/lib/visitorLocation";
 import { COMPARISON_ARTICLE_SLUG, ILIT_DEFINITION } from "@/lib/content";
 import { ProviderCard } from "@/components/srp/ProviderCard";
 import { StatePage, stateMetadata } from "@/components/StatePage";
-import { stateBySlug, stateMetroGroups, statePath } from "@/lib/statePages";
+import { metroNameFor, stateBySlug, stateMetroGroups, statePath } from "@/lib/statePages";
 import { displayAddress, hasStreetAddress, streetName } from "@/lib/address";
 import {
   isFullProfilePlus as isFullProfileTier,
@@ -139,7 +139,13 @@ export async function generateMetadata({
   // `absolute` to skip the root layout's " | Open Air Allergy Network"
   // template: the 28-char suffix alone pushed every PDP past the 62-char budget.
   const where = `${provider.city}, ${provider.state}${street ? ` (${street})` : ""}`;
-  const title = practiceTitle(provider, where, provider.city);
+  // Suburbs add their metro to the title only ("Prairie Village, KS (Kansas
+  // City)"), since that's what people search; the H1 and description keep `where`.
+  const metro = metroSuffix(provider.city, metroNameFor(provider.state, provider.latitude, provider.longitude));
+  const titleWhere = metro
+    ? `${provider.city}, ${provider.state} (${street ? `${street}, ` : ""}${metro})`
+    : where;
+  const title = practiceTitle(provider, titleWhere, provider.city);
   // shortBio is long-form ("About This Practice"-length) copy, not written
   // to meta-description length — truncateForMeta bounds it at a clean
   // sentence/word boundary instead of showing 200-500+ raw characters.

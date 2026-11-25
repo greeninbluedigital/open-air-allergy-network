@@ -40,6 +40,23 @@ export function practiceTitle(p: { practiceName: string; practiceType: string | 
   return full.length <= TITLE_MAX ? full : `${type} in ${where} | ${name}`;
 }
 
+/**
+ * The metro to show after a suburb in the page title (owner, 2026-11-25):
+ * people search "allergist kansas city" far more than "allergist prairie
+ * village", so "Prairie Village, KS (Kansas City)". Null when there's no
+ * metro, or when the city already is or is part of the metro's name
+ * ("Kansas City" in Kansas City, "Dallas" in "Dallas–Fort Worth", "Tampa" in
+ * "Tampa Bay").
+ */
+export function metroSuffix(city: string, metro: string | null): string | null {
+  if (!metro) return null;
+  const words = (s: string) => s.toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+  const c = words(city);
+  const m = words(metro);
+  if (!c || m === c || ` ${m} `.includes(` ${c} `)) return null;
+  return metro;
+}
+
 /** The small line under the practice name in the H1, e.g. "ILIT Allergist in Henrico, VA". */
 export function practiceHeadingLine(p: { practiceType: string | null }, where: string) {
   return `ILIT ${practiceTypeLabel(p.practiceType)} in ${where}`;
