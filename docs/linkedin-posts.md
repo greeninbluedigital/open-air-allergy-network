@@ -36,5 +36,5 @@ Consumer pieces (symptoms, city guides, cleaning how-tos) stay off LinkedIn.
 | Date | Article | Status |
 |---|---|---|
 | 2026-10-25 | ILIT vs. Traditional Allergy Shots (`/blog/ilit-vs-traditional-allergy-shots`) | Posted |
-| 2026-11-10 | Traveling for ILIT (`/blog/traveling-for-ilit`) | Scheduled |
+| 2026-11-10 | Traveling for ILIT (`/blog/traveling-for-ilit`) | Posted |
 | 2026-11-25 | The Worst Cities for Allergies in the U.S.: 2026 Ranking (`/blog/worst-cities-for-allergies-2026`) | Posted |
