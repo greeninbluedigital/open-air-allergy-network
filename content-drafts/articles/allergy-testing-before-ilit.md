@@ -8,10 +8,10 @@ URL: /blog/allergy-testing-before-ilit
 Meta description (147 chars): Yes. ILIT allergy treatment targets the allergens a test confirms. What happens at the first allergist appointment, what to stop and what to bring.
 Target keywords: "allergy testing before ilit" / "do i need allergy testing before ilit" (title, first paragraph), "first allergist appointment" / "what to expect at first allergist appointment" (head term: first paragraph, H2, FAQ 4), "ilit first appointment" / "ilit consultation" / "ilit assessment" (body, no autocomplete volume), "can i use old allergy test results" (H2), "stop antihistamines before allergy testing" / "how long to stop antihistamines before allergy testing" (how-to H2, FAQ 2), "forgot to stop antihistamines before allergy testing" (FAQ 6), "can i eat before an allergy test" (FAQ 5), "beta blockers before allergy testing" (FAQ 7), "what to bring to allergist appointment" (FAQ 3), "how long does first allergist appointment take" (FAQ 4), "ilit allergy shots" (H2, FAQ 1), "lymph node allergy shots" (H2), "faster alternative to allergy shots" (intro), "fast allergy treatment" (Longer term options)
 Tags: ILIT, Allergy Testing
-Feature image: TBD (owner uploads)
+Feature image: https://res.cloudinary.com/qruprn0t/image/upload/v1795574594/allergy-testing-before-ilit-calendar.png
 Image idea: Forearm skin prick test with a nurse's gloved hand placing allergen drops, bright clinic light. Search "skin prick test". File: allergy-testing-before-ilit-skin-prick-test.jpg
 (Photos inside the body are optional. They wrap beside the text and are portrait, 1200 × 1500: `![alt](URL "Caption")` on its own line, see docs/image-guide.md.)
-Image alt: A gloved hand placing small drops of allergen extract in a row on a patient's inner forearm during an allergy skin prick test (write from the final photo)
+Image alt: Desk calendar on a sunny kitchen counter with an allergist appointment circled on the 17th and a sticky note reading Stop antihistamines on the 12th
 Credit: none (house article).
 
 KEY TAKEAWAYS
@@ -98,7 +98,7 @@ BODY
 
 Allergy testing comes before ILIT allergy treatment, because intralymphatic immunotherapy treats only the specific allergens your history and a test point to. You can often be tested at your first allergist appointment, and a skin test is read about 15 minutes after it's placed. Practices set up the first visit differently, so ask when you call whether testing happens that day.
 
-Those results decide which treatment fits and what goes into it, whether that's allergy shots, allergy drops or tablets, or ILIT, a faster alternative to allergy shots.
+Those results help your allergist decide which treatment fits and what goes into it, whether that's allergy shots, allergy drops or tablets, or ILIT, a faster alternative to allergy shots.
 
 [Allergy Testing Before Immunotherapy: Skin Test vs. Blood Test](/blog/allergy-skin-test-vs-blood-test "card")
 
@@ -106,8 +106,7 @@ Those results decide which treatment fits and what goes into it, whether that's 
 
 Immunotherapy only helps when the diagnosis is right and the extract contains the allergen actually causing your symptoms, according to the [2026 allergen immunotherapy practice parameter](https://college.acaai.org/wp-content/uploads/2026/08/2026-Allergen-Immunotherapy-Practice-Parameter-Update.pdf), the joint guideline from the American Academy of Allergy, Asthma & Immunology (AAAAI) and the American College of Allergy, Asthma and Immunology (ACAAI). Before treatment starts, the guideline says, a diagnosis rests on three things together.
 
-**What an allergy diagnosis needs**
-
+**What an allergy diagnosis needs:**
 - Symptoms that fit an allergy
 - A physical exam
 - A positive skin test or blood test for the same allergen
@@ -175,7 +174,7 @@ Questions worth asking when you call:
 
 **Allergy drops and tablets** go under the tongue. The 2026 guideline recommends that once the first dose is tolerated in the office, the rest can be taken at home.
 
-**ILIT** is the shortest course, typically three injections usually finished within 8 weeks, and the closest thing to a fast allergy treatment schedule that immunotherapy offers. The 2026 guideline describes a growing body of ILIT research, with randomized trials reported in 23 publications. That's promising but much smaller than the evidence behind allergy shots, which the same guideline traces back more than 100 years, and results vary from person to person.
+**ILIT** is the shortest allergy treatment course, typically three injections usually finished within 8 weeks, and the closest thing to a fast allergy treatment schedule that immunotherapy offers. The 2026 guideline describes a growing body of ILIT research, with randomized trials reported in 23 publications. That's promising but much smaller than the evidence behind allergy shots, which the same guideline traces back more than 100 years, and results vary from person to person.
 
 If you're ready to get tested, [find an ILIT allergy treatment provider](/find-an-ilit-provider) and ask whether they can test you at the first visit.
 
