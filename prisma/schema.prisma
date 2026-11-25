@@ -556,6 +556,12 @@ model ContactSubmission {
   // confirmation click (tagged [Verified]) or by the ~60-minute background
   // job (tagged [Unverified]), whichever comes first. Null until forwarded.
   forwardedAt        DateTime?
+  // Set when Resend reports that the forwarded email bounced (practice's
+  // notificationEmail doesn't accept mail). forwardedAt stays set, so the
+  // backup poll doesn't retry into the same dead address; the owner gets an
+  // alert and resends with scripts/resend-lead.ts once the address is fixed.
+  forwardBouncedAt    DateTime?
+  forwardBounceReason String?
 
   createdAt DateTime @default(now())
 

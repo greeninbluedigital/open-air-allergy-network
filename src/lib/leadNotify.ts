@@ -9,6 +9,7 @@ type LeadProvider = {
 };
 
 type Lead = {
+  id: string;
   firstName: string;
   lastName: string;
   email: string;
@@ -17,6 +18,15 @@ type Lead = {
   confirmationToken: string;
 };
 
+/** Tags Resend echoes back in webhook events, so a bounce can be traced to
+ * its lead (src/app/api/resend/webhook/route.ts). */
+export function leadTags(kind: "lead_confirm" | "lead_forward", leadId: string) {
+  return [
+    { name: "oaan_type", value: kind },
+    { name: "lead_id", value: leadId.replace(/[^A-Za-z0-9_-]/g, "") },
+  ];
+}
+
 /** Stage 2, step 1 — sent immediately on a passing submission. */
 export async function sendConfirmationEmail(lead: Lead, provider: LeadProvider) {
   const confirmUrl = `${SITE_URL}/api/leads/confirm/${lead.confirmationToken}`;
@@ -24,6 +34,7 @@ export async function sendConfirmationEmail(lead: Lead, provider: LeadProvider) 
   await sendEmail({
     to: lead.email,
     subject: `Confirm your inquiry to ${provider.practiceName}`,
+    tags: leadTags("lead_confirm", lead.id),
     html: `
       <p>Thanks for reaching out to ${practice}.</p>
       <p>Please confirm this is really you so we can pass your message along:</p>
@@ -181,6 +192,7 @@ export async function forwardLeadToPractice(
     subject,
     html,
     text,
+    tags: leadTags("lead_forward", lead.id),
   });
   return true;
 }
