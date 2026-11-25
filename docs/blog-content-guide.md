@@ -143,6 +143,16 @@ article (a schedule, a timeframe, a test detail) is attributed to a named,
 reputable source in the text, with a link to that source. External links
 open in a new tab automatically (`src/components/ArticleDetail.tsx`).
 
+**Normal practice doesn't need a source (owner, 2026-11-24).** What any
+reasonable reader would accept as ordinary practice can be stated plainly:
+what happens at a first allergist visit, what to bring, what intake forms
+ask, that a tree pollen allergy goes with spring symptoms, that practices
+send their own medicine lists. Attributing those made the allergy testing
+draft read awkwardly ("The AAFA says the doctor checks your ears…"), and a
+source at the start of a sentence can bury its point. Still source numbers,
+timeframes, guideline recommendations, safety points and anything a reader
+might act on medically.
+
 - **Name the source in the sentence** ("The AAAAI says…", "Cleveland Clinic
   describes…") and link the name. Prefer professional bodies (AAAAI, ACAAI),
   government health sites (MedlinePlus, NIH), major medical centers, and

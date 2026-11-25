@@ -364,7 +364,7 @@ options, and the fact check pass.
 ## Quality check before saving
 
 - [ ] First paragraph answers the question, and the article's first sentence opens with its subject and verb (no introductory clause; style guide, "The article's opening").
-- [ ] Every number, month and claim has a linked source you opened this run.
+- [ ] Every number, timeframe, guideline point and medical claim has a linked source you opened this run. Ordinary practice (what happens at a first visit, what to bring) is stated plainly, without a source (docs/blog-content-guide.md, 11/24).
 - [ ] No em dashes, no semicolons joining clauses, no banned words.
 - [ ] Each FAQ answer stands alone for an AI summary: answers first, defines its terms, names its source, ends with a next step; practical FAQs first, technical last, near-duplicates combined (style guide section 3, "FAQs as standalone answers").
 - [ ] No paragraph opens with a preview sentence (a short general line that only sets up the next fact; style guide section 6).

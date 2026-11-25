@@ -15,15 +15,18 @@ Image alt: A gloved hand placing small drops of allergen extract in a row on a p
 Credit: none (house article).
 
 KEY TAKEAWAYS
-- Immunotherapy, ILIT included, starts with a history that matches a positive skin or blood test.
+- An allergy diagnosis before immunotherapy takes three things together: symptoms that fit, a physical exam and a positive skin or blood test.
 - You can often be tested at your first allergist appointment, and skin test results are ready in about 15 minutes.
-- Most antihistamines have to stop 3 to 7 days before a skin test, while asthma inhalers and nasal steroid sprays can usually continue.
+- Most antihistamines stop 3 to 7 days before a skin test, while asthma inhalers and steroid nasal sprays can usually continue.
 - Bring old test results, but expect an allergist to retest you before immunotherapy starts.
 - Allergy guidelines say ILIT should be given only by specialists trained in ultrasound guided lymph node injections.
 
 FAQS
 Q: Do you need allergy testing before ILIT allergy shots?
 A: Yes. The [2026 allergen immunotherapy practice parameter](https://college.acaai.org/wp-content/uploads/2026/08/2026-Allergen-Immunotherapy-Practice-Parameter-Update.pdf) from the AAAAI and ACAAI says diagnosis before immunotherapy rests on matching symptoms, an exam and a positive skin or blood test, and immunotherapy works only when the right allergen is given. ILIT (intralymphatic immunotherapy) is typically three injections into a lymph node, usually finished within 8 weeks, the same guideline says. To ask whether your results fit it, use [Find a Provider](/find-an-ilit-provider) on OpenAirAllergyNetwork.com to locate an allergist who offers it.
+
+Q: How does an allergist confirm an allergy before immunotherapy?
+A: With three things together: symptoms that fit an allergy, a physical exam, and a positive skin or blood test for the same allergen. That's the standard in the [2026 allergen immunotherapy practice parameter](https://college.acaai.org/wp-content/uploads/2026/08/2026-Allergen-Immunotherapy-Practice-Parameter-Update.pdf) from the AAAAI and ACAAI, which says immunotherapy only helps when the diagnosis is right and the extract contains the allergen causing your symptoms. A positive test alone isn't enough, so come to your first appointment ready to describe when and where your symptoms happen.
 
 Q: How long do you have to stop antihistamines before allergy testing?
 A: Usually 3 to 7 days before a skin test, according to the [American College of Allergy, Asthma and Immunology](https://acaai.org/allergies/testing-diagnosis/) (ACAAI). In its [Ask the Allergist answers](https://acaai.org/resource/allergy-testing/), the ACAAI says a full 7 days gives the best results for most antihistamines, hydroxyzine needs 10 days and diphenhydramine (Benadryl) only 48 hours. The office that books your test gives the final instructions, so ask for them when you schedule.
@@ -53,10 +56,12 @@ SOURCES (all linked in the article)
 - AAFA, "Allergy Diagnosis": bring notes, be ready to discuss family history, medicines, symptoms and lifestyle; exam covers ears, eyes, nose, throat, lungs and skin and may include a lung function test; skin testing done in the office, results in 15 to 20 minutes; a positive test must be compared with your history.
 - UTMB Health (University of Texas Medical Branch), "What to expect at your first allergy visit" (March 4, 2026, quoting Jennifer McCracken, MD): bring a full medication list including over the counter and supplements, inhalers, creams and allergy medicines, medical records from past reactions, insurance and referral information; optional symptom diary, photos of rashes, family history; tell the team about severe reactions, pregnancy, heart conditions or beta blockers before testing; testing may be recommended during the first visit; provider reviews results before you leave when available.
 - Senti G, Prinz Vavricka BM, Erdmann I, et al. "Intralymphatic allergen administration renders specific immunotherapy faster and safer: a randomized controlled trial." Proc Natl Acad Sci U S A. 2008;105(46):17908-12 (PMC2582048): inclusion required a history of summer hay fever and a positive skin prick test to grass pollen, age 18 to 65; skin prick tests with all frequent aeroallergens at screening; three intralymphatic injections over 2 months (day 0, week 4, week 8).
+- Owner's own allergist's new patient forms (shared 2026-11-24, not linked or named): intake form topics (reason for visit, duration, past testing and allergy shots, medicines incl. vitamins and supplements, medicine/food/sting allergies, medical problems, home survey: type and age of home, flooring, pets, air filters, mattress and pillow encasements; smoking and secondhand smoke; family history; symptom checklist for the past 4 to 5 weeks) and its medication stop list (stop: prescription and OTC antihistamines, H2 heartburn medicines cimetidine/ranitidine/famotidine, antihistamine nasal sprays; general rule to stop cough/cold, allergy medicines and sleep aids; keep: asthma medicines, antibiotics, allergy eye drops, decongestants, oral steroids, steroid nasal sprays, medicines for diabetes, blood pressure, birth control; ask about antidepressants that act as antihistamines; continue a medicine if symptoms are severe and the doctor discusses options). Used as typical practice, unsourced, per the owner (11/24).
 - AAAAI, "Allergy Shots (Immunotherapy)": build-up once or twice a week for four to six months; maintenance every two to four weeks for three to five years.
 - Internal: /blog/allergy-skin-test-vs-blood-test (card), /blog/traveling-for-ilit, /blog/allergy-test-results, /learn-about-ilit#faq-candidate, /learn-about-ilit#faq-fda, /learn-about-ilit/allergy-shots-vs-allergy-drops-vs-ilit, /find-an-ilit-provider.
 
 REVIEW NOTES
+- **Owner's first round (2026-11-24).** Owner's guidance: normal, reasonable practice can be stated without a source (now in the style guide); source the guideline points, numbers and medical claims. Changes: second sentence of the article no longer opens with the ACAAI (stated plainly); first-visit steps 1 to 4 lost their attributions, which read awkwardly; the three parts of a diagnosis are now a titled bullet list, plus a new FAQ 2 on them; the ragweed only example became a short line for each main allergen group; the 2008 ILIT trial paragraph left the general immunotherapy section (the trial stays in the ILIT sections); "Can you use earlier allergy test results?" moved up after the why section and grew (what to bring from an old report, antihistamines at the time, primary care blood tests, travel link); the "two years is reasonable" line was dropped because it contradicted the retest point; the Learn link now says "in more detail"; prep gained the new patient forms step and a stop/keep medicine table adapted from the owner's allergist's forms (practice not named); the phone questions grew from four to seven and the ultrasound question became "Who gives the ILIT injections, and how much ILIT experience do they have?" ("lymph node allergy shots" moved into the allergens section). Doctor check on the medicine table: H2 heartburn medicines (famotidine, cimetidine) are on many allergists' stop lists; allergy eye drops, decongestants and steroid nasal sprays are commonly continued; beta blockers left out of the "usually kept" blood pressure line and covered in step 4.
 - **Main session review (2026-11-24), using the 11/24 style rules.** First sentence already opens with its subject. Cut the second paragraph's roadmap sentence ("This guide covers ..."), which the owner has cut in every recent draft (the style guide line asking the second paragraph to say what's below was updated the same day). FAQs reordered practical first (treatment question, antihistamine timing, what to bring, appointment length, eating), technical last (forgot antihistamines, beta blockers). FAQ closers varied ("when you book" appeared three times); the what to bring answer now says an allergist planning immunotherapy usually retests. The loose asthma paragraph (its "it" was unclear) folded into step 5. Doctor read: added that the guideline describes ILIT with airborne allergen extracts, not for food allergies, so a reader with a food allergy doesn't assume testing leads to ILIT. The closing comparison sentence became a card after the Find a Provider line. Hyphens removed ("ultrasound guided", "over the counter"). Patient read of the FAQs: each answers first, names its source and ends with a next step.
 - **The 2026 practice parameter is the backbone.** It's the joint AAAAI/ACAAI guideline update, posted as a PDF on the ACAAI's college site in August 2026. It reads like the final manuscript (line numbers, some references still "pending"), so if a journal version appears, the link could be swapped. It's the current guideline, not a single study.
 - **Antihistamine timing range.** The ACAAI's Testing & Diagnosis page says 3 to 7 days. Its Ask the Allergist Q&A says at least 7 for best results, noting many guidelines say 3 to 4. Shown as a range in the body (3 to 7), with the Q&A's 7 day, 10 day hydroxyzine and 48 hour Benadryl details in FAQ 1. Practical step: follow the office's instructions.
@@ -91,7 +96,7 @@ REVIEW NOTES
 BODY
 -->
 
-Allergy testing comes before ILIT allergy treatment, because intralymphatic immunotherapy treats only the specific allergens your history and a test point to, and the testing can start at your first allergist appointment. The [American College of Allergy, Asthma and Immunology](https://acaai.org/allergies/testing-diagnosis/) (ACAAI) says you can be tested as soon as your first consultation, and a skin test is read about 15 minutes after it's placed. Practices set up the first visit differently, so ask when you call whether testing happens that day.
+Allergy testing comes before ILIT allergy treatment, because intralymphatic immunotherapy treats only the specific allergens your history and a test point to. You can often be tested at your first allergist appointment, and a skin test is read about 15 minutes after it's placed. Practices set up the first visit differently, so ask when you call whether testing happens that day.
 
 Those results decide which treatment fits and what goes into it, whether that's allergy shots, allergy drops or tablets, or ILIT, a faster alternative to allergy shots.
 
@@ -99,48 +104,68 @@ Those results decide which treatment fits and what goes into it, whether that's 
 
 ## Why immunotherapy needs an allergy test first
 
-Immunotherapy only helps when the diagnosis is right and the extract contains the allergen actually causing your symptoms, according to the [2026 allergen immunotherapy practice parameter](https://college.acaai.org/wp-content/uploads/2026/08/2026-Allergen-Immunotherapy-Practice-Parameter-Update.pdf), the joint guideline from the American Academy of Allergy, Asthma & Immunology (AAAAI) and the ACAAI. Before treatment, that guideline says, the diagnosis rests on three things together: symptoms that fit an allergy, a physical exam, and a positive skin test or blood test for the allergen.
+Immunotherapy only helps when the diagnosis is right and the extract contains the allergen actually causing your symptoms, according to the [2026 allergen immunotherapy practice parameter](https://college.acaai.org/wp-content/uploads/2026/08/2026-Allergen-Immunotherapy-Practice-Parameter-Update.pdf), the joint guideline from the American Academy of Allergy, Asthma & Immunology (AAAAI) and the American College of Allergy, Asthma and Immunology (ACAAI). Before treatment starts, the guideline says, a diagnosis rests on three things together.
 
-A positive ragweed test matters only if your nose and eyes act up in late summer, when ragweed pollinates, according to the ACAAI's [Ask the Allergist answers](https://acaai.org/resource/allergy-testing/), which also warn that relying on tests without a history could lead to a diagnosis of an allergy you may not have.
+**What an allergy diagnosis needs**
 
-The [2008 trial](https://pmc.ncbi.nlm.nih.gov/articles/PMC2582048/) that compared ILIT with standard allergy shots followed the same rule. It enrolled only adults with summer hay fever and a positive skin prick test to grass pollen, then treated them with grass pollen extract.
+- Symptoms that fit an allergy
+- A physical exam
+- A positive skin test or blood test for the same allergen
 
-## What to expect at your first allergist appointment
-
-1. **The history.** The ACAAI says the allergist asks about your health, your symptoms and allergies in your family, then about when symptoms happen and what seems to bring them on, including your work, home and eating habits.
-2. **The exam.** The [Asthma and Allergy Foundation of America](https://aafa.org/allergies/allergy-diagnosis/) (AAFA) says the doctor checks your ears, eyes, nose, throat, lungs and skin, and may do a lung function test.
-3. **The test.** If the allergist decides a skin test is appropriate and safe that day, trained staff place the allergens, which takes about 5 to 10 minutes, and read them about 15 minutes later, the ACAAI says. A blood test is generally used when a skin test might be unsafe or won't work, such as with certain medicines or skin conditions, according to the [AAAAI](https://www.aaaai.org/tools-for-the-public/conditions-library/allergies/allergy-testing). Its results take longer.
-4. **The results.** Once results are in, the ACAAI says, your allergist can tell you what you're allergic to and what you can do about it, reading every result against your history.
-5. **The treatment talk.** The 2026 guideline recommends a documented conversation about the risks, benefits and your preferences before any immunotherapy starts. Because ILIT uses approved allergen extracts by an off label route, as our [Learn About ILIT](/learn-about-ilit#faq-fda) page explains, the guideline also says your allergist should tell you it's off label and note that in the consent form. If you have asthma, expect questions about how well it's controlled: the guideline suggests checking asthma control with a validated measure before prescribing allergy shots.
-
-## Which allergens go into ILIT allergy shots
-
-The allergens in an ILIT extract come from your test results and history. The 2026 guideline describes ILIT as typically three injections of extract for airborne allergens, such as pollen, into a superficial lymph node using ultrasound guidance, with the course usually finished within 8 weeks. In the 2008 trial, the injections went into a lymph node in the groin (just below the waist, near the hip). The guideline describes ILIT with extracts of airborne allergens and doesn't describe it for food allergies.
-
-Good candidates typically have confirmed allergies to a defined set of common triggers, such as pollen, dust mites or pet dander, as our [Learn page on ILIT candidates](/learn-about-ilit#faq-candidate) explains. A broader or more complex allergy profile may suit allergy shots or drops better. Only positives that match your symptoms count, which is why two people with the same test can get different plans.
+A positive test counts only when it lines up with when and where your symptoms happen. A tree pollen result should match symptoms in spring, grass pollen in late spring and summer, and ragweed in late summer and fall. Dust mite results usually go with symptoms at home all year, mold with damp spaces or wet weather, and pet results with time around animals. The ACAAI's [Ask the Allergist answers](https://acaai.org/resource/allergy-testing/) warn that relying on tests without a history could lead to a diagnosis of an allergy you may not have.
 
 ## Can you use earlier allergy test results?
 
-Bring them, but expect a new test. The ACAAI says two years between tests is reasonable, that allergies change and people pick up new ones, and that an allergist recommending immunotherapy will want to retest you to confirm your allergens and that the plan fits. If you're traveling to see an allergist, our [guide to traveling for ILIT](/blog/traveling-for-ilit) covers planning the trip.
+Bring them, and expect the allergist to retest you before immunotherapy. The ACAAI says an allergist recommending immunotherapy will want to retest you to confirm your allergens and that the treatment plan fits, because allergies change over time and people pick up new ones. The extract has to match what you react to now.
+
+Earlier results still help the allergist understand your history. Bring the full report rather than a summary: the type of test (skin or blood), the date, which allergens were tested and the result for each one. Note whether you were taking antihistamines when you were tested, since they can mute a skin test. Results from a blood test ordered by your primary care doctor are worth bringing too. If you're seeing an allergist out of town, our [guide to traveling for ILIT](/blog/traveling-for-ilit) covers how long test results stay useful and how to plan the visits.
+
+## What to expect at your first allergist appointment
+
+1. **Your history.** The allergist asks about your health, your symptoms, allergies in your family, when symptoms happen and what seems to bring them on, including your work, home and eating habits.
+2. **Exam.** The doctor checks your ears, eyes, nose, throat, lungs and skin, and may do a breathing test.
+3. **Allergy test.** If a skin test is safe that day, staff place tiny amounts of allergens on your forearm or back, which takes about 5 to 10 minutes, and read the results about 15 minutes later. If a skin test won't work, for example because of a skin condition or a medicine you can't stop, the allergist may order a blood test instead. Blood test results take a few days.
+4. **Results.** Once results are in, your allergist can tell what you're allergic to and what you can do about it, reading every result against your history.
+5. **Treatment plan.** The 2026 guideline recommends a documented conversation about the risks, benefits and your preferences before any immunotherapy starts. Because ILIT uses approved allergen extracts by an off label route, as our [Learn About ILIT](/learn-about-ilit#faq-fda) page explains in more detail, the guideline also says your allergist should tell you it's off label and note that in the consent form. If you have asthma, expect questions about how well it's controlled, since the guideline suggests checking asthma control before prescribing allergy shots.
 
 ## How to prepare for allergy testing
 
-1. **Ask when to stop antihistamines.** They block the reaction a skin test looks for. The ACAAI says to stop them 3 to 7 days before the test, and the office will tell you exactly when.
-2. **Keep taking asthma inhalers and nasal steroid sprays.** [MedlinePlus](https://medlineplus.gov/ency/article/003519.htm) says inhalers, montelukast and nasal steroids don't need to stop.
-3. **Mention beta blockers and psychiatric medicines.** The ACAAI says some psychiatric medicines can weaken skin test results, and most allergists prefer patients off beta blockers for testing because they can slow the response to epinephrine. Stopping either one is decided with your psychiatrist, cardiologist or primary care doctor.
-4. **Don't stop a prescription on your own.** If you can't or don't want to stop a medicine, tell the office. MedlinePlus says your provider may be able to use a different approach to testing, and the ACAAI says medicine doesn't interfere with blood test results.
-5. **Bring notes and your medicine list.** The AAFA suggests bringing notes to help answer the doctor's questions, and the ACAAI asks you to list every medicine, including over the counter ones.
+1. **Fill out the new patient forms ahead of time.** Most practices send them before the first visit. They usually ask why you're coming in and how long you've had symptoms, about past allergy testing or allergy shots and what you've already tried, for every medicine you take (including vitamins and supplements), and about allergies to medicines, foods or insect stings, other conditions such as asthma and a checklist of recent symptoms. Expect questions about your home too: the kind of home and how old it is, the flooring, pets, air filters and covers on your mattress and pillows, plus smoking, secondhand smoke and allergies or asthma in your family.
+2. **Ask when to stop antihistamines.** They block the reaction a skin test looks for. Your allergy provider will advise if and when you should stop them. A typical timeline is 3 to 7 days before your allergy test, based on [ACAAI guidance](https://acaai.org/allergies/testing-diagnosis/).
+3. **Check the rest of your medicines.** Practices hand out their own lists, and they usually look something like this:
+
+| Usually stopped before a skin test | Usually kept |
+|---|---|
+| Antihistamine pills and liquids, such as cetirizine (Zyrtec), loratadine (Claritin), fexofenadine (Allegra), levocetirizine (Xyzal), diphenhydramine (Benadryl) and hydroxyzine | Asthma inhalers and montelukast (Singulair) |
+| Antihistamine nasal sprays, such as azelastine (Astelin, Astepro) and olopatadine (Patanase) | Steroid nasal sprays, such as Flonase, Nasacort and Rhinocort |
+| Cold, cough and sleep medicines that contain an antihistamine | Decongestants, such as Sudafed |
+| Some heartburn medicines, such as famotidine (Pepcid) and cimetidine (Tagamet) | Allergy eye drops, antibiotics, and medicines for diabetes or birth control |
+
+[MedlinePlus](https://medlineplus.gov/ency/article/003519.htm) lists inhalers, montelukast and nasal steroids among the medicines you don't need to stop.
+
+4. **Mention antidepressants and beta blockers.** Some antidepressants and sleep medicines act like antihistamines and can weaken a skin test, and the ACAAI names amitriptyline, doxepin, imipramine and quetiapine. Most allergists also prefer patients off beta blockers for testing, because they can slow the response to epinephrine. Stopping either one is decided with your psychiatrist, cardiologist or primary care doctor.
+5. **Don't stop a prescription on your own.** If your symptoms are severe or you can't stop a medicine, tell the office. The allergist can work around it, for example with a blood test, which the ACAAI says medicine doesn't interfere with.
+6. **Bring notes and your medicine list.** The AAFA suggests bringing notes to help answer the doctor's questions, and the ACAAI recommends you list every medicine, including over the counter ones.
+
+## Which allergens go into ILIT allergy shots
+
+The allergens in an ILIT extract come from your test results and history. The 2026 guideline describes ILIT as typically three injections of extract for airborne allergens, such as pollen, into a superficial lymph node using ultrasound guidance, with the course usually finished within 8 weeks. It doesn't describe ILIT for food allergies. In the 2008 trial that compared these lymph node allergy shots with standard allergy shots, the injections went into a lymph node in the groin (just below the waist, near the hip).
+
+Good candidates typically have confirmed allergies to a defined set of common triggers, such as pollen, dust mites or pet dander, as our [Learn page on ILIT candidates](/learn-about-ilit#faq-candidate) explains. A broader or more complex allergy profile may suit allergy shots or drops better. Only positives that match your symptoms count, which is why two people with the same test can get different plans.
 
 ## Booking the ILIT allergy injection visits
 
-The three injections come after the testing visit. In the 2008 trial they were given at the start, at four weeks and at eight weeks. The 2026 guideline recommends that only specialists trained in ultrasound guided lymph node injections give ILIT, in a setting prepared to treat a serious reaction. It also notes that most practicing allergists aren't trained in it.
+The three injections come after the testing visit. In the [2008 trial](https://pmc.ncbi.nlm.nih.gov/articles/PMC2582048/) they were given at the start, at four weeks and at eight weeks. The 2026 guideline recommends that only specialists trained in ultrasound guided lymph node injections give ILIT, in a setting prepared to treat a serious reaction. It also notes that most practicing allergists aren't trained in it.
 
-A short phone call before booking answers most of the logistics:
+Questions worth asking when you call:
 
-- Do you test at the first visit, or do I need a blood test first?
-- Will you review my earlier allergy test results?
-- Which antihistamines should I stop, and when?
-- Who performs the lymph node allergy shots, and do they use ultrasound?
+- Do you test at the first visit, or will I need a blood test first?
+- Can you send me your list of medicines to stop, and how many days ahead?
+- Should I send earlier allergy test results before the visit?
+- Can I fill out the new patient forms before I come in?
+- How long should I plan to be there?
+- If my results fit ILIT, how soon can the injections start, and how far apart are they?
+- Who gives the ILIT injections, and how much ILIT experience do they have?
 
 ## Longer term options
 
