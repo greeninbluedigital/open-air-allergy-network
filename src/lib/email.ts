@@ -25,6 +25,7 @@ export async function sendEmail({
   html,
   replyTo,
   text,
+  tags,
 }: {
   to: string;
   subject: string;
@@ -32,6 +33,9 @@ export async function sendEmail({
   replyTo?: string;
   /** Plain-text copy; helps with strict mail filters (medical offices). */
   text?: string;
+  /** Resend tags, echoed back in webhook events (src/app/api/resend/webhook).
+   * Names and values: ASCII letters, numbers, underscores and dashes only. */
+  tags?: { name: string; value: string }[];
 }): Promise<void> {
   const apiKey = process.env.RESEND_API_KEY;
   if (!apiKey) {
@@ -52,6 +56,7 @@ export async function sendEmail({
       html,
       ...(replyTo ? { reply_to: replyTo } : {}),
       ...(text ? { text } : {}),
+      ...(tags?.length ? { tags } : {}),
     }),
   });
 

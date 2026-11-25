@@ -111,6 +111,19 @@ following up is the practice's job once it has the lead (decided
    backup poll tries again after that. A practice with no notification
    email leaves the lead unforwarded (it forwards once one is set). The
    form only shows for practices that have one, so this shouldn't happen.
+8. **Bounces are caught (since 2026-11-25).** "Sent" only means Resend
+   accepted the email. If the practice's mail server then rejects it (the
+   first case: a practice's published hello@ address had no mailbox, 11/24),
+   Resend calls `/api/resend/webhook`. The site marks the lead
+   `forwardBouncedAt` and emails leads@ an alert with the practice, its
+   phone, the bounce reason and the lead. Next steps: call the practice,
+   fix or clear its Notification Email on the sheet, then
+   `npx tsx scripts/resend-lead.ts <leadId> --send`. Resend also adds the
+   bounced address to its suppression list; remove it there only once it's
+   fixed. A bounced confirmation email to a patient is ignored (the lead
+   still forwards, unconfirmed). Every lead email carries Resend tags
+   `oaan_type` and `lead_id`; for older emails without tags, the webhook
+   matches the most recent lead forwarded to the bounced address.
 
 Clicking the confirmation link twice, or after the auto-forward already
 happened, never sends a duplicate.
@@ -130,11 +143,17 @@ happened, never sends a duplicate.
 | For Practices email | `src/lib/practiceLead.ts` |
 | About page email | `src/lib/generalInquiry.ts` |
 | Email sending (Resend) + HTML escaping | `src/lib/email.ts` |
+| Bounce alerts + resending a lead | `src/app/api/resend/webhook/route.ts`, `scripts/resend-lead.ts` |
 
 QStash needs `QSTASH_TOKEN`, `QSTASH_CURRENT_SIGNING_KEY` and
 `QSTASH_NEXT_SIGNING_KEY` (plus `QSTASH_URL` if the Upstash console shows
 one) in Vercel's environment variables. Without them, leads fall back to
 the backup poll.
+
+Bounce alerts need a webhook in Resend (Webhooks, Add Webhook, endpoint
+`https://openairallergynetwork.com/api/resend/webhook`, event
+`email.bounced` only) and its signing secret in Vercel as
+`RESEND_WEBHOOK_SECRET`. Without the secret, the endpoint rejects every call.
 
 ## Possible next steps
 
