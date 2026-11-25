@@ -331,6 +331,9 @@ turns each one into a promise.
     USPTO: the only filing for "ILIT" is an abandoned application, with no
     live registration. The owner suspects the term is too generic for anyone
     to own.
+    Update 2026-11-24: the owner decided an editorial article (queue, "ILIT
+    brand names") will name every branded ILIT term, treating it as editorial
+    use of procedure names. The article names no practices.
 17. **Free trial upgrades during sales pushes (added 2026-10-07).** The owner
     is considering a free month of the Featured tier for practices in a
     market during a sales push, with OAAN adding photos and writing

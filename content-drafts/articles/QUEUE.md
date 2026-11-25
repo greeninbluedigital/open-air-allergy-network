@@ -54,7 +54,8 @@ Keep the mix when adding items.
 **Allergy shots guide rewrite (owner, 2026-11-16):** #30 rewrites the existing Learn guide in place. It is the one exception to "Section: always Blog": the draft uses `Section: LEARN`, the same slug and the same title, and keeps the tags SCIT, ILIT and Allergy Treatment Guides. Brief in docs/content-ideas.md, "Allergy shots guide rewrite". Order this week: Mold Allergy, this rewrite, Cottonwood, Basement Mold (Michigan still publishes by 11/23), then Oak.
 **Two more Learn guide rewrites (owner, 2026-11-16):** #36 pet allergy and #37 seasonal allergies follow Basement Mold, same rules as #30: `Section: LEARN`, same slug and title, keep the existing tags (including Allergy Treatment Guides). Brief in docs/content-ideas.md, "Learn guide rewrites: pet and seasonal".
 **Allergy blood test results (owner, 2026-11-19):** #38 follows the two Learn rewrites. Allergy Test Results Explained led the AI answer impressions in Search Console, so this gives blood results their own article in the same format. Brief in docs/content-ideas.md, "Allergy blood test results".
-**Questions from leads (owner, 2026-11-23):** #39 (testing before ILIT) and #40 (ILIT cost) come from the first real contact form lead. #40 stays on `hold` until the allergy shot cost calculator (docs/calculator-plan.md) is finished and deployed; it can't go live before that. Briefs in docs/content-ideas.md, "Questions from practice contact form leads".
+**Questions from leads (owner, 2026-11-23):** #39 (testing before ILIT) and #41 (ILIT cost) come from the first real contact form lead. #41 stays on `hold` until the allergy shot cost calculator (docs/calculator-plan.md) is finished and deployed; it can't go live before that. Briefs in docs/content-ideas.md, "Questions from practice contact form leads".
+**ILIT brand names (owner, 2026-11-24):** #40 follows the testing before ILIT article. Goal: rank for the brand names practices give ILIT, against the practices' own sites. No practice names in the article. Brief in docs/content-ideas.md, "ILIT brand names".
 
 | # | Working title | Section | Slug | Publish by | Status | Draft file | Image idea | Hero image |
 |---|---|---|---|---|---|---|---|---|
@@ -97,18 +98,19 @@ Keep the mix when adding items.
 | 37 | REWRITE: Seasonal Allergies: Spring, Summer, Fall & Winter Guide (Learn page: Yes, existing guide) | Learn | seasonal-allergies-by-season | ASAP (owner, 2026-11-16) | published 2026-11-23 | published/seasonal-allergies-by-season.md | Keep the current hero (trees through the seasons); write alt text from it. | https://res.cloudinary.com/qruprn0t/image/upload/v1790134851/learn-about-ilit-seasons-trees.jpg |
 | 38 | Allergy Blood Test Results Explained: IgE Numbers and Classes | Blog | allergy-blood-test-results | any time (agentic impressions signal, owner 2026-11-19) | published 2026-11-24 | published/allergy-blood-test-results.md | Blood collection tubes in a lab rack beside a printed lab report, bright clinical light. Search "blood test tubes lab". File: allergy-blood-test-results-lab-tubes.jpg | https://res.cloudinary.com/qruprn0t/image/upload/v1795547101/allergy-blood-test-results-lab-tubes.jpg |
 | 39 | Do You Need Allergy Testing Before ILIT? What Happens at the First Visit | Blog | allergy-testing-before-ilit | any time (from a real lead question, owner 2026-11-23) | next | | Forearm skin prick test with a nurse's gloved hand placing allergen drops, bright clinic light. Search "skin prick test". File: allergy-testing-before-ilit-skin-prick-test.jpg |  |
-| 40 | How Much Does ILIT Cost? | Blog | how-much-does-ilit-cost | NOT before the allergy shot cost calculator is finished and deployed (docs/calculator-plan.md) | hold | |  |  |
-| 41 | Oak Pollen Allergy | Blog | oak-pollen-allergy | February | next | |  |  |
-| 42 | Denver Allergies (city page) | Blog | denver-allergies | before March | next | |  | https://res.cloudinary.com/qruprn0t/image/upload/v1791852967/denver-co-skyline.jpg |
-| 43 | Pine Pollen: Why the Yellow Dust Usually Isn't What's Making You Sneeze | Blog | pine-pollen-allergy | late February | next | |  |  |
-| 44 | Birch Pollen Allergy (Learn page: Yes) | Blog | birch-pollen-allergy | March | next | |  |  |
-| 45 | Allergy Triggers in St. Louis and Kansas City (ranking or list, local) | Blog | st-louis-kansas-city-allergy-triggers | before March | next | |  |  |
-| 46 | Grass Pollen Allergy (Learn page: Yes) | Blog | grass-pollen-allergy | April | next | |  |  |
-| 47 | Allergy Season in Charlotte: Pine, Oak and Grass (how-to, local) | Blog | charlotte-allergy-season | before March | next | |  |  |
-| 48 | Ohio Grass Pollen Season: When It Peaks and What Helps | Blog | ohio-grass-pollen-season | early April (peak May to June) | next | |  |  |
-| 49 | Why People Quit Allergy Shots, and What the Research Shows | Blog | why-people-quit-allergy-shots | any time | next | |  | https://res.cloudinary.com/qruprn0t/image/upload/v1792627574/why-people-quit-allergy-shots-waiting-room-watch.jpg |
-| 50 | Where Do ILIT Injections Go? Groin and Neck Lymph Nodes Explained | Blog | where-do-ilit-injections-go | any time | next | |  |  |
-| 51 | Ragweed Season in the Midwest: Indianapolis, Toledo, Dayton and Grand Rapids (ranking or list, local) | Blog | midwest-ragweed-season | July | next | |  |  |
-| 52 | Goldenrod or Ragweed? The Fall Allergy Mix-Up | Blog | goldenrod-vs-ragweed | mid August | hold | |  |  |
-| 53 | Dust Mite Covers and Sprays: Do They Actually Work? | Blog | dust-mite-covers-and-sprays | any time (product searches, about 15K a month combined) | next | |  |  |
-| 54 | How Are Allergy Shots Made? From Pollen and Dust Mites to Your Vial | Blog | how-are-allergy-shots-made | any time | next | | Close up of a gloved hand drawing liquid from a small vial in a lab, or rows of labeled extract bottles on a pharmacy shelf. Search "laboratory vials gloved hand". File: how-are-allergy-shots-made-lab-vials.jpg |  |
+| 40 | ExACT Immunoplasty, QUICK-LI and Other Brand Names for ILIT Allergy Treatment | Blog | ilit-brand-names | any time (owner, 2026-11-24: win search for providers' branded ILIT terms) | next | | Allergen extract vials in a clinic tray with blank or plain labels, bright clinic light (same treatment, different labels). Search "allergy extract vials". File: ilit-brand-names-extract-vials.jpg |  |
+| 41 | How Much Does ILIT Cost? | Blog | how-much-does-ilit-cost | NOT before the allergy shot cost calculator is finished and deployed (docs/calculator-plan.md) | hold | |  |  |
+| 42 | Oak Pollen Allergy | Blog | oak-pollen-allergy | February | next | |  |  |
+| 43 | Denver Allergies (city page) | Blog | denver-allergies | before March | next | |  | https://res.cloudinary.com/qruprn0t/image/upload/v1791852967/denver-co-skyline.jpg |
+| 44 | Pine Pollen: Why the Yellow Dust Usually Isn't What's Making You Sneeze | Blog | pine-pollen-allergy | late February | next | |  |  |
+| 45 | Birch Pollen Allergy (Learn page: Yes) | Blog | birch-pollen-allergy | March | next | |  |  |
+| 46 | Allergy Triggers in St. Louis and Kansas City (ranking or list, local) | Blog | st-louis-kansas-city-allergy-triggers | before March | next | |  |  |
+| 47 | Grass Pollen Allergy (Learn page: Yes) | Blog | grass-pollen-allergy | April | next | |  |  |
+| 48 | Allergy Season in Charlotte: Pine, Oak and Grass (how-to, local) | Blog | charlotte-allergy-season | before March | next | |  |  |
+| 49 | Ohio Grass Pollen Season: When It Peaks and What Helps | Blog | ohio-grass-pollen-season | early April (peak May to June) | next | |  |  |
+| 50 | Why People Quit Allergy Shots, and What the Research Shows | Blog | why-people-quit-allergy-shots | any time | next | |  | https://res.cloudinary.com/qruprn0t/image/upload/v1792627574/why-people-quit-allergy-shots-waiting-room-watch.jpg |
+| 51 | Where Do ILIT Injections Go? Groin and Neck Lymph Nodes Explained | Blog | where-do-ilit-injections-go | any time | next | |  |  |
+| 52 | Ragweed Season in the Midwest: Indianapolis, Toledo, Dayton and Grand Rapids (ranking or list, local) | Blog | midwest-ragweed-season | July | next | |  |  |
+| 53 | Goldenrod or Ragweed? The Fall Allergy Mix-Up | Blog | goldenrod-vs-ragweed | mid August | hold | |  |  |
+| 54 | Dust Mite Covers and Sprays: Do They Actually Work? | Blog | dust-mite-covers-and-sprays | any time (product searches, about 15K a month combined) | next | |  |  |
+| 55 | How Are Allergy Shots Made? From Pollen and Dust Mites to Your Vial | Blog | how-are-allergy-shots-made | any time | next | | Close up of a gloved hand drawing liquid from a small vial in a lab, or rows of labeled extract bottles on a pharmacy shelf. Search "laboratory vials gloved hand". File: how-are-allergy-shots-made-lab-vials.jpg |  |
