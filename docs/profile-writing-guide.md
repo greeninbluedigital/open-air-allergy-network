@@ -135,6 +135,11 @@ what doesn't:
   out of the page, so the question has to make sense without it. General
   ILIT questions ("Is ILIT allergy treatment FDA approved?") stay as they
   are.
+- **No counts that practices change (owner, 2026-11-25).** Don't state how
+  many allergens fit in one series or how many a test panel covers ("up to 3
+  allergens", "up to 58 allergens"). Practices update these, and we can't
+  keep up. Say it qualitatively instead: "one series can include more than
+  one allergen, chosen from your allergy test results."
 - **A practice's brand name for ILIT (QUICK-LI, ExACT Immunoplasty, AAT,
   Elaria Rapid Allergy Therapy) goes in one question at most,** because few
   people search it. Make that one "Are {Brand} and ILIT allergy treatment the
