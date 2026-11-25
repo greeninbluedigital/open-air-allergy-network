@@ -56,6 +56,7 @@ Keep the mix when adding items.
 **Allergy blood test results (owner, 2026-11-19):** #38 follows the two Learn rewrites. Allergy Test Results Explained led the AI answer impressions in Search Console, so this gives blood results their own article in the same format. Brief in docs/content-ideas.md, "Allergy blood test results".
 **Questions from leads (owner, 2026-11-23):** #40 (testing before ILIT) and #41 (ILIT cost) come from the first real contact form lead. #41 stays on `hold` until the allergy shot cost calculator (docs/calculator-plan.md) is finished and deployed; it can't go live before that. Briefs in docs/content-ideas.md, "Questions from practice contact form leads".
 **ILIT brand names (owner, 2026-11-24):** #39 published 2026-11-24, a day ahead of the testing before ILIT article (#40). Goal: rank for the brand names practices give ILIT, against the practices' own sites. No practice names in the article. Brief in docs/content-ideas.md, "ILIT brand names".
+**Kansas City moved up (owner, 2026-11-25):** #43 (Allergy Triggers in St. Louis and Kansas City) is the next draft, to send readers toward Prairie Allergy's Kansas City page through the Kansas and Missouri state pages and Find a Provider with a Kansas City zip (local rules: no practice names). The owner reviews it this weekend. Dr. Brynn Everist (Prairie Allergy) may be asked to take a medical reviewer credit later; leave Credit as house for now.
 
 | # | Working title | Section | Slug | Publish by | Status | Draft file | Image idea | Hero image |
 |---|---|---|---|---|---|---|---|---|
@@ -101,10 +102,10 @@ Keep the mix when adding items.
 | 40 | Do You Need Allergy Testing Before ILIT? What Happens at the First Visit | Blog | allergy-testing-before-ilit | any time (from a real lead question, owner 2026-11-23) | reviewed 2026-11-24, publish after 4 PM PT 11/25 (scheduled task) | allergy-testing-before-ilit.md | Forearm skin prick test with a nurse's gloved hand placing allergen drops, bright clinic light. Search "skin prick test". File: allergy-testing-before-ilit-skin-prick-test.jpg | https://res.cloudinary.com/qruprn0t/image/upload/v1795574594/allergy-testing-before-ilit-calendar.png |
 | 41 | How Much Does ILIT Cost? | Blog | how-much-does-ilit-cost | NOT before the allergy shot cost calculator is finished and deployed (docs/calculator-plan.md) | hold | |  |  |
 | 42 | Oak Pollen Allergy | Blog | oak-pollen-allergy | February | reviewed 2026-11-25 | oak-pollen-allergy.md |  |  |
-| 43 | Denver Allergies (city page) | Blog | denver-allergies | before March | next | |  | https://res.cloudinary.com/qruprn0t/image/upload/v1791852967/denver-co-skyline.jpg |
-| 44 | Pine Pollen: Why the Yellow Dust Usually Isn't What's Making You Sneeze | Blog | pine-pollen-allergy | late February | next | |  |  |
-| 45 | Birch Pollen Allergy (Learn page: Yes) | Blog | birch-pollen-allergy | March | next | |  |  |
-| 46 | Allergy Triggers in St. Louis and Kansas City (ranking or list, local) | Blog | st-louis-kansas-city-allergy-triggers | before March | next | |  |  |
+| 43 | Allergy Triggers in St. Louis and Kansas City (ranking or list, local) | Blog | st-louis-kansas-city-allergy-triggers | ASAP (owner, 2026-11-25: next draft, to help Prairie Allergy's Kansas City page) | next | |  |  |
+| 44 | Denver Allergies (city page) | Blog | denver-allergies | before March | next | |  | https://res.cloudinary.com/qruprn0t/image/upload/v1791852967/denver-co-skyline.jpg |
+| 45 | Pine Pollen: Why the Yellow Dust Usually Isn't What's Making You Sneeze | Blog | pine-pollen-allergy | late February | next | |  |  |
+| 46 | Birch Pollen Allergy (Learn page: Yes) | Blog | birch-pollen-allergy | March | next | |  |  |
 | 47 | Grass Pollen Allergy (Learn page: Yes) | Blog | grass-pollen-allergy | April | next | |  |  |
 | 48 | Allergy Season in Charlotte: Pine, Oak and Grass (how-to, local) | Blog | charlotte-allergy-season | before March | next | |  |  |
 | 49 | Ohio Grass Pollen Season: When It Peaks and What Helps | Blog | ohio-grass-pollen-season | early April (peak May to June) | next | |  |  |
