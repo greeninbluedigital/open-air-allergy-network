@@ -20,7 +20,7 @@ Nothing in progress. The owner picks the next article from the ideas below.
 |---|---|---|---|
 | Fall Allergies Are Here: What's Next for Winter, Region by Region | "fall allergies", "ragweed season", "winter allergies", "cedar fever" | Allergy Symptoms | **Timely: best in October.** Details below the tables |
 | How to Find an ILIT Provider, and What to Ask | "ilit near me", "intralymphatic immunotherapy near me", "ilit provider", "questions to ask an allergist about immunotherapy" | ILIT | Highest intent. Links straight to Find a Provider |
-| What to Expect at Your First ILIT Appointment | "ilit procedure", "intralymphatic immunotherapy procedure", "lymph node allergy injection" | ILIT | First-visit prep: what happens, questions to ask. Replaces the old placeholder "5 Things to Know Before Starting ILIT". **Testing and the first visit now belong to queue #39 (2026-11-23).** If this is written later, keep it to the injection visits and link #39 for testing |
+| What to Expect at Your First ILIT Appointment | "ilit procedure", "intralymphatic immunotherapy procedure", "lymph node allergy injection" | ILIT | First-visit prep: what happens, questions to ask. Replaces the old placeholder "5 Things to Know Before Starting ILIT". **Testing and the first visit now belong to queue #40 (2026-11-23).** If this is written later, keep it to the injection visits and link #40 for testing |
 | Why Isn't ILIT Covered by Insurance? | "is ilit covered by insurance", "intralymphatic immunotherapy insurance", "allergy immunotherapy hsa eligible" | ILIT | Owner idea 2026-10-08, replaced "How Much Does ILIT Cost?", which came back as queue #41 on 2026-11-23 and now owns "ilit cost". Explain why: FDA-approved extracts given by an off-label route (link the Learn FDA FAQ), how insurers classify it (cite real payer medical policies, e.g. ones calling it investigational, not hearsay), what HSA/FSA rules say (IRS Pub 502), and what to ask the practice. General education only, no practice names or prices; practice pages still never discuss payment (`docs/profile-writing-guide.md` rule 2). Goal: answer the cost objection before it stops a lead, then point to Find a Provider |
 | What to Bring to Your First Allergist Appointment | "what to bring to allergist appointment", "first allergist appointment", "what to expect at an allergist" | Allergy Testing | Checklist-style prep article. Inspired by the "what to bring" list on United Allergy Services' allergist listing pages (e.g. unitedallergyservices.com/allergists/california/los-angeles/sandra-ho-1659680411/): symptom history and suspected triggers, current and past allergy medicines, prior test records, insurance and ID, questions to ask. Write our own version, don't reuse their wording. Our angles: which antihistamines to pause before skin testing (link the skin test article), a symptom diary or photos of reactions, and ILIT as one of the questions to ask. Broader than "What to Expect at Your First ILIT Appointment" (that one is ILIT-specific), and its questions section overlaps "How to Find an ILIT Provider, and What to Ask", so keep the question lists distinct or link between them |
 | Switching From Allergy Shots to ILIT | "switch from allergy shots to ilit", "alternative to allergy shots", "stop allergy shots" | Comparisons | For people tired of years of shots. The Learn FAQ only touches on it. **Owner, 2026-11-06:** cover the "already on shots" math here, not in the calculator: how many months a reader has done, what's left (visits, hours, dollars) vs. switching to ILIT now. Link the allergy shot cost calculator (`docs/calculator-plan.md`) |
@@ -36,7 +36,7 @@ Nothing in progress. The owner picks the next article from the ideas below.
 | Idea | Target keywords | Notes |
 |---|---|---|
 | Regional series: "[State] Allergy Season" articles | "allergies in [state]", "[state] allergy season", "[city] pollen" | One per state with ILIT listings. Plan below the tables |
-| ILIT's brand names | each brand name | **Moved to the queue as #40 (owner, 2026-11-24)**, without the practice list or the 10 paying practices hold. Brief below, "ILIT brand names" |
+| ILIT's brand names | each brand name | **Moved to the queue as #39 (owner, 2026-11-24)**, without the practice list or the 10 paying practices hold. Brief below, "ILIT brand names" |
 | Allergy medicine vs. allergy shots | "allergy medicine vs allergy shots" | Goes deeper on the comparison table's Allergy Medicine column: oral antihistamines, nasal steroid sprays, eye drops, decongestants, leukotriene modifiers. Neutral: good for symptom control, the tradeoff is ongoing use |
 | ILIT safety and FDA review status | "is ilit safe", "ilit fda approval" | Deeper than the Learn page's "Is ILIT safe?" section. Sources: Senti et al. 2008 RCT (PNAS, PMID 19001265, NCT00470457); health.osu.edu/health/general-health/ilit-allergy-shots |
 | Allergy-induced asthma | "allergy induced asthma", "allergy related asthma" | Hedged, not a cure claim. Model: "for patients with asthma triggered by allergens, [ILIT] may improve breathing and reduce flare-ups" (premierallergyohio.com). The Learn FAQ "Can ILIT help with my asthma?" covers it briefly |
@@ -791,7 +791,7 @@ Provider.
 report, bright clinical light. Search "blood test tubes lab". File:
 allergy-blood-test-results-lab-tubes.jpg.
 
-## Idea detail: Questions from practice contact form leads (owner, 2026-11-23, queue #39 and #41)
+## Idea detail: Questions from practice contact form leads (owner, 2026-11-23, queue #40 and #41)
 
 The first real contact form lead (11/23) asked two things a practice would
 hear before booking: whether an allergy panel has to be done in advance or
@@ -799,7 +799,7 @@ happens as part of the ILIT assessment, and what ILIT is expected to cost.
 The owner wants lead questions mined for topics (themes only, never anyone's
 personal details).
 
-**#39 Do You Need Allergy Testing Before ILIT?** Slug
+**#40 Do You Need Allergy Testing Before ILIT?** Slug
 `allergy-testing-before-ilit`, Blog, tags ILIT and Allergy Testing. Owns
 "allergy test before ilit", "do i need allergy testing before ilit", "ilit
 assessment", "ilit first appointment" / "ilit consultation", "can i use old
@@ -832,7 +832,7 @@ FSA (IRS Pub 502), the fewer visits and less time off work compared with
 allergy shots (from the calculator), and what to ask a practice for a
 quote. Ends at Find a Provider and the calculator.
 
-## Idea detail: ILIT brand names (owner, 2026-11-24, queue #40)
+## Idea detail: ILIT brand names (owner, 2026-11-24, queue #39)
 
 **Goal:** win search for the names practices give ILIT, ranking against the
 practices' own websites. Google autocomplete (11/24) shows real demand for
