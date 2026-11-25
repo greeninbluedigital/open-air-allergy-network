@@ -61,6 +61,7 @@ SOURCES (all linked in the article)
 - Own arithmetic: "intralymphatic immunotherapy" is 11 syllables (in-tra-lym-phat-ic im-mu-no-ther-a-py).
 
 REVIEW NOTES
+- **Owner's third round (2026-11-24).** Owner removed ExACT's "up to 9 allergens" line and the guideline's one to three allergen evidence (the differences list now just says to ask how many allergens go into a series), added a table note explaining the inguinal lymph node, simplified RapImmune's lymph node cell to "Groin" and reworded the reviews line. Main session final pass: one word changed ("the inguinal lymph node" to "an inguinal lymph node", since there are several). Still open, owner's call: the allergist point that much ILIT research used extracts not sold in the U.S. (not added).
 - **Owner's second round (2026-11-24).** No link to Columbia Allergy's page, ever: the owner gave that URL for reference only. Table cut to name, other spellings and lymph node (owner: timing, ultrasound and allergens are the same everywhere and repeat the article); an ILIT row added at the top so the generic name sits with the brands. "By a radiologist" removed from A-ILIT (owner doesn't want radiologist vs. clinician highlighted). The owner says all ILIT is ultrasound guided, so the "ask whether ultrasound is used" prompts were replaced (differences list: ask who gives the injections and their ILIT experience; pain FAQ: ask what you'll feel). Patient read: "superficial lymph node" now explained once in the intro ("one just under the skin", as OSU describes it). Allergist read, flagged for the owner rather than changed: (1) much of the ILIT research used aluminum-adsorbed or allergoid extracts that the guideline says aren't available in the U.S., while U.S. programs use U.S. extracts, so "every program rests on the same ILIT research" is a simplification; (2) ExACT's "up to 9 allergens per series" sits in the same article as the guideline's one to three allergen evidence.
 - **Owner's comments and main session review (2026-11-24).** Hero set to the AI conference badges image. The injection site diagram sits right aligned under "What is RapImmune?" as the owner placed it (caption: groin for most programs, neck for A-ILIT). Every name is now in one table near the top ("ILIT brand names at a glance": timing, lymph node, ultrasound, allergens named), and the four big names keep their own sections for search. The table's allergen column lists allergen types only, so ExACT's "up to 9 per series" stays in its section and isn't set side by side with the guideline's one to three allergen point. The research section now links the guideline, the 2008 Senti trial (PNAS) and the 19-year follow-up (Adlany 2023, guideline ref 679), and gives that follow-up's sample size: 76% is 19 of the 25 ILIT patients who answered, out of 58 treated. The adjuvant reaction detail is gone (owner: don't alarm readers); the safety paragraph now tells readers to ask about risks and that many practices require an epinephrine auto-injector at every visit (ordinary practice, unsourced). "Longer term options" became "How do you find ILIT allergy treatment near you?" with the Find a Provider sentence, the fast allergy treatment line and the comparison card; the medicine, shots and drops paragraphs are gone, and the evidence hedge moved into the research section. Cut the intro's roadmap sentence. "Why practices..." rewritten in the owner's words (easier to say, something unique to market). FAQs reordered practical first; FAQ 2 (success rate) gets the same sample size caveat; FAQ 3 cites the Senti trial without a patient count (abstract 165, guideline 183). Hyphens removed (ultrasound guided, off label, well tolerated).
 - **Owner's A-ILIT note (mid-run, 2026-11-24).** You asked that the A-ILIT section refer to columbiaallergy.com/ilit-treatment, since that program uses cervical (neck) lymph nodes and most others use groin nodes. I used that page for every A-ILIT detail and the section says exactly that. I didn't link it, because the brief says never to link practice websites and a link would name the practice. If "refer to" meant link it, it's a one-line change. Its "superior results" claim for neck nodes has no cited source, so it's left out.
@@ -124,14 +125,14 @@ None of these programs describes a different medicine. Each one describes ILIT a
 
 ## ILIT brand names at a glance
 
-Every name below means ILIT, and all but the first are names practices gave their own programs. The lymph node column comes from each program's own description, and "Not stated" means it didn't say.
+Every name below means ILIT, the unbranded general term for intralymphatic immunotherapy. All but the first are names practices gave their own programs. The lymph node column comes from each program's own description, and "Not stated" means it didn't say. Groin injections are given in an inguinal lymph node, along the hip and just below the waist.
 
 | Name | Also written or searched as | Lymph node |
 |---|---|---|
 | ILIT | Intralymphatic immunotherapy, lymph node allergy shots | Groin or neck |
 | ExACT Immunoplasty℠ | Immunoplasty | Groin |
 | QUICK-LI® | Quick-LI | Groin |
-| RapImmune® | None found | Groin, at the top of the thigh |
+| RapImmune® | None found | Groin |
 | A-ILIT | Advanced Intralymphatic Immunotherapy, Advanced ILIT | Neck |
 | AAT | Accelerated Allergy Treatment, Advanced Allergy Treatment | Groin |
 | Rapid Allergy Therapy | Often with the practice's name in front | Groin |
@@ -143,7 +144,7 @@ Every name below means ILIT, and all but the first are names practices gave thei
 
 ExACT Immunoplasty℠, often searched as "immunoplasty", is one practice group's name for ILIT. Its materials describe three injections four weeks apart, eight weeks in all, given with ultrasound guidance into an inguinal lymph node, in the groin. The injection takes about 5 to 10 minutes and is followed by 60 minutes of observation.
 
-The program starts with an allergy test covering up to 58 allergens, and the first treatment can be scheduled the same day as the test. Up to 9 allergens can go into one treatment series. Patients bring an epinephrine auto-injector, such as an EpiPen, on treatment days, and people who take a beta blocker are asked to have their doctor stop it at least 24 hours before each treatment. The [ACAAI](https://acaai.org/resource/allergy-testing/) says an allergist decides about stopping a beta blocker only after talking with your cardiologist or primary care doctor, so never stop one on your own.
+The program starts with an allergy test covering up to 58 allergens, and the first treatment can be scheduled the same day as the test. Patients bring an epinephrine auto-injector, such as an EpiPen, on treatment days, and people who take a beta blocker are asked to have their doctor stop it at least 24 hours before each treatment. The [ACAAI](https://acaai.org/resource/allergy-testing/) says an allergist decides about stopping a beta blocker only after talking with your cardiologist or primary care doctor, so never stop one on your own.
 
 ## What is QUICK-LI?
 
@@ -167,7 +168,7 @@ Most of the other programs describe a lymph node in the groin, as does [Ohio Sta
 
 - **Training and ultrasound.** The guideline recommends that only specialists trained in ultrasound guided lymph node injections give ILIT, in a setting ready to treat a serious reaction. It cites a European training program where, before formal training, only 58 of 156 injections reached the lymph node, and hitting the node was linked to how well the treatment worked. Ask who gives the injections and how much ILIT experience they have.
 - **Spacing.** The guideline says injections every 4 weeks, rather than every 2, contribute to ILIT's effectiveness and safety. Most programs here use about four weeks. Ask the schedule for all three visits before you start.
-- **How many allergens.** The guideline says the evidence supports treating one allergen, with very limited evidence for up to three at once. Ask how many allergens a program puts into your series and how it chooses them.
+- **How many allergens.** Ask how many allergens a program puts into your treatment series and how it chooses them.
 - **Which lymph node.** Most programs use the groin, and A-ILIT uses the neck.
 - **Testing.** Some programs test and treat on the same day. Others review earlier results first, so ask what the first visit includes.
 
@@ -183,6 +184,6 @@ Serious reactions to ILIT are rare, the guideline says. Many practices still ask
 
 Search for the treatment rather than one brand name. A branded program is offered only by the practices that use that name, and the 2026 guideline notes that most practicing allergists aren't trained in ILIT. With three injections over about eight weeks, ILIT is the closest thing to a fast allergy treatment schedule that immunotherapy offers.
 
-Use [Find a Provider](/find-an-ilit-provider) on OpenAirAllergyNetwork.com to find a practice near you. Each listing describes the practice's ILIT program, whatever it calls it, and some listings show patient reviews.
+Use [Find a Provider](/find-an-ilit-provider) on OpenAirAllergyNetwork.com to find a practice near you. Each listing describes the practice's ILIT program, along with patient reviews when available.
 
 [Allergy Shots vs. Allergy Drops vs. ILIT: Full Comparison](/learn-about-ilit/allergy-shots-vs-allergy-drops-vs-ilit "card")
