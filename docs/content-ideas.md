@@ -914,8 +914,10 @@ No practice names (local rules).
   allergies" and "Southern California allergy season" as secondary terms
   (owner). The Los Angeles page already ranks around 17 to 29 for the
   Southern California searches, so San Diego uses them in body text, an H2
-  or a FAQ, while the title and H1 stay San Diego. Link the LA page with the
-  card. Find a Provider zip 92101.
+  or a FAQ, while the title and H1 stay San Diego. "Are allergies bad in
+  Southern California?" is a good FAQ here (it was dropped from the LA page
+  as a duplicate of "Is Los Angeles bad for allergies?", 11/26). Link the LA
+  page with the card. Find a Provider zip 92101.
 - **San Francisco Allergies (#57):** keywords "san francisco allergies",
   "bay area allergies", "bay area allergy season", plus "Northern California
   allergies" and "Northern California allergy season" (owner). Find a
