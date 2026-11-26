@@ -5,7 +5,7 @@ article text. Source links in the body open in a new tab.
 Section: BLOG
 Title (60 chars): Los Angeles Allergies: Pollen, Santa Ana Winds and Treatment
 URL: /blog/los-angeles-allergies
-Meta description (144 chars): Los Angeles allergies run most of the year: tree pollen from January to May, grass into summer, weeds in fall, then Santa Ana winds. What helps.
+Meta description (151 chars): Los Angeles and Southern California allergies run most of the year: tree pollen January to May, grass into summer, weeds in fall, then Santa Ana winds.
 Target keywords: "los angeles allergies" (head term: title, first paragraph, H2), "los angeles allergy season" (H2), "allergies in los angeles", "southern california allergy season", "common allergies in los angeles" (FAQ), "why are my allergies so bad in los angeles" (H2), "is los angeles bad for allergies" (FAQ 1), "los angeles allergy ranking" (H2), "when is peak allergy season in los angeles" (FAQ), "when does allergy season end in los angeles" (FAQ), "fall allergies in los angeles" (H2), "santa ana winds allergies" / "do santa ana winds cause allergies" (H2 and FAQ), "can wildfire smoke cause allergies" (FAQ), "los angeles pollen count" (H2), "allergist los angeles" (final H2), "best and worst cities in california for allergies" (California table H2), "allergy shots los angeles" (FAQ), "faster alternative to allergy shots" (Longer term options section)
 Tags: Allergens, Allergy Symptoms
 Feature image: https://res.cloudinary.com/qruprn0t/image/upload/v1794088912/los-angeles-allergies-hollywood-sign.jpg
@@ -26,6 +26,9 @@ A: Not compared with most big U.S. metros. The [AAFA](https://aafa.org/wp-conten
 
 Q: What are the most common allergies in Los Angeles?
 A: Pollen from grasses, trees and weeds is often the culprit behind seasonal allergies in Southern California, according to [Cedars-Sinai's pollen guide](https://www.cedars-sinai.org/content/dam/cedars-sinai/blog/2017/05/pollen-guide-in-southern-california.pdf). Its list of common sources includes Bermuda and rye grasses, olive, oak, walnut, western sycamore and eucalyptus trees, and weeds such as sagebrush, western ragweed and black mustard. An allergy test shows which ones you actually react to.
+
+Q: Are allergies bad in Southern California?
+A: It depends on the city. In the [AAFA's 2026 Allergy Capitals report](https://aafa.org/wp-content/uploads/2026/03/aafa-2026-allergy-capitals-report.pdf), San Diego ranked 2nd most challenging of the 100 largest U.S. metros, while Oxnard ranked 59th, Los Angeles 82nd and Riverside 87th. The pollen season is long across the region: [UCLA Health](https://www.uclahealth.org/news/rain-allergies-kids-pollen) says tree pollen is most prevalent in Southern California from January through May.
 
 Q: When is peak allergy season in Los Angeles?
 A: Late winter and spring. [UCLA Health](https://www.uclahealth.org/news/rain-allergies-kids-pollen) says tree pollen is most prevalent in Southern California from January through May. Heavy rain can make it worse: UCLA Health says storms can break pollen into smaller particles that are more easily inhaled and reach deeper into the lungs.
@@ -58,6 +61,7 @@ SOURCES (all linked in the article)
 - OAAN California state page (checked in the browser this run): Los Angeles section with anchor `#los-angeles` and a "Search near Los Angeles" link for ZIP 90012.
 
 REVIEW NOTES
+- **Top pages audit (2026-11-25, main session):** Search Console showed the page at positions 17 to 29 for a cluster of "Southern California allergies" and "fall allergies southern california" searches. Meta description now leads with "Los Angeles and Southern California allergies", a new FAQ "Are allergies bad in Southern California?" uses the AAFA ranks already in the California table plus UCLA Health's season, and the at a glance section links the national seasonal allergies guide. San Diego and San Francisco city pages are queued (#56, #57) to take the regional keywords further.
 - **Owner review round 3 (2026-11-09), checked against the sources:** owner's "strong, warm and dry" Santa Ana description is supported by the NWS page ("typically feel warm (or even hot)", "These strong winds"); "flowing the opposite direction of typical wind patterns" is not on the NWS page (it says only that they "flow east to west through the mountain passages"), so it became the NWS's own explanation of why they're warm (compression as the air comes down the mountains). The mask sentence ("less useful") was softer than AQMD's "Do not rely on surgical masks or cloth masks for protection"; restored, with AQMD's fit wording for respirators ("if they are worn properly and have a tight fit").
 - **Owner review round 2 (2026-11-09):** opening sentence rewritten as a longer, introductory sentence ("For people who live with them, Los Angeles allergies can last most of the year, because the Southern California allergy season keeps handing off from one trigger to the next"), carrying "los angeles allergies" and "southern california allergy season". Second paragraph rewritten as the transition to the rest of the article: the two ways to treat allergies, the three forms of immunotherapy (with "allergy shots", "allergy drops", ILIT as "a faster alternative to allergy shots"), and what the reader will find below (season by season, the ranking, "an allergist in Los Angeles" for testing and treatment).
 - **Owner review round 1 (2026-11-07):** sources now live only in the table footnote (the intro paragraph no longer names any), and the footnote says which source gave which timing. Evergreen pass: removed Dr. Garcia-Lloret's "historically the region's worst pollen season" (body, FAQ, takeaway 1), the "record rains in early 2023" framing (FAQ and Why section; the storm effect stays, stated as "can"), "in April 2018 that grass season was just starting" (grass section now leads with the AAFA's timing: grass causes most late spring and summer symptoms, usually April through early June, and can be found year-round in warmer places, read from the 2026 report text) and the 2018 date on the Santa Ana event (now "one Santa Ana event"; the source dates stay in SOURCES). Dr. Xi is introduced in the weeds section, since the grass mention that introduced her is gone.
@@ -112,7 +116,7 @@ Whichever of these allergy triggers get to you, there are two main ways to treat
 
 ## Los Angeles allergy season at a glance
 
-Southern California's allergy triggers fall into three pollen groups, plus the Santa Ana winds. The table shows the most common sources of each and when they're in the air.
+Southern California's allergy triggers fall into three pollen groups, plus the Santa Ana winds. The table shows the most common sources of each and when they're in the air. Elsewhere in the U.S. the calendar looks different, and our [seasonal allergies guide](/learn-about-ilit/seasonal-allergies-by-season) covers when allergy season starts and ends in other regions.
 
 | Trigger | Common sources in Southern California | When it's in the air |
 |---|---|---|

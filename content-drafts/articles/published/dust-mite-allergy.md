@@ -29,8 +29,8 @@ A: In people allergic to them, dust mites can trigger asthma, and the [ACAAI](ht
 Q: Do dust mites bite?
 A: No. [Cleveland Clinic](https://my.clevelandclinic.org/health/diseases/17712-dust-mite-allergy) says dust mites can't bite. The allergy comes from breathing in proteins from their droppings and dead bodies. If you're waking up with itchy bumps on your skin, something else is causing them, and a doctor can help sort out what.
 
-Q: Can dust mite allergy cause itchy skin?
-A: It can make eczema worse. The [ACAAI](https://acaai.org/allergies/allergic-conditions/dust-allergies/) lists eczema flares among the effects of dust mite allergy, and the [AAFA](https://community.aafa.org/blog/fact-or-fiction-5-myths-about-dust-mites) notes that many people with dust mite allergy also have eczema. A rash that flares after nights in bed or time on a fabric couch is a pattern worth describing to your allergist.
+Q: Can dust mites cause a rash?
+A: They can make eczema worse, which shows up as an itchy rash. The [ACAAI](https://acaai.org/allergies/allergic-conditions/dust-allergies/) lists eczema flares among the effects of dust mite allergy, and the [AAFA](https://community.aafa.org/blog/fact-or-fiction-5-myths-about-dust-mites) notes that many people with dust mite allergy also have eczema. A rash that flares after nights in bed or time on a fabric couch is a pattern worth describing to your allergist.
 
 Q: Does washing kill dust mites?
 A: Hot water does. [Mayo Clinic](https://www.mayoclinic.org/diseases-conditions/dust-mites/diagnosis-treatment/drc-20352178) says washing bedding in water of at least 130°F (54.4°C) kills the mites and removes the allergen. If your washer's hot water runs cooler, put the bedding in the dryer for at least 15 minutes above 130°F to kill the mites, then wash and dry it as usual to rinse out what's left behind.

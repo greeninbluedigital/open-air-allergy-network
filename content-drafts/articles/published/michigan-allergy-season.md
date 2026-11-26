@@ -24,6 +24,9 @@ FAQS
 Q: When does allergy season start in Michigan?
 A: For people allergic to tree pollen, it can start as early as February, according to [Blue Cross Blue Shield of Michigan](https://www.bcbsm.mibluedaily.com/stories/prevention/when-is-allergy-season), which names trees as the top allergy culprit in the state. That's later than parts of the South, where the [AAFA](https://aafa.org/wp-content/uploads/2026/03/aafa-2026-allergy-capitals-report.pdf) says trees can release pollen as early as December or January.
 
+Q: Why are my allergies so bad right now in Michigan?
+A: It depends on the month. Tree pollen is the usual cause from February through spring, trees and grass overlap to make May the worst month, and ragweed takes over from August until the first frost, according to [Blue Cross Blue Shield of Michigan](https://www.bcbsm.mibluedaily.com/stories/prevention/when-is-allergy-season). Once a hard freeze ends pollen season, indoor allergens such as dust mites, pet dander and mold are the more likely cause, the [AAFA](https://aafa.org/wp-content/uploads/2026/03/aafa-2026-allergy-capitals-report.pdf) says. Symptoms that return at the same time every year are worth an allergy test, which can name the trigger.
+
 Q: When is peak allergy season in Michigan?
 A: May is often the worst month, says [Blue Cross Blue Shield of Michigan](https://www.bcbsm.mibluedaily.com/stories/prevention/when-is-allergy-season), because tree pollen is still in the air when grass pollen starts. People allergic to ragweed have a second peak in fall. The [AAFA](https://aafa.org/wp-content/uploads/2026/03/aafa-2026-allergy-capitals-report.pdf) says ragweed peaks in mid September in most of the U.S.
 
@@ -58,6 +61,7 @@ SOURCES (all linked in the article)
 - Own arithmetic/inference: "late winter" for starting medicine before tree season combines AAFA's "a couple weeks before" with BCBSM's "as early as February".
 
 REVIEW NOTES
+- **Top pages audit (2026-11-25, main session):** Search Console showed this page at positions 4 to 10 for "why are my allergies so bad right now in michigan" (5.9), "when is allergy season in michigan" and "is it allergy season in michigan", with no clicks. Added the "right now" FAQ (second, sourced to BCBSM and the AAFA), cut the roadmap sentence at the end of the intro (style guide), and linked the national seasonal allergies guide from the month table section.
 - **Body photo added (owner, 2026-11-16):** birch grove with bluebells (owner's Unsplash photo, location unknown, likely European silver birch and Spanish or hybrid bluebells, so the alt and caption don't say Michigan). Caption is the AAFA tree list fact already in the paragraph.
 - **Main session pass (2026-11-16):** owner's table comment applied: indoor allergens now show January through March and November through December (March and April split, November and December split), sourced to ACAAI's winter indoor allergies release (Nov. 17, 2022: "you'll notice them more during the winter because you spend more time at home", doors and windows shut, heating recirculates indoor air and triggers; read in full by a web fetch). The snow season itself isn't claimed. ACAAI line also added to the winter section, the winter FAQ and the table footnote. Season H2s made searchable ("Spring/Summer/Fall allergies in Michigan: ..."). Short lead-ins folded ("Tree pollen is the first to arrive", "Ragweed is the main fall trigger", "Mold follows the weather...", "A middle ranking doesn't mean..."). Cut unsourced advice "Keep a note of which months are bad for you. An allergist can match that pattern to a skin or blood test." Injection site now the house wording (groin, just below the waist, near the hip). Takeaway 5 now ends on treatment (ILIT, Houston pattern). Both table footnotes italic. Hero set (Mackinac Bridge, owner's stock photo) with alt from the photo. Lake effect line added to the spring section, sourced to the Detroit Free Press (Keith Matheny, Jan. 30, 2022, read in full via its Yahoo syndication): westerly winds over the cold lake "keep fruit trees dormant a little longer"; the article is about fruit trees, so the line says that and doesn't claim a pollen date.
 - **Format:** the queue calls this a local how-to, but its keywords are season searches, so the title follows the queue's working title (no "How to"). The month table is the core, and the how-to part is a numbered "How to get through a Michigan allergy season" section. Tell me if you'd rather lead with "How to".
@@ -103,7 +107,7 @@ BODY
 
 Michigan allergy season starts with tree pollen in late winter or early spring, moves to grass in late spring, and ends with ragweed, which keeps going until the first frost in September or October. For people allergic to all three, that's most of the year from February to fall, and May is often the roughest month, when trees and grass overlap.
 
-Whichever pollen gets to you, knowing your month helps you start medicine on time and tell an allergist exactly when symptoms hit. That matters if you're thinking about treating the allergy itself with allergy shots, allergy drops, or ILIT, a faster alternative to allergy shots. Below you'll find a month by month table, what each season brings, how Michigan's cities rank, and what helps.
+Whichever pollen gets to you, knowing your month helps you start medicine on time and tell an allergist exactly when symptoms hit. That matters if you're thinking about treating the allergy itself with allergy shots, allergy drops, or ILIT, a faster alternative to allergy shots.
 
 [Tree Pollen Allergy: Symptoms, Season and Treatment](/blog/tree-pollen-allergy "card")
 
@@ -125,7 +129,7 @@ Whichever pollen gets to you, knowing your month helps you start medicine on tim
 
 *Sources: Michigan timing from [Blue Cross Blue Shield of Michigan](https://www.bcbsm.mibluedaily.com/stories/prevention/when-is-allergy-season) (medically reviewed), national timing and mold from the [AAFA](https://aafa.org/wp-content/uploads/2026/03/aafa-2026-allergy-capitals-report.pdf) and the [AAAAI](https://www.aaaai.org/tools-for-the-public/conditions-library/allergies/ragweed), and winter indoor allergies from the [ACAAI](https://acaai.org/news/do-you-have-the-winter-sniffles-5-ways-you-can-manage-indoor-winter-allergies/).*
 
-A University of Michigan team describing the state's pollen in a [2025 study](https://pmc.ncbi.nlm.nih.gov/articles/PMC11737261/) lays out the same order: deciduous and evergreen trees in spring, grass most common from late spring into early summer, and ragweed highest in fall.
+A University of Michigan team describing the state's pollen in a [2025 study](https://pmc.ncbi.nlm.nih.gov/articles/PMC11737261/) lays out the same order: deciduous and evergreen trees in spring, grass most common from late spring into early summer, and ragweed highest in fall. Other regions run on a different calendar, and our [seasonal allergies guide](/learn-about-ilit/seasonal-allergies-by-season) covers when allergy season starts and ends across the U.S.
 
 ## Spring allergies in Michigan: tree pollen
 

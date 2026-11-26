@@ -58,6 +58,8 @@ Keep the mix when adding items.
 **ILIT brand names (owner, 2026-11-24):** #39 published 2026-11-24, a day ahead of the testing before ILIT article (#40). Goal: rank for the brand names practices give ILIT, against the practices' own sites. No practice names in the article. Brief in docs/content-ideas.md, "ILIT brand names".
 **Kansas City moved up (owner, 2026-11-25):** #43 (Allergy Triggers in St. Louis and Kansas City) is the next draft, to send readers toward Prairie Allergy's Kansas City page through the Kansas and Missouri state pages and Find a Provider with a Kansas City zip (local rules: no practice names). The owner reviews it this weekend. Dr. Brynn Everist (Prairie Allergy) may be asked to take a medical reviewer credit later; leave Credit as house for now.
 
+**California city pages (owner, 2026-11-25):** #56 San Diego and #57 San Francisco, added to the back of the queue after the top pages audit found Los Angeles ranking for a cluster of "Southern California allergies" searches. San Diego works in "Southern California" keywords, San Francisco works in "Northern California" and "Bay Area". Brief in docs/content-ideas.md, "California city pages".
+
 | # | Working title | Section | Slug | Publish by | Status | Draft file | Image idea | Hero image |
 |---|---|---|---|---|---|---|---|---|
 | 1 | Ragweed Allergy: Season, Symptoms and Treatment | Blog | ragweed-allergy | ASAP (searches peak now) | published 2026-10-10 | published/ragweed-allergy.md |  |  |
@@ -115,3 +117,5 @@ Keep the mix when adding items.
 | 53 | Goldenrod or Ragweed? The Fall Allergy Mix-Up | Blog | goldenrod-vs-ragweed | mid August | hold | |  |  |
 | 54 | Dust Mite Covers and Sprays: Do They Actually Work? | Blog | dust-mite-covers-and-sprays | any time (product searches, about 15K a month combined) | next | |  |  |
 | 55 | How Are Allergy Shots Made? From Pollen and Dust Mites to Your Vial | Blog | how-are-allergy-shots-made | any time | next | | Close up of a gloved hand drawing liquid from a small vial in a lab, or rows of labeled extract bottles on a pharmacy shelf. Search "laboratory vials gloved hand". File: how-are-allergy-shots-made-lab-vials.jpg |  |
+| 56 | San Diego Allergies (city page) | Blog | san-diego-allergies | any time | next | |  |  |
+| 57 | San Francisco Allergies (city page) | Blog | san-francisco-allergies | any time | next | |  |  |

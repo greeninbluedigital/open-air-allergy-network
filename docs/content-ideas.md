@@ -901,6 +901,28 @@ Injections Go? (queue) owns groin vs. neck; mention A-ILIT's neck injections
 briefly and link it once published. How Much Does ILIT Cost? (queue, on
 hold) owns cost. Allergy Testing Before ILIT owns testing.
 
+## Idea detail: California city pages (owner, 2026-11-25, queue #56 and #57)
+
+Same city page format as Los Angeles, Houston and Dallas–Fort Worth: season
+by month, local triggers from named health or government sources, how the
+city ranks in the AAFA report if it's listed, testing, longer term options,
+then Find a Provider with a local zip and `/find-an-ilit-provider/california`.
+No practice names (local rules).
+
+- **San Diego Allergies (#56):** keywords "san diego allergies", "allergies
+  in san diego", "san diego allergy season", plus "Southern California
+  allergies" and "Southern California allergy season" as secondary terms
+  (owner). The Los Angeles page already ranks around 17 to 29 for the
+  Southern California searches, so San Diego uses them in body text, an H2
+  or a FAQ, while the title and H1 stay San Diego. Link the LA page with the
+  card. Find a Provider zip 92101.
+- **San Francisco Allergies (#57):** keywords "san francisco allergies",
+  "bay area allergies", "bay area allergy season", plus "Northern California
+  allergies" and "Northern California allergy season" (owner). Find a
+  Provider zip 94612 (the site's San Francisco Bay Area metro).
+- Check Google autocomplete for both before writing FAQs, and keep each
+  FAQ question off the LA page's list.
+
 ## Also pending
 - **Per-article FAQ headings (skipped 2026-10-27):** e.g. "Frequently
   Asked Questions About Ragweed Allergy" instead of the plain heading.
