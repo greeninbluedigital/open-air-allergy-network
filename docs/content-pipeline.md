@@ -70,9 +70,12 @@ a redirect; Dallas–Fort Worth, moved the same day).
 
 - **Lead with the answer.** The first paragraph answers the title's question
   plainly. Journalism style, most important first, no warm up.
-- **Human, plain voice.** No em dashes, no hyphens or semicolons joining
-  clauses. Hyphens in conventional compound words (build-up, follow-up,
-  X-ray, over-the-counter) are fine. Vary sentence length. No banned words (delve, landscape, robust,
+- **Human, plain voice.** No em dashes, no dashes or semicolons joining
+  clauses (the em dash is the main AI giveaway). Keep hyphens that are
+  grammatically correct and help readability: compound modifiers
+  (ultrasound-guided, off-label, in-office, over-the-counter) and
+  conventional compounds (follow-up, X-ray). Never strip a correct hyphen.
+  Vary sentence length. No banned words (delve, landscape, robust,
   leverage, unlock, elevate, navigate, tapestry, "it's important to note").
   No "Moreover", "Furthermore", "Additionally", "In conclusion". No tidy
   summary paragraph at the end. Contractions are fine.

@@ -3,8 +3,16 @@
 Rules for the Short Bio, Extended Bio, FAQs and other copy OAAN writes for a
 practice's page, e.g. trial profiles. Set by the owner 2026-10-08. Also apply
 `OpenAirAllergyNetwork_STYLE_GUIDE.md` and the humanized-writing-dg-custom skill's rules (lede
-first, varied sentence length, no dashes or semicolons joining clauses, no
-banned words). Third person, platform voice: never "we" for the practice.
+first, varied sentence length, no em dashes or semicolons joining clauses,
+no banned words; correct hyphens like "in-office" stay). Third person,
+platform voice: never "we" for the practice.
+
+**Practice pages are marketing, the blog is editorial (owner, 2026-11-25).**
+A practice page promotes that practice and can carry its specific details
+(its brand name, how its visits run), because OAAN reviews each page
+periodically. Blog articles follow journalism standards: objective, no
+singling out individual practices, and no procedure details that a
+practice could change and leave the article stale.
 
 ## Facts
 1. **Every fact about the practice must be stated clearly on the practice's
@@ -138,8 +146,8 @@ what doesn't:
 - **No counts that practices change (owner, 2026-11-25).** Don't state how
   many allergens fit in one series or how many a test panel covers ("up to 3
   allergens", "up to 58 allergens"). Practices update these, and we can't
-  keep up. Say it qualitatively instead: "one series can include more than
-  one allergen, chosen from your allergy test results."
+  keep up. Say it qualitatively instead: "one series can include multiple
+  allergens, chosen from your allergy test results."
 - **A practice's brand name for ILIT (QUICK-LI, ExACT Immunoplasty, AAT,
   Elaria Rapid Allergy Therapy) goes in one question at most,** because few
   people search it. Make that one "Are {Brand} and ILIT allergy treatment the

@@ -188,12 +188,23 @@ seamless, comprehensive, "it's important to note," "in today's world."
 **Banned transitions:** Moreover, Furthermore, Additionally, In conclusion, "That said" as a
 paragraph opener.
 
-**No hyphens, em dashes, or semicolons as a crutch for joining clauses.** Use a period or a
-conjunction instead. The point is to avoid sounding machine written, so dashes that are part of a
-name or a normal compound are fine (owner, 2026-10-20): "Dallas–Fort Worth" (en dash, matching
-the Texas page heading), "Winston-Salem", "ultrasound-guided" in a quoted product name.
-Conventional compound words keep their hyphens (owner, 2026-11-02): build-up, follow-up, X-ray,
-long-term relief, over-the-counter medicine. Only the dash used to join clauses is out.
+**No em dashes, and no dashes or semicolons as a crutch for joining clauses.** Use a period or a
+conjunction instead. The goal is to avoid obvious AI giveaways, and the big one is the em dash:
+AI writing overuses it to stitch clauses together (owner, 2026-11-25).
+
+**Hyphenated words are fine when they're grammatically correct and help the reader** (owner,
+2026-11-25). Don't strip a correct hyphen to make text look less AI written. That just produces
+errors. Keep them in:
+- Compound modifiers before a noun: ultrasound-guided injection, off-label use, in-office
+  treatment, long-term relief, over-the-counter medicine, same-day results, FDA-approved extracts.
+  After the noun they usually drop the hyphen: "the injection is ultrasound guided."
+- Conventional compounds and prefixes: follow-up, build-up, X-ray, pre-assessment, re-test.
+- Names: "Winston-Salem", "Dallas–Fort Worth" (en dash, matching the Texas page heading), and
+  brand names as the owner writes them (QUICK-LI, A-ILIT).
+
+What's out is the dash used as punctuation between clauses (em dash, or a spaced hyphen standing
+in for one). When in doubt, ask whether the hyphen joins words into one idea (keep it) or joins two
+thoughts (rewrite).
 
 **Vary sentence length aggressively.** A run of uniform medium-length sentences is the clearest
 sign of AI-written text.
