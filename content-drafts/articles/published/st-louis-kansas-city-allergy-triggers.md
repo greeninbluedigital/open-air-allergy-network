@@ -8,9 +8,9 @@ URL: /blog/st-louis-kansas-city-allergy-triggers
 Meta description (148 chars): Kansas City ranked 42nd and St. Louis 63rd for allergies in 2026. See when cedar, oak, grass, ragweed and mold peak in Missouri and Kansas, and why.
 Target keywords: "kansas city allergies", "st louis allergies", "allergies in kansas city", "allergies in st louis", "kansas city allergy season", "st louis allergy season", "allergens in kansas city", "allergens in st louis", "kansas city pollen count" (FAQ), "st louis pollen count" (FAQ), "is kansas city bad for allergies" (FAQ), "is st louis bad for allergies" (FAQ), "why are allergies so bad in missouri" (FAQ), "why are allergies so bad in kansas" (FAQ), "when is allergy season in missouri" (FAQ), "when is allergy season over in missouri" (FAQ), "cedar fever missouri" (FAQ), "eastern red cedar allergy", "ragweed kansas city", "faster alternative to allergy shots" (FAQ 9 and Longer term options), "fast allergy treatment" (intro)
 Tags: Allergens, Allergy Symptoms
-Feature image: TBD (owner uploads)
+Feature image: https://res.cloudinary.com/qruprn0t/image/upload/v1795685439/st-louis-kansas-city-allergy-triggers-liberty-memorial-tower-world-war-one-museum.jpg
 Image idea: The Kansas City skyline seen from the Liberty Memorial lawn in spring, with flowering trees and green grass in the foreground and no people. Alternative: the Gateway Arch in St. Louis above spring trees in bloom. Search "kansas city skyline spring" or "gateway arch spring trees". File: kansas-city-st-louis-allergies-skyline-spring.jpg
-Image alt: TBD (write from the chosen photo)
+Image alt: The Liberty Memorial tower at the National WWI Museum and Memorial in Kansas City, beside trees with orange fall leaves under a clear blue sky
 Credit: none (house article).
 
 KEY TAKEAWAYS
@@ -109,7 +109,7 @@ BODY
 
 Kansas City allergies and St. Louis allergies follow much the same calendar across Missouri and Kansas, starting with tree pollen such as oak and cedar in late winter and spring and ending with ragweed and outdoor mold in the fall. The Asthma and Allergy Foundation of America (AAFA) ranked Kansas City 42nd and St. Louis 63rd of the 100 largest metro areas in the contiguous U.S. in its [2026 Allergy Capitals report](https://aafa.org/wp-content/uploads/2026/03/aafa-2026-allergy-capitals-report.pdf). Kansas City's pollen scored average and St. Louis's scored better than average, but people in both cities used more over-the-counter allergy medicine than average.
 
-Whichever of these triggers gets to you, allergy medicine treats the symptoms while you take it. For longer relief, allergy shots, allergy drops and ILIT, a fast allergy treatment course of about three injections, work on the allergy itself.
+Whichever of these triggers gets to you, allergy medicine treats the symptoms while you take it. For longer relief, allergy shots, allergy drops and ILIT, a fast allergy treatment course of typically three injections, work on the allergy itself.
 
 [Seasonal Allergies: Spring, Summer, Fall & Winter Guide](/learn-about-ilit/seasonal-allergies-by-season "card")
 
@@ -147,7 +147,7 @@ Sources: [Children's Mercy](https://www.childrensmercy.org/parent-ish/2026/04/se
 
 Eastern red cedar is a juniper (Juniperus virginiana), and the [Missouri Department of Conservation](https://mdc.mo.gov/discover-nature/field-guide/eastern-red-cedar) (MDC) says it sheds pollen from March to May. The [Missouri Botanical Garden](https://www.missouribotanicalgarden.org/gardens-gardening/your-garden/help-for-the-home-gardener/advice-tips-resources/visual-guides/plants-pollen-and-allergies.aspx) says junipers can produce large amounts of highly allergenic pollen.
 
-MDC says red cedar was uncommon in Missouri before European settlement and grew mostly on bluffs and cliffs where fire couldn't reach it. With fire suppression and other changes in land use, it's now commonplace. Across the state line, [KCUR](https://www.kcur.org/2023-12-07/eastern-redcedar-spread-great-plains) reports redcedars taking over grasslands from Texas up through Oklahoma, Kansas and Nebraska.
+MDC says red cedar was uncommon in Missouri before European settlement and grew mostly on bluffs and cliffs where fire couldn't reach it. With fire suppression and other changes in land use, it's now commonplace. Across the state line, [KCUR](https://www.kcur.org/2023-12-07/eastern-redcedar-spread-great-plains) reports red cedars taking over grasslands from Texas up through Oklahoma, Kansas and Nebraska.
 
 **Tip:** Red cedars usually come as separate male and female trees, MDC says, and the Missouri Botanical Garden notes that female-only juniper cultivars don't make pollen. If you're planting junipers near the house, ask the nursery for a female-only cultivar.
 
