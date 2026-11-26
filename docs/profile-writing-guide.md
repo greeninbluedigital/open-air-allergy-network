@@ -107,7 +107,7 @@ what doesn't:
 - **No inflated significance:** "a pivotal step," "plays a key role,"
   "setting the stage for," "the future looks bright." Keep the fact and end
   on it.
-- **Use "is" and "has":** "The practice has three board certified
+- **Use "is" and "has":** "The practice has three board-certified
   allergists," not "boasts," "features," "serves as" or "stands as."
 - No tacked-on "-ing" phrases ("..., ensuring the best possible care") and
   no "not just X, but Y" contrasts. The full list of AI tells is in the
