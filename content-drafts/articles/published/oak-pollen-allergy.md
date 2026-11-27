@@ -8,9 +8,9 @@ URL: /blog/oak-pollen-allergy
 Meta description (145 chars): Oak pollen season starts as early as February in the South and as late as May up north. Learn oak allergy symptoms, foods to avoid and treatment.
 Target keywords: "oak pollen" (head term), "oak pollen allergy", "oak allergy", "oak pollen season", "oak allergy symptoms", "oak tree allergy", "oak allergy foods to avoid" (H2 and FAQ), "when is oak pollen season" (H2 and FAQ), "how long does oak pollen season last" (FAQ), "is oak pollen an allergen" (FAQ), "can oak pollen make you sick" (FAQ), "can oak pollen cause hives" (FAQ), "oak allergy in fall" (FAQ), "what does oak pollen look like" (FAQ), "oak pollen allergy shots" (FAQ), "fast allergy treatment" and "faster alternative to allergy shots" (Longer term options)
 Tags: Allergens, Allergy Symptoms
-Feature image: TBD (owner uploads)
+Feature image: https://res.cloudinary.com/qruprn0t/image/upload/v1795821254/oak-pollen-allergy-oak-tree-park-school-houston-texas.jpg
 Image idea: A close view of an oak branch in early spring hung with long yellow green catkins and new leaves against a bright blue sky, sharp and saturated, no people. Search "oak catkins". File: oak-pollen-allergy-catkins.jpg
-Image alt: TBD (write from the chosen photo)
+Image alt: A large oak tree with a broad, rounded canopy shading a park lawn with benches and a covered playground beside a school in Houston, Texas, under a blue sky
 Credit: none (house article).
 
 KEY TAKEAWAYS
@@ -71,7 +71,8 @@ SOURCES (all linked in the article)
 - Own arithmetic: "late January" = two weeks before Houston's average February 11 oak start. "About a fifth" = 19.6%.
 
 REVIEW NOTES
-- **Body photo (owner, 2026-11-27):** live oak avenue, placed at the top of "Why oak pollen causes so many allergies" (portrait, floats beside the Texas and Georgia paragraph). Replace OAK_LIVE_OAK_PHOTO_URL once uploaded. It looks like Wormsloe in Savannah, Georgia; name the place in the caption only if the stock source confirms it. Caption fact: Atlanta 8.6%, second to Austin's 14.3% (Lo 2019 Fig. 5a).
+- **Published 2026-11-27; maps added the same day** after the owner uploaded them (republished).
+- **Body photo (owner, 2026-11-27):** live oak avenue, placed at the top of "Why oak pollen causes so many allergies" (portrait, floats beside the Texas and Georgia paragraph). Uploaded 11/27; the owner confirmed Wormsloe, Savannah, Georgia (in the file name), so the caption and alt name it. Caption fact: Atlanta 8.6%, second to Austin's 14.3% (Lo 2019 Fig. 5a).
 - **Main session review 2 (2026-11-27), owner's table comments:** the table heading is now an H2 ("Oak pollen season by city": the city names in it match searches like "oak pollen season Kansas City"). The table now:
   - sorts by when the season starts (earliest first), and the intro sentence says so;
   - uses three-letter months;
@@ -131,7 +132,7 @@ Some people with tree pollen allergy also react to raw fruits, vegetables and nu
 
 ## Why oak pollen causes so many allergies
 
-![A long sandy lane under an arching tunnel of live oak branches hung with Spanish moss, with fallen leaves along the edges](OAK_LIVE_OAK_PHOTO_URL "Live oaks hung with Spanish moss line a lane in the coastal South. In the 2019 pollen study, Atlanta's station counted the second most oak pollen of any station.")
+![A long sandy lane under an arching tunnel of live oak branches hung with Spanish moss at Wormsloe in Savannah, Georgia, with fallen leaves along the edges](https://res.cloudinary.com/qruprn0t/image/upload/v1795821255/oak-pollen-allergy-live-oaks-wormsloe-savannah-georgia.jpg "Live oaks line the avenue at Wormsloe in Savannah, Georgia. In the 2019 pollen study, Atlanta's station counted the second most oak pollen of any station.")
 
 Most oak trees produce heavy pollen loads, the 2019 study notes, and the stations with the most oak pollen were in Texas and Georgia. Austin's station alone collected 14.3% of all the oak pollen counted across the study's stations, followed by Atlanta at 8.6%, Waco at 8.4%, and Houston and San Antonio at 6.3% each. The table below shows the rest. The AAFA calls oak very allergenic and says it grows in every state except Alaska and Hawaii. In Florida, which has 11 oak species, [UF/IFAS](https://gardeningsolutions.ifas.ufl.edu/?p=24975) names oak one of the most allergenic trees.
 
@@ -141,11 +142,13 @@ The pollen that triggers oak allergy is too small to see. The yellow dust you se
 
 Oak pollen season starts earlier the farther south you live. In the [2019 study](https://pmc.ncbi.nlm.nih.gov/articles/PMC6934246/), the average start of oak season ranged from February 11 in Houston to May 2 in Rochester, New York, almost three months apart.
 
-![Map of the U.S. with colored dots at pollen stations showing when oak pollen season starts, from February in Texas to May in the Northeast and Pacific Northwest](OAK_START_MAP_URL "full:Average start of oak pollen season at National Allergy Bureau stations, 2003 to 2017. Map: Lo et al., Aerobiologia, 2019, CC BY 4.0 (cropped, title reworded).")
+![Map of the U.S. with colored dots at pollen stations showing when oak pollen season starts, from February in Texas to May in the Northeast and Pacific Northwest](https://res.cloudinary.com/qruprn0t/image/upload/v1795821334/oak-pollen-season-start-map-lo-2019.png "full:Average start of oak pollen season at National Allergy Bureau stations, 2003 to 2017. Map: Lo et al., Aerobiologia, 2019, CC BY 4.0 (cropped, title reworded).")
+
 
 Southern seasons also last longer. Average oak seasons ran from 23 days in Seattle to 103 days in San Jose, California, and the authors found longer seasons at lower latitudes.
 
-![Map of the U.S. with colored dots at pollen stations showing how many days oak pollen season lasts, from about 25 days in Seattle and the Great Lakes to more than 100 in San Jose, California](OAK_LENGTH_MAP_URL "full:Average length of oak pollen season in days at National Allergy Bureau stations, 2003 to 2017. Map: Lo et al., Aerobiologia, 2019, CC BY 4.0 (cropped, title reworded).")
+![Map of the U.S. with colored dots at pollen stations showing how many days oak pollen season lasts, from about 25 days in Seattle and the Great Lakes to more than 100 in San Jose, California](https://res.cloudinary.com/qruprn0t/image/upload/v1795821334/oak-pollen-season-length-map-lo-2019.png "full:Average length of oak pollen season in days at National Allergy Bureau stations, 2003 to 2017. Map: Lo et al., Aerobiologia, 2019, CC BY 4.0 (cropped, title reworded).")
+
 
 ## Oak pollen season by city
 
