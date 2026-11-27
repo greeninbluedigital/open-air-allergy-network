@@ -71,6 +71,7 @@ SOURCES (all linked in the article)
 - Own arithmetic: "late January" = two weeks before Houston's average February 11 oak start. "About a fifth" = 19.6%.
 
 REVIEW NOTES
+- **Body photo (owner, 2026-11-27):** live oak avenue, placed at the top of "Why oak pollen causes so many allergies" (portrait, floats beside the Texas and Georgia paragraph). Replace OAK_LIVE_OAK_PHOTO_URL once uploaded. It looks like Wormsloe in Savannah, Georgia; name the place in the caption only if the stock source confirms it. Caption fact: Atlanta 8.6%, second to Austin's 14.3% (Lo 2019 Fig. 5a).
 - **Main session review 2 (2026-11-27), owner's table comments:** the table heading is now an H2 ("Oak pollen season by city": the city names in it match searches like "oak pollen season Kansas City"). The table now:
   - sorts by when the season starts (earliest first), and the intro sentence says so;
   - uses three-letter months;
@@ -129,6 +130,8 @@ Tree pollen can trigger asthma, with shortness of breath, coughing and wheezing,
 Some people with tree pollen allergy also react to raw fruits, vegetables and nuts. The [AAAAI](https://www.aaaai.org/tools-for-the-public/conditions-library/allergies/oral-allergy-syndrome-%28oas%29) says these reactions are usually mild but can rarely cause severe throat swelling or a whole body reaction called anaphylaxis. Throat swelling or trouble swallowing or breathing after eating means calling 911.
 
 ## Why oak pollen causes so many allergies
+
+![A long sandy lane under an arching tunnel of live oak branches hung with Spanish moss, with fallen leaves along the edges](OAK_LIVE_OAK_PHOTO_URL "Live oaks hung with Spanish moss line a lane in the coastal South. In the 2019 pollen study, Atlanta's station counted the second most oak pollen of any station.")
 
 Most oak trees produce heavy pollen loads, the 2019 study notes, and the stations with the most oak pollen were in Texas and Georgia. Austin's station alone collected 14.3% of all the oak pollen counted across the study's stations, followed by Atlanta at 8.6%, Waco at 8.4%, and Houston and San Antonio at 6.3% each. The table below shows the rest. The AAFA calls oak very allergenic and says it grows in every state except Alaska and Hawaii. In Florida, which has 11 oak species, [UF/IFAS](https://gardeningsolutions.ifas.ufl.edu/?p=24975) names oak one of the most allergenic trees.
 
