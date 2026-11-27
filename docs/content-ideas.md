@@ -925,6 +925,41 @@ No practice names (local rules).
 - Check Google autocomplete for both before writing FAQs, and keep each
   FAQ question off the LA page's list.
 
+## Idea detail: Metro allergy guides (owner, 2026-11-27, queue #58 to #62)
+
+Owner's plan: an allergy guide for every major metro, to get indexed and
+build traffic everywhere, not only where ILIT practices are listed today.
+First batch, at the back of the queue: Minneapolis (#58), Chicago (#59),
+Iowa (#60, a state guide like Michigan's, with Des Moines as the main
+city), Nashville (#61) and Atlanta (#62). More metros get added as rows
+when the owner asks.
+
+Same city page format as Houston, Los Angeles and Denver: season by month
+from named local health or government sources, the AAFA rank if the metro
+is in the report, local triggers, testing, longer term options, then the
+ILIT section. No practice names (local rules).
+
+**Metros with no ILIT practice listed (Minneapolis today):** the reason for
+these pages is search traffic and, for some readers, interest in traveling
+to a practice elsewhere. Handle it without naming practices or saying where
+OAAN does or doesn't list them (national authority rule):
+- The ILIT section links Find a Provider with the metro's zip (the results
+  page already shows the nearest practices farther away) and the
+  [Traveling for ILIT](/blog/traveling-for-ilit) article, which explains
+  that a course is only a few visits. Don't write "there are no ILIT
+  providers in Minneapolis" or point to a specific clinic.
+- Skip the state page link when that state has no page yet (it would 404).
+  The "Find an allergy clinic in ..." link at the top of the article stays
+  off for the same reason, automatically.
+- Add the article to `src/lib/regionalArticles.ts` when it publishes, same
+  as every city guide; it shows on the Blog for nearby visitors right away,
+  and on its state page once one exists.
+
+**Minneapolis hero:** the skyline photo first uploaded for Denver
+(`denver-co-skyline.jpg`, it's actually Minneapolis: IDS Center and Capella
+Tower). Consider re-uploading it under a Minneapolis file name before
+publishing, so the image URL matches the city.
+
 ## Also pending
 - **Per-article FAQ headings (skipped 2026-10-27):** e.g. "Frequently
   Asked Questions About Ragweed Allergy" instead of the plain heading.

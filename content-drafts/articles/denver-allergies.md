@@ -8,9 +8,9 @@ URL: /blog/denver-allergies
 Meta description (138 chars): Denver jumped from 91st to 30th in the AAFA's 2026 allergy rankings. See when tree, grass and weed pollen hit in Colorado, and what helps.
 Target keywords: "denver allergies" (head term: title, first paragraph, H2s), "allergies in denver", "denver allergy season", "colorado allergy season" (H2), "is denver bad for allergies" (FAQ 1), "why are allergies so bad in colorado" (FAQ 2) / "why are allergies so bad in denver" (H2), "when is allergy season in colorado" (FAQ 3), "when is allergy season over in colorado" (FAQ 4), "does altitude affect allergies" (FAQ 5 and H2), "are there dust mites in colorado" (FAQ 6), "colorado fall allergies" / "denver fall allergies" (FAQ 7 and fall H2), "denver pollen count" (FAQ 8), "ragweed colorado" (fall H2), "colorado springs allergy season" (ranking section and final H2), "allergist denver" (final H2), "faster alternative to allergy shots" (FAQ 9 and Longer term options), "fast allergy treatment" (intro)
 Tags: Allergens, Allergy Symptoms
-Feature image: https://res.cloudinary.com/qruprn0t/image/upload/v1791852967/denver-co-skyline.jpg
+Feature image: TBD (owner uploads a Denver photo; the first one was Minneapolis and moved to queue #58)
 Image idea: (queue column empty; hero URL already filled) A Denver skyline above a green tree canopy on a clear day, no people.
-Image alt: A downtown skyline rising beyond a dense canopy of green and gold treetops under a clear blue sky
+Image alt: TBD (write from the new photo)
 Credit: none (house article).
 
 KEY TAKEAWAYS
