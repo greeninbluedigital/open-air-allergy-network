@@ -439,6 +439,17 @@ to `published YYYY-MM-DD` and point its Draft file entry at
 waiting on the owner (owner's request, 2026-10-19). The drafting run never
 moves files.
 
+If the article is about a place (a city, metro or state guide), add it to
+`REGIONAL_ARTICLES` in `src/lib/regionalArticles.ts` (owner, 2026-11-27):
+the metro name from `src/lib/statePages.ts`, a city with its coordinates,
+or just the state. That one row puts the "Find an allergy clinic in …"
+link at the top of the article, lists it under "Allergy guides for
+{State}" on the state page, shows it to visitors near that place on the
+Blog, and adds the "Allergy season in your area" line under Find a
+Provider results. Contributed (practice-credited) articles stay off the
+list. A row can go in before the article publishes; nothing shows until
+it's live.
+
 Then offer the owner a Pinterest pin for the new article (2026-10-20): add a
 line to the PINS list in `OneDrive\Documents\OPEN AIR ALLERGY NETWORK\pinterest\make_pins.py`
 (file name, Cloudinary path after `/upload/`, title, subtitle), run it, and

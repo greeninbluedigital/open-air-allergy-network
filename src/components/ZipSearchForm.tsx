@@ -2,7 +2,7 @@ import { cookies, headers } from "next/headers";
 import { ZIP_COOKIE } from "@/lib/zip";
 
 /** Saved zip first; otherwise Vercel's approximate zip (US only), which the visitor can edit. */
-async function knownZip(): Promise<string> {
+export async function knownZip(): Promise<string> {
   const saved = (await cookies()).get(ZIP_COOKIE)?.value;
   if (saved) return saved;
   const h = await headers();

@@ -1,8 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Metadata } from "next";
-import { ZipSearchForm } from "@/components/ZipSearchForm";
+import { ZipSearchForm, knownZip } from "@/components/ZipSearchForm";
 import { ArticleFeed } from "@/components/ArticleFeed";
+import { ArticleCard } from "@/components/ArticleCard";
+import { guidesForZip, regionalSlugsNear } from "@/lib/regionalArticles";
 import { articlePath, getTagCounts, queryBlogArticles } from "@/lib/blog";
 import { lookupZip } from "@/lib/zip";
 import { GUIDE_TAG, PROVIDER_TAG } from "@/lib/content";
@@ -86,13 +88,20 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
   const page = typeof sp.page === "string" ? Math.max(1, parseInt(sp.page, 10) || 1) : 1;
 
   const location = zip ? lookupZip(zip) : null;
-  const paf = location ? { lat: location.lat, lng: location.lng, radiusMiles: radius } : undefined;
+  const paf = location
+    ? { lat: location.lat, lng: location.lng, radiusMiles: radius, regionalSlugs: regionalSlugsNear(location, radius) }
+    : undefined;
+  // "Allergy guides for your area" (owner, 2026-11-27): from the zip in the
+  // URL, else the visitor's saved or approximate zip. Not on a tag or
+  // practice view, which are about something else.
+  const areaZip = !tag && !practice ? zip ?? (await knownZip()) : "";
 
-  const [tagCounts, gridResult, archiveResult] = await Promise.all([
+  const [tagCounts, gridResult, archiveResult, areaGuides] = await Promise.all([
     getTagCounts(),
     queryBlogArticles({ tag, practiceId: practice?.id, paf, page: 1, pageSize: GRID_SIZE }),
     // Starts after the card grid's articles so the list doesn't repeat them.
     queryBlogArticles({ tag, practiceId: practice?.id, paf, page, pageSize: ARCHIVE_PAGE_SIZE, offset: GRID_SIZE }),
+    areaZip ? guidesForZip(areaZip) : null,
   ]);
 
   const totalPages = Math.max(1, Math.ceil(archiveResult.totalCount / ARCHIVE_PAGE_SIZE));
@@ -149,7 +158,7 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
 
       <div className="border-b border-line px-6 py-6 sm:px-10">
         <div className="mb-3 text-xs font-semibold tracking-wide text-muted uppercase">
-          Find articles from providers near you
+          Find allergy guides and articles near you
         </div>
         {/* Pre-filled with the zip in the URL, else the visitor's saved zip
             (or approximate location), like the provider search boxes. */}
@@ -160,6 +169,23 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
           </Link>
         )}
       </div>
+
+      {areaGuides && areaGuides.articles.length > 0 && (
+        <div className="border-b border-line px-6 py-8 sm:px-10">
+          <div className="mb-3 text-xs font-semibold tracking-wide text-muted uppercase">
+            {areaGuides.kind === "national"
+              ? "Allergy season guide"
+              : areaGuides.kind === "state" && areaGuides.stateName
+                ? `Allergy guides for ${areaGuides.stateName}`
+                : "Allergy guides for your area"}
+          </div>
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
+            {areaGuides.articles.map((article) => (
+              <ArticleCard key={article.id} article={article} />
+            ))}
+          </div>
+        </div>
+      )}
 
       <div className="border-b border-line px-6 py-8 sm:px-10">
         <div className="mb-3 text-xs font-semibold tracking-wide text-muted uppercase">

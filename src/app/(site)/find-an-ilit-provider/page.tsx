@@ -9,6 +9,8 @@ import { lookupZip } from "@/lib/zip";
 import { statesWithProviders } from "@/lib/statePages";
 import { travelArticlePath } from "@/lib/articles";
 import { searchProviders } from "@/lib/srp";
+import { guidesForZip } from "@/lib/regionalArticles";
+import { articlePath } from "@/lib/blog";
 
 export const metadata: Metadata = {
   title: "Find an ILIT Allergy Provider",
@@ -37,11 +39,15 @@ export default async function FindAProviderPage({
   const view = params.view === "map" ? "map" : "list";
 
   const location = zip ? lookupZip(zip) : null;
-  const [result, states, travelPath] = await Promise.all([
+  const [result, states, travelPath, areaGuides] = await Promise.all([
     location ? searchProviders(location.lat, location.lng, radius) : null,
     statesWithProviders(),
     travelArticlePath(),
+    location && zip ? guidesForZip(zip, { limit: 1, fallback: false }) : null,
   ]);
+  // Only a guide for the searcher's own area, and no line at all when
+  // nothing is near (owner, 2026-11-27).
+  const areaGuide = areaGuides?.kind === "near" ? areaGuides.articles[0] : null;
   // One list, nearest first, whatever a practice's listing level: a
   // neutral consumer information site ranks by distance only (2026-10-09).
   const providers = result
@@ -189,6 +195,17 @@ export default async function FindAProviderPage({
                 )}
                 <ScraperTrapLink />
               </div>
+            </div>
+          )}
+
+          {areaGuide && (
+            <div className="border-t border-line px-6 py-4 sm:px-10">
+              <p className="text-sm text-foreground/80">
+                Allergy season in your area:{" "}
+                <Link href={articlePath(areaGuide)} data-cta="srp_area_guide" className="font-semibold text-sage hover:underline">
+                  {areaGuide.title} →
+                </Link>
+              </p>
             </div>
           )}
         </>

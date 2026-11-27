@@ -11,6 +11,7 @@ import { practiceSchemaId } from "@/lib/metadata";
 import { RELATED_ARTICLE_PICKS } from "@/lib/content";
 import { CREDIT_LABEL, creditKind, creditShows } from "@/lib/credits";
 import { InlineArticleCard } from "@/components/InlineArticleCard";
+import { ArticleClinicLink } from "@/components/ArticleClinicLink";
 
 // Maps rendered Markdown elements to the site's existing type scale, rather
 // than pulling in a Tailwind Typography plugin whose opinionated defaults
@@ -318,6 +319,8 @@ export function ArticleDetail({ article }: { article: ArticleDetailData }) {
           <Image src={article.featureImageUrl} alt={article.featureImageAlt ?? article.title} fill preload sizes="(min-width: 768px) 688px, 100vw" className="object-cover" />
         </div>
       )}
+
+      <ArticleClinicLink slug={article.slug} />
 
       {article.summaryPoints.length > 0 && (
         <div className="mb-6 rounded border border-line bg-bg-alt p-4">

@@ -38,6 +38,10 @@ export const RELATED_ARTICLE_PICKS: Record<string, string[]> = {
   "ilit-allergy-treatment-grand-rapids-allergist": ["michigan-allergy-season"],
 };
 
+/** The national seasonal guide: the fallback "guide for your area" when no
+ * regional guide matches a visitor's zip (src/lib/regionalArticles.ts). */
+export const SEASONAL_GUIDE_SLUG = "seasonal-allergies-by-season";
+
 /** The guides' fixed first row on Learn About ILIT, in display order. */
 export const CORE_GUIDE_SLUGS = [
   "allergy-shots-and-allergy-immunotherapy",

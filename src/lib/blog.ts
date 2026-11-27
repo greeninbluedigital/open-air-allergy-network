@@ -3,6 +3,7 @@ import { cachedQuery, readDb } from "@/lib/cache";
 import { db } from "@/lib/db";
 import { milesBetween } from "@/lib/srp";
 import { SHOWN_CREDIT } from "@/lib/credits";
+import { REGIONAL_SLUGS } from "@/lib/regionalArticles";
 
 export type TagCount = { tag: string; count: number };
 
@@ -59,8 +60,10 @@ export async function queryBlogArticles({
   /** Only articles credited to this practice (the PDP's "See more articles
    * from …" link), counting only credits that actually show. */
   practiceId?: string;
-  /** Provider Article Finder: filter by distance from a zip. */
-  paf?: { lat: number; lng: number; radiusMiles: number };
+  /** Provider Article Finder: filter by distance from a zip. `regionalSlugs`
+   * are the regional house guides near that zip; the others (a Houston
+   * guide for a Kansas City zip) drop out (src/lib/regionalArticles.ts). */
+  paf?: { lat: number; lng: number; radiusMiles: number; regionalSlugs: string[] };
   page: number;
   pageSize: number;
   /** Articles to skip before paging starts, e.g. the ones already shown in
@@ -75,10 +78,14 @@ export async function queryBlogArticles({
     const settings = await readDb.siteSetting.findUnique({ where: { id: 1 } });
     const excludeHouse = settings?.excludeHouseArticlesWhenPafActive ?? false;
 
+    const farRegional = REGIONAL_SLUGS.filter((s) => !paf.regionalSlugs.includes(s));
     pafWhere = {
       OR: [
         { providerCreditedId: { in: eligibleIds } },
-        ...(excludeHouse ? [] : [{ providerCreditedId: null }]),
+        // House articles: regional guides near the zip always count (even
+        // with excludeHouse on); other house articles follow the setting.
+        { providerCreditedId: null, slug: { in: paf.regionalSlugs } },
+        ...(excludeHouse ? [] : [{ providerCreditedId: null, slug: { notIn: farRegional } }]),
       ],
     };
   }

@@ -6,6 +6,8 @@ import { travelArticlePath } from "@/lib/articles";
 import { DEFAULT_OG_IMAGE, truncateForMeta } from "@/lib/metadata";
 import { metroAnchor, stateHasClinic, stateMetroGroups, statesWithProviders, type MetroGroup, type StateInfo } from "@/lib/statePages";
 import { stateHeading } from "@/lib/practiceType";
+import { ArticleCard } from "@/components/ArticleCard";
+import { publishedInOrder, regionalSlugsInState } from "@/lib/regionalArticles";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
@@ -54,10 +56,11 @@ export async function stateMetadata(state: StateInfo): Promise<Metadata> {
  * the [slug] route when the slug is a state name.
  */
 export async function StatePage({ state, groups }: { state: StateInfo; groups: MetroGroup[] }) {
-  const [allStates, travelPath, hasClinic] = await Promise.all([
+  const [allStates, travelPath, hasClinic, guides] = await Promise.all([
     statesWithProviders(),
     travelArticlePath(),
     stateHasClinic(state.code),
+    publishedInOrder(regionalSlugsInState(state.code)),
   ]);
   const heading = stateHeading(state.name, hasClinic);
   const total = groups.reduce((n, g) => n + g.providers.length, 0);
@@ -145,6 +148,20 @@ export async function StatePage({ state, groups }: { state: StateInfo; groups: M
           </div>
         </section>
       ))}
+
+      {/* The state's regional allergy guides (owner, 2026-11-27), after the
+          listings so they don't pull people off their search. Each guide
+          links back here from its top ("Find an allergy clinic in …"). */}
+      {guides.length > 0 && (
+        <section className="border-b border-line px-6 py-8 sm:px-10">
+          <h2 className="mb-3 text-lg font-bold">Allergy guides for {state.name}</h2>
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-3">
+            {guides.map((article) => (
+              <ArticleCard key={article.id} article={article} />
+            ))}
+          </div>
+        </section>
+      )}
 
       {allStates.length > 1 && (
         <section className="px-6 py-8 sm:px-10">

@@ -137,6 +137,11 @@ function milesBetween(a: { lat: number; lng: number }, b: { lat: number; lng: nu
   return 3958.8 * 2 * Math.asin(Math.sqrt(h));
 }
 
+/** A listed metro's center and search zip, e.g. ("TX", "Houston"). */
+export function metroByName(state: string, name: string): Metro | null {
+  return METROS[state]?.find((m) => m.name === name) ?? null;
+}
+
 /** The metro area a practice belongs to (nearest listed metro within
  * METRO_RADIUS_MILES), or null. Same rule the state pages group by. */
 export function metroNameFor(state: string, lat: number | null, lng: number | null): string | null {
