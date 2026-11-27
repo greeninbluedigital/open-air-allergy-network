@@ -17,7 +17,7 @@ KEY TAKEAWAYS
 - Oak made up about a fifth of all the pollen collected at 31 National Allergy Bureau stations in the U.S. and Canada, narrowly the top share in a 2019 study.
 - Oak season starts earlier and lasts longer the farther south you live: February 11 on average in Houston, May 2 in Rochester, New York.
 - Oak belongs to the birch group of pollens, so the raw fruits and nuts that bother people with birch allergy can bother some people with oak allergy.
-- Much of the yellow film on cars in spring is pine pollen, which isn't allergenic. Oak and other allergenic tree pollen are carried on the wind.
+- The stations with the most oak pollen in the 2019 study were in Texas and Georgia, led by Austin.
 - There's no FDA approved allergy tablet for oak, so the immunotherapy options are allergy shots, allergy drops given off label, or ILIT.
 
 FAQS
@@ -43,13 +43,15 @@ Q: Can you have an oak allergy in the fall?
 A: Not from oak pollen in most places. Oaks release pollen in late winter and spring, with average season starts from February to May in the [2019 pollen study](https://pmc.ncbi.nlm.nih.gov/articles/PMC6934246/). Fall symptoms usually come from something else: the [AAAAI](https://www.aaaai.org/tools-for-the-public/conditions-library/allergies/ragweed) says ragweed now pollinates from early August through October in many areas. Our [ragweed allergy guide](/blog/ragweed-allergy) covers fall season.
 
 Q: What does oak pollen look like?
-A: You'll usually notice the catkins, not the pollen. [Texas A&M AgriLife](https://agrilifetoday.tamu.edu/?p=307924) describes catkins as the worm-shaped male flower tassels that drop and pile up around oaks after they release pollen. Much of the yellow film on cars in spring is pine pollen, which [NC State](https://cnr.ncsu.edu/news/2024/04/allergies-back-dont-blame-all-trees/) forestry experts call non-allergenic, so a dusty windshield isn't a reliable oak count. Use a pollen count for that.
+A: You'll usually notice the catkins, not the pollen. [Texas A&M AgriLife](https://agrilifetoday.tamu.edu/?p=307924) describes catkins as the worm-shaped male flower tassels that drop and pile up around oaks after they release pollen. The pollen itself is too small to see: the yellow dust on cars and decks is heavy pollen that falls near the tree, the [AAFA](https://aafa.org/wp-content/uploads/2026/03/aafa-2026-allergy-capitals-report.pdf) says, and in pine country much of it is pine. A dusty windshield isn't a reliable oak count, so use a pollen count instead.
 
 Q: Is oak pollen an allergen?
 A: Yes, and a common one. The [Asthma and Allergy Foundation of America](https://aafa.org/allergies/types-of-allergies/pollen-allergy/tree-pollen-allergy/) (AAFA) calls oak very allergenic and says it grows in every state except Alaska and Hawaii. [UF/IFAS](https://gardeningsolutions.ifas.ufl.edu/?p=24975) names oak one of the most allergenic trees in Florida. If your symptoms peak with the oak bloom, ask for oak to be included when you're tested.
 
 SOURCES (all linked in the article)
 - Lo F, Bitz CM, Battisti DS, Hess JJ. "Pollen calendars and maps of allergenic pollen in North America." Aerobiologia. 2019;35(4):613-633 (PMC6934246; text read this run through the Europe PMC full text service, since the PMC page showed a bot check): 31 NAB stations; oak (Quercus) ranks first in Table 2 at 19.6% of all pollen summed across stations; "Most Quercus trees produce heavy pollen loads"; Quercus and Cupressaceae the most abundant taxa; Waco: main peak late March to late April, Quercus the most abundant pollen at 20%, peaking with Carya, Acer and spring Ulmus; mean Quercus start dates February 11 (Houston) to May 2 (Rochester, NY), almost 3 months apart; lower latitudes start earlier; average Quercus season 23 days (Seattle) to 103 days (San Jose); season longer at lower latitudes.
+- Lo et al. 2019, figures (added in main session review 2026-11-27, published version at https://link.springer.com/article/10.1007/s10453-019-09601-2, CC BY 4.0, which allows reuse with credit, a license link and a note of changes): Fig. 5a oak pollen calendar by station with "% abundance"; the methods define it as "the ratio of the long-term mean APIn at that station to the APIn summed over all NAB stations with data", so it's each station's share of all oak pollen counted across stations (Austin 14.3%, Atlanta 8.6%, Waco 8.4%, Houston 6.3%, San Antonio 6.3%, College Station 5.9%, Kansas City 5.3%, St. Louis 5.2%, Washington DC 5.2%, Tulsa 4.6%, OKC 3.4% and 1.8%, Waterbury 3.3%, York 3.1%, Dayton 2.1%, Erie 2.1%, Minneapolis 2.0%, Madison 1.9%, San Jose 1.7%, Springfield 1.7%, Greenville 1.6%, Rochester 1.4%, Bellevue 1.0%, Eugene 0.5%, Melrose Park 0.5%, Colorado Springs 0.4%, Seattle 0.3%, Baltimore 0.1%, Draper 0.1%). Table months are my reading of the Fig. 5a calendar at month precision, cross-checked against the Fig. 7a start date map. Fig. 7a (start date map) is the image in the body, cropped from Fig. 7.
+- AAFA, 2026 Allergy Capitals report (PDF): the yellow dust coating outdoor surfaces is heavy and falls near the tree; light, wind-carried pollen is what most people react to (wording verified for the Michigan article, 2026-11-15).
 - Nolte H, Waserman S, Ellis AK, et al. "Treatment Effect of the Tree Pollen SLIT-Tablet on Allergic Rhinoconjunctivitis During Oak Pollen Season." J Allergy Clin Immunol Pract. 2021;9(5):1871-1878. doi:10.1016/j.jaip.2021.01.035 (abstract read on McMaster Experts; PubMed and the publisher page didn't load): birch, alder, hazel and oak are in the birch homologous group based on cross-reactivity; these allergies may be treated with one representative extract; post hoc analysis of a randomized, double-blind, multinational trial; 634 people aged 12 to 65; daily birch tree SLIT tablet vs. placebo; oak season outcomes (days overlapping birch season excluded): combined score 25% better, symptoms 22%, medicine 32%, all P < .001; birch and oak IgE strongly correlated at baseline (r = 0.86).
 - AAFA, "Tree Pollen Allergy": oak "very allergenic", found in every state except Alaska and Hawaii; trees release the most pollen February through April, the South as early as December or January; symptom list; tree pollen can trigger asthma; birch and alder linked to food reactions; diagnosis by history, exam and tests for specific trees; start treatment at least 2 weeks before the season; closed windows, air conditioning, dry laundry indoors.
 - UF/IFAS Gardening Solutions, "Pollen and Allergies in Florida" (no date; © 2026): oak "one of the most allergenic"; 11 oak species in Florida; February to May peak, some areas high as early as December.
@@ -67,6 +69,12 @@ SOURCES (all linked in the article)
 - Own arithmetic: "late January" = two weeks before Houston's average February 11 oak start. "About a fifth" = 19.6%.
 
 REVIEW NOTES
+- **Main session review (2026-11-27), owner's four comments:**
+  - Waco factoid replaced by where oak pollen is heaviest, from the study's own station shares (Austin 14.3%, then Atlanta, Waco, Houston and San Antonio). Note the Lo text's "Quercus, the most abundant pollen at 20%" for Waco is a different measure (oak's share of Waco's pollen) from the Fig. 5a 8.4% (Waco's share of all stations' oak pollen); the article now uses only the Fig. 5a measure and says what it means.
+  - Pine paragraph reworked: leads with the AAFA's general point (visible yellow dust is heavy pollen that falls near the tree; allergy pollen is light and windborne), then pine only "where pines are common", matching the ragweed article's goldenrod point (showy, heavy pollen isn't the problem). The pine Key Takeaway became the "heaviest oak pollen" takeaway, and the "What does oak pollen look like?" FAQ uses the same framing.
+  - The Texas and Florida bullets became a 27 station table, south to north, from the study's oak pollen calendar, plus a sentence each for Florida (not in the study) and Texas (AgriLife, cedar fever link). Baltimore (0.1%) and London, ON (Canada) left out: Baltimore's near zero share next to Washington's 5.2% looks like a collection gap, and it would mislead Maryland readers.
+  - Co-blooming trees added to the intro (UT Health San Antonio), kept in the season section too.
+  - New: the study's oak start date map as a full width image (owner, 11/27). Image file: OneDrive\Documents\Claude Files\open-air-allergy-network\oak-pollen\oak-pollen-season-start-map-lo-2019.png. Upload to Cloudinary and replace OAK_MAP_URL in the body. The CC BY 4.0 credit and "cropped" note are in the caption; the license link is in the table source line below it.
 - **Main session review (2026-11-25), with the 11/24 style rules and the 11/25 fact check lessons.** First sentence already opens with its subject. FAQs reordered practical first (season, foods, allergy shots), definitions last ("Is oak pollen an allergen?"); each answer already stands alone and ends with a next step. The intro's comparison sentence became a card at the end, after Find a Provider (the tree pollen card stays after the intro). Fixed a markdown bug: the rain paragraph had no blank line after the Florida bullet, so it would have rendered inside the list; its preview opener "Rain gives short breaks." was folded. Allergy shot schedules now say "traditional schedule" and "typically", as the AAAAI page does (caught in today's fact check of the allergy test results article). The ILIT evidence hedge is now sourced to the 2026 AAAAI/ACAAI guideline. Doctor read: no medical errors; the article correctly says no tree tablet is FDA approved and tells oak-allergic readers to ask whether a practice treats oak with ILIT. Patient read: clear; IgE is explained where it appears. Owner decision still open: the Thermo Fisher oak food list (a test maker's page).
 - **Keywords.** Head term "oak pollen" is in the title, first sentence and two H2s. Autocomplete for "oak pollen" leads with "oak pollen season", "oak pollen allergy", "oak pollen count" and "oak pollen allergy foods to avoid", so the foods question got its own H2 and FAQ. Keywords other articles already own, left alone: "when is oak pollen season over in florida" and "Is there a fast allergy treatment for oak pollen allergy?" (Tampa Bay triggers), "houston oak pollen season" (Houston), "live oak pollen season florida" and "oak pollen orlando" (Orlando). The Florida bullet links the Tampa article instead of answering the Florida question again. "Oak pollen season texas", "san antonio" and "austin" are big autocomplete variants; the Texas bullet covers them lightly. A San Antonio city page could own them later.
 - **Autocomplete confirmed** every FAQ question in some form: "when is oak pollen season", "how long does oak pollen season last", "is oak pollen an allergen", "can oak pollen make you sick", "can oak pollen cause hives", "oak allergy in fall" (phrased as a question), "what does oak pollen look like", "oak allergy foods to avoid" (phrased as a question), "oak pollen allergy shots". Also popular but not used: "does oak pollen cause headaches" and "can oak pollen cause sore throat" (no source this run ties headaches to oak or tree pollen; the sore throat article covers the second), "oak pollen allergy in dogs" (off the human allergy angle), "oak pollen allergy natural relief", "oak pollen count today" (product of a count site, not an FAQ).
@@ -97,7 +105,7 @@ REVIEW NOTES
 BODY
 -->
 
-Oak pollen allergy is a common spring allergy in the U.S., because oak trees grow almost everywhere and most of them produce heavy loads of pollen. A [2019 study](https://pmc.ncbi.nlm.nih.gov/articles/PMC6934246/) of 31 National Allergy Bureau stations in the U.S. and Canada found that oak made up 19.6% of all the pollen collected, the top share in the study. Oak season starts as early as February in the South and as late as May in the North, and it brings the usual hay fever symptoms: sneezing, a runny or stuffy nose and itchy eyes.
+Oak pollen allergy is a common spring allergy in the U.S. because oak trees grow almost everywhere and most of them produce heavy loads of pollen. A [2019 study](https://pmc.ncbi.nlm.nih.gov/articles/PMC6934246/) of 31 National Allergy Bureau stations in the U.S. and Canada found that oak made up 19.6% of all the pollen collected, the top share in the study. Oak season starts as early as February in the South and as late as May in the North, and it brings the usual hay fever symptoms: sneezing, a runny or stuffy nose and itchy eyes. Oak rarely blooms alone, though. Other trees such as elm release pollen in the same weeks, an allergist at [UT Health San Antonio](https://lsom.uthscsa.edu/pediatrics/2026/03/30/weather-works-how-the-south-texas-weather-plays-a-role-in-allergy-season/) points out, so spring symptoms can come from more than one tree.
 
 Allergy medicine can ease those symptoms while the oaks are blooming. To treat the allergy itself, allergists offer allergy shots and a much shorter injection course called ILIT (intralymphatic immunotherapy). There's no FDA approved allergy tablet for oak or any other tree pollen.
 
@@ -111,16 +119,51 @@ Some people with tree pollen allergy also react to raw fruits, vegetables and nu
 
 ## Why oak pollen causes so many allergies
 
-Most oak trees produce heavy pollen loads, the 2019 study notes, and in Waco, Texas, oak made up 20% of all the pollen counted. The AAFA calls oak very allergenic and says it grows in every state except Alaska and Hawaii. In Florida, which has 11 oak species, [UF/IFAS](https://gardeningsolutions.ifas.ufl.edu/?p=24975) names oak one of the most allergenic trees.
+Most oak trees produce heavy pollen loads, the 2019 study notes, and the stations with the most oak pollen were in Texas and Georgia. Austin's station alone collected 14.3% of all the oak pollen counted across the study's stations, followed by Atlanta at 8.6%, Waco at 8.4%, and Houston and San Antonio at 6.3% each. The table below shows the rest. The AAFA calls oak very allergenic and says it grows in every state except Alaska and Hawaii. In Florida, which has 11 oak species, [UF/IFAS](https://gardeningsolutions.ifas.ufl.edu/?p=24975) names oak one of the most allergenic trees.
 
-Much of the yellow film that coats cars in spring is pine pollen, not oak. Forestry experts at [NC State](https://cnr.ncsu.edu/news/2024/04/allergies-back-dont-blame-all-trees/) say pine grains are too large and too low in protein to cause allergies, while oak, birch, maple, cedar and hickory all produce allergenic pollen. Light grains carried on the wind, the article adds, are much more likely to be inhaled.
+The pollen that triggers oak allergy is too small to see. The yellow dust you see coating outdoor surfaces in spring is heavy pollen that falls near the tree, the [AAFA](https://aafa.org/wp-content/uploads/2026/03/aafa-2026-allergy-capitals-report.pdf) explains, while the light pollen that rides the wind is what most people react to. Where pines are common, much of that dust is pine pollen, which forestry experts at [NC State](https://cnr.ncsu.edu/news/2024/04/allergies-back-dont-blame-all-trees/) say is too large and too low in protein to cause allergies. Oak, birch, maple, cedar and hickory all produce allergenic pollen, they add.
 
 ## When is oak pollen season?
 
 Oak pollen season starts earlier the farther south you live. In the [2019 study](https://pmc.ncbi.nlm.nih.gov/articles/PMC6934246/), the average start of oak season ranged from February 11 in Houston to May 2 in Rochester, New York, almost three months apart. Southern seasons also last longer. Average oak seasons ran from 23 days in Seattle to 103 days in San Jose, California, and the authors found longer seasons at lower latitudes.
 
-- **Oak pollen season in Texas:** Oaks typically flower and release pollen in March and April, according to [Texas A&M AgriLife](https://agrilifetoday.tamu.edu/?p=307924). In Waco, the 2019 study found the main tree peak from late March to late April, with oak the most common pollen. Oak follows mountain cedar, which our [cedar fever guide](/blog/cedar-fever-mountain-cedar-allergy) covers.
-- **Oak pollen season in Florida:** [UF/IFAS](https://gardeningsolutions.ifas.ufl.edu/?p=24975) gives February to May as peak season for Florida's oaks, with high counts as early as December in some areas. Our [Tampa Bay allergy guide](/blog/tampa-bay-allergy-triggers) covers when it winds down.
+![Map of the U.S. with colored dots at pollen stations showing when oak pollen season starts, from February in Texas to May in the Northeast and Pacific Northwest](OAK_MAP_URL "full:Average start of oak pollen season at National Allergy Bureau stations, 2003 to 2017. Map: Lo et al., Aerobiologia, 2019, CC BY 4.0, cropped to the start date map.")
+
+### Oak pollen season by city
+
+| Pollen station | Main oak pollen months | Share of the study's oak pollen |
+|---|---|---|
+| Houston, TX | February to March | 6.3% |
+| San Antonio, TX | March to mid April | 6.3% |
+| Austin, TX | March to April | 14.3% |
+| College Station, TX | March to mid April | 5.9% |
+| Waco, TX | March to May | 8.4% |
+| Atlanta, GA | March to April | 8.6% |
+| Greenville, SC | Late March to April | 1.6% |
+| Oklahoma City, OK | Mid March to April | 3.4% and 1.8% (two stations) |
+| Tulsa, OK | Mid March to April | 4.6% |
+| Springfield, MO | Late March to early May | 1.7% |
+| St. Louis, MO | Late March to early May | 5.2% |
+| Kansas City, MO | Late March to early May | 5.3% |
+| Washington, DC | Late March to early May | 5.2% |
+| Dayton, OH | April to early May | 2.1% |
+| York, PA | April and May | 3.1% |
+| Bellevue, NE (Omaha area) | April | 1.0% |
+| Melrose Park, IL (Chicago area) | April | 0.5% |
+| Waterbury, CT | Late April to May | 3.3% |
+| Erie, PA | May | 2.1% |
+| Madison, WI | May | 1.9% |
+| Rochester, NY | May | 1.4% |
+| Minneapolis, MN | Late April to May | 2.0% |
+| San Jose, CA | March to May | 1.7% |
+| Colorado Springs, CO | April to May | 0.4% |
+| Draper, UT (Salt Lake City area) | April to May | 0.1% |
+| Eugene, OR | Mid April to mid May | 0.5% |
+| Seattle, WA | Mid April to mid May | 0.3% |
+
+*Source: [Lo et al., 2019](https://link.springer.com/article/10.1007/s10453-019-09601-2), oak pollen calendar for National Allergy Bureau stations, 2003 to 2017 (CC BY 4.0). Months are approximate, read from the study's chart. The share is each station's portion of all the oak pollen counted across the study's stations, so a low number means little oak pollen in the air there, not a short season.*
+
+Florida isn't in the study. [UF/IFAS](https://gardeningsolutions.ifas.ufl.edu/?p=24975) gives February to May as peak season for Florida's oaks, with high counts as early as December in some areas, and our [Tampa Bay allergy guide](/blog/tampa-bay-allergy-triggers) covers when it winds down. In Texas, oaks typically flower and release pollen in March and April, according to [Texas A&M AgriLife](https://agrilifetoday.tamu.edu/?p=307924), right after mountain cedar season, which our [cedar fever guide](/blog/cedar-fever-mountain-cedar-allergy) covers.
 
 Edward Brooks, MD, an allergist at [UT Health San Antonio](https://lsom.uthscsa.edu/pediatrics/2026/03/30/weather-works-how-the-south-texas-weather-plays-a-role-in-allergy-season/), says rain knocks pollen out of the air for a few days of relief. He also points out that oak doesn't bloom alone: elm, mesquite and other trees release pollen at the same time.
 
