@@ -48,7 +48,7 @@ export const REGIONAL_ARTICLES: Record<string, RegionPlace[]> = {
     { state: "KS", metro: "Kansas City" },
     { state: "MO", metro: "St. Louis" },
   ],
-  "denver-allergies": [
+  "denver-colorado-springs-allergies": [
     { state: "CO", metro: "Denver" },
     { state: "CO", metro: "Colorado Springs" },
   ],

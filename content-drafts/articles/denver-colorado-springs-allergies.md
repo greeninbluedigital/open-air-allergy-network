@@ -3,26 +3,26 @@ DRAFT FOR REVIEW. Everything above the "BODY" line is page metadata, not
 article text. Source links in the body open in a new tab.
 
 Section: BLOG
-Title (56 chars): Denver Allergies: Colorado Allergy Season and What Helps
-URL: /blog/denver-allergies
-Meta description (138 chars): Denver jumped from 91st to 30th in the AAFA's 2026 allergy rankings. See when tree, grass and weed pollen hit in Colorado, and what helps.
-Target keywords: "denver allergies" (head term: title, first paragraph, H2s), "allergies in denver", "denver allergy season", "colorado allergy season" (H2), "is denver bad for allergies" (FAQ 1), "why are allergies so bad in colorado" (FAQ 2) / "why are allergies so bad in denver" (H2), "when is allergy season in colorado" (FAQ 3), "when is allergy season over in colorado" (FAQ 4), "does altitude affect allergies" (FAQ 5 and H2), "are there dust mites in colorado" (FAQ 6), "colorado fall allergies" / "denver fall allergies" (FAQ 7 and fall H2), "denver pollen count" (FAQ 8), "ragweed colorado" (fall H2), "colorado springs allergy season" (ranking section and final H2), "allergist denver" (final H2), "faster alternative to allergy shots" (FAQ 9 and Longer term options), "fast allergy treatment" (intro)
+Title (60 chars): Denver and Colorado Springs Allergies: Season and What Helps
+URL: /blog/denver-colorado-springs-allergies
+Meta description (154 chars): Colorado Springs ranked 15th and Denver 30th in the AAFA's 2026 allergy rankings. When tree, grass and weed pollen hit on the Front Range, and what helps.
+Target keywords: "denver allergies" and "colorado springs allergies" (head terms: title, first paragraph, H2s), "allergies in colorado springs", "colorado springs allergy season", "is colorado springs bad for allergies" (FAQ 1), "front range allergies" (H2s), "rocky mountain allergies" (why section), "allergies in denver", "denver allergy season", "colorado allergy season" (H2), "is denver bad for allergies" (FAQ 1), "why are allergies so bad in colorado" (FAQ 2) / "why are allergies so bad in denver" (H2), "when is allergy season in colorado" (FAQ 3), "when is allergy season over in colorado" (FAQ 4), "does altitude affect allergies" (FAQ 5 and H2), "are there dust mites in colorado" (FAQ 6), "colorado fall allergies" / "denver fall allergies" (FAQ 7 and fall H2), "denver pollen count" (FAQ 8), "ragweed colorado" (fall H2), "colorado springs allergy season" (ranking section and final H2), "allergist denver" (final H2), "faster alternative to allergy shots" (FAQ 9 and Longer term options), "fast allergy treatment" (intro)
 Tags: Allergens, Allergy Symptoms
-Feature image: TBD (owner uploads a Denver photo; the first one was Minneapolis and moved to queue #58)
+Feature image: https://res.cloudinary.com/qruprn0t/image/upload/v1795822726/denver-allergies-state-capitol.jpg
 Image idea: (queue column empty; hero URL already filled) A Denver skyline above a green tree canopy on a clear day, no people.
-Image alt: TBD (write from the new photo)
+Image alt: The Denver City and County Building beyond the trees of Civic Center Park, with the American and Colorado flags in front and the Rocky Mountains on the horizon under a bright blue sky
 Credit: none (house article).
 
 KEY TAKEAWAYS
 - Denver jumped from 91st to 30th in the AAFA's Allergy Capitals rankings in 2026, and Colorado Springs from 84th to 15th.
 - Colorado's allergy season usually runs from March through October: trees in spring, grass until about mid August, then weeds until the first two hard frosts.
 - Cottonwood and cedar are among the more prominent tree allergens in the Denver metro area, and the cotton isn't the pollen: cottonwoods release their pollen months before it flies.
-- Colorado's dry air means fewer dust mites, but the same dryness can leave your nose congested, and saline sprays can help.
+- Colorado's air is dry because of its high elevation, its distance from the oceans and the mountains that catch Pacific moisture. That means fewer dust mites, but the dryness can leave your nose congested, and saline sprays can help.
 - People who move to Colorado commonly develop allergies to things they weren't exposed to back home.
 
 FAQS
-Q: Is Denver bad for allergies?
-A: In 2026, yes. The Asthma and Allergy Foundation of America ranked Denver 30th of 100 large U.S. metro areas in its [2026 Allergy Capitals report](https://aafa.org/wp-content/uploads/2026/03/aafa-2026-allergy-capitals-report.pdf), which counts as worse than average, after ranking it 91st in [2025](https://aafa.org/wp-content/uploads/2025/03/aafa-2025-allergy-capitals-report.pdf). Denver's pollen scored worse than average, though it scored better than average on access to allergy specialists. If over-the-counter medicine isn't controlling your symptoms, an allergist can test for the pollens behind them.
+Q: Are Denver and Colorado Springs bad for allergies?
+A: In 2026, yes. The Asthma and Allergy Foundation of America ranked Colorado Springs 15th and Denver 30th of 100 large U.S. metro areas in its [2026 Allergy Capitals report](https://aafa.org/wp-content/uploads/2026/03/aafa-2026-allergy-capitals-report.pdf), both worse than average, after ranking them 84th and 91st in [2025](https://aafa.org/wp-content/uploads/2025/03/aafa-2025-allergy-capitals-report.pdf). Pollen scored worse than average in both cities. If over-the-counter medicine isn't controlling your symptoms, an allergist can test for the pollens behind them.
 
 Q: Why are allergies so bad in Colorado?
 A: Pollen peaked higher and lasted longer in Denver and Colorado Springs in 2025. The [AAFA](https://aafa.org/wp-content/uploads/2026/03/aafa-2026-allergy-capitals-report.pdf) says that in Denver and Colorado Springs, tree pollen peaked earlier and higher, grass pollen lasted longer, and weed pollen started earlier, peaked higher and showed up on more days. It adds that warm, sunny days and steady wind keep pollen in the air longer in both cities, and that Colorado now averages 15 fewer days below freezing a year than before 1960.
@@ -34,7 +34,7 @@ Q: When is allergy season over in Colorado?
 A: Pollen season usually ends after the first two hard frosts of the fall, according to Dr. William Anderson of the [University of Colorado School of Medicine](https://news.cuanschutz.edu/news-stories/how-to-battle-the-escalating-misery-of-allergy-season). The [AAFA](https://aafa.org/wp-content/uploads/2026/03/aafa-2026-allergy-capitals-report.pdf) notes that the first frost is coming later as temperatures warm, which keeps weeds growing longer. If symptoms continue into winter, ask an allergist about indoor triggers such as pets or mold.
 
 Q: Does altitude affect allergies?
-A: Not much on its own. Andi Hudler, a pulmonary health physician at Denver Health, [told FOX31](https://www.yahoo.com/news/does-colorado-high-elevation-impact-122756345.html) that Colorado's elevation mainly matters because it decides which plants grow, so the mountains and the plains have different allergens. The thinner air matters more for people with asthma: with less oxygen to work with, symptoms can show up sooner. Anyone with asthma whose wheezing, cough or trouble breathing doesn't improve with their inhaler should get seen urgently.
+A: Not much on its own, though Colorado's dry air can make allergies feel worse: nasal dryness can add to congestion, Dr. Levi Keller of the [University of Colorado School of Medicine](https://news.cuanschutz.edu/news-stories/pollen-allergies-are-brutal-this-year-a-doctor-explains-why-and-how-to-find-relief) says. Andi Hudler, a pulmonary health physician at Denver Health, [told FOX31](https://www.yahoo.com/news/does-colorado-high-elevation-impact-122756345.html) that Colorado's elevation mainly matters because it decides which plants grow, so the mountains and the plains have different allergens. The thinner air matters more for people with asthma: with less oxygen to work with, symptoms can show up sooner. Anyone with asthma whose wheezing, cough or trouble breathing doesn't improve with their inhaler should get seen urgently.
 
 Q: Are there dust mites in Colorado?
 A: Yes, but fewer than in humid places. [Children's Hospital Colorado](https://www.childrenscolorado.org/just-ask-childrens/articles/indoor-allergies/) says dust mites aren't as common in Colorado because of its dry climate. It recommends keeping indoor humidity around 30% to 50%, which it calls Colorado's natural level. Pets and mold are other indoor triggers it names.
@@ -42,10 +42,10 @@ A: Yes, but fewer than in humid places. [Children's Hospital Colorado](https://w
 Q: What causes fall allergies in Colorado?
 A: Mostly weeds, plus the tail end of grass season. Dr. William Anderson of the [University of Colorado School of Medicine](https://news.cuanschutz.edu/news-stories/how-to-battle-the-escalating-misery-of-allergy-season) says Colorado's weed season starts around mid August, when grass is winding down, and the [Weld County Health Department](https://www.weld.gov/Government/Departments/Health-and-Environment/Environmental-Health-Services/Air-Quality/Indoor-Air-Quality/Learn-About-Pollutants/Biological-Contaminants/Pollen) lists ragweed, sagebrush, Russian thistle and lamb's-quarters among the weeds that cause symptoms.
 
-Q: Where can I check the Denver pollen count?
-A: Denver doesn't have an official count on the national map. The National Allergy Bureau's [pollen map](https://pollen.aaaai.org/), run by the American Academy of Allergy, Asthma & Immunology, lists no counting station in Colorado. Dr. Levi Keller, an allergist at the [University of Colorado School of Medicine](https://news.cuanschutz.edu/news-stories/pollen-allergies-are-brutal-this-year-a-doctor-explains-why-and-how-to-find-relief), suggests watching the pollen forecast to know when allergens are getting worse, and the [AAFA](https://aafa.org/wp-content/uploads/2026/03/aafa-2026-allergy-capitals-report.pdf) notes that some apps show counts from automated sensors near you, which are more accurate than a forecast. Our guide to [reading a pollen count](/blog/how-to-read-a-pollen-count) explains what the levels mean.
+Q: Where can I check the Denver or Colorado Springs pollen count?
+A: Neither city has an official count on the national map. The National Allergy Bureau's [pollen map](https://pollen.aaaai.org/), run by the American Academy of Allergy, Asthma & Immunology, lists no counting station in Colorado. Dr. Levi Keller, an allergist at the [University of Colorado School of Medicine](https://news.cuanschutz.edu/news-stories/pollen-allergies-are-brutal-this-year-a-doctor-explains-why-and-how-to-find-relief), suggests watching the pollen forecast to know when allergens are getting worse, and the [AAFA](https://aafa.org/wp-content/uploads/2026/03/aafa-2026-allergy-capitals-report.pdf) notes that some apps show counts from automated sensors near you, which are more accurate than a forecast. Our guide to [reading a pollen count](/blog/how-to-read-a-pollen-count) explains what the levels mean.
 
-Q: Is there a faster alternative to allergy shots in Denver?
+Q: Is there a faster alternative to allergy shots in Denver or Colorado Springs?
 A: Yes. ILIT (intralymphatic immunotherapy) is typically about three injections over about two months, while the [AAAAI](https://www.aaaai.org/tools-for-the-public/conditions-library/allergies/allergy-shots-%28immunotherapy%29) describes allergy shots continuing for three to five years once you reach maintenance. It's given into a lymph node in the groin (just below the waist, near the hip), and its research base is smaller than that of allergy shots. To see whether it fits your allergies, use [Find a Provider](/find-an-ilit-provider) on OpenAirAllergyNetwork.com to locate an allergist who offers it.
 
 SOURCES (all linked in the article)
@@ -55,6 +55,8 @@ SOURCES (all linked in the article)
 - CU Anschutz newsroom, "Pollen Allergies Are Brutal This Year: A Doctor Explains Why, and How to Find Relief" (Levi Keller, MD, May 14, 2026): record warm start to spring 2026; Western U.S. saw an unprecedented warm spring that drove early tree pollen; seeing more patients with allergies for the first time; windows closed; HEPA air purification, non-ionizing (ionizing filters can generate ozone); watch the NAB pollen forecast; in a dry climate like Colorado's, nasal dryness can contribute to congestion, so saline sprays can ease symptoms; nasal steroids can take several weeks to reach peak effect.
 - FOX31 (KDVR), "Common allergens in Colorado and what to know for allergy season" (March 29, 2024, via Yahoo News syndication; kdvr.com returns 403 to scripts): Andi Hudler, Denver Health pulmonary physician: cottonwood and cedar among the more prominent culprits in the Denver metro area; mountains evergreen, juniper and aspen; plains grasses and weeds; season late February or March until the first freeze; weed pollen and mold more in fall; up to 40% of people with seasonal allergies also have asthma.
 - FOX31 (KDVR), "Does Colorado's high elevation impact allergies?" (April 1, 2024, via Yahoo): Hudler: elevation won't have a big effect other than determining which plants grow; lower partial pressure of oxygen means people with asthma may develop symptoms sooner; trouble breathing, wheezing and increased cough not helped by home inhalers are reasons for urgent evaluation; very common for people new to the state to develop allergies for the first time.
+- Colorado Climate Center (Colorado State University), "Climate of Colorado" (read 2026-11-27 in main session review): "The combination of high elevation, mid latitude interior continent geography results in a cool, dry, invigorating climate. Humidity is generally quite low"; distance from the Pacific Ocean and the Gulf of Mexico; eastward-moving Pacific storms "lose much of their moisture" on the mountaintops and westward-facing slopes; elevations rise "to between 5,000 and 6,500 feet where the plains meet the Front Range of the Rocky Mountain chain"; Pikes Peak near Colorado Springs rises to over 14,000 feet.
+- FOX21 (Colorado Springs), "Colorado Springs ranks 15th worst city for allergies" (Jessica Livingstone, about May 2026; reached through a CU Anschutz newsroom link): Dr. Christine Cho, pediatric allergist at Children's Hospital Colorado: grass pollen "is super tiny and it just floats in the air"; keep pollen outdoors; shower or nasal rinse after coming in; "The most effective medications are putting the medicine where the problem is" (nasal spray for nose symptoms, allergy eye drop for eye symptoms). The article also says Colorado Springs ranks fourth in the nation for grass pollen per the AAFA; not in the 2026 report text, so not used. FOX21 notes AI tools reformatted its reporting; quotes are attributed to the article.
 - National Jewish Health, "5 Common Colorado Allergens That Can Get in the Way of Gardening" (undated): cottonwood pollinates in spring and releases pollen months before the "cotton" flies; the cotton is the seed of the female flower; symptoms when cotton flies could be irritation or grass pollen; grass allergens Bermuda, Johnson, Kentucky blue, sweet vernal, Timothy, usually late spring and summer; compost is a breeding ground for mold; rock mulch instead of bark mulch; mask or someone else mows; ragweed mostly late summer and fall.
 - Weld County Health Department, "Pollen" (Colorado county health page, undated; loaded in the browser this run because it returns 403 to scripts): tree pollen often first in Colorado, overlaps with grass; tree list includes ash, aspen, cedar, cottonwood, elm, juniper, maple, oak, willow and others; weeds in late summer and fall: burning bush, cocklebur, lambs'-quarters, mugwort, pigweed, ragweed, Russian thistle, sagebrush, tumbleweed; ragweed pollen can travel hundreds of miles.
 - Children's Hospital Colorado, "Mold and Common Indoor Allergens: Everything You Need to Know" (Just Ask Children's article): dust mites aren't as common in Colorado because of the dry climate; keep indoor humidity around 30% to 50%, "the natural humidity level in Colorado"; mold in bathrooms, basements, kitchens, water damage; HEPA filter matched to the room.
@@ -67,6 +69,13 @@ SOURCES (all linked in the article)
 - OAAN Colorado state page (loaded in the browser this run): "Denver area allergists" section, anchor `#denver`; "Colorado Springs area allergists", anchor `#colorado-springs`. Zips from src/lib/statePages.ts: Denver 80202, Colorado Springs 80903.
 
 REVIEW NOTES
+- **Main session review 2 (2026-11-27), owner's comments:**
+  - **Denver and Colorado Springs together:** title, URL (`/blog/denver-colorado-springs-allergies`, unpublished so safe to change; queue row and src/lib/regionalArticles.ts updated to match), meta description, intro, FAQ 1 (now "Are Denver and Colorado Springs bad for allergies?"), the pollen count and treatment FAQs, and most H2s now name both cities; summer and fall H2s use "Front Range" to vary it.
+  - **Rocky Mountains:** new opening paragraph in the "why" section (Colorado Climate Center elevations and Pikes Peak; Hudler on mountain vs. plains allergens).
+  - **Is the air dry because of elevation?** Partly. The Colorado Climate Center gives high elevation plus distance from the oceans, and Pacific storms dropping their moisture on the mountains. Added to the dry air section and a Key Takeaway.
+  - **Does dry air make allergies feel worse?** Yes, in two sourced ways: nasal dryness adds to congestion (Keller) and dry air lets pollen linger (Ponce, Denver7). The altitude section and FAQ now say so. "Mile-high" kept as "Denver sits a mile high and Colorado Springs sits higher" (common knowledge, no figure for Colorado Springs).
+  - **Colorado Springs source:** Dr. Christine Cho (Children's Hospital Colorado) via FOX21, in the grass section and the medicine tip.
+  - **Hero:** the owner's new photo (Front Range on the horizon, Colorado flag). The building is the Denver City and County Building across Civic Center Park (the photo looks taken from the State Capitol), so the alt text names that building; the file name says "state-capitol", which is fine to leave.
 - **Main session review (2026-11-27):**
   - **Hero is Minneapolis, not Denver.** I agree with both earlier passes: the skyline is Minneapolis (IDS Center and Capella Tower), flat horizon, no Front Range. It needs a new hero before publishing; a Denver skyline with the mountains behind it, or City Park with the skyline, would read as Denver at a glance. The queue row's hero URL is this same photo, so it needs replacing there too.
   - **Pollen count:** the AAAAI station list has no Colorado station, so the FAQ and tip 1 now say so and point to forecasts and sensor-based apps (Keller, AAFA) instead of sending Denver readers to a map with no Denver count.
@@ -95,13 +104,13 @@ REVIEW NOTES
 BODY
 -->
 
-Denver allergies usually run from March into October, as tree pollen in spring gives way to grass in summer and then to weeds in the fall, according to an allergist at the [University of Colorado School of Medicine](https://news.cuanschutz.edu/news-stories/how-to-battle-the-escalating-misery-of-allergy-season). The Asthma and Allergy Foundation of America (AAFA) ranked Denver 30th of 100 large U.S. metro areas in its [2026 Allergy Capitals report](https://aafa.org/wp-content/uploads/2026/03/aafa-2026-allergy-capitals-report.pdf), a jump from 91st the year before, after tree and weed pollen peaked higher and grass pollen lasted longer in 2025.
+Allergies in Denver and Colorado Springs usually run from March into October, as tree pollen in spring gives way to grass in summer and then to weeds in the fall, according to an allergist at the [University of Colorado School of Medicine](https://news.cuanschutz.edu/news-stories/how-to-battle-the-escalating-misery-of-allergy-season). The Asthma and Allergy Foundation of America (AAFA) ranked Colorado Springs 15th and Denver 30th of 100 large U.S. metro areas in its [2026 Allergy Capitals report](https://aafa.org/wp-content/uploads/2026/03/aafa-2026-allergy-capitals-report.pdf), up from 84th and 91st the year before, after tree and weed pollen peaked higher and grass pollen lasted longer in 2025.
 
 Whichever season gets to you, allergy medicine treats the symptoms while you take it. For longer relief, allergy shots, allergy drops and ILIT, a fast allergy treatment course of typically three injections, work on the allergy itself.
 
 [Seasonal Allergies: Spring, Summer, Fall & Winter Guide](/learn-about-ilit/seasonal-allergies-by-season "card")
 
-## Colorado allergy season by month
+## Denver and Colorado Springs allergy season by month
 
 Dr. William Anderson, an allergist and associate professor at the University of Colorado School of Medicine, describes Colorado's allergy season as three overlapping waves, in a [2024 interview](https://news.cuanschutz.edu/news-stories/how-to-battle-the-escalating-misery-of-allergy-season) with the university. The plants listed come from Denver Health, National Jewish Health and the [Weld County Health Department](https://www.weld.gov/Government/Departments/Health-and-Environment/Environmental-Health-Services/Air-Quality/Indoor-Air-Quality/Learn-About-Pollutants/Biological-Contaminants/Pollen), which name them among the plants that cause allergy symptoms. They're examples, not a ranking.
 
@@ -113,7 +122,7 @@ Dr. William Anderson, an allergist and associate professor at the University of 
 
 *A mild winter can start tree season earlier, Anderson says. Grass season begins as tree season winds down, and the two can overlap.*
 
-## How Denver ranks for allergies
+## How Denver and Colorado Springs rank for allergies
 
 The AAFA scores the 100 largest metro areas in the contiguous U.S. on tree, grass and weed pollen, use of over-the-counter allergy medicine and the number of allergy specialists, and it doesn't weight those factors equally. Ranks 1 to 33 generally mean worse than average. Denver and Colorado Springs both moved into that range in 2026.
 
@@ -129,13 +138,15 @@ Source: AAFA [2026](https://aafa.org/wp-content/uploads/2026/03/aafa-2026-allerg
 
 Each year's ranking reflects the previous year's pollen. For both Colorado cities, the AAFA says tree pollen peaked earlier and higher in 2025, grass pollen lasted longer, and weed pollen started earlier, peaked higher and appeared on more days. Mold isn't counted in the rankings. Our ranking of the [worst U.S. cities for allergies in 2026](/blog/worst-cities-for-allergies-2026) covers the national top 20.
 
-## Why are allergies so bad in Denver?
+## Why are allergies so bad in Denver and Colorado Springs?
+
+Both cities sit where the plains meet the Front Range of the Rocky Mountains, at 5,000 to 6,500 feet, according to the [Colorado Climate Center](https://climate.colostate.edu/climate_long.html), and Pikes Peak rises to more than 14,000 feet just west of Colorado Springs. The mountains and the plains bring different allergens: evergreens, juniper and aspen are common triggers in the mountains, while grasses and weeds are more common on the plains, Andi Hudler of Denver Health [told FOX31](https://www.yahoo.com/news/does-colorado-high-elevation-impact-122756345.html).
 
 The [AAFA](https://aafa.org/wp-content/uploads/2026/03/aafa-2026-allergy-capitals-report.pdf) says warm, sunny days and persistent wind in Denver and Colorado Springs make it easier for pollen to stay airborne for long periods. Moisture helps wash pollen out of the air, Dr. Joseph Ponce of AdventHealth Porter Hospital told [Denver7](https://www.denver7.com/news/local-news/colorados-weird-weather-is-making-allergy-season-worse) in 2026, so a dry stretch lets it linger.
 
 Colorado now averages 15 fewer days below freezing per year than it did before 1960, the AAFA says, and as temperatures warm, spring is arriving earlier and the first frost is coming later. Dr. Levi Keller, a University of Colorado allergist, [wrote in May 2026](https://news.cuanschutz.edu/news-stories/pollen-allergies-are-brutal-this-year-a-doctor-explains-why-and-how-to-find-relief) that an unprecedented warm spring in the West brought tree pollen out early that year, and that he's seeing more patients with allergies for the first time.
 
-## Spring allergies in Denver: cottonwood and other trees
+## Spring allergies in Denver and Colorado Springs: cottonwood and other trees
 
 Cottonwood and cedar trees are among the more prominent allergy culprits in the Denver metro area, Andi Hudler, a pulmonary health physician at Denver Health, [told FOX31](https://www.yahoo.com/news/common-allergens-colorado-know-allergy-220642287.html). In the mountains, she said, evergreens, juniper and aspen are common triggers.
 
@@ -145,13 +156,13 @@ The fluffy "cotton" that drifts through Denver isn't the pollen. [National Jewis
 
 **Tip:** If you know spring is always rough, Anderson suggests starting your allergy medicine sometime in February, so it's working before the trees start. Our [tree pollen allergy guide](/blog/tree-pollen-allergy) covers symptoms and treatment.
 
-## Summer allergies in Denver: grass pollen
+## Summer allergies on the Front Range: grass pollen
 
-Grass season follows the trees and runs until about mid August in Colorado, Anderson says. National Jewish Health names Bermuda, Johnson, Kentucky blue, sweet vernal and Timothy as the most common grass allergens, and notes that high winds can carry grass pollen for miles. On Colorado's plains, Hudler said, grasses and weeds are the more common allergens.
+Grass season follows the trees and runs until about mid August in Colorado, Anderson says. National Jewish Health names Bermuda, Johnson, Kentucky blue, sweet vernal and Timothy as the most common grass allergens, and notes that high winds can carry grass pollen for miles. Grass pollen "is super tiny and it just floats in the air," Dr. Christine Cho, a pediatric allergist at Children's Hospital Colorado, told [FOX21 in Colorado Springs](https://www.fox21news.com/news/colorado-springs-ranks-15th-worst-city-for-allergies/).
 
 **Tip:** National Jewish Health suggests wearing a mask when you mow, or asking someone else to do it. Replacing some turf with groundcovers you aren't allergic to can also cut your exposure at home.
 
-## Fall allergies in Denver: ragweed, sagebrush and other weeds
+## Fall allergies on the Front Range: ragweed, sagebrush and other weeds
 
 Weed season starts around mid August and lasts until the first two hard frosts, according to [Anderson](https://news.cuanschutz.edu/news-stories/how-to-battle-the-escalating-misery-of-allergy-season), so fall symptoms usually come from the tail end of grass season, the start of weed season or both. The [Weld County Health Department](https://www.weld.gov/Government/Departments/Health-and-Environment/Environmental-Health-Services/Air-Quality/Indoor-Air-Quality/Learn-About-Pollutants/Biological-Contaminants/Pollen) lists ragweed, sagebrush, Russian thistle, tumbleweed, lamb's-quarters, pigweed and mugwort among the common weeds that can cause symptoms. It notes that ragweed pollen can travel hundreds of miles, which makes it hard to avoid. Hudler adds that weed pollen and mold cause more allergies in the fall.
 
@@ -161,15 +172,15 @@ Weed season starts around mid August and lasts until the first two hard frosts, 
 
 [Children's Hospital Colorado](https://www.childrenscolorado.org/just-ask-childrens/articles/indoor-allergies/) says dust mites aren't as common in Colorado because of the dry climate. It recommends keeping indoor humidity around 30% to 50%, which it calls the state's natural level. Mold still grows where water collects, in bathrooms, basements and kitchens and anywhere with a leak. National Jewish Health adds that compost piles breed mold, and suggests rock mulch in place of bark mulch if you're allergic.
 
-In a dry climate like Colorado's, nasal dryness can add to congestion, [Keller says](https://news.cuanschutz.edu/news-stories/pollen-allergies-are-brutal-this-year-a-doctor-explains-why-and-how-to-find-relief), and saline sprays can ease it.
+The dryness comes from geography. Colorado's high elevation and its location far from the Pacific Ocean and the Gulf of Mexico keep humidity generally low, the [Colorado Climate Center](https://climate.colostate.edu/climate_long.html) explains, and storms from the Pacific lose much of their moisture on the mountains before they reach the Front Range. That dry air can add to congestion, [Keller says](https://news.cuanschutz.edu/news-stories/pollen-allergies-are-brutal-this-year-a-doctor-explains-why-and-how-to-find-relief), and saline sprays can ease it.
 
-## Does Denver's altitude affect allergies?
+## Does Colorado's altitude affect allergies?
 
-Not much on its own. Colorado's elevation mainly matters because it decides which plants grow where, Hudler [told FOX31](https://www.yahoo.com/news/does-colorado-high-elevation-impact-122756345.html). It matters more for people who have asthma along with their allergies: with less oxygen in the air, symptoms can show up sooner than they would at sea level. Hudler says trouble breathing, wheezing or a worsening cough that your inhaler isn't helping is a reason to get seen urgently.
+Altitude itself doesn't do much to allergies beyond deciding which plants grow where, Hudler [told FOX31](https://www.yahoo.com/news/does-colorado-high-elevation-impact-122756345.html). Denver sits a mile high and Colorado Springs sits higher, and the dry air that comes with Colorado's climate does more: it can add to congestion and keep pollen in the air longer. Altitude matters more for people who have asthma along with their allergies: with less oxygen in the air, symptoms can show up sooner than they would at sea level. Hudler says trouble breathing, wheezing or a worsening cough that your inhaler isn't helping is a reason to get seen urgently.
 
 Hudler said it's very common for people who move to Colorado to develop allergies for the first time, because they're meeting allergens they weren't exposed to before.
 
-## How to cut your allergy exposure in Denver
+## How to cut your allergy exposure in Denver and Colorado Springs
 
 **1. Watch the pollen forecast.** Keller suggests checking the pollen forecast to know when allergens are getting worse. The National Allergy Bureau doesn't list a Colorado counting station, so a forecast, or an app that uses nearby sensors, is what Denver has. Our guide to [reading a pollen count](/blog/how-to-read-a-pollen-count) explains the levels.
 
@@ -179,13 +190,13 @@ Hudler said it's very common for people who move to Colorado to develop allergie
 
 **4. Hand off the yard work.** If you can't, Anderson suggests wearing a mask while you do it.
 
-**5. Use a nasal steroid spray for congestion.** Anderson says nasal steroids are usually the better option, since oral antihistamines don't do a great job with a stuffy nose, and generics work as well as brand names. Keller notes that nasal steroids can take several weeks to reach their full effect.
+**5. Use a nasal steroid spray for congestion.** Anderson says nasal steroids are usually the better option, since oral antihistamines don't do a great job with a stuffy nose, and generics work as well as brand names. Keller notes that nasal steroids can take several weeks to reach their full effect. For itchy eyes, Cho suggests an allergy eye drop: "The most effective medications are putting the medicine where the problem is."
 
-## Allergy testing in Denver
+## Allergy testing in Denver and Colorado Springs
 
 Trees, grass and weeds overlap in Colorado, so the month alone won't always tell you what you're reacting to. If a nasal steroid spray and antihistamines aren't controlling your symptoms, [Anderson](https://news.cuanschutz.edu/news-stories/how-to-battle-the-escalating-misery-of-allergy-season) says that's a good time to see an allergy specialist, who can test for your specific allergens. Those results are also what an allergist uses to plan immunotherapy. Our guide to [allergy skin tests vs. blood tests](/blog/allergy-skin-test-vs-blood-test) explains both, and [Do You Need Allergy Testing Before ILIT?](/blog/allergy-testing-before-ilit) covers what happens at a first visit.
 
-## Longer term options for Denver allergies
+## Longer term options for Colorado allergies
 
 Allergy medicine eases symptoms while you take it, but it doesn't change the allergy. Immunotherapy does, by building tolerance to the allergens on your test results, and it comes in three forms.
 

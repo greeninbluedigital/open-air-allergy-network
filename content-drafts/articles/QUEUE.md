@@ -107,7 +107,7 @@ Keep the mix when adding items.
 | 41 | Allergy Triggers in St. Louis and Kansas City (ranking or list, local) | Blog | st-louis-kansas-city-allergy-triggers | ASAP (owner, 2026-11-25: next draft, to help Prairie Allergy's Kansas City page) | published 2026-11-26 | published/st-louis-kansas-city-allergy-triggers.md |  | https://res.cloudinary.com/qruprn0t/image/upload/v1795685439/st-louis-kansas-city-allergy-triggers-liberty-memorial-tower-world-war-one-museum.jpg |
 | 42 | Oak Pollen Allergy | Blog | oak-pollen-allergy | February | published 2026-11-27 | published/oak-pollen-allergy.md |  | https://res.cloudinary.com/qruprn0t/image/upload/v1795821254/oak-pollen-allergy-oak-tree-park-school-houston-texas.jpg |
 | 43 | How Much Does ILIT Cost? | Blog | how-much-does-ilit-cost | NOT before the allergy shot cost calculator is finished and deployed (docs/calculator-plan.md) | hold | |  |  |
-| 44 | Denver Allergies (city page) | Blog | denver-allergies | before March | reviewed 2026-11-27 | denver-allergies.md |  |  |
+| 44 | Denver and Colorado Springs Allergies (city page) | Blog | denver-colorado-springs-allergies | before March | reviewed 2026-11-27 | denver-colorado-springs-allergies.md |  | https://res.cloudinary.com/qruprn0t/image/upload/v1795822726/denver-allergies-state-capitol.jpg |
 | 45 | Pine Pollen: Why the Yellow Dust Usually Isn't What's Making You Sneeze | Blog | pine-pollen-allergy | late February | next | |  |  |
 | 46 | Birch Pollen Allergy (Learn page: Yes) | Blog | birch-pollen-allergy | March | next | |  |  |
 | 47 | Grass Pollen Allergy (Learn page: Yes) | Blog | grass-pollen-allergy | April | next | |  |  |
@@ -121,7 +121,7 @@ Keep the mix when adding items.
 | 55 | How Are Allergy Shots Made? From Pollen and Dust Mites to Your Vial | Blog | how-are-allergy-shots-made | any time | next | | Close up of a gloved hand drawing liquid from a small vial in a lab, or rows of labeled extract bottles on a pharmacy shelf. Search "laboratory vials gloved hand". File: how-are-allergy-shots-made-lab-vials.jpg |  |
 | 56 | San Diego Allergies (city page) | Blog | san-diego-allergies | any time | next | |  |  |
 | 57 | San Francisco Allergies (city page) | Blog | san-francisco-allergies | any time | next | |  |  |
-| 58 | Minneapolis Allergies (city page) | Blog | minneapolis-allergies | any time | next | |  | https://res.cloudinary.com/qruprn0t/image/upload/v1791852967/denver-co-skyline.jpg |
+| 58 | Minneapolis Allergies (city page) | Blog | minneapolis-allergies | any time | next | |  | https://res.cloudinary.com/qruprn0t/image/upload/v1795822952/minneapolis-allergies-skyline-tree-canopy-skyline.jpg |
 | 59 | Chicago Allergies (city page) | Blog | chicago-allergies | any time | next | |  |  |
 | 60 | Iowa Allergy Season by Month (how-to, local) | Blog | iowa-allergy-season | any time | next | |  |  |
 | 61 | Nashville Allergies (city page) | Blog | nashville-allergies | any time | next | |  |  |
