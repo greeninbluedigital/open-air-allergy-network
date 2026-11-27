@@ -101,7 +101,9 @@ export default async function BlogIndexPage({ searchParams }: PageProps<"/blog">
     queryBlogArticles({ tag, practiceId: practice?.id, paf, page: 1, pageSize: GRID_SIZE }),
     // Starts after the card grid's articles so the list doesn't repeat them.
     queryBlogArticles({ tag, practiceId: practice?.id, paf, page, pageSize: ARCHIVE_PAGE_SIZE, offset: GRID_SIZE }),
-    areaZip ? guidesForZip(areaZip) : null,
+    // Up to two rows of three: city guides first, then nearby practices'
+    // own articles, so a credited article isn't crowded out.
+    areaZip ? guidesForZip(areaZip, { limit: 6 }) : null,
   ]);
 
   const totalPages = Math.max(1, Math.ceil(archiveResult.totalCount / ARCHIVE_PAGE_SIZE));

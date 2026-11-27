@@ -43,7 +43,7 @@ export default async function FindAProviderPage({
     location ? searchProviders(location.lat, location.lng, radius) : null,
     statesWithProviders(),
     travelArticlePath(),
-    location && zip ? guidesForZip(zip, { limit: 1, fallback: false }) : null,
+    location && zip ? guidesForZip(zip, { limit: 1, fallback: false, credited: false }) : null,
   ]);
   // Only a guide for the searcher's own area, and no line at all when
   // nothing is near (owner, 2026-11-27).

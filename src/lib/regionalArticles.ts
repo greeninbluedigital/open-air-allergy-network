@@ -1,4 +1,7 @@
+import type { Prisma } from "@/generated/prisma/client";
 import { readDb } from "@/lib/cache";
+import { SHOWN_CREDIT } from "@/lib/credits";
+import { providerIdsWithinRadius } from "@/lib/nearbyProviders";
 import { milesBetween } from "@/lib/srp";
 import { metroAnchor, metroByName, stateByCode, stateMetroGroups } from "@/lib/statePages";
 import { lookupZip } from "@/lib/zip";
@@ -14,7 +17,8 @@ import { SEASONAL_GUIDE_SLUG } from "@/lib/content";
  * Add a row when a regional article publishes (docs/content-pipeline.md).
  * A row for an unpublished slug is harmless: every query only reads
  * PUBLISHED articles. Contributed (practice-credited) articles stay off this
- * list, so a practice's own article never points readers at other clinics.
+ * list, so a practice's own article never points readers at other clinics;
+ * they still join the guide lists by their practice's location (below).
  *
  * A place is a metro from src/lib/statePages.ts (state + metro), a city
  * outside those metros (state + label + lat/lng), or a whole state (state
@@ -103,18 +107,59 @@ export async function publishedInOrder(slugs: string[]) {
   return slugs.map((s) => rows.find((r) => r.slug === s)).filter((r) => r != null);
 }
 
+const CREDITED_FEED = {
+  status: "PUBLISHED",
+  section: { in: ["BLOG", "LEARN"] },
+  ...SHOWN_CREDIT,
+} satisfies Prisma.ArticleWhereInput;
+
+/** Articles credited to practices near a point (only credits that show),
+ * newest first: a practice's own article is as local as a city guide
+ * (owner, 2026-11-27). */
+async function creditedNear(lat: number, lng: number, radius: number) {
+  const ids = await providerIdsWithinRadius(lat, lng, radius);
+  if (ids.length === 0) return [];
+  return readDb.article.findMany({
+    where: { ...CREDITED_FEED, providerCreditedId: { in: ids } },
+    orderBy: { publishedDate: "desc" },
+    include: { author: true },
+  });
+}
+
+/** Articles credited to live practices in a state, newest first. */
+export async function creditedInState(code: string) {
+  return readDb.article.findMany({
+    where: { ...CREDITED_FEED, providerCredited: { state: code, active: true, isDemo: false } },
+    orderBy: { publishedDate: "desc" },
+    include: { author: true },
+  });
+}
+
+/** A state's guides: its regional house guides, then articles credited to
+ * its practices (the state page's "Allergy guides for {State}"). */
+export async function guidesInState(code: string) {
+  const [regional, credited] = await Promise.all([publishedInOrder(regionalSlugsInState(code)), creditedInState(code)]);
+  return [...regional, ...credited.filter((c) => !regional.some((r) => r.id === c.id))];
+}
+
 /**
- * The guides to show a visitor for a zip: regional guides near them, else
- * guides elsewhere in their state, else (when `fallback` is on) the national
- * seasonal guide. Never an empty "nothing near you" message, which would
- * hint at which regions OAAN covers.
+ * The guides to show a visitor for a zip: regional guides and practice-
+ * credited articles near them, else the same for their state, else (when
+ * `fallback` is on) the national seasonal guide. Never an empty "nothing
+ * near you" message, which would hint at which regions OAAN covers.
+ * `credited: false` keeps it to house guides (the line under Find a
+ * Provider results is about allergy season).
  */
-export async function guidesForZip(zip: string, { limit = 3, fallback = true } = {}) {
+export async function guidesForZip(zip: string, { limit = 3, fallback = true, credited = true } = {}) {
   const loc = lookupZip(zip);
   if (!loc) return { kind: "none" as const, articles: [] };
-  const near = await publishedInOrder(regionalSlugsNear(loc));
+  const [regionalNear, creditedHere] = await Promise.all([
+    publishedInOrder(regionalSlugsNear(loc)),
+    credited ? creditedNear(loc.lat, loc.lng, REGION_RADIUS_MILES) : [],
+  ]);
+  const near = [...regionalNear, ...creditedHere];
   if (near.length > 0) return { kind: "near" as const, articles: near.slice(0, limit) };
-  const inState = await publishedInOrder(regionalSlugsInState(loc.state));
+  const inState = credited ? await guidesInState(loc.state) : await publishedInOrder(regionalSlugsInState(loc.state));
   if (inState.length > 0)
     return { kind: "state" as const, stateName: stateByCode(loc.state)?.name, articles: inState.slice(0, limit) };
   if (!fallback) return { kind: "none" as const, articles: [] };

@@ -447,8 +447,10 @@ link at the top of the article, lists it under "Allergy guides for
 {State}" on the state page, shows it to visitors near that place on the
 Blog, and adds the "Allergy season in your area" line under Find a
 Provider results. Contributed (practice-credited) articles stay off the
-list. A row can go in before the article publishes; nothing shows until
-it's live.
+list (no clinic link on a practice's own article); they join the Blog's
+"Allergy guides for your area" row and the state page's guide list on
+their own, by the practice's location (owner, 2026-11-27). A row can go in
+before the article publishes; nothing shows until it's live.
 
 Then offer the owner a Pinterest pin for the new article (2026-10-20): add a
 line to the PINS list in `OneDrive\Documents\OPEN AIR ALLERGY NETWORK\pinterest\make_pins.py`

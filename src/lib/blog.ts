@@ -1,9 +1,8 @@
 import { Prisma } from "@/generated/prisma/client";
-import { cachedQuery, readDb } from "@/lib/cache";
-import { db } from "@/lib/db";
-import { milesBetween } from "@/lib/srp";
+import { readDb } from "@/lib/cache";
 import { SHOWN_CREDIT } from "@/lib/credits";
 import { REGIONAL_SLUGS } from "@/lib/regionalArticles";
+import { providerIdsWithinRadius } from "@/lib/nearbyProviders";
 
 export type TagCount = { tag: string; count: number };
 
@@ -35,18 +34,6 @@ export async function getTagCounts(): Promise<TagCount[]> {
     .sort((a, b) => b.count - a.count);
 }
 
-/** Provider IDs within `radiusMiles` of the given point — used to filter
- * credited articles for the PAF module. Measured in code from one cached
- * list (like search, src/lib/srp.ts), so a new zip never reaches the database. */
-async function providerIdsWithinRadius(lat: number, lng: number, radiusMiles: number): Promise<string[]> {
-  const located = await cachedQuery(["blog-paf-providers"], () =>
-    db.provider.findMany({
-      where: { latitude: { not: null }, longitude: { not: null } },
-      select: { id: true, latitude: true, longitude: true },
-    }),
-  );
-  return located.filter((p) => milesBetween(lat, lng, p.latitude!, p.longitude!) <= radiusMiles).map((p) => p.id);
-}
 
 export async function queryBlogArticles({
   tag,

@@ -7,7 +7,7 @@ import { DEFAULT_OG_IMAGE, truncateForMeta } from "@/lib/metadata";
 import { metroAnchor, stateHasClinic, stateMetroGroups, statesWithProviders, type MetroGroup, type StateInfo } from "@/lib/statePages";
 import { stateHeading } from "@/lib/practiceType";
 import { ArticleCard } from "@/components/ArticleCard";
-import { publishedInOrder, regionalSlugsInState } from "@/lib/regionalArticles";
+import { guidesInState } from "@/lib/regionalArticles";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
@@ -60,7 +60,7 @@ export async function StatePage({ state, groups }: { state: StateInfo; groups: M
     statesWithProviders(),
     travelArticlePath(),
     stateHasClinic(state.code),
-    publishedInOrder(regionalSlugsInState(state.code)),
+    guidesInState(state.code),
   ]);
   const heading = stateHeading(state.name, hasClinic);
   const total = groups.reduce((n, g) => n + g.providers.length, 0);
