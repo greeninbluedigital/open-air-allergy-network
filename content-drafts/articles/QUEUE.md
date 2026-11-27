@@ -105,7 +105,7 @@ Keep the mix when adding items.
 | 41 | Allergy Triggers in St. Louis and Kansas City (ranking or list, local) | Blog | st-louis-kansas-city-allergy-triggers | ASAP (owner, 2026-11-25: next draft, to help Prairie Allergy's Kansas City page) | published 2026-11-26 | published/st-louis-kansas-city-allergy-triggers.md |  | https://res.cloudinary.com/qruprn0t/image/upload/v1795685439/st-louis-kansas-city-allergy-triggers-liberty-memorial-tower-world-war-one-museum.jpg |
 | 42 | Oak Pollen Allergy | Blog | oak-pollen-allergy | February | published 2026-11-27 | published/oak-pollen-allergy.md |  | https://res.cloudinary.com/qruprn0t/image/upload/v1795821254/oak-pollen-allergy-oak-tree-park-school-houston-texas.jpg |
 | 43 | How Much Does ILIT Cost? | Blog | how-much-does-ilit-cost | NOT before the allergy shot cost calculator is finished and deployed (docs/calculator-plan.md) | hold | |  |  |
-| 44 | Denver Allergies (city page) | Blog | denver-allergies | before March | drafted 2026-11-27 | denver-allergies.md |  | https://res.cloudinary.com/qruprn0t/image/upload/v1791852967/denver-co-skyline.jpg |
+| 44 | Denver Allergies (city page) | Blog | denver-allergies | before March | reviewed 2026-11-27 | denver-allergies.md |  | https://res.cloudinary.com/qruprn0t/image/upload/v1791852967/denver-co-skyline.jpg |
 | 45 | Pine Pollen: Why the Yellow Dust Usually Isn't What's Making You Sneeze | Blog | pine-pollen-allergy | late February | next | |  |  |
 | 46 | Birch Pollen Allergy (Learn page: Yes) | Blog | birch-pollen-allergy | March | next | |  |  |
 | 47 | Grass Pollen Allergy (Learn page: Yes) | Blog | grass-pollen-allergy | April | next | |  |  |
