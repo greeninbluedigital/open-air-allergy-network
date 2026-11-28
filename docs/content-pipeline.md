@@ -70,6 +70,11 @@ a redirect; Dallas–Fort Worth, moved the same day).
 
 - **Lead with the answer.** The first paragraph answers the title's question
   plainly. Journalism style, most important first, no warm up.
+- **Paragraphs open with the point, not the source (owner, 2026-11-27).**
+  "Colorado's season comes in three waves, according to Dr. Anderson...",
+  not "Dr. Anderson describes Colorado's season as...". Same for the first
+  sentence of a numbered tip. Doctors keep "Dr." on every mention, with
+  the right specialty on first mention.
 - **Human, plain voice.** No em dashes, no dashes or semicolons joining
   clauses (the em dash is the main AI giveaway). Keep hyphens that are
   grammatically correct and help readability: compound modifiers
