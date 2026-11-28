@@ -239,6 +239,17 @@ and read as AI on sight. State the point directly.
 
 - **Lead with the point.** The first sentence of an article, and of each section, should answer the
   question the heading implies, before adding supporting detail.
+- **Paragraphs open with what they're about, not who said it (owner, 2026-11-27).** The
+  attribution goes at the end of the sentence or after the first clause. Write "Colorado's allergy
+  season comes in three overlapping waves, according to Dr. William Anderson, an allergist at...",
+  not "Dr. William Anderson, an allergist at..., describes Colorado's allergy season as three
+  overlapping waves." The same goes for organizations ("Dust mites aren't as common in Colorado,
+  Children's Hospital Colorado says," not "Children's Hospital Colorado says dust mites...") and for
+  the first sentence of a numbered tip. A paragraph that opens with a name reads like a quote roundup
+  and buries the point. Mid-paragraph sentences can name the source first when it reads better.
+- **Doctors keep their title (owner, 2026-11-27).** First mention: full name, "Dr.", role and
+  institution ("Dr. Andi Hudler, a pulmonologist at Denver Health"). Later mentions: "Dr. Hudler",
+  never the last name alone. Check the doctor's own profile for the right specialty.
 - **Keep the existing page template.** Intro, mechanism, what to expect, comparison, FAQ, CTA is a
   clear, sensible structure for patient education. The fix here is at the sentence and paragraph
   level, not the page architecture — don't restructure pages to solve this problem.
